@@ -11,9 +11,10 @@
 
 class Subproblem {
  public: 
-  int cur_best_one[NUMSTATES];
-  int cur_best_two[NUMSTATES];
+  vector<int> cur_best_one[NUMSTATES];
+  vector<int> cur_best_two[NUMSTATES];
   float cur_best_score[NUMSTATES];
+  int cur_best_count[NUMSTATES];
 
   int last_best_one[NUMSTATES];
   int last_best_two[NUMSTATES];
@@ -23,18 +24,22 @@ class Subproblem {
   int cur_best_bigram[NUMSTATES];
   float cur_best_score_bigram[NUMSTATES];
 
-  Subproblem(const ForestLattice *g, LM * lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
+  Subproblem(const ForestLattice *g, Ngram * lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
   void update_weights(vector <int> u_pos, vector <float> u_values, bool first);
   void solve();
   //void solve_bigram();
   vector <int> get_best_nodes_between(int w1, int w2, bool first);
   float get_best_bigram_weight(int w1, int w2 , bool first);
   float primal_score(int word[NUMWORDS], int l);
- 
- private:
+  
   double word_prob(int, int, int );
+  double word_backoff(int );
+  double word_backoff_two(int i, int j);
   double word_prob_reverse(int, int, int);
-
+  double word_prob_bigram_reverse(int i, int j);
+  int word_bow_reverse(int i, int j, int k);
+ private:
+  
   bool first_time;
 
   // Weight management
@@ -52,10 +57,14 @@ class Subproblem {
 
 
   float best_lm_score[NUMSTATES][NUMSTATES];  
+  float bigram_score_cache[NUMSTATES][NUMSTATES];  
+
+  vector <int> * forward_trigrams [NUMSTATES][NUMSTATES];  
+  vector <double> * forward_trigrams_score [NUMSTATES][NUMSTATES];  
   //Bigram valid_bigrams[NUMSTATES*NUMSTATES];
   
   const ForestLattice * graph;
-  LM * lm;
+  Ngram * lm;
   
   const GraphDecompose * gd;
   const Cache<LatNode, int> _word_node_cache;

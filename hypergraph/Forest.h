@@ -37,8 +37,9 @@ public:
 private:
   const string & _label; 
   str_vector * _features;
+  const int _id;
   vector <ForestNode *> _tail_nodes;
-  int _id;
+  
 };
 
 class ForestNode {
@@ -76,8 +77,8 @@ private:
   const int  _id;
   str_vector * _features;
   vector <ForestEdge *> _edges; 
-  const string & _word;
-  const bool & _is_word;
+  const string _word;
+  const bool _is_word;
 
 };
 
@@ -96,7 +97,9 @@ class Forest {
   }
 
   const ForestEdge & get_edge(int i) const {
-    return *_edges[i];
+    const ForestEdge & edge =*_edges[i];
+    assert (edge.id() == i);
+    return edge;
   }
  
 

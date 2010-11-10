@@ -3,16 +3,16 @@
 #include "dual_subproblem.h"
 #include "util.h"
 #include "EdgeCache.h"
-#define INF 1000000
+#define INF 100000000
 #define DEBUG 0
-#define TIMING 0
-
+#define TIMING 1
+#define OPTIMIZE 1
 #include <bitset>
 
 using namespace std;
 
 
-Subproblem::Subproblem(const ForestLattice * g, LM *lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in) :
+Subproblem::Subproblem(const ForestLattice * g, Ngram *lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in) :
   graph(g), lm(lm_in), gd(gd_in), _word_node_cache(word_node_cache_in){
   //update_filter.reset();
     
@@ -55,11 +55,30 @@ void Subproblem::update_weights(vector <int> u_pos, vector <float> u_values, boo
 
 vector <int> Subproblem::get_best_nodes_between(int w1, int w2, bool first) {
   //assert(path < gd->bigram_pairs[w1][w2].size());
+  vector <int> path, ret; 
   if (first) { 
-    return bi_rescore_first->bigram_path[w1][w2];
+    if (bi_rescore_first->bigram_path[w1][w2] == NULL) {
+      bi_rescore_first->bigram_path[w1][w2] = new vector<int>();
+    }
+    if (bi_rescore_first->bigram_path[w1][w2]->empty()) {
+      bi_rescore_first->reconstruct_path(w1, w2, bi_rescore_first->best_split, *bi_rescore_first->bigram_path[w1][w2]);
+    }
+    path = *bi_rescore_first->bigram_path[w1][w2];
   } else {
-    return bi_rescore_two->bigram_path[w1][w2];
+    if (bi_rescore_two->bigram_path[w1][w2] == NULL) { 
+      bi_rescore_two->bigram_path[w1][w2] = new vector<int>();
+    }
+    if (bi_rescore_two->bigram_path[w1][w2]->empty()) {
+      bi_rescore_two->reconstruct_path(w1, w2, bi_rescore_two->best_split, *bi_rescore_two->bigram_path[w1][w2]);
+    }
+    path =*bi_rescore_two->bigram_path[w1][w2];
   }
+  for (int i =0; i< path.size(); i++) {
+    if (!graph->ignore_nodes[path[i]]) {
+      ret.push_back(path[i]);
+    }
+  } 
+  return ret;
 }
 
 float Subproblem::get_best_bigram_weight(int w1, int w2, bool first) {
@@ -77,35 +96,41 @@ void Subproblem::solve() {
   vector <int> redos_one[NUMSTATES];
   vector <int> redos_two[NUMSTATES];
   full_redo.reset();
-
+  //cout << graph->num_nodes << endl;
   assert(graph->num_nodes > 10);
   for (unsigned int i =0; i< graph->num_nodes; i++ ) {
-
     if (graph->word_node[i] == -1) continue; 
 
-    last_best_score[i] = cur_best_score[i];
-    last_best_one[i] = cur_best_one[i];
-    last_best_two[i] = cur_best_two[i];
     
     if (!first_time) {
       //assert (cur_best_one[i] != -1);
       //assert (cur_best_two[i] != -1);
-      if (cur_best_one[i] != -1) {
-        cur_best_score[i] = bi_rescore_first->bigram_weights[i][cur_best_one[i]] + 
-          bi_rescore_two->bigram_weights[cur_best_one[i]][cur_best_two[i]] +
-          (-0.141221) *  word_prob_reverse(graph->word_node[i], graph->word_node[cur_best_one[i]], graph->word_node[cur_best_two[i]]);
+      if (!cur_best_one[i].empty()) {
+        int one = cur_best_one[i][0];
+        int two = cur_best_two[i][0];
+        cur_best_score[i] = bi_rescore_first->bigram_weights[i][one] + 
+          bi_rescore_two->bigram_weights[one][two] +
+          (-0.141221) *  word_prob_reverse(i, one, two);
         
-        cur_best_one[i] = cur_best_one[i];
-        cur_best_two[i] = cur_best_two[i];
+        
+        cur_best_one[i].clear();
+        cur_best_one[i].push_back(one);
+        cur_best_two[i].clear();
+        cur_best_two[i].push_back(two);
+        cur_best_count[i] = 1;
       }
     } else {
       cur_best_score[i] = INF;
-      cur_best_one[i] = -1;
-      cur_best_two[i] = -1;
+      cur_best_one[i].clear();
+      cur_best_two[i].clear();
+      cur_best_count[i] = 0;
     }
   }
 
   float best_bigram[NUMSTATES];
+  float best_bigram_with_backoff[NUMSTATES];
+  float best_backoff[NUMSTATES];
+  int best_bigram_with_backoff_forward[NUMSTATES];
   if (!first_time) {
     int total =0;
     int redo = 0;
@@ -137,6 +162,7 @@ void Subproblem::solve() {
 
     for (int i=0; i < graph->num_nodes; i++) {
       best_bigram[i] = INF;
+      best_bigram_with_backoff[i] = INF;
     }
     
     for (int i=0; i < gd->valid_bigrams.size(); i++) {
@@ -145,6 +171,14 @@ void Subproblem::solve() {
 
       if (score < best_bigram[b.w1]) {
         best_bigram[b.w1] = score;
+       }
+      
+      double backoff = word_backoff_two(b.w1, b.w2);
+      float score_with_backoff = (-0.141221) * backoff + score;
+      if (score_with_backoff < best_bigram_with_backoff[b.w1]) {
+        best_bigram_with_backoff[b.w1] = score_with_backoff;
+        best_backoff[b.w1] = (-0.141221) * backoff;
+        best_bigram_with_backoff_forward[b.w1] = b.w2;
       }
     }
 
@@ -163,47 +197,104 @@ void Subproblem::solve() {
     vector <int> f1 = gd->forward_bigrams[w1];
     //cout << f1.size() << endl;
     for (unsigned int i =0; i< f1.size(); i++ ) {
+      
       int w2 = f1[i];
       
-      int word1 = graph->word_node[w1];
-      int word2 = graph->word_node[w2];
+      
+      //cout << "SEC" << " " << w1 << " " << w2 << endl;
       
       float score1 = bi_rescore_first->bigram_weights[w1][w2]; 
       
-      vector <int> f2;
+      const vector <int> * f2;
       //if (is_redo || (bi_rescore_first->move_direction[w1][w2] == -1) ) {
-      f2 = gd->forward_bigrams[w2];
+      if (!OPTIMIZE  || first_time) {
+        f2 = &gd->forward_bigrams[w2];
+      } else {
+        // only consider words with full lm context
+        f2 = forward_trigrams[w1][w2];
+      }
         //} else {
         //f2 = redos_two[w2];
         //}  
 
       if (first_time) {
         best_lm_score[w1][w2] = INF;
+        forward_trigrams[w1][w2] = new vector<int>();
+        forward_trigrams_score[w1][w2] = new vector<double>();
+        bigram_score_cache[w1][w2] = (-0.141221) *  word_prob_bigram_reverse(w1, w2);
       }
+
       float estimate  = best_lm_score[w1][w2] + best_bigram[w2] + score1;
-      if (!first_time && ( estimate> cur_best_score[w1])) {
+      if (OPTIMIZE && !first_time && ( estimate > cur_best_score[w1])) {
         continue;
       }
       //if (!first_time) {
         //cout << "EST :"<<best_lm_score[w1][w2] << " " << best_bigram[w2]<< " " <<  estimate << " " << cur_best_score[w1]<< endl;
         //}
-      for (unsigned int j =0; j < f2.size(); j++) {
-        int w3 = f2[j];
+
+      // OPTIMIZATION: predict once for all words that don't have full trigram context
+
+      //float bi_lm_score_test = (-0.141221) *  word_prob_bigram_reverse(w1, w2) + best_backoff[w2];
+      //cout << "BI " << bi_lm_score << " " << bi_lm_score_test << endl;
+
+
+      if (OPTIMIZE && !first_time) {
+        float bi_lm_score = bigram_score_cache[w1][w2];
+        int w3 = best_bigram_with_backoff_forward[w2];
+        float score2 = bi_rescore_two->bigram_weights[w2][w3];
+        float score  = bi_lm_score + best_backoff[w2] + score1 + score2;
+
+        //cout << w2 << " " << (-0.141221) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
+        if (word_bow_reverse(w1,w2,w3) != 2) {
+          assert (fabs(((-0.141221) * word_prob_reverse(w1,w2,w3)) - (bi_lm_score + best_backoff[w2])) < 1e-4); 
+        } else {
+          score = (-0.141221) * word_prob_reverse(w1,w2,w3) + score1 + score2;
+        }
+
+        //cout << (-0.141221) * word_prob_reverse(w1,w2,w3) + score1 + score2 << " " << bi_lm_score + best_bigram_with_backoff[w2] + score1 << endl;
+        if (cur_best_score[w1] == INF || score < cur_best_score[w1]) {
+          cur_best_score[w1] = score;
+          cur_best_one[w1].clear();
+          cur_best_one[w1].push_back(w2);
+          cur_best_two[w1].clear();
+          cur_best_two[w1].push_back(best_bigram_with_backoff_forward[w2]);
+          cur_best_count[w1] =1;
+        }
+      }
+      
+      
+
+      for (unsigned int j =0; j < f2->size(); j++) {
+        int w3 = (*f2)[j];
         //bool _redo = (bi_rescore_first->move_direction[w1][w2] == -1);
 
-        int word3 = graph->word_node[w3];
         float score2 = bi_rescore_two->bigram_weights[w2][w3];
 
         //assert (is_redo || (bi_rescore_first->move_direction[w1][w2] == -1) || (bi_rescore_two->move_direction[w2][w3] == -1));
-        float lm_score = (-0.141221) *  word_prob_reverse(word1, word2, word3);
-        
+        double lm_score;
+
+        //int l = word_bow_reverse(w1, w2, w3);
+        //cout << lm_score << " " << bi_lm_score<<endl;
+        //assert (lm_score <= bi_lm_score_test);
+        if (first_time || !OPTIMIZE) {
+          lm_score = (-0.141221) *  word_prob_reverse(w1, w2, w3);
+        }
+
         if (first_time) {
           if (lm_score < best_lm_score[w1][w2]) {
             best_lm_score[w1][w2] = lm_score;
           }
+   
+          if (word_bow_reverse(w1,w2,w3) == 2) {
+            forward_trigrams[w1][w2]->push_back(w3);
+            forward_trigrams_score[w1][w2]->push_back(lm_score);
+          }
+        } else if (OPTIMIZE) {
+          lm_score = (*forward_trigrams_score[w1][w2])[j];
         }
         
-        lookups ++;
+        lookups++;
+
         //     float score = score1 + score2 + lm->all_score[word1][word2][word3];
         
         //     if (score > cur_best_score[b.w1]) {
@@ -212,21 +303,25 @@ void Subproblem::solve() {
         //     }
 
         float score = score1 + score2 + lm_score; //(-1.11652878876722) * lm_score;  
-      
-      
+        //cout << score1 << " " << score2 << " " << lm_score << endl; 
+        //cout << w1 << " " << w2 << " " << w3 << endl;
         if (cur_best_score[w1] == INF || score < cur_best_score[w1]) {
           cur_best_score[w1] = score;
-          cur_best_one[w1] = w2;
-          cur_best_two[w1] = w3;
+          cur_best_one[w1].clear();
+          cur_best_one[w1].push_back(w2);
+          cur_best_two[w1].clear();
+          cur_best_two[w1].push_back(w3);
+          cur_best_count[w1] = 1;
           //cur_best_path_bigram[b.w1] = path;
+        } else if (score == cur_best_score[w1]) {
+          //cout << "TIE!!!" << endl;
+          cur_best_count[w1]++;
+          cur_best_one[w1].push_back(w2);
+          cur_best_two[w1].push_back(w3);
         }
       }
-      //cout << w1 << endl; 
-      //assert(cur_best_one[w1] != -1);
-      //assert(cur_best_two[w1] != -1);
     }
   }
-
   first_time = false;
   
   if (TIMING) {
@@ -235,10 +330,12 @@ void Subproblem::solve() {
     cout << "Lookups: " << lookups << endl;
   }
 
-  // for (unsigned int i =0; i< graph->num_nodes; i++ ) {
-  //   if (graph->word_node[i]!= -1 && graph->final[i]!= 1) {
-  //     assert(cur_best_score[i] != INF);
-  //     assert(cur_best_one[i] != -1);
+  //  for (unsigned int i =0; i< graph->num_nodes; i++ ) {
+  //if (graph->word_node[i]!= -1 && graph->final[i]!= 1) {
+  //   assert(cur_best_score[i] != INF);
+  //}
+  // }
+       //     assert(cur_best_one[i] != -1);
   //     assert(cur_best_two[i] != -1);
   //     assert(graph->word_node[cur_best_one[i]] != -1);
   //     assert(graph->word_node[cur_best_two[i]] != -1);
@@ -260,9 +357,45 @@ double Subproblem::word_prob(int i, int j, int k) {
   return lm->wordProb(_word_node_cache.store[k], context);
 }
 
+double Subproblem::word_backoff(int i) {
+  VocabIndex context [] = {_word_node_cache.store[i], Vocab_None};
+  
+  double score = lm->contextBOW(context, 0);
+  //cout << "BO" << " " << score << " "
+  //   << lm->vocab.getWord(_word_node_cache.store[i]) << endl;
+  return score;
+}
+
+double Subproblem::word_backoff_two(int i, int j) {
+  VocabIndex context [] = {_word_node_cache.store[i], _word_node_cache.store[j], Vocab_None};
+  
+  double score = lm->contextBOW(context, 1);
+  //cout << "BO" << " " << score << " "
+  //   << lm->vocab.getWord(_word_node_cache.store[i]) << " "
+  //   << lm->vocab.getWord(_word_node_cache.store[j]) << endl;
+  return score;
+}
+
 double Subproblem::word_prob_reverse(int i, int j, int k) {
   VocabIndex context [] = {_word_node_cache.store[j], _word_node_cache.store[k], Vocab_None};
   return lm->wordProb(_word_node_cache.store[i], context);
+}
+
+double Subproblem::word_prob_bigram_reverse(int i, int j) {
+  VocabIndex context [] = {_word_node_cache.store[j], lm->vocab.getIndex(Vocab_Unknown), Vocab_None};
+  return lm->wordProb(_word_node_cache.store[i], context);
+}
+
+
+int Subproblem::word_bow_reverse(int i, int j, int k) {
+  VocabIndex context [] = {_word_node_cache.store[j], _word_node_cache.store[k], Vocab_None};
+  unsigned int length;
+  lm->contextID(_word_node_cache.store[i], context, length);
+  //cout << length << " " << 
+  //  lm->vocab.getWord(_word_node_cache.store[k]) << " " << 
+  //  lm->vocab.getWord(_word_node_cache.store[j]) << " " << 
+  //  lm->vocab.getWord(_word_node_cache.store[i]) << endl;
+  return length;
 }
 
 

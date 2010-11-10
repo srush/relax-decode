@@ -10,7 +10,7 @@ typedef Cache <ForestNode, const ForestEdge *> NodeBackCache;
 
 EdgeCache * cache_edge_weights(const Forest & forest, const svector <int, double> & weight_vector );
 EdgeCache* combine_edge_weights(const Forest & forest, const EdgeCache & w1, const EdgeCache & w2 );
-vector <string> construct_best_fringe(const Forest & forest, const NodeBackCache & back_memo_table);
+vector <const ForestNode *> construct_best_fringe(const Forest & forest, const NodeBackCache & back_memo_table);
 vector <int> construct_best_edges(const Forest & forest, const NodeBackCache & back_memo_table);
 double best_path(const Forest & forest, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table);
 

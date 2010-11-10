@@ -19,24 +19,28 @@ typedef svector<int, double> wvector;
 
 class Decode: public SubgradientProducer {
  public:
- Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, LM & lm): 
-  _forest(forest), _lattice(lattice), _weight(weight), _lm(lm)
+ Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, Ngram & lm) 
+   :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm)
   {
     _cached_weights = cache_edge_weights(forest, weight);
     _gd.decompose(&lattice);
-    _subproblem = new Subproblem(&lattice, & lm, &_gd, *_cached_words);
     sync_lattice_lm();
+    _subproblem = new Subproblem(&lattice, & lm, &_gd, *_cached_words);
+    _lagrange_weights = new svector<int, double>();
   }
   
-  wvector & solve(double & primal, double & dual);
-  void update_weights(const wvector & updates, const wvector & weights );
+  void solve(double & primal, double & dual, wvector &);
+  void update_weights(const wvector & updates,  wvector * weights );
 
  private:
+  double compute_primal(const vector <int> used_edges, const vector <const ForestNode *> used_nodes);
+  int lookup_string(string word);
   Subproblem * _subproblem;
   const Forest & _forest;
   const ForestLattice & _lattice;
   const wvector & _weight;
-  LM & _lm; 
+  wvector * _lagrange_weights;
+  Ngram & _lm; 
   GraphDecompose _gd;
   Cache <ForestEdge, double> * _cached_weights;
   Cache <LatNode, int> * _cached_words;

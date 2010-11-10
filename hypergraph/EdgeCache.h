@@ -9,25 +9,28 @@ class Cache {
  public:
   // can hit directly if need be
   vector <V> store;
-  bitset <10000> has_value;
+  bitset <10000> * has_value;
 
-  Cache(){ 
+  Cache() { 
     store.resize(10000);
+    has_value = new bitset<10000>();
   }
 
   V get_value(const C & edge) const {
-    assert (has_value.test(edge.id()));
-    //has_value.set(edge.id(), 1);
-    return store[edge.id()];
+    int id = edge.id();
+    assert (has_value->test(id));
+    return store[id];
   }
   
   void set_value(const C & edge, V val) {
-    has_value.set(edge.id(), 1);
-    store[edge.id()] = val;
+    assert (has_value != NULL);
+    int id = edge.id();
+    has_value->set(id, true);
+    store[id] = val;
   }
 
   bool has_key(const C & edge) const {
-    return has_value.test(edge.id());
+    return has_value->test(edge.id());
   }
 };
 

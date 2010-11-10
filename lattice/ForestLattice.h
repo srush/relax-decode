@@ -1,7 +1,7 @@
 #ifndef FORESTLATTICE_H_
 #define FORESTLATTICE_H_
 
-#define NUMSTATES 3000
+#define NUMSTATES 1500
 
 #include "lattice.pb.h"
 
@@ -41,12 +41,14 @@ class ForestLattice {
   
   int word_node[NUMSTATES];
   int edge_node[NUMSTATES];
+  int ignore_nodes[NUMSTATES];
   
   int final[NUMSTATES];
   int start;
   ForestLattice(const Lattice & lattice);
 
   vector <vector <int> > original_nodes;
+
  private:
   vector<string> _words;  
   vector <LatNode *> _nodes; 

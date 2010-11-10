@@ -22,7 +22,7 @@ void GraphDecompose::compute_bigrams() {
     for (int n2=0; n2 < g->num_nodes; n2++ ) {
       if (g->word_node[n2] == -1) continue;
       
-      if (!all_pairs_path[n][n2].empty()) { 
+      if (all_pairs_path_exist[n][n2]) { 
         valid_bigrams.push_back(Bigram(n,n2));
         forward_bigrams[n].push_back(n2);        
         //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
@@ -50,6 +50,7 @@ void GraphDecompose::graph_to_all_pairs() {
 
     // Initialize all INF
     for (int n2=0;n2< g->num_nodes;n2++) {
+      all_pairs_path_exist[n][n2] =0;
       //all_pairs_path_length[n][n2] = INF;
     }
 
@@ -58,7 +59,10 @@ void GraphDecompose::graph_to_all_pairs() {
       int n2 = g->graph[n][j];
       //all_pairs_path_length[n][n2].push_back(1);
       // back pointer (split path)
-      all_pairs_path[n][n2].push_back(n2);
+      all_pairs_path_exist[n][n2] =1;
+      all_pairs_path[n][n2] = new vector <int>();
+      all_pairs_path[n][n2]->push_back(n2);
+      
       //for_updates[n2].push_back( Bigram(n, n2));
       //for_updates[n].push_back( Bigram(n, n2));
     }
@@ -73,12 +77,18 @@ void GraphDecompose::graph_to_all_pairs() {
     if (g->word_node[k]!= -1) continue;
     
     for (int n=0; n < g->num_nodes; n++) {
-      if (all_pairs_path[n][k].empty()) continue;
+      if (!all_pairs_path_exist[n][k]) continue;
       
       for (int n2=0; n2 < g->num_nodes; n2++) {
-        if (!all_pairs_path[n][k].empty() &&  !all_pairs_path[k][n2].empty() ) {
+        if (all_pairs_path_exist[n][k] &&  all_pairs_path_exist[k][n2] ) {
           //for_updates[k].push_back( Bigram(n, n2));
-          all_pairs_path[n][n2].push_back(k);  
+
+          if (!all_pairs_path_exist[n][n2]) {
+            all_pairs_path_exist[n][n2] =1;
+            all_pairs_path[n][n2] = new vector<int>();
+          }
+          all_pairs_path[n][n2]->push_back(k);  
+          
           //assert(all_pairs_path_length[n][k] != INF);
           //assert(all_pairs_path_length[k][n2] != INF);
           
@@ -102,9 +112,9 @@ void GraphDecompose::graph_to_all_pairs() {
   
 void GraphDecompose::reconstruct_path(int n, int n2, vector <vector <int> > & array) {
   // find the path between nodes n and n2, and fill in array
-  for (int split=0; split < all_pairs_path[n][n2].size(); split++) { 
+  for (int split=0; split < all_pairs_path[n][n2]->size(); split++) { 
   
-    int k = all_pairs_path[n][n2][split];
+    int k = (*all_pairs_path[n][n2])[split];
     
     vector<vector <int> > one;
     vector<vector <int> > two; 
@@ -135,6 +145,7 @@ void GraphDecompose::reconstruct_path(int n, int n2, vector <vector <int> > & ar
   }
 }
   
+/*
 void GraphDecompose::all_pairs_to_bigram() {
   
   for (int n=0; n < g->num_nodes; n++) {
@@ -162,4 +173,4 @@ void GraphDecompose::all_pairs_to_bigram() {
     }
   }
 }
-
+*/

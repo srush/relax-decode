@@ -1,14 +1,25 @@
 #include "ForestAlgorithms.h"
 
+#include <iostream>
+#include <iomanip>
+using namespace std;
+#define INF 1e20
+
+
 double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table);
-vector <string> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table);
+vector <const ForestNode *> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 
 EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double> & weight_vector ) {
   EdgeCache * weights = new EdgeCache();
+  
   for (int i = 0; i < forest.num_edges(); i++) {
-    const ForestEdge & edge = forest.get_edge(i);
-    weights->set_value(edge, edge.fvector().dot(weight_vector));
+    const ForestEdge & edge =forest.get_edge(i);
+    double dot = edge.fvector().dot(weight_vector);
+    //cout << "Norm " << edge.fvector().normsquared() << " " << weight_vector.normsquared() << endl;
+    //cout << "Dot " << edge.id() << " " << dot<< endl; 
+    weights->set_value(edge, dot);
+    
   }
   return weights;
 }
@@ -17,22 +28,22 @@ EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double>
 EdgeCache* combine_edge_weights(const Forest & forest, const EdgeCache & w1, const EdgeCache & w2 ) {
   EdgeCache * combine = new EdgeCache();
   for (int i = 0; i < forest.num_edges(); i++) {
-    double val =0; 
     const ForestEdge & edge = forest.get_edge(i);
-    val = w1.get_value(edge) + w2.get_value(edge);
-    combine->set_value(edge, val);
+    double v1 = w1.get_value(edge);
+    double v2 = w2.get_value(edge);
+    combine->set_value(edge, v1 + v2);
   }
   return combine;
 }
 
-vector <string> construct_best_fringe(const Forest & forest, const NodeBackCache & back_memo_table) {
+vector <const ForestNode *> construct_best_fringe(const Forest & forest, const NodeBackCache & back_memo_table) {
   return construct_best_fringe_help(forest.root(), back_memo_table);
 }
 
-vector <string> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table) {
-  vector <string> best; 
+vector <const ForestNode *> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table) {
+  vector <const ForestNode *> best; 
   if (node.is_word()) {
-    best.push_back(node.word());
+    best.push_back(&node);
     return best;
   }
   
@@ -40,7 +51,7 @@ vector <string> construct_best_fringe_help(const ForestNode & node, const NodeBa
   
   for (int i =0; i < edge->num_nodes(); i++)  {
     const ForestNode & bnode = edge->tail_node(i);
-    vector <string> b = construct_best_fringe_help(bnode, back_memo_table);
+    vector <const ForestNode *> b = construct_best_fringe_help(bnode, back_memo_table);
     for (int j=0; j < b.size(); j++ ) {
       best.push_back(b[j]);
     }
@@ -55,14 +66,19 @@ vector <int> construct_best_edges(const Forest & forest, const NodeBackCache & b
 vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCache & back_memo_table) {
   vector <int> best; 
   
-  const ForestEdge * edge = back_memo_table.get_value(node);
-  best.push_back(edge->id());
+  if (node.num_edges() == 0) {
+    assert (node.is_word());
+    return best;
+  } else {
+    const ForestEdge * edge = back_memo_table.get_value(node);
+    best.push_back(edge->id());
   
-  for (int i =0; i < edge->num_nodes(); i++)  {
-    const ForestNode & bnode = edge->tail_node(i);
-    vector <int> b = construct_best_edges_help(bnode, back_memo_table);
-    for (int j=0; j < b.size(); j++ ) {
-      best.push_back(b[j]);
+    for (int i =0; i < edge->num_nodes(); i++)  {
+      const ForestNode & bnode = edge->tail_node(i);
+      vector <int> b = construct_best_edges_help(bnode, back_memo_table);
+      for (int j=0; j < b.size(); j++ ) {
+        best.push_back(b[j]);
+      }
     }
   }
   return best;
@@ -76,24 +92,37 @@ double best_path(const Forest & forest, const EdgeCache & edge_weights, NodeCach
 
 
 double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table) {
-  double best_score;
-  const ForestEdge * best_edge; 
+  double best_score = INF;
+  int id = node.id();
+
+  const ForestEdge * best_edge = NULL; 
   if (score_memo_table.has_key(node)) {
     return score_memo_table.get_value(node);
   }
-
-  for (int i=0; i< node.num_edges(); i++) {
-    const ForestEdge & edge = node.edge(i);
-    double edge_value= edge_weights.get_value(edge);
-    for (int j=0; j < edge.num_nodes(); j++ ) {
-      edge_value += best_path_helper(edge.tail_node(j), edge_weights, score_memo_table, back_memo_table);
-    }
-
-    if (edge_value < best_score) {
-      best_score = edge_value;
-      best_edge = &edge;
+  
+  //cout << "EDGES: "<< node.num_edges() <<endl; 
+  if (node.num_edges() == 0) {
+    
+    assert (node.is_word());
+    best_score = 0.0;
+    best_edge = NULL;
+  } else {
+    for (int i=0; i< node.num_edges(); i++) {
+      const ForestEdge & edge = node.edge(i);
+      double edge_value= edge_weights.get_value(edge);
+      for (int j=0; j < edge.num_nodes(); j++ ) {
+        edge_value += best_path_helper(edge.tail_node(j), edge_weights, score_memo_table, back_memo_table);
+      }
+      //cout << edge_value << endl;
+      if (edge_value < best_score) {
+        best_score = edge_value;
+        best_edge = &edge;
+      }
     }
   }
+  //cout << "EDGES: "<< node.num_edges() <<endl; 
+  assert (best_score != INF);
+  //assert (best_edge != NULL || node.is_word());
   
   score_memo_table.set_value(node, best_score);
   back_memo_table.set_value(node, best_edge);
