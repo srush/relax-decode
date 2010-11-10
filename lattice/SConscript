@@ -1,0 +1,7 @@
+Import('env')
+
+sources = ["BigramRescore.cpp", "ForestLattice.cpp", "lattice.pb.cc", "GraphDecompose.cpp"]
+libs = ["pthread", "cpptest", "protobuf"]
+
+env.Library('lattice', sources , LIBS = libs, CPPPATH = ['.', '/home/srush/Projects/transforest/svector/',  '/home/srush/Projects/lattice/gen-cpp/'])
+env.Program('test', ["Test.cpp"] , LIBS = libs+ ['lattice'], LIBPATH=['.'], CPPPATH = ['.', '/home/srush/Projects/transforest/svector/',  '/home/srush/Projects/hypergraph/gen_cpp/'])

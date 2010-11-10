@@ -1,0 +1,7 @@
+Import('env')
+
+sources = ["Forest.cpp", "ForestAlgorithms.cpp", "hypergraph.pb.cc", "features.pb.cc", "translation.pb.cc", "lexical.pb.cc", "EdgeCache.cpp"]
+libs = ["pthread", "cpptest", "protobuf"]
+
+env.Library('hypergraph', sources , LIBS = libs, CPPPATH = ['.', '/home/srush/Projects/transforest/svector/',  '/home/srush/Projects/hypergraph/gen_cpp/'])
+env.Program('test', ["Test.cpp"] , LIBS = libs+ ['hypergraph'], LIBPATH=['.'], CPPPATH = ['.', '/home/srush/Projects/transforest/svector/',  '/home/srush/Projects/hypergraph/gen_cpp/'])
