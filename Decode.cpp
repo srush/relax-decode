@@ -50,7 +50,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
   _subproblem->solve();
     
   // now add the forward trigrams at each node
-  EdgeCache penalty_cache;
+  EdgeCache penalty_cache(_forest.num_edges());
   int num_edges = _forest.num_edges();
   for (unsigned int i=0; i < num_edges; i++) { 
     const ForestEdge & edge = _forest.get_edge(i);
@@ -83,8 +83,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
   }
   
   EdgeCache * total = combine_edge_weights(_forest, penalty_cache, *_cached_weights);
-  NodeCache scores, scores2;
-  NodeBackCache back_pointers, back_pointers2;
+  NodeCache scores(_forest.num_nodes()), scores2(_forest.num_nodes());
+  NodeBackCache back_pointers(_forest.num_nodes()), back_pointers2(_forest.num_nodes());
   
   double simple = best_path(_forest, *_cached_weights, scores2, back_pointers2);
   //cout << "SIMPLE Score " << simple << endl; 
@@ -104,7 +104,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
 
   //tri_pairs = [];
   
-  bitset <NUMSTATES> parse_states;
+  //bitset <NUMSTATES> parse_states;
   for (int i =0; i < used_edges.size(); i++){ 
     int edge_id= used_edges[i];
     // + lagrangians (FROM PARSE SIDE)
@@ -113,7 +113,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
       int lat_id = lat_nodes[j];
       subgrad[lat_id] += 1;
       subgrad[GRAMSPLIT + lat_id ] += 1;
-      parse_states.set(lat_id);
+      //parse_states.set(lat_id);
     }
   }
 
@@ -308,7 +308,7 @@ int Decode::lookup_string(string word) {
 
 void Decode::sync_lattice_lm() {
   
-  _cached_words = new Cache <LatNode, int> ();
+  _cached_words = new Cache <LatNode, int> (_lattice.num_nodes);
   int max = _lm.vocab.numWords();
   int unk = _lm.vocab.getIndex(Vocab_Unknown);
   for (int n=0; n < _lattice.num_nodes; n++ ) {

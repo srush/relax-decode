@@ -1,7 +1,7 @@
 #ifndef FORESTLATTICE_H_
 #define FORESTLATTICE_H_
 
-#define NUMSTATES 1500
+
 
 #include "lattice.pb.h"
 
@@ -36,24 +36,34 @@ class ForestLattice {
 
   // Graph interface
   int num_nodes;
-  int graph[NUMSTATES][NUMSTATES];
-  int node_edges[NUMSTATES];
+
   
-  int word_node[NUMSTATES];
-  int edge_node[NUMSTATES];
-  int ignore_nodes[NUMSTATES];
+  vector<int> word_node;
+  vector<int> edge_node;
+  vector<int> ignore_nodes;
   
-  int final[NUMSTATES];
+  vector<int> final;
   int start;
   ForestLattice(const Lattice & lattice);
 
   vector <vector <int> > original_nodes;
 
+  int get_edge(int n1, int edge_num) const {
+    assert (edge_num < node_edges[n1]);
+    assert (n1 < num_nodes);
+    return graph[n1][edge_num];
+  }
+
+  int num_edges(int n) const {
+    assert (n < num_nodes);
+    return node_edges[n];
+  }
+
  private:
+  vector<int> node_edges;
   vector<string> _words;  
   vector <LatNode *> _nodes; 
-
-
+  vector<vector<int> > graph;
 };
 
 

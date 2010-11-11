@@ -96,6 +96,10 @@ class Forest {
     return _edges.size();
   }
 
+  int num_nodes() const{
+    return _nodes.size();
+  }
+
   const ForestEdge & get_edge(int i) const {
     const ForestEdge & edge =*_edges[i];
     assert (edge.id() == i);

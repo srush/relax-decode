@@ -6,9 +6,16 @@ using namespace std;
 
 
 ForestLattice::ForestLattice(const Lattice & lat) {
-  _words.resize(NUMSTATES);
-  original_nodes.resize(NUMSTATES);
   num_nodes = lat.node_size();
+  _words.resize(num_nodes);
+  original_nodes.resize(num_nodes);
+  
+  word_node.resize(num_nodes);
+  edge_node.resize(num_nodes);
+  ignore_nodes.resize(num_nodes);
+  final.resize(num_nodes);
+  node_edges.resize(num_nodes);
+  graph.resize(num_nodes);
 
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
@@ -18,6 +25,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
     _nodes.push_back(new LatNode(node.id()));
     
     node_edges[node.id()] = node.edge_size();
+    graph[node.id()].resize(node.edge_size());
     for (int j =0; j < node.edge_size(); j++) {
       const Lattice_Edge & edge = node.edge(j);
       graph[node.id()][j] = edge.to_id();
@@ -41,12 +49,11 @@ ForestLattice::ForestLattice(const Lattice & lat) {
       assert (orig_node == -1);
     }
     if (orig_node != -1) {
-      assert (orig_node >= 0 && orig_node < NUMSTATES);
+      assert (orig_node >= 0 && orig_node < num_nodes);
       original_nodes[orig_node].push_back(node.id());
     }
     
     ignore_nodes[node.id()] = node.GetExtension(ignore_node);    
-
   }
 
   start = lat.start();

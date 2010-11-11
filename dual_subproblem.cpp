@@ -22,6 +22,25 @@ Subproblem::Subproblem(const ForestLattice * g, Ngram *lm_in, const GraphDecompo
   //for (unsigned int i=0; i < graph->num_nodes; i++) {
   //bigram_cache[i].resize(NUMSTATES);
   //}
+  
+  int num_nodes = g->num_nodes;
+  cur_best_one.resize(num_nodes);
+  cur_best_two.resize(num_nodes);
+  cur_best_score.resize(num_nodes);
+  cur_best_count.resize(num_nodes);
+  best_lm_score.resize(num_nodes);
+  bigram_score_cache.resize(num_nodes);
+
+  forward_trigrams.resize(num_nodes);
+  forward_trigrams_score.resize(num_nodes);
+
+  for (int i=0; i < num_nodes; i ++) {
+    best_lm_score[i].resize(num_nodes);
+    bigram_score_cache[i].resize(num_nodes);
+    forward_trigrams[i].resize(num_nodes);
+    forward_trigrams_score[i].resize(num_nodes);
+  }
+
   for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
     Bigram b = gd->valid_bigrams[i];
     //assert(gd->bigram_pairs[b.w1][b.w2].size() > 0);
@@ -57,21 +76,9 @@ vector <int> Subproblem::get_best_nodes_between(int w1, int w2, bool first) {
   //assert(path < gd->bigram_pairs[w1][w2].size());
   vector <int> path, ret; 
   if (first) { 
-    if (bi_rescore_first->bigram_path[w1][w2] == NULL) {
-      bi_rescore_first->bigram_path[w1][w2] = new vector<int>();
-    }
-    if (bi_rescore_first->bigram_path[w1][w2]->empty()) {
-      bi_rescore_first->reconstruct_path(w1, w2, bi_rescore_first->best_split, *bi_rescore_first->bigram_path[w1][w2]);
-    }
-    path = *bi_rescore_first->bigram_path[w1][w2];
+    path = bi_rescore_first->get_bigram_path(w1, w2);
   } else {
-    if (bi_rescore_two->bigram_path[w1][w2] == NULL) { 
-      bi_rescore_two->bigram_path[w1][w2] = new vector<int>();
-    }
-    if (bi_rescore_two->bigram_path[w1][w2]->empty()) {
-      bi_rescore_two->reconstruct_path(w1, w2, bi_rescore_two->best_split, *bi_rescore_two->bigram_path[w1][w2]);
-    }
-    path =*bi_rescore_two->bigram_path[w1][w2];
+    path = bi_rescore_two->get_bigram_path(w1, w2);
   }
   for (int i =0; i< path.size(); i++) {
     if (!graph->ignore_nodes[path[i]]) {
@@ -83,19 +90,19 @@ vector <int> Subproblem::get_best_nodes_between(int w1, int w2, bool first) {
 
 float Subproblem::get_best_bigram_weight(int w1, int w2, bool first) {
   if (first) {
-    return bi_rescore_first->bigram_weights[w1][w2];
+    return bi_rescore_first->get_bigram_weight(w1,w2);
   } else {
-    return bi_rescore_two->bigram_weights[w1][w2];
+    return bi_rescore_two->get_bigram_weight(w1,w2);
   }
 }
 
 void Subproblem::solve() {
 
   // faster if we visit in order
-  bitset <NUMSTATES> full_redo;
-  vector <int> redos_one[NUMSTATES];
-  vector <int> redos_two[NUMSTATES];
-  full_redo.reset();
+  //bitset <NUMSTATES> full_redo;
+  //vector <int> redos_one[NUMSTATES];
+  //vector <int> redos_two[NUMSTATES];
+  //full_redo.reset();
   //cout << graph->num_nodes << endl;
   assert(graph->num_nodes > 10);
   for (unsigned int i =0; i< graph->num_nodes; i++ ) {
@@ -108,8 +115,8 @@ void Subproblem::solve() {
       if (!cur_best_one[i].empty()) {
         int one = cur_best_one[i][0];
         int two = cur_best_two[i][0];
-        cur_best_score[i] = bi_rescore_first->bigram_weights[i][one] + 
-          bi_rescore_two->bigram_weights[one][two] +
+        cur_best_score[i] = bi_rescore_first->get_bigram_weight(i,one) + 
+          bi_rescore_two->get_bigram_weight(one,two) +
           (-0.141221) *  word_prob_reverse(i, one, two);
         
         
@@ -126,11 +133,11 @@ void Subproblem::solve() {
       cur_best_count[i] = 0;
     }
   }
-
-  float best_bigram[NUMSTATES];
-  float best_bigram_with_backoff[NUMSTATES];
-  float best_backoff[NUMSTATES];
-  int best_bigram_with_backoff_forward[NUMSTATES];
+  int num_nodes = graph->num_nodes;
+  vector <float> best_bigram(num_nodes);
+  vector<float> best_bigram_with_backoff(num_nodes);
+  vector<float> best_backoff(num_nodes);
+  vector<int> best_bigram_with_backoff_forward(num_nodes);
   if (!first_time) {
     int total =0;
     int redo = 0;
@@ -167,7 +174,7 @@ void Subproblem::solve() {
     
     for (int i=0; i < gd->valid_bigrams.size(); i++) {
       Bigram b = gd->valid_bigrams[i];
-      float score = bi_rescore_two->bigram_weights[b.w1][b.w2];
+      float score = bi_rescore_two->get_bigram_weight(b.w1,b.w2);
 
       if (score < best_bigram[b.w1]) {
         best_bigram[b.w1] = score;
@@ -203,7 +210,7 @@ void Subproblem::solve() {
       
       //cout << "SEC" << " " << w1 << " " << w2 << endl;
       
-      float score1 = bi_rescore_first->bigram_weights[w1][w2]; 
+      float score1 = bi_rescore_first->get_bigram_weight(w1,w2); 
       
       const vector <int> * f2;
       //if (is_redo || (bi_rescore_first->move_direction[w1][w2] == -1) ) {
@@ -241,7 +248,7 @@ void Subproblem::solve() {
       if (OPTIMIZE && !first_time) {
         float bi_lm_score = bigram_score_cache[w1][w2];
         int w3 = best_bigram_with_backoff_forward[w2];
-        float score2 = bi_rescore_two->bigram_weights[w2][w3];
+        float score2 = bi_rescore_two->get_bigram_weight(w2,w3);
         float score  = bi_lm_score + best_backoff[w2] + score1 + score2;
 
         //cout << w2 << " " << (-0.141221) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
@@ -268,7 +275,7 @@ void Subproblem::solve() {
         int w3 = (*f2)[j];
         //bool _redo = (bi_rescore_first->move_direction[w1][w2] == -1);
 
-        float score2 = bi_rescore_two->bigram_weights[w2][w3];
+        float score2 = bi_rescore_two->get_bigram_weight(w2,w3);
 
         //assert (is_redo || (bi_rescore_first->move_direction[w1][w2] == -1) || (bi_rescore_two->move_direction[w2][w3] == -1));
         double lm_score;
@@ -344,7 +351,7 @@ void Subproblem::solve() {
 }
 
 
-float Subproblem::primal_score(int word[NUMWORDS], int l) {
+float Subproblem::primal_score(int word[], int l) {
   float total = 0.0;
   for (int i=0; i < l-2; i++) {
     total += word_prob(word[i],word[i+1],word[i+2]);

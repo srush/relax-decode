@@ -9,8 +9,6 @@ using namespace std;
 
 
 Forest::Forest(const Hypergraph& hgraph) {
-  //_nodes.resize(10000);
-  //_edges.resize(10000);
   assert (hgraph.node_size() > 0);
   for (int i = 0; i < hgraph.node_size(); i++) {
     const Hypergraph_Node & node = hgraph.node(i);

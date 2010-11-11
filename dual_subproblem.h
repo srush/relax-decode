@@ -7,22 +7,14 @@
 #include "GraphDecompose.h"
 #include "BigramRescore.h"
 #include <Ngram.h>
-#define NUMWORDS 300
+//#define NUMWORDS 300
 
 class Subproblem {
  public: 
-  vector<int> cur_best_one[NUMSTATES];
-  vector<int> cur_best_two[NUMSTATES];
-  float cur_best_score[NUMSTATES];
-  int cur_best_count[NUMSTATES];
-
-  int last_best_one[NUMSTATES];
-  int last_best_two[NUMSTATES];
-  float last_best_score[NUMSTATES];
-
-
-  int cur_best_bigram[NUMSTATES];
-  float cur_best_score_bigram[NUMSTATES];
+  vector <vector<int> > cur_best_one;
+  vector <vector<int> > cur_best_two;
+  vector <float> cur_best_score;
+  vector <int> cur_best_count;
 
   Subproblem(const ForestLattice *g, Ngram * lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
   void update_weights(vector <int> u_pos, vector <float> u_values, bool first);
@@ -30,7 +22,7 @@ class Subproblem {
   //void solve_bigram();
   vector <int> get_best_nodes_between(int w1, int w2, bool first);
   float get_best_bigram_weight(int w1, int w2 , bool first);
-  float primal_score(int word[NUMWORDS], int l);
+  float primal_score(int word[], int l);
   
   double word_prob(int, int, int );
   double word_backoff(int );
@@ -41,9 +33,6 @@ class Subproblem {
  private:
   
   bool first_time;
-
-  // Weight management
-  bitset <NUMSTATES> update_filter;
   
   // PROBLEMS
   
@@ -55,12 +44,14 @@ class Subproblem {
   //vector <int> bigram_path[NUMSTATES][NUMSTATES];
 
 
-
-  float best_lm_score[NUMSTATES][NUMSTATES];  
-  float bigram_score_cache[NUMSTATES][NUMSTATES];  
-
-  vector <int> * forward_trigrams [NUMSTATES][NUMSTATES];  
-  vector <double> * forward_trigrams_score [NUMSTATES][NUMSTATES];  
+  // BIG
+  vector < vector<float > >  best_lm_score;
+  // BIG
+  vector < vector<float > >  bigram_score_cache;
+  // BIG
+  vector <vector <vector <int> *> > forward_trigrams;
+  //BIG
+  vector < vector< vector <double> * > > forward_trigrams_score;
   //Bigram valid_bigrams[NUMSTATES*NUMSTATES];
   
   const ForestLattice * graph;

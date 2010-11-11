@@ -11,24 +11,43 @@ using namespace std;
 
 BigramRescore::BigramRescore(const ForestLattice * graph_in, const GraphDecompose * gd_in):
   gd(gd_in), graph(graph_in){
-  for (int i=0; i < NUMSTATES; i++) {
+  int num_nodes = graph_in->num_nodes;
+  current_weights.resize(num_nodes);
+  update_position.resize(num_nodes);
+  update_filter.resize(num_nodes);
+
+  need_to_recompute.resize(num_nodes);
+
+  forward_paths.resize(num_nodes);
+  backward_paths.resize(num_nodes);
+
+  best_split.resize(num_nodes);
+  bigram_weights.resize(num_nodes);
+
+  bigram_path.resize(num_nodes);
+
+
+  for (int i=0; i < num_nodes; i++) {
     current_weights[i] = 0.0;
-  }
-  for (int i=0; i < NUMSTATES; i++) {
-    for (int j=0; j < NUMSTATES; j++) {
+    need_to_recompute[i].resize(num_nodes);
+    best_split[i].resize(num_nodes);
+    bigram_path[i].resize(num_nodes);
+    bigram_weights[i].resize(num_nodes);
+    for (int j=0; j < num_nodes; j++) {
       bigram_path[i][j] = NULL;
     }
   }
+
   cache_forward();
 }
 
 void BigramRescore::update_weights(vector <int>  u_pos, vector <float> u_values, int len) {
   clock_t begin=clock();
 
-  update_filter.reset();
-  //for (int i=0; i< NUMSTATES; i++) {
-    //update_values[i] = 0.0;
-  //}
+
+  for (int i=0; i< graph->num_nodes; i++) {
+    update_filter[i] = 0;
+  }
 
   update_len = len;
   for (int i=0; i< len; i++) {
@@ -49,11 +68,12 @@ void BigramRescore::update_weights(vector <int>  u_pos, vector <float> u_values,
 
 
 
-void BigramRescore::cache_paths(int n1, int n2) {  
+/*void BigramRescore::cache_paths(int n1, int n2) {  
   //assert(!bigram_cache[n1][n2].any());
-  int s = gd->all_pairs_path[n1][n2]->size();
+  vector <int> * path = gd->get_path(n1,n2);
+  int s = path->size();
   for (int split=0; split < s; split++) {
-    int k = (*gd->all_pairs_path[n1][n2])[split];
+    int k = (*path)[split];
 
     if (k == n2) {
       bigram_cache[n1][n2][n2] = true;
@@ -70,7 +90,7 @@ void BigramRescore::cache_paths(int n1, int n2) {
     }
   }
   assert(bigram_cache[n1][n2].any());
-}
+  }*/
 
 
 void BigramRescore::cache_forward() {  
@@ -80,11 +100,11 @@ void BigramRescore::cache_forward() {
   for (int n1 =0; n1 < graph->num_nodes; n1++) {   
     for (int i = 0; i< graph->num_nodes; i++) {
       if (graph->word_node[n1] == -1) {
-        if (gd->all_pairs_path_exist[n1][i] || i == n1) {
+        if (gd->path_exists(n1,i) || i == n1) {
           forward_paths[n1].push_back(i);
         }
       } 
-      if (gd->all_pairs_path_exist[i][n1]) {
+      if (gd->path_exists(i,n1)) {
         backward_paths[n1].push_back(i);
       }
     }
@@ -94,7 +114,7 @@ void BigramRescore::cache_forward() {
   }
 }
 
-void BigramRescore::reconstruct_path(int n1, int n2, int best_split[NUMSTATES][NUMSTATES], vector <int > & array ) {
+void BigramRescore::reconstruct_path(int n1, int n2, const vector<vector <int> > & best_split, vector <int > & array ) {
   int k = best_split[n1][n2];
   if (k != n2) { 
     reconstruct_path(n1, k, best_split, array);
@@ -104,9 +124,7 @@ void BigramRescore::reconstruct_path(int n1, int n2, int best_split[NUMSTATES][N
   }
 }
 
-void BigramRescore::find_shortest(int n1, int n2,
-                               int best_split[NUMSTATES][NUMSTATES], 
-                               float best_split_score[NUMSTATES][NUMSTATES]) {
+void BigramRescore::find_shortest(int n1, int n2) {
   assert (need_to_recompute[n1][n2]);
   recomputed ++;
   /*bool has_update = false;
@@ -126,10 +144,12 @@ void BigramRescore::find_shortest(int n1, int n2,
   //}
 
   //assert(best_split_score[n1][n2] == 0 || update_len != 0);
-  best_split_score[n1][n2] = INF;
-  int s = gd->all_pairs_path[n1][n2]->size();
+  bigram_weights[n1][n2] = INF;
+
+  vector <int> * path = gd->get_path(n1,n2);
+  int s = path->size();
   for (int split=0; split < s; split++) {
-    int k = (*gd->all_pairs_path[n1][n2])[split];
+    int k = (*path)[split];
     
     if (k == n2) {
       //base case
@@ -137,25 +157,25 @@ void BigramRescore::find_shortest(int n1, int n2,
       // should only get to base case on update
       //cout << "Update" << k << endl;
       assert (update_filter[k]);
-      if (val < best_split_score[n1][n2]) {
+      if (val < bigram_weights[n1][n2]) {
         best_split[n1][n2] = k;
-        best_split_score[n1][n2] = val;
+        bigram_weights[n1][n2] = val;
       }
     } else {
       float a, b;
       if (need_to_recompute[n1][k]) {
-        find_shortest(n1, k, best_split, best_split_score);      
+        find_shortest(n1, k);      
       } 
-      a = best_split_score[n1][k];
+      a = bigram_weights[n1][k];
       
       if (need_to_recompute[k][n2]) {
-        find_shortest(k, n2, best_split, best_split_score);      
+        find_shortest(k, n2);      
       } 
-      b = best_split_score[k][n2];
+      b = bigram_weights[k][n2];
       
-      if (a + b < best_split_score[n1][n2]) {
+      if (a + b < bigram_weights[n1][n2]) {
         best_split[n1][n2] = k;
-        best_split_score[n1][n2] = a+b;
+        bigram_weights[n1][n2] = a+b;
         //array.clear();
         //array.insert(array.end(), one.begin(), one.end());
         //array.insert(array.end(), two.begin(), two.end());
@@ -171,15 +191,15 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
   recomputed =0;
 
   if (initialize || !OPTIMIZE) {
-    update_filter.set();
+    
     for (int i=0; i < graph->num_nodes; i++) {
+      update_filter[i] = 1;
       for (int j=0;j < graph->num_nodes; j++) {
         need_to_recompute[i][j] = 1;
       }
     }
   } else { 
-    bitset <NUMSTATES> seen;
-    seen.reset();
+    
     for (int k=0; k < update_len; k++ ) {
       int up_node = update_position[k];
       //cout << up_node << endl;
@@ -187,10 +207,7 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
 
       for (int i=0; i < forward_paths[up_node].size(); i++) {
         int rnode = forward_paths[up_node][i];
-        if (graph->word_node[rnode] != 1) {
-          seen[rnode] = 1;
-        }
-
+    
         for (int j=0; j < backward_paths[up_node].size(); j++) {
 
           int lnode = backward_paths[up_node][j];
@@ -211,7 +228,7 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
      
     // first do it with recursion
     if (need_to_recompute[w1][w2]) {
-      find_shortest(w1, w2, best_split, bigram_weights); 
+      find_shortest(w1, w2); 
        if (bigram_path[w1][w2] != NULL) {
          bigram_path[w1][w2]->clear();
        }

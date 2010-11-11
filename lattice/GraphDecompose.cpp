@@ -12,6 +12,7 @@ using namespace std;
 
   
 GraphDecompose::GraphDecompose() {
+  
     
 }
   
@@ -37,6 +38,15 @@ void GraphDecompose::compute_bigrams() {
 }
 
 void GraphDecompose::decompose( const ForestLattice * gr) {
+  int num_nodes = gr->num_nodes;
+  forward_bigrams.resize(num_nodes);
+  all_pairs_path.resize(num_nodes);
+  all_pairs_path_exist.resize(num_nodes);
+
+  for (int i =0; i < num_nodes; i++ ) {
+    all_pairs_path_exist[i].resize(num_nodes);
+    all_pairs_path[i].resize(num_nodes);
+  }
   g = gr;
   graph_to_all_pairs();
   //all_pairs_to_bigram();
@@ -55,8 +65,8 @@ void GraphDecompose::graph_to_all_pairs() {
     }
 
     // If path exists set it to 1
-    for (int j=0;j < g->node_edges[n]; j++) {
-      int n2 = g->graph[n][j];
+    for (int j=0;j < g->num_edges(n); j++) {
+      int n2 = g->get_edge(n, j);
       //all_pairs_path_length[n][n2].push_back(1);
       // back pointer (split path)
       all_pairs_path_exist[n][n2] =1;

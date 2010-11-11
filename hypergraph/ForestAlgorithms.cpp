@@ -11,7 +11,7 @@ vector <const ForestNode *> construct_best_fringe_help(const ForestNode & node, 
 vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 
 EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double> & weight_vector ) {
-  EdgeCache * weights = new EdgeCache();
+  EdgeCache * weights = new EdgeCache(forest.num_edges());
   
   for (int i = 0; i < forest.num_edges(); i++) {
     const ForestEdge & edge =forest.get_edge(i);
@@ -26,7 +26,7 @@ EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double>
 
 
 EdgeCache* combine_edge_weights(const Forest & forest, const EdgeCache & w1, const EdgeCache & w2 ) {
-  EdgeCache * combine = new EdgeCache();
+  EdgeCache * combine = new EdgeCache(forest.num_edges());
   for (int i = 0; i < forest.num_edges(); i++) {
     const ForestEdge & edge = forest.get_edge(i);
     double v1 = w1.get_value(edge);
