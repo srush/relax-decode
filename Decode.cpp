@@ -1,4 +1,5 @@
 #include "Decode.h"
+#include "util.h"
 
 void Decode::update_weights(const wvector & update,  wvector * weights ) {
   vector <int> u_pos1, u_pos2;
@@ -14,9 +15,11 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
     }
   }
   //cout << "UPDATING WEIGHTS " << u_pos1.size() << " " << u_pos2.size() <<endl;
+  clock_t begin=clock();
   _subproblem->update_weights(u_pos1, u_val1, true);
   _subproblem->update_weights(u_pos2, u_val2, false);
-
+  clock_t end=clock();
+  cout << "UPDATE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
   _lagrange_weights = weights;
   
 }

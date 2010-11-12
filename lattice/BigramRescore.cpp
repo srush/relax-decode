@@ -125,6 +125,7 @@ void BigramRescore::reconstruct_path(int n1, int n2, const vector<vector <int> >
 }
 
 void BigramRescore::find_shortest(int n1, int n2) {
+  
   assert (need_to_recompute[n1][n2]);
   recomputed ++;
   /*bool has_update = false;
@@ -144,6 +145,8 @@ void BigramRescore::find_shortest(int n1, int n2) {
   //}
 
   //assert(best_split_score[n1][n2] == 0 || update_len != 0);
+  double old_score = bigram_weights[n1][n2]; 
+  int old_split = best_split[n1][n2];
   bigram_weights[n1][n2] = INF;
 
   vector <int> * path = gd->get_path(n1,n2);
@@ -182,6 +185,8 @@ void BigramRescore::find_shortest(int n1, int n2) {
       }
     }
   }
+  if (old_split != best_split[n1][n2]) 
+    score_changed++;
 }
 
 
@@ -189,6 +194,9 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
 
   int count = 0;
   recomputed =0;
+  score_changed =0;
+
+  clock_t begin=clock();
 
   if (initialize || !OPTIMIZE) {
     
@@ -219,6 +227,10 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
       }
     }
   } 
+  clock_t end=clock();
+  cout << "Dirty: " << double(diffclock(end,begin)) << " ms"<< endl;
+  
+  begin = clock();
 
   for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
         
@@ -235,7 +247,9 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
        //reconstruct_path(w1, w2, best_split, bigram_path[w1][w2]); 
     }
   }
-  cout << "COUNT " << count << " " << recomputed << endl;
+  cout << "COUNT " << count << " " << recomputed << " " << score_changed << endl;
+  end=clock();
+  cout << "FIND Shortest: " << double(diffclock(end,begin)) << " ms"<< endl;
 }
 
 

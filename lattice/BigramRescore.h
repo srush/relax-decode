@@ -55,7 +55,7 @@ class BigramRescore {
   
   
   
-  int recomputed;
+  int recomputed , score_changed;
   void cache_paths(int, int);
   void cache_forward();
   vector< vector<int> > forward_paths;
