@@ -26,7 +26,12 @@ bool Subgradient::run_one_round() {
   double primal, dual; 
   wvector subgrad;
   //cout << endl;
+  clock_t start=clock();
   _s->solve(primal, dual, subgrad);
+  clock_t end=clock();
+  cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+
+
   
   if (primal < _best_primal) {
     _best_primal = primal;
@@ -97,6 +102,12 @@ void Subgradient::update_weights(wvector & subgrad) {
   cout << "UPDATES" << " " << "Alpha " <<alpha << endl ;
   cout << endl;
   //print_vec(updates) ;
-  
+  //print_vec(_weights) ;
+
+
+  clock_t start=clock();
   _s->update_weights(updates, &_weights);
+  clock_t end=clock();
+  cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+
 }

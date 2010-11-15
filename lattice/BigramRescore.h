@@ -1,8 +1,10 @@
 #ifndef BIGRAMRESCORE_H_
 #define BIGRAMRESCORE_H_
+#define INF 1000000
 
 #include "ForestLattice.h"
 #include "GraphDecompose.h"
+#include <iostream>
 
 #include <vector>
 using namespace std;
@@ -17,21 +19,41 @@ class BigramRescore {
   void recompute_bigram_weights(bool init);
   
 
-  vector <int> get_bigram_path(int w1, int w2) {
-    if (bigram_path[w1][w2] == NULL) {
-      bigram_path[w1][w2] = new vector<int>();
+  const vector <int> get_bigram_path(int w1, int w2) {
+    assert(w1 >= 0);
+    assert(w2 >= 0);
+
+    int n1 = graph->lookup_word(w1);
+    int n2 = graph->lookup_word(w2);
+
+    assert(gd->path_exists(n1, n2));     
+    if (bigram_path[n1][n2] == NULL) {
+      bigram_path[n1][n2] = new vector<int>();
     }
 
-    if (bigram_path[w1][w2]->empty()) {
-      reconstruct_path(w1, w2, best_split, *bigram_path[w1][w2]);
+    if (bigram_path[n1][n2]->empty()) {
+      reconstruct_path(n1, n2, best_split, *bigram_path[n1][n2]);
+      //bigram_path[n1][n2]->push_back(w2);
     }
 
-    assert (bigram_path[w1][w2] != NULL); 
-    return (*bigram_path[w1][w2]);
+    //cout << "PATH " << n1 << " " << n2 << endl;
+    for (int i=0; i< bigram_path[n1][n2]->size(); i++) {
+      //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl; 
+    } 
+
+    assert (bigram_path[n1][n2] != NULL); 
+    //cout << bigram_path[n1][n2]->size() << endl;
+    return (*bigram_path[n1][n2]);
   }
 
-  float get_bigram_weight(int i, int j) {
-    return bigram_weights[i][j];
+  float get_bigram_weight(int w1, int w2) {
+    // w1 and w2 are word ids
+    int n1 = graph->lookup_word(w1);
+    int n2 = graph->lookup_word(w2);
+    assert (gd->path_exists(n1, n2)); 
+    assert(bigram_weights[n1][n2] != INF);
+    //cout << "Bigram weights "<<  bigram_weights[n1][n2] << " " <<  current_weights[w2] << endl;
+    return bigram_weights[n1][n2] + current_weights[w2];
   }
 
 

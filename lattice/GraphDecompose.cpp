@@ -18,28 +18,50 @@ GraphDecompose::GraphDecompose() {
   
   
 void GraphDecompose::compute_bigrams() {
+  
+
   for (int n=0; n < g->num_nodes; n++ ) {
-    if (g->word_node[n] == -1) continue; 
+    if (!g->is_phrase_node(n)) continue; 
+    // first add bigrams within n
+    //TODO
+    for (int i =0; i < g->bigrams_at_node[n].size(); i++) {
+      //int w1 = g->words(n, i);
+      Bigram b = g->bigrams_at_node[n][i];
+      valid_bigrams.push_back(b);
+      forward_bigrams[b.w1].push_back(b.w2);     
+      //cout << "WORD " << g->get_word(b.w1)<< " "<< b.w1 << " " << n << " "<< i << " " <<  g->get_word(b.w2)<< " " << b.w2  << endl;   
+    }
+
+    // 
+
     for (int n2=0; n2 < g->num_nodes; n2++ ) {
-      if (g->word_node[n2] == -1) continue;
-      
+      if (!g->is_phrase_node(n2)) continue;
+      if (n == n2) continue;
       if (all_pairs_path_exist[n][n2]) { 
-        valid_bigrams.push_back(Bigram(n,n2));
-        forward_bigrams[n].push_back(n2);        
+        //cout << "NODE " << n << " " << n2 << endl;
+        for (int i =0; i < g->num_last_words(n); i++) {
+          int w1 = g->last_words(n, i);
+          for (int j=0; j < g->num_first_words(n2); j++ ) { 
+            int w2 = g->first_words(n2, j);
+            //cout << "WORD " << g->get_word(w1)<< " "<< w1 << " " << n << " "<< i << " " <<  g->get_word(w2)<< " " << w2 << " " << n2 << " " << j << endl;
+            valid_bigrams.push_back(Bigram(w1,w2));
+            forward_bigrams[w1].push_back(w2);        
+          }
         //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
         //for (unsigned int i=0; i < bigram_pairs[n][n2].size() ; i ++) {
         //for (int j=0; j < bigram_pairs[n][n2][i].size(); j++) {
         //  bigram_bitset[n][n2][i][bigram_pairs[n][n2][i][j]] = 1;
         //}
         //}
-      }
-    }   
+        }
+      }   
+    }
   }
 }
 
-void GraphDecompose::decompose( const ForestLattice * gr) {
+void GraphDecompose::decompose(const ForestLattice * gr) {
   int num_nodes = gr->num_nodes;
-  forward_bigrams.resize(num_nodes);
+  forward_bigrams.resize(gr->num_word_nodes);
   all_pairs_path.resize(num_nodes);
   all_pairs_path_exist.resize(num_nodes);
 
@@ -63,7 +85,8 @@ void GraphDecompose::graph_to_all_pairs() {
       all_pairs_path_exist[n][n2] =0;
       //all_pairs_path_length[n][n2] = INF;
     }
-
+    
+    
     // If path exists set it to 1
     for (int j=0;j < g->num_edges(n); j++) {
       int n2 = g->get_edge(n, j);
@@ -76,6 +99,8 @@ void GraphDecompose::graph_to_all_pairs() {
       //for_updates[n2].push_back( Bigram(n, n2));
       //for_updates[n].push_back( Bigram(n, n2));
     }
+    all_pairs_path_exist[n][n] =1;
+    all_pairs_path[n][n] = new vector<int>();
   }
   
   
@@ -84,12 +109,14 @@ void GraphDecompose::graph_to_all_pairs() {
   for (int k=0;k < g->num_nodes; k++) {
     
     // lex nodes can't be in the middle of a path
-    if (g->word_node[k]!= -1) continue;
+    if (g->is_phrase_node(k)) continue;
     
     for (int n=0; n < g->num_nodes; n++) {
       if (!all_pairs_path_exist[n][k]) continue;
+      if (n == k) continue;
       
       for (int n2=0; n2 < g->num_nodes; n2++) {
+        if (n2 == n) continue;
         if (all_pairs_path_exist[n][k] &&  all_pairs_path_exist[k][n2] ) {
           //for_updates[k].push_back( Bigram(n, n2));
 

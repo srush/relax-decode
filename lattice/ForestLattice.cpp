@@ -7,8 +7,11 @@ using namespace std;
 
 ForestLattice::ForestLattice(const Lattice & lat) {
   num_nodes = lat.node_size();
-  _words.resize(num_nodes);
-  original_nodes.resize(num_nodes);
+  num_word_nodes = lat.GetExtension(num_original_ids);
+  int num_hyper_edges = lat.GetExtension(num_hypergraph_edges);
+  _words.resize(num_word_nodes);
+  _is_word.resize(num_word_nodes);
+  original_edges.resize(num_hyper_edges);
   
   word_node.resize(num_nodes);
   edge_node.resize(num_nodes);
@@ -16,9 +19,18 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   final.resize(num_nodes);
   node_edges.resize(num_nodes);
   graph.resize(num_nodes);
+  _edge_by_nodes.resize(num_nodes);
+  _words_lookup.resize(lat.GetExtension(num_original_ids));
+  
+  _first_words.resize(num_nodes);
+  _last_words.resize(num_nodes);
+  bigrams_at_node.resize(num_nodes);
 
+  _original_id_to_edge.resize(num_word_nodes);
+  
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
+
 
     //cout << node.id()<<endl;
     assert (_nodes.size() == node.id());
@@ -26,34 +38,93 @@ ForestLattice::ForestLattice(const Lattice & lat) {
     
     node_edges[node.id()] = node.edge_size();
     graph[node.id()].resize(node.edge_size());
+    _edge_by_nodes[node.id()].resize(num_nodes);
+
+
+    for (int j =0; j < lat.node_size(); j++) {
+      _edge_by_nodes[node.id()][j] = -1;
+    }
+
+    if (node.GetExtension(has_phrases)) {
+      const Phraselets & plets  = node.GetExtension(phraselets);
+      int size = plets.phraselet_size();
+      //_first_words[node.id()];
+      //_last_words[node.id()]
+
+      for (int i =0; i < size; i ++) {
+        const Phraselet & plet= plets.phraselet(i);
+        for (int j=0; j < plet.word_size(); j++) {
+          const Subword & word = plet.word(j);
+          int hyper_edge =plet.phraselet_hypergraph_edge();
+          
+          _words_lookup[word.subword_original_id()] = node.id();
+          _words[word.subword_original_id()] = word.word();
+          _is_word[word.subword_original_id()] = 1;
+          if (hyper_edge != -1)
+            original_edges[hyper_edge].push_back(word.subword_original_id());
+          if (j < plet.word_size() -1) {
+            bigrams_at_node[node.id()].push_back(Bigram(word.subword_original_id(),
+                                                         plet.word(j+1).subword_original_id()));
+          }
+          
+        }
+        assert(plet.word_size() > 0); 
+        int last = plet.word_size()-1;
+        assert(plet.word(0).subword_original_id() != 0);
+        //assert(plet.word(last).subword_original_id() != 0 );
+        //cout << "First " << node.id() << " " << plet.word(0).subword_original_id() << endl;
+        //cout << "Last " << node.id() << " " << plet.word(last).subword_original_id() << endl;
+        _first_words[node.id()].push_back(plet.word(0).subword_original_id());
+        _last_words[node.id()].push_back(plet.word(last).subword_original_id());                
+        
+      }
+    }
+
     for (int j =0; j < node.edge_size(); j++) {
       const Lattice_Edge & edge = node.edge(j);
       graph[node.id()][j] = edge.to_id();
+
+      const Origin & orig = edge.GetExtension(origin);
+      if (orig.has_origin()) {
+        int original_id = orig.original_id();
+        for (int k =0; k < orig.hypergraph_edge_size(); k++) {
+          int hypergraph_edge = orig.hypergraph_edge(k);
+          original_edges[hypergraph_edge].push_back(original_id);
+        }
+        //edges[]
+        _edge_by_nodes[node.id()][edge.to_id()] = original_id;
+        //cout << "EDGE " << original_id << " " << node.id() << " " << edge.to_id() << endl;
+        _original_id_to_edge[original_id] = Bigram(node.id(), edge.to_id());
+      } else {
+        //cout << "NO EDGE " << node.id() << " " << edge.to_id() << " " << endl;
+        _edge_by_nodes[node.id()][edge.to_id()] = -1;
+      }
+
     }
 
 
-    if (node.GetExtension(is_word)) {
+    if (node.GetExtension(has_phrases)) {
       word_node[node.id()] = 1; //node.getExtension(word);
       edge_node[node.id()] = -1;
       //cout << node.GetExtension(word) << endl;
       //cout <<node.id() << endl;
-      _words[node.id()]= node.GetExtension(word);
+      //_words[node.id()]= node.GetExtension(word);
     } else {
       word_node[node.id()] = -1;
       edge_node[node.id()] = 1;
     }
-    int orig_node =node.GetExtension(original_node);
-    bool ignore = node.GetExtension(ignore_node);
-    if (ignore) {
+    //int orig_node =node.GetExtension(original_node);
+    //bool ignore = node.GetExtension(ignore_node);
+    //if (ignore) {
       //cout << "IGNORING " << node.id() <<endl;
-      assert (orig_node == -1);
-    }
-    if (orig_node != -1) {
-      assert (orig_node >= 0 && orig_node < num_nodes);
-      original_nodes[orig_node].push_back(node.id());
-    }
+      //assert (orig_node == -1);
+    //}
+    //if (orig_node != -1) {
+    //assert (orig_node >= 0 && orig_node < num_nodes);
+    //original_nodes[orig_node].push_back(node.id());
+    //}
     
-    ignore_nodes[node.id()] = node.GetExtension(ignore_node);    
+    //ignore_nodes[node.id()] = node.GetExtension(ignore_node);    
   }
 
   start = lat.start();
