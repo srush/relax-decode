@@ -1,1 +1,0 @@
-/home/srush/Projects/hypergraph/gen_cpp/translation.pb.h
