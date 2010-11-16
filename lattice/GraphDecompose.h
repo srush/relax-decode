@@ -15,6 +15,7 @@ class GraphDecompose {
   vector <Bigram> valid_bigrams;
   //vector <Bigram> for_updates[NUMSTATES];
   vector <vector <int> > forward_bigrams;
+  vector <vector <int> > backward_bigrams;
   //vector <bitset <NUMSTATES> > bigram_bitset[NUMSTATES][NUMSTATES];
 
   //vector <vector <int> >  bigram_pairs[NUMSTATES][NUMSTATES];
@@ -36,7 +37,7 @@ class GraphDecompose {
   vector< vector<vector<int> * > > all_pairs_path;
   vector< vector<bool> > all_pairs_path_exist;
 
-  
+  vector <vector <vector <vector <int> > > >  bigram_paths;
   const ForestLattice * g;
 
   void compute_bigrams();

@@ -55,9 +55,16 @@ Forest::Forest(const Hypergraph& hgraph) {
         int id = edge.tail_node_ids(k);
         
         tail_nodes.push_back(_nodes[id]);
+        
       } 
 
       ForestEdge * forest_edge = new ForestEdge(edge.label(), features, edge_id, tail_nodes);
+      
+      for (int k =0; k < edge.tail_node_ids_size(); k++ ){
+        int id = edge.tail_node_ids(k);
+        _nodes[id]->add_in_edge(forest_edge);
+      }
+
       edge_id++;
       _nodes[node.id()]->add_edge(forest_edge);
       //int for_edge_id = forest_edge->id();

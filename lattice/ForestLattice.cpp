@@ -12,6 +12,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   _words.resize(num_word_nodes);
   _is_word.resize(num_word_nodes);
   original_edges.resize(num_hyper_edges);
+  edges_original.resize(num_word_nodes);
   
   word_node.resize(num_nodes);
   edge_node.resize(num_nodes);
@@ -90,6 +91,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         for (int k =0; k < orig.hypergraph_edge_size(); k++) {
           int hypergraph_edge = orig.hypergraph_edge(k);
           original_edges[hypergraph_edge].push_back(original_id);
+          edges_original[original_id].push_back(hypergraph_edge);
+          
         }
         //edges[]
         _edge_by_nodes[node.id()][edge.to_id()] = original_id;

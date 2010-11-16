@@ -60,6 +60,7 @@ class ForestLattice {
   ForestLattice(const Lattice & lattice);
 
   vector <vector <int> > original_edges;
+  vector <vector <int> > edges_original;
 
 
   int get_edge(int n1, int edge_num) const {

@@ -28,8 +28,8 @@ public:
 
   int num_nodes() const{
     return _tail_nodes.size();
-  }
-  
+  }  
+
 
   const str_vector & fvector() const {
     return *_features;
@@ -50,6 +50,10 @@ public:
     _edges.push_back(edge);
   }
 
+  void add_in_edge(ForestEdge * edge) {
+    _in_edges.push_back(edge);
+  }
+
   int id() const {return _id;}
 
   const ForestEdge & edge(int i ) const {
@@ -60,6 +64,15 @@ public:
     return _edges.size();
   }
 
+  int num_in_edges() const{
+    return _in_edges.size();
+  }
+
+  const ForestEdge & in_edge(int i) const {
+    return *_in_edges[i];
+  }
+
+
   bool is_word() const {
     return _is_word;
   }
@@ -69,7 +82,7 @@ public:
     return _word;
   }
 
-
+  
 
   //void print();
 private:
@@ -77,6 +90,7 @@ private:
   const int  _id;
   str_vector * _features;
   vector <ForestEdge *> _edges; 
+  vector <ForestEdge *> _in_edges; 
   const string _word;
   const bool _is_word;
 
@@ -99,6 +113,13 @@ class Forest {
   int num_nodes() const{
     return _nodes.size();
   }
+
+  const ForestNode & get_node(int i) const {
+    const ForestNode & node =*_nodes[i];
+    assert (node.id() == i);
+    return node;
+  }
+
 
   const ForestEdge & get_edge(int i) const {
     const ForestEdge & edge =*_edges[i];

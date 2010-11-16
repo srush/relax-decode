@@ -29,6 +29,7 @@ void GraphDecompose::compute_bigrams() {
       Bigram b = g->bigrams_at_node[n][i];
       valid_bigrams.push_back(b);
       forward_bigrams[b.w1].push_back(b.w2);     
+      backward_bigrams[b.w2].push_back(b.w1);     
       //cout << "WORD " << g->get_word(b.w1)<< " "<< b.w1 << " " << n << " "<< i << " " <<  g->get_word(b.w2)<< " " << b.w2  << endl;   
     }
 
@@ -46,6 +47,7 @@ void GraphDecompose::compute_bigrams() {
             //cout << "WORD " << g->get_word(w1)<< " "<< w1 << " " << n << " "<< i << " " <<  g->get_word(w2)<< " " << w2 << " " << n2 << " " << j << endl;
             valid_bigrams.push_back(Bigram(w1,w2));
             forward_bigrams[w1].push_back(w2);        
+            backward_bigrams[w2].push_back(w1);        
           }
         //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
         //for (unsigned int i=0; i < bigram_pairs[n][n2].size() ; i ++) {
@@ -62,6 +64,7 @@ void GraphDecompose::compute_bigrams() {
 void GraphDecompose::decompose(const ForestLattice * gr) {
   int num_nodes = gr->num_nodes;
   forward_bigrams.resize(gr->num_word_nodes);
+  backward_bigrams.resize(gr->num_word_nodes);
   all_pairs_path.resize(num_nodes);
   all_pairs_path_exist.resize(num_nodes);
 
@@ -117,6 +120,7 @@ void GraphDecompose::graph_to_all_pairs() {
       
       for (int n2=0; n2 < g->num_nodes; n2++) {
         if (n2 == n) continue;
+        if (k == n2) continue;
         if (all_pairs_path_exist[n][k] &&  all_pairs_path_exist[k][n2] ) {
           //for_updates[k].push_back( Bigram(n, n2));
 
@@ -181,14 +185,13 @@ void GraphDecompose::reconstruct_path(int n, int n2, vector <vector <int> > & ar
     }
   }
 }
-  
-/*
-void GraphDecompose::all_pairs_to_bigram() {
-  
+   
+
+/*void GraphDecompose::all_pairs_to_bigram() {
   for (int n=0; n < g->num_nodes; n++) {
-    if (g->word_node[n]==-1) continue;
+    if (!g->is_phrase_node(n)) continue;
     for (int n2=0; n2 < g->num_nodes; n2++) {
-      if (g->word_node[n2]==-1) continue;
+      if (!g->is_phrase_node(n2)) continue;
       
       if (all_pairs_path[n][n2].empty()) continue;
       
@@ -210,4 +213,5 @@ void GraphDecompose::all_pairs_to_bigram() {
     }
   }
 }
+
 */
