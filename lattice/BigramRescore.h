@@ -46,12 +46,12 @@ class BigramRescore {
     return (*bigram_path[n1][n2]);
   }
 
-  float get_bigram_weight(int w1, int w2) {
+  inline float get_bigram_weight(int w1, int w2) {
     // w1 and w2 are word ids
     int n1 = graph->lookup_word(w1);
     int n2 = graph->lookup_word(w2);
-    assert (gd->path_exists(n1, n2)); 
-    assert(bigram_weights[n1][n2] != INF);
+    //assert (gd->path_exists(n1, n2)); 
+    //assert(bigram_weights[n1][n2] != INF);
     //cout << "Bigram weights "<<  bigram_weights[n1][n2] << " " <<  current_weights[w2] << endl;
     return bigram_weights[n1][n2] + current_weights[w2];
   }
