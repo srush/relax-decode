@@ -7,9 +7,10 @@ using namespace std;
 
 //typedef priority_queue< const Candidate * > Candidates;
 
-void CubePruning::parse() {
+double CubePruning::parse() {
   run(_forest.root(),  _hypothesis_cache.store[_forest.root().id()]);
-  cout << _hypothesis_cache.store[_forest.root().id()][0].score << endl;
+  return _hypothesis_cache.store[_forest.root().id()][0].score;
+  //cout << _hypothesis_cache.store[_forest.root().id()][0].score << endl;
   //cout << _hypothesis_cache.store[_forest.root().id()][1].score << endl;
   //cout << _hypothesis_cache.store[_forest.root().id()][2].score << endl;
 }
@@ -306,7 +307,7 @@ bool CubePruning::gethyp(const ForestEdge & cedge, const vector <int> & vecj, Hy
 
   //item = Hyp(score, full_derivation, cedge, vecj, sig);
 
-  item =   Hyp(score,  sig, full_derivation);
+  item = Hyp(score,  sig, full_derivation);
   /*for (int p=0; p < item.full_derivation.size();p++) {
     cout << item.full_derivation[p] << " ";
   }

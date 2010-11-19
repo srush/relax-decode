@@ -13,34 +13,9 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
+
   cout << argc << endl;
 
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  Hypergraph hgraph;
-
-  {
-    fstream input(argv[1], ios::in | ios::binary);
-    if (!hgraph.ParseFromIstream(&input)) {
-      assert (false);
-    } 
-  }
-
-  Forest f (hgraph);
-
-
-  Lattice lat;
-
-  {
-    fstream input(argv[2], ios::in | ios::binary);
-    if (!lat.ParseFromIstream(&input)) {
-      assert (false);
-    }
-    
-  }
-
-  ForestLattice graph (lat);
-  
   svector<int, double> * weight;
 
   {
@@ -61,14 +36,53 @@ int main(int argc, char ** argv) {
   if (!lm->read(file, false)) {
     cerr << "READ FAILURE\n";
   }
+
+
+  for (int i =1; i <= 10; i++) { 
+
+
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
   
-  // Optional:  Delete all global objects allocated by libprotobuf.
-  google::protobuf::ShutdownProtobufLibrary();
+    Hypergraph hgraph;
+
+    {
+      stringstream fname;
+      fname <<argv[1] << i;
+
+
+      fstream input(fname.str().c_str(), ios::in | ios::binary);
+      if (!hgraph.ParseFromIstream(&input)) {
+        assert (false);
+      } 
+    }
+    
+    Forest f (hgraph);
+
+    
+    Lattice lat;
   
-  cout << "START!!!!" << endl;
-  Decode * d = new Decode(f, graph, *weight, *lm);
+    {
+      stringstream fname;
+      fname <<argv[2] << i;
+
+      fstream input(fname.str().c_str(), ios::in | ios::binary);
+      if (!lat.ParseFromIstream(&input)) {
+        assert (false);
+      }
+      
+    }
+
+    ForestLattice graph (lat);
   
-  Subgradient * s = new Subgradient(d);
-  s->solve();
+  
+    // Optional:  Delete all global objects allocated by libprotobuf.
+    //google::protobuf::ShutdownProtobufLibrary();
+  
+    cout << "START!!!!" << endl;
+    Decode * d = new Decode(f, graph, *weight, *lm);
+    
+    Subgradient * s = new Subgradient(d);
+    s->solve();
+  }
   return 0;
 }
