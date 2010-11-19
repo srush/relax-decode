@@ -237,7 +237,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
       }
     }
   }
-  cout << "Early dual " << dual <<endl;
+  
+  //cout << "Early dual " << dual <<endl;
 
 
  
@@ -277,7 +278,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     //vector <int> lex_lat_edges = get_lex_lat_edges(id); 
   
     double score = _subproblem->cur_best_score[id];
-    cout << "START1" << score << endl;
+    //cout << "START1" << score << endl;
     //(forbigram,  score) = self.subproblem.get_best_trigram(id) ;
     dual += score;
     
@@ -293,7 +294,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     
     // second word <s>
     double score = _subproblem->cur_best_score[id]; 
-    cout << "START2" <<score << endl;
+    //cout << "START2" <<score << endl;
     dual += score;
     vector <int> between1 = _subproblem->get_best_nodes_between(id, _subproblem->cur_best_one[id][0], true);
 
@@ -323,17 +324,17 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     cout << "COMPUTE PRIMA: " << double(diffclock(end,begin)) << " ms"<< endl;
   }
 
-  for (int i=0; i < used_words.size(); i++ ) {
+  /*for (int i=0; i < used_words.size(); i++ ) {
     cout << used_words[i]->word() << " ";
   }
   cout << endl;
-  
+  */
 
-  cout << "DUAL Score" << dual << endl;
-  cout << "PRIMAL " << primal << endl;
+  //cout << "DUAL Score" << dual << endl;
+  //cout << "PRIMAL " << primal << endl;
 
   //print_output(subgrad);
-  cout << endl;
+  //cout << endl;
   /*    if BEST:
       print "Best score", best
       print subtree
@@ -403,7 +404,7 @@ void Decode::sync_lattice_lm() {
     string str = _lattice.get_word(n);
     int ind = _lm.vocab.getIndex(str.c_str());
     if (ind == -1 || ind > max) {
-      cout << "Unknown " << str << endl; 
+      //cout << "Unknown " << str << endl; 
       _cached_words->store[n] = unk;
     } else {
       _cached_words->store[n] = ind;

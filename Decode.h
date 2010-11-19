@@ -23,13 +23,13 @@ class Decode: public SubgradientProducer {
    :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm)
   {
     _cached_weights = cache_edge_weights(forest, weight);
-    cout<<"decomposing" << endl;
+    //cout<<"decomposing" << endl;
     _gd.decompose(&lattice);
-    cout<<"done decomposing" << endl;
+    //cout<<"done decomposing" << endl;
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
-    cout<<"ready to roll" << endl;
+    //cout<<"ready to roll" << endl;
   }
   
   void solve(double & primal, double & dual, wvector &);

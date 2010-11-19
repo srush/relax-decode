@@ -256,11 +256,13 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
       }
     }
   } 
-  clock_t end=clock();
-  cout << "Dirty: " << double(diffclock(end,begin)) << " ms"<< endl;
+  clock_t end;
+  if (TIMING) {
+    end=clock();
+    cout << "Dirty: " << double(diffclock(end,begin)) << " ms"<< endl;
   
-  begin = clock();
-
+    begin = clock();
+  }
   for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
         
     Bigram b = gd->valid_bigrams[i];
@@ -279,9 +281,11 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
        //reconstruct_path(w1, w2, best_split, bigram_path[w1][w2]); 
     }
   }
-  cout << "COUNT " << count << " " << recomputed << " " << score_changed << endl;
-  end=clock();
-  cout << "FIND Shortest: " << double(diffclock(end,begin)) << " ms"<< endl;
+  if (TIMING) {
+    cout << "COUNT " << count << " " << recomputed << " " << score_changed << endl;
+    end=clock();
+    cout << "FIND Shortest: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
 }
 
 

@@ -4,21 +4,30 @@
 #include <iomanip>
 #include <time.h>
 #include "util.h"
+
+#define TIMING 0 
 using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
   while(run_one_round() && _round <1000) {
     _round++;
-    cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
-    s=clock();
- }
-  clock_t end=clock();
-  cout << "FULL TIME "<< double(diffclock(end,start)) << endl;
+    if (TIMING) {
+      cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
+      s=clock();
+    }
+  }
+  //if (TIMING) {
+    clock_t end=clock();
+    cout << "FULL TIME "<< double(diffclock(end,start)) << endl;
+    //}
   if (_round < 1000) {
     //assert (_best_primal == _best_dual);
-    cout << "CONVERGED" << endl;
+    //cout << _best_primal << endl;
+    //cout << "CONVERGED" << endl;
   }
+  cout << _best_primal << endl;
+  cout << "round " << _round << endl;
 }
 
 
@@ -29,9 +38,11 @@ bool Subgradient::run_one_round() {
   clock_t start=clock();
   _s->solve(primal, dual, subgrad);
 
-  clock_t end=clock();
-  cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
-
+  clock_t end;
+  if (TIMING) {
+      end=clock();
+      cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+  }
 
   
   if (primal < _best_primal) {
@@ -44,10 +55,12 @@ bool Subgradient::run_one_round() {
 
   _duals.push_back(dual);
   _primals.push_back(primal);
+  if (TIMING) {
   
-  cout << "BEST PRIMAL" << _best_primal << endl;
-  cout << "BEST DUAL" << _best_dual << endl;
-  cout << "Round " << _round << endl; 
+    cout << "BEST PRIMAL" << _best_primal << endl;
+    cout << "BEST DUAL" << _best_dual << endl;
+    cout << "Round " << _round << endl; 
+  }
   //assert (_best_primal >= _best_dual);
 
   if (subgrad.normsquared() > 0.0) {
@@ -95,20 +108,23 @@ void Subgradient::update_weights(wvector & subgrad) {
   double alpha = _base_weight;
   //double alpha = _base_weight / ((float)_nround / 10.0);
   svector<int, double> updates = alpha * subgrad;
-  
-  cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
-
+  if (TIMING) {
+    cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
+  }
   _weights += updates;
-  cout << "CHANGED " << size << endl ;
-  cout << "UPDATES" << " " << "Alpha " <<alpha << endl ;
-  cout << endl;
+  if (TIMING) {
+    cout << "CHANGED " << size << endl ;
+    cout << "UPDATES" << " " << "Alpha " <<alpha << endl ;
+    cout << endl;
+  }
   //print_vec(updates) ;
   //print_vec(_weights) ;
 
 
   clock_t start=clock();
   _s->update_weights(updates, &_weights);
-  clock_t end=clock();
-  cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
-
+  if (TIMING) {
+    clock_t end=clock();
+    cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+  }
 }

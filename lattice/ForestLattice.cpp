@@ -161,8 +161,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   for (int i=0; i < lat.final_size(); i++) {
     final[lat.final(i)] = 1;
   }  
-  cout << "Same " << same << endl;
-  cout << "Words " << num_word_nodes << endl;
+  //cout << "Same " << same << endl;
+  //cout << "Words " << num_word_nodes << endl;
 } 
 
 

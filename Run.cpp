@@ -17,26 +17,6 @@ int main(int argc, char ** argv) {
 
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  Hypergraph hgraph;
-
-  {
-    fstream input(argv[1], ios::in | ios::binary);
-    if (!hgraph.ParseFromIstream(&input)) {
-      assert (false);
-    } 
-  }
-
-  Forest f (hgraph);
-
-
-  Lattice lat;
-  {
-    fstream input(argv[2], ios::in | ios::binary);
-    if (!lat.ParseFromIstream(&input)) {
-      assert (false);
-    }
-    
-  }
 
   svector<int, double> * weight;
 
@@ -59,7 +39,7 @@ int main(int argc, char ** argv) {
     cerr << "READ FAILURE\n";
   }
 
-<<<<<<< HEAD
+
 
   for (int i =1; i <= 10; i++) { 
 
@@ -70,9 +50,8 @@ int main(int argc, char ** argv) {
 
     {
       stringstream fname;
-      fname <<argv[1] << i;
-
-
+      fname << argv[1] << i;
+      cout << fname << endl; 
       fstream input(fname.str().c_str(), ios::in | ios::binary);
       if (!hgraph.ParseFromIstream(&input)) {
         assert (false);
@@ -86,41 +65,26 @@ int main(int argc, char ** argv) {
   
     {
       stringstream fname;
-      fname <<argv[2] << i;
-
+      fname << argv[2] << i;
+      cout << fname << endl; 
       fstream input(fname.str().c_str(), ios::in | ios::binary);
       if (!lat.ParseFromIstream(&input)) {
         assert (false);
       }
-      
     }
 
     ForestLattice graph (lat);
-=======
-  SkipTrigram skip;
-  //{
-  //skip.initialize(argv[5], *lm);
-  //}
->>>>>>> 617d28d0786ab24b0cd015a5b17c7733df61f1a1
   
   
-<<<<<<< HEAD
     // Optional:  Delete all global objects allocated by libprotobuf.
     //google::protobuf::ShutdownProtobufLibrary();
   
     cout << "START!!!!" << endl;
-    Decode * d = new Decode(f, graph, *weight, *lm);
+    SkipTrigram st;
+    Decode * d = new Decode(f, graph, *weight, *lm, st);
     
     Subgradient * s = new Subgradient(d);
     s->solve();
   }
-=======
-  cout << "START!!!!" << endl;
-  Decode * d = new Decode(f, graph, *weight, *lm, skip);
-  
-  Subgradient * s = new Subgradient(d);
-  s->solve();
-  //s->run_one_round();
->>>>>>> 617d28d0786ab24b0cd015a5b17c7733df61f1a1
   return 0;
 }
