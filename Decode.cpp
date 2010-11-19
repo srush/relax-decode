@@ -2,6 +2,7 @@
 #include "Decode.h"
 #include "util.h"
 #include "time.h"
+#define TIMING 0
 void Decode::update_weights(const wvector & update,  wvector * weights ) {
   vector <int> u_pos1, u_pos2;
   vector <float> u_val1, u_val2;
@@ -16,11 +17,16 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
     }
   }
   //cout << "UPDATING WEIGHTS " << u_pos1.size() << " " << u_pos2.size() <<endl;
-  clock_t begin=clock();
+  clock_t begin, end;
+  if (TIMING) {
+    begin=clock();
+  }
   _subproblem->update_weights(u_pos1, u_val1, true);
   _subproblem->update_weights(u_pos2, u_val2, false);
-  clock_t end=clock();
-  cout << "UPDATE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+  if (TIMING) {
+    end=clock();
+    cout << "UPDATE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
   _lagrange_weights = weights;
   
 }
@@ -63,17 +69,22 @@ void Decode::print_output(const wvector & subgrad) {
 }
 
 void Decode::solve(double & primal , double & dual, wvector & subgrad) {
-  cout << "Solving" << endl;
-  clock_t begin=clock();  
+  clock_t begin, end;
+  if (TIMING) {
+    cout << "Solving" << endl;
+    begin=clock();
+  }  
   _subproblem->solve();
-  clock_t end=clock();      
-  cout << "SOLVE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
-  
+  if (TIMING) {
+    end=clock();      
+    cout << "SOLVE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
 
 
   // now add the forward trigrams at each node
-  begin=clock();  
-   
+  if (TIMING) {
+    begin=clock();  
+  }
   EdgeCache penalty_cache(_forest.num_edges());
   int num_edges = _forest.num_edges();
   for (unsigned int i=0; i < num_edges; i++) { 
@@ -106,22 +117,26 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     penalty_cache.set_value(edge, total_score); 
     
   }
-   end=clock();      
-  cout << "PENALTY CACHE: " << double(diffclock(end,begin)) << " ms"<< endl;
-  
-   begin=clock();  
-
+  if (TIMING) {
+    end=clock();      
+    cout << "PENALTY CACHE: " << double(diffclock(end,begin)) << " ms"<< endl;
+    
+    begin=clock();  
+  }
   EdgeCache * total = combine_edge_weights(_forest, penalty_cache, *_cached_weights);
   NodeCache scores(_forest.num_nodes()), scores2(_forest.num_nodes());
   NodeBackCache back_pointers(_forest.num_nodes()), back_pointers2(_forest.num_nodes());
 
-   end=clock();      
-  cout << "COMBINE: " << double(diffclock(end,begin)) << " ms"<< endl;
-  
+  if (TIMING) {
+    end=clock();      
+    cout << "COMBINE: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
   //double simple = best_path(_forest, *_cached_weights, scores2, back_pointers2);
   
   //cout << "SIMPLE Score " << simple << endl; 
-   begin=clock();  
+  if (TIMING) {
+    begin=clock();  
+  }
   dual = best_path(_forest, *total, scores, back_pointers);
   
   //cout << "INITIAL DUAL Score" << dual << endl;
@@ -129,8 +144,10 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
   vector <int> used_edges = construct_best_edges(_forest, back_pointers); 
   vector <const ForestNode *> used_words = construct_best_fringe(_forest, back_pointers); 
 
-   end=clock();  
-  cout << "Parse time: " << double(diffclock(end,begin)) << " ms"<< endl;
+  if (TIMING) {
+    end=clock();  
+    cout << "Parse time: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
   //assert abs(best -best_fv.dot(cur_weights)) < 1e-4, str(best) + " " + str(best_fv.dot(cur_weights))
   //lagrangians_parse = 0.0
   //lagrangians_other = 0.0
@@ -174,7 +191,9 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
       int end_at = _subproblem->cur_best_two[graph_id][0];
       int mid_at = _subproblem->cur_best_one[graph_id][0];
       int start_from = graph_id;
-      //cout << "SCORE " << _subproblem->cur_best_score[graph_id] << " " << graph_id << " " <<  _lattice.lookup_word(graph_id) << " " << mid_at << " " << _lattice.get_word(mid_at)<< " "<< _lattice.lookup_word(mid_at) << " " << end_at << " " << _lattice.get_word(end_at) << " " << _lattice.lookup_word(end_at)<< " " << _lattice.get_word(graph_id)<<endl;
+      //cout << "SCORE " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)<< " "<< _lattice.get_word(graph_id) << " " << graph_id << " " << _lattice.lookup_word(graph_id) << " " <<    _subproblem->cur_best_score[graph_id] << " "<<endl;
+      
+      //cout << "SCORE " << _subproblem->cur_best_score[graph_id] << " " << _lattice.get_word(graph_id) << " " << graph_id << " " <<  _lattice.lookup_word(graph_id) << " " << mid_at << " " << _lattice.get_word(mid_at)<< " "<< _lattice.lookup_word(mid_at) << " " << end_at << " " << _lattice.get_word(end_at) << " " << _lattice.lookup_word(end_at)<< " "<<endl;
       /*for (int k =0; k < _subproblem->cur_best_two[graph_id].size(); k++ ) {
         int e_at = _subproblem->cur_best_two[graph_id][k];
         int m_at = _subproblem->cur_best_one[graph_id][k];
@@ -289,23 +308,31 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
         subgrad[node_id + GRAMSPLIT] -= 1;
     }
   }
-
-   end=clock();  
-  cout << "Construct lagrangian: " << double(diffclock(end,begin)) << " ms"<< endl;
-
+  if (TIMING) {
+   end=clock();
+   cout << "Construct lagrangian: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
 
   //primal = 0.0;//self.compute_primal(best_fv, subtree)    
-   begin=clock();
+  if (TIMING) { 
+    begin=clock();
+  }
   primal = compute_primal(used_edges, used_words);
-   end=clock();
-  cout << "COMPUTE PRIMA: " << double(diffclock(end,begin)) << " ms"<< endl;
+  if (TIMING) {
+    end=clock();
+    cout << "COMPUTE PRIMA: " << double(diffclock(end,begin)) << " ms"<< endl;
+  }
 
+  for (int i=0; i < used_words.size(); i++ ) {
+    cout << used_words[i]->word() << " ";
+  }
+  cout << endl;
   
 
   cout << "DUAL Score" << dual << endl;
   cout << "PRIMAL " << primal << endl;
 
-  print_output(subgrad);
+  //print_output(subgrad);
   cout << endl;
   /*    if BEST:
       print "Best score", best
@@ -375,7 +402,8 @@ void Decode::sync_lattice_lm() {
     //assert (node.id() == n);
     string str = _lattice.get_word(n);
     int ind = _lm.vocab.getIndex(str.c_str());
-    if (ind == -1 || ind > max) { 
+    if (ind == -1 || ind > max) {
+      cout << "Unknown " << str << endl; 
       _cached_words->store[n] = unk;
     } else {
       _cached_words->store[n] = ind;

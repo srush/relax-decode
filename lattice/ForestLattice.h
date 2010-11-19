@@ -63,49 +63,54 @@ class ForestLattice {
   vector <vector <int> > edges_original;
 
 
-  int get_edge(int n1, int edge_num) const {
+  inline int get_edge(int n1, int edge_num) const {
     assert (edge_num < node_edges[n1]);
     assert (n1 < num_nodes);
     return graph[n1][edge_num];
   }
 
-  int num_edges(int n) const {
+  inline int num_edges(int n) const {
     assert (n < num_nodes);
     return node_edges[n];
   }
 
-  int lookup_word(int w) const {
+  inline int lookup_word(int w) const {
     //assert (n < num_nodes);
     return _words_lookup[w];
   }
   
-  int get_edge_label(int n1, int n2) const {
+  inline  int get_edge_label(int n1, int n2) const {
     return _edge_by_nodes[n1][n2];
   }
 
-  Bigram get_nodes_by_labels(int orig_id) const {
+  inline  Bigram get_nodes_by_labels(int orig_id) const {
     
     return _original_id_to_edge[orig_id];
   }
 
 
-  int num_first_words(int n) const {
+  inline int num_first_words(int n) const {
     assert (is_phrase_node(n));
     return _first_words[n].size();
   }
-  int num_last_words(int n) const {
+
+  inline int num_last_words(int n) const {
     assert (is_phrase_node(n));
     return _last_words[n].size();
   }
 
-  int first_words(int n, int i) const {
+  inline int first_words(int n, int i) const {
     assert (is_phrase_node(n));
     return _first_words[n][i];
   }
 
-  int last_words(int n, int i) const {
+  inline int last_words(int n, int i) const {
     assert (is_phrase_node(n));
     return _last_words[n][i];
+  }
+
+  inline int get_same(int w) const {
+    return _last_same[w];
   }
   
   vector<vector<Bigram> > bigrams_at_node;
@@ -122,6 +127,8 @@ class ForestLattice {
 
   vector<vector<int> > _first_words;
   vector<vector<int> > _last_words;
+
+  vector<int> _last_same;
 
   vector<int> edge_node;
   vector<int> ignore_nodes;

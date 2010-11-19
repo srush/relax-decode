@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <Vocab.h>
-#include <Ngram.h>
+#include "NGramCache.h"
 #include <File.h>
 #include "Decode.h"
 #include <iomanip>
@@ -30,7 +30,6 @@ int main(int argc, char ** argv) {
 
 
   Lattice lat;
-
   {
     fstream input(argv[2], ios::in | ios::binary);
     if (!lat.ParseFromIstream(&input)) {
@@ -55,20 +54,26 @@ int main(int argc, char ** argv) {
   
   Vocab * all = new Vocab();
   all->unkIsWord() = true;
-  Ngram * lm = new Ngram(*all, 3);
+  NgramCache * lm = new NgramCache(*all, 3);
 
   File file(argv[4], "r", 0);    
   if (!lm->read(file, false)) {
     cerr << "READ FAILURE\n";
   }
+
+  SkipTrigram skip;
+  //{
+  //skip.initialize(argv[5], *lm);
+  //}
   
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();
   
   cout << "START!!!!" << endl;
-  Decode * d = new Decode(f, graph, *weight, *lm);
+  Decode * d = new Decode(f, graph, *weight, *lm, skip);
   
   Subgradient * s = new Subgradient(d);
   s->solve();
+  //s->run_one_round();
   return 0;
 }

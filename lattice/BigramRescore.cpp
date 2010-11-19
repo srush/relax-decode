@@ -6,8 +6,8 @@
 #include <assert.h>
 using namespace std;
 
-#define TIMING 1
-#define OPTIMIZE 0
+#define TIMING 0
+#define OPTIMIZE 1
 
 BigramRescore::BigramRescore(const ForestLattice * graph_in, const GraphDecompose * gd_in):
   gd(gd_in), graph(graph_in){
@@ -241,8 +241,8 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
       //cout << up_pos << " " << b.w1 << " " << b.w2 << endl;
       //cout << forward_paths[b.w1].size() << endl;
 
-      for (int i=0; i < forward_paths[b.w1].size(); i++) {
-        int rnode = forward_paths[b.w1][i];
+      for (int i=0; i < forward_paths[b.w2].size(); i++) {
+        int rnode = forward_paths[b.w2][i];
     
         for (int j=0; j < backward_paths[b.w1].size(); j++) {
 

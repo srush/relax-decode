@@ -28,6 +28,7 @@ bool Subgradient::run_one_round() {
   //cout << endl;
   clock_t start=clock();
   _s->solve(primal, dual, subgrad);
+
   clock_t end=clock();
   cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
 
@@ -47,7 +48,7 @@ bool Subgradient::run_one_round() {
   cout << "BEST PRIMAL" << _best_primal << endl;
   cout << "BEST DUAL" << _best_dual << endl;
   cout << "Round " << _round << endl; 
-  assert (_best_primal > _best_dual);
+  //assert (_best_primal >= _best_dual);
 
   if (subgrad.normsquared() > 0.0) {
     update_weights(subgrad);
@@ -82,7 +83,7 @@ void Subgradient::update_weights(wvector & subgrad) {
 
   if  (dualsize > 2 && _duals[dualsize -1] < _duals[dualsize -2]) { 
     _nround += 1;
- } else if ( dualsize == 1) {
+  } else if ( dualsize == 1) {
     _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
   }
 

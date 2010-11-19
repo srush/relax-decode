@@ -26,9 +26,15 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   _first_words.resize(num_nodes);
   _last_words.resize(num_nodes);
   bigrams_at_node.resize(num_nodes);
+  _last_same.resize(num_word_nodes);
 
-  _original_id_to_edge.resize(num_word_nodes);
+  for (int i =0; i< num_word_nodes; i++) {
   
+    _last_same[i] = -1;
+  }
+ 
+ _original_id_to_edge.resize(num_word_nodes);
+  int same =0;
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
 
@@ -76,10 +82,31 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         //cout << "First " << node.id() << " " << plet.word(0).subword_original_id() << endl;
         //cout << "Last " << node.id() << " " << plet.word(last).subword_original_id() << endl;
         _first_words[node.id()].push_back(plet.word(0).subword_original_id());
+
+
+        for (int i =0 ; i < _last_words[node.id()].size(); i++) {
+          if (plet.word(last).word() == _words[_last_words[node.id()][i]]) {
+            // this position is the same as some previous
+            _last_same[plet.word(last).subword_original_id()] = _last_words[node.id()][i];
+            break;
+          }
+        }
+
         _last_words[node.id()].push_back(plet.word(last).subword_original_id());                
+
+        // DEBUG
+        /*for (int i =0 ; i < _first_words.size(); i++) {
+          if (plet.word(0).word() == _words[_first_words[node.id()][i]]) {
+            cout << "SAME WORD";
+          }
+          }*/
+
         
       }
     }
+
+
+
 
     for (int j =0; j < node.edge_size(); j++) {
       const Lattice_Edge & edge = node.edge(j);
@@ -134,6 +161,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   for (int i=0; i < lat.final_size(); i++) {
     final[lat.final(i)] = 1;
   }  
+  cout << "Same " << same << endl;
+  cout << "Words " << num_word_nodes << endl;
 } 
 
 
