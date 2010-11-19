@@ -2,10 +2,15 @@
 #include <string>
 #include <cpptest-suite.h>
 #include "Forest.h"
+#include "CubePruning.h"
+#include "ForestAlgorithms.h"
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <cy_svector.hpp>
+#include <svector.hpp>
 #include "hypergraph.pb.h"
+#include "EdgeCache.h"
 using namespace Test;
 using namespace std;
 
@@ -17,7 +22,7 @@ public:
     TEST_ADD(LocalTestSuite::load_test);        
   }
   
-private:
+
   void load_test() {
 
 
@@ -41,14 +46,32 @@ private:
     // Optional:  Delete all global objects allocated by libprotobuf.
     google::protobuf::ShutdownProtobufLibrary();
 
-    
+    svector<int, double> * weight;
+    {
+      fstream input("test_data/config.ini", ios::in );
+      char buf[1000];
+      input.getline(buf, 100000);
+      string s (buf);
+      weight = svector_from_str<int, double>(s);
+    }
+    Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
+    NodeBackCache bcache(f.num_nodes());
+    NodeCache ncache(f.num_nodes());
+
+    CubePruning p(f, *w, BlankNonLocal(), 100, 5);
+    vector <Hyp> kbest;
+    //p.run(f.root(), kbest);
+    p.parse();
+    double best = best_path(f, *w, ncache, bcache);
+    cout << best << endl;
   }
     
 };
 
 
 int main(int argc, const char * argv[]) {
-  Test::TextOutput output(Test::TextOutput::Verbose);
+  //Test::TextOutput output(Test::TextOutput::Verbose);
   LocalTestSuite ets;
-  return ets.run(output) ;
+   ets.load_test();
+   return 0;
 }

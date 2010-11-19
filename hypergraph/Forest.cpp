@@ -6,7 +6,32 @@
 
 using namespace std;
 
+void Forest::append_end_nodes() {
+  ForestNode * node = _root;
 
+  ForestEdge * edge = node->_edges[0];
+  str_vector * features = svector_from_str<int, double>("");
+  ForestNode * s1 = new ForestNode("", num_nodes(), features, "<s>", true);   
+  s1->add_in_edge(edge);
+  _nodes.push_back(s1);
+  ForestNode * s2 = new ForestNode("", num_nodes(), features, "<s>", true);   
+  s2->add_in_edge(edge);
+_nodes.push_back(s2);
+  ForestNode * se1 = new ForestNode("", num_nodes(), features, "</s>", true);   
+  se1->add_in_edge(edge);
+  _nodes.push_back(se1);
+  ForestNode * se2 = new ForestNode("", num_nodes(), features, "</s>", true);   
+  se2->add_in_edge(edge);
+  _nodes.push_back(se2);
+  
+
+  edge->_tail_nodes.resize(5);
+  edge->_tail_nodes[2] = edge->_tail_nodes[0];
+  edge->_tail_nodes[0] = s1;
+  edge->_tail_nodes[1] = s2;
+  edge->_tail_nodes[3] = se1;
+  edge->_tail_nodes[4] = se2;
+}
 
 Forest::Forest(const Hypergraph& hgraph) {
   assert (hgraph.node_size() > 0);

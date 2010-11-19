@@ -34,11 +34,12 @@ public:
   const str_vector & fvector() const {
     return *_features;
   }
+  vector <ForestNode *> _tail_nodes;
 private:
   const string & _label; 
   str_vector * _features;
   const int _id;
-  vector <ForestNode *> _tail_nodes;
+
   
 };
 
@@ -85,11 +86,12 @@ public:
   
 
   //void print();
+  vector <ForestEdge *> _edges; 
 private:
   const string & _label;
   const int  _id;
   str_vector * _features;
-  vector <ForestEdge *> _edges; 
+  
   vector <ForestEdge *> _in_edges; 
   const string _word;
   const bool _is_word;
@@ -101,7 +103,8 @@ class Forest {
  public:
   Forest(const Hypergraph& pb);
   void print() const;
-
+  
+  void append_end_nodes();
   const ForestNode & root() const {
     return *_root;
   }

@@ -10,6 +10,8 @@ double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights,
 vector <const ForestNode *> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 
+
+
 EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double> & weight_vector ) {
   EdgeCache * weights = new EdgeCache(forest.num_edges());
   
@@ -35,6 +37,8 @@ EdgeCache* combine_edge_weights(const Forest & forest, const EdgeCache & w1, con
   }
   return combine;
 }
+
+
 
 vector <const ForestNode *> construct_best_fringe(const Forest & forest, const NodeBackCache & back_memo_table) {
   return construct_best_fringe_help(forest.root(), back_memo_table);
