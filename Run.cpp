@@ -51,7 +51,7 @@ int main(int argc, char ** argv) {
     {
       stringstream fname;
       fname << argv[1] << i;
-      cout << fname << endl; 
+      //cout << fname << endl; 
       fstream input(fname.str().c_str(), ios::in | ios::binary);
       if (!hgraph.ParseFromIstream(&input)) {
         assert (false);
@@ -66,7 +66,7 @@ int main(int argc, char ** argv) {
     {
       stringstream fname;
       fname << argv[2] << i;
-      cout << fname << endl; 
+      //cout << fname << endl; 
       fstream input(fname.str().c_str(), ios::in | ios::binary);
       if (!lat.ParseFromIstream(&input)) {
         assert (false);
@@ -79,7 +79,7 @@ int main(int argc, char ** argv) {
     // Optional:  Delete all global objects allocated by libprotobuf.
     //google::protobuf::ShutdownProtobufLibrary();
   
-    cout << "START!!!!" << endl;
+    //cout << "START!!!!" << endl;
     SkipTrigram st;
     Decode * d = new Decode(f, graph, *weight, *lm, st);
     

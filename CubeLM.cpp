@@ -78,7 +78,7 @@ int main(int argc, char ** argv) {
     {
       stringstream fname;
       fname <<argv[1] << i;
-      cout << fname.str() << endl;
+      //cout << fname.str() << endl;
       fstream input(fname.str().c_str(), ios::in | ios::binary);
       if (!hgraph.ParseFromIstream(&input)) {
         assert (false);
@@ -95,11 +95,12 @@ int main(int argc, char ** argv) {
 
     Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
     Cache<ForestNode, int> * words = cache_word_nodes(*lm, f);
+    
     clock_t begin=clock();    
     CubePruning p(f, *w, LMNonLocal(f, *lm, *words), 100, 3);
-    cout << p.parse() << endl;
+    double v =p.parse();    
     clock_t end=clock();
-    cout << "Time: " << double(diffclock(end,begin)) << endl;
+    cout << v << " " <<  (double)diffclock(end,begin) << endl;
   }
   return 0;
 }

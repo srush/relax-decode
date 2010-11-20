@@ -19,15 +19,15 @@ void Subgradient::solve() {
   }
   //if (TIMING) {
     clock_t end=clock();
-    cout << "FULL TIME "<< double(diffclock(end,start)) << endl;
+  
     //}
   if (_round < 1000) {
     //assert (_best_primal == _best_dual);
     //cout << _best_primal << endl;
     //cout << "CONVERGED" << endl;
   }
-  cout << _best_primal << endl;
-  cout << "round " << _round << endl;
+  cout << _best_primal << " " << _best_dual << " " << _round << " " 
+       << double(diffclock(end,start)) << endl ;
 }
 
 

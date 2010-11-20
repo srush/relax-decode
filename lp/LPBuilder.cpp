@@ -521,30 +521,6 @@ const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, LM 
 
 int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  Hypergraph hgraph;
-
-  {
-    fstream input(argv[1], ios::in | ios::binary);
-    if (!hgraph.ParseFromIstream(&input)) {
-      assert (false);
-    } 
-  }
-
-  Forest f (hgraph);
-
-
-  Lattice lat;
-
-  {
-    fstream input(argv[2], ios::in | ios::binary);
-    if (!lat.ParseFromIstream(&input)) {
-      assert (false);
-    }
-    
-  }
-
-  ForestLattice graph (lat);
   
   svector<int, double> * weight;
 
@@ -567,16 +543,48 @@ int main(int argc, char ** argv) {
     cerr << "READ FAILURE\n";
   }
 
-  LPBuilder lp(f);
-  const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
+  for(int i=1;i<=10;i++) {
 
+      Hypergraph hgraph;
+      
+      {
+        stringstream fname;
+        fname <<argv[1] << i;
+        fstream input(fname.str().c_str(), ios::in | ios::binary);
+        if (!hgraph.ParseFromIstream(&input)) {
+          assert (false);
+        } 
+      }
+      
+      Forest f (hgraph);
+      
 
-  Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
-  lp.solve_full( *w, graph, *lm, *word_cache);
-  NodeBackCache bcache(f.num_nodes());
-  NodeCache ncache(f.num_nodes());
-  double best = best_path(f, *w, ncache, bcache);
-  //cout << best << endl;
-  
+      Lattice lat;
+
+      {
+        stringstream fname;
+        fname <<argv[2] << i;
+
+        fstream input(fname.str().c_str(), ios::in | ios::binary);
+        if (!lat.ParseFromIstream(&input)) {
+          assert (false);
+        }
+        
+      }
+
+      ForestLattice graph (lat);
+      
+      
+      LPBuilder lp(f);
+      const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
+      
+
+      Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
+      lp.solve_full( *w, graph, *lm, *word_cache);
+      NodeBackCache bcache(f.num_nodes());
+      NodeCache ncache(f.num_nodes());
+      //double best = best_path(f, *w, ncache, bcache);
+      //cout << best << endl;
+  }  
   return 1;
 }
