@@ -3,6 +3,8 @@
 #include "util.h"
 #include "time.h"
 #define TIMING 0
+#define DEBUG 0
+
 void Decode::update_weights(const wvector & update,  wvector * weights ) {
   vector <int> u_pos1, u_pos2;
   vector <float> u_val1, u_val2;
@@ -16,7 +18,9 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
       u_val1.push_back(-it->second);
     }
   }
-  //cout << "UPDATING WEIGHTS " << u_pos1.size() << " " << u_pos2.size() <<endl;
+  if (DEBUG) {
+    cout << "UPDATING WEIGHTS " << u_pos1.size() << " " << u_pos2.size() <<endl;
+  }
   clock_t begin, end;
   if (TIMING) {
     begin=clock();
@@ -85,7 +89,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
   if (TIMING) {
     begin=clock();  
   }
-  EdgeCache penalty_cache(_forest.num_edges());
+  EdgeCache self_penalty_cache(_forest.num_edges());
+  EdgeCache trigram_penalty_cache(_forest.num_edges());
   int num_edges = _forest.num_edges();
   for (unsigned int i=0; i < num_edges; i++) { 
     const ForestEdge & edge = _forest.get_edge(i);
@@ -104,17 +109,23 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
         total_score += score;          
       }
       //cout << edge.id()  << " " << total_score << endl;
+      trigram_penalty_cache.set_value(edge, total_score); 
     }
-    // self penalties
+    
     {
-      vector <int> lat_edges = get_lat_edges(edge.id()); 
-      for (unsigned int j =0; j < lat_edges.size(); j++) {
-        int lat_id = lat_edges[j];
-        total_score += (*_lagrange_weights)[lat_id];
-        total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
-      }
-    }    
-    penalty_cache.set_value(edge, total_score); 
+      double total_score = 0.0;
+      // self penalties
+      {
+        vector <int> lat_edges = get_lat_edges(edge.id()); 
+        for (unsigned int j =0; j < lat_edges.size(); j++) {
+          int lat_id = lat_edges[j];
+          total_score += (*_lagrange_weights)[lat_id];
+          total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
+        }
+      }    
+      self_penalty_cache.set_value(edge, total_score); 
+    }
+
     
   }
   if (TIMING) {
@@ -123,7 +134,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     
     begin=clock();  
   }
-  EdgeCache * total = combine_edge_weights(_forest, penalty_cache, *_cached_weights);
+  EdgeCache * total1 = combine_edge_weights(_forest, self_penalty_cache, *_cached_weights);
+  EdgeCache * total = combine_edge_weights(_forest, trigram_penalty_cache, *total1);
   NodeCache scores(_forest.num_nodes()), scores2(_forest.num_nodes());
   NodeBackCache back_pointers(_forest.num_nodes()), back_pointers2(_forest.num_nodes());
 
@@ -138,7 +150,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     begin=clock();  
   }
   dual = best_path(_forest, *total, scores, back_pointers);
-  
+  double trig_total = 0.0;
   //cout << "INITIAL DUAL Score" << dual << endl;
 
   vector <int> used_edges = construct_best_edges(_forest, back_pointers); 
@@ -191,22 +203,25 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
       int end_at = _subproblem->cur_best_two[graph_id][0];
       int mid_at = _subproblem->cur_best_one[graph_id][0];
       int start_from = graph_id;
-      //cout << "SCORE " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)<< " "<< _lattice.get_word(graph_id) << " " << graph_id << " " << _lattice.lookup_word(graph_id) << " " <<    _subproblem->cur_best_score[graph_id] << " "<<endl;
-      
+      double lag_total = 0.0;
       //cout << "SCORE " << _subproblem->cur_best_score[graph_id] << " " << _lattice.get_word(graph_id) << " " << graph_id << " " <<  _lattice.lookup_word(graph_id) << " " << mid_at << " " << _lattice.get_word(mid_at)<< " "<< _lattice.lookup_word(mid_at) << " " << end_at << " " << _lattice.get_word(end_at) << " " << _lattice.lookup_word(end_at)<< " "<<endl;
-      /*for (int k =0; k < _subproblem->cur_best_two[graph_id].size(); k++ ) {
+      for (int k =0; k < _subproblem->cur_best_two[graph_id].size(); k++ ) {
         int e_at = _subproblem->cur_best_two[graph_id][k];
         int m_at = _subproblem->cur_best_one[graph_id][k];
-        if (pos ==-1 || pos < 2) {
-          cout << "ignored " <<endl;
-          break;} 
-        if (_lattice.get_word(e_at) == used_words[pos-2]->word()
-            && _lattice.get_word(m_at) == used_words[pos-1]->word()) {
+        //if (pos ==-1 || pos < 2) {
+          //cout << "ignored " <<endl;
+          //break;
+        //} 
+        if (((pos ==0 && e_at == 0) || (pos ==1 && e_at == 1)
+             || ( pos > 1 && e_at == _lattice.lookup_word_by_hypergraph_node(used_words[pos-2]->id())))
+             && (( pos ==0 && m_at == 1) ||
+                 (pos >= 1 && m_at == _lattice.lookup_word_by_hypergraph_node(used_words[pos-1]->id())))) {
           end_at = e_at;
           mid_at = m_at;
+          //cout << "hit " <<endl;
           break;
         }
-        }*/
+      }
 
       //cout << end_at << " " << mid_at << " " << start_from << endl; 
       //cout << "DUAL " << _lattice.get_word(end_at) << " " <<  
@@ -224,6 +239,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
         //cout << "DEC!" << node_id << endl;
         assert(node_id >= 0);
         subgrad[node_id] -= 1;
+        lag_total += (*_lagrange_weights)[node_id] ;
       }
       
       const vector <int> between2 = _subproblem->get_best_nodes_between(mid_at,end_at, false);
@@ -234,7 +250,22 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
         //cout << "DEC!" << node_id << endl;
         assert(node_id >= 0);
         subgrad[node_id + GRAMSPLIT] -= 1;
+        lag_total += (*_lagrange_weights)[node_id + GRAMSPLIT] ;
       }
+      if (DEBUG) {
+        double lm_score = (-0.141221) * _subproblem->word_prob_reverse(graph_id, mid_at, end_at);
+        //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[graph_id] << endl;
+        assert(fabs(-lag_total + lm_score - _subproblem->cur_best_score[graph_id]) < 1e-4);
+
+        cout << "SCORE " << graph_id << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)<< " "<< _lattice.get_word(graph_id) << " " << graph_id <<" " << mid_at << " " << end_at << " " << _lattice.lookup_word(graph_id) << " " <<   -lag_total << " " << lm_score << " " << lm_score - lag_total<<endl;
+        trig_total += _subproblem->cur_best_score[graph_id];
+
+
+      }
+
+
+
+
     }
   }
   
@@ -257,6 +288,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     subgrad[feat] += 1; 
     
     dual += (*_lagrange_weights)[feat];  
+    trig_total -= (*_lagrange_weights)[feat];  
   }
 
 
@@ -265,10 +297,12 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     int feat = 1;
     subgrad[feat] += 1 ;
     dual += (*_lagrange_weights)[feat];
+    trig_total -= (*_lagrange_weights)[feat];  
 
     feat = 1 + GRAMSPLIT; //"2UNI:"+str(bounds[1][1]);
     subgrad[feat] += 1 ;
     dual += (*_lagrange_weights)[feat]  ;
+    trig_total -= (*_lagrange_weights)[feat];  
   }
 
   // START BOUNDARY
@@ -281,6 +315,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     //cout << "START1" << score << endl;
     //(forbigram,  score) = self.subproblem.get_best_trigram(id) ;
     dual += score;
+    trig_total += score;
     
     vector <int> between2 = _subproblem->get_best_nodes_between(_subproblem->cur_best_one[id][0], _subproblem->cur_best_two[id][0], false);
     for (unsigned int k = 0; k < between2.size(); k++) {
@@ -295,7 +330,9 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     // second word <s>
     double score = _subproblem->cur_best_score[id]; 
     //cout << "START2" <<score << endl;
+
     dual += score;
+    trig_total += score;
     vector <int> between1 = _subproblem->get_best_nodes_between(id, _subproblem->cur_best_one[id][0], true);
 
     for (unsigned int k = 0; k < between1.size(); k++) {
@@ -308,6 +345,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
         int node_id = between2[k];
         subgrad[node_id + GRAMSPLIT] -= 1;
     }
+
   }
   if (TIMING) {
    end=clock();
@@ -324,17 +362,23 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad) {
     cout << "COMPUTE PRIMA: " << double(diffclock(end,begin)) << " ms"<< endl;
   }
 
-  /*for (int i=0; i < used_words.size(); i++ ) {
-    cout << used_words[i]->word() << " ";
+
+
+  if (DEBUG) {
+    cout << "TRIG TOTAL: " << trig_total<< endl;    
+    print_output(subgrad);
+    for (int i=0; i < used_words.size(); i++ ) {
+      cout << used_words[i]->word() << " ";
+    }
+    cout << endl;
+  
+
+    cout << "DUAL Score" << dual << endl;
+    cout << "PRIMAL " << primal << endl;
+
+
+    cout << endl;
   }
-  cout << endl;
-  */
-
-  //cout << "DUAL Score" << dual << endl;
-  //cout << "PRIMAL " << primal << endl;
-
-  //print_output(subgrad);
-  //cout << endl;
   /*    if BEST:
       print "Best score", best
       print subtree
@@ -361,21 +405,71 @@ double Decode::compute_primal(const vector <int> used_edges, const vector <const
     total += _cached_weights->store[used_edges[i]] ;
   }
 
+  
   vector <string> used_strings;
+  vector <int> used_lat_nodes;
   used_strings.push_back("<s>");
   used_strings.push_back("<s>");
+  used_lat_nodes.push_back(0);
+  used_lat_nodes.push_back(1);
   for (int i =0; i < used_nodes.size(); i++) {
     used_strings.push_back(used_nodes[i]->word());
+    used_lat_nodes.push_back(_lattice.lookup_word_by_hypergraph_node(used_nodes[i]->id()));
   }
   used_strings.push_back("</s>");
   used_strings.push_back("</s>");
+  used_lat_nodes.push_back(_lattice.num_word_nodes-2);
+  used_lat_nodes.push_back(_lattice.num_word_nodes-1);
+
   double lm_score =0.0;
+  if (DEBUG) {
+    cout << endl;
+  }
   for (int i =0; i < used_strings.size()-2; i++) {
     VocabIndex context [] = {lookup_string(used_strings[i+1]), lookup_string(used_strings[i]), Vocab_None};
-    //cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (-0.141221) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+    if (DEBUG) {
+      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (-0.141221) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+    }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
   }
   //cout << "total " << total << endl;
+
+
+  if (DEBUG) {
+    
+    cout << " STARTING FEASIBLE" << endl; 
+    double total = 0.0;
+    for (int i =2; i < used_lat_nodes.size(); i++) {
+      int start_from = used_lat_nodes[i];
+      int graph_id = used_lat_nodes[i];
+      
+      int mid_at   = used_lat_nodes[i-1];
+      int end_at   = used_lat_nodes[i-2];
+      assert(_lattice.is_word(graph_id));
+      assert(_lattice.is_word(mid_at));
+      assert(_lattice.is_word(end_at));
+      double lag_total =0.0;
+      
+      vector <int > between1 = _subproblem->get_best_nodes_between(start_from,mid_at, true);
+      for (int k = 0; k < between1.size(); k++) {        
+        int node_id = between1[k];
+        lag_total += (*_lagrange_weights)[node_id] ;
+      }
+      
+      const vector <int> between2 = _subproblem->get_best_nodes_between(mid_at,end_at, false);
+
+      for (int k = 0; k < between2.size(); k++) {
+        int node_id = between2[k];
+        lag_total += (*_lagrange_weights)[node_id + GRAMSPLIT] ;
+      }
+
+      double lm_score = (-0.141221) * _subproblem->word_prob_reverse(graph_id, mid_at, end_at);
+    
+      cout << "FEASIBLE " << graph_id << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)<< " "<< _lattice.get_word(graph_id) << " " << end_at << " " << mid_at << " " <<  graph_id << " " << _lattice.lookup_word(graph_id) << " " <<  lm_score << " " << - lag_total << " " << lm_score - lag_total <<endl;
+      total += lm_score - lag_total;
+    }
+    cout << "FEAS TOTAL " << total << endl;
+  }
   
   return total + (-0.141221) *  lm_score;
 }

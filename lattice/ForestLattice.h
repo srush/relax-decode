@@ -78,6 +78,13 @@ class ForestLattice {
     //assert (n < num_nodes);
     return _words_lookup[w];
   }
+
+  inline int lookup_word_by_hypergraph_node(int hnode) const {
+    //assert (n < num_nodes);
+    int w =  _hnode_from_word_lookup[hnode];
+    assert(is_word(w));
+    return w;
+  }
   
   inline  int get_edge_label(int n1, int n2) const {
     return _edge_by_nodes[n1][n2];
@@ -132,7 +139,7 @@ class ForestLattice {
 
   vector<int> edge_node;
   vector<int> ignore_nodes;
-
+  vector<int> _hnode_from_word_lookup;
   vector <Bigram>  _original_id_to_edge;
 };
 

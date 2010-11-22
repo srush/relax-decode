@@ -325,7 +325,7 @@ void Subproblem::solve() {
       //cout << "F2 " << w1 <<  " " << f2->size() << " "<< cur_best_score[w1] << endl;       
 
 
-      if (first_time) {
+      if (first_time || !OPTIMIZE) {
         VocabIndex context [] = {_word_node_cache.store[w2], Vocab_None};        
         lm->wordProbPrimeCache(_word_node_cache.store[w1], context);
       }
@@ -353,7 +353,6 @@ void Subproblem::solve() {
           
             forward_trigrams[w1][w2]->push_back(w3);
             forward_trigrams_score[w1][w2]->push_back(lm_score);
-            
           
           } else {
             //cout << graph->get_word(w1)<< _word_node_cache.store[w1] << " " << graph->get_word(w2) << _word_node_cache.store[w2] << " " << graph->get_word(w3) << _word_node_cache.store[w3] << endl;
@@ -370,6 +369,11 @@ void Subproblem::solve() {
         } else if (OPTIMIZE) {
           lookups++;
           lm_score = (*forward_trigrams_score[w1][w2])[j];
+          score2= bigram_weight_cache_two[w2][w3];
+        } else if (!OPTIMIZE) {
+          
+          VocabIndex context [] = {_word_node_cache.store[w2], _word_node_cache.store[w3], Vocab_None};
+          lm_score = (-0.141221) *  lm->wordProbFromCache(_word_node_cache.store[w1], context);
           score2= bigram_weight_cache_two[w2][w3];
         }
         

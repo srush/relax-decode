@@ -13,7 +13,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   _is_word.resize(num_word_nodes);
   original_edges.resize(num_hyper_edges);
   edges_original.resize(num_word_nodes);
-  
+  _hnode_from_word_lookup.resize(10000);  
   word_node.resize(num_nodes);
   edge_node.resize(num_nodes);
   ignore_nodes.resize(num_nodes);
@@ -63,7 +63,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         for (int j=0; j < plet.word_size(); j++) {
           const Subword & word = plet.word(j);
           int hyper_edge =plet.phraselet_hypergraph_edge();
-          
+          _hnode_from_word_lookup[word.hypergraph_node_id()] = word.subword_original_id();
           _words_lookup[word.subword_original_id()] = node.id();
           _words[word.subword_original_id()] = word.word();
           _is_word[word.subword_original_id()] = 1;

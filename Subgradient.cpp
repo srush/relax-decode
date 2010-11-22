@@ -6,11 +6,13 @@
 #include "util.h"
 
 #define TIMING 0 
+#define DEBUG 0
+ 
 using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round <1000) {
+  while(run_one_round() && _round <300) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
@@ -55,7 +57,7 @@ bool Subgradient::run_one_round() {
 
   _duals.push_back(dual);
   _primals.push_back(primal);
-  if (TIMING) {
+  if (DEBUG) {
   
     cout << "BEST PRIMAL" << _best_primal << endl;
     cout << "BEST DUAL" << _best_dual << endl;
@@ -97,29 +99,26 @@ void Subgradient::update_weights(wvector & subgrad) {
   if  (dualsize > 2 && _duals[dualsize -1] < _duals[dualsize -2]) { 
     _nround += 1;
   } else if ( dualsize == 1) {
-    _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
+    _base_weight =  (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
   }
 
   //double alpha = _base_weight * pow(0.99, 2*(float)_nround);
-  if (_nround == 10) {
+  if (_nround == 20) {
     _base_weight *= 0.7;
     _nround =0;
   } 
   double alpha = _base_weight;
   //double alpha = _base_weight / ((float)_nround / 10.0);
   svector<int, double> updates = alpha * subgrad;
-  if (TIMING) {
-    cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
-  }
+  
   _weights += updates;
-  if (TIMING) {
+  if (DEBUG) {
+    cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
     cout << "CHANGED " << size << endl ;
     cout << "UPDATES" << " " << "Alpha " <<alpha << endl ;
     cout << endl;
+    //print_vec(_weights) ;
   }
-  //print_vec(updates) ;
-  //print_vec(_weights) ;
-
 
   clock_t start=clock();
   _s->update_weights(updates, &_weights);
