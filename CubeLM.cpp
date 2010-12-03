@@ -41,7 +41,7 @@ Cache <ForestNode, int > * cache_word_nodes(Ngram lm, const Forest & forest) {
 
 
 int main(int argc, char ** argv) {
-  cout << argc << endl;
+  //cout << argc << endl;
 
   
   svector<int, double> * weight;
@@ -67,9 +67,9 @@ int main(int argc, char ** argv) {
   
   
 
-  cout << "START!!!!" << endl;
+  //cout << "START!!!!" << endl;
 
-  for (int i=1; i <= 10; i++) {
+  for (int i=1; i <= 100; i++) {
     
     GOOGLE_PROTOBUF_VERIFY_VERSION;
     
@@ -100,7 +100,7 @@ int main(int argc, char ** argv) {
     CubePruning p(f, *w, LMNonLocal(f, *lm, *words), 100, 3);
     double v =p.parse();    
     clock_t end=clock();
-    cout << v << " " <<  (double)diffclock(end,begin) << endl;
+    cout << i << " "<< v << " " <<  (double)diffclock(end,begin) << endl;
   }
   return 0;
 }

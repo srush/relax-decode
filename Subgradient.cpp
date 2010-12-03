@@ -10,7 +10,7 @@ using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round <1000) {
+  while(run_one_round() && _round <300) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
@@ -21,7 +21,7 @@ void Subgradient::solve() {
     clock_t end=clock();
   
     //}
-  if (_round < 1000) {
+  if (_round < 500) {
     //assert (_best_primal == _best_dual);
     //cout << _best_primal << endl;
     //cout << "CONVERGED" << endl;
@@ -100,7 +100,7 @@ void Subgradient::update_weights(wvector & subgrad) {
     _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
   }
 
-  //double alpha = _base_weight * pow(0.99, 2*(float)_nround);
+  //double alpha = _base_weight * pow(0.99, (double)_nround);
   if (_nround == 10) {
     _base_weight *= 0.7;
     _nround =0;

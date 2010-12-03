@@ -41,7 +41,7 @@ int main(int argc, char ** argv) {
 
 
 
-  for (int i =1; i <= 10; i++) { 
+  for (int i =1; i <= 100; i++) { 
 
 
     GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -82,7 +82,7 @@ int main(int argc, char ** argv) {
     //cout << "START!!!!" << endl;
     SkipTrigram st;
     Decode * d = new Decode(f, graph, *weight, *lm, st);
-    
+    cout << i << " ";
     Subgradient * s = new Subgradient(d);
     s->solve();
   }
