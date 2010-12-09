@@ -89,13 +89,44 @@ vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCa
 }
 
 
+vector <int> construct_best_node_order_help(const ForestNode & node, const NodeBackCache & back_memo_table) {
+  vector <int> best; 
+
+  best.push_back(node.id());
+
+  if (node.num_edges() == 0) {
+    assert (node.is_word());
+    cout << "w ";
+  } else {
+    cout << node.id() << "D ";
+    const ForestEdge * edge = back_memo_table.get_value(node);  
+    for (int i =0; i < edge->num_nodes(); i++)  {
+      const ForestNode & bnode = edge->tail_node(i);
+      vector <int> b = construct_best_node_order_help(bnode, back_memo_table);
+      for (int j=0; j < b.size(); j++ ) {
+        best.push_back(b[j]);
+      }
+    }
+    cout << node.id() << "U ";
+  }
+  
+  return best;
+}
+
+vector <int> construct_best_node_order(const Forest & forest, const NodeBackCache & back_memo_table) {
+  return construct_best_node_order_help(forest.root(), back_memo_table);
+}
+
 
 double best_path(const Forest & forest, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table) {
   return  best_path_helper(forest.root(), edge_weights, score_memo_table, back_memo_table);
 }
 
 
-double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table) {
+
+// find the best path through a hypergraph
+double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights, 
+                        NodeCache & score_memo_table, NodeBackCache & back_memo_table) {
   double best_score = INF;
   int id = node.id();
 
@@ -132,6 +163,7 @@ double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights,
   back_memo_table.set_value(node, best_edge);
   return best_score;
 } 
+
 
 
 

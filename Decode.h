@@ -14,6 +14,7 @@
 
 using namespace std;
 #define GRAMSPLIT 100000
+#define GRAMSPLIT2 200000
 
 typedef svector<int, double> wvector;
 
@@ -29,13 +30,19 @@ class Decode: public SubgradientProducer {
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
+    _projection =  _subproblem->rand_projection(2);
+    _proj_dim = 2;
+
     //cout<<"ready to roll" << endl;
+    //_projection = _subproblem->rand_projection(2);
   }
-  
+   
   void solve(double & primal, double & dual, wvector &);
   void update_weights(const wvector & updates,  wvector * weights );
-
+  
  private:
+  void debug(int start_from, int dual_mid, int dual_end, string primal_mid, string primal_end);
+  void add_subgrad( wvector & subgrad, int start_from, int mid_at, int end_at, bool first);
   double compute_primal(const vector <int> used_edges, const vector <const ForestNode *> used_nodes);
   int lookup_string(string word);
   Subproblem * _subproblem;
@@ -51,6 +58,10 @@ class Decode: public SubgradientProducer {
   vector <int > get_lex_lat_edges(int edge_id);
   void sync_lattice_lm();
   void print_output(const wvector & );
+
+  vector <int > _projection;
+  int _proj_dim;
+  double lm_total, o_total, lag_total;
 };
 
 #endif

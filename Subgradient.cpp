@@ -10,7 +10,7 @@ using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round <300) {
+  while(run_one_round() && _round <500) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
@@ -19,14 +19,18 @@ void Subgradient::solve() {
   }
   //if (TIMING) {
     clock_t end=clock();
-  
+ 
+
     //}
-  if (_round < 500) {
+ if (_round < 500 && ( _best_primal - _best_dual) > 1e-3) {
+   cout << "optimization is ambiguous" << endl;
+   //exit(0);
     //assert (_best_primal == _best_dual);
     //cout << _best_primal << endl;
     //cout << "CONVERGED" << endl;
   }
-  cout << _best_primal << " " << _best_dual << " " << _round << " " 
+
+ cout << "*END*  "<< _best_primal << " " << _best_dual << " " << _round << " " 
        << double(diffclock(end,start)) << endl ;
 }
 

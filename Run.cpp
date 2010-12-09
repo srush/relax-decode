@@ -10,10 +10,13 @@
 #include "Decode.h"
 #include <iomanip>
 #include "Subgradient.h"
+#include <cstdlib>
 using namespace std;
 
 int main(int argc, char ** argv) {
   cout << argc << endl;
+
+  srand(0);
 
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -41,7 +44,7 @@ int main(int argc, char ** argv) {
 
 
 
-  for (int i =1; i <= 100; i++) { 
+  for (int i =1; i <= 25; i++) { 
 
 
     GOOGLE_PROTOBUF_VERIFY_VERSION;

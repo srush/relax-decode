@@ -2,7 +2,7 @@
 #define FORESTLATTICE_H_
 
 
-
+#include <string>
 #include "lattice.pb.h"
 
 #include <string>
@@ -46,6 +46,7 @@ class ForestLattice {
   }
 
   bool is_word(int w) const {
+    assert(w >= 0 && w < num_word_nodes);
     return _is_word[w];
   }
 
@@ -99,6 +100,12 @@ class ForestLattice {
     return _last_words[n].size();
   }
 
+  inline int num_last_bigrams(int n) const {
+    assert (is_phrase_node(n));
+    return _last_bigrams[n].size();
+  }
+
+
   inline int first_words(int n, int i) const {
     assert (is_phrase_node(n));
     return _first_words[n][i];
@@ -109,11 +116,27 @@ class ForestLattice {
     return _last_words[n][i];
   }
 
+  inline Bigram last_bigrams(int n, int i) const {
+    assert (is_phrase_node(n));
+    return _last_bigrams[n][i];
+  }
+
+
   inline int get_same(int w) const {
     return _last_same[w];
   }
+
+  inline int get_hypergraph_node_from_word(int w) const {
+    assert(is_word(w));
+    return _lat_word_to_hyp_node[w];
+  }
+
+  inline int get_word_from_hypergraph_node(int n) const { 
+    return _hyp_node_to_lat_word[n];
+  }
   
   vector<vector<Bigram> > bigrams_at_node;
+  vector <string>  _edge_label_by_nodes; 
  private:
   vector<int> word_node;
 
@@ -127,6 +150,7 @@ class ForestLattice {
 
   vector<vector<int> > _first_words;
   vector<vector<int> > _last_words;
+  vector<vector<Bigram> > _last_bigrams;
 
   vector<int> _last_same;
 
@@ -134,6 +158,11 @@ class ForestLattice {
   vector<int> ignore_nodes;
 
   vector <Bigram>  _original_id_to_edge;
+
+  vector <int>  _lat_word_to_hyp_node;
+  vector <int>  _hyp_node_to_lat_word;
+
+
 };
 
 

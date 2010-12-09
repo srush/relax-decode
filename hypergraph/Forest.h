@@ -8,6 +8,7 @@
 #include <vector>
 #include "svector.hpp"
 #include <string>
+#include "assert.h"
 using namespace std;
 
 

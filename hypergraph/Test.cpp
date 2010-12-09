@@ -11,6 +11,7 @@
 #include <svector.hpp>
 #include "hypergraph.pb.h"
 #include "EdgeCache.h"
+#include "ExtendCKY.h"
 using namespace Test;
 using namespace std;
 
@@ -55,15 +56,31 @@ public:
       weight = svector_from_str<int, double>(s);
     }
     Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
-    NodeBackCache bcache(f.num_nodes());
+    NodeBackCache bcache(f.num_nodes()),  bcache2(f.num_nodes());
     NodeCache ncache(f.num_nodes());
 
-    CubePruning p(f, *w, BlankNonLocal(), 100, 5);
+    //CubePruning p(f, *w, BlankNonLocal(), 100, 5);
     vector <Hyp> kbest;
     //p.run(f.root(), kbest);
-    p.parse();
+
+    //p.parse();
     double best = best_path(f, *w, ncache, bcache);
     cout << best << endl;
+    
+    TrivialController c;
+    ExtendCKY ecky(f, *w, c);
+    best = ecky.best_path(bcache2);
+    double total =0.0;
+    for (int i =0; i < f.num_nodes(); i++) {
+      const ForestNode & node = f.get_node(i);
+      
+      if (!node.is_word() && bcache2.has_key(node)) {
+        //assert(bcache.get_value(node) == bcache2.get_value(node));
+        total += w->get_value(*(bcache2.get_value(node)));
+      }
+    }
+    cout << best << endl;
+    cout << total << endl;
   }
     
 };
