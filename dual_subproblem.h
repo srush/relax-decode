@@ -12,8 +12,8 @@
 #include<fstream>
 #include<set>
 
-#define PROJECT 1
-#define TRIPROJECT 0
+#define PROJECT 0
+#define TRIPROJECT 1
 
 using namespace std;
 class SkipTrigram;
@@ -38,12 +38,18 @@ class Subproblem {
   vector <vector <vector<int> > > cur_best_tri_projection_first;
   vector <vector <vector <float> > > cur_best_tri_projection_score;
 
-
- public: 
   // make private (eventually)
   vector <float> cur_best_score;
-  vector <vector<int> > cur_best_one;
-  vector <vector<int> > cur_best_two;
+  vector<int>  cur_best_one;
+  vector<int>  cur_best_two;
+
+  void solve_proj(int d2, int d3, 
+                            vector <int> & proj_best_one,
+                            vector <int> & proj_best_two,
+                            vector <float> & proj_best_score
+                            ) ;
+
+ public: 
 
   vector <bool > overridden;
 
@@ -53,46 +59,58 @@ class Subproblem {
   }
 
   int projection_dims;
-  void project(int proj_dim, vector <int> projection );
+  void project(int proj_dim, vector <int> projection);
 
   inline int project_word(int w ) const {
     return projection[w];
   }
 
+  inline void separate(int w1, int w2) {
+    if (projection[w1] == projection[w2] )
+      projection[w1] = (projection[w1] + 1) % projection_dims; 
+  }
+
+
+
   vector <int> rand_projection(int k) ;
+  vector <int> projection_with_constraints(int k, map<int, vector <int> > & constraints) ;
   // End Project
 
   inline int best_one(int w1, int w2, int w3) const {
     if (PROJECT) {
       int d = projection[w2];
-      return cur_best_bi_projection_first[w1][d];
+      int proj = cur_best_bi_projection_first[d][w1];
+      assert (proj != -1);
+      return cur_best_bi_projection_first[d][w1];
     } else if (TRIPROJECT) {
       int d = projection[w2];
       int d2 = projection[w3];
-      return cur_best_tri_projection_first[w1][d][d2];
+      return cur_best_tri_projection_first[d][d2][w1];
     } else {
-      return cur_best_one[w1][0];
+      return cur_best_one[w1];
     }
   }
 
   inline int best_two(int w1, int w2, int w3) const {
     if (PROJECT) {
       int d = projection[w2];
-      return cur_best_bi_projection[w1][d];
+      int proj = cur_best_bi_projection[d][w1];
+      assert (proj != -1);
+      return cur_best_bi_projection[d][w1];
     } else if (TRIPROJECT) {
       int d = projection[w2];
       int d2 = projection[w3];
-      return cur_best_tri_projection[w1][d][d2];
+      return cur_best_tri_projection[d][d2][w1];
     } else {
-      return cur_best_two[w1][0];
+      return cur_best_two[w1];
     }
   }
 
   inline double best_score_dim(int w1, int d, int d2) const {
     if (PROJECT) {
-      return cur_best_bi_projection_score[w1][d];
+      return cur_best_bi_projection_score[d][w1];
     } else if (TRIPROJECT) {
-      return cur_best_tri_projection_score[w1][d][d2];
+      return cur_best_tri_projection_score[d][d2][w1];
     }
   }
 
@@ -101,11 +119,11 @@ class Subproblem {
   inline double best_score(int w1, int w2, int w3) const {
     if (PROJECT) {
       int d = projection[w2];
-      return cur_best_bi_projection_score[w1][d];
+      return cur_best_bi_projection_score[d][w1];
     } else if (TRIPROJECT) {
       int d = projection[w2];
       int d2 = projection[w3];
-      return cur_best_tri_projection_score[w1][d][d2];
+      return cur_best_tri_projection_score[d][d2][w1];
     } else {
       return cur_best_score[w1];
     }
@@ -116,6 +134,7 @@ class Subproblem {
   Subproblem(const ForestLattice *g, NgramCache * lm_in, const SkipTrigram & skip, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
   void update_weights(vector <int> u_pos, vector <float> u_values, bool first);
   void solve();
+  void initialize_caches();
   //void solve_bigram();
   vector <int> get_best_nodes_between(int w1, int w2, bool first);
   float get_best_bigram_weight(int w1, int w2 , bool first);

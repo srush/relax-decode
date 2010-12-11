@@ -30,18 +30,18 @@ class Decode: public SubgradientProducer {
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
-    _projection =  _subproblem->rand_projection(2);
-    _proj_dim = 2;
-
+    
     //cout<<"ready to roll" << endl;
     //_projection = _subproblem->rand_projection(2);
+    // _constraints.resize(_lattice.num_word_nodes);
   }
    
-  void solve(double & primal, double & dual, wvector &);
+    void solve(double & primal, double & dual, wvector &, int);
   void update_weights(const wvector & updates,  wvector * weights );
   
  private:
-  void debug(int start_from, int dual_mid, int dual_end, string primal_mid, string primal_end);
+  void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
+  void greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end);
   void add_subgrad( wvector & subgrad, int start_from, int mid_at, int end_at, bool first);
   double compute_primal(const vector <int> used_edges, const vector <const ForestNode *> used_nodes);
   int lookup_string(string word);
@@ -62,6 +62,9 @@ class Decode: public SubgradientProducer {
   vector <int > _projection;
   int _proj_dim;
   double lm_total, o_total, lag_total;
+
+  map <int, vector <int> > _constraints; 
+  bool _maintain_constraints; 
 };
 
 #endif

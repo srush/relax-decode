@@ -10,7 +10,7 @@ typedef svector<int, double> wvector;
 
 class SubgradientProducer {
  public:
-  virtual void  solve(double & primal, double & dual, wvector &) =0;
+  virtual void  solve(double & primal, double & dual, wvector &, int) =0;
   virtual void update_weights(const wvector & updates,  wvector * weights )=0;
 };
 

@@ -1,3 +1,4 @@
+
 #include "Subgradient.h"
 #include "math.h"
 #include <iostream>
@@ -10,7 +11,7 @@ using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round <500) {
+  while(run_one_round() && _round < 250) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
@@ -22,7 +23,7 @@ void Subgradient::solve() {
  
 
     //}
- if (_round < 500 && ( _best_primal - _best_dual) > 1e-3) {
+ if (_round < 400 && ( _best_primal - _best_dual) > 1e-3) {
    cout << "optimization is ambiguous" << endl;
    //exit(0);
     //assert (_best_primal == _best_dual);
@@ -40,7 +41,7 @@ bool Subgradient::run_one_round() {
   wvector subgrad;
   //cout << endl;
   clock_t start=clock();
-  _s->solve(primal, dual, subgrad);
+  _s->solve(primal, dual, subgrad, _round);
 
   clock_t end;
   if (TIMING) {

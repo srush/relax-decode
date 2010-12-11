@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
 
 
 
-  for (int i =1; i <= 25; i++) { 
+  for (int i =atoi(argv[5]); i <= atoi(argv[6]); i++) { 
 
 
     GOOGLE_PROTOBUF_VERIFY_VERSION;

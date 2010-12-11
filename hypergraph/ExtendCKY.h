@@ -6,6 +6,9 @@
 #include <assert.h>
 #include <map>
 #include <vector>
+
+// #define PDIM 3
+
 using namespace std;
 typedef Cache <ForestNode, const ForestEdge *> NodeBackCache;
 
@@ -16,16 +19,31 @@ struct Hypothesis {
   //vector <const int> sig;  
   vector <int> hook;
   vector <int> right_side;
+  int dim;
   const ForestEdge * back_edge;
   vector <const Hypothesis * > prev_hyp;
   double original_value;
+
   bool match (const Hypothesis & other) const {
-    return right_side == other.hook;
+    return right_side[0] == other.hook[0] && right_side[1] == other.hook[1];
   }
-  Hypothesis(vector<int> h, vector<int> r, const ForestEdge * be) : hook(h), right_side(r), back_edge(be) {}
-  Hypothesis() {}
+
+  Hypothesis(vector<int> h, vector<int> r, const ForestEdge * be, int d) 
+    : hook(h), right_side(r), back_edge(be), dim(d) {}
+
+  Hypothesis(int d ):dim(d)  {}  
+  Hypothesis(){ dim = -1;}  
+
   
-  int id() const { return hook[0] + 4 * right_side[0];}
+  //int id() const { return hook[0] + 2 * right_side[0];}
+  int id() const { 
+    assert(dim != -1);
+    assert(dim != 0);
+    return hook[0] + (dim) * right_side[0] + (dim * dim)*right_side[1] + (dim*dim*dim)* hook[1];
+  }
+
+  
+
   bool operator<(const Hypothesis & other) const {
     assert(hook.size() == other.hook.size());
     assert(right_side.size() == other.right_side.size());
@@ -45,11 +63,13 @@ class Controller {
   virtual void initialize_hypotheses(const ForestNode & node, BestHyp & initialize) const = 0;
   virtual double find_best( BestHyp & at_root, Hypothesis & best_hyp) const= 0;
   virtual int size() const =0;
+  virtual int dim() const =0;
 };
 
 class TrivialController : public Controller {
  public:
   int size() const {return 1;}
+  int dim() const {return 1;}
   double combine(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
     ret.hook = vector<int>();
     ret.right_side = vector<int>();
@@ -61,7 +81,7 @@ class TrivialController : public Controller {
   }
 
   void initialize_hypotheses(const ForestNode & node, BestHyp & hyps) const {    
-    Hypothesis h(vector<int>(),vector<int>(), NULL);
+    Hypothesis h(vector<int>(),vector<int>(), NULL, dim());
     hyps.set_value(h, 0.0);
   }
   
