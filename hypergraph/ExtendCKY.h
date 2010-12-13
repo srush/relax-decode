@@ -8,7 +8,7 @@
 #include <vector>
 
 // #define PDIM 3
-
+#define INF 1e8
 using namespace std;
 typedef Cache <ForestNode, const ForestEdge *> NodeBackCache;
 
@@ -82,6 +82,40 @@ class BestHyp {
     has_new = false;
   }
 
+  inline void prune(double prune_to) {    
+    vector <Hypothesis> best; 
+    vector <double> best_scores; 
+    //for (int k =0; k < prune_to; k++) {
+    bool first = true;
+    while (true) {
+      double best_score = INF;
+      int pos = -1;
+      for (int i=0; i < scores.size() ;i++) {
+        if (scores[i] < best_score) {
+          best_score = scores[i];
+          pos = i;
+        }
+      }
+      if (!first && (best_score - best_scores[0]) > prune_to) break;
+      if (pos == -1) break; 
+      best.push_back(hyps[pos]);
+      best_scores.push_back(best_score);
+      scores[pos] = INF;
+      first =false;
+    }
+    
+    // reset 
+    index_by_id.clear();
+    index_by_right.clear();
+    hyps = best;
+    scores = best_scores;
+    
+    for (int i=0; i < hyps.size();i++) {
+      index_by_id[hyps[i].id()] =i;
+      index_by_right[hyps[i].right()].push_back(i);
+    } 
+  }
+
   inline int size()  const{
     return hyps.size();
   }
@@ -149,11 +183,13 @@ class Controller {
   virtual double find_best( BestHyp & at_root, Hypothesis & best_hyp) const= 0;
   virtual int size() const =0;
   virtual int dim() const =0;
+  virtual double prune_to() const =0;
 };
 
 class TrivialController : public Controller {
  public:
   int size() const {return 1;}
+  double prune_to() const {return 1;}
   int dim() const {return 1;}
   double combine(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
     ret.hook = vector<int>();

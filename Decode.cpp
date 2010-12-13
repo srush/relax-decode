@@ -1,4 +1,8 @@
 
+#include "CubePruning.h"
+#include "EdgeCache.h"
+#include "Forest.h"
+
 #include "Decode.h"
 #include "util.h"
 #include "time.h"
@@ -12,12 +16,123 @@
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
 
+// // Cube Pruning Controller for decoding 
+// class SplitCubeController: public NonLocal {
+//  public:
+//  SplitCubeController(const Forest & forest,  
+//                      Ngram & lm, 
+//                      const Cache <ForestNode, int> & word_cache,
+//                      const Subproblem & s) 
+//    : _word_cache(word_cache), _lm(lm), _forest(forest), _subproblem(s) {}
+  
+//   void compute(const ForestEdge & edge,
+//                const vector <vector <int> > & subder,
+//                double & score,
+//                vector <int>  & full_derivation,
+//                vector <int> & sig
+//                ) const {
+//     full_derivation.clear();
+//     sig.clear();
+//     score =0.0;
+
+//     //cout << "COMBINE " << subder.size() <<endl;
+//     for (int i =0; i < subder.size(); i++) {
+//       int size = full_derivation.size(); 
+//       int w = subder[i][0];
+//       if (size >= 2) {
+      
+//         VocabIndex context [] = {full_derivation[size-1], 
+//                                  full_derivation[size-2], 
+//                                  Vocab_None};
+//         score += _lm.wordProb(w, context);
+        
+//         // subtract out uni
+//         if (w!=1 && w!=2) {
+//           const VocabIndex context2 [] = {Vocab_None};
+//           score -= _lm.wordProb(w, context2);        
+//           //cout << "bonus" << endl;
+//         }
+//         //cout << "\t" << score <<endl;
+//         //cout << "\t" <<  "TRIGRAM " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
+//       } else if (size ==1 && w != 1 ) {
+        
+//         if (w !=1 && w!= 2) {
+//           VocabIndex context [] = {full_derivation[size-1], Vocab_None};
+//           score += _lm.wordProb(w, context);        
+        
+
+//         // subtract out uni
+
+//           const VocabIndex context2 [] = {Vocab_None};
+//           score -= _lm.wordProb(w, context2);        
+//           //cout << "bonus" << endl;
+//         }
+//       }
+
+//       if (size >=1 && subder[i].size() > 1 ) {
+//         const VocabIndex context [] = {w, full_derivation[size-1], Vocab_None};
+//         score += _lm.wordProb(subder[i][1], context);
+//         //cout << "\t" << score <<endl;
+//         //cout << "\t" <<  "Wait TRIGRAM " << subder[i][1] << " " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
+//         //cout << "\t" <<  "SCORE " << _lm.wordProb(subder[i][1], context) << endl;
+        
+//         if ( subder[i][1]!= 1 && subder[i][1]!=2) {
+//           const VocabIndex context2 [] = {w, Vocab_None};
+//           score -= _lm.wordProb(subder[i][1], context2);        
+//           //cout << "bonus" << endl;
+//           }
+//       }
+//       //cout << "\t" << size <<endl;
+//       for (int j=0; j < subder[i].size(); j++) {         
+//         //cout  << _lm.vocab.getWord(subder[i][j]) << " " ;
+//         full_derivation.push_back(subder[i][j]);
+//       }
+//     }
+//     score *= (-0.141221);
+//     int size = full_derivation.size();
+
+//     sig.push_back(full_derivation[0]);
+//     sig.push_back(full_derivation[size-1]);
+//     assert(size > 0);
+//     if (size!=1) {
+//       sig.push_back(full_derivation[1]);
+//       sig.push_back(full_derivation[size-2]);
+//     }
+//   }
+  
+//   Hyp initialize(const ForestNode & node) const {
+//     assert (node.is_word());
+//     int w = _word_cache.get_value(node);
+//     double score = 0.0; 
+//     VocabIndex context [] = {Vocab_None};
+//     if (w!=1 && w!=2) {
+//       score += _lm.wordProb(w, context);
+//       score *= (-0.141221);
+//     }
+//     //cout << "WORD " << _word_cache.get_value(node) << " "<< _lm.vocab.getWord(w)<<  endl;
+//     vector <int> sig;
+//     sig.push_back(w);
+//     sig.push_back(w);
+//     vector <int> der;
+//     der.push_back(w);
+//     return Hyp(score, sig, der); 
+//   }
+//  private:
+//   Ngram & _lm;
+//   const Cache <ForestNode, int> & _word_cache;  
+//   const Forest  & _forest;  
+//   const Subproblem  & _subproblem;  
+// };
 
 
 
 class SplitController : public Controller {
 public:
   SplitController (const Subproblem & s, const ForestLattice & l) : _subproblem(s), _lattice(l) {}
+
+  double prune_to() const {
+    return 0.25;
+  }
 
   double combine(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
     ret.hook = a.hook;
@@ -417,12 +532,28 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       }
     }
     
-    if (round == 150) {
+    if (round == 25) {
       _maintain_constraints = true;
     }
 
-   if (round >=200) {
-     int limit = 3;
+    if (round >=50) {
+      int limit = 3;
+      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    } 
+
+    if (round >=55) {
+      int limit = 4;
+      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    } 
+
+    if (round >=60) {
+      int limit = 5;
+      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    } 
+
+
+   if (round >=75) {
+     int limit = 14;
      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
    } 
  

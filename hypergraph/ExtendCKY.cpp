@@ -167,8 +167,10 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
           }
         }
       
-      
-        assert (best_edge_hypotheses->size() != 0);
+        // Do I need?
+        //assert (best_edge_hypotheses->size() != 0);
+        
+
         //cout << edge_value << endl;
         //      BestHyp::const_iterator iter, check;
         // (iter = best_edge_hypotheses->begin(); iter!=best_edge_hypotheses->end(); iter++) {
@@ -215,6 +217,15 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
   for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
     cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
   }
+  //if (best_node_hypotheses.size() > _controller->prune_to()) {
+    best_node_hypotheses.prune(_controller->prune_to());
+    //}
+  cout << endl;
+  cout << "After "<<node.id() << endl;
+  for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
+    cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
+  }
+  cout << endl;
   _memo_table.set_value(node, best_node_hypotheses);
 } 
 
