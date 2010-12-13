@@ -3,12 +3,13 @@
 #include "dual_subproblem.h"
 #include "util.h"
 #include "EdgeCache.h"
-#include <cstdlib>
+//#include <cstdlib>
+#include "GraphColor.h"
 #define INF 100000000
 #define DEBUG 0
 #define TIMING 0
 #define OPTIMIZE 1
-#define MAX_PROJ 10
+
 
 #include <bitset>
 
@@ -48,15 +49,18 @@ Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const SkipTri
     cur_best_tri_projection.resize(MAX_PROJ);
     cur_best_tri_projection_first.resize(MAX_PROJ);
     cur_best_tri_projection_score.resize(MAX_PROJ);
+    cur_best_tri_projection_is_new.resize(MAX_PROJ);
     for (int d=0; d < MAX_PROJ; d++) {
       
       cur_best_tri_projection[d].resize(MAX_PROJ);
       cur_best_tri_projection_first[d].resize(MAX_PROJ);
       cur_best_tri_projection_score[d].resize(MAX_PROJ);
+      cur_best_tri_projection_is_new[d].resize(MAX_PROJ);
       for (int d2=0; d2 < MAX_PROJ; d2++) {
         cur_best_tri_projection[d][d2].resize(num_word_nodes);
         cur_best_tri_projection_first[d][d2].resize(num_word_nodes);
         cur_best_tri_projection_score[d][d2].resize(num_word_nodes);
+        cur_best_tri_projection_is_new[d][d2].resize(num_word_nodes);
       }
     }
   }
@@ -116,10 +120,137 @@ Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const SkipTri
   //gd->decompose(graph);   
 //}
 
-vector < int> Subproblem::projection_with_constraints(int k,  map<int, vector <int> > & constraints) {
+void Subproblem::projection_with_constraints(int limit, int & k,  map<int, set <int> > & constraints, vector < int> & proj) {
+  // Use DSATUR
+  int most_constrained = 0;
+  int most_constraints = -1;
+  k = 1;
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    if (!graph->is_word(w1)) continue;
+    // count constraints
+    int num_cons = constraints[w1].size();    
+    if (num_cons > most_constraints){
+      most_constraints =num_cons;
+      most_constrained = w1;
+    }
+  }
+  
+  int cur = most_constrained; 
+  proj.resize(graph->num_word_nodes);  
+  int unprocessed = 0;
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    if (!graph->is_word(w1)) continue;
+    proj[w1] = 0;
+    unprocessed++;
+  }
+  
+  set <int> done;
+  while (unprocessed >0) {
+    vector <int> counts(k);
+    for (int d =0; d < k; d++) {
+      counts[d] = 0;
+    }
+
+    for (set<int>::const_iterator iter =constraints[cur].begin(); 
+         iter != constraints[cur].end(); iter++) {
+      int c = (*iter);
+      if (done.find(c) != done.end()) {
+        //assert(c < cur);
+        counts[proj[c]]++;
+      }
+    }
+
+    int min = 1e20;
+    int mind;
+    for (int d =0; d < k; d++) {
+      if (counts[d] < min) {
+        min = counts[d];
+        mind = d;
+      }
+    }
+
+    assert (cur < graph->num_word_nodes);
+    if (min == 0) {
+      proj[cur] = mind;
+    } else if (k == limit) {
+      proj[cur] = mind;
+    } else {
+      proj[cur] = k;
+      k++;
+    }
+
+    done.insert(cur);
+    unprocessed--;
+    // get next 
+
+    // pick next to optimize (most saturated)
+    int most_saturation = -1;
+    for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+      if (!graph->is_word(w1)) continue;
+      if (done.find(w1) != done.end()) continue;
+      int sat =0;
+      vector <int> counts(k);
+      for (int d =0; d < k; d++) {
+        counts[d] = 0;
+      }
+      
+      for (set<int>::const_iterator iter =constraints[w1].begin(); 
+           iter != constraints[w1].end(); iter++) {
+
+        int c = (*iter);
+        if (done.find(c) != done.end()) {
+          counts[proj[c]]++;
+        }
+      }
+      for (int d =0; d < k; d++) {
+        if (counts[d] > 0) {
+          sat++;
+        }
+      }
+
+      if (sat > most_saturation) {
+        most_saturation =sat;
+        cur = w1;
+      }
+    }
+
+  }
+
+
+ // Use RLF
+  /*
+  int adjacency [MAX][MAX];
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    for (int w2=0; w2 < graph->num_word_nodes; w2++) {
+      adjacency[w1][w2] = 0;
+    }
+  }
+
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    if (!graph->is_word(w1)) continue;
+    for (int i =0; i < constraints[w1].size(); i++) {
+      int c = constraints[w1][i];
+      adjacency[w1][c] =1;
+      adjacency[c][w1] =1;
+    }
+  }
+
+  GraphColor gc(adjacency, graph->num_word_nodes);
+  gc.Coloring();
+  assert(gc.get_color_num() < 10);
+  vector<int> proj(graph->num_word_nodes);
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    if (!graph->is_word(w1)) continue;
+    proj[w1] = gc.get_coloring(w1);
+  }
+  k = gc.get_color_num();
+  return proj;
+  */
+
   //greedy graph coloring
   //
-  vector<int> proj(graph->num_word_nodes);
+
+  /*vector<int> proj(graph->num_word_nodes);
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
 
@@ -143,7 +274,7 @@ vector < int> Subproblem::projection_with_constraints(int k,  map<int, vector <i
     }
     proj[w1] = mind;
   }
-  return proj;
+  return proj;*/
 }
 
 
@@ -183,6 +314,7 @@ float Subproblem::get_best_bigram_weight(int w1, int w2, bool first) {
 
 int Subproblem::fixed_last_bigram(int w1) {
   //return -1;
+  assert(graph->is_word(w1));
   // if I am forward bound, return -1
   if (gd->forward_bigrams[w1].size() == 1) {
     int w2 = gd->forward_bigrams[w1][0];
@@ -262,29 +394,38 @@ void Subproblem::initialize_caches() {
 void Subproblem::solve() {
   if (first_time) {
     initialize_caches();
-  }
-
-  if (TRIPROJECT) {
-    for (int d =0; d < projection_dims; d++ ) {
-      for (int d2 =0; d2 < projection_dims; d2++ ) {
-        solve_proj(d, d2, cur_best_tri_projection_first[d][d2], cur_best_tri_projection[d][d2], 
-                   cur_best_tri_projection_score[d][d2]);
+    
+    for (int d =0; d < MAX_PROJ; d++ ) {
+      for (int d2 =0; d2 < MAX_PROJ; d2++ ) {
+        _first_time_proj[d][d2] = true;
       }
     }
-  } else if (PROJECT) {
-    for (int d =0; d < projection_dims; d++ ) {
-      solve_proj(d,0, cur_best_bi_projection_first[d], cur_best_bi_projection[d], cur_best_bi_projection_score[d]);
-    }
-  } else {
-    solve_proj(0,0, cur_best_one, cur_best_two, cur_best_score);
   }
+  assert(TRIPROJECT);
+  //if (TRIPROJECT) {
+  for (int d =0; d < projection_dims; d++ ) {
+    for (int d2 =0; d2 < projection_dims; d2++ ) {
+      solve_proj(d, d2, _first_time_proj[d][d2], 
+                 cur_best_tri_projection_first[d][d2], 
+                 cur_best_tri_projection[d][d2], 
+                 cur_best_tri_projection_score[d][d2],
+                 cur_best_tri_projection_is_new[d][d2]);
+      _first_time_proj[d][d2] = false;
+    }
+  }
+    //} else {
+    //solve_proj(0,0, cur_best_one, cur_best_two, cur_best_score, );
+    //}
   first_time = false;
 }
 
 void Subproblem::solve_proj(int d2, int d3, 
+                            bool first_proj_time, 
                             vector <int> & proj_best_one,
                             vector <int> & proj_best_two,
-                            vector <float> & proj_best_score
+                            vector <float> & proj_best_score,
+                            vector <bool> & proj_best_is_new
+
                             ) {
 
   // solve (but only in the projected space)
@@ -299,33 +440,43 @@ void Subproblem::solve_proj(int d2, int d3,
   assert(graph->num_word_nodes > 10);
   for (unsigned int i =0; i< graph->num_word_nodes; i++ ) {
     if (!graph->is_word(i)) continue; 
-    
-    if (false && !first_time) {
+    bool reset = false;
+    if (!first_proj_time) {
       //assert (cur_best_one[i] != -1);
       //assert (cur_best_two[i] != -1);
-      if (proj_best_one[i] != -1) {
+      
+      if (proj_best_one[i] == -1) {
+        reset = true;
+      } else {
         int w1 = i;
         int one = proj_best_one[i];
         int two = proj_best_two[i];
         
-        int w0 = fixed_last_bigram(w1);
+        if (project_word(one) != d2 || project_word(two) != d3 ) {
+          reset = true;
+        } else {
+
+          int w0 = fixed_last_bigram(w1);
         
+          double old_score = proj_best_score[i];
+          proj_best_score[i] = 
+            bi_rescore_first->get_bigram_weight(i,one) + 
+            bi_rescore_two->get_bigram_weight(one,two) +
+            (-0.141221) *  word_prob_reverse(i, one, two);
+          
+          if (w0 != -1) {
+            proj_best_score[i] += bi_rescore_two->get_bigram_weight(w1, one) +
+              (-0.141221) *  word_prob_reverse(w0, i, one);
+          }
 
-        proj_best_score[i] = 
-          bi_rescore_first->get_bigram_weight(i,one) + 
-          bi_rescore_two->get_bigram_weight(one,two) +
-          (-0.141221) *  word_prob_reverse(i, one, two);
-        
-        if (w0 != -1) {
-          proj_best_score[i] += bi_rescore_two->get_bigram_weight(w1, one) +
-            (-0.141221) *  word_prob_reverse(w0, i, one);
-        }
 
-
-        proj_best_one[i] = one;
-        proj_best_two[i] = two;
-        assert(proj_best_one[i] != proj_best_two[i]);
-        assert(proj_best_score[i] < 1000); 
+          proj_best_one[i] = one;
+          proj_best_two[i] = two;
+          proj_best_is_new[i] = !(fabs(old_score -proj_best_score[i]) < 1e-4);
+          //if (!proj_best_is_new[i]) 
+          //cout << "POSSIBLY " <<  i << " " << old_score << " " << proj_best_score[i] << endl;
+          assert(proj_best_one[i] != proj_best_two[i]);
+          assert(proj_best_score[i] < 1000); 
 
         /*if (PROJECT) {
           for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
@@ -334,13 +485,16 @@ void Subproblem::solve_proj(int d2, int d3,
             cur_best_at_bi[i][j] = -1;            
           }
           }*/
-
+        }
       }
     } else {
+      reset = true;
+    }
+    if (reset) {
       proj_best_score[i] = INF;
       proj_best_one[i] = -1;
       proj_best_two[i] = -1;
-      
+      proj_best_is_new[i] = true;
       /*if (PROJECT) {
         for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
           if (!graph->is_word(j)) continue; 
@@ -532,6 +686,7 @@ void Subproblem::solve_proj(int d2, int d3,
           proj_best_score[w1] = score;          
           proj_best_one[w1] =w2;
           proj_best_two[w1] = w3;
+          proj_best_is_new[w1] = true;
           assert(proj_best_one[w1] != proj_best_two[w1]);
           
         } 
@@ -591,6 +746,7 @@ void Subproblem::solve_proj(int d2, int d3,
           proj_best_score[w1] = score;
           proj_best_one[w1] = (w2);
           proj_best_two[w1] = (w3);
+          proj_best_is_new[w1] = true;
           assert(proj_best_one[w1] != proj_best_two[w1]);;
  
         } 
@@ -636,7 +792,8 @@ void Subproblem::solve_proj(int d2, int d3,
     
     proj_best_one[w0] = w1;
     proj_best_two[w0] = w2;
-
+    proj_best_is_new[w0] = false;//proj_best_is_new[w1];
+    //proj_best_is_new[w0] = true;
     
 
     //if (PROJECT) {
@@ -680,7 +837,7 @@ void Subproblem::solve_proj(int d2, int d3,
 }
 
 
-vector <int> Subproblem::rand_projection( int k) {
+/*vector <int> Subproblem::rand_projection( int k) {
   vector<int> proj(graph->num_word_nodes);
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
@@ -688,7 +845,7 @@ vector <int> Subproblem::rand_projection( int k) {
     //cout << w1 << " " << proj[w1] << endl;
   }
   return proj;
-}
+  }*/
 
 void Subproblem::project(int proj_dim, vector <int> proj ) {
   assert (PROJECT || TRIPROJECT);

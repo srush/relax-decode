@@ -23,13 +23,14 @@ struct Hypothesis {
   const ForestEdge * back_edge;
   vector <const Hypothesis * > prev_hyp;
   double original_value;
+  bool is_new;
 
   bool match (const Hypothesis & other) const {
     return right_side[0] == other.hook[0] && right_side[1] == other.hook[1];
   }
 
-  Hypothesis(vector<int> h, vector<int> r, const ForestEdge * be, int d) 
-    : hook(h), right_side(r), back_edge(be), dim(d) {}
+  Hypothesis(vector<int> h, vector<int> r, const ForestEdge * be, int d, bool n) 
+    : hook(h), right_side(r), back_edge(be), dim(d), is_new(n) {}
 
   Hypothesis(int d ):dim(d)  {}  
   Hypothesis(){ dim = -1;}  
@@ -42,7 +43,14 @@ struct Hypothesis {
     return hook[0] + (dim) * right_side[0] + (dim * dim)*right_side[1] + (dim*dim*dim)* hook[1];
   }
 
-  
+  int left() const {
+    return hook[0] + (dim)* hook[1];
+  }
+
+  int right() const {
+    return right_side[0] + (dim)* right_side[1];
+  }
+
 
   bool operator<(const Hypothesis & other) const {
     assert(hook.size() == other.hook.size());
@@ -55,7 +63,84 @@ struct Hypothesis {
   }
 
 };
-typedef StoreCache <Hypothesis, double> BestHyp;
+
+
+class BestHyp {
+ private:
+  vector <Hypothesis> hyps;
+  vector <double> scores;
+  map <int, int> index_by_id;
+  map <int, vector<int> > index_by_right;
+  
+  // have I seen a new score
+
+
+  //map <int, vector<int> > index_by_right;
+ public: 
+  bool has_new;
+  BestHyp() {
+    has_new = false;
+  }
+
+  inline int size()  const{
+    return hyps.size();
+  }
+
+  inline void clear() {
+    hyps.clear();
+    scores.clear();
+    index_by_right.clear();
+    index_by_id.clear();
+  }
+
+  
+
+  inline const Hypothesis & get_hyp(int i) const {
+    return hyps[i];
+  }
+
+  inline double get_score(int i) const {
+    return scores[i];
+  }
+
+  inline vector<int> join(const Hypothesis & other) const {
+    map <int, vector<int> >::const_iterator check = 
+      index_by_right.find(other.left());
+    if (check != index_by_right.end()) {
+      return check->second;
+    }
+    vector <int > result;
+    return result;
+  }
+
+  inline void try_set_hyp(Hypothesis hyp, double score, bool & set, bool is_new) {
+    
+    set = false;
+    map <int, int >::const_iterator check = 
+      index_by_id.find(hyp.id());
+    if (check == index_by_id.end()) {
+      hyps.push_back(hyp);
+      scores.push_back(score);
+      // update indexes
+      index_by_id[hyp.id()] = hyps.size()-1;
+      index_by_right[hyp.right()].push_back(hyps.size()-1);
+      set = true;
+      has_new = has_new || is_new;
+    } else {
+      int internal_ind = index_by_id[hyp.id()];
+      double old_score = scores[internal_ind];
+      if (score < old_score) {
+        hyps[internal_ind] = hyp;
+        scores[internal_ind] = score;
+        set = true;
+        has_new = has_new || is_new;
+      }
+    }
+  }
+};
+
+
+//typedef StoreCache <Hypothesis, double> BestHyp;
 
 class Controller {
  public: 
@@ -81,17 +166,18 @@ class TrivialController : public Controller {
   }
 
   void initialize_hypotheses(const ForestNode & node, BestHyp & hyps) const {    
-    Hypothesis h(vector<int>(),vector<int>(), NULL, dim());
-    hyps.set_value(h, 0.0);
+    Hypothesis h(vector<int>(),vector<int>(), NULL, dim(), true);
+    bool w;
+    hyps.try_set_hyp(h, 0.0, w, true);
   }
   
   double find_best( BestHyp & at_root, Hypothesis & best_hyp) const {
     //BestHyp::const_iterator iter, check;
     double best = 1e20;
     for (int iter = 0; iter < at_root.size(); iter++) {
-      if (!at_root.has_key(iter)) continue; 
-      Hypothesis hyp = at_root.full_keys[iter];
-      double score = at_root.store[iter];
+      //if (!at_root.has_key(iter)) continue; 
+      Hypothesis hyp = at_root.get_hyp(iter);
+      double score = at_root.get_score(iter);
       if (score < best) {
         best = score;
         best_hyp = hyp;
@@ -104,21 +190,31 @@ class TrivialController : public Controller {
 
 class ExtendCKY {
  public:
-  ExtendCKY(const Forest & forest, const Cache <ForestEdge, double> & edge_weights, const Controller & cont): 
-    _forest(forest), _memo_table(forest.num_nodes()), _edge_weights(edge_weights), _controller(cont){}
-
+  ExtendCKY(const Forest & forest):
+    _forest(forest), _memo_table(forest.num_nodes()) {
+    _is_first = true;
+  }
+    
     double best_path(NodeBackCache & back_pointers);
-
+    void set_params(Cache <ForestEdge, double> * edge_weights,  Controller * cont) {
+      _old_edge_weights = _edge_weights;
+      _edge_weights = edge_weights;
+      _controller = cont;
+    }
  private:
   const Forest & _forest;
-  const Cache <ForestEdge, double> & _edge_weights;
-  const Controller & _controller;
-  Cache <ForestNode, BestHyp > _memo_table;
+  Cache <ForestEdge, double>  * _edge_weights;
+  Cache <ForestEdge, double>  * _old_edge_weights;
+  Controller * _controller;
+  //Cache <ForestNode, BestHyp > * _old_memo_table;
+  Cache <ForestNode, BestHyp >  _memo_table;
 
   void node_best_path(const ForestNode & node); 
   void extract_back_pointers(const ForestNode & node, const Hypothesis & best_hyp, 
                                         NodeBackCache & back_pointers);
 
+  vector <BestHyp *> _to_delete;
+  bool _is_first;
 };
 
 

@@ -27,10 +27,14 @@ void GraphDecompose::compute_bigrams() {
     for (int i =0; i < g->bigrams_at_node[n].size(); i++) {
       //int w1 = g->words(n, i);
       Bigram b = g->bigrams_at_node[n][i];
+      assert(g->is_word(b.w1));
+      assert(g->is_word(b.w2));
       valid_bigrams.push_back(b);
+
       forward_bigrams[b.w1].push_back(b.w2);     
       backward_bigrams[b.w2].push_back(b.w1);     
       //cout << "WORD " << g->get_word(b.w1)<< " "<< b.w1 << " " << n << " "<< i << " " <<  g->get_word(b.w2)<< " " << b.w2  << endl;   
+      cout << b.w2 << " " << b.w1 << endl;
     }
 
     // 
@@ -46,8 +50,11 @@ void GraphDecompose::compute_bigrams() {
             int w2 = g->first_words(n2, j);
             //cout << "WORD " << g->get_word(w1)<< " "<< w1 << " " << n << " "<< i << " " <<  g->get_word(w2)<< " " << w2 << " " << n2 << " " << j << endl;
             valid_bigrams.push_back(Bigram(w1,w2));
+            assert(g->is_word(w1));
+            assert(g->is_word(w2));
             forward_bigrams[w1].push_back(w2);        
             backward_bigrams[w2].push_back(w1);        
+            cout << w2 << " " << w1 << endl;
           }
         //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
         //for (unsigned int i=0; i < bigram_pairs[n][n2].size() ; i ++) {
@@ -65,6 +72,12 @@ void GraphDecompose::decompose(const ForestLattice * gr) {
   int num_nodes = gr->num_nodes;
   forward_bigrams.resize(gr->num_word_nodes);
   backward_bigrams.resize(gr->num_word_nodes);
+  
+  for (int w1 =0; w1 < gr->num_word_nodes; w1++) {
+    backward_bigrams[w1].clear();
+    forward_bigrams[w1].clear();
+  }
+
   all_pairs_path.resize(num_nodes);
   all_pairs_path_exist.resize(num_nodes);
 

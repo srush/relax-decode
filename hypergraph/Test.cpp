@@ -68,7 +68,8 @@ public:
     cout << best << endl;
     
     TrivialController c;
-    ExtendCKY ecky(f, *w, c);
+    ExtendCKY ecky(f);
+    ecky.set_params(w, &c);
     best = ecky.best_path(bcache2);
     double total =0.0;
     for (int i =0; i < f.num_nodes(); i++) {

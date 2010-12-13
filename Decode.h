@@ -11,7 +11,7 @@
 #include <Ngram.h>
 #include "dual_subproblem.h"
 #include "EdgeCache.h"
-
+#include "ExtendCKY.h"
 using namespace std;
 #define GRAMSPLIT 100000
 #define GRAMSPLIT2 200000
@@ -21,7 +21,7 @@ typedef svector<int, double> wvector;
 class Decode: public SubgradientProducer {
  public:
   Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, NgramCache & lm, const SkipTrigram & skip) 
-   :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm)
+    :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) //, ecky(forest)
   {
     _cached_weights = cache_edge_weights(forest, weight);
     //cout<<"decomposing" << endl;
@@ -35,6 +35,12 @@ class Decode: public SubgradientProducer {
     //_projection = _subproblem->rand_projection(2);
     // _constraints.resize(_lattice.num_word_nodes);
   }
+
+    ~Decode() {
+      delete _subproblem;
+      delete _lagrange_weights;
+      delete _cached_words;
+    }
    
     void solve(double & primal, double & dual, wvector &, int);
   void update_weights(const wvector & updates,  wvector * weights );
@@ -63,8 +69,9 @@ class Decode: public SubgradientProducer {
   int _proj_dim;
   double lm_total, o_total, lag_total;
 
-  map <int, vector <int> > _constraints; 
+  map <int, set <int> > _constraints; 
   bool _maintain_constraints; 
+  //ExtendCKY ecky;
 };
 
 #endif

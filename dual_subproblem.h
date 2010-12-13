@@ -11,7 +11,7 @@
 
 #include<fstream>
 #include<set>
-
+#define MAX_PROJ 15
 #define PROJECT 0
 #define TRIPROJECT 1
 
@@ -22,7 +22,7 @@ class Subproblem {
  private:
 
 
-
+  bool _first_time_proj[MAX_PROJ][MAX_PROJ];
   vector <int> cur_best_count;
 
   // For project
@@ -37,16 +37,20 @@ class Subproblem {
   vector <vector <vector<int> > > cur_best_tri_projection;
   vector <vector <vector<int> > > cur_best_tri_projection_first;
   vector <vector <vector <float> > > cur_best_tri_projection_score;
+  
+  // has the best changed
+  vector <vector <vector<bool> > > cur_best_tri_projection_is_new;
 
   // make private (eventually)
   vector <float> cur_best_score;
   vector<int>  cur_best_one;
   vector<int>  cur_best_two;
 
-  void solve_proj(int d2, int d3, 
+  void solve_proj(int d2, int d3, bool first_time_proj, 
                             vector <int> & proj_best_one,
                             vector <int> & proj_best_two,
-                            vector <float> & proj_best_score
+                  vector <float> & proj_best_score,
+                  vector <bool> & proj_best_is_new
                             ) ;
 
  public: 
@@ -70,10 +74,8 @@ class Subproblem {
       projection[w1] = (projection[w1] + 1) % projection_dims; 
   }
 
-
-
-  vector <int> rand_projection(int k) ;
-  vector <int> projection_with_constraints(int k, map<int, vector <int> > & constraints) ;
+  //vector <int> rand_projection(int k) ;
+  void projection_with_constraints(int limit, int & k, map<int, set <int> > & constraints, vector <int> &) ;
   // End Project
 
   inline int best_one(int w1, int w2, int w3) const {
@@ -113,6 +115,13 @@ class Subproblem {
       return cur_best_tri_projection_score[d][d2][w1];
     }
   }
+
+  inline bool is_new_dim(int w1, int d, int d2) const {
+    assert(TRIPROJECT);
+    return cur_best_tri_projection_is_new[d][d2][w1];
+  }
+
+
 
   
 

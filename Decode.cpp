@@ -4,7 +4,7 @@
 #include "time.h"
 #include "ExtendCKY.h"
 #include <iomanip>
-#define TIMING 0
+#define TIMING 1
 #define IS_TRY 0
 //#define PROJECT 1si
 //#define TRIPROJECT 0
@@ -15,11 +15,10 @@ class SplitController : public Controller {
 public:
   SplitController (const Subproblem & s, const ForestLattice & l) : _subproblem(s), _lattice(l) {}
 
-  
-
   double combine(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
     ret.hook = a.hook;
     ret.right_side = b.right_side;
+    ret.is_new = a.is_new || b.is_new;
      for (int i=0;i<a.prev_hyp.size();i++) {
       ret.prev_hyp.push_back(a.prev_hyp[i]);
     }
@@ -39,34 +38,30 @@ public:
     
     int graph_id = _lattice.get_word_from_hypergraph_node(node.id());
     if (_subproblem.overridden[graph_id]) {
-      if (PROJECT ) {
-        vector <int> hooks(1);
-        vector <int> right_side(1);
-          
-        int w1 = _subproblem.overridden_by(graph_id);
-        hooks[0] = _subproblem.project_word(w1);
-        right_side[0] =_subproblem.project_word(graph_id);
-        
-        Hypothesis h(hooks, right_side, NULL, dim());
-        h.original_value = 0.0;
-        
-        hyps.set_value(h, 0.0);
-      } else if ( TRIPROJECT) {
+      if (TRIPROJECT) {
         for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
           vector <int> hooks(2);
           vector <int> right_side(2);
           
           int w1 = _subproblem.overridden_by(graph_id);
-         
+          //if (_subproblem.projection_dims)
+
           
           hooks[0] = _subproblem.project_word(w1);
           hooks[1] = d2;
           right_side[0] =_subproblem.project_word(graph_id);
           right_side[1] = hooks[0];
-          Hypothesis h(hooks, right_side, NULL, dim());
+          //bool is_new = _subproblem.
+          bool is_new = _subproblem.is_new_dim(graph_id, hooks[0], hooks[1]);
+          Hypothesis h(hooks, right_side, NULL, dim(), is_new);
+          //assert(!h.is_new);
           h.original_value = 0.0;
-          
-          hyps.set_value(h, 0.0);
+          //if (_subproblem.projection_dims > 0) {
+          //cout << graph_id << " " << hooks[0] << " " << d2 << " " << 0.0<< " " << h.is_new << endl;  
+          //}
+
+          bool w;
+          hyps.try_set_hyp(h, 0.0, w, h.is_new);
         }
       }
     } else {
@@ -75,30 +70,27 @@ public:
         assert(node.is_word());
         
         assert(_lattice.is_word(graph_id));
-        if (PROJECT) {
-          vector <int> hooks(1);
-          vector <int> right_side(1);
-          hooks[0] = d;
-          right_side[0] = _subproblem.project_word(graph_id);
-          Hypothesis h(hooks, right_side, NULL, dim());
-          double score = _subproblem.best_score_dim(graph_id, d, -1);
-          h.original_value = score;
-         
-          hyps.set_value(h, score);
-
-        } else if (TRIPROJECT) {
+        if (TRIPROJECT) {
           for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
+            
             vector <int> hooks(2);
             vector <int> right_side(2);
             hooks[0] = d;
             hooks[1] = d2;
             right_side[0] = _subproblem.project_word(graph_id);
             right_side[1] =d;
-            
-            Hypothesis h(hooks, right_side, NULL, dim());
+            bool is_new = _subproblem.is_new_dim(graph_id, d, d2);
+            Hypothesis h(hooks, right_side, NULL, dim(), is_new);
             double score = _subproblem.best_score_dim(graph_id, d, d2);
+            
+            if (score >=  1000) continue;            
+            //if (_subproblem.projection_dims > 0) {
+            //cout << graph_id << " " << d << " " << d2 << " " << score << " " << is_new<< endl;  
+            //}
+
             h.original_value = score;
-            hyps.set_value(h,  score);
+            bool w;
+            hyps.try_set_hyp(h, score, w, h.is_new);
             //cout << "Initial " << score << endl;
           }
         }
@@ -115,10 +107,10 @@ public:
     int s_first_projection= _subproblem.project_word(0);
     int s_projection= _subproblem.project_word(1);
     for (int iter = 0; iter< root_hyps.size(); iter++) {
-      if (!root_hyps.has_key(iter)) continue;
+      //if (!root_hyps.has_key(iter)) continue;
       
-      const Hypothesis & hyp1 = root_hyps.full_keys[iter]; 
-      double score1 = root_hyps.store[iter];
+      const Hypothesis & hyp1 = root_hyps.get_hyp(iter); 
+      double score1 = root_hyps.get_score(iter);
       //cout << "Possible" << score1 << endl;
       //cout << hyp1.hook << " " << hyp1.right_side << endl;
       if (hyp1.hook[0] != s_projection) {
@@ -255,23 +247,23 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
       if (primal_mid != dual_mid) {
         int w1 = dual_mid;
         int w2 = primal_mid;
-        if (w1 < w2) 
-          _constraints[w2].push_back(w1);
-        else 
-          _constraints[w1].push_back(w2);
+        //if (w1 < w2) 
+          _constraints[w2].insert(w1);
+          //else 
+          _constraints[w1].insert(w2);
       }
       
       if (primal_end != dual_end) {
         int w1 = dual_end;
         int w2 = primal_end;
-        if (w1 < w2) 
-        _constraints[w2].push_back(w1);
-        else 
-          _constraints[w1].push_back(w2);
+        //if (w1 < w2) 
+        _constraints[w2].insert(w1);
+        //else 
+          _constraints[w1].insert(w2);
       }
     }
   } else {
-    if (primal_mid != dual_mid) {
+    /*if (primal_mid != dual_mid) {
       if (_projection[dual_mid] == _projection[primal_mid] )
         if (rand() %2 == 0) {
           _projection[dual_mid] = (_projection[dual_mid] + 1) % _proj_dim; 
@@ -289,7 +281,7 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
           _projection[primal_end] = (_projection[primal_end] + 1) % _proj_dim; 
         }
       //_subproblem->separate(dual_end, primal_end);
-    }
+      }*/
   }
 }
 
@@ -414,17 +406,32 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   if (TRIPROJECT) {
     if (round ==1) {
       _proj_dim = 1;
-      _projection =  _subproblem->rand_projection(1);
+      //vector <int> _projection(_lattice.num_word_nodes);
+      _projection.resize(_lattice.num_word_nodes);
+      for (int i=0; i < _lattice.num_word_nodes; i++) {
+        _projection[i] = 0; // _subproblem->rand_projection(1);
+      }
     }
     
-    if (round == 180) {
+    if (round == 150) {
       _maintain_constraints = true;
     }
 
    if (round >=200) {
-     _proj_dim = 5;
-     _projection =  _subproblem->projection_with_constraints(5, _constraints);
+     int limit = 3;
+     _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
    } 
+ 
+   if (round >=290) {
+     //_proj_dim = 5;
+     _subproblem->projection_with_constraints(5, _proj_dim, _constraints, _projection);
+   } 
+   if (round >=305) {
+     //_proj_dim = 7;
+     _subproblem->projection_with_constraints(14, _proj_dim, _constraints, _projection);
+   } 
+     
+
     //if (round ==200) {
     //_proj_dim = 3;
     //_projection =  _subproblem->rand_projection(3);
@@ -458,7 +465,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     double total_score = 0.0;
     
     // trigram penalties 
-    // added in new guy
+    // added in newd guy
 //     {
 //       vector <int> lat_edges = get_lex_lat_edges(edge.id()); 
 //       for (unsigned int j =0; j <  lat_edges.size(); j++) {
@@ -505,7 +512,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
 
   SplitController c(*_subproblem, _lattice);
-  ExtendCKY ecky(_forest, *total, c);
+  ExtendCKY ecky(_forest);
+  ecky.set_params(total, &c);
   dual = ecky.best_path(back_pointers);
   //ecky.fill_back_pointers()
   //dual = best_path(_forest, *total, scores, back_pointers);

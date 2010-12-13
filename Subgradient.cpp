@@ -11,7 +11,7 @@ using namespace std;
 void Subgradient::solve() {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round < 250) {
+  while(run_one_round() && _round < 310) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
