@@ -11,6 +11,10 @@
 #define DEBUG 0
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
+
+
+
+
 class SplitController : public Controller {
 public:
   SplitController (const Subproblem & s, const ForestLattice & l) : _subproblem(s), _lattice(l) {}
