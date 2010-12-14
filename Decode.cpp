@@ -145,6 +145,17 @@ public:
     return 0.0;
   }
   
+  double combine_back(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
+    ret.hook = b.hook;
+    ret.right_side = a.right_side;
+    ret.is_new = a.is_new || b.is_new;
+    for (int i=0;i<a.prev_hyp.size();i++) {
+      ret.prev_hyp.push_back(a.prev_hyp[i]);
+    }
+    ret.prev_hyp.push_back(&b);
+    return 0.0;
+  }
+
   int size()  const{
     return _subproblem.projection_dims * _subproblem.projection_dims * _subproblem.projection_dims * _subproblem.projection_dims;
   }
@@ -153,7 +164,7 @@ public:
     return _subproblem.projection_dims;
   }
 
-  void initialize_hypotheses(const ForestNode & node, BestHyp & hyps) const {
+  void initialize_hypotheses(const ForestNode & node, vector <Hypothesis> & hyps, vector <double> & scores) const {
     
     int graph_id = _lattice.get_word_from_hypergraph_node(node.id());
     if (_subproblem.overridden[graph_id]) {
@@ -178,9 +189,11 @@ public:
           //if (_subproblem.projection_dims > 0) {
           //cout << graph_id << " " << hooks[0] << " " << d2 << " " << 0.0<< " " << h.is_new << endl;  
           //}
-
-          bool w;
-          hyps.try_set_hyp(h, 0.0, w, h.is_new);
+          hyps.push_back(h);
+          scores.push_back(0.0);
+          
+          //bool w;
+          //hyps.try_set_hyp(h, 0.0, w, h.is_new);
         }
       }
     } else {
@@ -209,7 +222,9 @@ public:
 
             h.original_value = score;
             bool w;
-            hyps.try_set_hyp(h, score, w, h.is_new);
+            hyps.push_back(h);
+            scores.push_back(score);
+            //hyps.try_set_hyp(h, score, w, h.is_new);
             //cout << "Initial " << score << endl;
           }
         }
@@ -219,7 +234,41 @@ public:
 
   }
 
-  double find_best( BestHyp & root_hyps, Hypothesis & best_hyp) const {
+  
+  void initialize_out_root(vector <Hypothesis> & hyps, vector <double> & scores)  const {
+    int s_first_projection= _subproblem.project_word(0);
+    int s_projection= _subproblem.project_word(1);
+    for (int d=0; d < _subproblem.projection_dims; d++) {
+      for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
+        vector <int> hooks(2);
+        vector <int> right_side(2);
+        hooks[0] = s_first_projection;
+        hooks[1] = s_projection;
+        right_side[0] = d;
+        right_side[1] =d2;
+
+        Hypothesis h(hooks, right_side, NULL, dim(), false);
+        double my_score = 0.0;
+        if (!_subproblem.overridden[_lattice.num_word_nodes-2]) {
+          int id = _lattice.num_word_nodes-2;
+          //cout << "Best " << hyp1.right_side << endl;
+          my_score += _subproblem.best_score_dim(id, h.right_side[0], h.right_side[1]);
+        }
+        //cout << "Middle " << my_score << endl;
+      
+        if (!_subproblem.overridden[_lattice.num_word_nodes-1]) {
+          int id = _lattice.num_word_nodes-1;
+          int d = _subproblem.project_word(_lattice.num_word_nodes-2);
+       
+          my_score += _subproblem.best_score_dim(id, d, h.right_side[0]); 
+        }
+        hyps.push_back(h);
+        scores.push_back(my_score);
+      }
+    }
+  }
+
+  double find_best( vector <Hypothesis> & root_hyps, vector<double > & scores, Hypothesis & best_hyp) const {
     //BestHyp::const_iterator iter, check;
     double best = 1e20;
     //<s> projection
@@ -228,15 +277,9 @@ public:
     for (int iter = 0; iter< root_hyps.size(); iter++) {
       //if (!root_hyps.has_key(iter)) continue;
       
-      const Hypothesis & hyp1 = root_hyps.get_hyp(iter); 
-      double score1 = root_hyps.get_score(iter);
-      //cout << "Possible" << score1 << endl;
-      //cout << hyp1.hook << " " << hyp1.right_side << endl;
-      if (hyp1.hook[0] != s_projection) {
-        continue;
-      }
-
-      if (TRIPROJECT && hyp1.hook[1] != s_first_projection) {
+      const Hypothesis & hyp1 = root_hyps[iter]; 
+      double score1 = scores[iter];
+      if (hyp1.hook[0] != s_projection || hyp1.hook[1] != s_first_projection) {
         continue;
       }
       
@@ -532,11 +575,11 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       }
     }
     
-    if (round == 25) {
+    if (round == 1) {
       _maintain_constraints = true;
     }
 
-    if (round >=50) {
+    if (round >=1) {
       int limit = 3;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
     } 
@@ -649,7 +692,11 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   SplitController c(*_subproblem, _lattice);
   ExtendCKY ecky(_forest);
   ecky.set_params(total, &c);
+  
   dual = ecky.best_path(back_pointers);
+  
+  Cache <ForestNode, BestHyp> outside_scores(_forest.num_nodes());
+  ecky.outside(outside_scores);
   //ecky.fill_back_pointers()
   //dual = best_path(_forest, *total, scores, back_pointers);
   

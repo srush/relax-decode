@@ -4,7 +4,7 @@
 #include "util.h"
 #include "EdgeCache.h"
 //#include <cstdlib>
-#include "GraphColor.h"
+//#include "GraphColor.h"
 #define INF 100000000
 #define DEBUG 0
 #define TIMING 0

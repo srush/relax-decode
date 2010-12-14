@@ -83,7 +83,7 @@ Forest::Forest(const Hypergraph& hgraph) {
         
       } 
 
-      ForestEdge * forest_edge = new ForestEdge(edge.label(), features, edge_id, tail_nodes);
+      ForestEdge * forest_edge = new ForestEdge(edge.label(), features, edge_id, tail_nodes, _nodes[node.id()]);
       
       for (int k =0; k < edge.tail_node_ids_size(); k++ ){
         int id = edge.tail_node_ids(k);

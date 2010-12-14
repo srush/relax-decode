@@ -18,8 +18,8 @@ typedef  svector<int, double> str_vector;
 
 class ForestEdge {
 public:
- ForestEdge(const string & label, str_vector * features, int id, vector <ForestNode *> tail_nodes):
-  _label(label), _features(features), _id(id), _tail_nodes(tail_nodes) {}
+ ForestEdge(const string & label, str_vector * features, int id, vector <ForestNode *> tail_nodes, ForestNode * head_node):
+  _label(label), _features(features), _id(id), _tail_nodes(tail_nodes), _head_node(head_node) {}
   
   int id() const {return _id;} 
 
@@ -35,7 +35,11 @@ public:
   const str_vector & fvector() const {
     return *_features;
   }
+
+  const ForestNode & head_node() const { return *_head_node;}
+ 
   vector <ForestNode *> _tail_nodes;
+  ForestNode * _head_node;
 private:
   const string & _label; 
   str_vector * _features;
