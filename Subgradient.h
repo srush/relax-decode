@@ -23,6 +23,7 @@ class Subgradient {
     _round = 1;
     _nround = 1;
     _is_stuck = false;
+    _first_stuck_iteration = -1;
   } ;
 
   void solve();

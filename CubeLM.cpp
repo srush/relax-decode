@@ -97,7 +97,7 @@ int main(int argc, char ** argv) {
     Cache<ForestNode, int> * words = cache_word_nodes(*lm, f);
     
     clock_t begin=clock();    
-    CubePruning p(f, *w, LMNonLocal(f, *lm, *words), 100, 3);
+    CubePruning p(f, *w, LMNonLocal(f, *lm, *words), 500, 3);
     double v =p.parse();    
     clock_t end=clock();
     cout << i << " "<< v << " " <<  (double)diffclock(end,begin) << endl;

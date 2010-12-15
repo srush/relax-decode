@@ -129,7 +129,9 @@ void Subgradient::update_weights(wvector & subgrad) {
     }
 
     _is_stuck = fabs(upper-lower) < 0.10;
-    _first_stuck_iteration = _round;
+    if (_is_stuck && _first_stuck_iteration == -1) {
+      _first_stuck_iteration = _round;
+    }
     cout << "STUCK " <<  _round << " "<< upper << " " << lower << " " <<_is_stuck <<endl;
   }
 
