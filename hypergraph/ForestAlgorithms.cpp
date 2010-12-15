@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <iomanip>
+#include <set>
+#include <vector>
+
 using namespace std;
 #define INF 1e20
 
@@ -9,6 +12,39 @@ using namespace std;
 double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table);
 vector <const ForestNode *> construct_best_fringe_help(const ForestNode & node, const NodeBackCache & back_memo_table);
 vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCache & back_memo_table);
+
+void topological_sort(const Forest & forest, vector <int> & top_sort) {
+  set <int> s;
+  s.insert(forest.root().id());
+  top_sort.clear();
+  Cache <ForestEdge, bool> removed(forest.num_edges());
+  while (!s.empty()) {
+    int n = (*s.begin());
+    s.erase(n);
+    top_sort.push_back(n);
+    
+    const ForestNode & node = forest.get_node(n);
+    for (int i=0; i< node.num_edges(); i++) {
+      const ForestEdge & edge = node.edge(i); 
+      removed.set_value(edge, 1);
+
+      for (int j=0; j < edge.num_nodes(); j++) {
+        const ForestNode & sub_node = edge.tail_node(j);
+        bool no_edges = true; 
+
+        // have all the above edges been removed
+        for (int k=0; k < sub_node.num_in_edges(); k++) {
+          const ForestEdge & in_edge = sub_node.in_edge(k); 
+          no_edges &= (removed.has_key(in_edge) && removed.get_value(in_edge));  
+        }
+        if (no_edges) {
+          s.insert(sub_node.id());
+        }
+      }
+    }
+  }
+  
+} 
 
 
 

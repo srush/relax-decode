@@ -2,6 +2,7 @@
 #include <cmath>
 //typedef StoreCache <Hypothesis, double> BestHyp;
 #include <iostream>
+#include "ForestAlgorithms.h"
 using namespace std;
 
 #define DEBUG 0
@@ -323,6 +324,7 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
 void ExtendCKY::node_best_out_fast(const ForestNode & node) {
   // when you get to a node it is done already 
   assert (_outside_memo_table.has_key(node));
+  assert(_out_done.find(node.id()) == _out_done.end());
   BestHyp & above = _outside_memo_table.store[node.id()];
   BestHyp & above_inside = _memo_table.store[node.id()];
 
@@ -346,6 +348,9 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
       int pos = j;
       const ForestNode & sub_node = edge.tail_node(j);
 
+      // make sure we are in breadth first order
+      assert(_out_done.find(sub_node.id()) == _out_done.end());
+
       // square sub_node
       _out_queue.push(sub_node.id());
       BestHyp & best_at_node = _outside_memo_table.store[sub_node.id()];
@@ -362,6 +367,10 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
         for (int iter2 =0; iter2 < edge_forward_hyps[pos].size(); iter2++) {
           const Hypothesis & hyp2 = edge_forward_hyps[pos].get_hyp(iter2);
           
+          double inside = edge_forward_hyps[pos].get_score(iter2);
+          double inside_top = _memo_table.store[node.id()].get_score_by_id(hyp1.id());
+
+          if (hyp1.hook != hyp2.hook) continue;
           // right side
           double right_score;
           if (pos == last) {
@@ -379,6 +388,12 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
           Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
           bool b = outside_edge[pos].try_set_hyp(h, score);
           //cout << "Outside dot " << edge.id() << " "  << pos << " " << hyp2.id() << " "<<score << " " << b << endl; 
+        
+          assert (inside_top <= (inside + right_score + edge_value) + 1e-4); 
+          assert(_total_best <=  (score + inside) + 1e-4) ;
+          if (DEBUG) {
+            cout << "Outside EDGE " << edge.id()<< " " << pos << " " <<h->id() << " " << score + inside<<" "<< _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
+          }
         }
 
 
@@ -416,12 +431,13 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
           Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
           double inside = _memo_table.store[sub_node.id()].get_score_by_id(h->id());
           double inside_top = _memo_table.store[node.id()].get_score_by_id(hyp1.id());
+          
            
-           if (DEBUG) {
-             cout << "Outside " <<  edge.id() << " " << node.id() << " " << hyp1.id() << " " <<total_score << " " 
-                  << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
-               inside << " " <<endl;
-           }
+          if (DEBUG) {
+            cout << "Outside node " <<  edge.id() << " " << node.id() << " " << sub_node.id() << " " << hyp1.id() << " " <<total_score + inside<< " " << _total_best << " " << total_score << " " 
+                 << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
+              inside << " " <<endl;
+          }
            assert (inside_top <= (left_score + right_score + edge_value + inside) + 1e-4); 
            
            best_at_node.try_set_hyp(h, total_score);
@@ -492,11 +508,13 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
     for (int iter = 0; iter < above.size(); iter++) {
       const Hypothesis & hyp1 = above.get_hyp(iter);
       double score1 = above.get_score(iter);
-
+      double inside_top = _memo_table.get_value(top_node).get_score_by_id(hyp1.id());
       // dot outside S ->NP . VP
       for (int iter2 =0; iter2 < edge_forward_hyps[pos].size(); iter2++) {
-        const Hypothesis & hyp2 = below.get_hyp(iter2);
-        
+        const Hypothesis & hyp2 = edge_forward_hyps[pos].get_hyp(iter2);
+        double inside = edge_forward_hyps[pos].get_score(iter2);
+        if (hyp1.hook != hyp2.hook) continue;
+
         // right side
         double right_score;
         if (pos == last) {
@@ -505,12 +523,18 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
         } else {
           int id = make_id(hyp2.right_side, hyp1.right_side, _controller->dim()); 
           if (!edge_backward_hyps[pos+1].has_id(id))  continue;
-          right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
+          right_score = edge_backward_hyps[pos+1].get_score_by_id(id);
         }
         // top outside + edge + right_side
         double score = score1 + right_score + edge_value; 
         
         Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
+        
+        assert (inside_top <= (inside + right_score + edge_value) + 1e-4); 
+        assert(_total_best <=  (score + inside) + 1e-4) ;
+
+        cout << "EDGE " << edge.id() << " " <<h->id() << " " << _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
+
         outside_edge[pos].try_set_hyp(h, score);
       }
 
@@ -546,7 +570,7 @@ void ExtendCKY::node_best_out_fast(const ForestNode & node) {
         //BestHyp & at = _outside_memo_table.store[node];
         Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
         double inside = _memo_table.get_value(node).get_score_by_id(h->id());
-        double inside_top = _memo_table.get_value(top_node).get_score_by_id(hyp1.id());
+        
         
         if (DEBUG) {
           cout << "Outside " <<  edge.id() << " " << top_node.id() << " " << hyp1.id() << " " <<total_score << " " 
@@ -582,6 +606,7 @@ void ExtendCKY::outside() {
     BestHyp best_hyps; 
     _controller->initialize_out_root(hyps, scores);
 
+
     const ForestNode & root = _forest.root();
     assert(hyps.size() == scores.size());
     for (int i=0;i < hyps.size(); i++) {
@@ -593,10 +618,12 @@ void ExtendCKY::outside() {
     }
     _outside_memo_table.set_value(root,  best_hyps);
 
-    _out_queue.push(root.id());
-    while(!_out_queue.empty()) {
-      int id = _out_queue.front();
-      _out_queue.pop();
+
+    vector <int> node_order;
+    topological_sort(_forest, node_order);
+
+    for (int i=0; i < node_order.size() ;i ++ ) {
+      int id = node_order[i];
       if (_out_done.find(id) == _out_done.end()) {
         node_best_out_fast(_forest.get_node(id));
         _out_done.insert(id);

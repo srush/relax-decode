@@ -33,7 +33,7 @@ void AStar::add_to_queue( Hypothesis * hyp, double score, Location * w) {
     cout << " +AStar" << with_astar <<  " " << heuristic << endl; 
   QueueHyp elem(hyp, with_astar, w);
 
-  //assert (with_astar >= _best_so_far - 1e-4);
+  assert (with_astar >= _best_so_far - 1e-4);
   _queue.push(elem);
 }
 
@@ -201,6 +201,8 @@ void AStar::recompute_edge(const ForestEdge & edge,
         l->location = NODE;
         l->node_id = edge.head_node().id();
         double score = join_score + edge_value;
+
+        //cout << " Finishing edge "<< original_score << " " << score2 << " " << edge_value << endl;
         add_to_queue(join, score, l);
 
       } else {

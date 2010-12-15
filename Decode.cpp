@@ -545,18 +545,20 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
         _projection[i] = 0; // _subproblem->rand_projection(1);
       }
     }
-    cout << "DSTUCK " << is_stuck << " " << _maintain_constraints << endl;
+    //cout << "DSTUCK " << is_stuck << " " << _maintain_constraints << endl;
     if ((round ==150 || is_stuck) && !_maintain_constraints) {
       cout << "DUAL STUCK Round "<< round << endl;
       _maintain_constraints = true;
       _is_stuck_round = round;
     }
 
-    /*if (round >=100) {
+
+    /*_maintain_constraints =true;
+    if (round >=3) {
       int limit = 3;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-    } 
-
+      } */
+    /*
     if (round >=120) {
       int limit = 4;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
@@ -698,14 +700,14 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     AStar astar(_forest, c_astar, *total, heu);
     dual = astar.best_path(back_pointers);
     
-    // for testing - take out!
+    // for testing - takeout!
     /*SplitController c2(*_subproblem, _lattice, false);
     ExtendCKY ecky2(_forest);
     ecky2.set_params(total, &c2);
     double dual_test = ecky2.best_path(back_pointers3);
     
-    assert(fabs(dual - dual_test) < 1e-4); 
-    */
+    assert(fabs(dual - dual_test) < 1e-4); */
+    
   } else {
     dual = ecky.best_path(back_pointers);
   }
