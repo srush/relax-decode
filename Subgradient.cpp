@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <time.h>
 #include "util.h"
-
+#define INF 1e8
 #define TIMING 0 
 using namespace std;
 void Subgradient::solve() {
@@ -41,7 +41,7 @@ bool Subgradient::run_one_round() {
   wvector subgrad;
   //cout << endl;
   clock_t start=clock();
-  _s->solve(primal, dual, subgrad, _round);
+  _s->solve(primal, dual, subgrad, _round, _is_stuck);
 
   clock_t end;
   if (TIMING) {
@@ -116,6 +116,21 @@ void Subgradient::update_weights(wvector & subgrad) {
   if (TIMING) {
     cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
   }
+
+  // has a dual value become stuck
+  _is_stuck = false;
+  if (_round > 5) {
+    double upper=-INF;
+    double lower=INF;
+    for (int i=1; i <= 5 ; i++)  {
+      upper = max(upper, _duals[dualsize -i]);
+      lower = min(lower, _duals[dualsize -i]);
+    }
+
+    _is_stuck = fabs(upper-lower) < 0.10;
+    cout << "STUCK" <<  upper << " " << lower << " " <<_is_stuck <<endl;
+  }
+
   _weights += updates;
   if (TIMING) {
     cout << "CHANGED " << size << endl ;

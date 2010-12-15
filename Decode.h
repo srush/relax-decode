@@ -30,7 +30,8 @@ class Decode: public SubgradientProducer {
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
-    
+
+    _is_stuck_round = 10000;
     //cout<<"ready to roll" << endl;
     //_projection = _subproblem->rand_projection(2);
     // _constraints.resize(_lattice.num_word_nodes);
@@ -42,7 +43,7 @@ class Decode: public SubgradientProducer {
       delete _cached_words;
     }
    
-    void solve(double & primal, double & dual, wvector &, int);
+    void solve(double & primal, double & dual, wvector &, int, bool);
   void update_weights(const wvector & updates,  wvector * weights );
   
  private:
@@ -71,6 +72,7 @@ class Decode: public SubgradientProducer {
 
   map <int, set <int> > _constraints; 
   bool _maintain_constraints; 
+  int _is_stuck_round;
   //ExtendCKY ecky;
 };
 

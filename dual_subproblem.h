@@ -11,7 +11,7 @@
 
 #include<fstream>
 #include<set>
-#define MAX_PROJ 15
+#define MAX_PROJ 25
 #define PROJECT 0
 #define TRIPROJECT 1
 

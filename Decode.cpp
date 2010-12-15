@@ -530,7 +530,7 @@ void Decode::print_output(const wvector & subgrad) {
   //cout << endl << endl;
 }
 
-void Decode::solve(double & primal , double & dual, wvector & subgrad, int round) {
+void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck) {
   clock_t begin, end;
   if (TIMING) {
     cout << "Solving" << endl;
@@ -546,8 +546,10 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       }
     }
     
-    if (round == 100) {
+    if (is_stuck && !_maintain_constraints) {
+      cout << "DUAL STUCK Round "<< round << endl;
       _maintain_constraints = true;
+      _is_stuck_round = round;
     }
 
     /*if (round >=100) {
@@ -566,8 +568,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     } */
 
 
-   if (round >=150) {
-     int limit = 14;
+   if (round >=_is_stuck_round +50) {
+     int limit = 20;
      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
    } 
  
