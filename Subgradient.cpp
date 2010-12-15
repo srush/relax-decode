@@ -8,7 +8,7 @@
 #define INF 1e8
 #define TIMING 0 
 using namespace std;
-void Subgradient::solve() {
+void Subgradient::solve(int example) {
   clock_t start=clock();
   clock_t s=clock();
   while(run_one_round() && _round < 300) {
@@ -17,6 +17,9 @@ void Subgradient::solve() {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
       s=clock();
     }
+    clock_t e=clock();
+    cout << endl << "*ITER* " << example << " " << _round <<  _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
+       << double(diffclock(e,start)) << endl ;
   }
   //if (TIMING) {
     clock_t end=clock();
