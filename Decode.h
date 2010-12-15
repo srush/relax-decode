@@ -30,7 +30,7 @@ class Decode: public SubgradientProducer {
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
-
+    _maintain_constraints = false;
     _is_stuck_round = 10000;
     //cout<<"ready to roll" << endl;
     //_projection = _subproblem->rand_projection(2);
