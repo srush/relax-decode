@@ -44,6 +44,8 @@ class Subgradient {
   vector <double> _duals;
   double _base_weight;
   bool _is_stuck;
+  int _first_stuck_iteration;
+  int _best_primal_iteration;
 };
 
 #endif

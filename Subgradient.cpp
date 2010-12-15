@@ -31,7 +31,7 @@ void Subgradient::solve() {
     //cout << "CONVERGED" << endl;
   }
 
- cout << "*END*  "<< _best_primal << " " << _best_dual << " " << _round << " " 
+ cout << "*END*  "<< _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " << _round << " " 
        << double(diffclock(end,start)) << endl ;
 }
 
@@ -51,6 +51,7 @@ bool Subgradient::run_one_round() {
 
   
   if (primal < _best_primal) {
+    _best_primal_iteration = _round; 
     _best_primal = primal;
   }
 
@@ -128,6 +129,7 @@ void Subgradient::update_weights(wvector & subgrad) {
     }
 
     _is_stuck = fabs(upper-lower) < 0.10;
+    _first_stuck_iteration = _round;
     cout << "STUCK " <<  _round << " "<< upper << " " << lower << " " <<_is_stuck <<endl;
   }
 
