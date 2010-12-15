@@ -4,13 +4,7 @@
 #include <iostream>
 using namespace std;
 
-
-
-void show_hyp(const Hypothesis & hyp) {
-  cout << hyp.right_side[0] << " " << hyp.right_side[1] << " "<< hyp.hook[0]<< " "  << hyp.hook[1] << endl;
-
-}
-
+#define DEBUG 0
 
 void ExtendCKY::forward_edge(const ForestEdge & edge,  vector <BestHyp> & best_edge_hypotheses) {
   // viterbi to find best edge
@@ -29,8 +23,9 @@ void ExtendCKY::forward_edge(const ForestEdge & edge,  vector <BestHyp> & best_e
                             
         const Hypothesis & hyp = local_best.get_hyp(iter); 
         double score = local_best.get_score(iter);
-        Hypothesis new_hyp(hyp.hook, hyp.right_side, &edge, _controller->dim(), hyp.is_new);
-        new_hyp.prev_hyp.push_back(&hyp);
+        Hypothesis * new_hyp = 
+          new Hypothesis(hyp.hook, hyp.right_side, &edge, _controller->dim(), hyp.is_new);
+        new_hyp->prev_hyp.push_back(hyp.id());
         
         bool worked = best_edge_hypotheses[0].try_set_hyp(new_hyp,  score);
         assert(worked);
@@ -54,13 +49,13 @@ void ExtendCKY::forward_edge(const ForestEdge & edge,  vector <BestHyp> & best_e
    
           assert(hyp2.match(hyp1));
           
-          Hypothesis join(_controller->dim());
+          Hypothesis * join = new Hypothesis(_controller->dim());
                     
-          join.back_edge = &edge;
+          join->back_edge = &edge;
           assert(hyp2.prev_hyp.size() == j);
           double join_score = score1 + score2 +
-            _controller->combine(hyp2, hyp1, join);
-          assert(join.prev_hyp.size() == j+1);
+            _controller->combine(hyp2, hyp1, *join);
+          assert(join->prev_hyp.size() == j+1);
 
           /*cout << "For Combine " << endl;
           show_hyp(hyp1);
@@ -95,8 +90,8 @@ void ExtendCKY::backward_edge(const ForestEdge & edge,  vector <BestHyp> & best_
                             
         const Hypothesis & hyp = local_best.get_hyp(iter); 
         double score = local_best.get_score(iter);
-        Hypothesis new_hyp(hyp.hook, hyp.right_side, &edge, _controller->dim(), hyp.is_new);
-        new_hyp.prev_hyp.push_back(&hyp);
+        Hypothesis * new_hyp = new Hypothesis(hyp.hook, hyp.right_side, &edge, _controller->dim(), hyp.is_new);
+        new_hyp->prev_hyp.push_back(hyp.id());
         
         bool worked = best_edge_back_hypotheses[j].try_set_hyp(new_hyp,  score);
         assert(worked);
@@ -120,12 +115,12 @@ void ExtendCKY::backward_edge(const ForestEdge & edge,  vector <BestHyp> & best_
    
           assert(hyp1.match(hyp2));
           
-          Hypothesis join(_controller->dim());
+          Hypothesis * join = new Hypothesis(_controller->dim());
                     
-          join.back_edge = &edge;
+          join->back_edge = &edge;
           //assert(hyp2.prev_hyp.size() == j);
           double join_score = score1 + score2 +
-            _controller->combine_back(hyp2, hyp1, join);
+            _controller->combine_back(hyp2, hyp1, *join);
           //assert(join.prev_hyp.size() == j+1);
           /*cout << "Back Combine " << endl;
           show_hyp(hyp1);
@@ -161,7 +156,7 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
   if (node.num_edges() == 0) {
     
     assert (node.is_word());
-    vector <Hypothesis> hyps;
+    vector <Hypothesis *> hyps;
     vector <double> scores; 
     _controller->initialize_hypotheses(node, hyps, scores);
     assert(hyps.size() == scores.size());
@@ -231,9 +226,10 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
         for (int iter = 0; iter< best_edge_hypotheses[last].size(); iter++) {
           //if (!best_edge_hypotheses->has_key(iter)) continue;
           
-          const Hypothesis & hyp1 = best_edge_hypotheses[last].get_hyp(iter); 
+          Hypothesis * hyp1 = best_edge_hypotheses[last].hyps[iter];
+          
           double score1 = best_edge_hypotheses[last].get_score(iter);
-          double back_score = best_edge_back_hypotheses[0].get_score_by_id(hyp1.id());
+          double back_score = best_edge_back_hypotheses[0].get_score_by_id(hyp1->id());
           assert (fabs(score1 - back_score) < 1e-4);
 
           /*for (int q=0; q <= last; q++) {
@@ -245,9 +241,10 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
     
           double score = score1 + edge_value;
 
-          cout << "INSIDE " << edge.id() << " " << node.id() << " " << hyp1.id() << " " << score1 << " " 
-               << edge_value << " " << score << endl;
-
+          if (DEBUG) {
+            cout << "INSIDE " << edge.id() << " " << node.id() << " " << hyp1->id() << " " << score1 << " " 
+                 << edge_value << " " << score << endl;
+          }
           //check = best_node_hypotheses.find(iter->first);
           bool w = best_node_hypotheses.try_set_hyp(hyp1, score);
           if (w) {
@@ -279,19 +276,22 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
     }
     }*/
   assert (best_node_hypotheses.size() != 0);
-  cout << "Setting "<<node.id() << endl;
-  for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
-    cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
-  }
-  //if (best_node_hypotheses.size() > _controller->prune_to()) {
-  //best_node_hypotheses.prune(_controller->prune_to());
+  
+  if (DEBUG ) {
+    cout << "Setting "<<node.id() << endl;
+    for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
+      cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
+    }
+    //if (best_node_hypotheses.size() > _controller->prune_to()) {
+    //best_node_hypotheses.prune(_controller->prune_to());
     //}
-  cout << endl;
-  cout << "After "<<node.id() << endl;
-  for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
-    cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
+    cout << endl;
+    cout << "After "<<node.id() << endl;
+    for (int iter = 0; iter< best_node_hypotheses.size(); iter++) {
+      cout << " " <<iter <<"=" <<best_node_hypotheses.get_score(iter) << " ";
+    }
+    cout << endl;
   }
-  cout << endl;
   _memo_table.set_value(node, best_node_hypotheses);
 } 
 
@@ -310,7 +310,7 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
   best = _controller->find_best(at_root.hyps, at_root.scores, best_hyp);
   _total_best = best;
   
-  extract_back_pointers(_forest.root(), best_hyp, back_pointers);
+  extract_back_pointers(_forest.root(), best_hyp, _memo_table, back_pointers);
 
   //for (int i=0; i < _to_delete.size(); i++) {
   //delete _to_delete[i];
@@ -320,15 +320,129 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
   return best;
 }
 
+void ExtendCKY::node_best_out_fast(const ForestNode & node) {
+  // when you get to a node it is done already 
+  assert (_outside_memo_table.has_key(node));
+  BestHyp & above = _outside_memo_table.store[node.id()];
+  BestHyp & above_inside = _memo_table.store[node.id()];
+
+  // do all its children
+  int id = node.id();
+  // calculate the outside score for a node
+  
+  for (int i=0; i< node.num_edges(); i++) {
+    const ForestEdge & edge = node.edge(i);
+    double edge_value= _edge_weights->get_value(edge);        
+
+    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge.id()]; 
+    _outside_edge_memo_table.has_value[edge.id()] = true;
+    outside_edge.resize(edge.num_nodes());
+    
+    vector <BestHyp> & edge_forward_hyps = _memo_edge_table.store[edge.id()]; 
+    vector <BestHyp> & edge_backward_hyps = _memo_edge_back_table.store[edge.id()]; 
+    
+    int last = edge.num_nodes()-1;
+    for (int j=0; j < edge.num_nodes(); j++) {
+      int pos = j;
+      const ForestNode & sub_node = edge.tail_node(j);
+
+      // square sub_node
+      _out_queue.push(sub_node.id());
+      BestHyp & best_at_node = _outside_memo_table.store[sub_node.id()];
+      _outside_memo_table.has_value[sub_node.id()] = true;
+      
+      BestHyp & below = _memo_table.store[sub_node.id()];
+
+      for (int iter = 0; iter < above.size(); iter++) {
+        const Hypothesis & hyp1 = above.get_hyp(iter);
+        double score1 = above.get_score(iter);
+
+        // dot outside S ->NP . VP
+
+        for (int iter2 =0; iter2 < edge_forward_hyps[pos].size(); iter2++) {
+          const Hypothesis & hyp2 = edge_forward_hyps[pos].get_hyp(iter2);
+          
+          // right side
+          double right_score;
+          if (pos == last) {
+            if (hyp2.right() != hyp1.right()) continue;
+            right_score = 0.0;
+          } else {
+            int id = make_id(hyp2.right_side, hyp1.right_side, _controller->dim()); 
+            if (!edge_backward_hyps[pos+1].has_id(id))  continue;
+            right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
+          }
+          // top outside + edge + right_side
+          double score = score1 + right_score + edge_value; 
+        
+
+          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
+          bool b = outside_edge[pos].try_set_hyp(h, score);
+          //cout << "Outside dot " << edge.id() << " "  << pos << " " << hyp2.id() << " "<<score << " " << b << endl; 
+        }
+
+
+
+        // nodes below
+         
+        for (int iter2 =0; iter2 < below.size(); iter2++) {
+          const Hypothesis & hyp2 = below.get_hyp(iter2);
+          //double score2 = below.get_score(iter2);
+           
+          // left side
+          double left_score;
+          if (pos == 0) {
+            if (hyp2.left() != hyp1.left()) continue;
+            left_score = 0.0; 
+          } else {
+            int id = make_id(hyp1.hook, hyp2.hook, _controller->dim()); 
+            if (!edge_forward_hyps[pos-1].has_id(id))  continue;
+            left_score = edge_forward_hyps[pos -1].get_score_by_id(id);
+          }
+          // right side
+          double right_score;
+          if (pos == last) {
+            if (hyp2.right() != hyp1.right()) continue;
+            right_score = 0.0;
+          } else {
+            int id = make_id(hyp2.right_side, hyp1.right_side, _controller->dim()); 
+            if (!edge_backward_hyps[pos+1].has_id(id))  continue;
+            right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
+          }
+         
+          // top outside + left inside + right inside + edge score
+          double total_score = left_score + right_score + edge_value + score1;
+          //BestHyp & at = _outside_memo_table.store[node];
+          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
+          double inside = _memo_table.store[sub_node.id()].get_score_by_id(h->id());
+          double inside_top = _memo_table.store[node.id()].get_score_by_id(hyp1.id());
+           
+           if (DEBUG) {
+             cout << "Outside " <<  edge.id() << " " << node.id() << " " << hyp1.id() << " " <<total_score << " " 
+                  << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
+               inside << " " <<endl;
+           }
+           assert (inside_top <= (left_score + right_score + edge_value + inside) + 1e-4); 
+           
+           best_at_node.try_set_hyp(h, total_score);
+           assert(_total_best <=  (total_score + inside) + 1e-4) ;
+           assert(_total_best <=  (total_score + inside) + 1e-4) ;
+         }
+       }
+     }
+   }
+ }
+
  void ExtendCKY::node_best_out_path(const ForestNode & node) {
   
   if (_outside_memo_table.has_key(node)) {
     return;
   }
+
   // Edge case root
   if (node.id() == _forest.root().id()) {
     //_outside_memo_table[node.id()].set_value()
-    vector <Hypothesis> hyps;
+    vector <Hypothesis *> hyps;
     vector <double > scores;
     BestHyp best_hyps; 
     _controller->initialize_out_root(hyps, scores);
@@ -336,14 +450,13 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
 
     assert(hyps.size() == scores.size());
     for (int i=0;i < hyps.size(); i++) {
-      if (_memo_table.get_value(node).has_id(hyps[i].id())) {
-        double inside = _memo_table.get_value(node).get_score_by_id(hyps[i].id());
+      if (_memo_table.get_value(node).has_id(hyps[i]->id())) {
+        double inside = _memo_table.get_value(node).get_score_by_id(hyps[i]->id());
         assert(_total_best <=  (scores[i] + inside) + 1e-4); 
         best_hyps.try_set_hyp(hyps[i], scores[i]);
       }
     }
     _outside_memo_table.set_value(node,  best_hyps);
-
 
     return; 
   }
@@ -354,6 +467,10 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
   for (int i =0; i < node.num_in_edges(); i++) {
     const ForestEdge & edge = node.in_edge(i);
     const ForestNode & top_node = edge.head_node();
+    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge.id()]; 
+    _outside_edge_memo_table.has_value[edge.id()] = true;
+    outside_edge.resize(edge.num_nodes());
+
     // cache outside above 
     node_best_out_path(top_node);
     double edge_value= _edge_weights->get_value(edge); 
@@ -375,6 +492,30 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
     for (int iter = 0; iter < above.size(); iter++) {
       const Hypothesis & hyp1 = above.get_hyp(iter);
       double score1 = above.get_score(iter);
+
+      // dot outside S ->NP . VP
+      for (int iter2 =0; iter2 < edge_forward_hyps[pos].size(); iter2++) {
+        const Hypothesis & hyp2 = below.get_hyp(iter2);
+        
+        // right side
+        double right_score;
+        if (pos == last) {
+          if (hyp2.right() != hyp1.right()) continue;
+          right_score = 0.0;
+        } else {
+          int id = make_id(hyp2.right_side, hyp1.right_side, _controller->dim()); 
+          if (!edge_backward_hyps[pos+1].has_id(id))  continue;
+          right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
+        }
+        // top outside + edge + right_side
+        double score = score1 + right_score + edge_value; 
+        
+        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
+        outside_edge[pos].try_set_hyp(h, score);
+      }
+
+      // node outside
+
       for (int iter2 =0; iter2 < below.size(); iter2++) {
         const Hypothesis & hyp2 = below.get_hyp(iter2);
         //double score2 = below.get_score(iter2);
@@ -403,13 +544,17 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
         // top outside + left inside + right inside + edge score
         double total_score = left_score + right_score + edge_value + score1;
         //BestHyp & at = _outside_memo_table.store[node];
-        Hypothesis h(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
-        double inside = _memo_table.get_value(node).get_score_by_id(h.id());
+        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller->dim(), false);
+        double inside = _memo_table.get_value(node).get_score_by_id(h->id());
         double inside_top = _memo_table.get_value(top_node).get_score_by_id(hyp1.id());
-        cout << "Outside " <<  edge.id() << " " << top_node.id() << " " << hyp1.id() << " " <<total_score << " " 
+        
+        if (DEBUG) {
+          cout << "Outside " <<  edge.id() << " " << top_node.id() << " " << hyp1.id() << " " <<total_score << " " 
              << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
-          inside << " " <<endl;
+            inside << " " <<endl;
+        }
         assert (inside_top <= (left_score + right_score + edge_value + inside) + 1e-4); 
+
         best_at_node.try_set_hyp(h, total_score);
         assert(_total_best <=  (total_score + inside) + 1e-4) ;
         assert(_total_best <=  (total_score + inside) + 1e-4) ;
@@ -430,12 +575,42 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
   _outside_memo_table.set_value(node,  best_at_node);
 } 
 
-void ExtendCKY::outside(Cache <ForestNode, BestHyp> & outside_scores) {
+void ExtendCKY::outside() {
+  // first initialize root
+    vector <Hypothesis *> hyps;
+    vector <double > scores;
+    BestHyp best_hyps; 
+    _controller->initialize_out_root(hyps, scores);
+
+    const ForestNode & root = _forest.root();
+    assert(hyps.size() == scores.size());
+    for (int i=0;i < hyps.size(); i++) {
+      if (_memo_table.get_value(root).has_id(hyps[i]->id())) {
+        double inside = _memo_table.get_value(root).get_score_by_id(hyps[i]->id());
+        assert(_total_best <=  (scores[i] + inside) + 1e-4); 
+        best_hyps.try_set_hyp(hyps[i], scores[i]);
+      }
+    }
+    _outside_memo_table.set_value(root,  best_hyps);
+
+    _out_queue.push(root.id());
+    while(!_out_queue.empty()) {
+      int id = _out_queue.front();
+      _out_queue.pop();
+      if (_out_done.find(id) == _out_done.end()) {
+        node_best_out_fast(_forest.get_node(id));
+        _out_done.insert(id);
+      }
+    }
+
+    //outside_scores = _outside_memo_table;    
+    //outside_edge_scores = _outside_edge_memo_table;
   // assume that we have a _memo_table to play with
   
-  for (int i = 0; i < _forest.num_nodes(); i++) {
+  /*for (int i = 0; i < _forest.num_nodes(); i++) {
     const ForestNode & node = _forest.get_node(i);
     if (!node.is_word()) continue;
     node_best_out_path(node);
   }
+*/
 }

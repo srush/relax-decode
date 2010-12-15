@@ -8,130 +8,101 @@
 #include "time.h"
 #include "ExtendCKY.h"
 #include <iomanip>
-#define TIMING 1
+#include "AStar.h"
+#define TIMING 0
 #define IS_TRY 0
 //#define PROJECT 1si
 //#define TRIPROJECT 0
 #define DEBUG 0
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
+#define BACK 1
+class SplitHeuristic : public Heuristic {
+public :
+  SplitHeuristic(const Cache <ForestNode, BestHyp> & outside_scores, 
+                 Cache <ForestEdge, vector<BestHyp> >  & outside_edge_scores): 
+    _outside_scores(outside_scores),
+    _outside_edge_scores(outside_edge_scores){}
 
-// // Cube Pruning Controller for decoding 
-// class SplitCubeController: public NonLocal {
-//  public:
-//  SplitCubeController(const Forest & forest,  
-//                      Ngram & lm, 
-//                      const Cache <ForestNode, int> & word_cache,
-//                      const Subproblem & s) 
-//    : _word_cache(word_cache), _lm(lm), _forest(forest), _subproblem(s) {}
-  
-//   void compute(const ForestEdge & edge,
-//                const vector <vector <int> > & subder,
-//                double & score,
-//                vector <int>  & full_derivation,
-//                vector <int> & sig
-//                ) const {
-//     full_derivation.clear();
-//     sig.clear();
-//     score =0.0;
+  int lower_id(const Hypothesis & hyp) const {
+    // project down to two 
+    vector < int> hook(2);
+    vector < int> right_side(2);
+    hook[0] = hyp.hook[0] < 1 ? 0 : 1;
+    hook[1] = hyp.hook[1] < 1 ? 0 : 1;
+    right_side[0] = hyp.right_side[0] < 1 ? 0 : 1;
+    right_side[1] = hyp.right_side[1] < 1 ? 0 : 1;
+    return make_id(hook, right_side, 2);
+  }
 
-//     //cout << "COMBINE " << subder.size() <<endl;
-//     for (int i =0; i < subder.size(); i++) {
-//       int size = full_derivation.size(); 
-//       int w = subder[i][0];
-//       if (size >= 2) {
+  inline bool has_value(const Location & l, const Hypothesis & hyp) const  {
+    if (l.location == NODE) {
+      int node_id = l.node_id;
+      int low_id = lower_id(hyp);
+      const BestHyp & bhyp = _outside_scores.store[node_id];
+      return bhyp.has_id(low_id);
+    } else if (l.location == EDGE)  {
       
-//         VocabIndex context [] = {full_derivation[size-1], 
-//                                  full_derivation[size-2], 
-//                                  Vocab_None};
-//         score += _lm.wordProb(w, context);
-        
-//         // subtract out uni
-//         if (w!=1 && w!=2) {
-//           const VocabIndex context2 [] = {Vocab_None};
-//           score -= _lm.wordProb(w, context2);        
-//           //cout << "bonus" << endl;
-//         }
-//         //cout << "\t" << score <<endl;
-//         //cout << "\t" <<  "TRIGRAM " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
-//       } else if (size ==1 && w != 1 ) {
-        
-//         if (w !=1 && w!= 2) {
-//           VocabIndex context [] = {full_derivation[size-1], Vocab_None};
-//           score += _lm.wordProb(w, context);        
-        
-
-//         // subtract out uni
-
-//           const VocabIndex context2 [] = {Vocab_None};
-//           score -= _lm.wordProb(w, context2);        
-//           //cout << "bonus" << endl;
-//         }
-//       }
-
-//       if (size >=1 && subder[i].size() > 1 ) {
-//         const VocabIndex context [] = {w, full_derivation[size-1], Vocab_None};
-//         score += _lm.wordProb(subder[i][1], context);
-//         //cout << "\t" << score <<endl;
-//         //cout << "\t" <<  "Wait TRIGRAM " << subder[i][1] << " " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
-//         //cout << "\t" <<  "SCORE " << _lm.wordProb(subder[i][1], context) << endl;
-        
-//         if ( subder[i][1]!= 1 && subder[i][1]!=2) {
-//           const VocabIndex context2 [] = {w, Vocab_None};
-//           score -= _lm.wordProb(subder[i][1], context2);        
-//           //cout << "bonus" << endl;
-//           }
-//       }
-//       //cout << "\t" << size <<endl;
-//       for (int j=0; j < subder[i].size(); j++) {         
-//         //cout  << _lm.vocab.getWord(subder[i][j]) << " " ;
-//         full_derivation.push_back(subder[i][j]);
-//       }
-//     }
-//     score *= (-0.141221);
-//     int size = full_derivation.size();
-
-//     sig.push_back(full_derivation[0]);
-//     sig.push_back(full_derivation[size-1]);
-//     assert(size > 0);
-//     if (size!=1) {
-//       sig.push_back(full_derivation[1]);
-//       sig.push_back(full_derivation[size-2]);
-//     }
-//   }
+      int edge_id = l.edge_id;
+      int low_id = lower_id(hyp);
+      //cout << "Looking for " <<  edge_id << " " << low_id << " " << l.edge_pos << endl;
+      const BestHyp & bhyp = _outside_edge_scores.store[edge_id][l.edge_pos];
+      return bhyp.has_id(low_id);
+    }
+    assert(false);
+    return 0.0;
+  }
   
-//   Hyp initialize(const ForestNode & node) const {
-//     assert (node.is_word());
-//     int w = _word_cache.get_value(node);
-//     double score = 0.0; 
-//     VocabIndex context [] = {Vocab_None};
-//     if (w!=1 && w!=2) {
-//       score += _lm.wordProb(w, context);
-//       score *= (-0.141221);
-//     }
-//     //cout << "WORD " << _word_cache.get_value(node) << " "<< _lm.vocab.getWord(w)<<  endl;
-//     vector <int> sig;
-//     sig.push_back(w);
-//     sig.push_back(w);
-//     vector <int> der;
-//     der.push_back(w);
-//     return Hyp(score, sig, der); 
-//   }
-//  private:
-//   Ngram & _lm;
-//   const Cache <ForestNode, int> & _word_cache;  
-//   const Forest  & _forest;  
-//   const Subproblem  & _subproblem;  
-// };
+  inline double get_value(const Location & l, const Hypothesis & hyp) const {
+    if (l.location == NODE) {
+      int node_id = l.node_id;
+      return _outside_scores.store[node_id].get_score_by_id(lower_id(hyp));
+    } else if (l.location == EDGE ) {
+      int edge_id = l.edge_id;
+      return _outside_edge_scores.store[edge_id][l.edge_pos].get_score_by_id(lower_id(hyp));
+    }
+    assert(false);
+    return 0.0;
+  }
 
+
+private: 
+  const Cache <ForestNode , BestHyp> & _outside_scores;
+  const Cache <ForestEdge, vector<BestHyp> >  & _outside_edge_scores;
+};
 
 
 class SplitController : public Controller {
 public:
-  SplitController (const Subproblem & s, const ForestLattice & l) : _subproblem(s), _lattice(l) {}
+  SplitController (const Subproblem & s, const ForestLattice & l, bool two_classes) : _subproblem(s), _lattice(l), _two_classes(two_classes) {
+    assert(_subproblem.projection_dims >=BACK);
+    if (_two_classes) {
+      _classes.resize(2);
+      //_inner_projection;
+      for (int i=0; i < BACK; i++) {
+        _classes[0].push_back(i);
+        _inner_projection.push_back(0);
+      }
+      for (int i=BACK; i < _subproblem.projection_dims; i++) {
+        _classes[1].push_back(i);
+        _inner_projection.push_back(1);
+      }
+    } else {
+      _classes.resize(_subproblem.projection_dims);
+      for (int i=0; i < _subproblem.projection_dims; i++) {
+        _inner_projection.push_back(i);
+        _classes[i].push_back(i);
+      }
+    }     
+  }
 
   double prune_to() const {
     return 0.25;
+  }
+
+  int project_word(int w) const {
+    return _inner_projection[
+                             _subproblem.project_word(w)];
   }
 
   double combine(const Hypothesis & a, const Hypothesis & b, Hypothesis & ret) const {
@@ -141,7 +112,7 @@ public:
      for (int i=0;i<a.prev_hyp.size();i++) {
       ret.prev_hyp.push_back(a.prev_hyp[i]);
     }
-    ret.prev_hyp.push_back(&b);
+     ret.prev_hyp.push_back(b.id());
     return 0.0;
   }
   
@@ -152,115 +123,111 @@ public:
     for (int i=0;i<a.prev_hyp.size();i++) {
       ret.prev_hyp.push_back(a.prev_hyp[i]);
     }
-    ret.prev_hyp.push_back(&b);
+    ret.prev_hyp.push_back(b.id());
+
     return 0.0;
   }
 
-  int size()  const{
-    return _subproblem.projection_dims * _subproblem.projection_dims * _subproblem.projection_dims * _subproblem.projection_dims;
+  inline int size()  const{
+    int d = dim();
+    return d * d* d *d;
   }
 
-  int dim() const {
-    return _subproblem.projection_dims;
+  inline int dim() const {
+    return _classes.size();
   }
 
-  void initialize_hypotheses(const ForestNode & node, vector <Hypothesis> & hyps, vector <double> & scores) const {
+  void initialize_hypotheses(const ForestNode & node, vector <Hypothesis *> & hyps, vector <double> & scores) const {
     
     int graph_id = _lattice.get_word_from_hypergraph_node(node.id());
     if (_subproblem.overridden[graph_id]) {
-      if (TRIPROJECT) {
-        for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
-          vector <int> hooks(2);
-          vector <int> right_side(2);
+      
+      for (int d2 = 0; d2 < dim(); d2++) {
+        vector <int> hooks(2);
+        vector <int> right_side(2);
+        
+        int w1 = _subproblem.overridden_by(graph_id);
           
-          int w1 = _subproblem.overridden_by(graph_id);
-          //if (_subproblem.projection_dims)
-
+        hooks[0] = project_word(w1);
+        hooks[1] = d2;
+        right_side[0] =project_word(graph_id);
+        right_side[1] = hooks[0];
+        Hypothesis * h = new Hypothesis(hooks, right_side, NULL, dim(), false);
+        h->original_value = 0.0;
+        hyps.push_back(h);
+        scores.push_back(0.0);
           
-          hooks[0] = _subproblem.project_word(w1);
-          hooks[1] = d2;
-          right_side[0] =_subproblem.project_word(graph_id);
-          right_side[1] = hooks[0];
-          //bool is_new = _subproblem.
-          bool is_new = _subproblem.is_new_dim(graph_id, hooks[0], hooks[1]);
-          Hypothesis h(hooks, right_side, NULL, dim(), is_new);
-          //assert(!h.is_new);
-          h.original_value = 0.0;
-          //if (_subproblem.projection_dims > 0) {
-          //cout << graph_id << " " << hooks[0] << " " << d2 << " " << 0.0<< " " << h.is_new << endl;  
-          //}
-          hyps.push_back(h);
-          scores.push_back(0.0);
-          
-          //bool w;
-          //hyps.try_set_hyp(h, 0.0, w, h.is_new);
-        }
       }
+      
     } else {
-      for (int d=0; d < _subproblem.projection_dims; d++) {
+      for (int d=0; d < dim(); d++) {
       
         assert(node.is_word());
         
         assert(_lattice.is_word(graph_id));
-        if (TRIPROJECT) {
-          for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
+        for (int d2 = 0; d2 < dim(); d2++) {
             
-            vector <int> hooks(2);
-            vector <int> right_side(2);
-            hooks[0] = d;
-            hooks[1] = d2;
-            right_side[0] = _subproblem.project_word(graph_id);
-            right_side[1] =d;
-            bool is_new = _subproblem.is_new_dim(graph_id, d, d2);
-            Hypothesis h(hooks, right_side, NULL, dim(), is_new);
-            double score = _subproblem.best_score_dim(graph_id, d, d2);
-            
-            if (score >=  1000) continue;            
-            //if (_subproblem.projection_dims > 0) {
-            //cout << graph_id << " " << d << " " << d2 << " " << score << " " << is_new<< endl;  
-            //}
-
-            h.original_value = score;
-            bool w;
-            hyps.push_back(h);
-            scores.push_back(score);
-            //hyps.try_set_hyp(h, score, w, h.is_new);
-            //cout << "Initial " << score << endl;
-          }
+          vector <int> hooks(2);
+          vector <int> right_side(2);
+                    hooks[0] = d;
+          hooks[1] = d2;
+          right_side[0] = project_word(graph_id);
+          right_side[1] =d;
+          Hypothesis * h = new Hypothesis(hooks, right_side, NULL, dim(), false);
+          double score = _subproblem.best_score_dim_min(graph_id, 
+                                                        _classes[d], 
+                                                        _classes[d2]);
+          
+          if (score >=  1000) continue;            
+          //if (_subproblem.projection_dims > 0) {
+          //cout << graph_id << " " << d << " " << d2 << " " << score << " " << is_new<< endl;  
+          //}
+          
+          h->original_value = score;
+          bool w;
+          hyps.push_back(h);
+          scores.push_back(score);
+          //hyps.try_set_hyp(h, score, w, h.is_new);
+          //cout << "Initial " << score << endl;
+          
         }
-        
       }
     }
-
   }
 
   
-  void initialize_out_root(vector <Hypothesis> & hyps, vector <double> & scores)  const {
-    int s_first_projection= _subproblem.project_word(0);
-    int s_projection= _subproblem.project_word(1);
-    for (int d=0; d < _subproblem.projection_dims; d++) {
-      for (int d2 = 0; d2 < _subproblem.projection_dims; d2++) {
+  void initialize_out_root(vector <Hypothesis *> & hyps, 
+                           vector <double> & scores)  const {
+    int s_first_projection= project_word(0);
+    int s_projection= project_word(1);
+    for (int d=0; d < dim(); d++) {
+      for (int d2 = 0; d2 < dim(); d2++) {
         vector <int> hooks(2);
         vector <int> right_side(2);
-        hooks[0] = s_first_projection;
-        hooks[1] = s_projection;
-        right_side[0] = d;
-        right_side[1] =d2;
+        hooks[0] = s_projection;
+        hooks[1] = s_first_projection;
+        right_side[0] = d2;
+        right_side[1] =d;
 
-        Hypothesis h(hooks, right_side, NULL, dim(), false);
+        Hypothesis * h = new Hypothesis(hooks, right_side, NULL, dim(), false);
         double my_score = 0.0;
         if (!_subproblem.overridden[_lattice.num_word_nodes-2]) {
           int id = _lattice.num_word_nodes-2;
           //cout << "Best " << hyp1.right_side << endl;
-          my_score += _subproblem.best_score_dim(id, h.right_side[0], h.right_side[1]);
+          my_score += 
+            _subproblem.best_score_dim_min(id, 
+                                           _classes[h->right_side[0]], 
+                                           _classes[h->right_side[1]]);
         }
         //cout << "Middle " << my_score << endl;
       
         if (!_subproblem.overridden[_lattice.num_word_nodes-1]) {
           int id = _lattice.num_word_nodes-1;
-          int d = _subproblem.project_word(_lattice.num_word_nodes-2);
+          int d = project_word(_lattice.num_word_nodes-2);
        
-          my_score += _subproblem.best_score_dim(id, d, h.right_side[0]); 
+          my_score += _subproblem.best_score_dim_min(id, 
+                                                     _classes[d], 
+                                                     _classes[h->right_side[0]]); 
         }
         hyps.push_back(h);
         scores.push_back(my_score);
@@ -268,16 +235,17 @@ public:
     }
   }
 
-  double find_best( vector <Hypothesis> & root_hyps, vector<double > & scores, Hypothesis & best_hyp) const {
+  double find_best( vector <Hypothesis *> & root_hyps, vector<double > & scores, 
+                    Hypothesis & best_hyp) const {
     //BestHyp::const_iterator iter, check;
     double best = 1e20;
     //<s> projection
-    int s_first_projection= _subproblem.project_word(0);
-    int s_projection= _subproblem.project_word(1);
+    int s_first_projection= project_word(0);
+    int s_projection= project_word(1);
     for (int iter = 0; iter< root_hyps.size(); iter++) {
       //if (!root_hyps.has_key(iter)) continue;
       
-      const Hypothesis & hyp1 = root_hyps[iter]; 
+      const Hypothesis & hyp1 = *root_hyps[iter]; 
       double score1 = scores[iter];
       if (hyp1.hook[0] != s_projection || hyp1.hook[1] != s_first_projection) {
         continue;
@@ -291,15 +259,15 @@ public:
       if (!_subproblem.overridden[_lattice.num_word_nodes-2]) {
         int id = _lattice.num_word_nodes-2;
         //cout << "Best " << hyp1.right_side << endl;
-        my_score += _subproblem.best_score_dim(id, hyp1.right_side[0], hyp1.right_side[1]);
+        my_score += _subproblem.best_score_dim_min(id, _classes[hyp1.right_side[0]], _classes[hyp1.right_side[1]]);
       }
       //cout << "Middle " << my_score << endl;
       
       if (!_subproblem.overridden[_lattice.num_word_nodes-1]) {
         int id = _lattice.num_word_nodes-1;
-        int d = _subproblem.project_word(_lattice.num_word_nodes-2);
+        int d = project_word(_lattice.num_word_nodes-2);
         
-        my_score += _subproblem.best_score_dim(id, d, hyp1.right_side[0]); 
+        my_score += _subproblem.best_score_dim_min(id, _classes[d], _classes[hyp1.right_side[0]]); 
       }
       
 
@@ -318,6 +286,9 @@ public:
 private:
   const Subproblem & _subproblem;
   const ForestLattice & _lattice;
+  bool _two_classes;
+  vector <vector <int> >  _classes;
+  vector <int> _inner_projection;
 };
 
 
@@ -366,7 +337,7 @@ vector <int > Decode::get_lex_lat_edges(int edge_id) {
   return ret;
 }
 
-//vector <int > Decode::get_lat_nodes(int edge_id) {
+//vector <int > Decode::get_lat_ndoes(int edge_id) {
 //return _lattice.original_nodes[edge_id];
 //}
 
@@ -575,27 +546,27 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       }
     }
     
-    if (round == 1) {
+    if (round == 100) {
       _maintain_constraints = true;
     }
 
-    if (round >=1) {
+    /*if (round >=100) {
       int limit = 3;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
     } 
 
-    if (round >=55) {
+    if (round >=120) {
       int limit = 4;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
     } 
 
-    if (round >=60) {
+    if (round >=125) {
       int limit = 5;
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-    } 
+    } */
 
 
-   if (round >=75) {
+   if (round >=150) {
      int limit = 14;
      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
    } 
@@ -676,7 +647,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
   EdgeCache * total = combine_edge_weights(_forest, penalty_cache, *_cached_weights);
   NodeCache scores(_forest.num_nodes()), scores2(_forest.num_nodes());
-  NodeBackCache back_pointers(_forest.num_nodes()), back_pointers2(_forest.num_nodes());
+  NodeBackCache back_pointers(_forest.num_nodes()), 
+    back_pointers2(_forest.num_nodes()), back_pointers3(_forest.num_nodes());;
 
   if (TIMING) {
     end=clock();      
@@ -689,15 +661,54 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     begin=clock();  
   }
 
-  SplitController c(*_subproblem, _lattice);
+  bool run_astar = true;//_subproblem->projection_dims >= BACK;
+  SplitController c(*_subproblem, _lattice, run_astar);
   ExtendCKY ecky(_forest);
   ecky.set_params(total, &c);
   
-  dual = ecky.best_path(back_pointers);
-  
-  Cache <ForestNode, BestHyp> outside_scores(_forest.num_nodes());
-  ecky.outside(outside_scores);
+  if (run_astar) { 
+    dual = ecky.best_path(back_pointers2);
+    
+    if (SIMPLE_DEBUG) {
+      cout << "Approx dual is "<< dual << endl;
+    }
+    //Cache <ForestNode, BestHyp> outside_scores(_forest.num_nodes());
+    //Cache <ForestNode, BestHyp> outside_edge_memo_table(_forest.num_nodes());
+    
+    if (TIMING) { 
+      end=clock();  
+      cout << "INSIDE time: " << double(diffclock(end,begin)) << " ms"<< endl;
+      begin = clock();
+    }
+
+    ecky.outside();
+
+    if (TIMING) {
+      end=clock();  
+      cout << "OUTSIDE time: " << double(diffclock(end,begin)) << " ms"<< endl;
+      begin = clock();
+    }
+
+
+    SplitHeuristic heu(ecky._outside_memo_table, 
+                       ecky._outside_edge_memo_table);
+    SplitController c_astar(*_subproblem, _lattice, false);
+    AStar astar(_forest, c_astar, *total, heu);
+    dual = astar.best_path(back_pointers);
+    
+    // for testing - take out!
+    /*SplitController c2(*_subproblem, _lattice, false);
+    ExtendCKY ecky2(_forest);
+    ecky2.set_params(total, &c2);
+    double dual_test = ecky2.best_path(back_pointers3);
+    
+    assert(fabs(dual - dual_test) < 1e-4); 
+    */
+  } else {
+    dual = ecky.best_path(back_pointers);
+  }
   //ecky.fill_back_pointers()
+
   //dual = best_path(_forest, *total, scores, back_pointers);
   
 
@@ -882,7 +893,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
 
 
-  // over counted at k and j
+  // over counted at k and j  
   {
     int feat = 1;
     subgrad[feat] += 1 ;
@@ -893,13 +904,11 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     subgrad[feat] += 1 ;
 
     dual += (*_lagrange_weights)[feat]  ;
-    cost_total += (*_lagrange_weights)[feat];  
+    cost_total += (*_lagrange_weights)[feat];
   }
 
-  // START BOUNDARY
-  
-
-  if (!_subproblem->overridden[_lattice.num_word_nodes-2])   {
+    // START BOUNDARY
+  if (!_subproblem->overridden[_lattice.num_word_nodes-2]) {
     int id = _lattice.num_word_nodes-2;
 
     //assert(!_subproblem->overridden[id]);

@@ -116,6 +116,19 @@ class Subproblem {
     }
   }
 
+  inline double best_score_dim_min(int w1, vector<int> ds, vector<int> ds2) const {
+    double m = INF;
+    for (int i=0;i < ds.size() ; i++) {
+      int d = ds[i];
+      for (int j=0; j < ds2.size();j++) {
+        int d2 = ds2[j];
+        m = min(m, (double)cur_best_tri_projection_score[d][d2][w1]);
+      }
+    }
+    return m;
+  }
+
+
   inline bool is_new_dim(int w1, int d, int d2) const {
     assert(TRIPROJECT);
     return cur_best_tri_projection_is_new[d][d2][w1];
