@@ -26,7 +26,7 @@ class Subgradient {
     _first_stuck_iteration = -1;
   } ;
 
-  void solve();
+  void solve(int example);
   bool run_one_round();  
 
   bool is_stuck() const {

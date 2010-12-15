@@ -87,7 +87,7 @@ int main(int argc, char ** argv) {
     Decode * d = new Decode(f, graph, *weight, *lm, st);
     cout << i << " ";
     Subgradient * s = new Subgradient(d);
-    s->solve();
+    s->solve(i);
   }
   return 0;
 }
