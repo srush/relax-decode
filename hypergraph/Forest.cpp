@@ -41,7 +41,7 @@ Forest::Forest(const Hypergraph& hgraph) {
     
     string feat_str = node.GetExtension(node_fv);
     str_vector * features = svector_from_str<int, double>(feat_str);
-
+    
     ForestNode * forest_node = new ForestNode(node.label(), node.id(), features, node.GetExtension(word), node.GetExtension(is_word)); 
     //assert (forest_node->
     assert (_nodes.size() == node.id());
@@ -70,6 +70,9 @@ Forest::Forest(const Hypergraph& hgraph) {
       if (edge.HasExtension(edge_fv)) { 
         const string & feat_str = edge.GetExtension(edge_fv);  
         features = svector_from_str<int, double>(feat_str);
+        //cout << feat_str << endl;
+        //cout << edge.label() << endl;
+        //cout << svector_str(*features) << endl;
         //cout << feat_str << endl;
       } else {
         features = new svector<int, double>();
@@ -101,7 +104,7 @@ Forest::Forest(const Hypergraph& hgraph) {
   assert (_nodes.size() == hgraph.node_size());
 
   
-  _root = _nodes[_nodes.size()-1];
+  _root = _nodes[hgraph.root()];//_nodes[_nodes.size()-1];
 }
 
 

@@ -30,6 +30,7 @@ int main(int argc, char ** argv) {
     input.getline(buf, 100000);
     string s (buf);
     weight = svector_from_str<int, double>(s);
+    cout << svector_str(*weight) << endl;
   }
 
   

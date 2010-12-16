@@ -729,6 +729,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   vector <int> used_edges = construct_best_edges(_forest, back_pointers); 
   vector <const ForestNode *> used_words = construct_best_fringe(_forest, back_pointers); 
+
+
   //vector <int> all_nodes = construct_best_node_order(_forest, back_pointers);
   //cout << endl;
   if (TIMING) {
@@ -762,6 +764,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
   used_strings.push_back("</s>");
   used_strings.push_back("</s>");
+  assert(used_words.size() > 3);
 
   vector <int> used_lats;
   used_lats.push_back(0);

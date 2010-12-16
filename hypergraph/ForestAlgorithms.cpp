@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <set>
 #include <vector>
+#include <cy_svector.hpp>
 
 using namespace std;
 #define INF 1e20
@@ -54,6 +55,9 @@ EdgeCache * cache_edge_weights(const Forest & forest, const svector<int, double>
   for (int i = 0; i < forest.num_edges(); i++) {
     const ForestEdge & edge =forest.get_edge(i);
     double dot = edge.fvector().dot(weight_vector);
+    //cout << svector_str(weight_vector) << endl;
+    //cout << svector_str(edge.fvector()) << endl;
+    //cout << dot<< endl;
     //cout << "Norm " << edge.fvector().normsquared() << " " << weight_vector.normsquared() << endl;
     //cout << "Dot " << edge.id() << " " << dot<< endl; 
     weights->set_value(edge, dot);
