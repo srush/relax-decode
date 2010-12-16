@@ -10,7 +10,7 @@ typedef svector<int, double> wvector;
 
 class SubgradientProducer {
  public:
-  virtual void  solve(double & primal, double & dual, wvector &, int, bool) =0;
+  virtual void  solve(double & primal, double & dual, wvector &, int, bool, bool &) =0;
   virtual void update_weights(const wvector & updates,  wvector * weights )=0;
 };
 
@@ -24,6 +24,7 @@ class Subgradient {
     _nround = 1;
     _is_stuck = false;
     _first_stuck_iteration = -1;
+    _aggressive = false;
   } ;
 
   void solve(int example);
@@ -37,8 +38,8 @@ class Subgradient {
 
   double _best_dual, _best_primal;
   
-
-  void update_weights(wvector & subgrad);
+  bool _aggressive;
+  void update_weights(wvector & subgrad, bool);
   int _round, _nround;
   wvector _weights;
   vector <double> _primals;

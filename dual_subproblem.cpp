@@ -409,7 +409,8 @@ void Subproblem::solve() {
                  cur_best_tri_projection_first[d][d2], 
                  cur_best_tri_projection[d][d2], 
                  cur_best_tri_projection_score[d][d2],
-                 cur_best_tri_projection_is_new[d][d2]);
+                 cur_best_tri_projection_is_new[d][d2], 
+                 projection_dims==1);
       _first_time_proj[d][d2] = false;
     }
   }
@@ -424,12 +425,12 @@ void Subproblem::solve_proj(int d2, int d3,
                             vector <int> & proj_best_one,
                             vector <int> & proj_best_two,
                             vector <float> & proj_best_score,
-                            vector <bool> & proj_best_is_new
-
+                            vector <bool> & proj_best_is_new,
+                            bool is_simple
                             ) {
 
   // solve (but only in the projected space)
-
+  // unless is_simple
 
   // faster if we visit in order
   //bitset <NUMSTATES> full_redo;
@@ -640,12 +641,13 @@ void Subproblem::solve_proj(int d2, int d3,
 
       float estimate  = best_lm_score[w1][w2] + best_bigram[w2] + score1;
 
-      /*if ( OPTIMIZE && ( estimate > proj_best_score[w1])) {
+      if ( OPTIMIZE && is_simple && ( estimate > proj_best_score[w1])) {
+        //cout << "killed" << endl;
         continue;
-        }*/
+      }
 
       
-      /*if (estimate >= INF) {
+      /*if (is_simple && estimate >= INF) {
         continue;
         }*/
       //if (!first_time) {

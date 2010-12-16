@@ -16,7 +16,7 @@
 #define DEBUG 0
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
-#define BACK 1
+#define BACK 2
 class SplitHeuristic : public Heuristic {
 public :
   SplitHeuristic(const Cache <ForestNode, BestHyp> & outside_scores, 
@@ -28,10 +28,10 @@ public :
     // project down to two 
     vector < int> hook(2);
     vector < int> right_side(2);
-    hook[0] = hyp.hook[0] < 1 ? 0 : 1;
-    hook[1] = hyp.hook[1] < 1 ? 0 : 1;
-    right_side[0] = hyp.right_side[0] < 1 ? 0 : 1;
-    right_side[1] = hyp.right_side[1] < 1 ? 0 : 1;
+    hook[0] = hyp.hook[0] < BACK ? 0 : 1;
+    hook[1] = hyp.hook[1] < BACK ? 0 : 1;
+    right_side[0] = hyp.right_side[0] < BACK ? 0 : 1;
+    right_side[1] = hyp.right_side[1] < BACK ? 0 : 1;
     return make_id(hook, right_side, 2);
   }
 
@@ -75,7 +75,7 @@ private:
 class SplitController : public Controller {
 public:
   SplitController (const Subproblem & s, const ForestLattice & l, bool two_classes) : _subproblem(s), _lattice(l), _two_classes(two_classes) {
-    assert(_subproblem.projection_dims >=BACK);
+    assert(_subproblem.projection_dims > BACK || !two_classes);
     if (_two_classes) {
       _classes.resize(2);
       //_inner_projection;
@@ -530,7 +530,7 @@ void Decode::print_output(const wvector & subgrad) {
   //cout << endl << endl;
 }
 
-void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck) {
+void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate) {
   clock_t begin, end;
   if (TIMING) {
     cout << "Solving" << endl;
@@ -550,6 +550,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       cout << "DUAL STUCK Round "<< round << endl;
       _maintain_constraints = true;
       _is_stuck_round = round;
+      bump_rate = true;
     }
 
 
@@ -571,7 +572,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
 
    if (round >=_is_stuck_round +50) {
-     int limit = 20;
+     int limit = 25;
      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
    } 
  
@@ -665,12 +666,13 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     begin=clock();  
   }
 
-  bool run_astar = true;//_subproblem->projection_dims >= BACK;
+  bool run_astar = _subproblem->projection_dims > BACK;
   SplitController c(*_subproblem, _lattice, run_astar);
   ExtendCKY ecky(_forest);
   ecky.set_params(total, &c);
-  
+
   if (run_astar) { 
+    
     dual = ecky.best_path(back_pointers2);
     
     if (SIMPLE_DEBUG) {
@@ -710,6 +712,9 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     
   } else {
     dual = ecky.best_path(back_pointers);
+    // use simple
+    //dual = best_path(_forest, *total, scores, back_pointers);
+    
   }
   //ecky.fill_back_pointers()
 

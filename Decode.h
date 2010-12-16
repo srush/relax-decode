@@ -43,7 +43,7 @@ class Decode: public SubgradientProducer {
       delete _cached_words;
     }
    
-    void solve(double & primal, double & dual, wvector &, int, bool);
+    void solve(double & primal, double & dual, wvector &, int, bool, bool&);
   void update_weights(const wvector & updates,  wvector * weights );
   
  private:

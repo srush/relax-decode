@@ -6,7 +6,7 @@
 #include <time.h>
 #include "util.h"
 #define INF 1e8
-#define TIMING 0 
+#define TIMING 0
 using namespace std;
 void Subgradient::solve(int example) {
   clock_t start=clock();
@@ -18,7 +18,7 @@ void Subgradient::solve(int example) {
       s=clock();
     }
     clock_t e=clock();
-    cout << endl << "*ITER* " << example << " " << _round <<  _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
+    cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
        << double(diffclock(e,start)) << endl ;
   }
   //if (TIMING) {
@@ -44,7 +44,8 @@ bool Subgradient::run_one_round() {
   wvector subgrad;
   //cout << endl;
   clock_t start=clock();
-  _s->solve(primal, dual, subgrad, _round, _is_stuck);
+  bool bump =false; 
+  _s->solve(primal, dual, subgrad, _round, _is_stuck, bump);
 
   clock_t end;
   if (TIMING) {
@@ -73,7 +74,7 @@ bool Subgradient::run_one_round() {
   //assert (_best_primal >= _best_dual);
 
   if (subgrad.normsquared() > 0.0) {
-    update_weights(subgrad);
+    update_weights(subgrad, bump);
     //cout << endl;
     return true;
   } else {
@@ -93,7 +94,7 @@ void print_vec(const wvector & subgrad) {
 }
 
 
-void Subgradient::update_weights(wvector & subgrad) {
+void Subgradient::update_weights(wvector & subgrad, bool bump) {
   int dualsize = _duals.size();
   int size = 0;
   for (wvector::const_iterator it = subgrad.begin(); it != subgrad.end(); it++) {
@@ -103,17 +104,25 @@ void Subgradient::update_weights(wvector & subgrad) {
     }
   }
 
+  if (bump) {
+    _aggressive = true;
+    //_base_weight *=0.1;
+  }
+
   if  (dualsize > 2 && _duals[dualsize -1] < _duals[dualsize -2]) { 
     _nround += 1;
+    if (_aggressive) {
+      _base_weight *= 0.9;
+    } else if (_nround == 10) {
+      _base_weight *= 0.7;
+      _nround =0;
+    }
   } else if ( dualsize == 1) {
     _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
   }
 
   //double alpha = _base_weight * pow(0.99, (double)_nround);
-  if (_nround == 10) {
-    _base_weight *= 0.7;
-    _nround =0;
-  } 
+   
   double alpha = _base_weight;
   //double alpha = _base_weight / ((float)_nround / 10.0);
   svector<int, double> updates = alpha * subgrad;
@@ -131,7 +140,7 @@ void Subgradient::update_weights(wvector & subgrad) {
       lower = min(lower, _duals[dualsize -i]);
     }
 
-    _is_stuck = fabs(upper-lower) < 0.10;
+    _is_stuck = fabs(upper-lower) < 0.20;
     if (_is_stuck && _first_stuck_iteration == -1) {
       _first_stuck_iteration = _round;
     }

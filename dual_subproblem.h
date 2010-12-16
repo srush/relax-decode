@@ -11,7 +11,7 @@
 
 #include<fstream>
 #include<set>
-#define MAX_PROJ 25
+#define MAX_PROJ 30
 #define PROJECT 0
 #define TRIPROJECT 1
 
@@ -50,8 +50,9 @@ class Subproblem {
                             vector <int> & proj_best_one,
                             vector <int> & proj_best_two,
                   vector <float> & proj_best_score,
-                  vector <bool> & proj_best_is_new
-                            ) ;
+                  vector <bool> & proj_best_is_new,
+                  bool is_simple
+                  ) ;
 
  public: 
 

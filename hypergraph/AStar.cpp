@@ -33,7 +33,7 @@ void AStar::add_to_queue( Hypothesis * hyp, double score, Location * w) {
     cout << " +AStar" << with_astar <<  " " << heuristic << endl; 
   QueueHyp elem(hyp, with_astar, w);
 
-  assert (with_astar >= _best_so_far - 1e-4);
+  //assert (with_astar >= _best_so_far - 1e-4);
   _queue.push(elem);
 }
 
