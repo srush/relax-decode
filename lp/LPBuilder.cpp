@@ -5,6 +5,7 @@
 
 #include "ForestAlgorithms.h"
 #include <sstream>
+#include "../common.h"
 using namespace std;
 
 
@@ -189,7 +190,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
       stringstream buf;
       buf << "TRI " << b.w1 << " " << b.w2 << " " << k;
       VocabIndex context [] = {word_cache.store[b.w2], word_cache.store[k], Vocab_None};
-      double prob = (-0.141221) * lm.wordProb(word_cache.store[b.w1], context);
+      double prob = LM * lm.wordProb(word_cache.store[b.w1], context);
       if (isinf(prob)) prob = 1000000.0;
       //cout << b.w1 << " " << b.w2 << " " << k << endl;
       word_tri_vars[b.w1][b.w2][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);

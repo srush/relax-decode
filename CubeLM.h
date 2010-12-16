@@ -5,6 +5,7 @@
 #include "EdgeCache.h"
 #include "Forest.h"
 #include <Ngram.h>
+#include "common.h"
 class LMNonLocal: public NonLocal {
  public:
  LMNonLocal(const Forest & forest,  Ngram & lm, const Cache <ForestNode, int> & word_cache) 
@@ -73,7 +74,7 @@ class LMNonLocal: public NonLocal {
       }
     }
     //cout << endl;
-    score *= (-0.141221);
+    score *= LM;
     //cout << score <<endl;
     //cout << full_derivation.size() << endl;;
     int size = full_derivation.size();
@@ -94,7 +95,7 @@ class LMNonLocal: public NonLocal {
     VocabIndex context [] = {Vocab_None};
     if (w!=1 && w!=2) {
       score += _lm.wordProb(w, context);
-      score *= (-0.141221);
+      score *= LM;
     }
     //cout << "WORD " << _word_cache.get_value(node) << " "<< _lm.vocab.getWord(w)<<  endl;
     vector <int> sig;

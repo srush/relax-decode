@@ -9,6 +9,7 @@
 #include "ExtendCKY.h"
 #include <iomanip>
 #include "AStar.h"
+#include "common.h"
 #define TIMING 0
 #define IS_TRY 0
 //#define PROJECT 1si
@@ -17,6 +18,8 @@
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
 #define BACK 2
+
+
 class SplitHeuristic : public Heuristic {
 public :
   SplitHeuristic(const Cache <ForestNode, BestHyp> & outside_scores, 
@@ -475,7 +478,7 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
   }
 
   if (DEBUG) {
-    double lm_score = (-0.141221) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
+    double lm_score = (LM) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
     //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
 
     cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
@@ -988,7 +991,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
     }
     if (DEBUG) {
-      double lm_score = (-0.141221) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
+      double lm_score = (LM) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
       lm_total += lm_score;
       cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)
            << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << endl;
@@ -1082,18 +1085,18 @@ double Decode::compute_primal(const vector <int> used_edges, const vector <const
   for (int i =0; i < used_strings.size()-2; i++) {
     VocabIndex context [] = {lookup_string(used_strings[i+1]), lookup_string(used_strings[i]), Vocab_None};
     if (DEBUG) {
-      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (-0.141221) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (LM) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
       
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
   }
   if (DEBUG) {
-    cout << "PRIMAL LM: " << (-0.141221) *lm_score << endl;
+    cout << "PRIMAL LM: " << (LM) *lm_score << endl;
     cout << endl;
   }
   //cout << "total " << total << endl;
   
-  return total + (-0.141221) *  lm_score;
+  return total + (LM) *  lm_score;
 }
 int Decode::lookup_string(string word) {
   int max = _lm.vocab.numWords();
@@ -1152,4 +1155,4 @@ void Decode::sync_lattice_lm() {
       //_lattice.get_word(mid_at) << " " <<  
       //_lattice.get_word(graph_id) << " " << 
       //_subproblem->cur_best_score[graph_id] << " " <<
-      //(-0.141221) *   _subproblem->word_prob_reverse(start_from, mid_at, end_at) << endl;
+      //(LM) *   _subproblem->word_prob_reverse(start_from, mid_at, end_at) << endl;
