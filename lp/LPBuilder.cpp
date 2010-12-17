@@ -23,6 +23,7 @@ struct LatticeVars {
   }
 
   void  initialize_all_pairs(const GraphDecompose & gd,
+
                              const ForestLattice & _lattice,
                              GRBModel * model);
     void add_all_pairs_constraints(const GraphDecompose & gd,
@@ -55,7 +56,7 @@ void  LatticeVars::initialize_all_pairs(const GraphDecompose & gd,
 
 
         vector <int> * path = gd.get_path(i, j);
-        //cout << i << " " << j << endl;
+        
         assert (path->size() != 0 || i == j);
 
         for (int k = 0; k < path->size(); k++) {
@@ -64,9 +65,8 @@ void  LatticeVars::initialize_all_pairs(const GraphDecompose & gd,
           double obj= 0.0; // (j == (*path)[k])? 1.0: 0.0; 
           all_pairs_vars[i][j][(*path)[k]] = model->addVar(0.0, 1.0, obj, VAR_TYPE ,  buf.str());
           has_all_pairs_var[i][j][(*path)[k]] = true;
-          //cout << i << " " << j << " " << (*path)[k] << endl; 
+          
         }
-        //cout << "EXIST " << i << " " << j << endl;
         stringstream buf;
         buf << name <<" EXIST " << i << " " << j;
         
@@ -93,7 +93,7 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
           //if (_lattice.is_phrase_node(last)) {
           //model->addConstr(all_pairs_vars[i][j][last] == 0.0);
           //}
-          //cout << i << " " << j << " " << last << endl;
+          
           assert(has_all_pairs_var[i][j][last]);
           sum += all_pairs_vars[i][j][last];
           //model->addConstr(all_pairs_exist_vars[i][last] == 1.0);
@@ -109,7 +109,7 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
     
 
   // Node constraints (INNER)
-  //cout << "INNER" << endl;
+  
   for (int i = 0; i < _lattice.num_nodes; i++) { 
     for (int j = 0; j < _lattice.num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue;
@@ -121,7 +121,7 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
         for (int k = 0; k < _lattice.num_nodes; k++) {
           if (!has_all_pairs_var[i][k][j]) continue;
           if (k == j) continue;
-          //cout << has_all_pairs_var[i][k][j] << " " << i << " " << k << " " << j << endl;
+          
           
           sum += all_pairs_vars[i][k][j];
           has = true;
@@ -131,13 +131,13 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
         for (int k = 0; k < _lattice.num_nodes; k++) {
           if (!has_all_pairs_var[k][j][i]) continue;        
           if (i == j) continue;
-          //cout << k << " " << j << " " << i << endl;
+          
           sum += all_pairs_vars[k][j][i];
           has = true;
         }
       }
       // below 
-      //cout << i << " " << j << endl;
+      
       if  (has) {
         model->addConstr(all_pairs_exist_vars[i][j] == sum);
       }
@@ -177,7 +177,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
     stringstream buf;
     buf << "BI " << b.w1 << " " << b.w2;
     //has_pair_var[i][j] = true;
-    //cout << "WORD " << i <<  " " << j << endl;
+    
     //VocabIndex context [] = {word_cache.store[b.w2], Vocab_None};
     //double prob = lm.wordProb(word_cache.store[b.w1], context);
     //if (b.w1 == 1 && b.w2==0) prob = 0.0;
@@ -192,7 +192,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
       VocabIndex context [] = {word_cache.store[b.w2], word_cache.store[k], Vocab_None};
       double prob = LM * lm.wordProb(word_cache.store[b.w1], context);
       if (isinf(prob)) prob = 1000000.0;
-      //cout << b.w1 << " " << b.w2 << " " << k << endl;
+      
       word_tri_vars[b.w1][b.w2][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
     }
   }
@@ -213,11 +213,11 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
     initialize_word_pairs(lm, word_cache, gd, word_used_vars, word_pair_vars, word_tri_vars);    
     model->update();
 
-    //cout << "START" << endl;
+    
     // Last must hit first
     //model->addConstr(all_pairs_exist_vars[_lattice.num_nodes-1][0] == 1.0);
     
-    //cout << "OUTER" << endl;
+   
     // Node constraints (Outer)
   
     lv.add_all_pairs_constraints(gd, _lattice, model);
@@ -236,12 +236,12 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
               int rword = _lattice.first_words(j, n);
               assert(_lattice.is_word(rword));
               //assert(has_pair_var)
-              //cout << lword << " " << rword << endl;
+              
               sum += word_pair_vars[lword][rword];
             }
           }
           //if (i == j) continue;
-          //cout << " " << i <<  " " << j << endl;
+          
           model->addConstr(sum == lv.all_pairs_exist_vars[i][j]);
         }
       }
@@ -260,7 +260,7 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
           bool has = false;
           for (int k = 0; k < _lattice.num_nodes; k++) {
             if (!has_all_pairs_var[k][j][i]) continue;        
-            cout << k << " " << j << " " << i << endl;
+           
             sum += all_pairs_vars[k][j][i];
             has = true;
           }
@@ -276,7 +276,7 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
 
 
     // Word constraints    
-    //cout << "WORDS" << endl;
+    
     for (int i = 0; i < _lattice.num_word_nodes; i++) {
       if (!_lattice.is_word(i)) continue ;      
       {
@@ -324,7 +324,7 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
         }*/
     }
 
-    //cout << "WORDS" << endl;
+    
     for (int i = 0; i < gd.valid_bigrams.size(); i++) {
       Bigram b = gd.valid_bigrams[i];
       {
@@ -396,7 +396,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
 
     
     // Word constraints    
-    //cout << "WORDS" << endl;
+    
     for (int i = 0; i < _lattice.num_word_nodes; i++) {
       
       if (!_lattice.is_word(i)) continue ;      
@@ -417,7 +417,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
         if (has) {
           stringstream buf;
           buf << "FOR " << i;
-          //cout << "for const" << i<< endl;          
+          
           model->addConstr(word_used_vars[i] == sumFor, buf.str());
         }
 
@@ -439,7 +439,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
         if (has) {
           stringstream buf;
           buf << "MID " << i;
-          //cout << "mid const" << i<< endl;
+          
           model->addConstr(word_used_vars[i] == sumMid, buf.str());;
         }
       }
@@ -453,7 +453,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
           int w2 = gd.backward_bigrams[i][j];
           for (int k = 0; k < gd.backward_bigrams[w2].size(); k++) {
             int w1 = gd.backward_bigrams[w2][k];
-            //cout << "W! " << w1 << " " << w2 << " " << w3 << " " << has << endl;
+            
             sumBack += word_tri_vars[w1][w2][w3];
             has = true;
           }
@@ -461,7 +461,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
         if (has) {
           stringstream buf;
           buf << "BACK " << i;
-          //cout << "back const" << i<< " " << has << endl;
+          
           model->addConstr(word_used_vars[i] == sumBack, buf.str());
         }
       }
@@ -509,7 +509,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
       for (int j = 0; j < _lattice.num_nodes; j++) {
         if (!gd.path_exists(i,j)) continue;
         if ( i==j) continue;
-        //cout << "final" << i<< endl;
+        
         if (has_sums1[i][j]) {
           stringstream buf;
           buf << "BILAT  " << i << " " << j ;          
@@ -566,7 +566,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
         }*/
   
 
-    //cout << "WORDS" << endl;
+
   /*for (int i = 0; i < gd.valid_bigrams.size(); i++) {
       Bigram b = gd.valid_bigrams[i];
       {
@@ -611,7 +611,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
                                     const Cache<ForestEdge, double> & _weights) {
   try {
     model->set(GRB_StringAttr_ModelName, "Hypergraph");
-    //cout << "Variables" << endl;
+    
     for(int i =0; i < _forest.num_nodes(); i++) {
       stringstream buf;
       buf << "NODE" << i;
@@ -623,14 +623,14 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
       const ForestEdge & edge = _forest.get_edge(i);
       stringstream buf;
       buf << "EDGE" << i;
-      //cout << "Edge " << i << " obj " << _weights.get_value(edge) << endl;
+      
       //assert (_weights.has_value(edge)); 
       edge_vars[i] = model->addVar(0.0, 1.0, _weights.get_value(edge) /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
     }
     
     model->update();
     {
-      //cout << "ADDING EDGES" << endl;
+
       for(int i =0; i < _forest.num_nodes(); i++) {
         const ForestNode & node = _forest.get_node(i);
 
@@ -660,7 +660,6 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
       }
       
     }
-    //cout << "ROOT CONSTRAINT" << endl;
     model->addConstr(node_vars[_forest.root().id()] == 1);
     
     
@@ -688,11 +687,11 @@ void LPBuilder::solve_hypergraph(const Cache<ForestEdge, double> & _weights) {
 
   try {
     for (int i=0; i < _forest.num_nodes(); i++) {
-      cout << i << " " << node_vars[i].get(GRB_DoubleAttr_X)<< endl;
+      
       const ForestNode & node = _forest.get_node(i);    
       for (int j=0; j < node.num_edges(); j++) {
         int edge_id = node.edge(j).id();
-        cout << "\t" << j << " " << edge_vars[j].get(GRB_DoubleAttr_X) << endl;
+      
       }
     }
   }
@@ -715,7 +714,7 @@ void LPBuilder::solve_hypergraph(const Cache<ForestEdge, double> & _weights) {
   }*/
 
 
-void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights, 
+void LPBuilder::solve_full(int run_num, const Cache<ForestEdge, double> & _weights, 
                            Ngram &lm, 
                            const Cache <LatNode, int> & word_cache) {  
   GraphDecompose gd;
@@ -774,7 +773,7 @@ void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights,
         int n1 = _lattice.lookup_word(b.w2);
         int n2 = _lattice.lookup_word(w3);
         if (gd.path_exists(n1, n2)) {
-          //model->addConstr(lv.all_pairs_exist_vars[n1][n2] == lv2.all_pairs_exist_vars[n1][n2]);
+          model->addConstr(lv.all_pairs_exist_vars[n1][n2] == lv2.all_pairs_exist_vars[n1][n2]);
         }
 
       }
@@ -790,14 +789,12 @@ void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights,
   
 
   int exact = 0;
-  //cout << "WORD UNI" << endl;
+  
   for (int i = 0; i < _lattice.num_word_nodes; i++) {
     if (!_lattice.is_word(i)) continue; 
     double xval = word_used_vars[i].get(GRB_DoubleAttr_X);
     
-    //if (xval) {
-    //cout << "WORD " << i << xval << endl;
-    //}
+  
 
     if (xval != 0.0 && xval!=1.0) {
       exact +=1;
@@ -807,13 +804,13 @@ void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights,
   for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
     Bigram b = gd.valid_bigrams[i];
     //if (word_pair_vars[b.w1][b.w2].get(GRB_DoubleAttr_X)) {
-    //cout << b.w1 << " " << b.w2 << " " << word_pair_vars[b.w1][b.w2].get(GRB_DoubleAttr_X) << " " << word_pair_vars[b.w1][b.w2].get(GRB_DoubleAttr_Obj) << endl;
+    
       
     //}
 
     for (int j =0; j < gd.forward_bigrams[b.w2].size(); j++) {
       int w3 = gd.forward_bigrams[b.w2][j];
-      //cout << b.w1 << " " << b.w2 << " " << w3 << endl;
+    
       double xval =  word_tri_vars[b.w1][b.w2][w3].get(GRB_DoubleAttr_X);
 
       if (word_tri_vars[b.w1][b.w2][w3].get(GRB_DoubleAttr_X)) {
@@ -834,7 +831,7 @@ void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights,
   for (int i = 0; i < _lattice.num_nodes; i++) {
     for (int j = 0; j < _lattice.num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue; 
-      //cout << i << " " << j << endl;
+      
       double x1 =  lv.all_pairs_exist_vars[i][j].get(GRB_DoubleAttr_X);
       double x2 =  lv2.all_pairs_exist_vars[i][j].get(GRB_DoubleAttr_X);
       if (fabs(x1 -x2) >0.001) {
@@ -867,14 +864,14 @@ void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights,
     }
     }*/
 
-  cout << model->get(GRB_DoubleAttr_ObjVal) << "\t" << model->get(GRB_DoubleAttr_Runtime) << "\t"<<  (exact == 0) << "\t" << exact << endl;
+  cout << "*END* " << run_num<< " "<<model->get(GRB_DoubleAttr_ObjVal) << " " << model->get(GRB_DoubleAttr_Runtime) << " "<<  (exact == 0) << " " << exact << endl;
 }
 
 
 
 
 
-const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, LM & lm) {
+const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngram & lm) {
   Cache <LatNode, int> *  _cached_words = new Cache <LatNode, int> (_lattice.num_word_nodes);
   int max = lm.vocab.numWords();
   int unk = lm.vocab.getIndex(Vocab_Unknown);
@@ -919,7 +916,7 @@ int main(int argc, char ** argv) {
     cerr << "READ FAILURE\n";
   }
 
-  for(int i=1;i<=100;i++) {
+  for(int i=atoi(argv[5]);i<=atoi(argv[6]); i++) {
 
       Hypergraph hgraph;
       
@@ -934,7 +931,6 @@ int main(int argc, char ** argv) {
       
       Forest f (hgraph);
       
-
       Lattice lat;
 
       {
@@ -949,22 +945,23 @@ int main(int argc, char ** argv) {
       }
 
       ForestLattice graph (lat);
-      
+
       
       LPBuilder lp(f, graph);
       
+
       const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
       
 
       Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
-      cout << i << "\t";
-
+      
       try {
-        lp.solve_full( *w,  *lm, *word_cache);
+        lp.solve_full(i, *w,  *lm, *word_cache);
       } 
       catch (GRBException e) {
         cerr << "Error code = " << e.getErrorCode() << endl;
         cerr << e.getMessage() << endl;
+        cout << "*END* " << i<< " "<<0 << " " << 200 << " "<<  0 << " " << 0 << endl;
       }
  
 

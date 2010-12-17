@@ -11,20 +11,23 @@ using namespace std;
 
 BigramRescore::BigramRescore(const ForestLattice * graph_in, const GraphDecompose * gd_in):
   gd(gd_in), graph(graph_in){
-  int num_nodes = graph_in->num_word_nodes;
+  // huge hack
+  int num_nodes = max(graph_in->num_nodes, graph_in->num_word_nodes);
   current_weights.resize(num_nodes);
   update_position.resize(num_nodes);
   update_filter.resize(num_nodes);
 
-  need_to_recompute.resize(num_nodes);
+
 
   int num_actual_nodes = graph_in->num_nodes;
+  
   forward_paths.resize(num_actual_nodes);
   backward_paths.resize(num_actual_nodes);
-
-  best_split.resize(num_nodes);
+  need_to_recompute.resize(num_nodes);
+  
   bigram_weights.resize(num_nodes);
 
+  best_split.resize(num_nodes);
   bigram_path.resize(num_nodes);
 
 

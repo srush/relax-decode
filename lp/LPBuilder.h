@@ -22,7 +22,7 @@ class LPBuilder {
 
   void solve_hypergraph(const Cache<ForestEdge, double> & );
 
-  void solve_full(const Cache<ForestEdge, double> & _weights,Ngram &lm, const Cache <LatNode, int> & word_cache);
+  void solve_full(int run_num, const Cache<ForestEdge, double> & _weights,Ngram &lm, const Cache <LatNode, int> & word_cache);
 
  private:
   const Forest & _forest;

@@ -34,7 +34,7 @@ void GraphDecompose::compute_bigrams() {
       forward_bigrams[b.w1].push_back(b.w2);     
       backward_bigrams[b.w2].push_back(b.w1);     
       //cout << "WORD " << g->get_word(b.w1)<< " "<< b.w1 << " " << n << " "<< i << " " <<  g->get_word(b.w2)<< " " << b.w2  << endl;   
-      cout << b.w2 << " " << b.w1 << endl;
+      //cout << b.w2 << " " << b.w1 << endl;
     }
 
     // 
@@ -54,7 +54,7 @@ void GraphDecompose::compute_bigrams() {
             assert(g->is_word(w2));
             forward_bigrams[w1].push_back(w2);        
             backward_bigrams[w2].push_back(w1);        
-            cout << w2 << " " << w1 << endl;
+            //cout << w2 << " " << w1 << endl;
           }
         //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
         //for (unsigned int i=0; i < bigram_pairs[n][n2].size() ; i ++) {

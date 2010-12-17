@@ -69,7 +69,7 @@ int main(int argc, char ** argv) {
 
   //cout << "START!!!!" << endl;
 
-  for (int i=1; i <= 1; i++) {
+  for (int i=1; i <=700; i++) {
     
     GOOGLE_PROTOBUF_VERIFY_VERSION;
     
@@ -97,10 +97,11 @@ int main(int argc, char ** argv) {
     Cache<ForestNode, int> * words = cache_word_nodes(*lm, f);
     
     clock_t begin=clock();    
-    CubePruning p(f, *w, LMNonLocal(f, *lm, *words), 500, 3);
+    int cube = atoi(argv[4]);
+    CubePruning p(f, *w, LMNonLocal(f, *lm, *words), cube, 3);
     double v =p.parse();    
     clock_t end=clock();
-    cout << i << " "<< v << " " <<  (double)diffclock(end,begin) << endl;
+    cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)diffclock(end,begin) << endl;
   }
   return 0;
 }

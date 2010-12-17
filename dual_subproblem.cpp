@@ -121,11 +121,12 @@ Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const SkipTri
   //gd->decompose(graph);   
 //}
 
-void Subproblem::projection_with_constraints(int limit, int & k,  map<int, set <int> > & constraints, vector < int> & proj) {
+void Subproblem::projection_with_constraints(int limit, int & k,  
+                                             map<int, set <int> > & constraints, vector < int> & proj) {
   // Use DSATUR
   int most_constrained = 0;
   int most_constraints = -1;
-  k = 1;
+  k = 0;
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
     // count constraints
@@ -147,6 +148,7 @@ void Subproblem::projection_with_constraints(int limit, int & k,  map<int, set <
   
   set <int> done;
   while (unprocessed >0) {
+    //cout << "searching "<< cur << endl;
     vector <int> counts(k);
     for (int d =0; d < k; d++) {
       counts[d] = 0;
@@ -174,12 +176,23 @@ void Subproblem::projection_with_constraints(int limit, int & k,  map<int, set <
     if (min == 0) {
       proj[cur] = mind;
     } else if (k == limit) {
+      //assert(false);
       proj[cur] = mind;
     } else {
       proj[cur] = k;
       k++;
     }
 
+
+    for (set<int>::const_iterator iter =constraints[cur].begin(); 
+         iter != constraints[cur].end(); iter++) {
+      int conflict = (*iter);
+      if (done.find(conflict) != done.end() && proj[conflict] == proj[cur]) {
+        assert(false);
+      }
+    }
+
+    assert(done.find(cur) == done.end());
     done.insert(cur);
     unprocessed--;
     // get next 
@@ -188,7 +201,9 @@ void Subproblem::projection_with_constraints(int limit, int & k,  map<int, set <
     int most_saturation = -1;
     for (int w1=0; w1 < graph->num_word_nodes; w1++) {
       if (!graph->is_word(w1)) continue;
+      // only consider unassigned words
       if (done.find(w1) != done.end()) continue;
+
       int sat =0;
       vector <int> counts(k);
       for (int d =0; d < k; d++) {

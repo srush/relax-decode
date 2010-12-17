@@ -369,11 +369,14 @@ void Decode::debug(int start_from, int dual_mid, int dual_end, int primal_mid, i
       over = "O";
     }
     cout << setiosflags(ios::left);
-    cout << _subproblem->project_word(primal_end) << " " << setw(15) << _lattice.get_word(primal_end) <<  " " <<_subproblem->project_word(primal_mid) << " " << setw(15) << _lattice.get_word(primal_mid) ;
+    cout << setw(3) << primal_end << " " << setw(2) << _subproblem->project_word(primal_end) << " " << setw(15) << _lattice.get_word(primal_end) <<  " " << setw(3) << primal_mid << " " << setw(2) << _subproblem->project_word(primal_mid) << " " << setw(15) << _lattice.get_word(primal_mid) ;
     cout << ("  "+diff+"   ")
-         << _subproblem->project_word(dual_end) << " " << setw(15)<<_lattice.get_word(dual_end) << " " << _subproblem->project_word(dual_mid) << " "<< setw(15) <<_lattice.get_word(dual_mid) 
+         << setw(3) << dual_end << " " << setw(2) << _subproblem->project_word(dual_end) << " " << setw(15)<<  _lattice.get_word(dual_end) << " " << setw(3) << dual_mid <<" " << setw(2)<< _subproblem->project_word(dual_mid) << " "<< setw(15) <<_lattice.get_word(dual_mid) 
          << " "<<over<<" " <<setw(15)<< _lattice.get_word(start_from) << endl;
+  
   }
+
+  
 
 }
 
@@ -384,18 +387,37 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
         int w1 = dual_mid;
         int w2 = primal_mid;
         //if (w1 < w2) 
+
+          if (_subproblem->projection_dims > 1 && 
+              (_constraints[w1].find(w2) != _constraints[w1].end() ||
+               _constraints[w2].find(w1) != _constraints[w2].end() 
+               )) {
+            //assert(false);
+            cout << "COLORING fail " << w1 << " " << w2<< endl;
+          }
+
           _constraints[w2].insert(w1);
           //else 
           _constraints[w1].insert(w2);
+
       }
       
       if (primal_end != dual_end) {
         int w1 = dual_end;
         int w2 = primal_end;
+
+          if (_subproblem->projection_dims > 1 && 
+              (_constraints[w1].find(w2) != _constraints[w1].end() ||
+               _constraints[w2].find(w1) != _constraints[w2].end() 
+               )) {
+            //assert(false);
+            cout << "COLORING fail " << w1 << " " << w2<<endl;
+          }
+
         //if (w1 < w2) 
         _constraints[w2].insert(w1);
         //else 
-          _constraints[w1].insert(w2);
+        _constraints[w1].insert(w2);
       }
     }
   } else {
@@ -548,8 +570,11 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
         _projection[i] = 0; // _subproblem->rand_projection(1);
       }
     }
+
+    
+
     //cout << "DSTUCK " << is_stuck << " " << _maintain_constraints << endl;
-    if ((round ==150 || is_stuck) && !_maintain_constraints) {
+    if ((round ==145 || is_stuck) && !_maintain_constraints) {
       cout << "DUAL STUCK Round "<< round << endl;
       _maintain_constraints = true;
       _is_stuck_round = round;
@@ -573,11 +598,15 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
       _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
     } */
 
-
-   if (round >=_is_stuck_round +50) {
-     int limit = 25;
-     _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-   } 
+    
+    //if (round >=_is_stuck_round + 40) {
+    //int limit = 2;
+    // _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    //}
+    if (round >=_is_stuck_round +50) {
+      int limit = 25;
+      _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    } 
  
    /*if (round >=290) {
      //_proj_dim = 5;
@@ -757,14 +786,17 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     }
   }
   vector <string> used_strings;
+  cout << "*PRIMAL* " << round << " ";
   used_strings.push_back("<s>");
   used_strings.push_back("<s>");
   for (int i =0; i < used_words.size(); i++) {
+    cout <<used_words[i]->word() << " ";
     used_strings.push_back(used_words[i]->word());
   }
+  cout <<endl;
   used_strings.push_back("</s>");
   used_strings.push_back("</s>");
-  assert(used_words.size() > 3);
+  //assert(used_words.size() > 3);
 
   vector <int> used_lats;
   used_lats.push_back(0);
@@ -1002,7 +1034,15 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   }
   
-  
+  int size =0;
+  for (wvector::const_iterator it = subgrad.begin(); it != subgrad.end(); it++) {
+    if (it->second != 0.0) {
+      size++;
+      //cout << it->first << " " << it->second << endl;
+    }
+  }
+
+  cout << "*DECODE* " << round << " " << _subproblem->projection_dims << " " << size << endl;  
   //assert(fabs(lm_total - o_total) < 1e-4);
   
   if (DEBUG) {

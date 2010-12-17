@@ -59,7 +59,7 @@ class AStar {
        const Heuristic & heu
        ) :
   _forest(f), _controller(cont), _memo_table(_forest.num_nodes()),
-    _memo_edge_table(_forest.num_nodes()),
+    _memo_edge_table(_forest.num_edges()),
     _edge_weights(edge_weights),
     _heuristic(heu), _best_so_far(-INF), 
     _num_pops(0),

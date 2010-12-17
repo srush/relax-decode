@@ -11,14 +11,14 @@ using namespace std;
 void Subgradient::solve(int example) {
   clock_t start=clock();
   clock_t s=clock();
-  while(run_one_round() && _round < 300) {
+  while(run_one_round() && _round < 200) {
     _round++;
     if (TIMING) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
       s=clock();
     }
     clock_t e=clock();
-    cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
+    cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _base_weight << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
        << double(diffclock(e,start)) << endl ;
   }
   //if (TIMING) {
@@ -34,7 +34,7 @@ void Subgradient::solve(int example) {
     //cout << "CONVERGED" << endl;
   }
 
- cout << "*END*  "<< _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " << _round << " " 
+ cout << "*END*  "<< example << " " << _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " << _round << " " 
        << double(diffclock(end,start)) << endl ;
 }
 
@@ -111,9 +111,10 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
 
   if  (dualsize > 2 && _duals[dualsize -1] < _duals[dualsize -2]) { 
     _nround += 1;
-    if (_aggressive) {
-      _base_weight *= 0.9;
-    } else if (_nround == 10) {
+    if (_aggressive && _nround > 2) {
+      _base_weight *= 0.7;
+      _nround = 0;
+    } else if (!_is_stuck && _nround == 10) {
       _base_weight *= 0.7;
       _nround =0;
     }

@@ -231,7 +231,7 @@ void ExtendCKY::node_best_path(const ForestNode & node) {
           
           double score1 = best_edge_hypotheses[last].get_score(iter);
           double back_score = best_edge_back_hypotheses[0].get_score_by_id(hyp1->id());
-          assert (fabs(score1 - back_score) < 1e-4);
+          //assert (fabs(score1 - back_score) < 1e-4);
 
           /*for (int q=0; q <= last; q++) {
             for (best_edge_hypotheses[q]) {
