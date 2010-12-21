@@ -111,7 +111,7 @@ vector <int> construct_best_edges_help(const ForestNode & node, const NodeBackCa
   vector <int> best; 
   
   if (node.num_edges() == 0) {
-    assert (node.is_word());
+    //assert (node.is_word());
     return best;
   } else {
     const ForestEdge * edge = back_memo_table.get_value(node);
@@ -135,7 +135,7 @@ vector <int> construct_best_node_order_help(const ForestNode & node, const NodeB
   best.push_back(node.id());
 
   if (node.num_edges() == 0) {
-    assert (node.is_word());
+    //assert (node.is_word());
     cout << "w ";
   } else {
     cout << node.id() << "D ";
@@ -178,7 +178,7 @@ double best_path_helper(const ForestNode & node, const EdgeCache & edge_weights,
   //cout << "EDGES: "<< node.num_edges() <<endl; 
   if (node.num_edges() == 0) {
     
-    assert (node.is_word());
+    //assert (node.is_word());
     best_score = 0.0;
     best_edge = NULL;
   } else {
