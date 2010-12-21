@@ -40,8 +40,9 @@ public:
  
   vector <ForestNode *> _tail_nodes;
   ForestNode * _head_node;
-private:
   const string & _label; 
+private:
+
   str_vector * _features;
   const int _id;
 
@@ -92,8 +93,9 @@ public:
 
   //void print();
   vector <ForestEdge *> _edges; 
-private:
   const string & _label;
+private:
+  
   const int  _id;
   str_vector * _features;
   

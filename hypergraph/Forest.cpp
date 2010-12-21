@@ -60,9 +60,9 @@ Forest::Forest(const Hypergraph& hgraph) {
     const Hypergraph_Node& node = hgraph.node(i);
     assert (node.id()  == i);
     //cout << node.id() << endl;
-    if (node.edge_size() ==0) {
-      assert (_nodes[node.id()]->is_word());
-    }
+    //if (node.edge_size() ==0) {
+    //assert (_nodes[node.id()]->is_word());
+    //}
 
     for (int j=0; j < node.edge_size(); j++) {
       const Hypergraph_Edge& edge = node.edge(j);

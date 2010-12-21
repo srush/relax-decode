@@ -445,83 +445,11 @@ void Subproblem::solve_proj(int d2, int d3,
                             bool is_simple
                             ) {
 
+
+
+
   // solve (but only in the projected space)
   // unless is_simple
-
-  // faster if we visit in order
-  //bitset <NUMSTATES> full_redo;
-  //vector <int> redos_one[NUMSTATES];
-  //vector <int> redos_two[NUMSTATES];
-  //full_redo.reset();
-  //cout << graph->num_nodes << endl;
-  assert(graph->num_word_nodes > 10);
-  for (unsigned int i =0; i< graph->num_word_nodes; i++ ) {
-    if (!graph->is_word(i)) continue; 
-    bool reset = false;
-    if (!first_proj_time) {
-      //assert (cur_best_one[i] != -1);
-      //assert (cur_best_two[i] != -1);
-      
-      if (proj_best_one[i] == -1) {
-        reset = true;
-      } else {
-        int w1 = i;
-        int one = proj_best_one[i];
-        int two = proj_best_two[i];
-        
-        if (project_word(one) != d2 || project_word(two) != d3 ) {
-          reset = true;
-        } else {
-
-          int w0 = fixed_last_bigram(w1);
-        
-          double old_score = proj_best_score[i];
-          proj_best_score[i] = 
-            bi_rescore_first->get_bigram_weight(i,one) + 
-            bi_rescore_two->get_bigram_weight(one,two) +
-            (LM) *  word_prob_reverse(i, one, two);
-          
-          if (w0 != -1) {
-            proj_best_score[i] += bi_rescore_two->get_bigram_weight(w1, one) +
-              (LM) *  word_prob_reverse(w0, i, one);
-          }
-
-
-          proj_best_one[i] = one;
-          proj_best_two[i] = two;
-          proj_best_is_new[i] = !(fabs(old_score -proj_best_score[i]) < 1e-4);
-          //if (!proj_best_is_new[i]) 
-          //cout << "POSSIBLY " <<  i << " " << old_score << " " << proj_best_score[i] << endl;
-          assert(proj_best_one[i] != proj_best_two[i]);
-          assert(proj_best_score[i] < 1000); 
-
-        /*if (PROJECT) {
-          for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
-            if (!graph->is_word(j)) continue; 
-            cur_best_at_bi_score[i][j] = INF;
-            cur_best_at_bi[i][j] = -1;            
-          }
-          }*/
-        }
-      }
-    } else {
-      reset = true;
-    }
-    if (reset) {
-      proj_best_score[i] = INF;
-      proj_best_one[i] = -1;
-      proj_best_two[i] = -1;
-      proj_best_is_new[i] = true;
-      /*if (PROJECT) {
-        for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
-          if (!graph->is_word(j)) continue; 
-          cur_best_at_bi_score[i][j] = INF;
-          cur_best_at_bi[i][j] = -1;
-          
-        }
-        }*/
-    }
-  }
 
 
   int num_word_nodes = graph->num_word_nodes;
@@ -577,6 +505,84 @@ void Subproblem::solve_proj(int d2, int d3,
       }
     }
   }
+
+
+  // faster if we visit in order
+  //bitset <NUMSTATES> full_redo;
+  //vector <int> redos_one[NUMSTATES];
+  //vector <int> redos_two[NUMSTATES];
+  //full_redo.reset();
+  //cout << graph->num_nodes << endl;
+  assert(graph->num_word_nodes > 10);
+  for (unsigned int i =0; i< graph->num_word_nodes; i++ ) {
+    if (!graph->is_word(i)) continue; 
+    bool reset = false;
+    if (!first_proj_time) {
+      //assert (cur_best_one[i] != -1);
+      //assert (cur_best_two[i] != -1);
+      
+      if (proj_best_one[i] == -1) {
+        reset = true;
+      } else {
+        int w1 = i;
+        int one = proj_best_one[i];
+        int two = proj_best_two[i];
+        
+        if (project_word(one) != d2 || project_word(two) != d3 ) {
+          reset = true;
+        } else {
+
+          int w0 = fixed_last_bigram(w1);
+        
+          double old_score = proj_best_score[i];
+          proj_best_score[i] = 
+            bigram_weight_cache_one[i][one] + 
+            bigram_weight_cache_two[one][two] +
+            (LM) *  word_prob_reverse(i, one, two);
+          
+          if (w0 != -1) {
+            proj_best_score[i] += bigram_weight_cache_two[w1][one] +
+              (LM) *  word_prob_reverse(w0, i, one);
+          }
+
+
+          proj_best_one[i] = one;
+          proj_best_two[i] = two;
+          proj_best_is_new[i] = !(fabs(old_score -proj_best_score[i]) < 1e-4);
+          //if (!proj_best_is_new[i]) 
+          //cout << "POSSIBLY " <<  i << " " << old_score << " " << proj_best_score[i] << endl;
+          assert(proj_best_one[i] != proj_best_two[i]);
+          assert(proj_best_score[i] < 1000); 
+
+        /*if (PROJECT) {
+          for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
+            if (!graph->is_word(j)) continue; 
+            cur_best_at_bi_score[i][j] = INF;
+            cur_best_at_bi[i][j] = -1;            
+          }
+          }*/
+        }
+      }
+    } else {
+      reset = true;
+    }
+    if (reset) {
+      proj_best_score[i] = INF;
+      proj_best_one[i] = -1;
+      proj_best_two[i] = -1;
+      proj_best_is_new[i] = true;
+      /*if (PROJECT) {
+        for (unsigned int j=0; j< graph->num_word_nodes; j++ ) {
+          if (!graph->is_word(j)) continue; 
+          cur_best_at_bi_score[i][j] = INF;
+          cur_best_at_bi[i][j] = -1;
+          
+        }
+        }*/
+    }
+  }
+
+
     //}
   clock_t end;
   if (TIMING) {
@@ -599,6 +605,10 @@ void Subproblem::solve_proj(int d2, int d3,
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
     overridden[w1] = false;  
+
+    if (w1 == 805) {
+      cout << "here";
+    } 
 
     // Edge tightness optimization
   
@@ -628,12 +638,13 @@ void Subproblem::solve_proj(int d2, int d3,
 
       //cout << "SEC" << " " << w1 << " " << w2 << endl;
       
-      float score1 = bi_rescore_first->get_bigram_weight(w1,w2);
+      float score1 = bigram_weight_cache_one[w1][w2];
 
       if (on_edge) {
-        score1 += bi_rescore_first->get_bigram_weight(w0,w1) + 
-          bi_rescore_two->get_bigram_weight(w1,w2) + (LM) * word_prob_reverse(w0,w1,w2);
+        double internal = bigram_weight_cache_one[w0][w1] + 
+          bigram_weight_cache_two[w1][w2] + (LM) * word_prob_reverse(w0,w1,w2);
         
+        score1 += internal;
       }
  
       // check NaN
@@ -659,7 +670,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
       if ( OPTIMIZE && is_simple && ( estimate > proj_best_score[w1])) {
         //cout << "killed" << endl;
-        continue;
+        //continue;
       }
 
       
@@ -679,7 +690,7 @@ void Subproblem::solve_proj(int d2, int d3,
       if (OPTIMIZE) {
         float bi_lm_score = bigram_score_cache[w1][w2];
         int w3 = best_bigram_with_backoff_forward[w2];
-        float score2 = bi_rescore_two->get_bigram_weight(w2,w3);
+        float score2 = bigram_weight_cache_two[w2][w3];
         float score  = bi_lm_score + best_backoff[w2] + score1 + score2;
 
         //cout << w2 << " " << (LM) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
