@@ -23,11 +23,13 @@ class LMNonLocal: public NonLocal {
     //cout << "COMBINE " << subder.size() <<endl;
     for (int i =0; i < subder.size(); i++) {
       int size = full_derivation.size(); 
-      int w = subder[i][0];
+      int orig = subder[i][0];
+      int w = _word_cache.store[orig];
+
       if (size >= 2) {
       
-        VocabIndex context [] = {full_derivation[size-1], 
-                                 full_derivation[size-2], 
+        VocabIndex context [] = {_word_cache.store[full_derivation[size-1]], 
+                                 _word_cache.store[full_derivation[size-2]], 
                                  Vocab_None};
         score += _lm.wordProb(w, context);
         
@@ -42,7 +44,7 @@ class LMNonLocal: public NonLocal {
       } else if (size ==1 && w != 1 ) {
         
         if (w !=1 && w!= 2) {
-          VocabIndex context [] = {full_derivation[size-1], Vocab_None};
+          VocabIndex context [] = {_word_cache.store[full_derivation[size-1]], Vocab_None};
           score += _lm.wordProb(w, context);        
         
 
@@ -55,15 +57,15 @@ class LMNonLocal: public NonLocal {
       }
 
       if (size >=1 && subder[i].size() > 1 ) {
-        const VocabIndex context [] = {w, full_derivation[size-1], Vocab_None};
-        score += _lm.wordProb(subder[i][1], context);
+        const VocabIndex context [] = {w, _word_cache.store[full_derivation[size-1]], Vocab_None};
+        score += _lm.wordProb(_word_cache.store[subder[i][1]], context);
         //cout << "\t" << score <<endl;
         //cout << "\t" <<  "Wait TRIGRAM " << subder[i][1] << " " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
         //cout << "\t" <<  "SCORE " << _lm.wordProb(subder[i][1], context) << endl;
         
-        if ( subder[i][1]!= 1 && subder[i][1]!=2) {
+        if ( _word_cache.store[subder[i][1]]!= 1 && _word_cache.store[subder[i][1]]!=2) {
           const VocabIndex context2 [] = {w, Vocab_None};
-          score -= _lm.wordProb(subder[i][1], context2);        
+          score -= _lm.wordProb(_word_cache.store[subder[i][1]], context2);        
           //cout << "bonus" << endl;
           }
       }
@@ -79,17 +81,18 @@ class LMNonLocal: public NonLocal {
     //cout << full_derivation.size() << endl;;
     int size = full_derivation.size();
 
-    sig.push_back(full_derivation[0]);
-    sig.push_back(full_derivation[size-1]);
+    sig.push_back(_word_cache.store[full_derivation[0]]);
+    sig.push_back(_word_cache.store[full_derivation[size-1]]);
     assert(size > 0);
     if (size!=1) {
-      sig.push_back(full_derivation[1]);
-      sig.push_back(full_derivation[size-2]);
+      sig.push_back(_word_cache.store[full_derivation[1]]);
+      sig.push_back(_word_cache.store[full_derivation[size-2]]);
     }
   }
   
   Hyp initialize(const ForestNode & node) const {
     assert (node.is_word());
+    int original = node.id();
     int w = _word_cache.get_value(node);
     double score = 0.0; 
     VocabIndex context [] = {Vocab_None};
@@ -102,7 +105,7 @@ class LMNonLocal: public NonLocal {
     sig.push_back(w);
     sig.push_back(w);
     vector <int> der;
-    der.push_back(w);
+    der.push_back(original);
     return Hyp(score, sig, der); 
   }
  private:

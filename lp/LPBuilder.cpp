@@ -9,8 +9,8 @@
 using namespace std;
 
 
-#define VAR_TYPE GRB_CONTINUOUS
-//#define VAR_TYPE GRB_BINARY
+//#define VAR_TYPE GRB_CONTINUOUS
+#define VAR_TYPE GRB_BINARY
 
 struct LatticeVars {
   vector < vector < vector < GRBVar > > > all_pairs_vars;
@@ -724,7 +724,7 @@ void LPBuilder::solve_full(int run_num, const Cache<ForestEdge, double> & _weigh
 
   GRBEnv env = GRBEnv();
   env.set(GRB_StringParam_LogFile, "/tmp/log");
-  env.set(GRB_DoubleParam_TimeLimit, 200);
+  env.set(GRB_DoubleParam_TimeLimit, 100);
   env.set(GRB_IntParam_OutputFlag, 0);
   model = new GRBModel(env);
   

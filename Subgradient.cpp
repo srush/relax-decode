@@ -18,8 +18,8 @@ void Subgradient::solve(int example) {
       s=clock();
     }
     clock_t e=clock();
-    cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _base_weight << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
-       << double(diffclock(e,start)) << endl ;
+    //cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _base_weight << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
+    //  << double(diffclock(e,start)) << endl ;
   }
   //if (TIMING) {
     clock_t end=clock();
@@ -145,7 +145,7 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     if (_is_stuck && _first_stuck_iteration == -1) {
       _first_stuck_iteration = _round;
     }
-    cout << "STUCK " <<  _round << " "<< upper << " " << lower << " " <<_is_stuck <<endl;
+    //cout << "STUCK " <<  _round << " "<< upper << " " << lower << " " <<_is_stuck <<endl;
   }
 
   _weights += updates;

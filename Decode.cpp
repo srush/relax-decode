@@ -15,7 +15,7 @@
 //#define PROJECT 1si
 //#define TRIPROJECT 0
 #define DEBUG 0
-#define SIMPLE_DEBUG 1
+#define SIMPLE_DEBUG 0
 #define GREEDY 0
 #define BACK 2
 
@@ -377,8 +377,9 @@ void Decode::debug(int start_from, int dual_mid, int dual_end, int primal_mid, i
   }
 
   
-
 }
+
+
 
 void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end) {
   if (!GREEDY) {
@@ -392,8 +393,8 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
               (_constraints[w1].find(w2) != _constraints[w1].end() ||
                _constraints[w2].find(w1) != _constraints[w2].end() 
                )) {
-            //assert(false);
-            cout << "COLORING fail " << w1 << " " << w2<< endl;
+            //assert(/false);
+            //cout << "COLORING fail " << w1 << " " << w2<< endl;
           }
 
           _constraints[w2].insert(w1);
@@ -411,7 +412,7 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
                _constraints[w2].find(w1) != _constraints[w2].end() 
                )) {
             //assert(false);
-            cout << "COLORING fail " << w1 << " " << w2<<endl;
+            //cout << "COLORING fail " << w1 << " " << w2<<endl;
           }
 
         //if (w1 < w2) 
@@ -575,7 +576,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
     //cout << "DSTUCK " << is_stuck << " " << _maintain_constraints << endl;
     if ((round ==145 || is_stuck) && !_maintain_constraints) {
-      cout << "DUAL STUCK Round "<< round << endl;
+      //cout << "DUAL STUCK Round "<< round << endl;
       _maintain_constraints = true;
       _is_stuck_round = round;
       bump_rate = true;
@@ -786,14 +787,14 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     }
   }
   vector <string> used_strings;
-  cout << "*PRIMAL* " << round << " ";
+  //cout << "*PRIMAL* " << round << " ";
   used_strings.push_back("<s>");
   used_strings.push_back("<s>");
   for (int i =0; i < used_words.size(); i++) {
-    cout <<used_words[i]->word() << " ";
+    //cout <<used_words[i]->word() << " ";
     used_strings.push_back(used_words[i]->word());
   }
-  cout <<endl;
+  //cout <<endl;
   used_strings.push_back("</s>");
   used_strings.push_back("</s>");
   //assert(used_words.size() > 3);
@@ -1042,7 +1043,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     }
   }
 
-  cout << "*DECODE* " << round << " " << _subproblem->projection_dims << " " << size << endl;  
+  //cout << "*DECODE* " << round << " " << _subproblem->projection_dims << " " << size << endl;  
   //assert(fabs(lm_total - o_total) < 1e-4);
   
   if (DEBUG) {

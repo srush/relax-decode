@@ -69,7 +69,7 @@ int main(int argc, char ** argv) {
 
   //cout << "START!!!!" << endl;
 
-  for (int i=1; i <=700; i++) {
+  for (int i=atoi(argv[5]); i <=atoi(argv[6]); i++) {
     
     GOOGLE_PROTOBUF_VERIFY_VERSION;
     
@@ -101,7 +101,15 @@ int main(int argc, char ** argv) {
     CubePruning p(f, *w, LMNonLocal(f, *lm, *words), cube, 3);
     double v =p.parse();    
     clock_t end=clock();
+    cout << "*TRANS* " << i << " ";
+    vector <int> sent;
+    p.get_derivation(sent);
+    for (int i=0;i < sent.size();i++) {
+      cout <<f.get_node(sent[i]).word() << " ";
+    }
+    cout << endl;
     cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)diffclock(end,begin) << endl;
+    
   }
   return 0;
 }

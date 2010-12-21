@@ -87,7 +87,8 @@ class CubePruning {
   _forest(forest), _non_local(non_local), _k(k), _ratio(ratio), _weights(weights),
     _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges())
     {}
-
+   
+   void get_derivation(vector <int> & der);
   double parse();
   void run(const ForestNode & cur_node, vector <Hyp> & kbest_hyps);
   void init_cube(const ForestNode & cur_node, Candidates & cands);

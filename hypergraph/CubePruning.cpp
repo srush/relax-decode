@@ -15,6 +15,10 @@ double CubePruning::parse() {
   //cout << _hypothesis_cache.store[_forest.root().id()][2].score << endl;
 }
 
+void CubePruning::get_derivation(vector <int> & der) {
+  der = _hypothesis_cache.store[_forest.root().id()][0].full_derivation;
+}
+
 void CubePruning::run(const ForestNode & cur_node, vector <Hyp> & kbest_hyps) {
   //compute the k-'best' list for cur_node 
   for (int i =0; i < cur_node.num_edges(); i++) {
