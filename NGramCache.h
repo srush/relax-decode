@@ -5,7 +5,6 @@
 #include <Prob.h>
 
 
-
 class NgramCache : public Ngram {
  public:
   NgramCache(Vocab & v, int i) 
@@ -26,9 +25,12 @@ class NgramCache : public Ngram {
     
     BOtrie *trieNode;
     unsigned i;
-
 };
 
 
+
+// helper functions
+
+NgramCache * load_ngram_cache(const char * filename);
 
 #endif 

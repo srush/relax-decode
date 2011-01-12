@@ -10,6 +10,7 @@
 #include <iomanip>
 #include "AStar.h"
 #include "common.h"
+#include <boost/foreach.hpp>
 #define TIMING 0
 #define IS_TRY 0
 //#define PROJECT 1si
@@ -19,11 +20,12 @@
 #define GREEDY 0
 #define BACK 2
 
+#define foreach BOOST_FOREACH
 
 class SplitHeuristic : public Heuristic {
 public :
-  SplitHeuristic(const Cache <ForestNode, BestHyp> & outside_scores, 
-                 Cache <ForestEdge, vector<BestHyp> >  & outside_edge_scores): 
+  SplitHeuristic(const Cache <Hypernode, BestHyp> & outside_scores, 
+                 Cache <Hyperedge, vector<BestHyp> >  & outside_edge_scores): 
     _outside_scores(outside_scores),
     _outside_edge_scores(outside_edge_scores){}
 
@@ -70,8 +72,8 @@ public :
 
 
 private: 
-  const Cache <ForestNode , BestHyp> & _outside_scores;
-  const Cache <ForestEdge, vector<BestHyp> >  & _outside_edge_scores;
+  const Cache <Hypernode , BestHyp> & _outside_scores;
+  const Cache <Hyperedge, vector<BestHyp> >  & _outside_edge_scores;
 };
 
 
@@ -112,10 +114,10 @@ public:
     ret.hook = a.hook;
     ret.right_side = b.right_side;
     ret.is_new = a.is_new || b.is_new;
-     for (int i=0;i<a.prev_hyp.size();i++) {
-      ret.prev_hyp.push_back(a.prev_hyp[i]);
-    }
-     ret.prev_hyp.push_back(b.id());
+    
+    // append 
+    ret.prev_hyp.insert(ret.prev_hyp.end(), a.prev_hyp.begin(), a.prev_hyp.end());
+    ret.prev_hyp.push_back(b.id());
     return 0.0;
   }
   
@@ -123,9 +125,9 @@ public:
     ret.hook = b.hook;
     ret.right_side = a.right_side;
     ret.is_new = a.is_new || b.is_new;
-    for (int i=0;i<a.prev_hyp.size();i++) {
-      ret.prev_hyp.push_back(a.prev_hyp[i]);
-    }
+    
+    ret.prev_hyp.insert(ret.prev_hyp.end(), a.prev_hyp.begin(), a.prev_hyp.end());
+    
     ret.prev_hyp.push_back(b.id());
 
     return 0.0;
@@ -140,7 +142,7 @@ public:
     return _classes.size();
   }
 
-  void initialize_hypotheses(const ForestNode & node, vector <Hypothesis *> & hyps, vector <double> & scores) const {
+  void initialize_hypotheses(const Hypernode & node, vector <Hypothesis *> & hyps, vector <double> & scores) const {
     
     int graph_id = _lattice.get_word_from_hypergraph_node(node.id());
     if (_subproblem.overridden[graph_id]) {
@@ -165,7 +167,7 @@ public:
     } else {
       for (int d=0; d < dim(); d++) {
       
-        assert(node.is_word());
+        assert(node.is_terminal());
         
         assert(_lattice.is_word(graph_id));
         for (int d2 = 0; d2 < dim(); d2++) {
@@ -501,7 +503,7 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
   }
 
   if (DEBUG) {
-    double lm_score = (LM) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
+    double lm_score = (LMWEIGHT) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
     //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
 
     cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
@@ -647,7 +649,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   EdgeCache penalty_cache(_forest.num_edges());
   int num_edges = _forest.num_edges();
   for (unsigned int i=0; i < num_edges; i++) { 
-    const ForestEdge & edge = _forest.get_edge(i);
+    const Hyperedge & edge = _forest.get_edge(i);
     assert (edge.id() == i);
     double total_score = 0.0;
     
@@ -683,7 +685,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     
     begin=clock();  
   }
-  EdgeCache * total = combine_edge_weights(_forest, penalty_cache, *_cached_weights);
+  HypergraphAlgorithms ha(_forest);
+  EdgeCache * total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
   NodeCache scores(_forest.num_nodes()), scores2(_forest.num_nodes());
   NodeBackCache back_pointers(_forest.num_nodes()), 
     back_pointers2(_forest.num_nodes()), back_pointers3(_forest.num_nodes());;
@@ -701,8 +704,8 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   bool run_astar = _subproblem->projection_dims > BACK;
   SplitController c(*_subproblem, _lattice, run_astar);
-  ExtendCKY ecky(_forest);
-  ecky.set_params(total, &c);
+  ExtendCKY ecky(_forest, *total, c);
+  //ecky.set_params(total, &c);
 
   if (run_astar) { 
     
@@ -757,9 +760,12 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   //cout << "INITIAL DUAL Score" << dual << endl;
 
-  vector <int> used_edges = construct_best_edges(_forest, back_pointers); 
-  vector <const ForestNode *> used_words = construct_best_fringe(_forest, back_pointers); 
-
+  HEdges used_edges = ha.construct_best_edges(back_pointers); 
+  vector <const Hypernode *> tmp_words = ha.construct_best_fringe(back_pointers); 
+  vector <const ForestNode *> used_words;
+  foreach (const Hypernode * word, tmp_words ) {
+    used_words.push_back((ForestNode*)word);
+  }
 
   //vector <int> all_nodes = construct_best_node_order(_forest, back_pointers);
   //cout << endl;
@@ -776,7 +782,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   begin=clock();  
 
   for (int i =0; i < used_edges.size(); i++){ 
-    int edge_id= used_edges[i];
+    int edge_id= used_edges[i]->id();
     // + lagrangians (FROM PARSE SIDE)
     vector <int> lat_edges = get_lat_edges(edge_id); 
     for (int j =0; j < lat_edges.size(); j++) {
@@ -790,9 +796,10 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   //cout << "*PRIMAL* " << round << " ";
   used_strings.push_back("<s>");
   used_strings.push_back("<s>");
-  for (int i =0; i < used_words.size(); i++) {
+  
+  foreach (HNode used, used_words) {  // int i =0; i < used_words.size(); i++) {
     //cout <<used_words[i]->word() << " ";
-    used_strings.push_back(used_words[i]->word());
+    used_strings.push_back(((const ForestNode*)used)->word());
   }
   //cout <<endl;
   used_strings.push_back("</s>");
@@ -1027,7 +1034,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
     }
     if (DEBUG) {
-      double lm_score = (LM) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
+      double lm_score = (LMWEIGHT) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
       lm_total += lm_score;
       cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)
            << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << endl;
@@ -1110,10 +1117,10 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 }
 
 
-double Decode::compute_primal(const vector <int> used_edges, const vector <const ForestNode *> used_nodes) {
+double Decode::compute_primal(const HEdges used_edges, const vector <const ForestNode *> used_nodes) {
   double total= 0;
   for (unsigned int i=0; i < used_edges.size(); i++ ) {
-    total += _cached_weights->store[used_edges[i]] ;
+    total += _cached_weights->store[used_edges[i]->id()] ;
   }
 
   vector <string> used_strings;
@@ -1129,18 +1136,18 @@ double Decode::compute_primal(const vector <int> used_edges, const vector <const
   for (int i =0; i < used_strings.size()-2; i++) {
     VocabIndex context [] = {lookup_string(used_strings[i+1]), lookup_string(used_strings[i]), Vocab_None};
     if (DEBUG) {
-      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (LM) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (LMWEIGHT) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
       
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
   }
   if (DEBUG) {
-    cout << "PRIMAL LM: " << (LM) *lm_score << endl;
+    cout << "PRIMAL LMWEIGHT: " << (LMWEIGHT) *lm_score << endl;
     cout << endl;
   }
   //cout << "total " << total << endl;
   
-  return total + (LM) *  lm_score;
+  return total + (LMWEIGHT) *  lm_score;
 }
 int Decode::lookup_string(string word) {
   int max = _lm.vocab.numWords();
@@ -1199,4 +1206,4 @@ void Decode::sync_lattice_lm() {
       //_lattice.get_word(mid_at) << " " <<  
       //_lattice.get_word(graph_id) << " " << 
       //_subproblem->cur_best_score[graph_id] << " " <<
-      //(LM) *   _subproblem->word_prob_reverse(start_from, mid_at, end_at) << endl;
+      //(LMWEIGHT) *   _subproblem->word_prob_reverse(start_from, mid_at, end_at) << endl;

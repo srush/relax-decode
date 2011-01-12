@@ -7,12 +7,18 @@
 #include <vector>
 #include <queue>
 #include "Hypothesis.h"
-#include "Forest.h"
+#include "Hypergraph.h"
 #include "BestHyp.h"
 #include <iostream>
-
+#include <limits>
+#include "../common.h"
 using namespace std;
-typedef Cache <ForestNode, const ForestEdge *> NodeBackCache;
+namespace Scarab{
+  namespace HG{
+
+
+// numeric_limits<double>::max()
+//typedef Cache <Hypernode, const Hyperedge *> NodeBackCache;
 enum loc { NODE, EDGE, TOP};
 
 struct Location {
@@ -40,8 +46,9 @@ class Heuristic {
 
 struct QueueHyp{
   Hypothesis * h;
-  Location * where; 
   double score;
+  Location * where; 
+  
 
   QueueHyp(){}
   QueueHyp(Hypothesis * hyp, double score_in, Location * w): 
@@ -53,9 +60,9 @@ struct QueueHyp{
 
 class AStar {
  public: 
- AStar(const Forest & f, 
+ AStar(const Hypergraph & f, 
        const Controller & cont, 
-       const Cache <ForestEdge, double> & edge_weights,
+       const Cache <Hyperedge, double> & edge_weights,
        const Heuristic & heu
        ) :
   _forest(f), _controller(cont), _memo_table(_forest.num_nodes()),
@@ -68,11 +75,11 @@ class AStar {
   double best_path(NodeBackCache & back_pointers);
  
   ~AStar() {
-    for (int i=0;i< _locs.size(); i++) {
+    for (uint i=0;i< _locs.size(); i++) {
       delete _locs[i];
     }
 
-    for (int i=0;i< _hyps.size(); i++) {
+    for (uint i=0;i< _hyps.size(); i++) {
       delete _hyps[i];
     }
   }
@@ -84,7 +91,7 @@ private:
     return _hyps[_hyps.size()-1];
   }
   Hypothesis * alloc_hyp(vector<int> h, vector<int> r, 
-                         const ForestEdge * be, int d) {
+                         const Hyperedge * be, int d) {
     
     _hyps.push_back(new Hypothesis(h, r, be, d, false));
     return _hyps[_hyps.size()-1];
@@ -101,18 +108,19 @@ private:
   void add_to_queue( Hypothesis * hyp, double score, Location * );
   void initialize_queue();
   void main_loop(Hypothesis * & best, double & best_score );
-  void recompute_edge(const ForestEdge & edge,
+  void recompute_edge(const Hyperedge & edge,
                              int pos,
                              const Hypothesis & h, 
                              double original_score);
-  void recompute_node(const ForestNode & node, const Hypothesis & h, double original_score);
-  Forest _forest;
-  //void forward_edge(const ForestEdge & edge,  vector <BestHyp> & best_edge_hypotheses);
-  void forward_edge(const ForestEdge & edge,  vector <BestHyp> & best_edge_hypotheses,  int pos_changed, int id);
-  Cache <ForestNode, BestHyp >  _memo_table;
-  Cache <ForestEdge, vector<BestHyp> >  _memo_edge_table;
+  void recompute_node(const Hypernode & node, const Hypothesis & h, double original_score);
+  const Hypergraph & _forest;
   const Controller & _controller;
-  const Cache <ForestEdge, double>  & _edge_weights;
+  //void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses);
+  void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses,  int pos_changed, int id);
+  Cache <Hypernode, BestHyp >  _memo_table;
+  Cache <Hyperedge, vector<BestHyp> >  _memo_edge_table;
+  
+  const Cache <Hyperedge, double>  & _edge_weights;
   const Heuristic  & _heuristic;
   priority_queue <QueueHyp> _queue;
   double _best_so_far;
@@ -122,4 +130,6 @@ private:
   int _num_recompute;
 }; 
 
+  }}
 #endif
+  

@@ -1,6 +1,7 @@
 #include "CubePruning.h"
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
 
 
@@ -19,12 +20,12 @@ void CubePruning::get_derivation(vector <int> & der) {
   der = _hypothesis_cache.store[_forest.root().id()][0].full_derivation;
 }
 
-void CubePruning::run(const ForestNode & cur_node, vector <Hyp> & kbest_hyps) {
+void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
   //compute the k-'best' list for cur_node 
   for (int i =0; i < cur_node.num_edges(); i++) {
-    const ForestEdge & hedge = cur_node.edge(i); 
+    const Hyperedge & hedge = cur_node.edge(i); 
     for (int j=0; j < hedge.num_nodes();j++) {
-      const ForestNode & sub = hedge.tail_node(j);
+      const Hypernode & sub = hedge.tail_node(j);
       if (!_hypothesis_cache.has_key(sub)) {
         run(sub, _hypothesis_cache.store[sub.id()]);
         _hypothesis_cache.has_value[sub.id()] = 1;
@@ -33,7 +34,7 @@ void CubePruning::run(const ForestNode & cur_node, vector <Hyp> & kbest_hyps) {
   }
 
   //create cube
-  if (!cur_node.is_word()) {
+  if (!cur_node.is_terminal()) {
     Candidates cands;
     //cout << "Starting cube" << endl;
     init_cube(cur_node, cands);
@@ -63,9 +64,9 @@ void CubePruning::run(const ForestNode & cur_node, vector <Hyp> & kbest_hyps) {
   //return kbest_hyps;       
 }
 
-void CubePruning::init_cube(const ForestNode & cur_node, Candidates & cands) {
+void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
   for (int i=0; i < cur_node.num_edges(); i++) {
-    const ForestEdge & cedge = cur_node.edge(i);
+    const Hyperedge & cedge = cur_node.edge(i);
                   
     // start with (0,...0)
     vector <int> newvecj(cedge.num_nodes());
@@ -110,7 +111,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec) {
     Candidate * cand = cands.top();
     cands.pop();
     const Hyp & chyp  = cand->hyp;
-    const ForestEdge & cedge = cand->edge;
+    const Hyperedge & cedge = cand->edge;
     const vector <int> & cvecj = cand->vec; 
 
 
@@ -210,7 +211,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec) {
   //return newhypvec;
 }
 
-void CubePruning::next(const ForestEdge & cedge, const vector <int > & cvecj, Candidates & cands){
+void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands){
   /*
     @param cedge - the edge that we just took a candidate from
     @param cvecj - the current position on the cedge cube
@@ -255,7 +256,7 @@ void CubePruning::next(const ForestEdge & cedge, const vector <int > & cvecj, Ca
 }
 
 
-bool CubePruning::gethyp(const ForestEdge & cedge, const vector <int> & vecj, Hyp & item) {
+bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item) {
   /*
     Return the score and signature of the element obtained from combining the
     vecj-best parses along cedge. Also, apply non-local feature functions (LM)
@@ -269,7 +270,7 @@ bool CubePruning::gethyp(const ForestEdge & cedge, const vector <int> & vecj, Hy
   // grab the jth best hypothesis at each node of the hyperedge
   //cout << cedge.num_nodes() << endl;
   for (int i=0; i < cedge.num_nodes(); i++) {
-    const ForestNode & sub = cedge.tail_node(i);
+    const Hypernode & sub = cedge.tail_node(i);
  
     if (vecj[i] >= _hypothesis_cache.get_value(sub).size()) {
       //cout << "FAIL for size " << _hypothesis_cache.get_value(sub).size();

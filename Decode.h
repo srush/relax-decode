@@ -5,7 +5,7 @@
 #include "Subgradient.h"
 #include <Forest.h>
 #include <ForestLattice.h>
-#include <ForestAlgorithms.h>
+#include <HypergraphAlgorithms.h>
 #include <vector>
 #include "svector.hpp"
 #include <Ngram.h>
@@ -17,13 +17,14 @@ using namespace std;
 #define GRAMSPLIT2 200000
 
 typedef svector<int, double> wvector;
+using namespace Scarab::HG;
 
 class Decode: public SubgradientProducer {
  public:
   Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, NgramCache & lm, const SkipTrigram & skip) 
     :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) //, ecky(forest)
   {
-    _cached_weights = cache_edge_weights(forest, weight);
+    _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
     //cout<<"decomposing" << endl;
     _gd.decompose(&lattice);
     //cout<<"done decomposing" << endl;
@@ -50,7 +51,7 @@ class Decode: public SubgradientProducer {
   void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
   void greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end);
   void add_subgrad( wvector & subgrad, int start_from, int mid_at, int end_at, bool first);
-  double compute_primal(const vector <int> used_edges, const vector <const ForestNode *> used_nodes);
+  double compute_primal(HEdges used_edges, const vector <const ForestNode *> used_nodes);
   int lookup_string(string word);
   Subproblem * _subproblem;
   const Forest & _forest;
@@ -59,7 +60,7 @@ class Decode: public SubgradientProducer {
   wvector * _lagrange_weights;
   NgramCache & _lm; 
   GraphDecompose _gd;
-  Cache <ForestEdge, double> * _cached_weights;
+  Cache <Hyperedge, double> * _cached_weights;
   Cache <LatNode, int> * _cached_words;
   vector <int > get_lat_edges(int edge_id);
   vector <int > get_lex_lat_edges(int edge_id);

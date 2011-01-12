@@ -360,8 +360,8 @@ void Subproblem::initialize_caches() {
     bigram_in_lm[b.w1][b.w2] =  word_bow_bigram_reverse(b.w1, b.w2);
     forward_trigrams[w1][w2] = new vector<int>();
     forward_trigrams_score[w1][w2] = new vector<double>();
-    bigram_score_cache[w1][w2] = (LM) *  word_prob_bigram_reverse(w1, w2);
-    backoff_score_cache[w1][w2] = (LM) *  word_backoff_two(w1, w2);
+    bigram_score_cache[w1][w2] = (LMWEIGHT) *  word_prob_bigram_reverse(w1, w2);
+    backoff_score_cache[w1][w2] = (LMWEIGHT) *  word_backoff_two(w1, w2);
 
     best_lm_score[w1][w2] = INF;
   }
@@ -383,7 +383,7 @@ void Subproblem::initialize_caches() {
         if (bigram_in_lm[w1][w2] && bigram_in_lm[w2][w3] &&  lm->hasNext(_word_node_cache.store[w3])) {         
           
           VocabIndex context [] = {_word_node_cache.store[w2], _word_node_cache.store[w3], Vocab_None};
-           lm_score = (LM) *  lm->wordProbFromCache(_word_node_cache.store[w1], context);
+           lm_score = (LMWEIGHT) *  lm->wordProbFromCache(_word_node_cache.store[w1], context);
           
           forward_trigrams[w1][w2]->push_back(w3);
           forward_trigrams_score[w1][w2]->push_back(lm_score);
@@ -538,11 +538,11 @@ void Subproblem::solve_proj(int d2, int d3,
           proj_best_score[i] = 
             bigram_weight_cache_one[i][one] + 
             bigram_weight_cache_two[one][two] +
-            (LM) *  word_prob_reverse(i, one, two);
+            (LMWEIGHT) *  word_prob_reverse(i, one, two);
           
           if (w0 != -1) {
             proj_best_score[i] += bigram_weight_cache_two[w1][one] +
-              (LM) *  word_prob_reverse(w0, i, one);
+              (LMWEIGHT) *  word_prob_reverse(w0, i, one);
           }
 
 
@@ -642,7 +642,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
       if (on_edge) {
         double internal = bigram_weight_cache_one[w0][w1] + 
-          bigram_weight_cache_two[w1][w2] + (LM) * word_prob_reverse(w0,w1,w2);
+          bigram_weight_cache_two[w1][w2] + (LMWEIGHT) * word_prob_reverse(w0,w1,w2);
         
         score1 += internal;
       }
@@ -683,7 +683,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
       // OPTIMIZATION: predict once for all words that don't have full trigram context
 
-      //float bi_lm_score_test = (LM) *  word_prob_bigram_reverse(w1, w2) + best_backoff[w2];
+      //float bi_lm_score_test = (LMWEIGHT) *  word_prob_bigram_reverse(w1, w2) + best_backoff[w2];
       //cout << "BI " << bi_lm_score << " " << bi_lm_score_test << endl;
 
 
@@ -693,17 +693,17 @@ void Subproblem::solve_proj(int d2, int d3,
         float score2 = bigram_weight_cache_two[w2][w3];
         float score  = bi_lm_score + best_backoff[w2] + score1 + score2;
 
-        //cout << w2 << " " << (LM) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
+        //cout << w2 << " " << (LMWEIGHT) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
         if (word_bow_reverse(w1,w2,w3) != 2) {
           double backoff_score = (bi_lm_score + best_backoff[w2]);
-          double lm_score = ((LM) * word_prob_reverse(w1,w2,w3));
+          double lm_score = ((LMWEIGHT) * word_prob_reverse(w1,w2,w3));
           //assert (fabs(lm_score - backoff_score) < 1e-4); 
         } else {
-          score = (LM) * word_prob_reverse(w1,w2,w3) + score1 + score2;
+          score = (LMWEIGHT) * word_prob_reverse(w1,w2,w3) + score1 + score2;
         }
 
 
-        //cout << (LM) * word_prob_reverse(w1,w2,w3) + score1 + score2 << " " << bi_lm_score + best_bigram_with_backoff[w2] + score1 << endl;
+        //cout << (LMWEIGHT) * word_prob_reverse(w1,w2,w3) + score1 + score2 << " " << bi_lm_score + best_bigram_with_backoff[w2] + score1 << endl;
         assert (score < 1000);
         
         assert (proj_best_score[w1] <= INF);
@@ -807,10 +807,10 @@ void Subproblem::solve_proj(int d2, int d3,
     int w2 = proj_best_one[w1];
     int w3 = proj_best_two[w1];
     assert(graph->is_word(w1) && graph->is_word(w2));
-    //cur_best_score[w0] = (LM) * word_prob_reverse(w0,w1,w2) + bigram_weight_cache_one[w0][w1] + bigram_weight_cache_two[w1][w2];
+    //cur_best_score[w0] = (LMWEIGHT) * word_prob_reverse(w0,w1,w2) + bigram_weight_cache_one[w0][w1] + bigram_weight_cache_two[w1][w2];
 
-    double first  = (LM) * word_prob_reverse(w0,w1,w2) + bigram_weight_cache_one[w0][w1] + bigram_weight_cache_two[w1][w2];
-    double second = (LM) * word_prob_reverse(w1,w2,w3) + bigram_weight_cache_one[w1][w2] + bigram_weight_cache_two[w2][w3];
+    double first  = (LMWEIGHT) * word_prob_reverse(w0,w1,w2) + bigram_weight_cache_one[w0][w1] + bigram_weight_cache_two[w1][w2];
+    double second = (LMWEIGHT) * word_prob_reverse(w1,w2,w3) + bigram_weight_cache_one[w1][w2] + bigram_weight_cache_two[w2][w3];
  
     
     assert(fabs(first + second - proj_best_score[w1]) < 1e-4);
@@ -834,7 +834,7 @@ void Subproblem::solve_proj(int d2, int d3,
       for (int j =0; j < gd->forward_bigrams[w1].size(); j ++) {
         int nw2 = gd->forward_bigrams[w1][j];
         int nw3 = cur_best_at_bi[w1][nw2];
-        double nsecond = (LM) * word_prob_reverse(w1,w2,w3) + bigram_weight_cache_one[w1][w2] + bigram_weight_cache_two[w2][w3]; 
+        double nsecond = (LMWEIGHT) * word_prob_reverse(w1,w2,w3) + bigram_weight_cache_one[w1][w2] + bigram_weight_cache_two[w2][w3]; 
         cur_best_at_bi_score[w1][w2] = INF;
         }*/
     //}
@@ -995,7 +995,7 @@ int Subproblem::word_bow_reverse(int i, int j, int k) {
 
 /*
 Subproblem * initialize_subproblem(const char* graph_file, const char* word_file, const char * lm_file ) {
-  LMCache * lm = new LMCache(lm_file);
+  LMWEIGHTCache * lm = new LMCache(lm_file);
   WordHolder * wd = new WordHolder(word_file);
   ForestLattice * g = new Forest(graph_file);
   lm->cache_sentence_probs(*wd);

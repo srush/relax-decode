@@ -73,3 +73,15 @@ LogP NgramCache::wordProbPrimeCache(VocabIndex word, const VocabIndex *context) 
 
   return logp + bow;
 }
+
+NgramCache * load_ngram_cache(const char * filename) {
+  Vocab * all = new Vocab();
+  all->unkIsWord() = true;
+  NgramCache * lm = new NgramCache(*all, 3);
+
+  File file(filename, "r", 0);    
+  if (!lm->read(file, false)) {
+    assert(false);
+  }
+  return lm;
+}

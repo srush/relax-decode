@@ -6,6 +6,8 @@ using namespace std;
 
 #define DEBUG 0
 
+namespace Scarab{
+  namespace HG{
 
 void AStar::add_to_queue( Hypothesis * hyp, double score, Location * w) {
   //assert(_outside_scores.get_value(hyp.node).hasby_id(hyp.id()))
@@ -18,7 +20,7 @@ void AStar::add_to_queue( Hypothesis * hyp, double score, Location * w) {
   double with_astar;
   double heuristic = 0;  
   if (!hyp->is_done) { 
-    //const ForestNode & node =  _forest.get_node(node_id);
+    //const Hypernode & node =  _forest.get_node(node_id);
     if (!_heuristic.has_value(*w, *hyp)) {
       if (DEBUG)
         cout << "Skipping" << endl; 
@@ -67,8 +69,8 @@ void AStar::get_next(Hypothesis *& hyp, double & score, Location *& w) {
 // add words to queue
 void AStar::initialize_queue() {
   for (int i =0; i < _forest.num_nodes(); i++) {
-    const ForestNode & node = _forest.get_node(i);
-    if (!node.is_word()) continue;
+    const Hypernode & node = _forest.get_node(i);
+    if (!node.is_terminal()) continue;
     
     // get the words
     vector <Hypothesis *> hyps; 
@@ -110,7 +112,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
 
     //assert(l->location == NODE);    
     if (l->location == NODE) {
-      const ForestNode & node = _forest.get_node(l->node_id);    
+      const Hypernode & node = _forest.get_node(l->node_id);    
       // get the memo table for the node
       BestHyp & best = _memo_table.store[node.id()];
       _memo_table.has_value[node.id()] = true;
@@ -147,7 +149,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
       }
     } else if (l->location==EDGE) {
 
-      const ForestEdge & edge = _forest.get_edge(l->edge_id);    
+      const Hyperedge & edge = _forest.get_edge(l->edge_id);    
       // get the memo table for the node
       vector<BestHyp> & best = _memo_edge_table.store[edge.id()];
       _memo_edge_table.has_value[edge.id()] = true;
@@ -164,7 +166,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
 
 
 
-void AStar::recompute_edge(const ForestEdge & edge,
+void AStar::recompute_edge(const Hyperedge & edge,
                            int pos,
                            const Hypothesis & h, 
                            double original_score) {
@@ -176,7 +178,7 @@ void AStar::recompute_edge(const ForestEdge & edge,
     assert(false);
   } else {
     // not last, just in middle, sum over possible next
-    const ForestNode & sub_node = edge.tail_node(pos+1);
+    const Hypernode & sub_node = edge.tail_node(pos+1);
     const BestHyp & next_best = _memo_table.store[sub_node.id()];    
     vector <int> next_pos = next_best.join_back(h);    
     
@@ -219,7 +221,7 @@ void AStar::recompute_edge(const ForestEdge & edge,
 }
 
 
-void AStar::recompute_node(const ForestNode & node, 
+void AStar::recompute_node(const Hypernode & node, 
                            const Hypothesis & h, 
                            double original_score) {
   _num_recompute++;
@@ -227,11 +229,11 @@ void AStar::recompute_node(const ForestNode & node,
   for (int i =0; i < node.num_in_edges(); i++) {
     // The edge to recompute
 
-    const ForestEdge & edge = node.in_edge(i);
+    const Hyperedge & edge = node.in_edge(i);
     double edge_value= _edge_weights.get_value(edge)    ;
     int last = edge.num_nodes() -1;
 
-    //const ForestNode & top_node = edge.head_node();
+    //const Hypernode & top_node = edge.head_node();
     //const BestHyp & best_node_hypotheses = _memo_table.store[node.id()];
     
     vector<BestHyp> & best_edge_hypotheses = _memo_edge_table.store[edge.id()];
@@ -322,7 +324,7 @@ double AStar::best_path(NodeBackCache & back_pointers) {
 //   // viterbi to find best edge
 //   for (int j=0; j < edge.num_nodes(); j++ ) {
 
-//     const ForestNode & sub_node = edge.tail_node(j);
+//     const Hypernode & sub_node = edge.tail_node(j);
 
 //     const BestHyp & local_best = _memo_table.store[sub_node.id()];
     
@@ -382,3 +384,4 @@ double AStar::best_path(NodeBackCache & back_pointers) {
 //     }
 //   }
 // }
+  }}

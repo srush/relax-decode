@@ -1,14 +1,18 @@
+#include <google/protobuf/stubs/common.h>
 
 #include "CubePruning.h"
 #include "CubeLM.h"
-#include "ForestAlgorithms.h"
+#include "HypergraphAlgorithms.h"
+//#include "ForestAlgorithms.h"
 #include <cy_svector.hpp>
 #include <svector.hpp>
 #include "Forest.h"
+#include "Hypergraph.h"
 #include <fstream>
 #include <iostream>
 #include <Vocab.h>
 #include <Ngram.h>
+#include <NGramCache.h>
 #include <File.h>
 #include <iomanip>
 #include <sstream>
@@ -16,13 +20,13 @@
 #include "util.h"
 using namespace std;
 
-Cache <ForestNode, int > * cache_word_nodes(Ngram lm, const Forest & forest) {
+Cache <Hypernode, int > * cache_word_nodes(Ngram lm, const Forest & forest) {
   int max = lm.vocab.numWords();
   int unk = lm.vocab.getIndex(Vocab_Unknown);
   
-  Cache <ForestNode, int > * words = new Cache <ForestNode, int >(forest.num_nodes());
-  for (int i=0; i< forest.num_nodes(); i++ ) {
-    const ForestNode & node = forest.get_node(i);
+  Cache <Hypernode, int > * words = new Cache <Hypernode, int >(forest.num_nodes());
+  foreach (HNode hnode, forest.nodes()) { //int i=0; i< forest.num_nodes(); i++ ) {
+    const ForestNode & node = * ((ForestNode*)hnode);// (ForestNode) forest.get_node(i);
     if (node.is_word()) {
       string str = node.word();
       int ind = lm.vocab.getIndex(str.c_str());
@@ -44,57 +48,31 @@ int main(int argc, char ** argv) {
   //cout << argc << endl;
 
   
-  svector<int, double> * weight;
 
-  {
-    // Read the existing address book.
-    fstream input(argv[2], ios::in );
-    char buf[1000];
-    input.getline(buf, 100000);
-    string s (buf);
-    weight = svector_from_str<int, double>(s);
-  }
-
-  
-  Vocab * all = new Vocab();
-  all->unkIsWord() = true;
-  Ngram * lm = new Ngram(*all, 3);
-
-  File file(argv[3], "r", 0);    
-  if (!lm->read(file, false)) {
-    cerr << "READ FAILURE\n";
-  }
-  
-  
+  wvector * weight = load_weights_from_file(argv[2]);
+  Ngram * lm = load_ngram_cache(argv[3]);
+   
 
   //cout << "START!!!!" << endl;
-
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
   for (int i=atoi(argv[5]); i <=atoi(argv[6]); i++) {
     
-    GOOGLE_PROTOBUF_VERIFY_VERSION;
+
     
-    Hypergraph hgraph;
-    
-    {
-      stringstream fname;
-      fname <<argv[1] << i;
-      //cout << fname.str() << endl;
-      fstream input(fname.str().c_str(), ios::in | ios::binary);
-      if (!hgraph.ParseFromIstream(&input)) {
-        assert (false);
-      } 
-    }
-    
-    Forest f (hgraph);
+    //Hypergraph hgraph;
+    stringstream fname;
+    fname << argv[1] << i;
+
+    Forest f = Forest::from_file(fname.str().c_str());
     
     // Optional:  Delete all global objects allocated by libprotobuf.
     //google::protobuf::ShutdownProtobufLibrary();
     
 
     f.append_end_nodes();
-
-    Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
-    Cache<ForestNode, int> * words = cache_word_nodes(*lm, f);
+    HypergraphAlgorithms ha(f);
+    Cache<Hyperedge, double> * w = ha.cache_edge_weights( *weight);
+    Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);
     
     clock_t begin=clock();    
     int cube = atoi(argv[4]);
@@ -104,8 +82,8 @@ int main(int argc, char ** argv) {
     cout << "*TRANS* " << i << " ";
     vector <int> sent;
     p.get_derivation(sent);
-    for (int i=0;i < sent.size();i++) {
-      cout <<f.get_node(sent[i]).word() << " ";
+    foreach (int s, sent) {
+      cout <<f.get_node(s).word() << " ";
     }
     cout << endl;
     cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)diffclock(end,begin) << endl;

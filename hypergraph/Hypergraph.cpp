@@ -1,12 +1,19 @@
-#include <json/json.h>
-#include "Hypergraph.h"
+namespace Hypergraph {
 
-Hypergraph::Hypergraph(Protobuf pb) {
-  for () {
-    for () {
 
-    }
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-Hypergraph::

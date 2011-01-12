@@ -5,10 +5,13 @@
 #include <assert.h>
 #include <map>
 #include <vector>
-#include "Forest.h"
+#include "Hypergraph.h"
 #include "Hypothesis.h"
+#include "HypergraphAlgorithms.h"
 using namespace std;
-#define INF 1e8
+namespace Scarab {
+  namespace HG {
+
 class BestHyp {
  private:
   
@@ -158,9 +161,10 @@ class BestHyp {
   }
 };
 
-void extract_back_pointers(const ForestNode & node, 
+void extract_back_pointers(const Hypernode & node, 
                            const Hypothesis & best_hyp, 
-                           const Cache <ForestNode, BestHyp> &memo_table, 
+                           const Cache <Hypernode, BestHyp> &memo_table, 
                            NodeBackCache & back_pointers);
 
+  }}
 #endif

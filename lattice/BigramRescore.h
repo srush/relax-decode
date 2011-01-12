@@ -1,11 +1,11 @@
 #ifndef BIGRAMRESCORE_H_
 #define BIGRAMRESCORE_H_
-#define INF 1000000
+
 
 #include "ForestLattice.h"
 #include "GraphDecompose.h"
 #include <iostream>
-
+#include "../common.h"
 #include <vector>
 using namespace std;
 class BigramRescore {
@@ -37,9 +37,9 @@ class BigramRescore {
     }
 
     //cout << "PATH " << n1 << " " << n2 << endl;
-    for (int i=0; i< bigram_path[n1][n2]->size(); i++) {
+    //for (int i=0; i< bigram_path[n1][n2]->size(); i++) {
       //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl; 
-    } 
+    //} 
 
     assert (bigram_path[n1][n2] != NULL); 
     //cout << bigram_path[n1][n2]->size() << endl;

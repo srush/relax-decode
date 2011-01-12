@@ -1,48 +1,80 @@
+/*#include <google/protobuf/stubs/common.h>
 #include <cpptest.h>
 #include <string>
 #include <cpptest-suite.h>
 #include "Forest.h"
 #include "CubePruning.h"
-#include "ForestAlgorithms.h"
+#include "HypergraphAlgorithms.h"
 #include <sstream>
 #include <iostream>
 #include <fstream>
 #include <cy_svector.hpp>
 #include <svector.hpp>
-#include "hypergraph.pb.h"
 #include "EdgeCache.h"
 #include "ExtendCKY.h"
 using namespace Test;
 using namespace std;
+
+
 
 class LocalTestSuite : public Test::Suite
 {
 public:
   
   LocalTestSuite() {
+    // Forest tests 
+    TEST_ADD(LocalTestSuite::load_forest_test);        
+   
     TEST_ADD(LocalTestSuite::load_test);        
   }
   
+  
+  void setup() {
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+  }
+
+  void teardown() {
+    google::protobuf::ShutdownProtobufLibrary();
+  }
+
+  void load_forest_test() {
+    // Load in forests and check that they are valid
+
+    
+    string forest_file =  "test_data/t2s.forest";
+    
+    Forest f = Forest::from_file(forest_file.c_str());
+    
+
+
+  }
+
+
+  // Check  basic properties of the forest 
+  void check_forest(const Forest & forest) {
+    TEST_ASSERT(forest.num_nodes() > 0);
+    TEST_ASSERT(forest.num_edges() > 0);
+
+    int edges = 0;
+    for (int i=0; i < forest.num_nodes(); i++ ) {
+      const ForestNode &  node = forest.get_node(i);
+      for (int j=0; j <  node.num_edges(); j++) {
+        const ForestEdge & edge  = node.edge(j);
+        edges ++;
+      }
+    }
+    assert(edges == forest.num_edges());   
+  }
 
   void load_test() {
 
 
-    GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    Hypergraph hgraph;
+
+    
     string forest_file =  "test_data/t2s.forest";
     
-    {
-      // Read the existing address book.
-      fstream input(forest_file.c_str(), ios::in | ios::binary);
-      if (!hgraph.ParseFromIstream(&input)) {
-        TEST_ASSERT_MSG(false, "Failed to parse");
-      }
-
-    }
-
-
-    Forest f (hgraph);
+    Forest f = Forest::from_file (forest_file.c_str());
 
     // Optional:  Delete all global objects allocated by libprotobuf.
     google::protobuf::ShutdownProtobufLibrary();
@@ -55,7 +87,7 @@ public:
       string s (buf);
       weight = svector_from_str<int, double>(s);
     }
-    Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
+    EdgeCache * w = cache_edge_weights(f, *weight);
     NodeBackCache bcache(f.num_nodes()),  bcache2(f.num_nodes());
     NodeCache ncache(f.num_nodes());
 
@@ -85,11 +117,11 @@ public:
   }
     
 };
-
+*/
 
 int main(int argc, const char * argv[]) {
   //Test::TextOutput output(Test::TextOutput::Verbose);
-  LocalTestSuite ets;
-   ets.load_test();
+  //LocalTestSuite ets;
+  //ets.load_test();
    return 0;
 }

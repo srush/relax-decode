@@ -1,4 +1,8 @@
 #include "Forest.h"
+#include "features.pb.h"
+#include "translation.pb.h"
+#include "hypergraph.pb.h"
+#include "lexical.pb.h"
 
 #include <iomanip>
 #include <vector>
@@ -9,7 +13,7 @@ using namespace std;
 void Forest::append_end_nodes() {
   ForestNode * node = _root;
 
-  ForestEdge * edge = node->_edges[0];
+  ForestEdge * edge = (ForestEdge*) node->_edges[0];
   str_vector * features = svector_from_str<int, double>("");
   ForestNode * s1 = new ForestNode("", num_nodes(), features, "<s>", true);   
   s1->add_in_edge(edge);
@@ -33,7 +37,20 @@ _nodes.push_back(s2);
   edge->_tail_nodes[4] = se2;
 }
 
-Forest::Forest(const Hypergraph& hgraph) {
+Forest::Forest(const char * file_name ) { // ::Hypergraph& hgraph) {
+  ::Hypergraph hgraph;
+    
+  {
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+    //fname << file_name;
+    //cout << fname.str() << endl;
+    fstream input(file_name, ios::in | ios::binary);
+    if (!hgraph.ParseFromIstream(&input)) {
+      assert (false);
+    } 
+  }
+  //return Forest(hgraph);
+
   assert (hgraph.node_size() > 0);
   for (int i = 0; i < hgraph.node_size(); i++) {
     const Hypergraph_Node & node = hgraph.node(i);
@@ -47,7 +64,7 @@ Forest::Forest(const Hypergraph& hgraph) {
     assert (_nodes.size() == node.id());
     _nodes.push_back(forest_node);
     assert(_nodes[forest_node->id()]->id() == forest_node->id());
-    assert(_nodes[forest_node->id()]->is_word() == node.GetExtension(is_word));
+    assert(((ForestNode*)_nodes[forest_node->id()])->is_word() == node.GetExtension(is_word));
     //cout << forest_node->id() << " " << node.GetExtension(is_word) << " " << forest_node->is_word() << endl;
       //[forest_node->id()] = forest_node;
       //cout << _nodes.size() << " " << forest_node->id() << endl;
@@ -78,23 +95,23 @@ Forest::Forest(const Hypergraph& hgraph) {
         features = new svector<int, double>();
       }
 
-      vector <ForestNode* > tail_nodes;
+      vector <Scarab::HG::Hypernode *> tail_nodes;
       for (int k =0; k < edge.tail_node_ids_size(); k++ ){
         int id = edge.tail_node_ids(k);
         
-        tail_nodes.push_back(_nodes[id]);
+        tail_nodes.push_back( _nodes[id]);
         
       } 
 
-      ForestEdge * forest_edge = new ForestEdge(edge.label(), features, edge_id, tail_nodes, _nodes[node.id()]);
+      ForestEdge * forest_edge = new ForestEdge(edge.label(), features, edge_id, tail_nodes, (ForestNode*) _nodes[node.id()]);
       
       for (int k =0; k < edge.tail_node_ids_size(); k++ ){
         int id = edge.tail_node_ids(k);
-        _nodes[id]->add_in_edge(forest_edge);
+        ((ForestNode*)_nodes[id])->add_in_edge(forest_edge);
       }
 
       edge_id++;
-      _nodes[node.id()]->add_edge(forest_edge);
+      ((ForestNode*)_nodes[node.id()])->add_edge(forest_edge);
       //int for_edge_id = forest_edge->id();
       _edges.push_back(forest_edge);//[for_edge_id] = forest_edge;
     }
@@ -104,7 +121,7 @@ Forest::Forest(const Hypergraph& hgraph) {
   assert (_nodes.size() == hgraph.node_size());
 
   
-  _root = _nodes[hgraph.root()];//_nodes[_nodes.size()-1];
+  _root = ((ForestNode*)_nodes[hgraph.root()]);//_nodes[_nodes.size()-1];
 }
 
 
@@ -112,4 +129,40 @@ void Forest::print() const {
   
 }
 
+Forest Forest::from_file(const char * file) {
+  return Forest(file);
+  /*Hypergraph hgraph;
+    
+  {
+    stringstream fname;
+    fname <<argv[1] << i;
+    //cout << fname.str() << endl;
+    fstream input(fname.str().c_str(), ios::in | ios::binary);
+    if (!hgraph.ParseFromIstream(&input)) {
+      assert (false);
+    } 
+  }
+  return Forest(hgraph);*/
+}
+
+
+const vector <Scarab::HG::Hypernode*> & Forest::nodes() const {
+  return _nodes;
+}
+
+const vector <Scarab::HG::Hyperedge*> & Forest::edges() const {
+  return _edges;
+} 
+
+ const vector <Scarab::HG::Hypernode*> & ForestEdge::tail_nodes() const {
+  return _tail_nodes;
+}
+
+const vector <Scarab::HG::Hyperedge*> & ForestNode::edges() const {
+  return _edges;
+}
+
+const vector <Scarab::HG::Hyperedge*> & ForestNode::in_edges() const {
+  return _in_edges;
+}
 
