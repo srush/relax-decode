@@ -21,6 +21,16 @@ class Cache {
     return has_value.size();
   }
 
+  const V & get(const C & edge ) const { 
+    return get(edge);
+  }
+
+  V & get(const C & edge ) { 
+    int id = edge.id();
+    assert (has_value[id]);
+    return store[id];
+  }
+
   V get_value(const C & edge) const {
     int id = edge.id();
     assert (has_value[id]);

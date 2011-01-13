@@ -61,7 +61,7 @@ Forest::Forest(const char * file_name ) { // ::Hypergraph& hgraph) {
     
     ForestNode * forest_node = new ForestNode(node.label(), node.id(), features, node.GetExtension(word), node.GetExtension(is_word)); 
     //assert (forest_node->
-    assert (_nodes.size() == node.id());
+    assert (_nodes.size() == (uint)node.id());
     _nodes.push_back(forest_node);
     assert(_nodes[forest_node->id()]->id() == forest_node->id());
     assert(((ForestNode*)_nodes[forest_node->id()])->is_word() == node.GetExtension(is_word));
@@ -116,9 +116,9 @@ Forest::Forest(const char * file_name ) { // ::Hypergraph& hgraph) {
       _edges.push_back(forest_edge);//[for_edge_id] = forest_edge;
     }
     //cout << node.id() << " "<<  _nodes[node.id()]->num_edges() << " " << node.edge_size() << " " << _nodes[node.id()]->is_word() << endl;
-    assert (_nodes[node.id()]->num_edges() == node.edge_size() );
+    assert (_nodes[node.id()]->num_edges() == (uint)node.edge_size() );
   }
-  assert (_nodes.size() == hgraph.node_size());
+  assert (_nodes.size() == (uint)hgraph.node_size());
 
   
   _root = ((ForestNode*)_nodes[hgraph.root()]);//_nodes[_nodes.size()-1];

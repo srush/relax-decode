@@ -20,12 +20,12 @@ void extract_back_pointers(const Hypernode & node,
     
     const Hyperedge & edge = *best_hyp.back_edge;
     //cout << node.id() << " " << edge.id() << endl;
-    int prev = best_hyp.prev_hyp.size();
-    int num_nodes = edge.num_nodes();
+    //int prev = best_hyp.prev_hyp.size();
+    //int num_nodes = edge.num_nodes();
     assert(best_hyp.prev_hyp.size() == edge.num_nodes());
     
     
-    for (int j=0; j < edge.num_nodes(); j++ ) {
+    for (uint j=0; j < edge.num_nodes(); j++ ) {
       const Hypernode & sub_node = edge.tail_node(j);
       
       extract_back_pointers(sub_node, 

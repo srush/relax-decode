@@ -17,7 +17,7 @@ void Subgradient::solve(int example) {
       cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
       s=clock();
     }
-    clock_t e=clock();
+    //clock_t e=clock();
     //cout << endl << "*ITER* " << example << " " << _round << " " <<  _best_primal << " " << _best_dual << " " << _base_weight << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " 
     //  << double(diffclock(e,start)) << endl ;
   }

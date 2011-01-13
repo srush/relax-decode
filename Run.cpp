@@ -43,8 +43,7 @@ int main(int argc, char ** argv) {
     ForestLattice graph (lat);
   
     //cout << "START!!!!" << endl;
-    SkipTrigram st;
-    Decode * d = new Decode(f, graph, *weight, *lm, st);
+    Decode * d = new Decode(f, graph, *weight, *lm);
     cout << i << " ";
     Subgradient * s = new Subgradient(d);
     s->solve(i);

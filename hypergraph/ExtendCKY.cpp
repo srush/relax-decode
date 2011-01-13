@@ -8,22 +8,22 @@
 using namespace std;
 
 #define DEBUG 0
-#define INF 1e8
 
 namespace Scarab{
   namespace HG{
 
-
 void ExtendCKY::forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses) {
   // viterbi to find best edge
-  for (int j=0; j < edge.num_nodes(); j++ ) {
+  for (uint j=0; j < edge.num_nodes(); j++ ) {
   //foreach (const Hypernode * sub_node, edge.tail_nodes()) {
     
     const Hypernode * sub_node = &edge.tail_node(j);
+    
     // memoize the best path 
     node_best_path(*sub_node);
 
-    const BestHyp & local_best = _memo_table.store[sub_node->id()];
+    // 
+    const BestHyp & local_best = _memo_table.get(*sub_node);
     
     if (j ==0) {
       // at leftmost, all are valid
@@ -32,7 +32,7 @@ void ExtendCKY::forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_ed
         const Hypothesis & hyp = local_best.get_hyp(iter); 
         double score = local_best.get_score(iter);
         Hypothesis * new_hyp = 
-          new Hypothesis(hyp.hook, hyp.right_side, &edge, _controller.dim(), hyp.is_new);
+          new Hypothesis(hyp.hook, hyp.right_side, &edge);
         new_hyp->prev_hyp.push_back(hyp.id());
         
         bool worked = best_edge_hypotheses[0].try_set_hyp(new_hyp,  score);
@@ -50,7 +50,7 @@ void ExtendCKY::forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_ed
         BestHyp & last_best = best_edge_hypotheses[j-1];
         vector <int> pos = last_best.join(hyp1);
         
-        for (int iter2 = 0; iter2< pos.size(); iter2++) {
+        for (uint iter2 = 0; iter2< pos.size(); iter2++) {
           
           const Hypothesis & hyp2 = last_best.get_hyp(pos[iter2]); 
           double score2 = last_best.get_score(pos[iter2]);
@@ -98,7 +98,7 @@ void ExtendCKY::backward_edge(const Hyperedge & edge,  vector <BestHyp> & best_e
                             
         const Hypothesis & hyp = local_best.get_hyp(iter); 
         double score = local_best.get_score(iter);
-        Hypothesis * new_hyp = new Hypothesis(hyp.hook, hyp.right_side, &edge, _controller.dim(), hyp.is_new);
+        Hypothesis * new_hyp = new Hypothesis(hyp.hook, hyp.right_side, &edge);
         new_hyp->prev_hyp.push_back(hyp.id());
         
         bool worked = best_edge_back_hypotheses[j].try_set_hyp(new_hyp,  score);
@@ -116,14 +116,14 @@ void ExtendCKY::backward_edge(const Hyperedge & edge,  vector <BestHyp> & best_e
         BestHyp & last_best = best_edge_back_hypotheses[j+1];
         vector <int> pos = last_best.join_back(hyp1);
         
-        for (int iter2 = 0; iter2< pos.size(); iter2++) {
+        for (uint iter2 = 0; iter2< pos.size(); iter2++) {
           
           const Hypothesis & hyp2 = last_best.get_hyp(pos[iter2]); 
           double score2 = last_best.get_score(pos[iter2]);
    
           assert(hyp1.match(hyp2));
           
-          Hypothesis * join = new Hypothesis(_controller.dim());
+          Hypothesis * join = new Hypothesis();
                     
           join->back_edge = &edge;
           //assert(hyp2.prev_hyp.size() == j);
@@ -150,139 +150,104 @@ void ExtendCKY::node_best_path(const Hypernode & node) {
     return;
   }
 
-  int id = node.id();
+  //int id = node.id();
 
-  Hyperedge * best_edge = NULL; 
+  //Hyperedge * best_edge = NULL; 
   
   //cout << "EDGES: "<< node.num_edges() <<endl; 
   
   // BestHyp best_node_hypotheses(_controller.size());
   BestHyp best_node_hypotheses;
-  bool has_node_changed = false;  
+  //bool has_node_changed = false;  
 
 
-  if (node.num_edges() == 0) {
-    
-    assert (node.is_terminal());
+  if (node.is_terminal()) {
     vector <Hypothesis *> hyps;
     vector <double> scores; 
     _controller.initialize_hypotheses(node, hyps, scores);
     assert(hyps.size() == scores.size());
     
-    for (int i=0; i < hyps.size(); i++) {
-      bool w = best_node_hypotheses.try_set_hyp(hyps[i], scores[i]); 
+    for (uint i=0; i < hyps.size(); i++) {
+      best_node_hypotheses.try_set_hyp(hyps[i], scores[i]); 
     }
-    has_node_changed |= best_node_hypotheses.has_new;
-    //cout << "NODE " << node.id() << " " << has_node_changed <<endl;
   } else {
     Cache <Hyperedge, bool> redo_edge(_forest.num_edges());  
     // check if it is a repeat 
     if (_is_first) {
-      has_node_changed = true; 
+      
     } else {
       //cout << "checking under" << endl;
-      for (int i=0; i< node.num_edges(); i++) {
-        const Hyperedge & edge = node.edge(i); 
-        bool edge_changed = _edge_weights.get_value(edge) != _old_edge_weights.get_value(edge);
-        //cout << "edge "<< edge.id() << " " << edge_changed << endl;
-        has_node_changed |= edge_changed;
+      foreach (HEdge edge, node.edges()) { 
         
-        for (int j=0; j < edge.num_nodes(); j++ ) {
-          const Hypernode & sub_node = edge.tail_node(j);
-          node_best_path(sub_node);
-          const BestHyp & local_best = _memo_table.store[sub_node.id()];
-          has_node_changed |= local_best.has_new;
-          edge_changed |= local_best.has_new;
+        foreach (HNode sub_node, edge->tail_nodes()) { 
+          node_best_path(*sub_node);
+          //const BestHyp & local_best = _memo_table.store[sub_node->id()];
+          //has_node_changed |= local_best.has_new;
+          //edge_changed |= local_best.has_new;
           
           //cout << "node "<< sub_node.id() << " " << local_best.has_new << endl;
         }
-        redo_edge.set_value(edge, edge_changed);
-        //cout << "EDGE "<< edge.id() << " " << edge_changed << endl;
       }
     }
 
-    //cout << "NODE " << id << " " << has_node_changed <<endl;
     
     
 
-    if (false && !has_node_changed) {
-      // we're not new, so use old hypothesis
-      //best_node_hypotheses =  _old_memo_table->get_value(node);
-      //best_node_hypotheses.has_new = 0;
-    } else {
-      // otherwise
-      for (int i=0; i< node.num_edges(); i++) {
-        const Hyperedge & edge = node.edge(i);
+    // otherwise
+    //for (int i=0; i< node.num_edges(); i++) {
+    foreach (HEdge edge, node.edges()) {
+      //const Hyperedge & edge = node.edge(i);
         
-        double edge_value= _edge_weights.get_value(edge);        
-        vector<BestHyp> best_edge_hypotheses(edge.num_nodes()); 
-        vector<BestHyp> best_edge_back_hypotheses(edge.num_nodes()); 
-        forward_edge(edge, best_edge_hypotheses);
-        // used for outside_scores
-        backward_edge(edge, best_edge_back_hypotheses);
+      double edge_value= _edge_weights.get_value(*edge);        
+      vector<BestHyp> best_edge_hypotheses(edge->num_nodes()); 
+      vector<BestHyp> best_edge_back_hypotheses(edge->num_nodes()); 
+      forward_edge(*edge, best_edge_hypotheses);
+      // used for outside_scores
+      backward_edge(*edge, best_edge_back_hypotheses);
       
-        // Do I need?
-        //assert (best_edge_hypotheses->size() != 0);
-        _memo_edge_table.set_value(edge, best_edge_hypotheses);
-        _memo_edge_back_table.set_value(edge, best_edge_back_hypotheses);
+      // Do I need?
+      //assert (best_edge_hypotheses->size() != 0);
+      _memo_edge_table.set_value(*edge, best_edge_hypotheses);
+      _memo_edge_back_table.set_value(*edge, best_edge_back_hypotheses);
         
 
-        //cout << edge_value << endl;
-        //      BestHyp::const_iterator iter, check;
-        // (iter = best_edge_hypotheses->begin(); iter!=best_edge_hypotheses->end(); iter++) {
-        int last = edge.num_nodes() -1; 
-        for (int iter = 0; iter< best_edge_hypotheses[last].size(); iter++) {
-          //if (!best_edge_hypotheses->has_key(iter)) continue;
-          
-          Hypothesis * hyp1 = best_edge_hypotheses[last].hyps[iter];
-          
-          double score1 = best_edge_hypotheses[last].get_score(iter);
-          double back_score = best_edge_back_hypotheses[0].get_score_by_id(hyp1->id());
-          //assert (fabs(score1 - back_score) < 1e-4);
-
-          /*for (int q=0; q <= last; q++) {
-            for (best_edge_hypotheses[q]) {
-              double for_score = best_edge_hypotheses[q].get_score(iter);
-              double back_score = best_edge_back_hypotheses[last -q].get_score_by_id(hyp1.id());
-            }
-            }*/
-    
-          double score = score1 + edge_value;
-
-          if (DEBUG) {
-            cout << "INSIDE " << edge.id() << " " << node.id() << " " << hyp1->id() << " " << score1 << " " 
-                 << edge_value << " " << score << endl;
-          }
-          //check = best_node_hypotheses.find(iter->first);
-          bool w = best_node_hypotheses.try_set_hyp(hyp1, score);
-          if (w) {
-            //cout << "Possible at " << node.id()  << endl;
+      //cout << edge_value << endl;
+      //      BestHyp::const_iterator iter, check;
+      // (iter = best_edge_hypotheses->begin(); iter!=best_edge_hypotheses->end(); iter++) {
+      int last = edge->num_nodes() -1; 
+      for (int iter = 0; iter< best_edge_hypotheses[last].size(); iter++) {
+        //if (!best_edge_hypotheses->has_key(iter)) continue;
+        
+        Hypothesis * hyp1 = best_edge_hypotheses[last].hyps[iter];
+        
+        double score1 = best_edge_hypotheses[last].get_score(iter);
+        //double back_score = best_edge_back_hypotheses[0].get_score_by_id(hyp1->id());
+        //assert (fabs(score1 - back_score) < 1e-4);
+            
+        double score = score1 + edge_value;
+        
+        if (DEBUG) {
+          cout << "INSIDE " << edge->id() << " " << node.id() << " " << hyp1->id() << " " << score1 << " " 
+               << edge_value << " " << score << endl;
+        }
+        //check = best_node_hypotheses.find(iter->first);
+        bool w = best_node_hypotheses.try_set_hyp(hyp1, score);
+        if (w) {
+          //cout << "Possible at " << node.id()  << endl;
           /*double check_score =0.0;
-          for (int i =0; i < hyp1.back_edge->num_nodes();i++) {
+            for (int i =0; i < hyp1.back_edge->num_nodes();i++) {
             check_score += _memo_table.get_value(hyp1.back_edge->tail_node(i)).get_value(*hyp1.prev_hyp[i]);
-          }
+            }
           double sub_val = _edge_weights.get_value(*(hyp1.back_edge));
           check_score += sub_val;
           //cout << node.id() << " " << iter->first.back_edge->id() << endl;
           assert(fabs(score-check_score)  < 1e-4 );*/
-          } 
-        }
+        } 
       }
     }
   }
-  /*
-  if (!_is_first && !has_node_changed) {
-    // old should be same as new
-    BestHyp old =  _old_memo_table->get_value(node);
-    for (int iter = 0; iter< old.size(); iter++) {
-      const Hypothesis & hyp = old.get_hyp(iter); 
-      double score1 = old.get_score(iter);
-      const Hypothesis & hyp2 = best_node_hypotheses.get_hyp(iter); 
-      double score2 = best_node_hypotheses.get_score(iter);
-      
-      //assert(fabs(score1 - score2) < 1e-3 );
-    }
-    }*/
+  
+
   assert (best_node_hypotheses.size() != 0);
   
   if (DEBUG ) {
@@ -313,7 +278,7 @@ double ExtendCKY::best_path(NodeBackCache & back_pointers) {
   BestHyp & at_root = _memo_table.store[_forest.root().id()];
   double best = 1e20;
   
-  Hypothesis best_hyp(_controller.dim());
+  Hypothesis best_hyp;
 
   best = _controller.find_best(at_root.hyps, at_root.scores, best_hyp);
   _total_best = best;
@@ -333,27 +298,28 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
   assert (_outside_memo_table.has_key(node));
   assert(_out_done.find(node.id()) == _out_done.end());
   BestHyp & above = _outside_memo_table.store[node.id()];
-  BestHyp & above_inside = _memo_table.store[node.id()];
+  //BestHyp & above_inside = _memo_table.store[node.id()];
 
   // do all its children
-  int id = node.id();
+  //int id = node.id();
   // calculate the outside score for a node
   
-  for (int i=0; i< node.num_edges(); i++) {
-    const Hyperedge & edge = node.edge(i);
-    double edge_value= _edge_weights.get_value(edge);        
+  //for (int i=0; i< node.num_edges(); i++) {
+  //const Hyperedge & edge = node.edge(i);
+  foreach (HEdge edge, node.edges()) {
+    double edge_value= _edge_weights.get_value(*edge);        
 
-    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge.id()]; 
-    _outside_edge_memo_table.has_value[edge.id()] = true;
-    outside_edge.resize(edge.num_nodes());
+    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge->id()]; 
+    _outside_edge_memo_table.has_value[edge->id()] = true;
+    outside_edge.resize(edge->num_nodes());
     
-    vector <BestHyp> & edge_forward_hyps = _memo_edge_table.store[edge.id()]; 
-    vector <BestHyp> & edge_backward_hyps = _memo_edge_back_table.store[edge.id()]; 
+    vector <BestHyp> & edge_forward_hyps = _memo_edge_table.store[edge->id()]; 
+    vector <BestHyp> & edge_backward_hyps = _memo_edge_back_table.store[edge->id()]; 
     
-    int last = edge.num_nodes()-1;
-    for (int j=0; j < edge.num_nodes(); j++) {
-      int pos = j;
-      const Hypernode & sub_node = edge.tail_node(j);
+    uint last = edge->num_nodes()-1;
+    for (uint j=0; j < edge->num_nodes(); j++) {
+      uint pos = j;
+      const Hypernode & sub_node = edge->tail_node(j);
 
       // make sure we are in breadth first order
       assert(_out_done.find(sub_node.id()) == _out_done.end());
@@ -377,14 +343,14 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
           double inside = edge_forward_hyps[pos].get_score(iter2);
           double inside_top = _memo_table.store[node.id()].get_score_by_id(hyp1.id());
 
-          if (hyp1.hook != hyp2.hook) continue;
+          if (!(hyp1.hook == hyp2.hook)) continue;
           // right side
           double right_score;
           if (pos == last) {
             if (hyp2.right() != hyp1.right()) continue;
             right_score = 0.0;
           } else {
-            int id = make_id(hyp2.right_side, hyp1.right_side, _controller.dim()); 
+            int id = Hypothesis(hyp2.right_side, hyp1.right_side).id(); 
             if (!edge_backward_hyps[pos+1].has_id(id))  continue;
             right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
           }
@@ -392,14 +358,14 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
           double score = score1 + right_score + edge_value; 
         
 
-          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller.dim(), false);
-          bool b = outside_edge[pos].try_set_hyp(h, score);
+          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, edge);
+          outside_edge[pos].try_set_hyp(h, score);
           //cout << "Outside dot " << edge.id() << " "  << pos << " " << hyp2.id() << " "<<score << " " << b << endl; 
         
           assert (inside_top <= (inside + right_score + edge_value) + 1e-4); 
           assert(_total_best <=  (score + inside) + 1e-4) ;
           if (DEBUG) {
-            cout << "Outside EDGE " << edge.id()<< " " << pos << " " <<h->id() << " " << score + inside<<" "<< _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
+            cout << "Outside EDGE " << edge->id()<< " " << pos << " " <<h->id() << " " << score + inside<<" "<< _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
           }
         }
 
@@ -417,7 +383,7 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
             if (hyp2.left() != hyp1.left()) continue;
             left_score = 0.0; 
           } else {
-            int id = make_id(hyp1.hook, hyp2.hook, _controller.dim()); 
+            int id = Hypothesis(hyp1.hook, hyp2.hook).id(); 
             if (!edge_forward_hyps[pos-1].has_id(id))  continue;
             left_score = edge_forward_hyps[pos -1].get_score_by_id(id);
           }
@@ -427,7 +393,7 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
             if (hyp2.right() != hyp1.right()) continue;
             right_score = 0.0;
           } else {
-            int id = make_id(hyp2.right_side, hyp1.right_side, _controller.dim()); 
+            int id = Hypothesis(hyp2.right_side, hyp1.right_side).id(); 
             if (!edge_backward_hyps[pos+1].has_id(id))  continue;
             right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
           }
@@ -435,13 +401,13 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
           // top outside + left inside + right inside + edge score
           double total_score = left_score + right_score + edge_value + score1;
           //BestHyp & at = _outside_memo_table.store[node];
-          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller.dim(), false);
+          Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, edge);
           double inside = _memo_table.store[sub_node.id()].get_score_by_id(h->id());
           double inside_top = _memo_table.store[node.id()].get_score_by_id(hyp1.id());
           
            
           if (DEBUG) {
-            cout << "Outside node " <<  edge.id() << " " << node.id() << " " << sub_node.id() << " " << hyp1.id() << " " <<total_score + inside<< " " << _total_best << " " << total_score << " " 
+            cout << "Outside node " <<  edge->id() << " " << node.id() << " " << sub_node.id() << " " << hyp1.id() << " " <<total_score + inside<< " " << _total_best << " " << total_score << " " 
                  << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
               inside << " " <<endl;
           }
@@ -472,7 +438,8 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
 
 
     assert(hyps.size() == scores.size());
-    for (int i=0;i < hyps.size(); i++) {
+    for (uint i=0;i < hyps.size(); i++) {
+      
       if (_memo_table.get_value(node).has_id(hyps[i]->id())) {
         double inside = _memo_table.get_value(node).get_score_by_id(hyps[i]->id());
         assert(_total_best <=  (scores[i] + inside) + 1e-4); 
@@ -487,30 +454,30 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
   // calculate the outside score for a node
   BestHyp best_at_node;
   // do this in the simplest! way possible. Look at all the ways we can get to a node
-  for (int i =0; i < node.num_in_edges(); i++) {
-    const Hyperedge & edge = node.in_edge(i);
-    const Hypernode & top_node = edge.head_node();
-    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge.id()]; 
-    _outside_edge_memo_table.has_value[edge.id()] = true;
-    outside_edge.resize(edge.num_nodes());
+  foreach (HEdge edge, node.in_edges()) { // int i =0; i < node.num_in_edges(); i++) {
+    //const Hyperedge & edge = node.in_edge(i);
+    const Hypernode & top_node = edge->head_node();
+    vector <BestHyp> & outside_edge = _outside_edge_memo_table.store[edge->id()]; 
+    _outside_edge_memo_table.has_value[edge->id()] = true;
+    outside_edge.resize(edge->num_nodes());
 
     // cache outside above 
     node_best_out_path(top_node);
-    double edge_value= _edge_weights.get_value(edge); 
+    double edge_value= _edge_weights.get_value(*edge); 
 
     int pos = -1;
-    int last = edge.num_nodes()-1;
-    for (int j =0; j < edge.num_nodes(); j++) {
-      if (edge.tail_node(j).id() == node.id()) 
+    uint last = edge->num_nodes()-1;
+    for (uint j =0; j < edge->num_nodes(); j++) {
+      if (edge->tail_node(j).id() == node.id()) 
         pos = j;
     }
     assert(pos!=-1);
     BestHyp & above = _outside_memo_table.store[top_node.id()];
-    BestHyp & above_inside = _memo_table.store[top_node.id()];
+    //BestHyp & above_inside = _memo_table.store[top_node.id()];
     
     BestHyp & below = _memo_table.store[node.id()];
-    vector <BestHyp> & edge_forward_hyps = _memo_edge_table.store[edge.id()]; 
-    vector <BestHyp> & edge_backward_hyps = _memo_edge_back_table.store[edge.id()]; 
+    vector <BestHyp> & edge_forward_hyps = _memo_edge_table.store[edge->id()]; 
+    vector <BestHyp> & edge_backward_hyps = _memo_edge_back_table.store[edge->id()]; 
 
     for (int iter = 0; iter < above.size(); iter++) {
       const Hypothesis & hyp1 = above.get_hyp(iter);
@@ -520,27 +487,27 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
       for (int iter2 =0; iter2 < edge_forward_hyps[pos].size(); iter2++) {
         const Hypothesis & hyp2 = edge_forward_hyps[pos].get_hyp(iter2);
         double inside = edge_forward_hyps[pos].get_score(iter2);
-        if (hyp1.hook != hyp2.hook) continue;
+        if (!(hyp1.hook == hyp2.hook)) continue;
 
         // right side
         double right_score;
-        if (pos == last) {
+        if (pos == (int)last) {
           if (hyp2.right() != hyp1.right()) continue;
           right_score = 0.0;
         } else {
-          int id = make_id(hyp2.right_side, hyp1.right_side, _controller.dim()); 
+          int id = Hypothesis(hyp2.right_side, hyp1.right_side).id(); 
           if (!edge_backward_hyps[pos+1].has_id(id))  continue;
           right_score = edge_backward_hyps[pos+1].get_score_by_id(id);
         }
         // top outside + edge + right_side
         double score = score1 + right_score + edge_value; 
         
-        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller.dim(), false);
+        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, edge);
         
         assert (inside_top <= (inside + right_score + edge_value) + 1e-4); 
         assert(_total_best <=  (score + inside) + 1e-4) ;
 
-        cout << "EDGE " << edge.id() << " " <<h->id() << " " << _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
+        cout << "EDGE " << edge->id() << " " <<h->id() << " " << _total_best << " " << inside << " " << inside + right_score + edge_value << " " << inside_top << endl;
 
         outside_edge[pos].try_set_hyp(h, score);
       }
@@ -557,17 +524,17 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
           if (hyp2.left() != hyp1.left()) continue;
           left_score = 0.0; 
         } else {
-          int id = make_id(hyp1.hook, hyp2.hook, _controller.dim()); 
+          int id = Hypothesis(hyp1.hook, hyp2.hook).id(); 
           if (!edge_forward_hyps[pos-1].has_id(id))  continue;
           left_score = edge_forward_hyps[pos -1].get_score_by_id(id);
         }
         // right side
         double right_score;
-        if (pos == last) {
+        if (pos == (int)last) {
           if (hyp2.right() != hyp1.right()) continue;
           right_score = 0.0;
         } else {
-          int id = make_id(hyp2.right_side, hyp1.right_side, _controller.dim()); 
+          int id = Hypothesis(hyp2.right_side, hyp1.right_side).id(); 
           if (!edge_backward_hyps[pos+1].has_id(id))  continue;
           right_score = edge_backward_hyps[pos +1].get_score_by_id(id);
         }
@@ -575,12 +542,12 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
         // top outside + left inside + right inside + edge score
         double total_score = left_score + right_score + edge_value + score1;
         //BestHyp & at = _outside_memo_table.store[node];
-        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, &edge, _controller.dim(), false);
+        Hypothesis * h = new Hypothesis(hyp2.hook, hyp2.right_side, edge);
         double inside = _memo_table.get_value(node).get_score_by_id(h->id());
         
         
         if (DEBUG) {
-          cout << "Outside " <<  edge.id() << " " << top_node.id() << " " << hyp1.id() << " " <<total_score << " " 
+          cout << "Outside " <<  edge->id() << " " << top_node.id() << " " << hyp1.id() << " " <<total_score << " " 
              << left_score << " " << right_score << " " << edge_value << " "  << (left_score + right_score + edge_value + inside) << " " << inside_top << " " <<score1 << " " << 
             inside << " " <<endl;
         }
@@ -616,7 +583,7 @@ void ExtendCKY::outside() {
 
     const Hypernode & root = _forest.root();
     assert(hyps.size() == scores.size());
-    for (int i=0;i < hyps.size(); i++) {
+    for (uint i=0;i < hyps.size(); i++) {
       if (_memo_table.get_value(root).has_id(hyps[i]->id())) {
         double inside = _memo_table.get_value(root).get_score_by_id(hyps[i]->id());
         assert(_total_best <=  (scores[i] + inside) + 1e-4); 

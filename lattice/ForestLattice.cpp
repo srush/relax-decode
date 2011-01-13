@@ -39,13 +39,13 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   }
  
  _original_id_to_edge.resize(num_word_nodes);
-  int same =0;
+ //int same =0;
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
 
 
     //cout << node.id()<<endl;
-    assert (_nodes.size() == node.id());
+    assert ((int)_nodes.size() == node.id());
     _nodes.push_back(new LatNode(node.id()));
     
     node_edges[node.id()] = node.edge_size();
@@ -95,7 +95,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         _first_words[node.id()].push_back(plet.word(0).subword_original_id());
 
 
-        for (int i =0 ; i < _last_words[node.id()].size(); i++) {
+        for (uint i =0 ; i < _last_words[node.id()].size(); i++) {
           if (plet.word(last).word() == _words[_last_words[node.id()][i]]) {
             // this position is the same as some previous
             _last_same[plet.word(last).subword_original_id()] = _last_words[node.id()][i];

@@ -5,15 +5,14 @@ using namespace std;
 namespace Scarab{
   namespace HG{
 
-int make_id(const vector <int> & hook, const vector <int> & right_side, int dim) {
-  return hook[0] + (dim) * right_side[0] + (dim * dim)*right_side[1] + (dim*dim*dim)* hook[1];;
+    ostream& operator<<(ostream& os, const State& s){ 
+      os << s._state[0] << " " << s._state[1] << endl;
+      return os;
+    }
 
-}
 
-void show_hyp(const Hypothesis & hyp) {
-  cout << hyp.right_side[0] << " " << hyp.right_side[1] << " "<< hyp.hook[0]<< " "  << hyp.hook[
-                                                                                                1] << endl;
-
-}
-
-  }}
+    ostream& operator<<(ostream& os, const Hypothesis& h) {
+      os << h.right_side << " "<< h.hook << endl;
+      return os;
+    }
+}}

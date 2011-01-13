@@ -152,7 +152,7 @@ class Subproblem {
 
 
 
-  Subproblem(const ForestLattice *g, NgramCache * lm_in, const SkipTrigram & skip, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
+  Subproblem(const ForestLattice *g, NgramCache * lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
   void update_weights(vector <int> u_pos, vector <float> u_values, bool first);
   void solve();
   void initialize_caches();
@@ -200,8 +200,6 @@ class Subproblem {
   //BIG
   vector < vector< vector <double> * > > forward_trigrams_score;
   //Bigram valid_bigrams[NUMSTATES*NUMSTATES];
-
-  const SkipTrigram & skip_tri;
   
   const ForestLattice * graph;
   NgramCache * lm;
@@ -213,42 +211,42 @@ class Subproblem {
   BigramRescore * bi_rescore_two;
 };
 
-class SkipTrigram {
- public:
-  void initialize(const char * filename, NgramCache & lm) {
-    int max_size = lm.vocab.numWords();
-    _skip_tri.resize(max_size);
-    cout << "Start " << max_size << endl;
+/* class SkipTrigram { */
+/*  public: */
+/*   void initialize(const char * filename, NgramCache & lm) { */
+/*     int max_size = lm.vocab.numWords(); */
+/*     _skip_tri.resize(max_size); */
+/*     cout << "Start " << max_size << endl; */
     
-    cout << "Start" << endl;
-    ifstream fin(filename ,ios::in);
-    while (!fin.eof()) {
-      string word1, word2;
-      int w1, w2;
-      fin >> word1 >> word2;
-      if (fin.eof()) break;
-      w1 = lm.vocab.getIndex(word1.c_str()); 
-      w2 = lm.vocab.getIndex(word2.c_str());
-      //cout << w1 << " " << w2 << endl;
-      //cout << word1 << " " << word2 << endl;
-      assert (w1 != -1 && w1 < max_size);
-      assert (w2 != -1 && w2 < max_size);
-      _skip_tri[w1][w2] = true; 
-    }
-    cout << "end" << endl;
-    fin.close();
-  }
+/*     cout << "Start" << endl; */
+/*     ifstream fin(filename ,ios::in); */
+/*     while (!fin.eof()) { */
+/*       string word1, word2; */
+/*       int w1, w2; */
+/*       fin >> word1 >> word2; */
+/*       if (fin.eof()) break; */
+/*       w1 = lm.vocab.getIndex(word1.c_str());  */
+/*       w2 = lm.vocab.getIndex(word2.c_str()); */
+/*       //cout << w1 << " " << w2 << endl; */
+/*       //cout << word1 << " " << word2 << endl; */
+/*       assert (w1 != -1 && w1 < max_size); */
+/*       assert (w2 != -1 && w2 < max_size); */
+/*       _skip_tri[w1][w2] = true;  */
+/*     } */
+/*     cout << "end" << endl; */
+/*     fin.close(); */
+/*   } */
 
-  inline bool is_skip(int i, int j) const  {
-    assert(i != -1 );
-    assert(j != -1 );
-    //return _skip_tri[i].find(j) != _skip_tri[i].end();
-    return _skip_tri[i][j];
-  }
+/*   inline bool is_skip(int i, int j) const  { */
+/*     assert(i != -1 ); */
+/*     assert(j != -1 ); */
+/*     //return _skip_tri[i].find(j) != _skip_tri[i].end(); */
+/*     return _skip_tri[i][j]; */
+/*   } */
 
- private:
-  vector < bitset<100000> > _skip_tri;
-};
+/*  private: */
+/*   vector < bitset<100000> > _skip_tri; */
+/* }; */
 
 //Subproblem * initialize_subproblem(const char* graph_file, const char* word_file, const char * lm_file );
 

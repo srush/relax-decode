@@ -1,6 +1,7 @@
 #include "CubePruning.h"
 #include <iostream>
 #include <algorithm>
+#include "../common.h"
 
 using namespace std;
 
@@ -22,13 +23,11 @@ void CubePruning::get_derivation(vector <int> & der) {
 
 void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
   //compute the k-'best' list for cur_node 
-  for (int i =0; i < cur_node.num_edges(); i++) {
-    const Hyperedge & hedge = cur_node.edge(i); 
-    for (int j=0; j < hedge.num_nodes();j++) {
-      const Hypernode & sub = hedge.tail_node(j);
-      if (!_hypothesis_cache.has_key(sub)) {
-        run(sub, _hypothesis_cache.store[sub.id()]);
-        _hypothesis_cache.has_value[sub.id()] = 1;
+  foreach (HEdge hedge, cur_node.edges()) { 
+    foreach (HNode sub, hedge->tail_nodes()) {
+      if (!_hypothesis_cache.has_key(*sub)) {
+        run(*sub, _hypothesis_cache.store[sub->id()]);
+        _hypothesis_cache.has_value[sub->id()] = 1;
       }
     }
   }
@@ -65,26 +64,25 @@ void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
 }
 
 void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
-  for (int i=0; i < cur_node.num_edges(); i++) {
-    const Hyperedge & cedge = cur_node.edge(i);
-                  
+  foreach (HEdge cedge, cur_node.edges()) { 
+
     // start with (0,...0)
-    vector <int> newvecj(cedge.num_nodes());
-    for (int j=0; j < newvecj.size();j++) {
+    vector <int> newvecj(cedge->num_nodes());
+    for (uint j=0; j < newvecj.size();j++) {
       newvecj[j] = 0;
     }
     
     set <vector <int > > vecset;
     vecset.insert(newvecj);
     //_oldvec.
-    _oldvec.set_value(cedge, vecset);
+    _oldvec.set_value(*cedge, vecset);
     
     // add the starting (0,..,0) hypothesis to the heap
     Hyp newhyp;
-    bool b = gethyp(cedge, newvecj, newhyp);
+    bool b = gethyp(*cedge, newvecj, newhyp);
     //cout << "Get hyp " << newhyp.score << endl;
     assert(b);
-    cands.push(new Candidate(newhyp, cedge, newvecj));
+    cands.push(new Candidate(newhyp, *cedge, newvecj));
   }
 }
 
@@ -96,13 +94,13 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec) {
   vector <Hyp> hypvec;
   
   // number of hypotheses found 
-  int cur_kbest = 0;
+  uint cur_kbest = 0;
     
   // keep tracks of sigs in buffer (don't count multiples twice, since they will be recombined)
   set <Sig> sigs;
 
   //overfill the buffer since we assume there will be some reordering
-  int buf_limit = _ratio * _k;
+  uint buf_limit = _ratio * _k;
   
   while (cur_kbest < _k &&                       
          ! (cands.empty() ||                          
@@ -171,7 +169,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec) {
   
   //vector <Hyp> newhypvec;
   
-  for (int i=0; i < hypvec.size(); i++) {
+  for (uint i=0; i < hypvec.size(); i++) {
     Hyp item = hypvec[i]; 
     assert(i == 0 || item.score >= hypvec[i-1].score); 
     //cout << item.score << " " << endl; 
@@ -199,7 +197,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec) {
       }
     }
     else {
-      int pos = keylist[item.sig];
+      //int pos = keylist[item.sig];
       //semiring plus
       //newhypvec[pos].add(item);
     }
@@ -222,7 +220,7 @@ void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Can
   
   assert(cvecj.size() == cedge.num_nodes());
 
-  for (int i=0; i < cedge.num_nodes(); i++) {
+  for (uint i=0; i < cedge.num_nodes(); i++) {
     // vecj' = vecj + b^i (just change the i^th dimension
     vector <int> newvecj(cvecj);
     newvecj[i] += 1;
@@ -244,7 +242,7 @@ void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Can
         int orig = cands.size();
         
         cands.push(new Candidate(newhyp, cedge, newvecj));
-        assert(cands.size() != orig);
+        assert(cands.size() != (uint)orig);
       } else {
         //cout << "no get" << endl;
       }
@@ -269,10 +267,10 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
 
   // grab the jth best hypothesis at each node of the hyperedge
   //cout << cedge.num_nodes() << endl;
-  for (int i=0; i < cedge.num_nodes(); i++) {
+  for (uint i=0; i < cedge.num_nodes(); i++) {
     const Hypernode & sub = cedge.tail_node(i);
  
-    if (vecj[i] >= _hypothesis_cache.get_value(sub).size()) {
+    if (vecj[i] >= (int)_hypothesis_cache.get_value(sub).size()) {
       //cout << "FAIL for size " << _hypothesis_cache.get_value(sub).size();
       return false;
     }

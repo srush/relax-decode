@@ -6,7 +6,7 @@
 #include "common.h"
 //#include <cstdlib>
 //#include "GraphColor.h"
-#define INF 100000000
+//#define INF 100000000
 #define DEBUG 0
 #define TIMING 0
 #define OPTIMIZE 1
@@ -17,8 +17,8 @@
 using namespace std;
 
 
-Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const SkipTrigram & skip, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in) :
-  graph(g), lm(lm_in), gd(gd_in), skip_tri(skip), _word_node_cache(word_node_cache_in){
+Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in) :
+  graph(g), lm(lm_in), gd(gd_in), _word_node_cache(word_node_cache_in){
   //update_filter.reset();
    
   bi_rescore_first = new BigramRescore(graph, gd_in);
@@ -163,7 +163,7 @@ void Subproblem::projection_with_constraints(int limit, int & k,
       }
     }
 
-    int min = 1e20;
+    int min = INF;
     int mind;
     for (int d =0; d < k; d++) {
       if (counts[d] < min) {
@@ -353,8 +353,9 @@ int Subproblem::fixed_last_bigram(int w1) {
 
 void Subproblem::initialize_caches() {
 
-  for (int i=0; i < gd->valid_bigrams.size(); i++) {
-    Bigram b = gd->valid_bigrams[i];
+  foreach (Bigram b, gd->valid_bigrams) { 
+    //int i=0; i < gd->valid_bigrams.size(); i++) {
+    //Bigram b = gd->valid_bigrams[i];
     int w1 = b.w1;
     int w2 = b.w2;
     bigram_in_lm[b.w1][b.w2] =  word_bow_bigram_reverse(b.w1, b.w2);
@@ -465,8 +466,8 @@ void Subproblem::solve_proj(int d2, int d3,
 
   //if (!first_time) {
   {  
-    int total =0;
-    int redo = 0;
+    //int total =0;
+    //int redo = 0;
 
     for (int i=0; i < graph->num_word_nodes; i++) {
       if (!graph->is_word(i)) continue;
@@ -475,8 +476,9 @@ void Subproblem::solve_proj(int d2, int d3,
       best_bigram_with_backoff_forward[i] = -1;
     }
     
-    for (int i=0; i < gd->valid_bigrams.size(); i++) {
-      Bigram b = gd->valid_bigrams[i];
+    foreach (Bigram b, gd->valid_bigrams) { 
+      //for (int i=0; i < gd->valid_bigrams.size(); i++) {
+      //Bigram b = gd->valid_bigrams[i];
       
       bigram_weight_cache_one[b.w1][b.w2] = bi_rescore_first->get_bigram_weight(b.w1, b.w2);
       bigram_weight_cache_two[b.w1][b.w2] = bi_rescore_two->get_bigram_weight(b.w1, b.w2);
@@ -514,7 +516,7 @@ void Subproblem::solve_proj(int d2, int d3,
   //full_redo.reset();
   //cout << graph->num_nodes << endl;
   assert(graph->num_word_nodes > 10);
-  for (unsigned int i =0; i< graph->num_word_nodes; i++ ) {
+  for ( int i =0; i< graph->num_word_nodes; i++ ) {
     if (!graph->is_word(i)) continue; 
     bool reset = false;
     if (!first_proj_time) {
@@ -695,8 +697,8 @@ void Subproblem::solve_proj(int d2, int d3,
 
         //cout << w2 << " " << (LMWEIGHT) * word_prob_reverse(w1,w2,w3) << " " << (bi_lm_score + best_backoff[w2]) <<" " << bi_lm_score<<" "<<  best_backoff[w2] << endl;
         if (word_bow_reverse(w1,w2,w3) != 2) {
-          double backoff_score = (bi_lm_score + best_backoff[w2]);
-          double lm_score = ((LMWEIGHT) * word_prob_reverse(w1,w2,w3));
+          //double backoff_score = (bi_lm_score + best_backoff[w2]);
+          //double lm_score = ((LMWEIGHT) * word_prob_reverse(w1,w2,w3));
           //assert (fabs(lm_score - backoff_score) < 1e-4); 
         } else {
           score = (LMWEIGHT) * word_prob_reverse(w1,w2,w3) + score1 + score2;
@@ -791,9 +793,10 @@ void Subproblem::solve_proj(int d2, int d3,
     }
   }
 
-  for (int i=0; i < word_override.size(); i++ ) {
+  foreach (int w0, word_override) { 
+    //uint i=0; i < word_override.size(); i++ ) {
     
-    int w0 = word_override[i];
+    //int w0 = word_override[i];
     
     assert(gd->forward_bigrams[w0].size() ==1);
     int w1 = gd->forward_bigrams[w0][0];
@@ -846,8 +849,8 @@ void Subproblem::solve_proj(int d2, int d3,
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
     if (proj_best_one[w1] == -1) continue;
-    int w2 = proj_best_one[w1];
-    int w3 = proj_best_two[w1];
+    //int w2 = proj_best_one[w1];
+    //int w3 = proj_best_two[w1];
     //assert(cur_best_at_bi[w1][w2] == w3);
     //assert(fabs(cur_best_at_bi_score[w1][w2] -proj_best_score[w1]) < 1e-4);
   }

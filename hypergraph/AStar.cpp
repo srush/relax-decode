@@ -68,21 +68,21 @@ void AStar::get_next(Hypothesis *& hyp, double & score, Location *& w) {
 
 // add words to queue
 void AStar::initialize_queue() {
-  for (int i =0; i < _forest.num_nodes(); i++) {
-    const Hypernode & node = _forest.get_node(i);
-    if (!node.is_terminal()) continue;
+  foreach (HNode node, _forest.nodes()) { 
+    
+    if (!node->is_terminal()) continue;
     
     // get the words
     vector <Hypothesis *> hyps; 
     vector <double> scores; 
-    _controller.initialize_hypotheses(node, hyps, scores);
+    _controller.initialize_hypotheses(*node, hyps, scores);
     assert(scores.size() == hyps.size());
     
     Location * l = alloc_loc();
     l->location = NODE;
-    l->node_id = node.id();
+    l->node_id = node->id();
 
-    for (int i=0; i < hyps.size() ;i++) {
+    for (uint i=0; i < hyps.size() ;i++) {
       //hyps[i].at_node_id = node.id();      
       //Hypothesis * h = new Hypothesis(hyps[i]);
       //alloc_hyp();
@@ -97,7 +97,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
   while (!_queue.empty()) {
     Hypothesis * h; 
     double score;
-    int node_id;
+    //int node_id;
     Location * l;
     get_next(h, score, l);
 
@@ -154,7 +154,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
       vector<BestHyp> & best = _memo_edge_table.store[edge.id()];
       _memo_edge_table.has_value[edge.id()] = true;
       bool is_set = best[l->edge_pos].try_set_hyp(h, score);
-      assert(h->prev_hyp.size() == l->edge_pos+1);
+      assert((int)h->prev_hyp.size() == l->edge_pos+1);
       if (is_set) {
         recompute_edge(edge, l->edge_pos, *h, score);
       } 
@@ -182,7 +182,7 @@ void AStar::recompute_edge(const Hyperedge & edge,
     const BestHyp & next_best = _memo_table.store[sub_node.id()];    
     vector <int> next_pos = next_best.join_back(h);    
     
-    for (int iter2 = 0; iter2< next_pos.size(); iter2++) {
+    for (uint iter2 = 0; iter2< next_pos.size(); iter2++) {
 
       const Hypothesis & hyp2 = next_best.get_hyp(next_pos[iter2]); 
       double score2 = next_best.get_score(next_pos[iter2]);
@@ -190,13 +190,13 @@ void AStar::recompute_edge(const Hyperedge & edge,
       assert(h.match(hyp2));
       
       Hypothesis  * join = alloc_hyp();
-      join->dim =(_controller.dim());
+      
       
       join->back_edge = &edge;
-      assert(h.prev_hyp.size() == pos+1);
+      assert((int)h.prev_hyp.size() == pos+1);
       double join_score = original_score + score2 +
         _controller.combine(h, hyp2, *join);
-      assert(join->prev_hyp.size() == pos+2);
+      assert((int)join->prev_hyp.size() == pos+2);
 
       if (pos +1 == last) {
         Location * l = alloc_loc();
@@ -226,27 +226,27 @@ void AStar::recompute_node(const Hypernode & node,
                            double original_score) {
   _num_recompute++;
   // can only produce dots 
-  for (int i =0; i < node.num_in_edges(); i++) {
+  foreach (HEdge edge, node.in_edges()) { //int i =0; i < node.num_in_edges(); i++) {
     // The edge to recompute
 
-    const Hyperedge & edge = node.in_edge(i);
-    double edge_value= _edge_weights.get_value(edge)    ;
-    int last = edge.num_nodes() -1;
+    //const Hyperedge & edge = node.in_edge(i);
+    double edge_value = _edge_weights.get_value(*edge);
+    int last = edge->num_nodes() -1;
 
     //const Hypernode & top_node = edge.head_node();
     //const BestHyp & best_node_hypotheses = _memo_table.store[node.id()];
     
-    vector<BestHyp> & best_edge_hypotheses = _memo_edge_table.store[edge.id()];
+    vector<BestHyp> & best_edge_hypotheses = _memo_edge_table.store[edge->id()];
     
-    if (!_memo_edge_table.has_value[edge.id()]) {
-      best_edge_hypotheses.resize(edge.num_nodes());
-      _memo_edge_table.has_value[edge.id()] = true;
+    if (!_memo_edge_table.has_value[edge->id()]) {
+      best_edge_hypotheses.resize(edge->num_nodes());
+      _memo_edge_table.has_value[edge->id()] = true;
     }
 
 
     int pos = -1;
-    for (int j =0; j < edge.num_nodes(); j++) {
-      if (edge.tail_node(j).id() == node.id()) 
+    for (uint j =0; j < edge->num_nodes(); j++) {
+      if (edge->tail_node(j).id() == node.id()) 
         pos = j;
     }
     assert (pos!=-1);
@@ -256,10 +256,10 @@ void AStar::recompute_node(const Hypernode & node,
 
     if (pos == last) {      
       l->location = NODE;
-      l->node_id = edge.head_node().id();
+      l->node_id = edge->head_node().id();
       score += edge_value;
     } else {
-      l->edge_id = edge.id();
+      l->edge_id = edge->id();
       l->edge_pos = pos; 
       l->location = EDGE;
     }
@@ -267,7 +267,7 @@ void AStar::recompute_node(const Hypernode & node,
 
     // at beginning of edge, advance by one
     if (pos ==0) {
-      Hypothesis * new_hyp = alloc_hyp(h.hook, h.right_side, &edge, _controller.dim());
+      Hypothesis * new_hyp = alloc_hyp(h.hook, h.right_side, edge);
       new_hyp->prev_hyp.push_back(h.id());
 
       add_to_queue(new_hyp, score, l);
@@ -276,7 +276,7 @@ void AStar::recompute_node(const Hypernode & node,
       const BestHyp & last_best = best_edge_hypotheses[pos-1];
       vector <int> last_pos = last_best.join(h);
         
-      for (int iter2 = 0; iter2< last_pos.size(); iter2++) {
+      for (uint iter2 = 0; iter2< last_pos.size(); iter2++) {
      
         const Hypothesis & hyp2 = last_best.get_hyp(last_pos[iter2]); 
         double score2 = last_best.get_score(last_pos[iter2]);
@@ -284,13 +284,13 @@ void AStar::recompute_node(const Hypernode & node,
         assert(hyp2.match(h));
         
         Hypothesis * join = alloc_hyp();
-        join->dim = (_controller.dim());
+        
           
-        join->back_edge = &edge;
-        assert(hyp2.prev_hyp.size() == pos);
+        join->back_edge = edge;
+        assert((int)hyp2.prev_hyp.size() == pos);
         double join_score = score + score2 +
           _controller.combine(hyp2, h, *join);
-        assert(join->prev_hyp.size() == pos+1);
+        assert((int)join->prev_hyp.size() == pos+1);
 
         add_to_queue(join, join_score, l);
         //best_edge_hypotheses[pos].try_set_hyp(join, join_score);

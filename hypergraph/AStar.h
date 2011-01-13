@@ -90,10 +90,10 @@ private:
     _hyps.push_back(new Hypothesis());
     return _hyps[_hyps.size()-1];
   }
-  Hypothesis * alloc_hyp(vector<int> h, vector<int> r, 
-                         const Hyperedge * be, int d) {
+  Hypothesis * alloc_hyp(const State & h, const State & r, 
+                         const Hyperedge * be) {
     
-    _hyps.push_back(new Hypothesis(h, r, be, d, false));
+    _hyps.push_back(new Hypothesis(h, r, be));
     return _hyps[_hyps.size()-1];
   }
 

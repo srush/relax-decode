@@ -21,7 +21,7 @@ using namespace Scarab::HG;
 
 class Decode: public SubgradientProducer {
  public:
-  Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, NgramCache & lm, const SkipTrigram & skip) 
+  Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, NgramCache & lm) 
     :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) //, ecky(forest)
   {
     _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
@@ -29,7 +29,7 @@ class Decode: public SubgradientProducer {
     _gd.decompose(&lattice);
     //cout<<"done decomposing" << endl;
     sync_lattice_lm();
-    _subproblem = new Subproblem(&lattice, & lm, skip , &_gd, *_cached_words);
+    _subproblem = new Subproblem(&lattice, & lm, &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
     _maintain_constraints = false;
     _is_stuck_round = 10000;

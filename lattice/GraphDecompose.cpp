@@ -24,7 +24,7 @@ void GraphDecompose::compute_bigrams() {
     if (!g->is_phrase_node(n)) continue; 
     // first add bigrams within n
     //TODO
-    for (int i =0; i < g->bigrams_at_node[n].size(); i++) {
+    for (uint i =0; i < g->bigrams_at_node[n].size(); i++) {
       //int w1 = g->words(n, i);
       Bigram b = g->bigrams_at_node[n][i];
       assert(g->is_word(b.w1));
@@ -166,7 +166,7 @@ void GraphDecompose::graph_to_all_pairs() {
   
 void GraphDecompose::reconstruct_path(int n, int n2, vector <vector <int> > & array) {
   // find the path between nodes n and n2, and fill in array
-  for (int split=0; split < all_pairs_path[n][n2]->size(); split++) { 
+  for (uint split=0; split < all_pairs_path[n][n2]->size(); split++) { 
   
     int k = (*all_pairs_path[n][n2])[split];
     

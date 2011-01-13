@@ -102,8 +102,8 @@ class CubePruning {
   const Hypergraph & _forest;
   const Cache <Hyperedge, double>  & _weights;
   const NonLocal & _non_local;
-  const int _k;
-  const int _ratio;
+  const uint _k;
+  const uint _ratio;
 
   Cache<Hypernode, vector <Hyp> > _hypothesis_cache;
   Cache<Hyperedge, set < vector <int> > > _oldvec;

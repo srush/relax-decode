@@ -158,7 +158,7 @@ void BigramRescore::find_shortest(int n1, int n2) {
   //}
 
   //assert(best_split_score[n1][n2] == 0 || update_len != 0);
-  double old_score = bigram_weights[n1][n2]; 
+  //double old_score = bigram_weights[n1][n2]; 
   int old_split = best_split[n1][n2];
   if (n1 != n2) 
     bigram_weights[n1][n2] = INF;
@@ -244,10 +244,10 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
       //cout << up_pos << " " << b.w1 << " " << b.w2 << endl;
       //cout << forward_paths[b.w1].size() << endl;
 
-      for (int i=0; i < forward_paths[b.w2].size(); i++) {
+      for (uint i=0; i < forward_paths[b.w2].size(); i++) {
         int rnode = forward_paths[b.w2][i];
     
-        for (int j=0; j < backward_paths[b.w1].size(); j++) {
+        for (uint j=0; j < backward_paths[b.w1].size(); j++) {
 
           int lnode = backward_paths[b.w1][j];
 

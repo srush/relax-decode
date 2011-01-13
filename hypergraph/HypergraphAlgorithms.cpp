@@ -96,9 +96,8 @@ vector <const Hypernode *> construct_best_fringe_help(const Hypernode & node, co
   
   foreach(const Hypernode * bnode, edge->tail_nodes()) { 
     vector <const Hypernode *> b = construct_best_fringe_help(*bnode, back_memo_table);
-    for (int j=0; j < b.size(); j++ ) {
-      best.push_back(b[j]);
-    }
+    best.insert(best.end(), b.begin(), b.end());
+    
   }
   return best;
 }
@@ -168,7 +167,7 @@ double HypergraphAlgorithms::best_path( const EdgeCache & edge_weights, NodeCach
 double best_path_helper(const Hypernode & node, const EdgeCache & edge_weights, 
                         NodeCache & score_memo_table, NodeBackCache & back_memo_table) {
   double best_score = INF;
-  int id = node.id();
+  //int id = node.id();
 
   const Hyperedge * best_edge = NULL; 
   if (score_memo_table.has_key(node)) {
