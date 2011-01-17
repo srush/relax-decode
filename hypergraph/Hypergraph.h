@@ -25,7 +25,7 @@ typedef vector <const Hypernode * > HNodes;
 class Hyperedge {
  public:
  Hyperedge(unsigned int id): _id(id){}
-
+   virtual ~Hyperedge() = 0;
 
   /** 
    * Get edge id
@@ -99,7 +99,7 @@ class Hypernode {
    * WARNING: Private except to Hypergraph
    */
  Hypernode(unsigned int id): _id(id){}
-  
+   virtual ~Hypernode() = 0;  
   /** 
    * The unique identifier of the Hypernode 
    * @deprecated
@@ -176,7 +176,7 @@ class Hypernode {
 
 class Hypergraph {
  public:
-
+   virtual ~Hypergraph() = 0;
   /** 
    * Display the hypergraph for debugging. 
    * 

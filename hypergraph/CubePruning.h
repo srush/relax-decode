@@ -27,6 +27,7 @@ public:
 };
 class NonLocal  {
  public:
+  virtual ~NonLocal() = 0;
   virtual void compute(const Hyperedge &,
                        const vector <vector <int> > &,
                        double & score,

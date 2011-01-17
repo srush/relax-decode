@@ -57,7 +57,7 @@ struct State {
 
 
   int possible_states() const {
-    return pow(_dim, _state.size());
+    return pow((double)_dim, (int)_state.size());
   }
 
   // TODO : private
