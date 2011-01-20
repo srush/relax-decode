@@ -5,7 +5,7 @@ profile = ARGUMENTS.get('profile', 0)
 
 if int(debug):
    env = Environment(CC = 'g++',
-                     CCFLAGS = '-g -Werror -Wall')
+                     CCFLAGS = '-g -Wall')
 elif int(profile):
    env = Environment(CC = 'g++',
                      CCFLAGS = '-O2 -pg',
@@ -17,20 +17,31 @@ else:
 
 sources = ("dual_subproblem.cpp", "util.cpp", "Subgradient.cpp", "Decode.cpp", "NGramCache.cpp")
 
-libs = ("cpptest", "hypergraph", "lattice","protobuf", "oolm", "misc", 
+sub_dirs = ['hypergraph', 'lattice', 'transforest']
+
+libs = ("hypergraph", "lattice","protobuf", "oolm", "misc", 
         "dstruct", "pthread", "boost_program_options")
 
+
+lib_path = build_config['lib_extra']
+include_path = build_config['include_extra']
 if build_config['has_gurobi']:
-   libs += ("gurobi_g++4.1", "gurobi40", "m", "stdc++")
+   libs += ("gurobi_g++4.1", "gurobi40", "m", "stdc++", "lp")
+   lib_path += (build_config['gurobi_lib'], '#/lp')
+   include_path += (build_config['gurobi_path'],)
+   sub_dirs += ['lp']
 
-env.Append(LIBPATH =('.',build_config['sri_lib'], '#/hypergraph', '#/lattice', '#/transforest'))
+env.Append(LIBPATH =('.',build_config['sri_lib'], '#/hypergraph', '#/lattice', '#/transforest') +
+           lib_path 
+           )
 
-env.Append( CPPPATH=  ('.', build_config['svector_path'], '#hypergraph', '#lattice', '#transforest', 
+env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/lp','#hypergraph', '#lattice', '#transforest', 
                        build_config['sri_path'], 
                        build_config['lattice_proto_path'], 
-                       build_config['forest_proto_path']))
+                       build_config['forest_proto_path']) + include_path )
 
-local_libs = SConscript(dirs=['hypergraph', 'lattice', 'transforest'], exports=['env', 'build_config']) 
+local_libs = SConscript(dirs=sub_dirs,
+                        exports=['env', 'build_config']) 
 
 decode = env.Library('decode', sources + local_libs,
                       LIBS = libs)
