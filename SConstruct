@@ -20,7 +20,14 @@ sources = ("dual_subproblem.cpp", "util.cpp", "Subgradient.cpp", "Decode.cpp", "
 libs = ("cpptest", "hypergraph", "lattice","protobuf", "oolm", "misc", 
         "dstruct", "pthread", "boost_program_options")
 
-libpath = ('.',build_config['sri_lib'], 'hypergraph', 'lattice', 'transforest')
+if build_config['has_gurobi']:
+   libs += ("gurobi_g++4.1", "gurobi40", "m", "stdc++")
+
+env.Append(LIBPATH =('.',build_config['sri_lib'], 'hypergraph', 'lattice', 'transforest',
+                     build_config['boost_lib'], build_config['gurobi_lib']]) 
+
+
+
 cpppath = ('.', build_config['svector_path'], 'hypergraph', 'lattice', 'transforest', 
            build_config['sri_path'])
 
