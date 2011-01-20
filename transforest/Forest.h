@@ -19,6 +19,7 @@ class ForestNode;
 
 class ForestEdge: public Scarab::HG::Hyperedge{
 public:
+  ~ForestEdge(){}
  ForestEdge(const string & label, str_vector * features, int id, vector <Scarab::HG::Hypernode *> tail_nodes, ForestNode * head_node):
   Hyperedge(id), 
   _label(label), _tail_nodes(tail_nodes), _head_node(head_node), _features(features) {}
@@ -55,6 +56,7 @@ private:
 
 class ForestNode: public Scarab::HG::Hypernode {
 public:
+    ~ForestNode(){}
   ForestNode(const string & label, int id, str_vector * features, string word, bool is_word) :
   Scarab::HG::Hypernode(id),
   _label(label), _features(features), _word(word), _is_word(is_word) {}
@@ -122,6 +124,7 @@ private:
 
 class Forest : public Scarab::HG::Hypergraph{
  public:
+  ~Forest(){}
   Forest(const char* filename);//const Hypergraph & pb);
   void print() const;
   

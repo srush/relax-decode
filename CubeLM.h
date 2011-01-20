@@ -8,6 +8,7 @@
 #include "common.h"
 class LMNonLocal: public NonLocal {
  public:
+  ~LMNonLocal(){}
  LMNonLocal(const Hypergraph & forest,  Ngram & lm, const Cache <Hypernode, int> & word_cache) 
    : _forest(forest), _lm(lm), _word_cache(word_cache) {}
   

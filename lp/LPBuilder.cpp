@@ -1,14 +1,15 @@
 #include <cy_svector.hpp>
 #include <svector.hpp>
-#include "Forest.h"
+#include "Hypergraph.h"
 #include "LPBuilder.h"
 
-#include "ForestAlgorithms.h"
+#include "HypergraphAlgorithms.h"
 #include <sstream>
 #include "../common.h"
 using namespace std;
 
-
+namespace Scarab { 
+  namespace HG { 
 //#define VAR_TYPE GRB_CONTINUOUS
 #define VAR_TYPE GRB_BINARY
 
@@ -190,7 +191,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
       stringstream buf;
       buf << "TRI " << b.w1 << " " << b.w2 << " " << k;
       VocabIndex context [] = {word_cache.store[b.w2], word_cache.store[k], Vocab_None};
-      double prob = LM * lm.wordProb(word_cache.store[b.w1], context);
+      double prob = LMWEIGHT * lm.wordProb(word_cache.store[b.w1], context);
       if (isinf(prob)) prob = 1000000.0;
       
       word_tri_vars[b.w1][b.w2][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
@@ -608,7 +609,7 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
 
 void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,  
                                     vector <GRBVar> & edge_vars, 
-                                    const Cache<ForestEdge, double> & _weights) {
+                                    const Cache<Hyperedge, double> & _weights) {
   try {
     model->set(GRB_StringAttr_ModelName, "Hypergraph");
     
@@ -620,7 +621,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
 
     for (int i=0; i< _forest.num_edges() ; i++ ) { 
 
-      const ForestEdge & edge = _forest.get_edge(i);
+      const Hyperedge & edge = _forest.get_edge(i);
       stringstream buf;
       buf << "EDGE" << i;
       
@@ -632,7 +633,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
     {
 
       for(int i =0; i < _forest.num_nodes(); i++) {
-        const ForestNode & node = _forest.get_node(i);
+        const Hypernode & node = _forest.get_node(i);
 
         // Downward edges
         {
@@ -676,7 +677,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
 }
 
 
-void LPBuilder::solve_hypergraph(const Cache<ForestEdge, double> & _weights) {
+void LPBuilder::solve_hypergraph(const Cache<Hyperedge, double> & _weights) {
   GRBEnv env = GRBEnv();
   model = new GRBModel(env);
   vector <GRBVar> node_vars(_forest.num_nodes());
@@ -688,7 +689,7 @@ void LPBuilder::solve_hypergraph(const Cache<ForestEdge, double> & _weights) {
   try {
     for (int i=0; i < _forest.num_nodes(); i++) {
       
-      const ForestNode & node = _forest.get_node(i);    
+      const Hypernode & node = _forest.get_node(i);    
       for (int j=0; j < node.num_edges(); j++) {
         int edge_id = node.edge(j).id();
       
@@ -714,7 +715,7 @@ void LPBuilder::solve_hypergraph(const Cache<ForestEdge, double> & _weights) {
   }*/
 
 
-void LPBuilder::solve_full(int run_num, const Cache<ForestEdge, double> & _weights, 
+void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weights, 
                            Ngram &lm, 
                            const Cache <LatNode, int> & word_cache) {  
   GraphDecompose gd;
@@ -892,85 +893,87 @@ const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngr
   return _cached_words;
 }
 
-int main(int argc, char ** argv) {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+// int main(int argc, char ** argv) {
+//   GOOGLE_PROTOBUF_VERIFY_VERSION;
   
-  svector<int, double> * weight;
+//   svector<int, double> * weight;
 
-  {
-    // Read the existing address book.
-    fstream input(argv[3], ios::in );
-    char buf[1000];
-    input.getline(buf, 100000);
-    string s (buf);
-    weight = svector_from_str<int, double>(s);
-  }
+//   {
+//     // Read the existing address book.
+//     fstream input(argv[3], ios::in );
+//     char buf[1000];
+//     input.getline(buf, 100000);
+//     string s (buf);
+//     weight = svector_from_str<int, double>(s);
+//   }
 
   
-  Vocab * all = new Vocab();
-  all->unkIsWord() = true;
-  Ngram * lm = new Ngram(*all, 3);
+//   Vocab * all = new Vocab();
+//   all->unkIsWord() = true;
+//   Ngram * lm = new Ngram(*all, 3);
 
-  File file(argv[4], "r", 0);    
-  if (!lm->read(file, false)) {
-    cerr << "READ FAILURE\n";
-  }
+//   File file(argv[4], "r", 0);    
+//   if (!lm->read(file, false)) {
+//     cerr << "READ FAILURE\n";
+//   }
 
-  for(int i=atoi(argv[5]);i<=atoi(argv[6]); i++) {
+//   for(int i=atoi(argv[5]);i<=atoi(argv[6]); i++) {
 
-      Hypergraph hgraph;
+//       Hypergraph hgraph;
       
-      {
-        stringstream fname;
-        fname <<argv[1] << i;
-        fstream input(fname.str().c_str(), ios::in | ios::binary);
-        if (!hgraph.ParseFromIstream(&input)) {
-          assert (false);
-        } 
-      }
+//       {
+//         stringstream fname;
+//         fname <<argv[1] << i;
+//         fstream input(fname.str().c_str(), ios::in | ios::binary);
+//         if (!hgraph.ParseFromIstream(&input)) {
+//           assert (false);
+//         } 
+//       }
       
-      Forest f (hgraph);
+//       Forest f (hgraph);
       
-      Lattice lat;
+//       Lattice lat;
 
-      {
-        stringstream fname;
-        fname <<argv[2] << i;
+//       {
+//         stringstream fname;
+//         fname <<argv[2] << i;
 
-        fstream input(fname.str().c_str(), ios::in | ios::binary);
-        if (!lat.ParseFromIstream(&input)) {
-          assert (false);
-        }
+//         fstream input(fname.str().c_str(), ios::in | ios::binary);
+//         if (!lat.ParseFromIstream(&input)) {
+//           assert (false);
+//         }
         
-      }
+//       }
 
-      ForestLattice graph (lat);
+//       ForestLattice graph (lat);
 
       
-      LPBuilder lp(f, graph);
+//       LPBuilder lp(f, graph);
       
 
-      const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
+//       const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
       
 
-      Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
+//       Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);
       
-      try {
-        lp.solve_full(i, *w,  *lm, *word_cache);
-      } 
-      catch (GRBException e) {
-        cerr << "Error code = " << e.getErrorCode() << endl;
-        cerr << e.getMessage() << endl;
-        cout << "*END* " << i<< " "<<0 << " " << 200 << " "<<  0 << " " << 0 << endl;
-      }
+//       try {
+//         lp.solve_full(i, *w,  *lm, *word_cache);
+//       } 
+//       catch (GRBException e) {
+//         cerr << "Error code = " << e.getErrorCode() << endl;
+//         cerr << e.getMessage() << endl;
+//         cout << "*END* " << i<< " "<<0 << " " << 200 << " "<<  0 << " " << 0 << endl;
+//       }
  
 
 
-      NodeBackCache bcache(f.num_nodes());     
+//       NodeBackCache bcache(f.num_nodes());     
       
-      NodeCache ncache(f.num_nodes());
-      //double best = best_path(f, *w, ncache, bcache);
-      //cout << best << endl;
-  }  
-  return 1;
+//       NodeCache ncache(f.num_nodes());
+//       //double best = best_path(f, *w, ncache, bcache);
+//       //cout << best << endl;
+//   }  
+//   return 1;
+// }
+  }
 }

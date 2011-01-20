@@ -1,7 +1,7 @@
 #ifndef LPBUILDER_H_
 #define LPBUILDER_H_
 
-#include "Forest.h"
+#include "Hypergraph.h"
 #include "ForestLattice.h"
 #include "GraphDecompose.h"
 #include <EdgeCache.h>
@@ -11,22 +11,25 @@
 
 using namespace std;
 
+namespace Scarab { 
+  namespace HG { 
+
 struct LatticeVars;
 class LPBuilder {
 
  public:
   
-  LPBuilder(const Forest & forest, const ForestLattice & lat ): _forest(forest), _lattice(lat) {
+  LPBuilder(const Hypergraph & forest, const ForestLattice & lat ): _forest(forest), _lattice(lat) {
     
   }
 
-  void solve_hypergraph(const Cache<ForestEdge, double> & );
+  void solve_hypergraph(const Cache<Hyperedge, double> & );
 
-  void solve_full(int run_num, const Cache<ForestEdge, double> & _weights,Ngram &lm, const Cache <LatNode, int> & word_cache);
+  void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, const Cache <LatNode, int> & word_cache);
 
  private:
-  const Forest & _forest;
-  void build_hypergraph_lp(vector <GRBVar> & node_vars, vector <GRBVar> & edge_vars, const Cache<ForestEdge, double> & _weights);
+  const Hypergraph & _forest;
+  void build_hypergraph_lp(vector <GRBVar> & node_vars, vector <GRBVar> & edge_vars, const Cache<Hyperedge, double> & _weights);
   //void build_all_pairs_lp(const ForestLattice & _lattice, GRBModel & model, Ngram &lm, const Cache <LatNode, int> & word_cache);
   void build_all_pairs_lp(         Ngram &lm, 
                                    const Cache <LatNode, int> & word_cache,
@@ -53,4 +56,6 @@ class LPBuilder {
                                 const GraphDecompose & gd);
 
 };
+  }}
 #endif
+  
