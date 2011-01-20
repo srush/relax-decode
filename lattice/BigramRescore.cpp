@@ -9,6 +9,7 @@ using namespace std;
 #define TIMING 0
 #define OPTIMIZE 1
 
+
 BigramRescore::BigramRescore(const ForestLattice * graph_in, const GraphDecompose * gd_in):
   gd(gd_in), graph(graph_in){
   // huge hack

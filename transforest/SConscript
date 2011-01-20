@@ -2,12 +2,7 @@ Import('env build_config')
 
 sources = ["Forest.cpp", "hypergraph.pb.cc", "features.pb.cc", "translation.pb.cc", "lexical.pb.cc"]
 
-libs = ["hypergraph", "pthread", "protobuf"]
-
-trans_lib = env.Library('transforest', sources , LIBS = libs,
-            LIBPATH = ['#hypergraph/'], 
-            CPPPATH = ['.', '#hypergraph/', 
-            build_config['svector_path'],  build_config['lattice_proto_path']])
+trans_lib = env.Library('transforest', sources )
 
 Return('trans_lib')
 

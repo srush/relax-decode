@@ -23,31 +23,24 @@ libs = ("cpptest", "hypergraph", "lattice","protobuf", "oolm", "misc",
 if build_config['has_gurobi']:
    libs += ("gurobi_g++4.1", "gurobi40", "m", "stdc++")
 
-env.Append(LIBPATH =('.',build_config['sri_lib'], 'hypergraph', 'lattice', 'transforest',
-                     build_config['boost_lib'], build_config['gurobi_lib']]) 
+env.Append(LIBPATH =('.',build_config['sri_lib'], '#/hypergraph', '#/lattice', '#/transforest'))
 
-
-
-cpppath = ('.', build_config['svector_path'], 'hypergraph', 'lattice', 'transforest', 
-           build_config['sri_path'])
+env.Append( CPPPATH=  ('.', build_config['svector_path'], '#hypergraph', '#lattice', '#transforest', 
+                       build_config['sri_path'], 
+                       build_config['lattice_proto_path'], 
+                       build_config['forest_proto_path']))
 
 local_libs = SConscript(dirs=['hypergraph', 'lattice', 'transforest'], exports=['env', 'build_config']) 
 
-
 decode = env.Library('decode', sources + local_libs,
-                      LIBS = libs, 
-                      LIBPATH= libpath,
-                      CPPPATH = cpppath)
+                      LIBS = libs)
 
+env.Program('trans', ("Run.cpp", decode) + local_libs, LIBS = libs)
 
-
-env.Program('trans', ("Run.cpp", decode) + local_libs, LIBS = libs, LIBPATH= libpath,
-                     CPPPATH = cpppath)
-
-env.Program('cube', ("CubeLM.cpp", decode)+ local_libs, LIBS = libs, LIBPATH= libpath, CPPPATH= cpppath)
+env.Program('cube', ("CubeLM.cpp", decode)+ local_libs, LIBS = libs)
 
 if build_config['has_gurobi']:
-   env.Program('scarab', ("Main.cpp", decode) + local_libs, LIBS = libs, LIBPATH= libpath, CPPPATH= cpppath)
+   env.Program('scarab', ("Main.cpp", decode) + local_libs, LIBS = libs)
 
 
 

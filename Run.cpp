@@ -1,5 +1,6 @@
 #include "Weights.h"
 #include "Forest.h"
+
 #include "ForestLattice.h"
 #include "Decode.h"
 #include "NGramCache.h"
