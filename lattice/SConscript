@@ -1,0 +1,15 @@
+Import('env build_config')
+
+sources = ["BigramRescore.cpp", "ForestLattice.cpp", "lattice.pb.cc", "GraphDecompose.cpp"]
+libs = ["pthread", "cpptest", "protobuf"]
+
+lat_lib = env.Library('lattice', sources , LIBS = libs, 
+                      CPPPATH = ['.', build_config['svector_path'],  build_config['lattice_proto_path']
+                             ])
+
+env.Program('test', ["Test.cpp"] , 
+            LIBS = libs+ ['lattice'], LIBPATH=['.'], 
+            CPPPATH = ['.', build_config['svector_path'],  build_config['lattice_proto_path']
+                       ])
+
+Return('lat_lib')

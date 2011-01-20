@@ -1,0 +1,17 @@
+Import('env build_config')
+
+libs = ("cpptest",)
+
+sources = ["HypergraphAlgorithms.cpp", "EdgeCache.cpp", "CubePruning.cpp", "ExtendCKY.cpp", 
+           "Hypothesis.cpp", "AStar.cpp", "BestHyp.cpp", "Hypergraph.cpp", "Weights.cpp"]
+
+hyp_lib = env.Library('hypergraph', sources, 
+                      LIBS = libs, 
+                      CPPPATH = ['.', build_config['svector_path']])
+
+
+env.Program('test', ["Test.cpp", hyp_lib] , LIBS = libs+ ('hypergraph',),
+            LIBPATH=['.'], 
+            CPPPATH=['.', build_config['svector_path']])
+
+Return('hyp_lib')
