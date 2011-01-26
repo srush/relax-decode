@@ -7,9 +7,10 @@
 
 #include <string>
 #include <vector>
+#include "Graph.h"
 using namespace std;
 using namespace lattice;
-
+using namespace Scarab::Graph;
 struct Bigram{ 
   int w1;
   int w2;
@@ -17,14 +18,18 @@ struct Bigram{
   Bigram(){}
 };
 
-class LatNode {
+/*class LatNode : public Graphnode {
  public:
- LatNode(int id):_id(id){}
-  
-  int id() const  {return _id;}
+ LatNode(int id, vector <const Graphedge *> edges):_id(id), _edges(edges){}
+    
+  uint id() const  {return _id;}
+
+  unsigned int num_edges() const {return _edges.size();}
+  const Edges & edges() const  {return _edges;}
  private:
   int _id;
-};
+  const Edges & _edges;
+  };*/
 
 class ForestLattice {
  public:
@@ -36,9 +41,13 @@ class ForestLattice {
     return _words[word_num];
   }
 
-  const LatNode & node(int i) const {
-    assert (i < num_nodes);
-    return *_nodes[i];
+  const Graph & get_graph() const {
+    return *_proper_graph;
+  }
+
+  const Graphnode & node(int i) const {
+    //assert (i < num_nodes);
+    return _proper_graph->node(i);//*_nodes[i];
   };
 
   bool is_phrase_node(int n) const {
@@ -71,7 +80,7 @@ class ForestLattice {
   }
 
   inline int num_edges(int n) const {
-    assert (n < num_nodes);
+    //assert (n < num_nodes);
     return node_edges[n];
   }
 
@@ -134,17 +143,21 @@ class ForestLattice {
   inline int get_word_from_hypergraph_node(int n) const { 
     return _hyp_node_to_lat_word[n];
   }
+  void make_proper_graph(const Lattice & lat);
   
   vector<vector<Bigram> > bigrams_at_node;
   vector <string>  _edge_label_by_nodes; 
  private:
+  Graph * _proper_graph;
+
+
   vector<int> word_node;
 
   vector<int> node_edges;
   vector<string> _words;  
   vector<int> _is_word;  
   vector<int> _words_lookup;  
-  vector <LatNode *> _nodes; 
+  //vector <LatNode *> _nodes; 
   vector<vector<int> > graph;
   vector<vector<int> > _edge_by_nodes;
 

@@ -17,7 +17,8 @@
 using namespace std;
 
 
-Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in) :
+Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const GraphDecompose * gd_in, 
+                       const Cache<Graphnode, int> & word_node_cache_in) :
   graph(g), lm(lm_in), gd(gd_in), _word_node_cache(word_node_cache_in){
   //update_filter.reset();
    

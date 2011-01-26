@@ -19,7 +19,7 @@ class LPBuilder {
 
  public:
   
-  LPBuilder(const Hypergraph & forest, const ForestLattice & lat ): _forest(forest), _lattice(lat) {
+  LPBuilder(const HGraph & forest, const ForestLattice & lat ): _forest(forest), _lattice(lat) {
     
   }
 
@@ -28,7 +28,7 @@ class LPBuilder {
   void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, const Cache <LatNode, int> & word_cache);
 
  private:
-  const Hypergraph & _forest;
+  const HGraph & _forest;
   void build_hypergraph_lp(vector <GRBVar> & node_vars, vector <GRBVar> & edge_vars, const Cache<Hyperedge, double> & _weights);
   //void build_all_pairs_lp(const ForestLattice & _lattice, GRBModel & model, Ngram &lm, const Cache <LatNode, int> & word_cache);
   void build_all_pairs_lp(         Ngram &lm, 

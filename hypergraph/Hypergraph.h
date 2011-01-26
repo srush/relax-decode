@@ -24,7 +24,7 @@ typedef vector <const Hypernode * > HNodes;
 // Base class for weighted hyperedge 
 class Hyperedge {
  public:
- Hyperedge(unsigned int id): _id(id){}
+  //Hyperedge(unsigned int id): _id(id){}
    virtual ~Hyperedge() {}
 
   /** 
@@ -32,9 +32,7 @@ class Hyperedge {
    * 
    * @return The id of this edge in a fixed hypergraph
    */
-  inline unsigned int id() const {
-    return _id;
-  } 
+   virtual unsigned int id() const = 0; 
   
   // These are deprecated use iterator
 
@@ -80,8 +78,8 @@ class Hyperedge {
   virtual const vector <Hypernode *> & tail_nodes() const =0; 
 
 
- protected: 
-  unsigned int _id;
+  // protected: 
+  //unsigned int _id;
 };
 
 
@@ -98,7 +96,7 @@ class Hypernode {
   /** 
    * WARNING: Private except to Hypergraph
    */
- Hypernode(unsigned int id): _id(id){}
+  //Hypernode(unsigned int id): _id(id){}
    virtual ~Hypernode() {}
   /** 
    * The unique identifier of the Hypernode 
@@ -106,7 +104,7 @@ class Hypernode {
    * 
    * @return The number 
    */
-  inline unsigned int id() const {return _id;}
+   virtual unsigned int id() const = 0;// {return _id;}
 
   // This interface is deprecated, use iterators below instead
 
@@ -170,18 +168,16 @@ class Hypernode {
    */
   virtual const vector <Hyperedge*> & in_edges() const =0; 
   
- protected:
-   unsigned int  _id;
 };
 
-class Hypergraph {
+class HGraph {
  public:
-  virtual ~Hypergraph() {}
+  virtual ~HGraph() {}
   /** 
    * Display the hypergraph for debugging. 
    * 
    */
-  void print() const;
+  virtual void print() const = 0;
   
   /** 
    * Get the root of the hypergraph
@@ -214,6 +210,8 @@ class Hypergraph {
    */
   virtual const vector <Hyperedge*> & edges() const =0; 
  };
+
+
 
 }
 }

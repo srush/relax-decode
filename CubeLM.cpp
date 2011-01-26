@@ -83,7 +83,7 @@ int main(int argc, char ** argv) {
     vector <int> sent;
     p.get_derivation(sent);
     foreach (int s, sent) {
-      cout <<f.get_node(s).word() << " ";
+      cout <<((ForestNode *) &f.get_node(s))->word() << " ";
     }
     cout << endl;
     cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)diffclock(end,begin) << endl;

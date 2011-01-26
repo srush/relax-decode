@@ -39,6 +39,7 @@ class Cache {
   
   void set_value(const C & edge, V val) {
     int id = edge.id();
+    assert(id < store.size());
     has_value[id]= true;
     store[id] = val;
   }

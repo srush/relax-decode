@@ -2,7 +2,40 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "../common.h"
 using namespace std;
+
+void ForestLattice::make_proper_graph(const Lattice & lat) {
+  vector <Graphnode*> nodes;
+  Edges all_edges;
+  for (int i = 0; i < lat.node_size(); i++) {
+    const Lattice_Node & node =  lat.node(i);
+    nodes.push_back(new Graphnode(node.id()));
+  }
+  
+
+  for (int i = 0; i < lat.node_size(); i++) {
+    const Lattice_Node & node =  lat.node(i);
+
+    Edges local_edges;
+    for (int j =0; j < node.edge_size(); j++) {
+      const Lattice_Edge & edge = node.edge(j);
+      
+      Graphedge * local_edge = new Graphedge(edge.id(), *nodes[node.id()], *nodes[edge.to_id()]);
+      
+      all_edges.push_back(local_edge);
+      local_edges.push_back(local_edge);
+
+    }
+    nodes[i]->set_edges(local_edges);
+  }
+  
+  Nodes final_nodes;
+  foreach ( Graphnode *node, nodes) 
+    final_nodes.push_back((Node ) node );
+  _proper_graph = new Graph(final_nodes, all_edges);
+
+}
 
 
 ForestLattice::ForestLattice(const Lattice & lat) {
@@ -45,8 +78,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
 
 
     //cout << node.id()<<endl;
-    assert ((int)_nodes.size() == node.id());
-    _nodes.push_back(new LatNode(node.id()));
+    //assert ((int)_nodes.size() == node.id());
+    
     
     node_edges[node.id()] = node.edge_size();
     graph[node.id()].resize(node.edge_size());
@@ -122,13 +155,13 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         
       }
     }
-
-
-
+    
 
     for (int j =0; j < node.edge_size(); j++) {
       const Lattice_Edge & edge = node.edge(j);
+      
       graph[node.id()][j] = edge.to_id();
+      
       string label = edge.label();
 
       const Origin & orig = edge.GetExtension(origin);
@@ -181,6 +214,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   for (int i=0; i < lat.final_size(); i++) {
     final[lat.final(i)] = 1;
   }  
+
+  make_proper_graph(lat);
   //cout << "Same " << same << endl;
   //cout << "Words " << num_word_nodes << endl;
 } 

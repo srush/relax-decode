@@ -27,7 +27,7 @@ public:
 };
 class NonLocal  {
  public:
-  virtual ~NonLocal() {};
+  //virtual ~NonLocal() {};
   virtual void compute(const Hyperedge &,
                        const vector <vector <int> > &,
                        double & score,
@@ -84,7 +84,7 @@ typedef priority_queue <Candidate *, vector<Candidate*>, candidate_compare> Cand
 
 class CubePruning {
  public:
- CubePruning(const Hypergraph & forest, const Cache <Hyperedge, double> & weights, const NonLocal & non_local, int k, int ratio):
+ CubePruning(const HGraph & forest, const Cache <Hyperedge, double> & weights, const NonLocal & non_local, int k, int ratio):
   _forest(forest), _weights(weights), _non_local(non_local), _k(k), _ratio(ratio), 
     _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges())
     {}
@@ -100,7 +100,7 @@ class CubePruning {
  private:
   //void run(const Hypernode & cur_node);
 
-  const Hypergraph & _forest;
+  const HGraph & _forest;
   const Cache <Hyperedge, double>  & _weights;
   const NonLocal & _non_local;
   const uint _k;

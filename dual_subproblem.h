@@ -152,7 +152,8 @@ class Subproblem {
 
 
 
-  Subproblem(const ForestLattice *g, NgramCache * lm_in, const GraphDecompose * gd_in, const Cache<LatNode, int> & word_node_cache_in);
+  Subproblem(const ForestLattice *g, NgramCache * lm_in, const GraphDecompose * gd_in, 
+             const Cache<Graphnode, int> & word_node_cache_in);
   void update_weights(vector <int> u_pos, vector <float> u_values, bool first);
   void solve();
   void initialize_caches();
@@ -205,7 +206,7 @@ class Subproblem {
   NgramCache * lm;
   
   const GraphDecompose * gd;
-  const Cache<LatNode, int> _word_node_cache;
+  const Cache<Graphnode, int> _word_node_cache;
 
   BigramRescore * bi_rescore_first;
   BigramRescore * bi_rescore_two;

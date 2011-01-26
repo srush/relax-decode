@@ -1,0 +1,11 @@
+Import('env')
+
+
+sources = ["DepParser.cpp", "dep.pb.cc"]
+
+env.Program('convert', [ "hypergraph.pb.cc", "dep.pb.cc", "EisnerToHypergraph.cpp"])
+
+
+hyp_lib = env.Library('parse', sources)
+
+Return('hyp_lib')

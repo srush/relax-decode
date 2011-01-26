@@ -8,8 +8,8 @@
 #include "common.h"
 class LMNonLocal: public NonLocal {
  public:
-  ~LMNonLocal(){}
- LMNonLocal(const Hypergraph & forest,  Ngram & lm, const Cache <Hypernode, int> & word_cache) 
+  //~LMNonLocal(){}
+ LMNonLocal(const HGraph & forest,  Ngram & lm, const Cache <Hypernode, int> & word_cache) 
    : _forest(forest), _lm(lm), _word_cache(word_cache) {}
   
   void compute(const Hyperedge & edge,
@@ -110,7 +110,7 @@ class LMNonLocal: public NonLocal {
     return Hyp(score, sig, der); 
   }
  private:
-  const Hypergraph  & _forest;  
+  const HGraph  & _forest;  
   Ngram & _lm;
   const Cache <Hypernode, int> & _word_cache;  
 

@@ -1,3 +1,5 @@
+#ifndef HYPERGRAPHLP_H_
+#define HYPERGRAPHLP_H_
 #include <Hypergraph.h>
 #include <gurobi_c++.h>
 
@@ -79,3 +81,5 @@ class HypergraphLPBuilder {
 };
   }
 }
+
+#endif

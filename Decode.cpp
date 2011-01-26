@@ -1135,7 +1135,7 @@ int Decode::lookup_string(string word) {
 
 void Decode::sync_lattice_lm() {
   
-  _cached_words = new Cache <LatNode, int> (_lattice.num_word_nodes);
+  _cached_words = new Cache <Graphnode, int> (_lattice.num_word_nodes);
   int max = _lm.vocab.numWords();
   int unk = _lm.vocab.getIndex(Vocab_Unknown);
   //assert(false);

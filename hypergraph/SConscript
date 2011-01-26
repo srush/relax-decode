@@ -1,8 +1,8 @@
 Import('env build_config')
 
 
-sources = ["HypergraphAlgorithms.cpp", "EdgeCache.cpp", "CubePruning.cpp", "ExtendCKY.cpp", 
-           "Hypothesis.cpp", "AStar.cpp", "BestHyp.cpp", "Hypergraph.cpp", "Weights.cpp"]
+sources = ["HypergraphImpl.cpp", "HypergraphAlgorithms.cpp", "EdgeCache.cpp", "CubePruning.cpp", "ExtendCKY.cpp", 
+           "Hypothesis.cpp", "AStar.cpp", "BestHyp.cpp", "Hypergraph.cpp", "Weights.cpp", "hypergraph.pb.cc", "features.pb.cc"]
 
 hyp_lib = env.Library('hypergraph', sources)
 

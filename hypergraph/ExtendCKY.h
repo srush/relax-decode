@@ -22,7 +22,7 @@ namespace Scarab {
 
 class ExtendCKY {
  public:
- ExtendCKY(const Hypergraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont) :
+ ExtendCKY(const HGraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont) :
   _forest(forest),
     _edge_weights(edge_weights),
     _old_edge_weights(edge_weights),
@@ -42,7 +42,7 @@ class ExtendCKY {
 
 
  private:
-  const Hypergraph & _forest;
+  const HGraph & _forest;
   double _total_best;
   const Cache <Hyperedge, double>  & _edge_weights;
   const Cache <Hyperedge, double>  & _old_edge_weights;

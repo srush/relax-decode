@@ -11,7 +11,7 @@ using namespace std;
 // Weight vector
 typedef svector<int, double> wvector;
 
-
+typedef svector<int, double> str_vector;
 /**
  * @param file Name of file to read from.
  * @return Weight Vector from the file 

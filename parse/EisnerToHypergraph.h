@@ -6,9 +6,14 @@
 #include <sstream>
 #include <vector>
 #include "hypergraph.pb.h"
+#include "dep.pb.h"
 #include "features.pb.h"
+//#include "Hypergraph.h"
+//#include "HypergraphImpl.h"
 #include <iostream>
 using namespace std;
+
+//using namespace Scarab::HG;
 
 //typedef double[MAX_LEN][MAX_LEN][2] WeightVec;
 
@@ -94,10 +99,10 @@ struct LocalHyperedge{
   vector <int> tail_node_ids;
   int head;
   double weight;
+  string label;
   LocalHyperedge() {
     weight =0.0;
-  }
-  
+  }  
 };
 
 
@@ -127,7 +132,7 @@ class EisnerToHypergraph {
     if (check != _node_to_id.end()) {
       int id = _node_to_id[enode];
       node = _id_to_proto[id];
-      cout << "Found " << enode.name() << " " << id << endl;
+      //cout << "Found " << enode.name() << " " << id << endl;
     } else {
       int i = _id;
       _node_to_id[enode] = i;
@@ -137,7 +142,7 @@ class EisnerToHypergraph {
       node->set_id( i);
       node->set_label(enode.name());
       
-      cout << "Adding " << enode.name() << " " << i << endl;
+      //cout << "Adding " << enode.name() << " " << i << endl;
       _id_to_proto[i] = node;
       _id++;
     }
@@ -148,10 +153,11 @@ class EisnerToHypergraph {
     EisnerNode n (Span(0, length()-1), RIGHT, TRI);
     int root = _node_to_id[n];
     hgraph.set_root(root);
+    //cout << "set root"
   }
 
 
-  inline void finalize_edge(Hypergraph_Node * hnode, LocalHyperedge ledge){
+  inline Hypergraph_Edge & finalize_edge(Hypergraph_Node * hnode, LocalHyperedge ledge){
     int i = _edge_id;
     hyperedges.push_back(ledge);
 
@@ -161,16 +167,17 @@ class EisnerToHypergraph {
     buf << "value=" << ledge.weight;
     edge->SetExtension(edge_fv, buf.str() );
     
-    //edge->label = "";
+    edge->set_label( ledge.label);
    
     for (int j=0; j < ledge.tail_node_ids.size(); j++) {
       edge->add_tail_node_ids(ledge.tail_node_ids[j]);
-      cout << "connecting  " << hnode->id() << " " << ledge.tail_node_ids[j] << endl;
+      //cout << "connecting  " << hnode->id() << " " << ledge.tail_node_ids[j] << endl;
       
     }
 
     
     _edge_id++;
+    return *edge;
   }
 
   
@@ -184,7 +191,7 @@ class EisnerToHypergraph {
     } else {
       w= _weights[h][m][0];
     }
-    cout << "Weights " << h << " " << m << " " << w << endl;  
+    //cout << "Weights " << h << " " << m << " " << w << endl;  
     return w;
   }
 

@@ -61,7 +61,7 @@ struct QueueHyp{
 
 class AStar {
  public: 
- AStar(const Hypergraph & f, 
+ AStar(const HGraph & f, 
        const Controller & cont, 
        const Cache <Hyperedge, double> & edge_weights,
        const Heuristic & heu
@@ -114,7 +114,7 @@ private:
                              const Hypothesis & h, 
                              double original_score);
   void recompute_node(const Hypernode & node, const Hypothesis & h, double original_score);
-  const Hypergraph & _forest;
+  const HGraph & _forest;
   const Controller & _controller;
   //void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses);
   void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses,  int pos_changed, int id);

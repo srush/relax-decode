@@ -1,6 +1,7 @@
 #include "EisnerToHypergraph.h"
 #include <iostream>
 #include <fstream>
+#include <strstream>
 
 
 Direction num_dir = (Direction)2;
@@ -34,12 +35,12 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
         // 4 cases 
      
         // triangle rule
-        // right triangle + left triangle 
+        // right triangle + left triangle [Creates dep] 
         if (j+1 <= k)
         {
 
           
-          // RIGHT TRAP
+          // RIGHT TRAP 
 
           EisnerNode n(Span(i,k),  RIGHT, TRAP);
           
@@ -50,15 +51,23 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           LocalHyperedge edge;
           
           edge.head = _node_to_id[n];
-          cout << " Node to id " <<  _node_to_id[lchild] << " " << lchild.name() << endl;
+          stringstream buf;
+          
+          //edge.dep = buf.str();
+          //cout << " Node to id " <<  _node_to_id[lchild] << " " << lchild.name() << endl;
           edge.tail_node_ids.push_back( _node_to_id[lchild]);
           edge.tail_node_ids.push_back( _node_to_id[rchild]);
           edge.weight = get_weight(i, k);
           
-          finalize_edge(node, edge);
-        
+          Hypergraph_Edge & pedge =finalize_edge(node, edge);
+          
+          Dep * my_dep =  pedge.MutableExtension(dep);                  
+          my_dep->set_head (i);
+          my_dep->set_mod( k);
+          pedge.SetExtension(has_dep, true);                  
+
         }
-   
+        // right triangle + left triangle [Creates dep]
         if (j+1 <= k)
         {
           // LEFT TRAP
@@ -73,13 +82,23 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           LocalHyperedge edge;
           
           edge.head = _node_to_id[n];
+          //stringstream buf;
+          //buf << k << " " << i;
+          
+
           edge.tail_node_ids.push_back( _node_to_id[lchild]);
           edge.tail_node_ids.push_back( _node_to_id[rchild]);
           edge.weight = get_weight(k, i);
         
-          finalize_edge(node, edge);
+          Hypergraph_Edge & pedge = finalize_edge(node, edge);
+          Dep * my_dep =  pedge.MutableExtension(dep);                  
+          my_dep->set_head (k);
+          my_dep->set_mod( i);
+          
+          pedge.SetExtension(has_dep, true);
         }
 
+        // right trap + right triangle 
         if (j != i)
         {
           // RIGHT TRI
@@ -90,7 +109,7 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           EisnerNode lchild(Span(i,j), RIGHT, TRAP);
           EisnerNode rchild(Span(j,k), RIGHT, TRI);
 
-          cout << "Right tri debug --  "<< n.name() << " " << lchild.name() << " " << rchild.name() << endl;
+          //cout << "Right tri debug --  "<< n.name() << " " << lchild.name() << " " << rchild.name() << endl;
 
           LocalHyperedge edge;
           
@@ -101,6 +120,7 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           finalize_edge(node, edge);
         }
 
+        // left tri + left trap
         if (j != k)
         {
           // LEFT TRI
@@ -112,7 +132,6 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           EisnerNode rchild(Span(j,k), LEFT, TRAP);
 
           
-
           LocalHyperedge edge;
           
           edge.head = _node_to_id[n];
@@ -128,49 +147,64 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
 }
 
 
+
 int main(int argc, char ** argv) {
-  vector <int> sent;
-  
-
-
-  fstream in(argv[1], ios::in);
-
-  vector<vector <vector<double > > > weights(MAX_LEN);
-
-  for (int i=0;i < MAX_LEN;i++) {
-    weights[i].resize(MAX_LEN);
-    for (int j=0;j < MAX_LEN; j++) {
-      weights[i][j].resize(2);
-    }
-  }
-  
-  int max_pos = 0;
-  while(in) {
-    double prob;
-    int pos1, pos2, head;
-    in >> pos1 >> pos2 >> head >> prob; 
-    cout << pos1 << " " << pos2 << " " << head << " " << prob<< endl;
-    weights[pos1][pos2][head] = prob; 
-    max_pos = max(max_pos, pos1); 
-  }
-  
-  
-  for (int i=0; i<= max_pos+1; i++ ) {
-    sent.push_back(i);
-  }
-
-  //WeightVec blank;
-  Hypergraph tmp;
-  EisnerToHypergraph runner(sent, weights);
-  runner.convert(tmp);
-
   GOOGLE_PROTOBUF_VERIFY_VERSION;
+  stringstream buf;
+  //fstream in(argv[1], ios::in);
+  for (int sent_num=1; sent_num <= 10 ;sent_num++ ) {
+ 
+    vector <int> sent;  
+    
+    vector<vector <vector<double > > > weights(MAX_LEN);
+    
+    for (int i=0;i < MAX_LEN;i++) {
+      weights[i].resize(MAX_LEN);
+      for (int j=0;j < MAX_LEN; j++) {
+        weights[i][j].resize(2);
+      }
+    }
+    
+    int max_pos = 0;
+    while(cin) {
+      double prob;
+      int pos1, pos2, head;
+      string ignore;
+      int snum;
+      // format is (PROB|END): {sentnum} {i} {j} {dir} {prob}  
+      cin >> ignore;
+      if (ignore == "DONE:") break; 
+      cin >> snum >> pos1 >> pos2 >> head >> prob; 
+      //cout << sent_num << " " << snum;
+      assert(sent_num == snum);
+      //cout << pos1 << " " << pos2 << " " << head << " " << prob<< endl;
+      weights[pos1][pos2][head] = prob; 
+      max_pos = max(max_pos, pos1); 
+    }
+    
+    cout << "Sent " << sent_num << " is " << max_pos << endl;
+    for (int i=0; i<= max_pos+1; i++ ) {
+      sent.push_back(i);
+    }
+    
+    //WeightVec blank;
+    Hypergraph tmp;
+    EisnerToHypergraph runner(sent, weights);
+    runner.convert(tmp);
 
-  {
-    fstream output("/tmp/eisner", ios::out | ios::trunc | ios::binary);
-    if (!runner.hgraph.SerializeToOstream(&output)) {
-      cerr << "Failed to ." << endl;
-      return -1;
+    cout << "extension set " << max_pos << endl;
+    runner.hgraph.SetExtension(len, max_pos+1);
+    cout << "extension get " << tmp.GetExtension(len) << endl;
+   
+
+    {
+      stringstream buf;
+      buf << "/tmp/eisner" << sent_num;
+      fstream output(buf.str().c_str() , ios::out | ios::trunc | ios::binary);
+      if (!runner.hgraph.SerializeToOstream(&output)) {
+        cerr << "Failed to ." << endl;
+        return -1;
+      }
     }
   }
 

@@ -15,7 +15,7 @@ typedef Cache <Hypernode, const Hyperedge *> NodeBackCache;
 
 class HypergraphAlgorithms {
  public:
- HypergraphAlgorithms(const Hypergraph & hypergraph): _forest(hypergraph) {}
+ HypergraphAlgorithms(const HGraph & hypergraph): _forest(hypergraph) {}
 
 /** Associate a weight which each edge in the hypergraph
  *  @param weight_vector A weight vector
@@ -66,7 +66,7 @@ double best_path(const EdgeCache & edge_weights,
  */
  HNodes topological_sort() const;
  private:
- const Hypergraph & _forest;
+ const HGraph & _forest;
 
 };
 

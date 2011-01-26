@@ -61,7 +61,7 @@ class Decode: public SubgradientProducer {
   NgramCache & _lm; 
   GraphDecompose _gd;
   Cache <Hyperedge, double> * _cached_weights;
-  Cache <LatNode, int> * _cached_words;
+  Cache <Graphnode, int> * _cached_words;
   vector <int > get_lat_edges(int edge_id);
   vector <int > get_lex_lat_edges(int edge_id);
   void sync_lattice_lm();

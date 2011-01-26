@@ -4,7 +4,7 @@
 
 class HypergraphTools {
  public:
-  void viterbi(Hypergraph g);
+  void viterbi(HGraph g);
 
 }
 
