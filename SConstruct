@@ -54,8 +54,11 @@ env.Program('cube', ("CubeLM.cpp", decode)+ local_libs, LIBS = libs)
 
 env.Program('parser', ("Parse.cpp", decode)+ local_libs, LIBS = libs)
 
+
+
 if build_config['has_gurobi']:
-   env.Program('scarab', ("Main.cpp", decode) + local_libs, LIBS = libs)
+   env.Program('fullparser', ("FullParser.cpp", decode)+ local_libs)
+   env.Program('scarab', ("Main.cpp", decode) + local_libs)
 
 
 
