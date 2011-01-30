@@ -2,11 +2,12 @@
 #define HYPERGRAPH_H_
 #include "Weights.h"
 #include <vector>
+#include <set>
+#include <string>
 using namespace std;
 
 namespace Scarab {
 namespace HG {
-
 
 
 
@@ -34,6 +35,8 @@ class Hyperedge {
    */
    virtual unsigned int id() const = 0; 
   
+   virtual string label() const = 0;
+
   // These are deprecated use iterator
 
   /** 
@@ -211,6 +214,12 @@ class HGraph {
   virtual const vector <Hyperedge*> & edges() const =0; 
  };
 
+struct HypergraphPrune {
+   HypergraphPrune(const HGraph & hgraph_) : hgraph(hgraph_) {}
+   set <int> nodes;
+   set <int> edges;
+   const HGraph & hgraph;
+ };
 
 
 }

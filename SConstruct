@@ -17,7 +17,7 @@ else:
 
 sources = ("dual_subproblem.cpp", "util.cpp", "Subgradient.cpp", "Decode.cpp", "NGramCache.cpp")
 
-sub_dirs = ['graph', 'hypergraph', 'lattice', 'transforest', 'parse']
+sub_dirs = ['graph', 'hypergraph', 'lattice', 'transforest', 'parse', 'tagger']
 
 libs = ('graph', "hypergraph", "lattice", "parse", "protobuf", "oolm", "misc", 
         "dstruct", "pthread", "boost_program_options")
@@ -31,11 +31,12 @@ if build_config['has_gurobi']:
    include_path += (build_config['gurobi_path'],)
    sub_dirs += ['lp']
 
-env.Append(LIBPATH =('.',build_config['sri_lib'], '#/graph', '#/hypergraph', '#/lattice', '#/transforest', '#/parse') +
+env.Append(LIBPATH =('.',build_config['sri_lib'], '#/graph', '#/hypergraph', '#/lattice', '#/transforest', '#/parse', '#/tagger') +
            lib_path 
            )
+print lib_path
 
-env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/graph', '#/lp','#hypergraph', '#lattice', '#transforest', '#/parse', 
+env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/graph', '#/lp','#hypergraph', '#lattice', '#transforest', '#/parse', '#/tagger', 
                        build_config['sri_path'], 
                        build_config['lattice_proto_path'], 
                        build_config['forest_proto_path']) + include_path )
@@ -53,6 +54,10 @@ env.Program('trans', ("Run.cpp", decode) + local_libs, LIBS = libs)
 env.Program('cube', ("CubeLM.cpp", decode)+ local_libs, LIBS = libs)
 
 env.Program('parser', ("Parse.cpp", decode)+ local_libs, LIBS = libs)
+
+env.Program('run_tagger', ("Tag.cpp", decode)+ local_libs, LIBS = libs)
+
+env.Program('run_full_tagger', ("FullTagger.cpp", decode)+ local_libs, LIBS = libs)
 
 
 

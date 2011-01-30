@@ -50,6 +50,8 @@ class DepParser : public Scarab::HG::HypergraphImpl {
         id_size = max(dep.id(), id_size );
       }
     }
+
+
     int edge_count = 0;
     for (int i = 0; i < hgraph.node_size(); i++) {
       const Hypergraph_Node & node = hgraph.node(i);
@@ -58,8 +60,9 @@ class DepParser : public Scarab::HG::HypergraphImpl {
         edge_count++;
       }
     }
+    _dep_length = id_size + 1;
     _dep_map =  new Cache <Hyperedge, Dependency>(edge_count);
-    _edge_map = new Cache <Dependency, const Hyperedge *>(id_size + 1);
+    _edge_map = new Cache <Dependency, vector<const Hyperedge *> >(_dep_length);
   }
 
   const Hypergraph & hypergraph() const {
@@ -75,15 +78,19 @@ class DepParser : public Scarab::HG::HypergraphImpl {
   }
 
   uint num_deps() const {
-    return _dependencies.size();
+    return _dep_length;
   }
 
-  Dependency make_dep(int head, int mod) {
+  uint sent_length() const {
+    return _sent_length;
+  } 
+
+  Dependency make_dep(int head, int mod) const {
     return Dependency(_sent_length, head, mod);
   }
 
-  const Hyperedge & dep_to_edge(const Dependency & dep) const {
-    return *_edge_map->get(dep);
+  const vector<const Hyperedge*> & dep_to_edge(const Dependency & dep) const {
+    return _edge_map->get(dep);
   }
 
   const Dependency & edge_to_dep(const Hyperedge & edge) const {
@@ -101,15 +108,16 @@ class DepParser : public Scarab::HG::HypergraphImpl {
       const Dep & ret_dep = edge.GetExtension(dep);
       Dependency our_dep = make_dep(ret_dep.head(), ret_dep.mod());
       _dep_map->set_value(*our_edge, our_dep);
-      _edge_map->set_value(our_dep, our_edge);
+      _edge_map->get_no_check(our_dep).push_back(our_edge);
     }
   }
 
  private:
   // The parse forest in hypergraph form
   int _sent_length;
+  int _dep_length;
   Hypergraph * _h;
-  Cache <Dependency, const Hyperedge *> *  _edge_map;
+  Cache <Dependency, vector <const Hyperedge *> > *  _edge_map;
   Cache <Hyperedge, Dependency> * _dep_map;
   //Cache <Hyperedge, double> _weights;
   vector <Dependency> _dependencies; 

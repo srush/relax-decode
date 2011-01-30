@@ -2,6 +2,6 @@
 
 
 ostream& operator<<(ostream& output, const Dependency& h) {
-  output << h.head << "|" << h.mod << ":0";
+  output << h.head << "_" << h.mod;// << "("<< h.length << ")";
   return output;
 } 

@@ -149,7 +149,7 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
 }
 
 void LPBuilder::initialize_word_pairs(Ngram &lm, 
-                                      const Cache <LatNode, int> & word_cache,
+                                      const Cache <Graphnode, int> & word_cache,
                                       const GraphDecompose & gd, 
                                       vector < GRBVar > & word_used_vars,
                                       vector < vector < GRBVar >  > & word_pair_vars,
@@ -201,7 +201,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
 }
 
 void LPBuilder::build_all_pairs_lp(Ngram &lm, 
-                                   const Cache <LatNode, int> & word_cache,
+                                   const Cache <Graphnode, int> & word_cache,
                                    vector < GRBVar > & word_used_vars,
                                    vector < vector < vector < GRBVar > > > & word_tri_vars,
                                    LatticeVars & lv,
@@ -366,7 +366,7 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
 
 
 void LPBuilder::build_all_tri_pairs_lp(Ngram &lm, 
-                                       const Cache <LatNode, int> & word_cache,
+                                       const Cache <Graphnode, int> & word_cache,
                                        vector < GRBVar > & word_used_vars,
                                        vector < vector < vector < GRBVar > > > & word_tri_vars,
                                        LatticeVars & lv,
@@ -704,7 +704,7 @@ void LPBuilder::solve_hypergraph(const Cache<Hyperedge, double> & _weights) {
 
 }
 
-/*void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights, const ForestLattice & _lattice, Ngram &lm, const Cache <LatNode, int> & word_cache) {  
+/*void LPBuilder::solve_full(const Cache<ForestEdge, double> & _weights, const ForestLattice & _lattice, Ngram &lm, const Cache <Graphnode, int> & word_cache) {  
   GRBEnv env = GRBEnv();
   GRBModel model = GRBModel(env);
   //vector <GRBVar> node_vars(_forest.num_nodes());
@@ -717,7 +717,7 @@ void LPBuilder::solve_hypergraph(const Cache<Hyperedge, double> & _weights) {
 
 void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weights, 
                            Ngram &lm, 
-                           const Cache <LatNode, int> & word_cache) {  
+                           const Cache <Graphnode, int> & word_cache) {  
   GraphDecompose gd;
   LatticeVars lv("Bi"),lv2("Tri");
 
@@ -872,15 +872,15 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
 
 
 
-const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngram & lm) {
-  Cache <LatNode, int> *  _cached_words = new Cache <LatNode, int> (_lattice.num_word_nodes);
+const Cache <Graphnode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngram & lm) {
+  Cache <Graphnode, int> *  _cached_words = new Cache <Graphnode, int> (_lattice.num_word_nodes);
   int max = lm.vocab.numWords();
   int unk = lm.vocab.getIndex(Vocab_Unknown);
   //assert(false);
   for (int n=0; n < _lattice.num_word_nodes; n++ ) {
     if (!_lattice.is_word(n)) continue;
     
-    //const LatNode & node = _lattice.node(n); 
+    //const Graphnode & node = _lattice.node(n); 
     //assert (node.id() == n);
     string str = _lattice.get_word(n);
     int ind = lm.vocab.getIndex(str.c_str());
@@ -951,7 +951,7 @@ const Cache <LatNode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngr
 //       LPBuilder lp(f, graph);
       
 
-//       const Cache <LatNode, int> * word_cache = sync_lattice_lm(graph, *lm); 
+//       const Cache <Graphnode, int> * word_cache = sync_lattice_lm(graph, *lm); 
       
 
 //       Cache<ForestEdge, double> * w = cache_edge_weights(f, *weight);

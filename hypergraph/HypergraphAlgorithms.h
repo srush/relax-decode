@@ -13,6 +13,8 @@ typedef Cache <Hyperedge, double> EdgeCache;
 typedef Cache <Hypernode, double> NodeCache;
 typedef Cache <Hypernode, const Hyperedge *> NodeBackCache;
 
+
+
 class HypergraphAlgorithms {
  public:
  HypergraphAlgorithms(const HGraph & hypergraph): _forest(hypergraph) {}
@@ -61,10 +63,22 @@ double best_path(const EdgeCache & edge_weights,
                  NodeCache & score_memo_table, 
                  NodeBackCache & back_memo_table) const;
 
+
+double best_outside_path(const EdgeCache & edge_weights, 
+                         const NodeCache & score_memo_table, 
+                         NodeCache & outside_score_table) const;
+
+
 /** Topologically sort the given hypergraph (immutable) 
  *  @return The ids of the hypergraph in topological order
  */
  HNodes topological_sort() const;
+
+HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
+                                    const NodeCache & score_memo_table, 
+                                    const NodeCache & outside_memo_table,
+                                    double cutoff);
+
  private:
  const HGraph & _forest;
 

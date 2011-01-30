@@ -8,7 +8,7 @@ class ConllWord:
 
   @staticmethod
   def root():
-    return ConllWord(0, 'ROOT', 'ROOT', 0, "_")
+    return ConllWord(0, '*ROOT*', '*ROOT*', 0, "_")
     
   def __repr__(self):
     return " ".join(map(str, (self.word, self.pos)))
@@ -25,6 +25,9 @@ class ConllSent:
     
   def enum_words(self):
     return enumerate(self.words)
+
+  def __iter__(self):
+    return self.words.__iter__()
 
   def __repr__(self):
     
@@ -53,7 +56,7 @@ def parse_conll_file(handle):
     words = []
     for l in c:
       
-      num, word, _, pos, _, _, head, label =  l.split("\t")
+      num, word, _, pos, _, _, head, label =  l.split("\t", 7)
       word = ConllWord(int(num), word, pos, int(head), label)
       words.append(word)
     yield ConllSent(words)

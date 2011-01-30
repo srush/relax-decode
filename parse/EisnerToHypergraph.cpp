@@ -62,10 +62,10 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           Hypergraph_Edge & pedge =finalize_edge(node, edge);
           
           Dep * my_dep =  pedge.MutableExtension(dep);                  
-          my_dep->set_head (i);
-          my_dep->set_mod( k);
+          my_dep->set_head(i);
+          my_dep->set_mod(k);
           pedge.SetExtension(has_dep, true);                  
-
+          cout << "RL:" << i << " " << k << " " << pedge.id() << endl;
         }
         // right triangle + left triangle [Creates dep]
         if (j+1 <= k)
@@ -92,10 +92,11 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
         
           Hypergraph_Edge & pedge = finalize_edge(node, edge);
           Dep * my_dep =  pedge.MutableExtension(dep);                  
-          my_dep->set_head (k);
-          my_dep->set_mod( i);
-          
+          my_dep->set_head(k);
+          my_dep->set_mod(i);
           pedge.SetExtension(has_dep, true);
+          cout << "LR:" <<  k << " " << i << " " << pedge.id() << endl;
+          
         }
 
         // right trap + right triangle 

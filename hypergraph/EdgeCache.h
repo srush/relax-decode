@@ -22,7 +22,15 @@ class Cache {
   }
 
   const V & get(const C & edge ) const { 
-    return get(edge);
+    int id = edge.id();
+    assert (has_value[id]);
+    return store[id];
+  }
+
+   V & get_no_check(const C & edge ) { 
+    int id = edge.id();
+    has_value[id] = true;
+    return store[id];
   }
 
   V & get(const C & edge ) { 
