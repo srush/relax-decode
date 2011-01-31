@@ -46,7 +46,7 @@ int main(int argc, char ** argv) {
     //cout << "START!!!!" << endl;
     Decode * d = new Decode(f, graph, *weight, *lm);
     cout << i << " ";
-    Subgradient * s = new Subgradient(d);
+    Subgradient * s = new Subgradient(*d);
     s->solve(i);
   }
   google::protobuf::ShutdownProtobufLibrary();

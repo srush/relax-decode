@@ -591,7 +591,7 @@ void Subproblem::solve_proj(int d2, int d3,
   if (TIMING) {
 
     end=clock();
-    cout << "Precompute time: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "Precompute time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   // actual algorithm
     begin=clock();
   }
@@ -861,7 +861,7 @@ void Subproblem::solve_proj(int d2, int d3,
   
   if (TIMING) {
     clock_t end=clock();
-    cout << "TRIGRAM TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "TRIGRAM TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     cout << "Lookups: " << lookups << endl;
     cout << "Zeroes: " << zeros << endl;
   }

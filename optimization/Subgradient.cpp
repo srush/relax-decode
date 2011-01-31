@@ -4,17 +4,18 @@
 #include <iostream>
 #include <iomanip>
 #include <time.h>
-#include "util.h"
+#include "../common.h"
 #define INF 1e8
 #define TIMING 0
 using namespace std;
+
 void Subgradient::solve(int example) {
   clock_t start=clock();
   clock_t s=clock();
   while(run_one_round() && _round < 200) {
     _round++;
     if (TIMING) {
-      cout << "ITER TIME "<< double(diffclock(clock(),s)) << endl;
+      cout << "ITER TIME "<< double(Clock::diffclock(clock(),s)) << endl;
       s=clock();
     }
     //clock_t e=clock();
@@ -35,7 +36,7 @@ void Subgradient::solve(int example) {
   }
 
  cout << "*END*  "<< example << " " << _best_primal << " " << _best_dual << " " << _first_stuck_iteration << " " << _best_primal_iteration << " " << _round << " " 
-       << double(diffclock(end,start)) << endl ;
+      << double(Clock::diffclock(end,start)) << endl ;
 }
 
 
@@ -45,12 +46,12 @@ bool Subgradient::run_one_round() {
   //cout << endl;
   clock_t start=clock();
   bool bump =false; 
-  _s->solve(primal, dual, subgrad, _round, _is_stuck, bump);
+  _s.solve(primal, dual, subgrad, _round, _is_stuck, bump);
 
   clock_t end;
   if (TIMING) {
       end=clock();
-      cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+      cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
   }
 
   
@@ -159,9 +160,9 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
 
 
   clock_t start=clock();
-  _s->update_weights(updates, &_weights);
+  _s.update_weights(updates, &_weights);
   if (TIMING) {
     clock_t end=clock();
-    cout << "JUST UPDATE "<< double(diffclock(end,start)) << endl;
+    cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
   }
 }

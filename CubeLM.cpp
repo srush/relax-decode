@@ -17,7 +17,7 @@
 #include <iomanip>
 #include <sstream>
 #include <time.h>
-#include "util.h"
+#include "common.h"
 using namespace std;
 
 Cache <Hypernode, int > * cache_word_nodes(Ngram lm, const Forest & forest) {
@@ -86,7 +86,7 @@ int main(int argc, char ** argv) {
       cout <<((ForestNode *) &f.get_node(s))->word() << " ";
     }
     cout << endl;
-    cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)diffclock(end,begin) << endl;
+    cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)Clock::diffclock(end,begin) << endl;
     
   }
   return 0;

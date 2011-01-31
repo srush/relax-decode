@@ -1,0 +1,10 @@
+Import('env')
+
+
+sources = ["Subgradient.cpp", "DualDecomposition.cpp"]
+
+lib = env.Library('optimization', sources)
+
+#env.Program('test', ["Test.cpp", hyp_lib])
+
+Return('lib')

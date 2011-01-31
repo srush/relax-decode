@@ -68,7 +68,7 @@ void BigramRescore::update_weights(vector <int>  u_pos, vector <float> u_values,
   recompute_bigram_weights(false);
   if (TIMING) {
     clock_t end=clock();
-    cout << "RECOMPUTE: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "RECOMPUTE: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
 }
 
@@ -263,7 +263,7 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
   clock_t end;
   if (TIMING) {
     end=clock();
-    cout << "Dirty: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "Dirty: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   
     begin = clock();
   }
@@ -288,7 +288,7 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
   if (TIMING) {
     cout << "COUNT " << count << " " << recomputed << " " << score_changed << endl;
     end=clock();
-    cout << "FIND Shortest: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "FIND Shortest: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
 }
 

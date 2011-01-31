@@ -15,9 +15,9 @@ else:
                      CCFLAGS = '-O3  -DNDEBUG',
                      LINKFLAGS = '-O3  -DNDEBUG')
 
-sources = ("dual_subproblem.cpp", "util.cpp", "Subgradient.cpp", "Decode.cpp", "NGramCache.cpp")
+sources = ("dual_subproblem.cpp", "Decode.cpp", "NGramCache.cpp")
 
-sub_dirs = ['graph', 'hypergraph', 'lattice', 'transforest', 'parse', 'tagger']
+sub_dirs = ['graph', 'hypergraph', 'lattice', 'transforest', 'parse', 'tagger', 'optimization']
 
 libs = ('graph', "hypergraph", "lattice", "parse", "protobuf", "oolm", "misc", 
         "dstruct", "pthread", "boost_program_options")
@@ -31,12 +31,12 @@ if build_config['has_gurobi']:
    include_path += (build_config['gurobi_path'],)
    sub_dirs += ['lp']
 
-env.Append(LIBPATH =('.',build_config['sri_lib'], '#/graph', '#/hypergraph', '#/lattice', '#/transforest', '#/parse', '#/tagger') +
+env.Append(LIBPATH =('.',build_config['sri_lib'], '#/graph', '#/hypergraph', '#/lattice', '#/transforest', '#/parse', '#/tagger', '#/optimization') +
            lib_path 
            )
 print lib_path
 
-env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/graph', '#/lp','#hypergraph', '#lattice', '#transforest', '#/parse', '#/tagger', 
+env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/graph', '#/lp','#hypergraph', '#lattice', '#transforest', '#/parse', '#/tagger', '#/optimization',
                        build_config['sri_path'], 
                        build_config['lattice_proto_path'], 
                        build_config['forest_proto_path']) + include_path )

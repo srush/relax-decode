@@ -296,7 +296,7 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
   _subproblem->update_weights(u_pos2, u_val2, false);
   if (TIMING) {
     end=clock();
-    cout << "UPDATE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "UPDATE TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
   _lagrange_weights = weights;
   
@@ -610,7 +610,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   if (TIMING) {
     end=clock();      
-    cout << "SOLVE TIME: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "SOLVE TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
 
 
@@ -651,7 +651,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
   if (TIMING) {
     end=clock();      
-    cout << "PENALTY CACHE: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "PENALTY CACHE: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     
     begin=clock();  
   }
@@ -663,7 +663,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   if (TIMING) {
     end=clock();      
-    cout << "COMBINE: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "COMBINE: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
   //double simple = best_path(_forest, *_cached_weights, scores2, back_pointers2);
   
@@ -689,7 +689,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
     
     if (TIMING) { 
       end=clock();  
-      cout << "INSIDE time: " << double(diffclock(end,begin)) << " ms"<< endl;
+      cout << "INSIDE time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
       begin = clock();
     }
 
@@ -697,7 +697,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
     if (TIMING) {
       end=clock();  
-      cout << "OUTSIDE time: " << double(diffclock(end,begin)) << " ms"<< endl;
+      cout << "OUTSIDE time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
       begin = clock();
     }
 
@@ -741,7 +741,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   //cout << endl;
   if (TIMING) {
     end=clock();  
-    cout << "Parse time: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "Parse time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
   //assert abs(best -best_fv.dot(cur_weights)) < 1e-4, str(best) + " " + str(best_fv.dot(cur_weights))
   //lagrangians_parse = 0.0
@@ -1040,7 +1040,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   if (TIMING) {
    end=clock();
-   cout << "Construct lagrangian: " << double(diffclock(end,begin)) << " ms"<< endl;
+   cout << "Construct lagrangian: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
 
   //primal = 0.0;//self.compute_primal(best_fv, subtree)    
@@ -1050,7 +1050,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   if (TIMING) {
     end=clock();
-    cout << "COMPUTE PRIMA: " << double(diffclock(end,begin)) << " ms"<< endl;
+    cout << "COMPUTE PRIMA: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
   }
 
   /*for (int i=0; i < used_words.size(); i++ ) {

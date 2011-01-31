@@ -8,16 +8,25 @@ using namespace std;
 
 typedef svector<int, double> wvector;
 
+
 class SubgradientProducer {
  public:
-  virtual void  solve(double & primal, double & dual, wvector &, int, bool, bool &) =0;
-  virtual void update_weights(const wvector & updates,  wvector * weights )=0;
+  virtual void  solve(double & primal, double & dual, wvector &, 
+                      int, bool, bool &) =0;
+  virtual void update_weights(const wvector & updates,  
+                              wvector * weights )=0;
 };
 
 class Subgradient {
 
  public:
- Subgradient(SubgradientProducer * s): _s(s){
+
+  /** 
+   * 
+   * 
+   * @param subgrad_producer Gives the subgradient at the current position 
+   */
+ Subgradient(SubgradientProducer & subgrad_producer): _s(subgrad_producer){
     _best_dual = -1e20;
     _best_primal = 1e20;
     _round = 1;
@@ -27,14 +36,25 @@ class Subgradient {
     _aggressive = false;
   } ;
 
-  void solve(int example);
-  bool run_one_round();  
 
+
+  void solve(int example);
+
+
+  /** 
+   * As the optimization probably reached a  fixed point
+   * 
+   * @return true when stuck 
+   */
   bool is_stuck() const {
     return _is_stuck;
   }
+
  private:
-  SubgradientProducer * _s;
+  bool run_one_round();  
+
+  
+  SubgradientProducer & _s;
 
   double _best_dual, _best_primal;
   
