@@ -40,7 +40,7 @@ class HypergraphLPBuilder {
     //for(int i =0; i < _forest.num_nodes(); i++) {
     foreach(HNode node, h.nodes()) {
       stringstream buf;
-      buf << prefix << "_node_" << node->id();
+      //buf << prefix << "_node_" << node->id() << "_"<< node->label();
       hypergraph_vars->node_vars.set_value(*node, model.addVar(0.0, 1.0, 0.0 /*Obj*/, 
                                                                var_type /*cont*/,  
                                                                buf.str()/*names*/));
@@ -48,7 +48,7 @@ class HypergraphLPBuilder {
 
     foreach (HEdge edge, h.edges()) {
       stringstream buf;
-      buf << prefix << "_edge_" << edge->id();
+      buf << prefix << "_edge_" << edge->id() << "_"<<edge->label();
       
       //assert (_weights.has_value(edge)); 
       hypergraph_vars->edge_vars.set_value(*edge, model.addVar(0.0, 1.0, 

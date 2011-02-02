@@ -1,8 +1,11 @@
 import os
+from formatting import *
+
+root = os.environ["SCARAB_ROOT"]
 
 
 def viterbi(source, target, env, for_signature=False):
-     return '../run_tagger ../parse/config.ini %s 0 62| tee %s' % (source[0], target[0]) 
+     return env.subst('$SCARAB_ROOT/run_tagger $SCARAB_ROOT/parse/config.ini %s 0 62| tee %s' % (source[0], target[0]))
      
 
 viterbi_bld = Builder(generator = viterbi,
@@ -43,29 +46,39 @@ full_lp_bld = Builder(generator =full_lp,
                       suffix= '.ctagging')
 
 
-builders = {"Viterbi": viterbi_bld,       
-          "FullLP": full_lp_bld,
-            "ToTag": ctag_bld,
-            "CRFTagger": crf_bld,
-            "CreateHypergraph": hypergraph_bld,
-            "Eval": eval_bld
-            }
+
+
+builders = {
+     "Viterbi": viterbi_bld,       
+     "FullLP": full_lp_bld,
+     "ToTag": ctag_bld,
+     "CRFTagger": crf_bld,
+     "CreateHypergraph": hypergraph_bld,
+     "Eval": eval_bld,
+     "Flatten":Builder(action =SimpleToFlat(), 
+                       suffix= '.flattagging',
+                       src_suffix='.tagging')
+     
+     }
 
 
 
 env = Environment(ENV=os.environ)
 env.Append(BUILDERS= builders)
+root = os.environ["SCARAB_ROOT"]
+env.Append(SCARAB_ROOT = root)
+print env.subst("$SCARAB_ROOT")
 
 env.Viterbi( "results/brown", "../data_management/pos/brown_lattice")
 env.ToTag( "results/brown", ("results/brown.ctagging", "../parse/data/brown_simple_1"))
 env.ToTag( "results/brown_lp", ("results/brown_lp.ctagging", "../parse/data/brown_simple_1"))
 
 
-env.CRFTagger( "/tmp/brown_tag", 
-               ("../parse/data/brown_simple_1"))
+env.CRFTagger( "/home/srush/tmp/brown_tag", 
+               "../parse/data/brown_simple_1")
 
 env.CreateHypergraph( "../data_management/pos/brown_lattice", 
-                     ("/tmp/brown_tag.crf"))
+                     ("/home/srush/tmp/brown_tag.crf"))
 
 env.Eval( "results/basic", 
           ("results/brown.tagging", "../parse/data/brown_gold_simple_1"))
@@ -75,3 +88,11 @@ env.Eval( "results/lp",
 
 env.FullLP( "results/brown_lp", 
             ("../data_management/pos/brown_lattice", "../parse/data/brown_constraints"))
+
+
+env.Flatten( "results/brown_lp", 
+             "results/brown_lp")
+
+env.Flatten( "results/brown", 
+             "results/brown")
+             

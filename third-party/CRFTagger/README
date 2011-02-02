@@ -1,0 +1,68 @@
+Directory structure:
+====================
+
+    model		containing POS tagging model trained on Penn Treebank
+    samples		containing sample input data files
+    src			containing source code files
+    Makefile		make file
+    crftagger.jar	binary libarary (output of compiling process)
+    README		this one
+
+
+How to compile:
+===============
+
+    make clean
+    make all
+    
+
+How to test:
+============
+
+    make test
+    
+    after testing, go to samples directory to see the outputs
+    
+
+How to use CRFTagger:
+=====================
+
+    command line:
+    
+    case 1:
+	
+	java -mx512MB -classpath <CLASSPATH> crf.tagger.CRFTagger -modeldir <MODELDIR> -inputfile <INPUTFILE>
+	
+    case 2:
+    
+	java -mx512MB -classpath <CLASSPATH> crf.tagger.CRFTagger -modeldir <MODELDIR> -inputdir <INPUTDIR>
+	
+    where:
+	
+	-mx512MB: to extend heap memory for JVM
+	
+	<CLASSPATH> is the path to the "crftagger.jar" file. For instance, if we are currently at the home 
+	directory of CRFTagger, the <CLASSPATH> is "./crftagger.jar"
+	
+	<MODELDIR> is the path to the trained model. For instance, if we are currently at the home directory
+	of CRFTagger, the <MODELDIR> is "./model"
+	
+	<INPUTFILE> is the input data file with the format as follows:
+	    - plain text file
+	    - one sentence on each line
+	    
+	<INPUTDIR> is the directory contain multiple input data files. This option is useful when we 
+	need to tag a lot of documents without loading the model multiple times. This helps reduce 
+	computational time dramatically.
+	
+
+    example:
+    
+	if we are currently at the top (home) directory of CRFTagger and we would like to tag an input
+	data file named "input.txt" which is also located at the top directory of CRFTagger, we perform:
+	
+	java -mx512MB -classpath ./crftagger.jar crf.tagger.CRFTagger -modeldir ./model -inputfile ./input.txt
+	
+	the output will be "input.txt.pos"
+	
+	

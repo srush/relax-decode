@@ -31,9 +31,12 @@ class SimpleSent:
 def parse_simple_file(handle, divider=None):
   for c in handle:
     words = []
+
     for l in c.strip().split():
-      if divider <> None:
-        word, pos =  l.split(divider)
+      if divider <> None:        
+        t = l.split(divider)
+
+        word, pos =  divider.join(t[0:-1]), t[-1]
       else: 
         word = l
         pos = None

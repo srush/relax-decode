@@ -1,0 +1,1 @@
+java -classpath ".:lib/trove.jar" -Xmx1800m mstparser.DependencyParser   test  model-name:dep.model      test test-file:data/english_test.conll
