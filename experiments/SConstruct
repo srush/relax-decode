@@ -1,0 +1,77 @@
+import os
+
+
+def viterbi(source, target, env, for_signature=False):
+     return '../run_tagger ../parse/config.ini %s 0 62| tee %s' % (source[0], target[0]) 
+     
+
+viterbi_bld = Builder(generator = viterbi,
+                      suffix='.ctagging'
+                      )
+
+def ctag_convert(source, target, env, for_signature=False):
+     return 'grep SENT %s | python ../data_management/map/unmap_pos.py %s ../data_management/map/POS.map > %s' % (source[0], source[1],  target[0]) 
+
+
+ctag_bld = Builder(generator = ctag_convert,
+                   suffix='.tagging'
+                      )
+
+def crf_run(source, target, env, for_signature=False):
+     return 'java -Xmx1g -cp ../../CRFTagger/crftagger.jar crf.tagger.CRFTagger -modeldir ../../CRFTagger/model -inputfile %s  -knownwords ../parse/data/unknown_word_list > %s' % (source[0], target[0])
+
+crf_bld = Builder(generator = crf_run,
+                  suffix='.crf')
+
+
+def hypergraph_run(source, target, env, for_signature=False):
+     return 'grep LATTICE %s | python ../data_management/convert_pos.py %s' % ( source[0], target[0])
+
+hypergraph_bld = Builder(generator = hypergraph_run)
+
+def eval_run(source, target, env, for_signature=False):
+     return "python ../data_management/eval/pos_accuracy.py %s %s > %s"%(source[0], source[1], target[0])
+
+eval_bld = Builder(generator = eval_run,
+                   suffix='.eval')
+
+def full_lp(source, target, env, for_signature=False):
+     return '../run_full_tagger ../parse/config.ini %s 0 62 %s | tee %s' % (source[0], source[1], target[0]) 
+
+
+full_lp_bld = Builder(generator =full_lp, 
+                      suffix= '.ctagging')
+
+
+builders = {"Viterbi": viterbi_bld,       
+          "FullLP": full_lp_bld,
+            "ToTag": ctag_bld,
+            "CRFTagger": crf_bld,
+            "CreateHypergraph": hypergraph_bld,
+            "Eval": eval_bld
+            }
+
+
+
+env = Environment(ENV=os.environ)
+env.Append(BUILDERS= builders)
+
+env.Viterbi( "results/brown", "../data_management/pos/brown_lattice")
+env.ToTag( "results/brown", ("results/brown.ctagging", "../parse/data/brown_simple_1"))
+env.ToTag( "results/brown_lp", ("results/brown_lp.ctagging", "../parse/data/brown_simple_1"))
+
+
+env.CRFTagger( "/tmp/brown_tag", 
+               ("../parse/data/brown_simple_1"))
+
+env.CreateHypergraph( "../data_management/pos/brown_lattice", 
+                     ("/tmp/brown_tag.crf"))
+
+env.Eval( "results/basic", 
+          ("results/brown.tagging", "../parse/data/brown_gold_simple_1"))
+
+env.Eval( "results/lp", 
+          ("results/brown_lp.tagging", "../parse/data/brown_gold_simple_1"))
+
+env.FullLP( "results/brown_lp", 
+            ("../data_management/pos/brown_lattice", "../parse/data/brown_constraints"))
