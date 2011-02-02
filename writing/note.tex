@@ -1,0 +1,126 @@
+
+\documentclass{article}
+
+\title{Note on LP Relaxation \\ for Corpus-Level Decoding}
+\begin{document}
+\maketitle{}
+\section{Objective}
+
+This note describes our project on corpus-level decoding. We define
+this problem by giving it as a class of objectives. First define,
+
+
+\begin{tabular}{l|l}
+$x$ & sentence \\
+$y$ & structures \\
+$X$ & corpus (set of sentences) \\
+$Y$ & set of all structures \\
+\end{tabular}\\
+
+
+The standard decoding process is to solve, 
+
+$$\hbox{forall}\; i, \hat{y}_i = \arg\max_{y_i} f_{sent}(y_i, x_i) $$
+
+In corpus-level decoding our objective takes the form -
+
+$$\arg\max_{Y} f_{corpus}(Y, X)$$
+
+In this note we are interested in the special case of $f_{corpus}$ that
+factors as,
+
+$$f_{corpus}(X, Y) = \sum_i f_{sent}(y_i, x_i) + g_{corpus}(X, Y)$$
+
+where $f_{sent}$ is a standard decoding objective and $g_{corpus}$ is
+a set of inter-sentential (soft) constraints. 
+
+
+\section{Applications}
+
+\subsection{Dependency parsing with small training set}
+
+In our first application, we have a small training set and a large test
+set. We hope to improve parsing performance by enforcing consistency
+within the test set in addition to the standard parsing objective. 
+
+We have a function $f_{sent}$ (which in our case is a linear model learned in the standard
+way (McDonald parser)), which is trained on a small training
+set. We also have a large test set that we want to parse. We can
+construct a function $f_{corpus}$ that combines $f_{sent}$ with other
+linguistically motivated constraints that enforce consistency between
+parses of different sentences. 
+
+\subsection{Domain adaptation for tagging unknown words}
+
+In this application, Y is the set of POS taggings for all sentences in
+an out-of-domain test set. Our function $f_{sent}$ is a standard POS
+tagger (trained on WSJ). The corpus-level objective $f_{corpus}$
+enforces that unknown words in the test set take the same POS tag, and
+penalize unknown words that deviate from this tag.
+
+\section{Algorithm}
+
+We solve this form of problem in our standard way. 
+
+\begin{enumerate}
+\item \textbf{Brute-force ILP approach}  In this general form, pretty
+much any form  $g_{corpus}$ can be directly encoded in an ILP. We currently 
+have ILPs written for both POS tagging and dependency parsing on a corpus level.
+
+\item \textbf{ Direct LP Relaxation} We can solve the relaxed form of the objective using
+an LP solver. Then do a single final pass over the corpus to project each sentence it to a valid
+member of Y.
+ 
+\item \textbf{Dual decomposition} If we choose $g_{corpus}$ to be efficiently
+solvable, we can maximize $f_{corpus}$ using dual decomposition. Our current plan is to express
+$g_{corpus}$ as an MRF, and then use Amir's MPLP message passing algorithm
+as an inference procedure, or if sub-modularity holds then 
+use graph cuts. 
+
+\item \textbf{More advanced relaxations} This problem has potential for some more
+interesting relaxation techniques. We may be able to divide the corpus
+into clusters which share certain constraints, then do some optimizations (still thinking about this part).
+
+\end{enumerate}
+
+\section{Constraints}
+
+More specifically, for the parsing application we are currently considering constraints
+of the following form. 
+
+A sentence is a sequence of words
+
+$$w_1, ..., w_n$$
+
+with pos tags, 
+
+$$p_1, ... , p_n$$
+
+Let c be the context of a tag $w_{i}$, given as 
+
+$$c(w_i) = (p_{i-1}, p_{i}, p_{i+1}) $$
+
+Our empirical observation is that identical contexts often have head
+words with the same part of speech tag. We can enforce this as a hard
+linear constraint-
+
+\begin{eqnarray*}
+\hbox{forall}\; w_i, w_j, \hbox{such that}\; c(w_i) = c(w_j), \\
+head\_pos(c(w_i)) = head\_pos(c(w_j)) 
+\end{eqnarray*}
+
+Alternatively we can add a slack variable $s$ and treat this as a soft constraint by associating a penalty with $s$.
+
+\begin{eqnarray*}
+\hbox{forall}\;  w_i, w_j, \hbox{such that}\; c(w_i) = c(w_j) \\
+head\_pos(c(w_i)) = head\_pos(c(w_j)) - s
+\end{eqnarray*}
+
+
+It is currently open how to weight the
+penalty associated with $s$. As a first pass, we derive these penalties by
+looking at the distibution of head pos for each context in the
+training data. If this distibution is more concentrated around a single
+head pos, we give it a stronger penalty.
+
+\end{document}
