@@ -1,0 +1,8 @@
+Import('env')
+
+
+sources = ["PhraseBased.cpp"]
+
+hyp_lib = env.Library('phrasebased', sources)
+
+Return('hyp_lib')
