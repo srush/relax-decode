@@ -26,6 +26,9 @@ int main(int argc, char ** argv) {
   vector <Hypergraph_Node *> nodes(10);
   int cur_edge_id = 0;
   fstream in(argv[2], ios::in | ios::binary);
+  Hypergraph_Node * node;
+  Hypergraph_Edge * edge;
+
   while (in) {
     string blank;
     string t1;
@@ -53,7 +56,7 @@ int main(int argc, char ** argv) {
       string label;
       
       in >> label >> to_id >> from_id >> cost;
-      Hypergraph_Edge * edge = nodes[from_id]->add_edge();
+      edge = nodes[from_id]->add_edge();
       stringstream fv;
       fv << "value=" << cost;
       edge->SetExtension(edge_fv,  fv.str());
@@ -64,7 +67,7 @@ int main(int argc, char ** argv) {
       cur_edge_id += 1;
 
     } else if (t1 == "NODE") {
-      Hypergraph_Node * node = h->add_node();
+      node = h->add_node();
       int t2;
       string t3;
       in >> t2 >> t3;
@@ -74,7 +77,7 @@ int main(int argc, char ** argv) {
       if (nodes.size()<=node->id()) { 
         nodes.resize(node->id());
       }
-      nodes[node->id()] = node;
+      nodes[t2] = node;
       last_node = node->id();
     }
   }
