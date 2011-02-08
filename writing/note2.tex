@@ -1,0 +1,129 @@
+\documentclass{article}
+
+\newcommand{\thetal}{\theta_{local}}
+\newcommand{\thetag}{\theta_{global}}
+
+\title{Preliminary Results for POS Tagging}
+
+\begin{document}
+
+\maketitle{}
+\section{Overview}
+
+This note describes preliminary experiments for POS tagging with corpus-level constraints. The goal is to take a state-of-the-art POS tagger and augment it to include constraints that enforce consistency within the test corpus. The constraints integrate global information from the test data while the tagger provides local consistency. The challenge is to balance these two forms of information to improve tagging performance.
+
+
+\section{Description}
+
+We formulate this problem as an integer linear program. :
+
+
+Let $\nu$ be a set of binary vectors $\nu_s$, one for each sentence in the test corpus. Each $\nu_s$ is represents a trigram tagging of sentence $s$, defined identically to Rush(2010). Let $\thetal$ be the parameters for the tagger.  
+
+Next define $\mu$ to be a binary vector indexed by word types and part-of-speech tags. Informally the variable $\mu(ty,p) = 1$ if tag $p$ is the most frequent tag selected for type $ty$ in the test corpus. We enforce this property by introducing slack variables $\sigma$ that penalize each word token whose tags for deviates from the most frequent tag selected for its type. These penalities are defined by $\thetag$. 
+
+
+$$ \max_{\nu, \mu, \sigma} \sum_s  \theta_{local} \cdot \nu_s + \theta_{global} \cdot \sigma $$
+
+$
+\begin{array}{lll}
+  \nu_s \hbox{ is a valid tagging of sentence  $s$ } \\[0.2cm] 
+  \forall \hbox{ type } ty,  \hbox{token } t_{s,i} \hbox{ with type ty}, \hbox{ tag } p,&  
+   \nu_s(i, p) = \mu(ty, p)  - \sigma_s^+(i, p) + \sigma_s^-(i, p)
+  \\[0.2cm]
+\forall \hbox{ sent } s, \hbox{ index } i,  \hbox{ tag }p&  \nu_s(i, p)  \in \{0,1\}  \\[0.2cm]
+\forall \hbox{ type } ty, \hbox{ index } i,  \hbox{ tag }p&  \mu(ty, p)  \in \{0,1\}  \\[0.2cm]
+\forall \hbox{ sent } s, \hbox{ index } i, \hbox{ tag } p&  \sigma_s^-(i,p) \in \{0,1\}   \\[0.2cm]
+\forall \hbox{ sent } s, \hbox{ index } i, \hbox{ tag } p&  \sigma_s^+(i,p) \in \{0,1\}   \\[0.2cm]
+
+
+\end{array}
+$
+
+
+\section{Parameters}
+
+In practice, we use an independently trained CRF POS tagger for $\thetal$. 
+
+%We weight $\thetag$ based on counts of the type from the training and test set. 
+
+
+
+Our intuition behind $\thetag$ is a follows. We have two sources of prior information about the tagging of the test corpus: the model learned from the training (captured by $\thetal$) and a prior knowledge that POS tags have strong type level consistency within a domain. The vector $\thetag$ encodes our confidence in these two sources of information. The penalty for violating the consistency constraints is proportional to the ratio of the number of occurences of the type in training and test data. 
+
+We expect that this constraint will be most useful for words that appear a small number of times in the training data; however, it may also help with other words that appear often in the test data. 
+
+
+\section{Inference}
+
+We do inference on this model using a general (integer) linear programming solver as well as using dual decomposition. For both methods, we encode the POS tagger as a lattice. For tokens without constraints, we use beam search pruning to limit the search space, and for token with constraints, we keep the full lattice.
+
+For dual decomposition, the two models are a standard viterbi decoder and an MPLP constraint solver. Results for each sentence are cached in between rounds, which means that the entire corpus is only tagged on the first iteration. This method is significantly faster than the general purpose LP solver and also crucially uses much less memory since only a single lattice is required at one time. It also allows decoding to be parallelized.
+
+In experiments, the linear program has relatively few conflicting consistency constraints and is tight in practice.
+
+ 
+
+\section{Experiment}
+
+We trained the part-of-speech tagger on the WSJ portion of the Penn Treebank. Our final test plan is to do tagging on the GENIA corpus from the biological domain, which has a large number of unknown words. In order not to use test domain data, our dev set consists of the sections of the BROWN corpus. We use the English literature section, which consists of sentences that are significantly different from the WSJ corpus (although not as different as the GENIA text).
+
+The results and error analysis are from a small set of that we used to tune $\thetag$. This represents an optimistic tagging of a small set with relatively few number of unknown words.
+\vspace{0.5cm}
+
+
+\begin{center}
+\begin{tabular}{ll}
+  Model & Accuracy \\
+  \hline
+  $\thetal$ & 0.939 \\
+  $\thetal + \thetag $ &  0.943 \\
+\end{tabular}
+\end{center}
+
+
+
+We classify the errors into three classes, \texttt{CORRECTED}, \texttt{BROKEN}, and \texttt{HARD}. 
+
+\begin{itemize}
+\item \texttt{CORRECTED} represents words for which the constraints correct an error made by the CRF tagger.
+\item \texttt{BROKEN} represents words for which the constraints introduce an error not made by the CRF tagger
+\item \texttt{HARD} represents words that both models tag incorrectly. 
+\end{itemize}
+
+Additionally we partition the words into classes representing how often they appear in the training and test corpus. The first class is for words that appear in the training corpus $> 200$ times. The second class is for words that appear in test only once and are therefore not directly affected by our constraints.  
+
+\begin{center}
+  \begin{tabular}{|ccc|}
+    \hline
+
+    Train Class  & Test Class  & Class Size \\
+    \hline
+    \hline
+    & \texttt{CORRECTED}  &\\
+    0&0& 1 \\   
+    0& 1  &0 \\   
+    1& 0&  8   \\ 
+    1& 1&  0\\
+    \hline   
+    & \texttt{BROKEN} &\\
+    0& 0&  0   \\ 
+    0& 1&  0    \\
+    1& 0&  0 \\   
+    1& 1&  0\\
+    \hline   
+    &\texttt{HARD} &\\
+    0& 0&  46 \\  
+    0& 1&  6    \\
+    1& 0&  20   \\
+    1& 1&  40   \\
+    \hline 
+  \end{tabular}  
+\end{center}
+
+This chart show that  we fix 8 out of 14 errors of words that are rare in training but repeated in test. We also fix an additional rare, unknown word as a benefit of improved context. Of the remaining errors about half of unknown words that appear once in the test set, and the rest are common words that are difficult to tag.   
+
+
+
+
+\end{document}
