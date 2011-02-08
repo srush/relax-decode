@@ -75,7 +75,7 @@ if build_config['has_gurobi']:
 
 
 
-third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
+#third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
 
 
 

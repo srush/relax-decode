@@ -40,6 +40,10 @@ int main(int argc, char ** argv) {
     
     
     HEdges best_edges = ha.construct_best_edges(back_memo_table);
+
+    foreach (HNode node, best_nodes) {
+      cout << "Node " <<  node->id() << endl;
+    }
     
     cout << endl;
       cout << "Score is : " << -score << endl;

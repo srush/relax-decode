@@ -55,8 +55,9 @@ int main(int argc, char ** argv) {
       int to_id, from_id; // = int(t[4]);
       double cost;
       string label;
-      
-      in >> label >> to_id >> from_id >> cost;
+
+      in >> label >> from_id >> to_id >> cost;
+      //cout << "edge " <<label << " "  << from_id << " " << to_id << endl;      
       edge = nodes[from_id]->add_edge();
       stringstream fv;
       fv << "value=" << cost;
@@ -72,11 +73,11 @@ int main(int argc, char ** argv) {
       int t2;
       string t3;
       in >> t2 >> t3;
-      cout << "node " <<t2 << " "  << t3 << endl;
+      //cout << "node " <<t2 << " "  << t3 << endl;
       node->set_id(t2);
       node->set_label(t3);
       if (nodes.size()<=node->id()) { 
-        nodes.resize(node->id());
+        nodes.resize(node->id()+1);
       }
       nodes[t2] = node;
       last_node = node->id();
