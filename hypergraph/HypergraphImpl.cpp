@@ -1,7 +1,9 @@
 #include "HypergraphImpl.h"
 #include "hypergraph.pb.h"
 #include "features.pb.h"
-
+#include <google/protobuf/io/zero_copy_stream_impl.h>
+#include <google/protobuf/io/coded_stream.h>
+using namespace google::protobuf::io;
 
 namespace Scarab {
 namespace HG {
@@ -84,10 +86,17 @@ void HypergraphImpl::write_to_file(const char * file_name) {
 void HypergraphImpl::build_from_file(const char * file_name) { 
   hgraph = new ::Hypergraph();     
   {
+    //int fd = open(file_name, O_RDONLY);
     fstream input(file_name, ios::in | ios::binary);
-    if (!hgraph->ParseFromIstream(&input)) {
-      assert (false);
-    } 
+    google::protobuf::io::IstreamInputStream fs(&input);
+    
+    google::protobuf::io::CodedInputStream coded_fs(&fs);
+    coded_fs.SetTotalBytesLimit(500*1024*1024*1024, -1);
+    hgraph->ParseFromCodedStream(&coded_fs);
+   
+    //if (!hgraph->ParseFromIstream(&input)) {
+    //assert (false);
+    //} 
   }
 
   set_up(*hgraph);

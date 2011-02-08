@@ -13,7 +13,8 @@
 #include "features.pb.h"
 #include "tag.pb.h"
 #include "dep.pb.h" 
-
+#include <google/protobuf/io/coded_stream.h>
+using namespace google::protobuf::io;
 using namespace std;
 int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -28,7 +29,7 @@ int main(int argc, char ** argv) {
   fstream in(argv[2], ios::in | ios::binary);
   Hypergraph_Node * node;
   Hypergraph_Edge * edge;
-
+  //CodedOutputStream::SetTotalBytesLimit(5000000000, 5000000000);
   while (in) {
     string blank;
     string t1;

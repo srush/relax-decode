@@ -8,14 +8,15 @@
 
 #include "common.h"
 #include <boost/program_options.hpp>
-
+#include <google/protobuf/io/coded_stream.h>
+using namespace google::protobuf::io;
 using namespace std;
 using namespace Scarab::HG;
 
 int main(int argc, char ** argv) {
   
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-
+  
   wvector * weight = load_weights_from_file( argv[1]); //vm["weights"].as< string >().c_str());
   double total_score = 0.0;
   for (int i=atoi(argv[3]); i <= atoi(argv[4]); i++) {  
