@@ -25,6 +25,7 @@ int main(int argc, char ** argv) {
     fname << argv[2] << i;
     PhraseBased f;// = new DepParser();
     f.build_from_file(fname.str().c_str());
+    cout << "Read" << endl;
         
     HypergraphAlgorithms ha(f);
     EdgeCache * edge_weights = ha.cache_edge_weights(*weight);
