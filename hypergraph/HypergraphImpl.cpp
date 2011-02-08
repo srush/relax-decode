@@ -91,7 +91,7 @@ void HypergraphImpl::build_from_file(const char * file_name) {
     google::protobuf::io::IstreamInputStream fs(&input);
     
     google::protobuf::io::CodedInputStream coded_fs(&fs);
-    coded_fs.SetTotalBytesLimit(500*1024*1024, -1);
+    coded_fs.SetTotalBytesLimit(1000000000, -1);
     hgraph->ParseFromCodedStream(&coded_fs);
    
     //if (!hgraph->ParseFromIstream(&input)) {
