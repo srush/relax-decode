@@ -1,0 +1,10 @@
+Defines a protocol buffer specification for directed Hypergraphs structures. 
+
+
+To run example:
+
+> protoc --python_out gen_py translation.proto features.proto hypergraph.proto
+> cd example
+>  cat core.f.parse_10.tforest | python example_t2s_convertor.py
+
+

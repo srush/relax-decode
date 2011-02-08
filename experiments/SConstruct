@@ -1,64 +1,136 @@
 import os
 from formatting import *
+from experiment import *
 
 root = os.environ["SCARAB_ROOT"]
 
+def unknown_list(source, target, env, for_signature=False):
+     return "awk '{print $2}' %s | grep -v '^$' > %s" %(source[0], target[0])
+
+def train_unknown(source, target, env, for_signature=False):
+     return "python $SCARAB_PY/unknown_words.py $UNK_THRES %s < %s"%(target[0], source[0])
+
+def train_unknown_emit(source, target, env):
+     source.append('$SCARAB_PY/unknown_words.py')
+     return target, source
 
 def viterbi(source, target, env, for_signature=False):
-     return env.subst('$SCARAB_ROOT/run_tagger $SCARAB_ROOT/parse/config.ini %s 0 62| tee %s' % (source[0], target[0]))
+     return '$SCARAB_ROOT/run_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX| tee %s' \
+                           % (source[0], target[0])
+
+def viterbi_emit(source, target, env):
+     source.append('$SCARAB_PY/run_tagger')
+     return target, source
+
      
-
-viterbi_bld = Builder(generator = viterbi,
-                      suffix='.ctagging'
-                      )
-
 def ctag_convert(source, target, env, for_signature=False):
-     return 'grep SENT %s | python ../data_management/map/unmap_pos.py %s ../data_management/map/POS.map > %s' % (source[0], source[1],  target[0]) 
+     return 'grep SENT %s | python $SCARAB_PY/map/unmap_pos.py %s $SCARAB_PY/map/POS.map > %s' % (source[0], source[1],  target[0])
 
-
-ctag_bld = Builder(generator = ctag_convert,
-                   suffix='.tagging'
-                      )
 
 def crf_run(source, target, env, for_signature=False):
-     return 'java -Xmx1g -cp ../../CRFTagger/crftagger.jar crf.tagger.CRFTagger -modeldir ../../CRFTagger/model -inputfile %s  -knownwords ../parse/data/unknown_word_list > %s' % (source[0], target[0])
+     return 'java -Xmx1g -cp $SCARAB_ROOT/third-party/CRFTagger/crftagger.jar crf.tagger.CRFTagger -modeldir ../../CRFTagger/model -inputfile %s  -unknownwords %s > %s' % (source[0], source[1], target[0])
 
-crf_bld = Builder(generator = crf_run,
-                  suffix='.crf')
+
+def crf_run_emit(source, target, env):
+     source.append('$SCARAB_ROOT/third-party/CRFTagger/crftagger.jar')
+     return target, source
 
 
 def hypergraph_run(source, target, env, for_signature=False):
-     return 'grep LATTICE %s | python ../data_management/convert_pos.py %s' % ( source[0], target[0])
+     return 'grep LATTICE %s | python $SCARAB_PY/convert_pos.py %s' % ( source[0], target[0])
 
-hypergraph_bld = Builder(generator = hypergraph_run)
+def hypergraph_run_emit(source, target, env):
+     source.append('$SCARAB_PY/convert_pos.py')
+     return target, source
+
+
 
 def eval_run(source, target, env, for_signature=False):
-     return "python ../data_management/eval/pos_accuracy.py %s %s > %s"%(source[0], source[1], target[0])
+     return "python $SCARAB_PY/eval/pos_accuracy.py %s %s | tee %s"%(source[0], source[1], target[0])
 
-eval_bld = Builder(generator = eval_run,
-                   suffix='.eval')
+def eval_run_emit(source, target, env):
+     source.append('$SCARAB_PY/eval/pos_accuracy.py')
+     return target, source
 
 def full_lp(source, target, env, for_signature=False):
-     return '../run_full_tagger ../parse/config.ini %s 0 62 %s | tee %s' % (source[0], source[1], target[0]) 
+     return '$SCARAB_ROOT/run_full_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
+
+def full_lp_emit(source, target, env):
+     source.append('$SCARAB_ROOT/run_full_tagger')
+     return target, source
 
 
-full_lp_bld = Builder(generator =full_lp, 
-                      suffix= '.ctagging')
+def decomp(source, target, env, for_signature=False):
+     return '$SCARAB_ROOT/run_dual_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
 
 
+def decomp_emit(source, target, env):
+     source.append('$SCARAB_ROOT/run_dual_tagger')
+     return target, source
 
+def pos_cons_build(source, target, env, for_signature=False):
+     return 'python $SCARAB_PY/pos_constraints.py %s %s > %s' % (source[0], source[1], target[0]) 
+
+def pos_cons_emit(source, target, env):
+     source.append('$SCARAB_ROOT/pos_constraints.py')
+     return target, source
+
+
+def full_diff(source, target, env, for_signature=False):
+     return 'python triple_diff.py %s %s %s > %s' % (source[0], source[1], source[2], target[0]) 
+
+def error_analysis(source, target, env, for_signature=False):
+     return 'python $SCARAB_PY/error_analysis.py %s %s %s %s %s | tee %s' % tuple(source[:5] + [target[0]]) 
+
+def error_analysis_emit(source, target, env):
+     source.append('$SCARAB_PY/error_analysis.py')
+     return target, source
+     
 
 builders = {
-     "Viterbi": viterbi_bld,       
-     "FullLP": full_lp_bld,
-     "ToTag": ctag_bld,
-     "CRFTagger": crf_bld,
-     "CreateHypergraph": hypergraph_bld,
-     "Eval": eval_bld,
+     "Viterbi": Builder(generator = viterbi,
+                      suffix='.ctagging',
+                      emit = viterbi_emit
+                      ),
+
+     "FullLP": Builder(generator =full_lp, 
+                      suffix= '.ctagging',
+                       emit = full_lp_emit),
+
+     "DecompTag": Builder(generator =decomp, 
+                      suffix= '.ctagging',
+                          emit = decomp_emit),
+
+
+     "ToTag": Builder(generator = ctag_convert,
+                   suffix='.tagging'
+                      
+                      ),
+
+     "CRFTagger": Builder(generator = crf_run,
+                          suffix='.crf',
+                          emit = crf_run_emit),
+
+     "CreateHypergraph": Builder(generator = hypergraph_run,
+                                 emit = hypergraph_run_emit),
+
+     "Eval": Builder(generator = eval_run,
+                   suffix='.eval'),
+
      "Flatten":Builder(action =SimpleToFlat(), 
                        suffix= '.flattagging',
-                       src_suffix='.tagging')
+                       src_suffix='.tagging'),
      
+     "BuildConstraint": Builder(generator = pos_cons_build, suffix='.constraints'),
+
+     "UnknownList": Builder(generator = unknown_list, 
+                            src_suffix=".constraints", suffix='.unknown'),
+
+     "TrainUnknown": Builder(generator = train_unknown, suffix='.unkmap', emitter= train_unknown_emit),
+
+     "FullDiff": Builder(generator = full_diff, suffix='.tagdiff'),
+     
+     "ErrorAnalysis": Builder(generator = error_analysis, suffix='.taganal', emitter=error_analysis_emit)
      }
 
 
@@ -66,33 +138,159 @@ builders = {
 env = Environment(ENV=os.environ)
 env.Append(BUILDERS= builders)
 root = os.environ["SCARAB_ROOT"]
+
 env.Append(SCARAB_ROOT = root)
-print env.subst("$SCARAB_ROOT")
+env.Append(SCARAB_PY = root + "/data_management/")
+env.Append(SCARAB_RESULTS = root + "/experiments/results/")
+env.Append(SCARAB_DATA = root + "/parse/data/")
+env.Append(SCARAB_TMP = root + "/tmp/")
 
-env.Viterbi( "results/brown", "../data_management/pos/brown_lattice")
-env.ToTag( "results/brown", ("results/brown.ctagging", "../parse/data/brown_simple_1"))
-env.ToTag( "results/brown_lp", ("results/brown_lp.ctagging", "../parse/data/brown_simple_1"))
+def register_experiment(env, exp):
+
+     unk_map = env.TrainUnknown(exp.unknown_words(), exp.train_file(), UNK_THRES = exp.unk_thres)
+          
+     constraints = env.BuildConstraint( exp.constraint_prefix(),
+                          (unk_map,
+                           exp.original_simple_file()))
+     
+     unk_list = env.UnknownList(
+          exp.unknown_prefix(), 
+          constraints)
+
+     temp_tags = env.CRFTagger( exp.temporary_tags(), 
+                    (exp.original_simple_file(), 
+                     unk_list))
+
+     lattice_hypergraphs = env.CreateHypergraph(exp.lattice_prefix(),
+                                                temp_tags)
+
+     decoders = {}
+     decoders['viterbi'] =env.Viterbi( exp.result_prefix()+"_viterbi", 
+                                       lattice_hypergraphs, 
+                                       END_INDEX = exp.num_sent())
+
+     decoders['lp']= env.FullLP( exp.result_prefix() + "_lp", 
+                                 (lattice_hypergraphs, constraints), 
+                                 END_INDEX=exp.num_sent(),
+                                 PENALTY = exp.penalty())
+
+     decoders['decomp'] = env.DecompTag( exp.result_prefix() + "_decomp", 
+                                 (lattice_hypergraphs, constraints), 
+                                 END_INDEX=exp.num_sent(),
+                                 PENALTY =exp.penalty())
 
 
-env.CRFTagger( "/home/srush/tmp/brown_tag", 
-               "../parse/data/brown_simple_1")
+     flats = {}
+     for dec_type,result in decoders.iteritems():
+          tagging_name = "%s_%s"%(exp.result_prefix(), dec_type)
+          
+          tagging = env.ToTag( tagging_name, 
+                     (result,
+                      exp.original_simple_file()))
 
-env.CreateHypergraph( "../data_management/pos/brown_lattice", 
-                     ("/home/srush/tmp/brown_tag.crf"))
+          env.Eval( tagging_name, 
+                    (tagging,
+                     exp.gold_file()))
 
-env.Eval( "results/basic", 
-          ("results/brown.tagging", "../parse/data/brown_gold_simple_1"))
+          flats[dec_type] = env.Flatten( tagging_name, tagging)
 
-env.Eval( "results/lp", 
-          ("results/brown_lp.tagging", "../parse/data/brown_gold_simple_1"))
+     flats['gold'] = env.Flatten( "%s_%s"%(exp.result_prefix(), "gold"), 
+                                  exp.gold_file())
+       
+          
+     env.FullDiff(exp.result_prefix(), 
+          (flats["viterbi"], flats['lp'], flats["gold"])
+                  )
 
-env.FullLP( "results/brown_lp", 
-            ("../data_management/pos/brown_lattice", "../parse/data/brown_constraints"))
+     env.ErrorAnalysis(exp.result_prefix(), 
+                       ( flats["gold"], unk_map, flats["viterbi"], flats['lp'], flats["gold"])
+                       )
 
 
-env.Flatten( "results/brown_lp", 
-             "results/brown_lp")
 
-env.Flatten( "results/brown", 
-             "results/brown")
+     #env.CRFTagger( "$SCARAB_TMP/brown_full_tag", 
+     #               ("$SCARAB_DATA/brown_full", "$SCARAB_DATA/brown_full.unknown"))
+
+     #env.ToTag( exp.result_prefix()+"_lp",       ("results/brown_full_lp.ctagging", "../parse/data/brown_full"))
+     #env.ToTag( exp.result_prefix()+ "_decomp",  ("results/brown_full_decomp.ctagging", "../parse/data/brown_full"))
+     
+
+     #env.CreateHypergraph( "../data_management/pos/brown_full_lattice", 
+     #                      ("$SCARAB_TMP/brown_full_tag.crf"))
+
+     
+     # env.Eval( "results/basic", 
+     #           ("results/brown.tagging", "../parse/data/brown_gold_simple_1"))
+
+     # env.Eval( "results/lp", 
+     #           ("results/brown_lp.tagging", "../parse/data/brown_gold_simple_1"))
+
+
+     # env.Eval( "results/basic_full", 
+     #           ("results/brown_full.tagging", "../parse/data/brown_full_gold"))
+     
+     # env.Eval( "results/lp_full", 
+     #           ("results/brown_full_lp.tagging", "../parse/data/brown_full_gold"))
+
+     # env.Eval( "results/decomp_full", 
+     #           ("results/brown_full_decomp.tagging", "../parse/data/brown_full_gold"))
+
+
+
+     # env.FullLP( "results/brown_full_lp", 
+     #             ("../data_management/pos/brown_full_lattice", "../parse/data/brown_full.constraints"), END_INDEX=1047)
+
+     # env.DecompTag( "results/brown_full_decomp", 
+     #                ("../data_management/pos/brown_full_lattice", "../parse/data/brown_full.constraints"), END_INDEX=1047)
+
+     #env.Viterbi( "results/brown_full", "../data_management/pos/brown_full_lattice", END_INDEX = 1047)
+
+     #env.ToTag( "results/brown", ("results/brown.ctagging", "../parse/data/brown_simple_1"))
+     #env.ToTag( "results/brown_lp", ("results/brown_lp.ctagging", "../parse/data/brown_simple_1"))
+     
+
+
+
+
+     # env.BuildConstraint( "../parse/data/brown_full", 
+     #                      ("../parse/data/unknown_words", "../parse/data/brown_full"))
+     
+
+     # env.Flatten( "results/brown_lp", 
+     #              "results/brown_lp")
+
+     # env.Flatten( "results/brown", 
+     #              "results/brown")
+
+     # env.Flatten( "results/brown_gold", 
+     #              "../parse/data/brown_gold_simple_1")
              
+
+     # env.Flatten( "results/brown_full_lp", 
+     #              "results/brown_full_lp")
+
+     # env.Flatten( "results/brown_full", 
+     #              "results/brown_full")
+     
+     # env.Flatten( "results/brown_full_decomp", 
+     #              "results/brown_full_decomp")
+
+
+     # env.Flatten( "results/brown_full_gold", 
+     #              "../parse/data/brown_full_gold")
+             
+
+
+
+     
+     # env.UnknownList("$SCARAB_ROOT/parse/data/brown_simple_1", 
+     #                 "$SCARAB_ROOT/parse/data/brown_simple_1")
+
+register_experiment(env, small_brown_3)
+register_experiment(env, small_brown_10)
+register_experiment(env, small_brown_10_hard)
+register_experiment(env, small_brown_50)
+register_experiment(env, small_brown_100_hard)
+register_experiment(env, small_brown_100)
+register_experiment(env, small_brown_500)
+register_experiment(env, small_brown_200)

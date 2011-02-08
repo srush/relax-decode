@@ -171,7 +171,7 @@ public class Viterbi {
 
         // add in beam search
         
-        int beam_size  = 7;
+        int beam_size  = 5;
         
         Set full_beam = new HashSet();
         

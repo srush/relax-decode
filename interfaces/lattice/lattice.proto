@@ -1,0 +1,59 @@
+package lattice;
+
+message Lattice {
+  message Node {
+    required int32 id = 1;
+    optional string label = 2;
+    repeated Edge edge = 3;
+    extensions 100 to 199;
+  }
+  
+  message Edge {    
+    optional int32 id =1;
+    optional string label = 2;
+    required int32 to_id = 3;
+    extensions 100 to 199;
+  }
+
+  extensions 1 to 4;
+  required int32 start = 5;
+  repeated int32 final = 6; 
+  repeated Node node = 7;
+  extensions 100 to 199;
+}
+
+message Subword {
+   optional string word =1; 
+   optional int32 subword_original_id =2;
+   optional int32 subword_hypergraph_node_id =3;
+}
+
+message Phraselet { 
+    repeated Subword word = 1;
+    optional int32 phraselet_hypergraph_edge = 2;
+}
+
+message Phraselets {
+ repeated Phraselet phraselet =1;
+} 
+
+extend Lattice.Node {
+  optional Phraselets phraselets = 100;
+  optional bool has_phrases = 101;
+}
+
+
+message Origin { 
+  repeated int32 hypergraph_edge = 1;
+  optional int32 original_id = 2; 
+  optional bool has_origin = 3;
+}
+
+extend Lattice.Edge {
+   optional Origin origin = 110;
+}
+
+extend Lattice {
+   optional int32 num_hypergraph_edges = 121;
+   optional int32 num_original_ids = 122;
+}

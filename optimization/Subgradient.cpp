@@ -6,7 +6,7 @@
 #include <time.h>
 #include "../common.h"
 #define INF 1e8
-#define TIMING 0
+#define TIMING 1
 using namespace std;
 
 void Subgradient::solve(int example) {
@@ -110,12 +110,13 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     //_base_weight *=0.1;
   }
 
-  if  (dualsize > 2 && _duals[dualsize -1] < _duals[dualsize -2]) { 
+  if  (dualsize > 2 && _duals[dualsize -1] <= _duals[dualsize -2]) { 
     _nround += 1;
     if (_aggressive && _nround > 2) {
       _base_weight *= 0.7;
       _nround = 0;
-    } else if (!_is_stuck && _nround == 10) {
+    } //else if (!_is_stuck && _nround >= 10) {
+    else if (_nround >= 3) {// 10) {
       _base_weight *= 0.7;
       _nround =0;
     }
@@ -130,6 +131,7 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
   svector<int, double> updates = alpha * subgrad;
   if (TIMING) {
     cout << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;
+    cout << "PRIMAL " << _primals[dualsize -1]<<" " << _primals[dualsize -2] <<  endl;
   }
 
   // has a dual value become stuck

@@ -6,7 +6,7 @@ from format.simple import *
 class Converter:
   def __call__(self, source, target, env):
     #print source, target
-    self.convert(open(str(target[0]), 'w'), open(str(source[0])))
+    self.convert(open(str(source[0])), open(str(target[0]), 'w'))
     return 0
 
   def convert(self, target_handle, source_handle):
@@ -14,8 +14,9 @@ class Converter:
 
 class SimpleSentConverter(Converter):
   def convert(self, sin, out):
-    for sent in parse_simple_file(sin):
-      print self.sent_convert(sent)  
+    for sent in parse_simple_file(sin, '/'):
+
+      print >>out, self.sent_convert(sent)  
     print >>out 
     
 

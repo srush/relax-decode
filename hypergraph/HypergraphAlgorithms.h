@@ -53,6 +53,8 @@ HEdges construct_best_edges(const NodeBackCache & back_memo_table) const;
 HNodes construct_best_node_order(const NodeBackCache & back_memo_table) const;
 
 
+ wvector construct_best_feature_vector(const NodeBackCache & back_memo_table) const;
+
 /** Find the best path, lowest weight, through a weighted hypergraph
  *  @param edge_weights The cached edge weights associated with the graph
  *  @param score_memo_table The shortest path to each node

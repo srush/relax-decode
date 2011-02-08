@@ -16,6 +16,7 @@ namespace Scarab{
 double best_path_helper(const Hypernode & node, const EdgeCache & edge_weights, NodeCache & score_memo_table, NodeBackCache & back_memo_table);
 vector <const Hypernode *> construct_best_fringe_help(const Hypernode & node, const NodeBackCache & back_memo_table);
 HEdges construct_best_edges_help(const Hypernode & node, const NodeBackCache & back_memo_table);
+wvector construct_best_fv_help(const Hypernode & node, const NodeBackCache & back_memo_table);
 
 void best_outside_path_helper(const Hypernode & node, 
                               const EdgeCache & edge_weights, 
@@ -78,8 +79,20 @@ EdgeCache * HypergraphAlgorithms::cache_edge_weights(const svector<int, double> 
 EdgeCache* HypergraphAlgorithms::combine_edge_weights( const EdgeCache & w1, const EdgeCache & w2 )  const {
   EdgeCache * combine = new EdgeCache(_forest.num_edges());
   foreach (const Hyperedge * edge, _forest.edges()) {
-    double v1 = w1.get_value(*edge);
-    double v2 = w2.get_value(*edge);
+    
+    double v1; 
+    if (w1.has_key(*edge)) {
+      v1= w1.get_value(*edge);
+    } else {
+      v1 =0.0;
+    }
+    
+    double v2; 
+    if (w2.has_key(*edge)) { 
+      v2= w2.get_value(*edge);
+    } else {
+      v2 = 0.0;
+    }
     combine->set_value(*edge, v1 + v2);
   }
   return combine;
@@ -104,6 +117,26 @@ vector <const Hypernode *> construct_best_fringe_help(const Hypernode & node, co
     vector <const Hypernode *> b = construct_best_fringe_help(*bnode, back_memo_table);
     best.insert(best.end(), b.begin(), b.end());
     
+  }
+  return best;
+}
+
+wvector HypergraphAlgorithms::construct_best_feature_vector(const NodeBackCache & back_memo_table) const {
+  return construct_best_fv_help(_forest.root(), back_memo_table);
+}
+
+wvector construct_best_fv_help(const Hypernode & node, const NodeBackCache & back_memo_table) {
+  wvector best;
+  if (node.num_edges() == 0) {
+    //assert (node.is_word());
+    return best;
+  } else {
+    const Hyperedge * edge = back_memo_table.get_value(node);
+    best += edge->fvector();
+  
+    foreach (const Hypernode * bnode, edge->tail_nodes()) {
+      best += construct_best_fv_help(*bnode, back_memo_table);
+    }
   }
   return best;
 }

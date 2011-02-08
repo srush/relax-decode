@@ -34,9 +34,9 @@ public class CRFTagger {
         //genTrain = true;
 	//}
 
-        String knownWordsFile = "";
-        if (args[4].compareToIgnoreCase("-knownwords") == 0) {
-            knownWordsFile = args[5];
+        String unknownWordsFile = "";
+        if (args[4].compareToIgnoreCase("-unknownwords") == 0) {
+            unknownWordsFile = args[5];
 	}
 
 	String inputFile = "";
@@ -56,7 +56,7 @@ public class CRFTagger {
 	Dictionary taggerDict = new Dictionary();
 	FeatureGen taggerFGen = new FeatureGen(taggerMaps, taggerDict);
 	Viterbi taggerVtb = new Viterbi();
-        System.err.println("Known words: " +knownWordsFile);
+        System.err.println("UnKnown words: " +unknownWordsFile);
 	Model taggerModel = new Model(taggerOpt, taggerMaps, taggerDict, taggerFGen, taggerVtb);
 	if (!taggerModel.init()) {
 	    System.out.println("Couldn't load the model");
@@ -75,7 +75,7 @@ public class CRFTagger {
 	
 	if (isInputFile) {
             
-            taggerData.readKnownWords(knownWordsFile);
+            taggerData.readKnownWords(unknownWordsFile);
 	    taggerData.readData(inputFile);
 	    taggerData.cpGen(taggerMaps.cpStr2Int);
 

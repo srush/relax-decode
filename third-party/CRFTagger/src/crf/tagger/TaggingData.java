@@ -16,7 +16,7 @@ import java.util.*;
 
 public class TaggingData {
     List data = null;
-    Set knownWords = new HashSet();
+    Set unknownWords = new HashSet();
     public void readKnownWords(String dataFile) {
 	BufferedReader fin = null;
 	
@@ -26,9 +26,9 @@ public class TaggingData {
 	    // start to read sentences => sequences
 	    while ((line = fin.readLine()) != null) {
 		StringTokenizer strTok = new StringTokenizer(line, " \t\r\n");
-                String known = strTok.nextToken();
-                System.err.println("know" + known);
-                knownWords.add(known);
+                String unknown = strTok.nextToken();
+                System.err.println("unknow" + unknown);
+                unknownWords.add(unknown);
             }
         } catch (IOException e) {
 	    System.out.println("Couldn't open data file" + dataFile);
@@ -79,8 +79,8 @@ public class TaggingData {
                     // } else {
                     //StringTokenizer locTok = new StringTokenizer(dat, "~");
                     obsr.originalData = dat;
-                    System.out.println("Data is " + dat + " " + knownWords.contains(dat));
-                    obsr.knownWord = knownWords.contains(dat);
+                    System.out.println("Data is " + dat + " " + unknownWords.contains(dat));
+                    obsr.knownWord = !unknownWords.contains(dat);
                     //locTok.nextToken();
                         //obsr.originalPos = locTok.nextToken();
                         //                    }
