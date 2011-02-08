@@ -63,6 +63,7 @@ env.Program('run_tagger', ("Tag.cpp", decode)+ local_libs, LIBS = libs)
 env.Program('run_full_tagger', ("FullTagger.cpp", decode)+ local_libs, LIBS = libs)
 
 env.Program('run_dual_tagger', ("DualDecompTagger.cpp", decode)+ local_libs, LIBS = libs)
+env.Program('run_phrase_based', ("PhraseLP.cpp", decode)+ local_libs, LIBS = libs)
 
 
 
