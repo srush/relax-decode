@@ -1,0 +1,10 @@
+Import('env')
+
+
+sources = ["Tagger.cpp", "tag.pb.cc", "TagConstraints.cpp", "TagSolvers.cpp"]
+
+
+
+hyp_lib = env.Library('tagger', sources)
+
+Return('hyp_lib')

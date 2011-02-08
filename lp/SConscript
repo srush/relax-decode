@@ -1,0 +1,8 @@
+Import('env')
+
+sources = ["LPBuilder.cpp"]
+
+trans_lib = env.Library('lp', sources )
+
+Return('trans_lib')
+

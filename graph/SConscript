@@ -1,0 +1,8 @@
+Import('env')
+
+
+sources = []
+
+hyp_lib = env.Library('graph', sources)
+
+Return('hyp_lib')
