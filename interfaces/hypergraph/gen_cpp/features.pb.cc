@@ -54,7 +54,7 @@ void protobuf_AddDesc_features_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016features.proto\032\020hypergraph.proto:!\n\007no"
     "de_fv\022\020.Hypergraph.Node\030d \001(\t:!\n\007edge_fv"
-    "\022\020.Hypergraph.Edge\030d \001(\t", 104);
+    "\022\020.Hypergraph.Edge\030d \001(\tB\002H\001", 108);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "features.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::ExtensionSet::RegisterExtension(

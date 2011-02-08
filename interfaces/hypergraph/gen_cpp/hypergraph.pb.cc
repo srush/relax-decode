@@ -127,7 +127,7 @@ void protobuf_AddDesc_hypergraph_2eproto() {
     "H\n\004Node\022\n\n\002id\030\001 \002(\005\022\r\n\005label\030\002 \001(\t\022\036\n\004ed"
     "ge\030\003 \003(\0132\020.Hypergraph.Edge*\005\010d\020\310\001\032\?\n\004Edg"
     "e\022\n\n\002id\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\022\025\n\rtail_nod"
-    "e_ids\030\003 \003(\005*\005\010d\020\310\001*\004\010\001\020\005*\005\010d\020\310\001", 231);
+    "e_ids\030\003 \003(\005*\005\010d\020\310\001*\004\010\001\020\005*\005\010d\020\310\001B\002H\001", 235);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "hypergraph.proto", &protobuf_RegisterTypes);
   Hypergraph::default_instance_ = new Hypergraph();
