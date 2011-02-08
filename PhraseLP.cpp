@@ -45,6 +45,10 @@ int main(int argc, char ** argv) {
     foreach (HNode node, best_nodes) {
       cout << "Node " <<  node->id() << endl;
     }
+
+    foreach (HEdge edge, best_edges) {
+      cout << "Edge " <<  edge->id() << " " << edge->label() << endl;
+    }
     
     cout << endl;
       cout << "Score is : " << -score << endl;
