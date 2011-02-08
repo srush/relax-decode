@@ -4,14 +4,15 @@
 #include <HypergraphAlgorithms.h>
 
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 #include <algorithm>
 #include <string>
 
-#include  "hypergraph_pb2"
-#include "features_pb2.h"
-#include "tag_pb2.h" 
-#include "dep_pb2.h" 
+#include "hypergraph.pb.h"
+#include "features.pb.h"
+#include "tag.pb.h"
+#include "dep.pb.h" 
 
 using namespace std;
 int main(int argc, char ** argv) {
@@ -34,11 +35,11 @@ int main(int argc, char ** argv) {
       sent +=1;
       nodes.clear();
     }  else if (t1 == "END") {
-      h.root = last_node;
+      h->set_root( last_node);
       //print "ROOT NODE", last_node;
       stringstream file_name;
       file_name << name << sent;
-      fstream output(file_name.str(), ios::out | ios::binary);
+      fstream output(file_name.str().c_str(), ios::out | ios::binary);
 
       h->SerializeToOstream(&output);
     
@@ -52,16 +53,18 @@ int main(int argc, char ** argv) {
       string label;
       
       cin >> label >> to_id >> from_id >> cost;
-      Hypergraph_Edge * edge = nodes[from_id].edge.add_mutable();
-      edge->SetExtension(edge_fv,  "value="+ cost);
-      edge->tail_node_ids.append( to_id);
+      Hypergraph_Edge * edge = nodes[from_id]->add_edge();
+      stringstream fv;
+      fv << "value=" << cost;
+      edge->SetExtension(edge_fv,  fv.str());
+      edge->add_tail_node_ids( to_id);
       edge->set_label(label);
     
       edge->set_id( cur_edge_id);
       cur_edge_id += 1;
 
     } else if (t1 == "NODE") {
-      Hypergraph_Node * node = h.node.add_mutable();
+      Hypergraph_Node * node = h->add_node();
       int t2;
       string t3;
       cin >> t2 >> t3;
