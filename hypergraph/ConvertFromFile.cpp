@@ -27,8 +27,9 @@ int main(int argc, char ** argv) {
   int cur_edge_id = 0;
   fstream in(argv[2], ios::in | ios::binary);
   while (in) {
+    string blank;
     string t1;
-    in >> t1;
+    in >> blank >> t1;
     //t = l.strip().split();
     if (t1 == "START") {
       h = new Hypergraph();
