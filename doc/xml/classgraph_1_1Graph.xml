@@ -1,0 +1,1658 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classgraph_1_1Graph" kind="class" prot="public">
+    <compoundname>graph::Graph</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classgraph_1_1Graph_1a2a148e8d341b4850e506e4ca9a10845f" prot="public" static="no">
+        <type><ref refid="classgraph_1_1Graph__Node" kindref="compound">Graph_Node</ref></type>
+        <definition>typedef Graph_Node graph::Graph::Node</definition>
+        <argsstring></argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="314" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classgraph_1_1Graph_1ae7ba626728a03ceb51bccd5ee4ec72ca" prot="public" static="no">
+        <type><ref refid="classgraph_1_1Graph__Edge" kindref="compound">Graph_Edge</ref></type>
+        <definition>typedef Graph_Edge graph::Graph::Edge</definition>
+        <argsstring></argsstring>
+        <name>Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="315" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classgraph_1_1Graph_1a2a148e8d341b4850e506e4ca9a10845f" prot="public" static="no">
+        <type><ref refid="classgraph_1_1Graph__Node" kindref="compound">Graph_Node</ref></type>
+        <definition>typedef Graph_Node graph::Graph::Node</definition>
+        <argsstring></argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="314" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classgraph_1_1Graph_1ae7ba626728a03ceb51bccd5ee4ec72ca" prot="public" static="no">
+        <type><ref refid="classgraph_1_1Graph__Edge" kindref="compound">Graph_Edge</ref></type>
+        <definition>typedef Graph_Edge graph::Graph::Edge</definition>
+        <argsstring></argsstring>
+        <name>Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="315" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a2969c2c72eb20aaca51ff8e34e607914" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>static const int graph::Graph::kLabelFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kLabelFieldNumber</name>
+        <initializer> 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="322" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a3784b95d1729d17dcaf95adbda08c119" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>static const int graph::Graph::kNodeFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kNodeFieldNumber</name>
+        <initializer> 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="333" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a73178a17498d9100bae0230c7c5c7352" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::internal::ExtensionSet</type>
+        <definition>google::protobuf::internal::ExtensionSet graph::Graph::_extensions_</definition>
+        <argsstring></argsstring>
+        <name>_extensions_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="348" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a3ce20d041383471835af41399b64e131" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::UnknownFieldSet</type>
+        <definition>google::protobuf::UnknownFieldSet graph::Graph::_unknown_fields_</definition>
+        <argsstring></argsstring>
+        <name>_unknown_fields_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="350" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a3c7cb7366854391354de6c3bee95fc87" prot="private" static="no" mutable="no">
+        <type>::std::string *</type>
+        <definition>std::string * graph::Graph::label_</definition>
+        <argsstring></argsstring>
+        <name>label_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="352" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1ab03003d9c07260426c0ba2a4ae3234bf" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &gt;</type>
+        <definition>google::protobuf::RepeatedPtrField&lt;::graph::Graph_Node &gt; graph::Graph::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="353" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a16fa3c11973593daa7d8b1cbf3db6c84" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int graph::Graph::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="355" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgraph_1_1Graph_1aeb30e7d8383908db2a7c23ee0ffc0ead" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::uint32</type>
+        <definition>google::protobuf::uint32 graph::Graph::_has_bits_</definition>
+        <argsstring>[(2+31)/32]</argsstring>
+        <name>_has_bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="356" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classgraph_1_1Graph_1a11d08db64bcffcb289016154f01c9ce1" prot="private" static="yes" mutable="no">
+        <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> *</type>
+        <definition>static Graph * graph::Graph::default_instance_</definition>
+        <argsstring></argsstring>
+        <name>default_instance_</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="363" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgraph_1_1Graph_1a131b2852694f1cb38d30188e43a3d3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>graph::Graph::Graph</definition>
+        <argsstring>()</argsstring>
+        <name>Graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="264" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="799" bodyend="802"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a5b449b3720d6d617fb4d22b47da97727" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>graph::Graph::~Graph</definition>
+        <argsstring>()</argsstring>
+        <name>~Graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="265" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="819" bodyend="821"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a400fcc675124ef60cbc0d6ee0e25736c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>graph::Graph::Graph</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>Graph</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="267" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="807" bodyend="811"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2bb8b8cdf8632d9a9453b3f67d0eef9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>Graph&amp; graph::Graph::operator=</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="269" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="269" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a4944a9b85ffdbecf91ec2454f915b411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; graph::Graph::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="274" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="274" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a93081ad4e0af2767c6f57004f5f59dc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* graph::Graph::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="278" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="278" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8e3853558c7080802e9362e869206156" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::Swap</definition>
+        <argsstring>(Graph *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="285" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1067" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1acd6092ae47d8f7108ececea2c47bdd06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> *</type>
+        <definition>Graph * graph::Graph::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="289" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="847" bodyend="849"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ad8df9792d5748b48235e04e64abf84fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="290" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1046" bodyend="1050"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab52f15c185ebf734246297add1064b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="291" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1022" bodyend="1032"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1adea321f8fe4c18ea4d2364c8b8dd54df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::CopyFrom</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="292" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1052" bodyend="1056"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a918dc2343415dd9b7d0deb2c307bfb9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::MergeFrom</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="293" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1034" bodyend="1044"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a13680e6719e42aa3ebedfeb61ff06014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="294" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="851" bodyend="863"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ac91ebe6fc014af3707afd28a01bf30cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="295" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1058" bodyend="1065"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ada721f70b6221bd45c0619de513bc138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="297" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="989" bodyend="1020"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a3a08a0c8418c6317a890296c25f71b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="299" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="865" bodyend="922"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a69559b8d11a32f5ebe89a0c86b936ed6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="301" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="924" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a10d32c2e5773f690ac98879300e5a9fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>google::protobuf::uint8 * graph::Graph::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="302" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="955" bodyend="987"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2a609292df58baec63cb473317334301" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="303" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="303" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a768343926fbd6a32cb08ec9580a46443" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>google::protobuf::Metadata graph::Graph::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="310" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="1078" bodyend="1084"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8a43e784467fb4eda053810d73725508" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::has_label</definition>
+        <argsstring>() const </argsstring>
+        <name>has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="320" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="588" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ae493d41f9b434145be083cbc2044c1d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="321" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="597" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a7063c43da1905648d2948ce1c13d38ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::std::string &amp;</type>
+        <definition>const ::std::string &amp; graph::Graph::label</definition>
+        <argsstring>() const </argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="323" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="603" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab04d4c18c9ab77ee27d5e66b92624bdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const ::std::string &amp;value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const ::std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="324" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="606" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2e33bd3438f862850c7f2fad8bb3e544" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="325" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="613" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a829bbd790ed76b6b1729d4c719b413d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const char *value, size_t size)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="326" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="620" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab3b46393b1918c6608320f57d9486f12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * graph::Graph::mutable_label</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="327" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="627" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a95233ad394bd217ae7b49bb4498e48f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * graph::Graph::release_label</definition>
+        <argsstring>()</argsstring>
+        <name>release_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="328" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="634" bodyend="643"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a005baadb25b7b9611082a1c3f285cdfa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::node_size</definition>
+        <argsstring>() const </argsstring>
+        <name>node_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="331" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="646" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ad4899b84d05fc768fa335047725eaf24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_node</definition>
+        <argsstring>()</argsstring>
+        <name>clear_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="332" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="649" bodyend="651"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a16c29597fce7e931ed6fa7ff051a722e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &amp;</type>
+        <definition>const ::graph::Graph_Node &amp; graph::Graph::node</definition>
+        <argsstring>(int index) const </argsstring>
+        <name>node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="334" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="652" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8c2e072edc54bb1450c7d9753e52e99e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::graph::Graph_Node *</type>
+        <definition>graph::Graph_Node * graph::Graph::mutable_node</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="335" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="655" bodyend="657"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a853cde9df8f6492ca9b949c0e82f8eff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::graph::Graph_Node *</type>
+        <definition>graph::Graph_Node * graph::Graph::add_node</definition>
+        <argsstring>()</argsstring>
+        <name>add_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="336" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="658" bodyend="660"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2bd47191520de5c1dc375cea07f61330" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &gt; &amp;</type>
+        <definition>const ::google::protobuf::RepeatedPtrField&lt;::graph::Graph_Node &gt; &amp; graph::Graph::node</definition>
+        <argsstring>() const </argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="338" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="662" bodyend="664"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2a98be1966ff5f910c8746ffc563a1a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &gt; *</type>
+        <definition>google::protobuf::RepeatedPtrField&lt;::graph::Graph_Node &gt; * graph::Graph::mutable_node</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="340" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="666" bodyend="668"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a131b2852694f1cb38d30188e43a3d3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>graph::Graph::Graph</definition>
+        <argsstring>()</argsstring>
+        <name>Graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="264"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a1702b87d997b392a77a2d3bf878e6aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual graph::Graph::~Graph</definition>
+        <argsstring>()</argsstring>
+        <name>~Graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a400fcc675124ef60cbc0d6ee0e25736c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>graph::Graph::Graph</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>Graph</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2bb8b8cdf8632d9a9453b3f67d0eef9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>Graph&amp; graph::Graph::operator=</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="269" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="269" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a4944a9b85ffdbecf91ec2454f915b411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; graph::Graph::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="274" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="274" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a93081ad4e0af2767c6f57004f5f59dc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* graph::Graph::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="278" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="278" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8e3853558c7080802e9362e869206156" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::Swap</definition>
+        <argsstring>(Graph *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a812a4848569ca342a12b6b7a824b4118" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> *</type>
+        <definition>Graph* graph::Graph::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ad8df9792d5748b48235e04e64abf84fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab52f15c185ebf734246297add1064b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1adea321f8fe4c18ea4d2364c8b8dd54df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::CopyFrom</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a918dc2343415dd9b7d0deb2c307bfb9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::MergeFrom</definition>
+        <argsstring>(const Graph &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a13680e6719e42aa3ebedfeb61ff06014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ac91ebe6fc014af3707afd28a01bf30cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ada721f70b6221bd45c0619de513bc138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a3a08a0c8418c6317a890296c25f71b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a69559b8d11a32f5ebe89a0c86b936ed6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1add26e27feb424b498dc6e7c54250886b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>::google::protobuf::uint8* graph::Graph::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2a609292df58baec63cb473317334301" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="303" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" bodystart="303" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1aeafa7e8b0429a852055f80767941cb38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>::google::protobuf::Metadata graph::Graph::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8a43e784467fb4eda053810d73725508" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool graph::Graph::has_label</definition>
+        <argsstring>() const </argsstring>
+        <name>has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ae493d41f9b434145be083cbc2044c1d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1aa6079fefaedc329a72194ed083c37413" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::std::string &amp;</type>
+        <definition>const ::std::string&amp; graph::Graph::label</definition>
+        <argsstring>() const </argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab04d4c18c9ab77ee27d5e66b92624bdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const ::std::string &amp;value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const ::std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a2e33bd3438f862850c7f2fad8bb3e544" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a829bbd790ed76b6b1729d4c719b413d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_label</definition>
+        <argsstring>(const char *value, size_t size)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1abcd3b4981aab3985879a10d16e296cfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>inline ::std::string* graph::Graph::mutable_label</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a95eb83261e9a9f59cb20b6b850c3561c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>inline ::std::string* graph::Graph::release_label</definition>
+        <argsstring>()</argsstring>
+        <name>release_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a005baadb25b7b9611082a1c3f285cdfa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int graph::Graph::node_size</definition>
+        <argsstring>() const </argsstring>
+        <name>node_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ad4899b84d05fc768fa335047725eaf24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_node</definition>
+        <argsstring>()</argsstring>
+        <name>clear_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a0d740c76c632f0670da81e6b4535d169" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &amp;</type>
+        <definition>const ::graph::Graph_Node&amp; graph::Graph::node</definition>
+        <argsstring>(int index) const </argsstring>
+        <name>node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1aeae06c451a4508a381f20a80322ea341" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::graph::Graph_Node *</type>
+        <definition>inline ::graph::Graph_Node* graph::Graph::mutable_node</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a3c2452c8ed3a663cbfb9bd76acb67dc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::graph::Graph_Node *</type>
+        <definition>inline ::graph::Graph_Node* graph::Graph::add_node</definition>
+        <argsstring>()</argsstring>
+        <name>add_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a603d1f721a181ae75db8e79e42aa86e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &gt; &amp;</type>
+        <definition>const ::google::protobuf::RepeatedPtrField&lt; ::graph::Graph_Node &gt;&amp; graph::Graph::node</definition>
+        <argsstring>() const </argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a54b5cfd7fe26ff67c3d8da6acd69e9b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref> &gt; *</type>
+        <definition>inline ::google::protobuf::RepeatedPtrField&lt; ::graph::Graph_Node &gt;* graph::Graph::mutable_node</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="340"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8bfea158f8526357050564853da8e82c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>const ::google::protobuf::Descriptor * graph::Graph::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="282" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="836" bodyend="839"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1afa1437b79a9597004ba39bdc4df16fab" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>const Graph &amp; graph::Graph::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="283" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="841" bodyend="843"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a49c810d7ea8428dc769f56d61a24e052" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>static const ::google::protobuf::Descriptor* graph::Graph::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a034b07f25ab695cb26a0bd5b307d72e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classgraph_1_1Graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>static const Graph&amp; graph::Graph::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="283"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classgraph_1_1Graph_1abb769c53c28abd89706ba87de3417cba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="305" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="813" bodyend="817"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8c7c78c83e5633ad8c0f7efb127431e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="306" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="823" bodyend="829"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a483d2964a16525bfb69c3b73f20a4d91" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="307" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="831" bodyend="835"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab44c5a1295bea50d5384dddc9f0c8331" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="345" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="591" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a7da0d3eca91e1969c79c77957f9ff66a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="346" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="594" bodyend="596"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a433ea1894a1e688e1316b8004d53c857" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="362" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.cc" bodystart="804" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1abb769c53c28abd89706ba87de3417cba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a8c7c78c83e5633ad8c0f7efb127431e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a483d2964a16525bfb69c3b73f20a4d91" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1ab44c5a1295bea50d5384dddc9f0c8331" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::set_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a7da0d3eca91e1969c79c77957f9ff66a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::clear_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classgraph_1_1Graph_1a433ea1894a1e688e1316b8004d53c857" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void graph::Graph::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="362"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classgraph_1_1Graph_1a3216c708da10839178deebea43d6f0be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="358"/>
+      </memberdef>
+      <memberdef kind="friend" id="classgraph_1_1Graph_1a4c9d7eb8f9e30e490c8bcae70e629de5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="359"/>
+      </memberdef>
+      <memberdef kind="friend" id="classgraph_1_1Graph_1aac10332314561225d8ac09b797223f3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="360"/>
+      </memberdef>
+      <memberdef kind="friend" id="classgraph_1_1Graph_1a3216c708da10839178deebea43d6f0be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="358"/>
+      </memberdef>
+      <memberdef kind="friend" id="classgraph_1_1Graph_1a4c9d7eb8f9e30e490c8bcae70e629de5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="359"/>
+      </memberdef>
+      <memberdef kind="friend" id="classgraph_1_1Graph_1aac10332314561225d8ac09b797223f3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_graph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_graph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-py/graph.pb.h" line="360"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="753">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="751">
+        <label>graph::Graph</label>
+        <link refid="classgraph_1_1Graph"/>
+        <childnode refid="751" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+        <childnode refid="752" relation="usage">
+          <edgelabel>label_</edgelabel>
+        </childnode>
+      </node>
+      <node id="752">
+        <label>std::string</label>
+        <childnode refid="753" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" line="262" bodyfile="/home/srush/Projects/relax_decode/interfaces/graph/gen-cpp/graph.pb.h" bodystart="262" bodyend="364"/>
+    <listofallmembers>
+      <member refid="classgraph_1_1Graph_1a16fa3c11973593daa7d8b1cbf3db6c84" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>_cached_size_</name></member>
+      <member refid="classgraph_1_1Graph_1a73178a17498d9100bae0230c7c5c7352" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>_extensions_</name></member>
+      <member refid="classgraph_1_1Graph_1aeb30e7d8383908db2a7c23ee0ffc0ead" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>_has_bits_</name></member>
+      <member refid="classgraph_1_1Graph_1a3ce20d041383471835af41399b64e131" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>_unknown_fields_</name></member>
+      <member refid="classgraph_1_1Graph_1a853cde9df8f6492ca9b949c0e82f8eff" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>add_node</name></member>
+      <member refid="classgraph_1_1Graph_1a3c2452c8ed3a663cbfb9bd76acb67dc1" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>add_node</name></member>
+      <member refid="classgraph_1_1Graph_1ada721f70b6221bd45c0619de513bc138" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>ByteSize</name></member>
+      <member refid="classgraph_1_1Graph_1ada721f70b6221bd45c0619de513bc138" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>ByteSize</name></member>
+      <member refid="classgraph_1_1Graph_1a13680e6719e42aa3ebedfeb61ff06014" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Clear</name></member>
+      <member refid="classgraph_1_1Graph_1a13680e6719e42aa3ebedfeb61ff06014" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Clear</name></member>
+      <member refid="classgraph_1_1Graph_1a7da0d3eca91e1969c79c77957f9ff66a" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>clear_has_label</name></member>
+      <member refid="classgraph_1_1Graph_1a7da0d3eca91e1969c79c77957f9ff66a" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>clear_has_label</name></member>
+      <member refid="classgraph_1_1Graph_1ae493d41f9b434145be083cbc2044c1d9" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>clear_label</name></member>
+      <member refid="classgraph_1_1Graph_1ae493d41f9b434145be083cbc2044c1d9" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>clear_label</name></member>
+      <member refid="classgraph_1_1Graph_1ad4899b84d05fc768fa335047725eaf24" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>clear_node</name></member>
+      <member refid="classgraph_1_1Graph_1ad4899b84d05fc768fa335047725eaf24" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>clear_node</name></member>
+      <member refid="classgraph_1_1Graph_1ad8df9792d5748b48235e04e64abf84fd" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>CopyFrom</name></member>
+      <member refid="classgraph_1_1Graph_1adea321f8fe4c18ea4d2364c8b8dd54df" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>CopyFrom</name></member>
+      <member refid="classgraph_1_1Graph_1ad8df9792d5748b48235e04e64abf84fd" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>CopyFrom</name></member>
+      <member refid="classgraph_1_1Graph_1adea321f8fe4c18ea4d2364c8b8dd54df" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>CopyFrom</name></member>
+      <member refid="classgraph_1_1Graph_1afa1437b79a9597004ba39bdc4df16fab" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>default_instance</name></member>
+      <member refid="classgraph_1_1Graph_1a034b07f25ab695cb26a0bd5b307d72e4" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>default_instance</name></member>
+      <member refid="classgraph_1_1Graph_1a11d08db64bcffcb289016154f01c9ce1" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>default_instance_</name></member>
+      <member refid="classgraph_1_1Graph_1a8bfea158f8526357050564853da8e82c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>descriptor</name></member>
+      <member refid="classgraph_1_1Graph_1a49c810d7ea8428dc769f56d61a24e052" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>descriptor</name></member>
+      <member refid="classgraph_1_1Graph_1ae7ba626728a03ceb51bccd5ee4ec72ca" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Edge</name></member>
+      <member refid="classgraph_1_1Graph_1ae7ba626728a03ceb51bccd5ee4ec72ca" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Edge</name></member>
+      <member refid="classgraph_1_1Graph_1a2a609292df58baec63cb473317334301" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>GetCachedSize</name></member>
+      <member refid="classgraph_1_1Graph_1a2a609292df58baec63cb473317334301" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>GetCachedSize</name></member>
+      <member refid="classgraph_1_1Graph_1a768343926fbd6a32cb08ec9580a46443" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>GetMetadata</name></member>
+      <member refid="classgraph_1_1Graph_1aeafa7e8b0429a852055f80767941cb38" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>GetMetadata</name></member>
+      <member refid="classgraph_1_1Graph_1a131b2852694f1cb38d30188e43a3d3d4" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Graph</name></member>
+      <member refid="classgraph_1_1Graph_1a400fcc675124ef60cbc0d6ee0e25736c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Graph</name></member>
+      <member refid="classgraph_1_1Graph_1a131b2852694f1cb38d30188e43a3d3d4" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Graph</name></member>
+      <member refid="classgraph_1_1Graph_1a400fcc675124ef60cbc0d6ee0e25736c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Graph</name></member>
+      <member refid="classgraph_1_1Graph_1a8a43e784467fb4eda053810d73725508" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>has_label</name></member>
+      <member refid="classgraph_1_1Graph_1a8a43e784467fb4eda053810d73725508" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>has_label</name></member>
+      <member refid="classgraph_1_1Graph_1a433ea1894a1e688e1316b8004d53c857" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classgraph_1_1Graph_1a433ea1894a1e688e1316b8004d53c857" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classgraph_1_1Graph_1ac91ebe6fc014af3707afd28a01bf30cc" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>IsInitialized</name></member>
+      <member refid="classgraph_1_1Graph_1ac91ebe6fc014af3707afd28a01bf30cc" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>IsInitialized</name></member>
+      <member refid="classgraph_1_1Graph_1a2969c2c72eb20aaca51ff8e34e607914" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>kLabelFieldNumber</name></member>
+      <member refid="classgraph_1_1Graph_1a3784b95d1729d17dcaf95adbda08c119" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>kNodeFieldNumber</name></member>
+      <member refid="classgraph_1_1Graph_1a7063c43da1905648d2948ce1c13d38ff" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>label</name></member>
+      <member refid="classgraph_1_1Graph_1aa6079fefaedc329a72194ed083c37413" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>label</name></member>
+      <member refid="classgraph_1_1Graph_1a3c7cb7366854391354de6c3bee95fc87" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>label_</name></member>
+      <member refid="classgraph_1_1Graph_1ab52f15c185ebf734246297add1064b4a" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergeFrom</name></member>
+      <member refid="classgraph_1_1Graph_1a918dc2343415dd9b7d0deb2c307bfb9d" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergeFrom</name></member>
+      <member refid="classgraph_1_1Graph_1ab52f15c185ebf734246297add1064b4a" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergeFrom</name></member>
+      <member refid="classgraph_1_1Graph_1a918dc2343415dd9b7d0deb2c307bfb9d" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergeFrom</name></member>
+      <member refid="classgraph_1_1Graph_1a3a08a0c8418c6317a890296c25f71b9e" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classgraph_1_1Graph_1a3a08a0c8418c6317a890296c25f71b9e" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classgraph_1_1Graph_1ab3b46393b1918c6608320f57d9486f12" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_label</name></member>
+      <member refid="classgraph_1_1Graph_1abcd3b4981aab3985879a10d16e296cfc" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_label</name></member>
+      <member refid="classgraph_1_1Graph_1a8c2e072edc54bb1450c7d9753e52e99e" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_node</name></member>
+      <member refid="classgraph_1_1Graph_1a2a98be1966ff5f910c8746ffc563a1a8" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_node</name></member>
+      <member refid="classgraph_1_1Graph_1aeae06c451a4508a381f20a80322ea341" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_node</name></member>
+      <member refid="classgraph_1_1Graph_1a54b5cfd7fe26ff67c3d8da6acd69e9b7" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_node</name></member>
+      <member refid="classgraph_1_1Graph_1a93081ad4e0af2767c6f57004f5f59dc2" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classgraph_1_1Graph_1a93081ad4e0af2767c6f57004f5f59dc2" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classgraph_1_1Graph_1acd6092ae47d8f7108ececea2c47bdd06" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>New</name></member>
+      <member refid="classgraph_1_1Graph_1a812a4848569ca342a12b6b7a824b4118" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>New</name></member>
+      <member refid="classgraph_1_1Graph_1a2a148e8d341b4850e506e4ca9a10845f" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Node</name></member>
+      <member refid="classgraph_1_1Graph_1a2a148e8d341b4850e506e4ca9a10845f" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Node</name></member>
+      <member refid="classgraph_1_1Graph_1a16c29597fce7e931ed6fa7ff051a722e" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node</name></member>
+      <member refid="classgraph_1_1Graph_1a2bd47191520de5c1dc375cea07f61330" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node</name></member>
+      <member refid="classgraph_1_1Graph_1a0d740c76c632f0670da81e6b4535d169" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node</name></member>
+      <member refid="classgraph_1_1Graph_1a603d1f721a181ae75db8e79e42aa86e0" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node</name></member>
+      <member refid="classgraph_1_1Graph_1ab03003d9c07260426c0ba2a4ae3234bf" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>node_</name></member>
+      <member refid="classgraph_1_1Graph_1a005baadb25b7b9611082a1c3f285cdfa" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node_size</name></member>
+      <member refid="classgraph_1_1Graph_1a005baadb25b7b9611082a1c3f285cdfa" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>node_size</name></member>
+      <member refid="classgraph_1_1Graph_1a2bb8b8cdf8632d9a9453b3f67d0eef9c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>operator=</name></member>
+      <member refid="classgraph_1_1Graph_1a2bb8b8cdf8632d9a9453b3f67d0eef9c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>operator=</name></member>
+      <member refid="classgraph_1_1Graph_1a3216c708da10839178deebea43d6f0be" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_AddDesc_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1a3216c708da10839178deebea43d6f0be" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_AddDesc_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1a4c9d7eb8f9e30e490c8bcae70e629de5" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_AssignDesc_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1a4c9d7eb8f9e30e490c8bcae70e629de5" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_AssignDesc_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1aac10332314561225d8ac09b797223f3d" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_ShutdownFile_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1aac10332314561225d8ac09b797223f3d" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>protobuf_ShutdownFile_graph_2eproto</name></member>
+      <member refid="classgraph_1_1Graph_1a95233ad394bd217ae7b49bb4498e48f3" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>release_label</name></member>
+      <member refid="classgraph_1_1Graph_1a95eb83261e9a9f59cb20b6b850c3561c" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>release_label</name></member>
+      <member refid="classgraph_1_1Graph_1a69559b8d11a32f5ebe89a0c86b936ed6" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classgraph_1_1Graph_1a69559b8d11a32f5ebe89a0c86b936ed6" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classgraph_1_1Graph_1a10d32c2e5773f690ac98879300e5a9fa" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classgraph_1_1Graph_1add26e27feb424b498dc6e7c54250886b" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classgraph_1_1Graph_1ab44c5a1295bea50d5384dddc9f0c8331" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>set_has_label</name></member>
+      <member refid="classgraph_1_1Graph_1ab44c5a1295bea50d5384dddc9f0c8331" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>set_has_label</name></member>
+      <member refid="classgraph_1_1Graph_1ab04d4c18c9ab77ee27d5e66b92624bdd" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1a2e33bd3438f862850c7f2fad8bb3e544" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1a829bbd790ed76b6b1729d4c719b413d7" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1ab04d4c18c9ab77ee27d5e66b92624bdd" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1a2e33bd3438f862850c7f2fad8bb3e544" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1a829bbd790ed76b6b1729d4c719b413d7" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>set_label</name></member>
+      <member refid="classgraph_1_1Graph_1a483d2964a16525bfb69c3b73f20a4d91" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SetCachedSize</name></member>
+      <member refid="classgraph_1_1Graph_1a483d2964a16525bfb69c3b73f20a4d91" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SetCachedSize</name></member>
+      <member refid="classgraph_1_1Graph_1abb769c53c28abd89706ba87de3417cba" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SharedCtor</name></member>
+      <member refid="classgraph_1_1Graph_1abb769c53c28abd89706ba87de3417cba" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SharedCtor</name></member>
+      <member refid="classgraph_1_1Graph_1a8c7c78c83e5633ad8c0f7efb127431e8" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SharedDtor</name></member>
+      <member refid="classgraph_1_1Graph_1a8c7c78c83e5633ad8c0f7efb127431e8" prot="private" virt="non-virtual"><scope>graph::Graph</scope><name>SharedDtor</name></member>
+      <member refid="classgraph_1_1Graph_1a8e3853558c7080802e9362e869206156" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Swap</name></member>
+      <member refid="classgraph_1_1Graph_1a8e3853558c7080802e9362e869206156" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>Swap</name></member>
+      <member refid="classgraph_1_1Graph_1a4944a9b85ffdbecf91ec2454f915b411" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>unknown_fields</name></member>
+      <member refid="classgraph_1_1Graph_1a4944a9b85ffdbecf91ec2454f915b411" prot="public" virt="non-virtual"><scope>graph::Graph</scope><name>unknown_fields</name></member>
+      <member refid="classgraph_1_1Graph_1a5b449b3720d6d617fb4d22b47da97727" prot="public" virt="virtual"><scope>graph::Graph</scope><name>~Graph</name></member>
+      <member refid="classgraph_1_1Graph_1a1702b87d997b392a77a2d3bf878e6aff" prot="public" virt="virtual"><scope>graph::Graph</scope><name>~Graph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

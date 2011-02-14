@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1BinaryHeap" kind="class" prot="package">
+    <compoundname>mstparser::BinaryHeap</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1BinaryHeap_1a41d6171393a8f2e322159f96312be3f8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::BinaryHeap::DEFAULT_CAPACITY</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_CAPACITY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="250" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1BinaryHeap_1a397ddd716c598c6561e4a0f1f45426d4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::BinaryHeap::currentSize</definition>
+        <argsstring></argsstring>
+        <name>currentSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="251" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1BinaryHeap_1a0ecee1c03fc02fd1a89344b10156c72c" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1ValueIndexPair" kindref="compound">ValueIndexPair</ref>[]</type>
+        <definition>ValueIndexPair [] mstparser::BinaryHeap::theArray</definition>
+        <argsstring></argsstring>
+        <name>theArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="252" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1ae6ac832bb173087de48d75d78ac3f54b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::BinaryHeap::BinaryHeap</definition>
+        <argsstring>(int def_cap)</argsstring>
+        <name>BinaryHeap</name>
+        <param>
+          <type>int</type>
+          <declname>def_cap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="254" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="254" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1ad96ca18c1e77db50cc7be0649ae58266" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1ValueIndexPair" kindref="compound">ValueIndexPair</ref></type>
+        <definition>ValueIndexPair mstparser::BinaryHeap::getMax</definition>
+        <argsstring>()</argsstring>
+        <name>getMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="263" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="263" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1a04dd91d0b0508c570798773f79ca4c2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::BinaryHeap::add</definition>
+        <argsstring>(ValueIndexPair e)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="classmstparser_1_1ValueIndexPair" kindref="compound">ValueIndexPair</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="271" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="271" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1aee1fddce1f32ccc9ed548c2f5fd81447" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1ValueIndexPair" kindref="compound">ValueIndexPair</ref></type>
+        <definition>ValueIndexPair mstparser::BinaryHeap::removeMax</definition>
+        <argsstring>()</argsstring>
+        <name>removeMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="282" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="282" bodyend="310"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1a5c69f2759f61aa9240b55ad86a85633a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mstparser::BinaryHeap::parent</definition>
+        <argsstring>(int i)</argsstring>
+        <name>parent</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="267" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="267" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1ab9750c2657d932173ca4674a4c9c2f76" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mstparser::BinaryHeap::leftChild</definition>
+        <argsstring>(int i)</argsstring>
+        <name>leftChild</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="268" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="268" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1BinaryHeap_1aa5c4f4d99741243fcb0423bb1b7c66ab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mstparser::BinaryHeap::rightChild</definition>
+        <argsstring>(int i)</argsstring>
+        <name>rightChild</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="269" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="269" bodyend="269"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="306">
+        <label>mstparser::ValueIndexPair</label>
+        <link refid="classmstparser_1_1ValueIndexPair"/>
+      </node>
+      <node id="305">
+        <label>mstparser::BinaryHeap</label>
+        <link refid="classmstparser_1_1BinaryHeap"/>
+        <childnode refid="306" relation="usage">
+          <edgelabel>theArray</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" line="249" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest.java" bodystart="249" bodyend="312"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1BinaryHeap_1a04dd91d0b0508c570798773f79ca4c2c" prot="public" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>add</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1ae6ac832bb173087de48d75d78ac3f54b" prot="public" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>BinaryHeap</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1a397ddd716c598c6561e4a0f1f45426d4" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>currentSize</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1a41d6171393a8f2e322159f96312be3f8" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>DEFAULT_CAPACITY</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1ad96ca18c1e77db50cc7be0649ae58266" prot="public" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>getMax</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1ab9750c2657d932173ca4674a4c9c2f76" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>leftChild</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1a5c69f2759f61aa9240b55ad86a85633a" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>parent</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1aee1fddce1f32ccc9ed548c2f5fd81447" prot="public" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>removeMax</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1aa5c4f4d99741243fcb0423bb1b7c66ab" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>rightChild</name></member>
+      <member refid="classmstparser_1_1BinaryHeap_1a0ecee1c03fc02fd1a89344b10156c72c" prot="private" virt="non-virtual"><scope>mstparser::BinaryHeap</scope><name>theArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

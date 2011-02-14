@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="experiment_8py" kind="file">
+    <compoundname>experiment.py</compoundname>
+    <innerclass refid="classexperiment_1_1Experiment" prot="public">experiment::Experiment</innerclass>
+    <innernamespace refid="namespaceexperiment">experiment</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="classexperiment_1_1Experiment" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>:</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>desc):</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1add351d39019d095acbc5837d42c1a483" kindref="member">desc</ref><sp/>=<sp/>desc</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1adbdb4aa150e05a4c8322d766bc62feac" kindref="member">model_type</ref><sp/>=<sp/>desc.get(</highlight><highlight class="stringliteral">&quot;model_type&quot;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;nbayes&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1af497697aacea28828b90d6f9606dbf5b" kindref="member">prefix</ref><sp/>=<sp/>desc[</highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref><sp/>=<sp/><sp/>desc[</highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(desc[</highlight><highlight class="stringliteral">&apos;unk_thres&apos;</highlight><highlight class="normal">])<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1a8fefbeec3c4e7e2596a58f308cead9b2" kindref="member">full_exp_prefix</ref><sp/>=<sp/>self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref><sp/>+<sp/><sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(int(desc[</highlight><highlight class="stringliteral">&apos;penalty&apos;</highlight><highlight class="normal">]))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1adbdb4aa150e05a4c8322d766bc62feac" kindref="member">model_type</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1a9c3e2ec73c6adcb174f7d182a30ca71c" kindref="member">train</ref><sp/>=<sp/>desc[</highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1aa43328b8f77bbc848302b13b02ba6bbc" kindref="member">unk_thres</ref><sp/>=<sp/>desc[</highlight><highlight class="stringliteral">&apos;unk_thres&apos;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1ad0b7a95c9f9bc79066b39f679d7764a2" kindref="member">num_sentences</ref><sp/>=<sp/>desc[</highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1a9f480a3647686b912674ca1cb021ed12" kindref="member">num_cons</ref><sp/>=<sp/>desc.get(</highlight><highlight class="stringliteral">&quot;num_constraints&quot;</highlight><highlight class="normal">,<sp/>0)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classexperiment_1_1Experiment_1a5679b0cfeb0c750089a7d72bac1e4849" kindref="member">_penalty</ref><sp/>=<sp/>desc[</highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">constraint_type(self):</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classexperiment_1_1Experiment_1adbdb4aa150e05a4c8322d766bc62feac" kindref="member">model_type</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">original_simple_file(self):</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1af497697aacea28828b90d6f9606dbf5b" kindref="member">prefix</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">gold_file(self):</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1af497697aacea28828b90d6f9606dbf5b" kindref="member">prefix</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_gold&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">train_file(self):</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1a9c3e2ec73c6adcb174f7d182a30ca71c" kindref="member">train</ref><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">unknown_words(self):</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">unknown_prefix(self):</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">constraint_old_prefix(self):</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">mrf_link_prefix(self):</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_DATA/&quot;</highlight><highlight class="normal"><sp/>+<sp/>self.<ref refid="classexperiment_1_1Experiment_1a8fefbeec3c4e7e2596a58f308cead9b2" kindref="member">full_exp_prefix</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_link&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">constraint_mrf_prefix(self):</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_TMP/%s_mrf&quot;</highlight><highlight class="normal">%(self.<ref refid="classexperiment_1_1Experiment_1a8fefbeec3c4e7e2596a58f308cead9b2" kindref="member">full_exp_prefix</ref>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">result_prefix(self):</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_RESULTS/%s&quot;</highlight><highlight class="normal">%(self.<ref refid="classexperiment_1_1Experiment_1a8fefbeec3c4e7e2596a58f308cead9b2" kindref="member">full_exp_prefix</ref>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">lattice_prefix(self):</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_TMP/%s_lattice&quot;</highlight><highlight class="normal">%(self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">temporary_tags(self):</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;$SCARAB_TMP/%s_tag&quot;</highlight><highlight class="normal">%(self.<ref refid="classexperiment_1_1Experiment_1a86a616c409d1d123b67e15595b36f500" kindref="member">unk_exp_prefix</ref>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">num_sent(self):</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classexperiment_1_1Experiment_1ad0b7a95c9f9bc79066b39f679d7764a2" kindref="member">num_sentences</ref></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">num_constraints(self):</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classexperiment_1_1Experiment_1a9f480a3647686b912674ca1cb021ed12" kindref="member">num_cons</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">penalty(self):</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classexperiment_1_1Experiment_1a5679b0cfeb0c750089a7d72bac1e4849" kindref="member">_penalty</ref></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">#<sp/>class<sp/>Experiment:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">#<sp/><sp/><sp/>def<sp/>__init__(self):</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">#<sp/><sp/><sp/><sp/><sp/>pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">#<sp/><sp/><sp/>def<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">small_brown_3<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_3&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>3,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal"><sp/>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>10.0</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">})</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">small_brown_10<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_10&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>10,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>1.0</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">small_brown_10_hard<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_10&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>10,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>1000.0</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">small_brown_50<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_50&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>50,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>10.0<sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">small_brown_100<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_100&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>100,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>1.0</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">small_brown_100_hard<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_100&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>100,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>1000.0</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">small_brown_200<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_100&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;model_type&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;nbayes&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_constraints&quot;</highlight><highlight class="normal"><sp/>:<sp/>140,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>200,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>2.0</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">small_brown_200_potts<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;model_type&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;potts&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#&quot;exp_prefix&quot;:<sp/>&quot;brown_simple_1_100&quot;,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_constraints&quot;</highlight><highlight class="normal"><sp/>:<sp/>140,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>200,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>2.0</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">small_brown_500_potts<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;model_type&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;potts&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_constraints&quot;</highlight><highlight class="normal"><sp/>:<sp/>184,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>500,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>2.0</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">small_brown_500<sp/>=<sp/>Experiment({</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prefix&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;brown_simple_1&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_sentences&quot;</highlight><highlight class="normal"><sp/>:<sp/>62,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num_constraints&quot;</highlight><highlight class="normal"><sp/>:<sp/>184,</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;unk_thres&quot;</highlight><highlight class="normal"><sp/>:<sp/>500,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;train&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;wsj_gold_dependency&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;penalty&quot;</highlight><highlight class="normal"><sp/>:<sp/>2.0</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/experiments/experiment.py"/>
+  </compounddef>
+</doxygen>

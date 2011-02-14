@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1io_1_1MSTWriter" kind="class" prot="public">
+    <compoundname>mstparser::io::MSTWriter</compoundname>
+    <basecompoundref refid="classmstparser_1_1io_1_1DependencyWriter" prot="public" virt="non-virtual">mstparser::io::DependencyWriter</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1MSTWriter_1a500797160d56d2863026ec35833d0466" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::io::MSTWriter::MSTWriter</definition>
+        <argsstring>(boolean labeled)</argsstring>
+        <name>MSTWriter</name>
+        <param>
+          <type>boolean</type>
+          <declname>labeled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" line="33" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1MSTWriter_1a71b36b42ff310deff9248b38722ef009" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void mstparser::io::MSTWriter::write</definition>
+        <argsstring>(DependencyInstance instance)</argsstring>
+        <name>write</name>
+        <reimplements refid="classmstparser_1_1io_1_1DependencyWriter_1a2b54e6beccd6de24019987dc2f581496">write</reimplements>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" line="37" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" bodystart="37" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A writer to create files in MST format.</para><para>Created: Sat Nov 10 15:25:10 2001 </para><para><simplesect kind="author"><para>Jason Baldridge </para></simplesect>
+<simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Id</title><para>MSTWriter.java 94 2007-01-17 17:05:12Z jasonbaldridge </para></simplesect>
+<simplesect kind="see"><para><ref refid="classmstparser_1_1io_1_1DependencyWriter" kindref="compound">mstparser.io.DependencyWriter</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="1206">
+        <label>mstparser::io::MSTWriter</label>
+        <link refid="classmstparser_1_1io_1_1MSTWriter"/>
+        <childnode refid="1207" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1207">
+        <label>mstparser::io::DependencyWriter</label>
+        <link refid="classmstparser_1_1io_1_1DependencyWriter"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1208">
+        <label>mstparser::io::MSTWriter</label>
+        <link refid="classmstparser_1_1io_1_1MSTWriter"/>
+        <childnode refid="1209" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1209">
+        <label>mstparser::io::DependencyWriter</label>
+        <link refid="classmstparser_1_1io_1_1DependencyWriter"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" line="31" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/MSTWriter.java" bodystart="31" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1a64285adfb4fc9445a14635544acf7cbd" prot="public" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>createDependencyWriter</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1a0c56d0e59a7833b4d877f161928367aa" prot="public" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>finishWriting</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1a9256e5c08ab4f46471ef44e5794f5ef6" prot="public" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>isLabeled</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1ac17a65c091653a0e892c258b483fbecb" prot="protected" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>labeled</name></member>
+      <member refid="classmstparser_1_1io_1_1MSTWriter_1a500797160d56d2863026ec35833d0466" prot="public" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>MSTWriter</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1a76ff97db1e16ce6aa0861c2997200cb4" prot="public" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>startWriting</name></member>
+      <member refid="classmstparser_1_1io_1_1MSTWriter_1a71b36b42ff310deff9248b38722ef009" prot="public" virt="virtual"><scope>mstparser::io::MSTWriter</scope><name>write</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyWriter_1a89fc1cedbe835a274ee6cfb851e3d302" prot="protected" virt="non-virtual"><scope>mstparser::io::MSTWriter</scope><name>writer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

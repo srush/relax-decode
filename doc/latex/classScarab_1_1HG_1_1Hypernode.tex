@@ -1,0 +1,168 @@
+\hypertarget{classScarab_1_1HG_1_1Hypernode}{
+\section{Scarab::HG::Hypernode Class Reference}
+\label{classScarab_1_1HG_1_1Hypernode}\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+}
+
+
+{\ttfamily \#include $<$Hypergraph.h$>$}
+
+Inheritance diagram for Scarab::HG::Hypernode:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classScarab_1_1HG_1_1Hypernode}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classScarab_1_1HG_1_1Hypernode_a0657cc96f62d29da3ae4b5b9bcab1ce6}{$\sim$Hypernode} ()
+\item 
+virtual unsigned int \hyperlink{classScarab_1_1HG_1_1Hypernode_a0aeaee6c2ca2a011fcd086f803aaa4d0}{id} () const =0
+\item 
+virtual unsigned int \hyperlink{classScarab_1_1HG_1_1Hypernode_add2f4d556be223b906bfbab9f1b60870}{num\_\-edges} () const =0
+\item 
+virtual unsigned int \hyperlink{classScarab_1_1HG_1_1Hypernode_a4b1a4ffaa8a8b0295763673e6d86d693}{num\_\-in\_\-edges} () const =0
+\item 
+virtual const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} \& \hyperlink{classScarab_1_1HG_1_1Hypernode_a3bface6832eb54a00d90e4fe8d1999f7}{edge} (unsigned int i) const =0
+\item 
+virtual const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} \& \hyperlink{classScarab_1_1HG_1_1Hypernode_a533d3e0bc2269ec07edbda32305daf70}{in\_\-edge} (unsigned int i) const =0
+\item 
+virtual bool \hyperlink{classScarab_1_1HG_1_1Hypernode_ae3e1107309a8817d1015bd70a90c1c49}{is\_\-terminal} () const =0
+\item 
+virtual const vector$<$ \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ \& \hyperlink{classScarab_1_1HG_1_1Hypernode_a3306572ded5b5061c1916bcf268be94e}{edges} () const =0
+\item 
+virtual const vector$<$ \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ \& \hyperlink{classScarab_1_1HG_1_1Hypernode_aad118748408663b8242dc52d45bbd49d}{in\_\-edges} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} -\/ Constant representation of a hypernode in a hypergraph. Accessors for edges above and below. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a0657cc96f62d29da3ae4b5b9bcab1ce6}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!$\sim$Hypernode@{$\sim$Hypernode}}
+\index{$\sim$Hypernode@{$\sim$Hypernode}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{$\sim$Hypernode}]{\setlength{\rightskip}{0pt plus 5cm}virtual Scarab::HG::Hypernode::$\sim$Hypernode ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a0657cc96f62d29da3ae4b5b9bcab1ce6}
+WARNING: Private except to \hyperlink{classHypergraph}{Hypergraph} 
+
+\subsection{Member Function Documentation}
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a3bface6832eb54a00d90e4fe8d1999f7}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!edge@{edge}}
+\index{edge@{edge}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{edge}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf Hyperedge}\& Scarab::HG::Hypernode::edge (unsigned int {\em i}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a3bface6832eb54a00d90e4fe8d1999f7}
+Get the hyperedge this node as head \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000009}{Deprecated}]\end{Desc}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Local local id of edge\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hyperedge 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a328189f28a4185d435035686a27592c2}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a3306572ded5b5061c1916bcf268be94e}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!edges@{edges}}
+\index{edges@{edges}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}virtual const vector$<${\bf Hyperedge}$\ast$$>$\& Scarab::HG::Hypernode::edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a3306572ded5b5061c1916bcf268be94e}
+Get all hyperedges with this hypernode as head. WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_ada979dcddc1bf0abf0fc2530d1ea8761}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a0aeaee6c2ca2a011fcd086f803aaa4d0}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!id@{id}}
+\index{id@{id}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Scarab::HG::Hypernode::id () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a0aeaee6c2ca2a011fcd086f803aaa4d0}
+The unique identifier of the \hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000006}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a2579ef1e67ad8f51d23838c130440d21}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a533d3e0bc2269ec07edbda32305daf70}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!in\_\-edge@{in\_\-edge}}
+\index{in\_\-edge@{in\_\-edge}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{in\_\-edge}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf Hyperedge}\& Scarab::HG::Hypernode::in\_\-edge (unsigned int {\em i}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a533d3e0bc2269ec07edbda32305daf70}
+Get the hyperedge this node as tail \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000010}{Deprecated}]\end{Desc}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Local local id of edge\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hyperedge 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a26ff9db30c03c7b74181e9f901aa71d4}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_aad118748408663b8242dc52d45bbd49d}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!in\_\-edges@{in\_\-edges}}
+\index{in\_\-edges@{in\_\-edges}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{in\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}virtual const vector$<${\bf Hyperedge}$\ast$$>$\& Scarab::HG::Hypernode::in\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_aad118748408663b8242dc52d45bbd49d}
+Get all hyperedges with this hypernode as a tail. WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a77fe0de2e3927be6145cb8fc018088c9}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_ae3e1107309a8817d1015bd70a90c1c49}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!is\_\-terminal@{is\_\-terminal}}
+\index{is\_\-terminal@{is\_\-terminal}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{is\_\-terminal}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Scarab::HG::Hypernode::is\_\-terminal () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_ae3e1107309a8817d1015bd70a90c1c49}
+Is this node a terminal nodes. (no children)
+
+\begin{DoxyReturn}{Returns}
+True if terminal (assert \hyperlink{classScarab_1_1HG_1_1Hypernode_ae3e1107309a8817d1015bd70a90c1c49}{is\_\-terminal()} == (\hyperlink{classScarab_1_1HG_1_1Hypernode_add2f4d556be223b906bfbab9f1b60870}{num\_\-edges()} == 0)) 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a2bb4b33ff207c3c1babe135b9af6323e}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_add2f4d556be223b906bfbab9f1b60870}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!num\_\-edges@{num\_\-edges}}
+\index{num\_\-edges@{num\_\-edges}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{num\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Scarab::HG::Hypernode::num\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_add2f4d556be223b906bfbab9f1b60870}
+Get the number of hyperedges that have this node as head \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000007}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a7fed4809706319cc916ed4c04a641436}{Scarab::HG::HypernodeImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1Hypernode_a4b1a4ffaa8a8b0295763673e6d86d693}{
+\index{Scarab::HG::Hypernode@{Scarab::HG::Hypernode}!num\_\-in\_\-edges@{num\_\-in\_\-edges}}
+\index{num\_\-in\_\-edges@{num\_\-in\_\-edges}!Scarab::HG::Hypernode@{Scarab::HG::Hypernode}}
+\subsubsection[{num\_\-in\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Scarab::HG::Hypernode::num\_\-in\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1Hypernode_a4b1a4ffaa8a8b0295763673e6d86d693}
+Get the number of hyperedges that have this node as tail \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000008}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypernodeImpl_a9a13a37fcece16603ec4bf3f364e6fcc}{Scarab::HG::HypernodeImpl}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+hypergraph/Hypergraph.h\end{DoxyCompactItemize}

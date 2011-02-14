@@ -1,0 +1,987 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classlattice_1_1Lattice__Edge" kind="class" prot="public">
+    <compoundname>lattice::Lattice_Edge</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a0e2f2cee5173639eda89756b70265596" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Lattice_Edge::kIdFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kIdFieldNumber</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="214" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a5c0b87e3bc9390f398cf3e2de0c19ca0" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Lattice_Edge::kLabelFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kLabelFieldNumber</name>
+        <initializer> 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="221" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a3bf87977ee5b7e5f33486c382fbac72f" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Lattice_Edge::kToIdFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kToIdFieldNumber</name>
+        <initializer> 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="232" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1ac79e0dc27fd0ceac50c0121fcbd01f12" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::internal::ExtensionSet</type>
+        <definition>::google::protobuf::internal::ExtensionSet lattice::Lattice_Edge::_extensions_</definition>
+        <argsstring></argsstring>
+        <name>_extensions_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="246" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a674a85f348c1f6eaeae4bea8d3997347" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::UnknownFieldSet</type>
+        <definition>::google::protobuf::UnknownFieldSet lattice::Lattice_Edge::_unknown_fields_</definition>
+        <argsstring></argsstring>
+        <name>_unknown_fields_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="248" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a50ca0793c932b59a629988c01a5567c1" prot="private" static="no" mutable="no">
+        <type>::std::string *</type>
+        <definition>::std::string* lattice::Lattice_Edge::label_</definition>
+        <argsstring></argsstring>
+        <name>label_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="250" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a1dcffdb4697f3b9ade1508afe5c11ddf" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>::google::protobuf::int32 lattice::Lattice_Edge::id_</definition>
+        <argsstring></argsstring>
+        <name>id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="251" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a4485bb9705693e785f41c57438f29297" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>::google::protobuf::int32 lattice::Lattice_Edge::to_id_</definition>
+        <argsstring></argsstring>
+        <name>to_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="252" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a687c3102790361c605d15bde4db5a464" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int lattice::Lattice_Edge::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="254" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1a54c64d400f347da298dccd367a766638" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::uint32</type>
+        <definition>::google::protobuf::uint32 lattice::Lattice_Edge::_has_bits_[(3+31)/32]</definition>
+        <argsstring>[(3+31)/32]</argsstring>
+        <name>_has_bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="255" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Lattice__Edge_1ad0c1834142fe3e6e7a32015fc1f6b6e6" prot="private" static="yes" mutable="no">
+        <type><ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> *</type>
+        <definition>Lattice_Edge * lattice::Lattice_Edge::default_instance_</definition>
+        <argsstring></argsstring>
+        <name>default_instance_</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="262" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a1468acd174eaba768d6e6fe654bd5165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Lattice_Edge::Lattice_Edge</definition>
+        <argsstring>()</argsstring>
+        <name>Lattice_Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="159" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="610" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a3b260bb41ca100f2661a2631e79918a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>lattice::Lattice_Edge::~Lattice_Edge</definition>
+        <argsstring>()</argsstring>
+        <name>~Lattice_Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="160" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="632" bodyend="634"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1acd52c069d2b4ccd5e35415ced12a8de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Lattice_Edge::Lattice_Edge</definition>
+        <argsstring>(const Lattice_Edge &amp;from)</argsstring>
+        <name>Lattice_Edge</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="162" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="618" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a7b8481bf7bbecf282e2f938ff35da177" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+        <definition>Lattice_Edge&amp; lattice::Lattice_Edge::operator=</definition>
+        <argsstring>(const Lattice_Edge &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="164" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1af44f15fd53ae86dd482f86e74bf4ce55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; lattice::Lattice_Edge::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="169" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="169" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aae27de06c0aa0d1cdae07ba720e7eb7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* lattice::Lattice_Edge::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="173" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="173" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aaaa95dd26cb8b36f35652fba54be5679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::Swap</definition>
+        <argsstring>(Lattice_Edge *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="180" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="905" bodyend="915"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a499e153dc35d1496be7a0420c5f848f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> *</type>
+        <definition>Lattice_Edge * lattice::Lattice_Edge::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="184" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="660" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a4f12ea2d09f06458eaf599bbd6140d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="185" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="886" bodyend="890"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1acb2a52debadf89e32673ed4681a785de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="186" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="857" bodyend="867"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a6a8426745b646d96dbea6931daaa33f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::CopyFrom</definition>
+        <argsstring>(const Lattice_Edge &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="187" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="892" bodyend="896"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ad910840c5215e942e5fad4b9119a4094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::MergeFrom</definition>
+        <argsstring>(const Lattice_Edge &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="188" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="869" bodyend="884"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a7780ee7c3441cce937784a92dda3fcad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="189" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="664" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a2a52f5e8c864ae50e31f7e0a5b5ece95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Lattice_Edge::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="190" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="898" bodyend="903"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a7342ae6a37ed9b432cdd4bacb58956b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Lattice_Edge::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="192" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="818" bodyend="855"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ab3f9dc6f28a5d5e7356beb27f6cbdf3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Lattice_Edge::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="194" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="679" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aa425ac46616eb3cbdc3e17b5536991c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="196" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="754" bodyend="783"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ab3717991484977072e673eaaaf28b9b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>google::protobuf::uint8 * lattice::Lattice_Edge::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="197" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="785" bodyend="816"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a6cccad4c342b1d0bf48b9b828f277b56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Lattice_Edge::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="198" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="198" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aba8500dcfc46ede1ae99f43ec1c5909f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>google::protobuf::Metadata lattice::Lattice_Edge::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="205" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="917" bodyend="923"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a8366be45d3f24bd44724f8ddabd5e3ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Lattice_Edge::has_id</definition>
+        <argsstring>() const </argsstring>
+        <name>has_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="212" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="906" bodyend="908"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aa90e4552c9da9e7c3a62bff5af76540a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="213" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="915" bodyend="918"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a99bb9339bff6dc5dea68711b5ea4739f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 lattice::Lattice_Edge::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="215" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="919" bodyend="921"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a24547494991007daed07e9526fe563a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_id</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_id</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="216" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="922" bodyend="925"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ad835d581cf9d59feb757d7669b331813" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Lattice_Edge::has_label</definition>
+        <argsstring>() const </argsstring>
+        <name>has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="219" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="928" bodyend="930"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a53d5c95032840aabb15521b04cf4343f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="220" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="937" bodyend="942"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a1bf88081324cb64246bd4b07b60010bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::std::string &amp;</type>
+        <definition>const ::std::string &amp; lattice::Lattice_Edge::label</definition>
+        <argsstring>() const </argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="222" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="943" bodyend="945"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aec8f4c4697ebba26377929c894a2dba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_label</definition>
+        <argsstring>(const ::std::string &amp;value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const ::std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="223" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="946" bodyend="952"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1aa5056c3b346d89c79626bd9b76aaeda9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_label</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="224" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="953" bodyend="959"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1afb812d783f60810acaff1f3cd5ede45e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_label</definition>
+        <argsstring>(const char *value, size_t size)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="225" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="960" bodyend="966"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a422f058978331e9032f8b46f3e7edf19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * lattice::Lattice_Edge::mutable_label</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="226" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="967" bodyend="973"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a19a5d69b5f49534574ba4228c2eabb00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * lattice::Lattice_Edge::release_label</definition>
+        <argsstring>()</argsstring>
+        <name>release_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="227" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="974" bodyend="983"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a8606af1eb69fe1603701acd62f1641fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Lattice_Edge::has_to_id</definition>
+        <argsstring>() const </argsstring>
+        <name>has_to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="230" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="986" bodyend="988"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a9b924c9c24c68d721caf410388ecd26b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_to_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="231" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="995" bodyend="998"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a15a7dd3d4bfd721431c5d40d2b775117" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 lattice::Lattice_Edge::to_id</definition>
+        <argsstring>() const </argsstring>
+        <name>to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="233" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="999" bodyend="1001"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1afe2ba54700b6c255be550d5fddf03cea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_to_id</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_to_id</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="234" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1002" bodyend="1005"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a65852986232fb6963efbbc6fefd896be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>const ::google::protobuf::Descriptor * lattice::Lattice_Edge::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="177" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="649" bodyend="652"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ad6eb7c57bf5d859752e7e88bd7329469" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classlattice_1_1Lattice__Edge" kindref="compound">Lattice_Edge</ref> &amp;</type>
+        <definition>const Lattice_Edge &amp; lattice::Lattice_Edge::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="178" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="654" bodyend="656"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a457a8dfc77e680580fd15d92c05e704a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="200" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="624" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ab64c261a9d0bb596b440e4de91f71421" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="201" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="636" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a05824031b95709cd33811fe4bb7310b2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="202" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="644" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1abc69813461263eeb23429644bcc823d4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_has_id</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="239" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="909" bodyend="911"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a0b1a1b62a1ddbaac3c1b928bde15f5a4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_has_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="240" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="912" bodyend="914"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a9b8646f50b9a965ee3dfa015404fb3ff" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="241" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="931" bodyend="933"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a1322bf75f89a27b69b04e5f8be7c78b7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_has_label</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="242" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="934" bodyend="936"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1adb98b3f1d6f9ebd7c42b9a9f65e6f523" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::set_has_to_id</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="243" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="989" bodyend="991"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1a949f6d09e2b88a09a735bf3e1d463ed1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::clear_has_to_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="244" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="992" bodyend="994"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Lattice__Edge_1ab601f6faab0f577769bdc0199c727605" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Lattice_Edge::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="261" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="615" bodyend="616"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classlattice_1_1Lattice__Edge_1a19e63fb37025879e023cad88064187cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="257"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Lattice__Edge_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="258"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Lattice__Edge_1a3c7b187721d0704ceb19ff889729d35a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="259"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1042">
+        <label>lattice::Lattice_Edge</label>
+        <link refid="classlattice_1_1Lattice__Edge"/>
+        <childnode refid="1042" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+        <childnode refid="1043" relation="usage">
+          <edgelabel>label_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1044">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1043">
+        <label>std::string</label>
+        <childnode refid="1044" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="157" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="157" bodyend="263"/>
+    <listofallmembers>
+      <member refid="classlattice_1_1Lattice__Edge_1a687c3102790361c605d15bde4db5a464" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>_cached_size_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ac79e0dc27fd0ceac50c0121fcbd01f12" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>_extensions_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a54c64d400f347da298dccd367a766638" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>_has_bits_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a674a85f348c1f6eaeae4bea8d3997347" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>_unknown_fields_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a7342ae6a37ed9b432cdd4bacb58956b8" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>ByteSize</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a7780ee7c3441cce937784a92dda3fcad" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>Clear</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a0b1a1b62a1ddbaac3c1b928bde15f5a4" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_has_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a1322bf75f89a27b69b04e5f8be7c78b7" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_has_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a949f6d09e2b88a09a735bf3e1d463ed1" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_has_to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aa90e4552c9da9e7c3a62bff5af76540a" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a53d5c95032840aabb15521b04cf4343f" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a9b924c9c24c68d721caf410388ecd26b" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>clear_to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a4f12ea2d09f06458eaf599bbd6140d09" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a6a8426745b646d96dbea6931daaa33f9" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ad6eb7c57bf5d859752e7e88bd7329469" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>default_instance</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ad0c1834142fe3e6e7a32015fc1f6b6e6" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>default_instance_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a65852986232fb6963efbbc6fefd896be" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>descriptor</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a6cccad4c342b1d0bf48b9b828f277b56" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>GetCachedSize</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aba8500dcfc46ede1ae99f43ec1c5909f" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>GetMetadata</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a8366be45d3f24bd44724f8ddabd5e3ac" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>has_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ad835d581cf9d59feb757d7669b331813" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>has_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a8606af1eb69fe1603701acd62f1641fb" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>has_to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a99bb9339bff6dc5dea68711b5ea4739f" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a1dcffdb4697f3b9ade1508afe5c11ddf" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>id_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ab601f6faab0f577769bdc0199c727605" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a2a52f5e8c864ae50e31f7e0a5b5ece95" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>IsInitialized</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a0e2f2cee5173639eda89756b70265596" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>kIdFieldNumber</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a5c0b87e3bc9390f398cf3e2de0c19ca0" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>kLabelFieldNumber</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a3bf87977ee5b7e5f33486c382fbac72f" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>kToIdFieldNumber</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a1bf88081324cb64246bd4b07b60010bf" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a50ca0793c932b59a629988c01a5567c1" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>label_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a1468acd174eaba768d6e6fe654bd5165" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>Lattice_Edge</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1acd52c069d2b4ccd5e35415ced12a8de3" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>Lattice_Edge</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1acb2a52debadf89e32673ed4681a785de" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ad910840c5215e942e5fad4b9119a4094" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ab3f9dc6f28a5d5e7356beb27f6cbdf3f" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a422f058978331e9032f8b46f3e7edf19" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>mutable_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aae27de06c0aa0d1cdae07ba720e7eb7c" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a499e153dc35d1496be7a0420c5f848f3" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>New</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a7b8481bf7bbecf282e2f938ff35da177" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>operator=</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a19e63fb37025879e023cad88064187cf" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>protobuf_AddDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>protobuf_AssignDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a3c7b187721d0704ceb19ff889729d35a" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>protobuf_ShutdownFile_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a19a5d69b5f49534574ba4228c2eabb00" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>release_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aa425ac46616eb3cbdc3e17b5536991c0" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ab3717991484977072e673eaaaf28b9b5" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1abc69813461263eeb23429644bcc823d4" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_has_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a9b8646f50b9a965ee3dfa015404fb3ff" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_has_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1adb98b3f1d6f9ebd7c42b9a9f65e6f523" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_has_to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a24547494991007daed07e9526fe563a9" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aec8f4c4697ebba26377929c894a2dba4" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aa5056c3b346d89c79626bd9b76aaeda9" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1afb812d783f60810acaff1f3cd5ede45e" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_label</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1afe2ba54700b6c255be550d5fddf03cea" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>set_to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a05824031b95709cd33811fe4bb7310b2" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>SetCachedSize</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a457a8dfc77e680580fd15d92c05e704a" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>SharedCtor</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1ab64c261a9d0bb596b440e4de91f71421" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>SharedDtor</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1aaaa95dd26cb8b36f35652fba54be5679" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>Swap</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a15a7dd3d4bfd721431c5d40d2b775117" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>to_id</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a4485bb9705693e785f41c57438f29297" prot="private" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>to_id_</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1af44f15fd53ae86dd482f86e74bf4ce55" prot="public" virt="non-virtual"><scope>lattice::Lattice_Edge</scope><name>unknown_fields</name></member>
+      <member refid="classlattice_1_1Lattice__Edge_1a3b260bb41ca100f2661a2631e79918a7" prot="public" virt="virtual"><scope>lattice::Lattice_Edge</scope><name>~Lattice_Edge</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct____pyx__obj__7svector__KeyIterator" kind="struct" prot="public">
+    <compoundname>__pyx_obj_7svector_KeyIterator</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____pyx__obj__7svector__KeyIterator_1a7f1d6bf6d4e702577dbc5c7e047aa40e" prot="public" static="no" mutable="no">
+        <type>PyObject_HEAD <ref refid="structsvector__iterator" kindref="compound">svector_iterator</ref>&lt; int, double &gt; *</type>
+        <definition>PyObject_HEAD svector_iterator&lt; int, double &gt; * __pyx_obj_7svector_KeyIterator::thisptr</definition>
+        <argsstring></argsstring>
+        <name>thisptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="447" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct____pyx__obj__7svector__KeyIterator_1a1d0872a1d18cd2a5d70153aa8d8faacd" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref> *</type>
+        <definition>struct __pyx_obj_7svector_Vector * __pyx_obj_7svector_KeyIterator::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="448" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>std::map&lt; int, double &gt;</label>
+      </node>
+      <node id="1">
+        <label>__pyx_obj_7svector_KeyIterator</label>
+        <link refid="struct____pyx__obj__7svector__KeyIterator"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>v</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>thisptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>svector&lt; int, double &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>svector_iterator&lt; int, double &gt;</label>
+        <link refid="structsvector__iterator"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>cur</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>__pyx_obj_7svector_Vector</label>
+        <link refid="struct____pyx__obj__7svector__Vector"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>thisptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="445" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="445" bodyend="449"/>
+    <listofallmembers>
+      <member refid="struct____pyx__obj__7svector__KeyIterator_1a7f1d6bf6d4e702577dbc5c7e047aa40e" prot="public" virt="non-virtual"><scope>__pyx_obj_7svector_KeyIterator</scope><name>thisptr</name></member>
+      <member refid="struct____pyx__obj__7svector__KeyIterator_1a1d0872a1d18cd2a5d70153aa8d8faacd" prot="public" virt="non-virtual"><scope>__pyx_obj_7svector_KeyIterator</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

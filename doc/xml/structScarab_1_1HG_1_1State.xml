@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1State" kind="struct" prot="public">
+    <compoundname>Scarab::HG::State</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1State_1a1c516b546a5e3de3a5f9bb8f39a3cf20" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Scarab::HG::State::_state</definition>
+        <argsstring></argsstring>
+        <name>_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="64" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1State_1ae3d755b161845bd295deae4096d4c9f8" prot="protected" static="no" mutable="no">
+        <type>uint</type>
+        <definition>uint Scarab::HG::State::_dim</definition>
+        <argsstring></argsstring>
+        <name>_dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="67" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1a141bd78c0cfc381acd28ba2b1a439bd5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::State::State</definition>
+        <argsstring>()</argsstring>
+        <name>State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="22" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1a61592030e999341da1e674274db11307" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::State::State</definition>
+        <argsstring>(const vector&lt; int &gt; &amp;ids, uint dim)</argsstring>
+        <name>State</name>
+        <param>
+          <type>const vector&lt; int &gt; &amp;</type>
+          <declname>ids</declname>
+        </param>
+        <param>
+          <type>uint</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="23" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1a6597ae0951c6d0c9146ae6bd5b91b52f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref></type>
+        <definition>State Scarab::HG::State::project</definition>
+        <argsstring>(int split, int down_to) const </argsstring>
+        <name>project</name>
+        <param>
+          <type>int</type>
+          <declname>split</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>down_to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="27" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1ac7f5641edb1dd813dcac3b76be28d305" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::HG::State::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="34" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="34" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1a17d205eca9f3be9c01c7d41e3fe4d809" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::State::operator==</definition>
+        <argsstring>(const State &amp;other) const </argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="44" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1acd8ef3e5bd73ec5034de0d70f2bb2492" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::State::compatible</definition>
+        <argsstring>(const State &amp;other) const </argsstring>
+        <name>compatible</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="49" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1abadb936b551a91d952af74b3bfc7d43d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::State::operator&lt;</definition>
+        <argsstring>(const State &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="53" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1State_1afc65eeacc345b5396a673e4328cccc11" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::HG::State::possible_states</definition>
+        <argsstring>() const </argsstring>
+        <name>possible_states</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="59" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="59" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structScarab_1_1HG_1_1State_1a353ffb342165fcaec0e812d0288fc329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;output, const State &amp;p)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="25" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1464">
+        <label>Scarab::HG::State</label>
+        <link refid="structScarab_1_1HG_1_1State"/>
+        <childnode refid="1465" relation="usage">
+          <edgelabel>_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1465">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="21" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="21" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1State_1ae3d755b161845bd295deae4096d4c9f8" prot="protected" virt="non-virtual"><scope>Scarab::HG::State</scope><name>_dim</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a1c516b546a5e3de3a5f9bb8f39a3cf20" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>_state</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1acd8ef3e5bd73ec5034de0d70f2bb2492" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>compatible</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1ac7f5641edb1dd813dcac3b76be28d305" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>id</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1abadb936b551a91d952af74b3bfc7d43d" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>operator&lt;</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a353ffb342165fcaec0e812d0288fc329" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a17d205eca9f3be9c01c7d41e3fe4d809" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>operator==</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1afc65eeacc345b5396a673e4328cccc11" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>possible_states</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a6597ae0951c6d0c9146ae6bd5b91b52f" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>project</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a141bd78c0cfc381acd28ba2b1a439bd5" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>State</name></member>
+      <member refid="structScarab_1_1HG_1_1State_1a61592030e999341da1e674274db11307" prot="public" virt="non-virtual"><scope>Scarab::HG::State</scope><name>State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="PhraseBased_8h" kind="file">
+    <compoundname>PhraseBased.h</compoundname>
+    <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
+    <includes refid="HypergraphImpl_8h" local="yes">HypergraphImpl.h</includes>
+    <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
+    <includedby refid="PhraseLP_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="PhraseViterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
+    <incdepgraph>
+      <node id="2438">
+        <label>assert.h</label>
+      </node>
+      <node id="2423">
+        <label>cassert</label>
+      </node>
+      <node id="2422">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="2425">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="2421" relation="include">
+        </childnode>
+        <childnode refid="2422" relation="include">
+        </childnode>
+        <childnode refid="2423" relation="include">
+        </childnode>
+      </node>
+      <node id="2434">
+        <label>features.pb.h</label>
+        <link refid="gen__cpp_2features_8pb_8h_source"/>
+        <childnode refid="2418" relation="include">
+        </childnode>
+        <childnode refid="2429" relation="include">
+        </childnode>
+        <childnode refid="2430" relation="include">
+        </childnode>
+        <childnode refid="2431" relation="include">
+        </childnode>
+        <childnode refid="2432" relation="include">
+        </childnode>
+        <childnode refid="2433" relation="include">
+        </childnode>
+        <childnode refid="2428" relation="include">
+        </childnode>
+      </node>
+      <node id="2418">
+        <label>string</label>
+      </node>
+      <node id="2421">
+        <label>map</label>
+      </node>
+      <node id="2436">
+        <label>EdgeCache.h</label>
+        <link refid="EdgeCache_8h_source"/>
+        <childnode refid="2424" relation="include">
+        </childnode>
+        <childnode refid="2437" relation="include">
+        </childnode>
+        <childnode refid="2438" relation="include">
+        </childnode>
+      </node>
+      <node id="2427">
+        <label>HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="2413" relation="include">
+        </childnode>
+        <childnode refid="2428" relation="include">
+        </childnode>
+        <childnode refid="2434" relation="include">
+        </childnode>
+        <childnode refid="2414" relation="include">
+        </childnode>
+        <childnode refid="2435" relation="include">
+        </childnode>
+        <childnode refid="2424" relation="include">
+        </childnode>
+        <childnode refid="2426" relation="include">
+        </childnode>
+      </node>
+      <node id="2413">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="2414" relation="include">
+        </childnode>
+        <childnode refid="2424" relation="include">
+        </childnode>
+        <childnode refid="2426" relation="include">
+        </childnode>
+        <childnode refid="2418" relation="include">
+        </childnode>
+      </node>
+      <node id="2416">
+        <label>fstream</label>
+      </node>
+      <node id="2428">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="2418" relation="include">
+        </childnode>
+        <childnode refid="2429" relation="include">
+        </childnode>
+        <childnode refid="2430" relation="include">
+        </childnode>
+        <childnode refid="2431" relation="include">
+        </childnode>
+        <childnode refid="2432" relation="include">
+        </childnode>
+        <childnode refid="2433" relation="include">
+        </childnode>
+      </node>
+      <node id="2414">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="2415" relation="include">
+        </childnode>
+        <childnode refid="2416" relation="include">
+        </childnode>
+        <childnode refid="2417" relation="include">
+        </childnode>
+        <childnode refid="2425" relation="include">
+        </childnode>
+      </node>
+      <node id="2430">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="2435">
+        <label>../common.h</label>
+      </node>
+      <node id="2437">
+        <label>bitset</label>
+      </node>
+      <node id="2429">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="2424">
+        <label>vector</label>
+      </node>
+      <node id="2419">
+        <label>sstream</label>
+      </node>
+      <node id="2432">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="2431">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="2420">
+        <label>cstdlib</label>
+      </node>
+      <node id="2417">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="2418" relation="include">
+        </childnode>
+        <childnode refid="2419" relation="include">
+        </childnode>
+        <childnode refid="2420" relation="include">
+        </childnode>
+        <childnode refid="2417" relation="include">
+        </childnode>
+        <childnode refid="2421" relation="include">
+        </childnode>
+        <childnode refid="2422" relation="include">
+        </childnode>
+        <childnode refid="2423" relation="include">
+        </childnode>
+        <childnode refid="2424" relation="include">
+        </childnode>
+        <childnode refid="2415" relation="include">
+        </childnode>
+      </node>
+      <node id="2415">
+        <label>iostream</label>
+      </node>
+      <node id="2412">
+        <label>phrasebased/PhraseBased.h</label>
+        <link refid="PhraseBased.h"/>
+        <childnode refid="2413" relation="include">
+        </childnode>
+        <childnode refid="2427" relation="include">
+        </childnode>
+        <childnode refid="2436" relation="include">
+        </childnode>
+      </node>
+      <node id="2426">
+        <label>set</label>
+      </node>
+      <node id="2433">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classPhraseBased" prot="public">PhraseBased</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PHRASEBASED_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PHRASEBASED_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Hypergraph.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphImpl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;EdgeCache.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">Scarab::HG;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classPhraseBased" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classPhraseBased" kindref="compound">PhraseBased</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Scarab::HG::<ref refid="classScarab_1_1HG_1_1HypergraphImpl" kindref="compound">HypergraphImpl</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12" refid="classPhraseBased_1aafc2997b58b3698fed7cb5a1f6f269c6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPhraseBased_1aafc2997b58b3698fed7cb5a1f6f269c6" kindref="member">print</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph" kindref="compound">Hypergraph</ref><sp/>&amp;<sp/>hgraph){}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h"/>
+  </compounddef>
+</doxygen>

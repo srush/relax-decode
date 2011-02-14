@@ -1,0 +1,55 @@
+\hypertarget{classHardPosConstraintsLP}{
+\section{HardPosConstraintsLP Class Reference}
+\label{classHardPosConstraintsLP}\index{HardPosConstraintsLP@{HardPosConstraintsLP}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classHardPosConstraintsLP_a2979e37eb163b00f48a38ee8fccd1a64}{
+{\bfseries HardPosConstraintsLP} (const \hyperlink{classTagConstraints}{TagConstraints} \&constraints, double penalty)}
+\label{classHardPosConstraintsLP_a2979e37eb163b00f48a38ee8fccd1a64}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_aa841ffcec001c0ee31714d0d39027c26}{
+GRBLinExpr {\bfseries make\_\-lin\_\-expr} (const vector$<$ \hyperlink{structScarab_1_1HG_1_1TagLP}{TagLP} $\ast$ $>$ \&lp\_\-vars, const \hyperlink{structPossibleTag}{PossibleTag} \&tag, POS restricted\_\-to)}
+\label{classHardPosConstraintsLP_aa841ffcec001c0ee31714d0d39027c26}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_a7a7bb0c41351c9de3130045f0013c67b}{
+void {\bfseries add\_\-to\_\-lp} (const vector$<$ \hyperlink{structScarab_1_1HG_1_1TagLP}{TagLP} $\ast$ $>$ \&lp\_\-vars, GRBModel \&model)}
+\label{classHardPosConstraintsLP_a7a7bb0c41351c9de3130045f0013c67b}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_a4307bcde1a701018736de348a718262b}{
+void {\bfseries show\_\-results} ()}
+\label{classHardPosConstraintsLP_a4307bcde1a701018736de348a718262b}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classHardPosConstraintsLP_a16ba65107e587a8cb43cc10949b0ebcf}{
+vector$<$ vector$<$ GRBVar $>$ $>$ {\bfseries group\_\-used}}
+\label{classHardPosConstraintsLP_a16ba65107e587a8cb43cc10949b0ebcf}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_ad3b98e9e78140b02098420c674fcbaab}{
+vector$<$ vector$<$ vector$<$ GRBVar $>$ $>$ $>$ {\bfseries slacks\_\-pos}}
+\label{classHardPosConstraintsLP_ad3b98e9e78140b02098420c674fcbaab}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_ac758c0971f82ef892f7f708db15bf472}{
+vector$<$ vector$<$ vector$<$ GRBVar $>$ $>$ $>$ {\bfseries slacks\_\-neg}}
+\label{classHardPosConstraintsLP_ac758c0971f82ef892f7f708db15bf472}
+
+\item 
+\hypertarget{classHardPosConstraintsLP_aa5c46efababe8dd5282a71ceb233c548}{
+set$<$ int $>$ {\bfseries groups}}
+\label{classHardPosConstraintsLP_aa5c46efababe8dd5282a71ceb233c548}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+lp/HardPosConstraints.h\end{DoxyCompactItemize}

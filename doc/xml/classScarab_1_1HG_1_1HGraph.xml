@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classScarab_1_1HG_1_1HGraph" kind="class" prot="public">
+    <compoundname>Scarab::HG::HGraph</compoundname>
+    <derivedcompoundref refid="classScarab_1_1HG_1_1HypergraphImpl" prot="public" virt="non-virtual">Scarab::HG::HypergraphImpl</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Scarab::HG::HGraph::~HGraph</definition>
+        <argsstring>()</argsstring>
+        <name>~HGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="178" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1ab5aa11c932b28864b56f28e0babbc1c1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Scarab::HG::HGraph::print</definition>
+        <argsstring>() const =0</argsstring>
+        <name>print</name>
+        <reimplementedby refid="classForest_1a621a1a65d0f877bb33b15c79f9e24c4d">print</reimplementedby>
+        <reimplementedby refid="classTagger_1a4ebe0aebd7c0392970b401a5a6c6cd72">print</reimplementedby>
+        <reimplementedby refid="classPhraseBased_1aafc2997b58b3698fed7cb5a1f6f269c6">print</reimplementedby>
+        <reimplementedby refid="classDepParser_1a9aebbbde821bad423b6c01cc12f02a2c">print</reimplementedby>
+        <reimplementedby refid="classMRFHypergraph_1aaac6b68c3ece41ddd1f8107e961879bc">print</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the hypergraph for debugging. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a5ede392b158e41dd7e95ded1c4b0b5d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+        <definition>virtual const Hypernode&amp; Scarab::HG::HGraph::root</definition>
+        <argsstring>() const =0</argsstring>
+        <name>root</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a31172009b97d179f6b1199f191197a32">root</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the root of the hypergraph</para><para><simplesect kind="return"><para><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> at root </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a8309003db80be5bdbe4bb64f98a78ea8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned int</type>
+        <definition>virtual unsigned int Scarab::HG::HGraph::num_edges</definition>
+        <argsstring>() const =0</argsstring>
+        <name>num_edges</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a0adcc8783b94cbe07b092220082d00ab">num_edges</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a6f4d37ef034cb38aa09c702b80a6e4f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned int</type>
+        <definition>virtual unsigned int Scarab::HG::HGraph::num_nodes</definition>
+        <argsstring>() const =0</argsstring>
+        <name>num_nodes</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1ad39e917a84acb1d4caf0145ce8a903a2">num_nodes</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1acad57dd952956b1a1a4367bba0e9383b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+        <definition>virtual const Hypernode&amp; Scarab::HG::HGraph::get_node</definition>
+        <argsstring>(unsigned int i) const =0</argsstring>
+        <name>get_node</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a9276a6faa074eb4f3bbb2f8b8d5d4fbf">get_node</reimplementedby>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1aa599b296ae01affc9606f519e4e44e9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+        <definition>virtual const Hyperedge&amp; Scarab::HG::HGraph::get_edge</definition>
+        <argsstring>(unsigned int i) const =0</argsstring>
+        <name>get_edge</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a31a148139b888b6bd10e78fe555144c7">get_edge</reimplementedby>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a74d893fba015520774f71f02a46bb6ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const vector&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt; &amp;</type>
+        <definition>virtual const vector&lt;Hypernode* &gt;&amp; Scarab::HG::HGraph::nodes</definition>
+        <argsstring>() const =0</argsstring>
+        <name>nodes</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141">nodes</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get all hypernodes in the hypergraph. (Assume unordered) WARNING: Treat this as a const iterator. <simplesect kind="return"><para>Const iterator to hypernodes in hypergraph . </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1HGraph_1a57328729f90cc4152ca79ff15ecdd4bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const vector&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> * &gt; &amp;</type>
+        <definition>virtual const vector&lt;Hyperedge*&gt;&amp; Scarab::HG::HGraph::edges</definition>
+        <argsstring>() const =0</argsstring>
+        <name>edges</name>
+        <reimplementedby refid="classScarab_1_1HG_1_1HypergraphImpl_1a0c8373e545fe59b0cb7036b4751508e1">edges</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get all hyperedges in the hypergraph. (Assume unordered) WARNING: Treat this as a const iterator. <simplesect kind="return"><para>Const iterator to edges in hypergraph . </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="214"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="826">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="825" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="827">
+        <label>DepParser</label>
+        <link refid="classDepParser"/>
+        <childnode refid="826" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="829">
+        <label>MRFHypergraph</label>
+        <link refid="classMRFHypergraph"/>
+        <childnode refid="826" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="828">
+        <label>Forest</label>
+        <link refid="classForest"/>
+        <childnode refid="826" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="825">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="830">
+        <label>PhraseBased</label>
+        <link refid="classPhraseBased"/>
+        <childnode refid="826" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="831">
+        <label>Tagger</label>
+        <link refid="classTagger"/>
+        <childnode refid="826" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="176" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="176" bodyend="215"/>
+    <listofallmembers>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a57328729f90cc4152ca79ff15ecdd4bb" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1aa599b296ae01affc9606f519e4e44e9e" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>get_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1acad57dd952956b1a1a4367bba0e9383b" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>get_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a74d893fba015520774f71f02a46bb6ca" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a8309003db80be5bdbe4bb64f98a78ea8" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>num_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a6f4d37ef034cb38aa09c702b80a6e4f7" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>num_nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1ab5aa11c932b28864b56f28e0babbc1c1" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>print</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a5ede392b158e41dd7e95ded1c4b0b5d6" prot="public" virt="pure-virtual"><scope>Scarab::HG::HGraph</scope><name>root</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" virt="virtual"><scope>Scarab::HG::HGraph</scope><name>~HGraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

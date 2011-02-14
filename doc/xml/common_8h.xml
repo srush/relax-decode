@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="common_8h" kind="file">
+    <compoundname>common.h</compoundname>
+    <includes local="no">boost/foreach.hpp</includes>
+    <includedby refid="CubeLM_8cpp" local="yes">CubeLM.cpp</includedby>
+    <includedby refid="CubeLM_8h" local="yes">CubeLM.h</includedby>
+    <includedby refid="DualDecompTagger_8cpp" local="yes">DualDecompTagger.cpp</includedby>
+    <includedby refid="FullParser_8cpp" local="yes">FullParser.cpp</includedby>
+    <includedby refid="FullTagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="Main_8cpp" local="yes">Main.cpp</includedby>
+    <includedby refid="MRFSolver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <includedby refid="Parse_8cpp" local="yes">Parse.cpp</includedby>
+    <includedby refid="PhraseLP_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="PhraseViterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
+    <includedby refid="PottsTagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <includedby refid="Tag_8cpp" local="yes">Tag.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>common.h</label>
+        <link refid="common.h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>boost/foreach.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>CubeLM.h</label>
+        <link refid="CubeLM_8h_source"/>
+      </node>
+      <node id="4">
+        <label>common.h</label>
+        <link refid="common.h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classClock" prot="public">Clock</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="common_8h_1afc23d36363fbbe2abc70fc848a6513d2" prot="public" static="no">
+        <name>LMWEIGHT</name>
+        <initializer>-0.141221</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/common.h" line="14" bodyfile="/home/srush/Projects/relax_decode/common.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_8h_1a85d9ac269eba33293361f4ed7c2a697b" prot="public" static="no">
+        <name>foreach</name>
+        <initializer>BOOST_FOREACH</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/common.h" line="15" bodyfile="/home/srush/Projects/relax_decode/common.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="common_8h_1a12c2040f25d8e3a7b9e1c2024c618cb6" prot="public" static="no">
+        <name>INF</name>
+        <initializer>1e8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/common.h" line="16" bodyfile="/home/srush/Projects/relax_decode/common.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="common_8h_1a91ad9478d81a7aaf2593e8d9c3d06a14" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int uint</definition>
+        <argsstring></argsstring>
+        <name>uint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/common.h" line="18" bodyfile="/home/srush/Projects/relax_decode/common.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>LM<sp/>-1.11652878876722</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>LM<sp/>-0.157627</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//-0.141221</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>COMMON_H</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>COMMON_H</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/foreach.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LMWEIGHT<sp/>-0.141221</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>foreach<sp/>BOOST_FOREACH</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INF<sp/>1e8</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>uint;</highlight></codeline>
+<codeline lineno="19" refid="classClock" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classClock" kindref="compound">Clock</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diffclock(clock_t<sp/>clock1,clock_t<sp/>clock2){</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diffticks=clock1-clock2;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diffms=(diffticks*1000)/CLOCKS_PER_SEC;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>diffms;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/common.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classDepParser" kind="class" prot="public">
+    <compoundname>DepParser</compoundname>
+    <basecompoundref refid="classScarab_1_1HG_1_1HypergraphImpl" prot="public" virt="non-virtual">Scarab::HG::HypergraphImpl</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDepParser_1a3c0028d72917281cd781f9971827a725" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DepParser::_sent_length</definition>
+        <argsstring></argsstring>
+        <name>_sent_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="117" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDepParser_1a3ccda4c663c02fea6725f4ffd6dc74ce" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DepParser::_dep_length</definition>
+        <argsstring></argsstring>
+        <name>_dep_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="118" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDepParser_1ab0cdf62ac8ce3d63d5a9531f01919fe2" prot="private" static="no" mutable="no">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <definition>Hypergraph* DepParser::_h</definition>
+        <argsstring></argsstring>
+        <name>_h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="119" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDepParser_1a9e85dc266c9195f811014f7e481d4a50" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structDependency" kindref="compound">Dependency</ref>, vector&lt; const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> * &gt; &gt; *</type>
+        <definition>Cache&lt;Dependency, vector &lt;const Hyperedge *&gt; &gt;* DepParser::_edge_map</definition>
+        <argsstring></argsstring>
+        <name>_edge_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="120" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDepParser_1ac666427659ff3ebce502bddd4e616fa5" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref>, <ref refid="structDependency" kindref="compound">Dependency</ref> &gt; *</type>
+        <definition>Cache&lt;Hyperedge, Dependency&gt;* DepParser::_dep_map</definition>
+        <argsstring></argsstring>
+        <name>_dep_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="121" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDepParser_1abbd1d2882e4242f04954bdfebd311c8b" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structDependency" kindref="compound">Dependency</ref> &gt;</type>
+        <definition>vector&lt;Dependency&gt; DepParser::_dependencies</definition>
+        <argsstring></argsstring>
+        <name>_dependencies</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="123" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDepParser_1a6d9e6718690678f1d0e82fe93723a4dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DepParser::~DepParser</definition>
+        <argsstring>()</argsstring>
+        <name>~DepParser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="32" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1a9aebbbde821bad423b6c01cc12f02a2c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void DepParser::print</definition>
+        <argsstring>() const </argsstring>
+        <name>print</name>
+        <reimplements refid="classScarab_1_1HG_1_1HGraph_1ab5aa11c932b28864b56f28e0babbc1c1">print</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the hypergraph for debugging. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="36" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1a6131e95a8ec7b07f7a4d68dae224d52f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void DepParser::set_up</definition>
+        <argsstring>(const Hypergraph &amp;hgraph)</argsstring>
+        <name>set_up</name>
+        <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1ae91de73e633e450b01664e3ec964019c">set_up</reimplements>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>hgraph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="38" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="38" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1aaec31758432c2d3336d2164996571688" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>const Hypergraph&amp; DepParser::hypergraph</definition>
+        <argsstring>() const </argsstring>
+        <name>hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="68" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1aa64f67830bf4c3bf9936ba6056dfdff0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; <ref refid="structDependency" kindref="compound">Dependency</ref> &gt;</type>
+        <definition>vector&lt;Dependency &gt; DepParser::dependencies</definition>
+        <argsstring>() const </argsstring>
+        <name>dependencies</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="76" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1aaff55cf38fd9b1fbfb22090ddeb72ba8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint DepParser::num_deps</definition>
+        <argsstring>() const </argsstring>
+        <name>num_deps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="80" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="80" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1a86b99d09d76b7d6f8733b208e9f32822" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint DepParser::sent_length</definition>
+        <argsstring>() const </argsstring>
+        <name>sent_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="84" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="84" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1a49afcb1a83a3c924869faf34cd9e968e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structDependency" kindref="compound">Dependency</ref></type>
+        <definition>Dependency DepParser::make_dep</definition>
+        <argsstring>(int head, int mod) const </argsstring>
+        <name>make_dep</name>
+        <param>
+          <type>int</type>
+          <declname>head</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mod</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="88" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1a9fa2f0bf24cd870404f0a99b5926c558" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> * &gt; &amp;</type>
+        <definition>const vector&lt;const Hyperedge*&gt;&amp; DepParser::dep_to_edge</definition>
+        <argsstring>(const Dependency &amp;dep) const </argsstring>
+        <name>dep_to_edge</name>
+        <param>
+          <type>const <ref refid="structDependency" kindref="compound">Dependency</ref> &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="92" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1aa5ff87f99326c60633fb8e26d1737776" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structDependency" kindref="compound">Dependency</ref> &amp;</type>
+        <definition>const Dependency&amp; DepParser::edge_to_dep</definition>
+        <argsstring>(const Hyperedge &amp;edge) const </argsstring>
+        <name>edge_to_dep</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="96" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="96" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classDepParser_1abd0b9171e59c1c40cdb58807a46a5449" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DepParser::edge_has_dep</definition>
+        <argsstring>(const Hyperedge &amp;edge) const </argsstring>
+        <name>edge_has_dep</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="100" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="100" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classDepParser_1a04d313d931d1e8b0bac3a36ca7be469b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void DepParser::make_edge</definition>
+        <argsstring>(const Hypergraph_Edge &amp;edge, const Scarab::HG::Hyperedge *our_edge)</argsstring>
+        <name>make_edge</name>
+        <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1a238a7ce3b578c8126eccbc7803570638">make_edge</reimplements>
+        <param>
+          <type>const <ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Scarab::HG::Hyperedge</ref> *</type>
+          <declname>our_edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="105" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="105" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="538">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="539" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="537">
+        <label>DepParser</label>
+        <link refid="classDepParser"/>
+        <childnode refid="538" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="539">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="547">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="541">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="542" relation="public-inheritance">
+        </childnode>
+        <childnode refid="543" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="545" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="546" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="544" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="544">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="552">
+        <label>Cache&lt; Dependency, vector&lt; const Hyperedge * &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="549" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="548">
+        <label>Cache&lt; Hyperedge, Dependency &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="549" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="540">
+        <label>DepParser</label>
+        <link refid="classDepParser"/>
+        <childnode refid="541" relation="public-inheritance">
+        </childnode>
+        <childnode refid="548" relation="usage">
+          <edgelabel>_dep_map</edgelabel>
+        </childnode>
+        <childnode refid="545" relation="usage">
+          <edgelabel>_h</edgelabel>
+        </childnode>
+        <childnode refid="550" relation="usage">
+          <edgelabel>_dependencies</edgelabel>
+        </childnode>
+        <childnode refid="552" relation="usage">
+          <edgelabel>_edge_map</edgelabel>
+        </childnode>
+      </node>
+      <node id="551">
+        <label>Dependency</label>
+        <link refid="structDependency"/>
+      </node>
+      <node id="543">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="544" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="545">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="545" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="542">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="550">
+        <label>std::vector&lt; Dependency &gt;</label>
+        <childnode refid="551" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="549">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="546">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="547" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="30" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="30" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classDepParser_1a3ccda4c663c02fea6725f4ffd6dc74ce" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_dep_length</name></member>
+      <member refid="classDepParser_1ac666427659ff3ebce502bddd4e616fa5" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_dep_map</name></member>
+      <member refid="classDepParser_1abbd1d2882e4242f04954bdfebd311c8b" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_dependencies</name></member>
+      <member refid="classDepParser_1a9e85dc266c9195f811014f7e481d4a50" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_edge_map</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a56fb710140f3359646b1a17cb0417d74" prot="protected" virt="non-virtual"><scope>DepParser</scope><name>_edges</name></member>
+      <member refid="classDepParser_1ab0cdf62ac8ce3d63d5a9531f01919fe2" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_h</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a4cc57d9255e2f09714c5913d67cd0554" prot="protected" virt="non-virtual"><scope>DepParser</scope><name>_nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a7035fdae4c04d0752aaaf1e7eba7600e" prot="protected" virt="non-virtual"><scope>DepParser</scope><name>_root</name></member>
+      <member refid="classDepParser_1a3c0028d72917281cd781f9971827a725" prot="private" virt="non-virtual"><scope>DepParser</scope><name>_sent_length</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a1f33418f90b826db9cfc0bb34e1ca9cf" prot="public" virt="non-virtual"><scope>DepParser</scope><name>build_from_file</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a30349aca0e3b8f8dc72ed74d78e8c5b8" prot="protected" virt="virtual"><scope>DepParser</scope><name>convert_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a93e9e250fa457a2171bf07241b7829eb" prot="protected" virt="virtual"><scope>DepParser</scope><name>convert_node</name></member>
+      <member refid="classDepParser_1a9fa2f0bf24cd870404f0a99b5926c558" prot="public" virt="non-virtual"><scope>DepParser</scope><name>dep_to_edge</name></member>
+      <member refid="classDepParser_1aa64f67830bf4c3bf9936ba6056dfdff0" prot="public" virt="non-virtual"><scope>DepParser</scope><name>dependencies</name></member>
+      <member refid="classDepParser_1abd0b9171e59c1c40cdb58807a46a5449" prot="public" virt="non-virtual"><scope>DepParser</scope><name>edge_has_dep</name></member>
+      <member refid="classDepParser_1aa5ff87f99326c60633fb8e26d1737776" prot="public" virt="non-virtual"><scope>DepParser</scope><name>edge_to_dep</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0c8373e545fe59b0cb7036b4751508e1" prot="public" virt="virtual"><scope>DepParser</scope><name>edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31a148139b888b6bd10e78fe555144c7" prot="public" virt="virtual"><scope>DepParser</scope><name>get_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9276a6faa074eb4f3bbb2f8b8d5d4fbf" prot="public" virt="virtual"><scope>DepParser</scope><name>get_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1aa7192cf8f168e5bfed67a8faf85c8cb4" prot="protected" virt="non-virtual"><scope>DepParser</scope><name>hgraph</name></member>
+      <member refid="classDepParser_1aaec31758432c2d3336d2164996571688" prot="public" virt="non-virtual"><scope>DepParser</scope><name>hypergraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a067b2daae46f4758f9621fb9d803bef2" prot="public" virt="non-virtual"><scope>DepParser</scope><name>HypergraphImpl</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a935bed9b8cf9235a1adb61d0889f6ac7" prot="public" virt="non-virtual"><scope>DepParser</scope><name>HypergraphImpl</name></member>
+      <member refid="classDepParser_1a49afcb1a83a3c924869faf34cd9e968e" prot="public" virt="non-virtual"><scope>DepParser</scope><name>make_dep</name></member>
+      <member refid="classDepParser_1a04d313d931d1e8b0bac3a36ca7be469b" prot="protected" virt="virtual"><scope>DepParser</scope><name>make_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af14198ba5fccb5d4118188fa42feb8ff" prot="protected" virt="virtual"><scope>DepParser</scope><name>make_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141" prot="public" virt="virtual"><scope>DepParser</scope><name>nodes</name></member>
+      <member refid="classDepParser_1aaff55cf38fd9b1fbfb22090ddeb72ba8" prot="public" virt="non-virtual"><scope>DepParser</scope><name>num_deps</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0adcc8783b94cbe07b092220082d00ab" prot="public" virt="virtual"><scope>DepParser</scope><name>num_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1ad39e917a84acb1d4caf0145ce8a903a2" prot="public" virt="virtual"><scope>DepParser</scope><name>num_nodes</name></member>
+      <member refid="classDepParser_1a9aebbbde821bad423b6c01cc12f02a2c" prot="public" virt="virtual"><scope>DepParser</scope><name>print</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a98701d5529aaf3e5d4fa386694843f20" prot="public" virt="non-virtual"><scope>DepParser</scope><name>prune</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31172009b97d179f6b1199f191197a32" prot="public" virt="virtual"><scope>DepParser</scope><name>root</name></member>
+      <member refid="classDepParser_1a86b99d09d76b7d6f8733b208e9f32822" prot="public" virt="non-virtual"><scope>DepParser</scope><name>sent_length</name></member>
+      <member refid="classDepParser_1a6131e95a8ec7b07f7a4d68dae224d52f" prot="public" virt="virtual"><scope>DepParser</scope><name>set_up</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af8f5ed38a355676c473e8d54b5552cc6" prot="public" virt="non-virtual"><scope>DepParser</scope><name>write_to_file</name></member>
+      <member refid="classDepParser_1a6d9e6718690678f1d0e82fe93723a4dd" prot="public" virt="non-virtual"><scope>DepParser</scope><name>~DepParser</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" virt="virtual"><scope>DepParser</scope><name>~HGraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af9726fe39b4cfdbcbead1cba4efa6a01" prot="public" virt="non-virtual"><scope>DepParser</scope><name>~HypergraphImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classAStar" kind="class" prot="public">
+    <compoundname>AStar</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAStar_1a7d934ea2855f1b2500a77517e5e0d142" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> * &gt;</type>
+        <definition>vector&lt;Hypothesis *&gt; AStar::_hyps</definition>
+        <argsstring></argsstring>
+        <name>_hyps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="84" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a6216520ce53ae0bf61b30d92a4119ea9" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structLocation" kindref="compound">Location</ref> * &gt;</type>
+        <definition>vector&lt;Location *&gt; AStar::_locs</definition>
+        <argsstring></argsstring>
+        <name>_locs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="85" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a5b59ceeb4b04b0488d8d4e04aa18e38d" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1Hypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>const Hypergraph&amp; AStar::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="113" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a78e2570d8e61490ef72b1aae883212db" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref>, <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt;</type>
+        <definition>Cache&lt;Hypernode, BestHyp &gt; AStar::_memo_table</definition>
+        <argsstring></argsstring>
+        <name>_memo_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="116" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a4e57ba346397dc760ce48ba4d8c5db3c" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &gt;</type>
+        <definition>Cache&lt;Hyperedge, vector&lt;BestHyp&gt; &gt; AStar::_memo_edge_table</definition>
+        <argsstring></argsstring>
+        <name>_memo_edge_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="117" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a8d721782b91b8a6eeda40124e16ec81f" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classController" kindref="compound">Controller</ref> &amp;</type>
+        <definition>const Controller&amp; AStar::_controller</definition>
+        <argsstring></argsstring>
+        <name>_controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="118" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a134462544f15719a9479b0142a5474ce" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+        <definition>const Cache&lt;Hyperedge, double&gt;&amp; AStar::_edge_weights</definition>
+        <argsstring></argsstring>
+        <name>_edge_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="119" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a672a066615998cd8dae795aed82847e6" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classHeuristic" kindref="compound">Heuristic</ref> &amp;</type>
+        <definition>const Heuristic&amp; AStar::_heuristic</definition>
+        <argsstring></argsstring>
+        <name>_heuristic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="120" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1adbd8f163ff3c82b578ba8483c76d6b4f" prot="private" static="no" mutable="no">
+        <type>priority_queue&lt; <ref refid="structQueueHyp" kindref="compound">QueueHyp</ref> &gt;</type>
+        <definition>priority_queue&lt;QueueHyp&gt; AStar::_queue</definition>
+        <argsstring></argsstring>
+        <name>_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="121" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a4db6d46233e6fae76dea9570eade245b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AStar::_best_so_far</definition>
+        <argsstring></argsstring>
+        <name>_best_so_far</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="122" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a36055a0a120de63ed34e84a2b7125771" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AStar::_num_pops</definition>
+        <argsstring></argsstring>
+        <name>_num_pops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="124" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1ad7ee33762da1527903cdf4996e01b750" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AStar::_num_pushes</definition>
+        <argsstring></argsstring>
+        <name>_num_pushes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="125" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAStar_1a55e5187e9a600ba744e24784c3db888d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AStar::_num_recompute</definition>
+        <argsstring></argsstring>
+        <name>_num_recompute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="126" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAStar_1ab81d16160d530f11219ffab5247f01a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AStar::AStar</definition>
+        <argsstring>(const Hypergraph &amp;f, const Controller &amp;cont, const Cache&lt; Hyperedge, double &gt; &amp;edge_weights, const Heuristic &amp;heu)</argsstring>
+        <name>AStar</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classController" kindref="compound">Controller</ref> &amp;</type>
+          <declname>cont</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classHeuristic" kindref="compound">Heuristic</ref> &amp;</type>
+          <declname>heu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="71" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="60" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1abd1ceab9c3a450b581aded348cd7654e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double AStar::best_path</definition>
+        <argsstring>(NodeBackCache &amp;back_pointers)</argsstring>
+        <name>best_path</name>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_pointers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="72" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="304" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1ad246668465621db8818bbe3511fa4ae7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AStar::~AStar</definition>
+        <argsstring>()</argsstring>
+        <name>~AStar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="74" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="74" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAStar_1a93e0ee92fcdd0b0effdaf9affd4b2dee" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structHypothesis" kindref="compound">Hypothesis</ref> *</type>
+        <definition>Hypothesis* AStar::alloc_hyp</definition>
+        <argsstring>()</argsstring>
+        <name>alloc_hyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="86" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1aaaefb285241d12957440563038baf7ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structHypothesis" kindref="compound">Hypothesis</ref> *</type>
+        <definition>Hypothesis* AStar::alloc_hyp</definition>
+        <argsstring>(vector&lt; int &gt; h, vector&lt; int &gt; r, const Hyperedge *be, int d)</argsstring>
+        <name>alloc_hyp</name>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> *</type>
+          <declname>be</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="91" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="90" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a858a604eb7233a437ee11c84f590ff5e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structLocation" kindref="compound">Location</ref> *</type>
+        <definition>Location* AStar::alloc_loc</definition>
+        <argsstring>()</argsstring>
+        <name>alloc_loc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="99" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a58afed9855d6a9930d77ddce15778854" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::get_next</definition>
+        <argsstring>(Hypothesis *&amp;hyp, double &amp;score, Location *&amp;)</argsstring>
+        <name>get_next</name>
+        <param>
+          <type><ref refid="structHypothesis" kindref="compound">Hypothesis</ref> *&amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="structLocation" kindref="compound">Location</ref> *&amp;</type>
+          <defname>w</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="104" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="40" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a5f69e43e769adea5d074bb61a4b84447" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::add_to_queue</definition>
+        <argsstring>(Hypothesis *hyp, double score, Location *)</argsstring>
+        <name>add_to_queue</name>
+        <param>
+          <type><ref refid="structHypothesis" kindref="compound">Hypothesis</ref> *</type>
+          <declname>hyp</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="structLocation" kindref="compound">Location</ref> *</type>
+          <defname>w</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="105" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="10" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a8ce951be2038883eefe1391af63d17b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::initialize_queue</definition>
+        <argsstring>()</argsstring>
+        <name>initialize_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="106" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="68" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a6dd9526eea6e9af4da59eea310c7f280" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::main_loop</definition>
+        <argsstring>(Hypothesis *&amp;best, double &amp;best_score)</argsstring>
+        <name>main_loop</name>
+        <param>
+          <type><ref refid="structHypothesis" kindref="compound">Hypothesis</ref> *&amp;</type>
+          <declname>best</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>best_score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="107" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="93" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a4e56873c7cf2c5e85ee684e6b067843f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::recompute_edge</definition>
+        <argsstring>(const Hyperedge &amp;edge, int pos, const Hypothesis &amp;h, double original_score)</argsstring>
+        <name>recompute_edge</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>original_score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="111" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="167" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a23e143f661f5441ccf6783d6fe626fb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::recompute_node</definition>
+        <argsstring>(const Hypernode &amp;node, const Hypothesis &amp;h, double original_score)</argsstring>
+        <name>recompute_node</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>original_score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="112" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" bodystart="222" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classAStar_1a7f9880e6132f14d632ae8f2b9e6f5f8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AStar::forward_edge</definition>
+        <argsstring>(const Hyperedge &amp;edge, vector&lt; BestHyp &gt; &amp;best_edge_hypotheses, int pos_changed, int id)</argsstring>
+        <name>forward_edge</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+          <declname>best_edge_hypotheses</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pos_changed</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="39">
+        <label>std::vector&lt; Location * &gt;</label>
+        <childnode refid="38" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Scarab::Hypergraph</label>
+        <link refid="classScarab_1_1Hypergraph"/>
+      </node>
+      <node id="29">
+        <label>Cache&lt; Hyperedge, double &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="32">
+        <label>Hypothesis</label>
+        <link refid="structHypothesis"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>back_edge</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>right_side</edgelabel>
+          <edgelabel>hook</edgelabel>
+          <edgelabel>prev_hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>std::vector&lt; Hypothesis * &gt;</label>
+        <childnode refid="32" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="28">
+        <label>Heuristic</label>
+        <link refid="classHeuristic"/>
+      </node>
+      <node id="36">
+        <label>std::priority_queue&lt; QueueHyp &gt;</label>
+        <childnode refid="37" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>QueueHyp</label>
+        <link refid="structQueueHyp"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>h</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>where</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Controller</label>
+        <link refid="classController"/>
+      </node>
+      <node id="35">
+        <label>Cache&lt; Hypernode, BestHyp &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="25">
+        <label>AStar</label>
+        <link refid="classAStar"/>
+        <childnode refid="26" relation="usage">
+          <edgelabel>_memo_edge_table</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>_controller</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>_heuristic</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>_edge_weights</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>_hyps</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>_memo_table</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>_queue</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>_locs</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>Location</label>
+        <link refid="structLocation"/>
+      </node>
+      <node id="34">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="33">
+        <label>Scarab::Hyperedge</label>
+        <link refid="classScarab_1_1Hyperedge"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="58" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="58" bodyend="127"/>
+    <listofallmembers>
+      <member refid="classAStar_1a4db6d46233e6fae76dea9570eade245b" prot="private" virt="non-virtual"><scope>AStar</scope><name>_best_so_far</name></member>
+      <member refid="classAStar_1a8d721782b91b8a6eeda40124e16ec81f" prot="private" virt="non-virtual"><scope>AStar</scope><name>_controller</name></member>
+      <member refid="classAStar_1a134462544f15719a9479b0142a5474ce" prot="private" virt="non-virtual"><scope>AStar</scope><name>_edge_weights</name></member>
+      <member refid="classAStar_1a5b59ceeb4b04b0488d8d4e04aa18e38d" prot="private" virt="non-virtual"><scope>AStar</scope><name>_forest</name></member>
+      <member refid="classAStar_1a672a066615998cd8dae795aed82847e6" prot="private" virt="non-virtual"><scope>AStar</scope><name>_heuristic</name></member>
+      <member refid="classAStar_1a7d934ea2855f1b2500a77517e5e0d142" prot="private" virt="non-virtual"><scope>AStar</scope><name>_hyps</name></member>
+      <member refid="classAStar_1a6216520ce53ae0bf61b30d92a4119ea9" prot="private" virt="non-virtual"><scope>AStar</scope><name>_locs</name></member>
+      <member refid="classAStar_1a4e57ba346397dc760ce48ba4d8c5db3c" prot="private" virt="non-virtual"><scope>AStar</scope><name>_memo_edge_table</name></member>
+      <member refid="classAStar_1a78e2570d8e61490ef72b1aae883212db" prot="private" virt="non-virtual"><scope>AStar</scope><name>_memo_table</name></member>
+      <member refid="classAStar_1a36055a0a120de63ed34e84a2b7125771" prot="private" virt="non-virtual"><scope>AStar</scope><name>_num_pops</name></member>
+      <member refid="classAStar_1ad7ee33762da1527903cdf4996e01b750" prot="private" virt="non-virtual"><scope>AStar</scope><name>_num_pushes</name></member>
+      <member refid="classAStar_1a55e5187e9a600ba744e24784c3db888d" prot="private" virt="non-virtual"><scope>AStar</scope><name>_num_recompute</name></member>
+      <member refid="classAStar_1adbd8f163ff3c82b578ba8483c76d6b4f" prot="private" virt="non-virtual"><scope>AStar</scope><name>_queue</name></member>
+      <member refid="classAStar_1a5f69e43e769adea5d074bb61a4b84447" prot="private" virt="non-virtual"><scope>AStar</scope><name>add_to_queue</name></member>
+      <member refid="classAStar_1a93e0ee92fcdd0b0effdaf9affd4b2dee" prot="private" virt="non-virtual"><scope>AStar</scope><name>alloc_hyp</name></member>
+      <member refid="classAStar_1aaaefb285241d12957440563038baf7ce" prot="private" virt="non-virtual"><scope>AStar</scope><name>alloc_hyp</name></member>
+      <member refid="classAStar_1a858a604eb7233a437ee11c84f590ff5e" prot="private" virt="non-virtual"><scope>AStar</scope><name>alloc_loc</name></member>
+      <member refid="classAStar_1ab81d16160d530f11219ffab5247f01a7" prot="public" virt="non-virtual"><scope>AStar</scope><name>AStar</name></member>
+      <member refid="classAStar_1abd1ceab9c3a450b581aded348cd7654e" prot="public" virt="non-virtual"><scope>AStar</scope><name>best_path</name></member>
+      <member refid="classAStar_1a7f9880e6132f14d632ae8f2b9e6f5f8b" prot="private" virt="non-virtual"><scope>AStar</scope><name>forward_edge</name></member>
+      <member refid="classAStar_1a58afed9855d6a9930d77ddce15778854" prot="private" virt="non-virtual"><scope>AStar</scope><name>get_next</name></member>
+      <member refid="classAStar_1a8ce951be2038883eefe1391af63d17b0" prot="private" virt="non-virtual"><scope>AStar</scope><name>initialize_queue</name></member>
+      <member refid="classAStar_1a6dd9526eea6e9af4da59eea310c7f280" prot="private" virt="non-virtual"><scope>AStar</scope><name>main_loop</name></member>
+      <member refid="classAStar_1a4e56873c7cf2c5e85ee684e6b067843f" prot="private" virt="non-virtual"><scope>AStar</scope><name>recompute_edge</name></member>
+      <member refid="classAStar_1a23e143f661f5441ccf6783d6fe626fb2" prot="private" virt="non-virtual"><scope>AStar</scope><name>recompute_node</name></member>
+      <member refid="classAStar_1ad246668465621db8818bbe3511fa4ae7" prot="public" virt="non-virtual"><scope>AStar</scope><name>~AStar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

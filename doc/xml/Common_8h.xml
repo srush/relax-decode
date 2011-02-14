@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="Common_8h" kind="file">
+    <compoundname>Common.h</compoundname>
+    <includes local="no">boost/foreach.hpp</includes>
+    <incdepgraph>
+      <node id="1524">
+        <label>boost/foreach.hpp</label>
+      </node>
+      <node id="1523">
+        <label>lattice/Common.h</label>
+        <link refid="Common.h"/>
+        <childnode refid="1524" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="Common_8h_1a12c2040f25d8e3a7b9e1c2024c618cb6" prot="public" static="no">
+        <name>INF</name>
+        <initializer>1e8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/Common.h" line="2" bodyfile="/home/srush/Projects/relax_decode/lattice/Common.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Common_8h_1a85d9ac269eba33293361f4ed7c2a697b" prot="public" static="no">
+        <name>foreach</name>
+        <initializer>BOOST_FOREACH</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/Common.h" line="3" bodyfile="/home/srush/Projects/relax_decode/lattice/Common.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;boost/foreach.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INF<sp/>1e8</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>foreach<sp/>BOOST_FOREACH</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lattice/Common.h"/>
+  </compounddef>
+</doxygen>

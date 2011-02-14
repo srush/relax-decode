@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1HypergraphPrune" kind="struct" prot="public">
+    <compoundname>Scarab::HG::HypergraphPrune</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1HypergraphPrune_1a1ff0fd7b723f888db33ae542d186d0b4" prot="public" static="no" mutable="no">
+        <type>set&lt; int &gt;</type>
+        <definition>set&lt;int&gt; Scarab::HG::HypergraphPrune::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="219" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1HypergraphPrune_1adff9a55407cd2cff9199d440ef513029" prot="public" static="no" mutable="no">
+        <type>set&lt; int &gt;</type>
+        <definition>set&lt;int&gt; Scarab::HG::HypergraphPrune::edges</definition>
+        <argsstring></argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="220" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1HypergraphPrune_1a55f12db438013ace2d307efb284bcb7b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+        <definition>const HGraph&amp; Scarab::HG::HypergraphPrune::hgraph</definition>
+        <argsstring></argsstring>
+        <name>hgraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="221" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1HypergraphPrune_1adc29528f39ad9ced03be8b48341c3e84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::HypergraphPrune::HypergraphPrune</definition>
+        <argsstring>(const HGraph &amp;hgraph_)</argsstring>
+        <name>HypergraphPrune</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+          <declname>hgraph_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="218" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="218" bodyend="218"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="886">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="885">
+        <label>Scarab::HG::HypergraphPrune</label>
+        <link refid="structScarab_1_1HG_1_1HypergraphPrune"/>
+        <childnode refid="886" relation="usage">
+          <edgelabel>nodes</edgelabel>
+          <edgelabel>edges</edgelabel>
+        </childnode>
+        <childnode refid="887" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+      </node>
+      <node id="887">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="217" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="217" bodyend="222"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1HypergraphPrune_1adff9a55407cd2cff9199d440ef513029" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphPrune</scope><name>edges</name></member>
+      <member refid="structScarab_1_1HG_1_1HypergraphPrune_1a55f12db438013ace2d307efb284bcb7b" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphPrune</scope><name>hgraph</name></member>
+      <member refid="structScarab_1_1HG_1_1HypergraphPrune_1adc29528f39ad9ced03be8b48341c3e84" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphPrune</scope><name>HypergraphPrune</name></member>
+      <member refid="structScarab_1_1HG_1_1HypergraphPrune_1a1ff0fd7b723f888db33ae542d186d0b4" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphPrune</scope><name>nodes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

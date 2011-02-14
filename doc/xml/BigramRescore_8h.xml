@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="BigramRescore_8h" kind="file">
+    <compoundname>BigramRescore.h</compoundname>
+    <includes refid="ForestLattice_8h" local="yes">ForestLattice.h</includes>
+    <includes refid="GraphDecompose_8h" local="yes">GraphDecompose.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="yes">../common.h</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="Decode_8cpp" local="yes">trans_decode/Decode.cpp</includedby>
+    <includedby refid="dual__subproblem_8h" local="yes">trans_decode/dual_subproblem.h</includedby>
+    <incdepgraph>
+      <node id="1517">
+        <label>GraphDecompose.h</label>
+        <link refid="GraphDecompose_8h_source"/>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1518" relation="include">
+        </childnode>
+        <childnode refid="1506" relation="include">
+        </childnode>
+      </node>
+      <node id="1507">
+        <label>string</label>
+      </node>
+      <node id="1515">
+        <label>Graph.h</label>
+        <link refid="Graph_8h_source"/>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1507" relation="include">
+        </childnode>
+        <childnode refid="1516" relation="include">
+        </childnode>
+      </node>
+      <node id="1510">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="1516">
+        <label>../common.h</label>
+      </node>
+      <node id="1518">
+        <label>bitset</label>
+      </node>
+      <node id="1508">
+        <label>lattice.pb.h</label>
+        <link refid="lattice_8pb_8h_source"/>
+        <childnode refid="1507" relation="include">
+        </childnode>
+        <childnode refid="1509" relation="include">
+        </childnode>
+        <childnode refid="1510" relation="include">
+        </childnode>
+        <childnode refid="1511" relation="include">
+        </childnode>
+        <childnode refid="1512" relation="include">
+        </childnode>
+        <childnode refid="1513" relation="include">
+        </childnode>
+      </node>
+      <node id="1509">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="1514">
+        <label>vector</label>
+      </node>
+      <node id="1505">
+        <label>lattice/BigramRescore.h</label>
+        <link refid="BigramRescore.h"/>
+        <childnode refid="1506" relation="include">
+        </childnode>
+        <childnode refid="1517" relation="include">
+        </childnode>
+        <childnode refid="1519" relation="include">
+        </childnode>
+        <childnode refid="1516" relation="include">
+        </childnode>
+        <childnode refid="1514" relation="include">
+        </childnode>
+      </node>
+      <node id="1506">
+        <label>ForestLattice.h</label>
+        <link refid="ForestLattice_8h_source"/>
+        <childnode refid="1507" relation="include">
+        </childnode>
+        <childnode refid="1508" relation="include">
+        </childnode>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1515" relation="include">
+        </childnode>
+      </node>
+      <node id="1512">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="1511">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="1519">
+        <label>iostream</label>
+      </node>
+      <node id="1513">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1522">
+        <label>trans_decode/Decode.h</label>
+        <link refid="Decode_8h_source"/>
+      </node>
+      <node id="1520">
+        <label>lattice/BigramRescore.h</label>
+        <link refid="BigramRescore.h"/>
+        <childnode refid="1521" relation="include">
+        </childnode>
+      </node>
+      <node id="1521">
+        <label>trans_decode/dual_subproblem.h</label>
+        <link refid="dual__subproblem_8h_source"/>
+        <childnode refid="1522" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classBigramRescore" prot="public">BigramRescore</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BIGRAMRESCORE_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>BIGRAMRESCORE_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ForestLattice.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;GraphDecompose.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="11" refid="classBigramRescore" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>graph_in,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd_in);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(vector&lt;int&gt;<sp/>u_pos,<sp/>vector&lt;float&gt;<sp/>u_values,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>recompute_bigram_weights(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>init);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector<sp/>&lt;int&gt;<sp/>get_bigram_path(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w2)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(w1<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(w2<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n1<sp/>=<sp/>graph-&gt;lookup_word(w1);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n2<sp/>=<sp/>graph-&gt;lookup_word(w2);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(gd-&gt;path_exists(n1,<sp/>n2));<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bigram_path[n1][n2]<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bigram_path[n1][n2]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>vector&lt;int&gt;();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bigram_path[n1][n2]-&gt;empty())<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>reconstruct_path(n1,<sp/>n2,<sp/>best_split,<sp/>*bigram_path[n1][n2]);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//bigram_path[n1][n2]-&gt;push_back(w2);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>&quot;PATH<sp/>&quot;<sp/>&lt;&lt;<sp/>n1<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>n2<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(int<sp/>i=0;<sp/>i&lt;<sp/>bigram_path[n1][n2]-&gt;size();<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>&quot;\t<sp/>on<sp/>path&quot;<sp/>&lt;&lt;<sp/>(*bigram_path[n1][n2])[i]&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(bigram_path[n1][n2]<sp/>!=<sp/>NULL);<sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>bigram_path[n1][n2]-&gt;size()<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*bigram_path[n1][n2]);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>get_bigram_weight(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w2)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>w1<sp/>and<sp/>w2<sp/>are<sp/>word<sp/>ids</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n1<sp/>=<sp/>graph-&gt;lookup_word(w1);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n2<sp/>=<sp/>graph-&gt;lookup_word(w2);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert<sp/>(gd-&gt;path_exists(n1,<sp/>n2));<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert(bigram_weights[n1][n2]<sp/>!=<sp/>INF);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>&quot;Bigram<sp/>weights<sp/>&quot;&lt;&lt;<sp/><sp/>bigram_weights[n1][n2]<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/><sp/>current_weights[w2]<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bigram_weights[n1][n2]<sp/>+<sp/>current_weights[w2];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reconstruct_path(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector<sp/>&lt;vector&lt;<sp/>int&gt;<sp/>&gt;<sp/>&amp;<sp/>best_split,<sp/>vector<sp/>&lt;int<sp/>&gt;<sp/>&amp;<sp/>array<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;float<sp/>&gt;<sp/>current_weights;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;int<sp/>&gt;<sp/>update_position;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;bool<sp/>&gt;<sp/>update_filter;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>update_len;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;int&gt;<sp/>*&gt;<sp/>&gt;<sp/>bigram_path;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;<sp/>vector<sp/>&lt;<sp/>int<sp/>&gt;<sp/>&gt;<sp/>best_split;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>vector&lt;<sp/>vector&lt;float&gt;<sp/>&gt;<sp/>bigram_weights;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>vector&lt;vector<sp/>&lt;bool&gt;<sp/>&gt;<sp/>need_to_recompute;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector<sp/>&lt;Bigram&gt;<sp/>for_updates[NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>recomputed<sp/>,<sp/>score_changed;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cache_paths(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cache_forward();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>vector&lt;<sp/>vector&lt;int&gt;<sp/>&gt;<sp/>forward_paths;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>vector&lt;<sp/>vector&lt;int&gt;<sp/>&gt;<sp/>backward_paths;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setup_problems();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>find_shortest(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n2);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd;<sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>graph;<sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector<sp/>&lt;vector<sp/>&lt;bitset<sp/>&lt;NUMSTATES&gt;<sp/>&gt;<sp/>&gt;<sp/>bigram_cache;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h"/>
+  </compounddef>
+</doxygen>

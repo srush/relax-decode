@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classScarab_1_1HG_1_1Controller" kind="class" prot="public">
+    <compoundname>Scarab::HG::Controller</compoundname>
+    <derivedcompoundref refid="classSplitController" prot="public" virt="non-virtual">SplitController</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1a34cfe4b8e7496ffca1cedf64cb3f0a73" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Scarab::HG::Controller::combine</definition>
+        <argsstring>(const Hypothesis &amp;a, const Hypothesis &amp;b, Hypothesis &amp;ret) const </argsstring>
+        <name>combine</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>ret</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left hypothesis </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ret</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New constructed hypothesis</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Added weight </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="187" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="187" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1a4b596f04765ad11b691e29383f5fbc3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Scarab::HG::Controller::combine_back</definition>
+        <argsstring>(const Hypothesis &amp;a, const Hypothesis &amp;b, Hypothesis &amp;ret) const </argsstring>
+        <name>combine_back</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>ret</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="197" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="197" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1a5019e9591e6d4e5e29eb4ca6ac42d056" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Scarab::HG::Controller::initialize_hypotheses</definition>
+        <argsstring>(const Hypernode &amp;node, vector&lt; Hypothesis * &gt; &amp;initialize, vector&lt; double &gt; &amp;scores) const =0</argsstring>
+        <name>initialize_hypotheses</name>
+        <reimplementedby refid="classSplitController_1a6ac91d8fd5fef735c6572c420a05bda4">initialize_hypotheses</reimplementedby>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>initialize</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1a34e4f087d77d06ee27fff2d3a8435473" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Scarab::HG::Controller::initialize_out_root</definition>
+        <argsstring>(vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const =0</argsstring>
+        <name>initialize_out_root</name>
+        <reimplementedby refid="classSplitController_1a58e535837326d733c98a193f2c7584c6">initialize_out_root</reimplementedby>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>hyps</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1ac4a38bf968379d3dc3f2b95cffabf540" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Scarab::HG::Controller::find_best</definition>
+        <argsstring>(vector&lt; Hypothesis * &gt; &amp;at_root, vector&lt; double &gt; &amp;scores, Hypothesis &amp;best_hyp) const =0</argsstring>
+        <name>find_best</name>
+        <reimplementedby refid="classSplitController_1a2138b9bac43d19896f2bff71a619e9af">find_best</reimplementedby>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>at_root</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>best_hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1a3498a09d093e6c6ed993e309db51480a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int Scarab::HG::Controller::size</definition>
+        <argsstring>() const =0</argsstring>
+        <name>size</name>
+        <reimplementedby refid="classSplitController_1a272757bbbfaa9af9d2ee2262b03ef131">size</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1HG_1_1Controller_1ab4282178c6b8d3670134ab0519eda518" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int Scarab::HG::Controller::dim</definition>
+        <argsstring>() const =0</argsstring>
+        <name>dim</name>
+        <reimplementedby refid="classSplitController_1ad2aeeafdc31d48526be15a1b1a2e9931">dim</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="215"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="408">
+        <label>SplitController</label>
+        <link refid="classSplitController"/>
+        <childnode refid="407" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="407">
+        <label>Scarab::HG::Controller</label>
+        <link refid="classScarab_1_1HG_1_1Controller"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="175" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="175" bodyend="216"/>
+    <listofallmembers>
+      <member refid="classScarab_1_1HG_1_1Controller_1a34cfe4b8e7496ffca1cedf64cb3f0a73" prot="public" virt="non-virtual"><scope>Scarab::HG::Controller</scope><name>combine</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a4b596f04765ad11b691e29383f5fbc3b" prot="public" virt="non-virtual"><scope>Scarab::HG::Controller</scope><name>combine_back</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1ab4282178c6b8d3670134ab0519eda518" prot="public" virt="pure-virtual"><scope>Scarab::HG::Controller</scope><name>dim</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1ac4a38bf968379d3dc3f2b95cffabf540" prot="public" virt="pure-virtual"><scope>Scarab::HG::Controller</scope><name>find_best</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a5019e9591e6d4e5e29eb4ca6ac42d056" prot="public" virt="pure-virtual"><scope>Scarab::HG::Controller</scope><name>initialize_hypotheses</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a34e4f087d77d06ee27fff2d3a8435473" prot="public" virt="pure-virtual"><scope>Scarab::HG::Controller</scope><name>initialize_out_root</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a3498a09d093e6c6ed993e309db51480a" prot="public" virt="pure-virtual"><scope>Scarab::HG::Controller</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

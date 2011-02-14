@@ -1,0 +1,120 @@
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms}{
+\section{Scarab::HG::HypergraphAlgorithms Class Reference}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms}\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_a71e2da9111a9a484e5ef370991fdb6aa}{
+{\bfseries HypergraphAlgorithms} (const \hyperlink{classScarab_1_1HG_1_1HGraph}{HGraph} \&hypergraph)}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_a71e2da9111a9a484e5ef370991fdb6aa}
+
+\item 
+\hyperlink{classCache}{EdgeCache} $\ast$ \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_a28f83d7616f6153ca7c909fe82c5b0fa}{cache\_\-edge\_\-weights} (const \hyperlink{classsvector}{svector}$<$ int, double $>$ \&weight\_\-vector) const 
+\item 
+\hyperlink{classCache}{EdgeCache} $\ast$ \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_ae815dc19968e9ab557d19dd2563fca38}{combine\_\-edge\_\-weights} (const \hyperlink{classCache}{EdgeCache} \&w1, const \hyperlink{classCache}{EdgeCache} \&w2) const 
+\item 
+HNodes \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_af5bcb325e1d58dd9d4c26517c4dfeca0}{construct\_\-best\_\-fringe} (const \hyperlink{classCache}{NodeBackCache} \&back\_\-memo\_\-table) const 
+\item 
+HEdges \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_ab054762a5d6a0af7ee667c8e90585668}{construct\_\-best\_\-edges} (const \hyperlink{classCache}{NodeBackCache} \&back\_\-memo\_\-table) const 
+\item 
+HNodes \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_acf3eea6f89752404f12c0a3dd45d397d}{construct\_\-best\_\-node\_\-order} (const \hyperlink{classCache}{NodeBackCache} \&back\_\-memo\_\-table) const 
+\item 
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_a4ff84fd293173b5cee2f902a3509a5c2}{
+\hyperlink{classsvector}{wvector} {\bfseries construct\_\-best\_\-feature\_\-vector} (const \hyperlink{classCache}{NodeBackCache} \&back\_\-memo\_\-table) const }
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_a4ff84fd293173b5cee2f902a3509a5c2}
+
+\item 
+double \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_aa9a28bf42d17a166ec5e780067e33259}{best\_\-path} (const \hyperlink{classCache}{EdgeCache} \&edge\_\-weights, \hyperlink{classCache}{NodeCache} \&score\_\-memo\_\-table, \hyperlink{classCache}{NodeBackCache} \&back\_\-memo\_\-table) const 
+\item 
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_a8eea2c8f3cd86a08962b46d1a4c57a20}{
+double {\bfseries best\_\-outside\_\-path} (const \hyperlink{classCache}{EdgeCache} \&edge\_\-weights, const \hyperlink{classCache}{NodeCache} \&score\_\-memo\_\-table, \hyperlink{classCache}{NodeCache} \&outside\_\-score\_\-table) const }
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_a8eea2c8f3cd86a08962b46d1a4c57a20}
+
+\item 
+HNodes \hyperlink{classScarab_1_1HG_1_1HypergraphAlgorithms_afeb33bac104955747948b3d4a885cdc4}{topological\_\-sort} () const 
+\item 
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_a3b26656f35480c12e79f4040dce7bae1}{
+\hyperlink{structScarab_1_1HG_1_1HypergraphPrune}{HypergraphPrune} {\bfseries pretty\_\-good\_\-pruning} (const \hyperlink{classCache}{EdgeCache} \&edge\_\-weights, const \hyperlink{classCache}{NodeCache} \&score\_\-memo\_\-table, const \hyperlink{classCache}{NodeCache} \&outside\_\-memo\_\-table, double cutoff)}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_a3b26656f35480c12e79f4040dce7bae1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_aa9a28bf42d17a166ec5e780067e33259}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!best\_\-path@{best\_\-path}}
+\index{best\_\-path@{best\_\-path}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{best\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}double Scarab::HG::HypergraphAlgorithms::best\_\-path (const {\bf EdgeCache} \& {\em edge\_\-weights}, \/  {\bf NodeCache} \& {\em score\_\-memo\_\-table}, \/  {\bf NodeBackCache} \& {\em back\_\-memo\_\-table}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_aa9a28bf42d17a166ec5e780067e33259}
+Find the best path, lowest weight, through a weighted hypergraph 
+\begin{DoxyParams}{Parameters}
+\item[{\em edge\_\-weights}]The cached edge weights associated with the graph \item[{\em score\_\-memo\_\-table}]The shortest path to each node \item[{\em back\_\-memo\_\-table}]The back pointers. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Weight of shortest path 
+\end{DoxyReturn}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_a28f83d7616f6153ca7c909fe82c5b0fa}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!cache\_\-edge\_\-weights@{cache\_\-edge\_\-weights}}
+\index{cache\_\-edge\_\-weights@{cache\_\-edge\_\-weights}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{cache\_\-edge\_\-weights}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EdgeCache} $\ast$ Scarab::HG::HypergraphAlgorithms::cache\_\-edge\_\-weights (const {\bf svector}$<$ int, double $>$ \& {\em weight\_\-vector}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_a28f83d7616f6153ca7c909fe82c5b0fa}
+Associate a weight which each edge in the hypergraph 
+\begin{DoxyParams}{Parameters}
+\item[{\em weight\_\-vector}]A weight vector \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A cache associated a weight with each edge 
+\end{DoxyReturn}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_ae815dc19968e9ab557d19dd2563fca38}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!combine\_\-edge\_\-weights@{combine\_\-edge\_\-weights}}
+\index{combine\_\-edge\_\-weights@{combine\_\-edge\_\-weights}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{combine\_\-edge\_\-weights}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EdgeCache} $\ast$ Scarab::HG::HypergraphAlgorithms::combine\_\-edge\_\-weights (const {\bf EdgeCache} \& {\em w1}, \/  const {\bf EdgeCache} \& {\em w2}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_ae815dc19968e9ab557d19dd2563fca38}
+Combine two weight vectors fix this! \hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_ab054762a5d6a0af7ee667c8e90585668}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!construct\_\-best\_\-edges@{construct\_\-best\_\-edges}}
+\index{construct\_\-best\_\-edges@{construct\_\-best\_\-edges}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{construct\_\-best\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}HEdges Scarab::HG::HypergraphAlgorithms::construct\_\-best\_\-edges (const {\bf NodeBackCache} \& {\em back\_\-memo\_\-table}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_ab054762a5d6a0af7ee667c8e90585668}
+Given a hypergraph and back pointers, produces the best edges used in the path 
+\begin{DoxyParams}{Parameters}
+\item[{\em back\_\-memo\_\-table}]The associated back pointers (possibly obtained through best\_\-path) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of const edges 
+\end{DoxyReturn}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_af5bcb325e1d58dd9d4c26517c4dfeca0}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!construct\_\-best\_\-fringe@{construct\_\-best\_\-fringe}}
+\index{construct\_\-best\_\-fringe@{construct\_\-best\_\-fringe}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{construct\_\-best\_\-fringe}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf Hypernode} $\ast$ $>$ Scarab::HG::HypergraphAlgorithms::construct\_\-best\_\-fringe (const {\bf NodeBackCache} \& {\em back\_\-memo\_\-table}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_af5bcb325e1d58dd9d4c26517c4dfeca0}
+Given a hypergraph and back pointers, produces the left-\/to-\/right fringe 
+\begin{DoxyParams}{Parameters}
+\item[{\em forest}]The hypergraph \item[{\em back\_\-memo\_\-table}]The associated back pointers (possibly obtained through best\_\-path) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const iterator of hypernodes in \char`\"{}inorder\char`\"{} order 
+\end{DoxyReturn}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_acf3eea6f89752404f12c0a3dd45d397d}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!construct\_\-best\_\-node\_\-order@{construct\_\-best\_\-node\_\-order}}
+\index{construct\_\-best\_\-node\_\-order@{construct\_\-best\_\-node\_\-order}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{construct\_\-best\_\-node\_\-order}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf Hypernode} $\ast$ $>$ Scarab::HG::HypergraphAlgorithms::construct\_\-best\_\-node\_\-order (const {\bf NodeBackCache} \& {\em back\_\-memo\_\-table}) const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_acf3eea6f89752404f12c0a3dd45d397d}
+Given a hypergraph and back pointers, produces the best nodes used in the path (in inorder order)
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em back\_\-memo\_\-table}]The associated back pointers (possibly obtained through best\_\-path) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of const hypernodes 
+\end{DoxyReturn}
+\hypertarget{classScarab_1_1HG_1_1HypergraphAlgorithms_afeb33bac104955747948b3d4a885cdc4}{
+\index{Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}!topological\_\-sort@{topological\_\-sort}}
+\index{topological\_\-sort@{topological\_\-sort}!Scarab::HG::HypergraphAlgorithms@{Scarab::HG::HypergraphAlgorithms}}
+\subsubsection[{topological\_\-sort}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ const {\bf Hypernode} $\ast$ $>$ Scarab::HG::HypergraphAlgorithms::topological\_\-sort () const}}
+\label{classScarab_1_1HG_1_1HypergraphAlgorithms_afeb33bac104955747948b3d4a885cdc4}
+Topologically sort the given hypergraph (immutable) \begin{DoxyReturn}{Returns}
+The ids of the hypergraph in topological order 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+hypergraph/HypergraphAlgorithms.h\item 
+hypergraph/HypergraphAlgorithms.cpp\end{DoxyCompactItemize}

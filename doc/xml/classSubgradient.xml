@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classSubgradient" kind="class" prot="public">
+    <compoundname>Subgradient</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSubgradient_1a88347b2c4a5d5a643627c6c8dfdbcdaa" prot="private" static="no" mutable="no">
+        <type><ref refid="classSubgradientProducer" kindref="compound">SubgradientProducer</ref> &amp;</type>
+        <definition>SubgradientProducer&amp; Subgradient::_s</definition>
+        <argsstring></argsstring>
+        <name>_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="57" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1ab50bf6b0acbb14a28eca8b947f27d612" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Subgradient::_best_dual</definition>
+        <argsstring></argsstring>
+        <name>_best_dual</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="59" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a231a4eb7c3b0f930b0fa81f0de1f8d29" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Subgradient::_best_primal</definition>
+        <argsstring></argsstring>
+        <name>_best_primal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="59" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1aba5388f4a5ade209a77b8bca506a731b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Subgradient::_aggressive</definition>
+        <argsstring></argsstring>
+        <name>_aggressive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="61" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a3ed16d78518639acd2e4604d719935ef" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Subgradient::_round</definition>
+        <argsstring></argsstring>
+        <name>_round</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="63" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a59afd778db8cc5ee6080a92f3c9bcc64" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Subgradient::_nround</definition>
+        <argsstring></argsstring>
+        <name>_nround</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="63" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a2f16a5d5288a863713f829fb16b78c94" prot="private" static="no" mutable="no">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <definition>wvector Subgradient::_weights</definition>
+        <argsstring></argsstring>
+        <name>_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="64" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1aa9e8bd34a5b6d24b98de013e13b99964" prot="private" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Subgradient::_primals</definition>
+        <argsstring></argsstring>
+        <name>_primals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="65" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a2e3196245add6fa4fe2b457cb77180f2" prot="private" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Subgradient::_duals</definition>
+        <argsstring></argsstring>
+        <name>_duals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="66" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a841f2111eeb065d8f5ef538a8acf0f15" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Subgradient::_base_weight</definition>
+        <argsstring></argsstring>
+        <name>_base_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="67" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a2d9a60a123373c9c0ad689b5f9e4a05c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Subgradient::_is_stuck</definition>
+        <argsstring></argsstring>
+        <name>_is_stuck</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="68" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a69bc590d6faae68a5cfb595d304a2888" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Subgradient::_first_stuck_iteration</definition>
+        <argsstring></argsstring>
+        <name>_first_stuck_iteration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="69" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSubgradient_1a7d6039d1171a4078846c2a39b24899d2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Subgradient::_best_primal_iteration</definition>
+        <argsstring></argsstring>
+        <name>_best_primal_iteration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="70" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSubgradient_1a2509e39964e1280532fd4994b3d747ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Subgradient::Subgradient</definition>
+        <argsstring>(SubgradientProducer &amp;subgrad_producer)</argsstring>
+        <name>Subgradient</name>
+        <param>
+          <type><ref refid="classSubgradientProducer" kindref="compound">SubgradientProducer</ref> &amp;</type>
+          <declname>subgrad_producer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subgrad_producer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Gives the subgradient at the current position </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="29" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="29" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubgradient_1a183205851cdb362195baf914fb8d3ae0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subgradient::solve</definition>
+        <argsstring>(int example)</argsstring>
+        <name>solve</name>
+        <param>
+          <type>int</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="41" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.cpp" bodystart="12" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubgradient_1a54907389766b702c467cf2ab20f8d051" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Subgradient::is_stuck</definition>
+        <argsstring>() const </argsstring>
+        <name>is_stuck</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>As the optimization probably reached a fixed point</para><para><simplesect kind="return"><para>true when stuck </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="49" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="49" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSubgradient_1ab3b69803497f6094e772bbfb2060cb3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Subgradient::run_one_round</definition>
+        <argsstring>()</argsstring>
+        <name>run_one_round</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="54" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.cpp" bodystart="43" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubgradient_1ad0527ea2ff5d2f25f7a0df2d6d43aa6d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subgradient::update_weights</definition>
+        <argsstring>(wvector &amp;subgrad, bool)</argsstring>
+        <name>update_weights</name>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>subgrad</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <defname>bump</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="62" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.cpp" bodystart="98" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1515">
+        <label>std::map&lt; int, double &gt;</label>
+      </node>
+      <node id="1516">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="1512">
+        <label>Subgradient</label>
+        <link refid="classSubgradient"/>
+        <childnode refid="1513" relation="usage">
+          <edgelabel>_s</edgelabel>
+        </childnode>
+        <childnode refid="1514" relation="usage">
+          <edgelabel>_weights</edgelabel>
+        </childnode>
+        <childnode refid="1516" relation="usage">
+          <edgelabel>_duals</edgelabel>
+          <edgelabel>_primals</edgelabel>
+        </childnode>
+      </node>
+      <node id="1514">
+        <label>svector&lt; int, double &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="1515" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="1513">
+        <label>SubgradientProducer</label>
+        <link refid="classSubgradientProducer"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="20" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="20" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classSubgradient_1aba5388f4a5ade209a77b8bca506a731b" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_aggressive</name></member>
+      <member refid="classSubgradient_1a841f2111eeb065d8f5ef538a8acf0f15" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_base_weight</name></member>
+      <member refid="classSubgradient_1ab50bf6b0acbb14a28eca8b947f27d612" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_best_dual</name></member>
+      <member refid="classSubgradient_1a231a4eb7c3b0f930b0fa81f0de1f8d29" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_best_primal</name></member>
+      <member refid="classSubgradient_1a7d6039d1171a4078846c2a39b24899d2" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_best_primal_iteration</name></member>
+      <member refid="classSubgradient_1a2e3196245add6fa4fe2b457cb77180f2" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_duals</name></member>
+      <member refid="classSubgradient_1a69bc590d6faae68a5cfb595d304a2888" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_first_stuck_iteration</name></member>
+      <member refid="classSubgradient_1a2d9a60a123373c9c0ad689b5f9e4a05c" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_is_stuck</name></member>
+      <member refid="classSubgradient_1a59afd778db8cc5ee6080a92f3c9bcc64" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_nround</name></member>
+      <member refid="classSubgradient_1aa9e8bd34a5b6d24b98de013e13b99964" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_primals</name></member>
+      <member refid="classSubgradient_1a3ed16d78518639acd2e4604d719935ef" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_round</name></member>
+      <member refid="classSubgradient_1a88347b2c4a5d5a643627c6c8dfdbcdaa" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_s</name></member>
+      <member refid="classSubgradient_1a2f16a5d5288a863713f829fb16b78c94" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>_weights</name></member>
+      <member refid="classSubgradient_1a54907389766b702c467cf2ab20f8d051" prot="public" virt="non-virtual"><scope>Subgradient</scope><name>is_stuck</name></member>
+      <member refid="classSubgradient_1ab3b69803497f6094e772bbfb2060cb3c" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>run_one_round</name></member>
+      <member refid="classSubgradient_1a183205851cdb362195baf914fb8d3ae0" prot="public" virt="non-virtual"><scope>Subgradient</scope><name>solve</name></member>
+      <member refid="classSubgradient_1a2509e39964e1280532fd4994b3d747ce" prot="public" virt="non-virtual"><scope>Subgradient</scope><name>Subgradient</name></member>
+      <member refid="classSubgradient_1ad0527ea2ff5d2f25f7a0df2d6d43aa6d" prot="private" virt="non-virtual"><scope>Subgradient</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1io_1_1CONLLReader" kind="class" prot="public">
+    <compoundname>mstparser::io::CONLLReader</compoundname>
+    <basecompoundref refid="classmstparser_1_1io_1_1DependencyReader" prot="public" virt="non-virtual">mstparser::io::DependencyReader</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1io_1_1CONLLReader_1a6613a5db92c75663e4c004d1b645394e" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean mstparser::io::CONLLReader::discourseMode</definition>
+        <argsstring></argsstring>
+        <name>discourseMode</name>
+        <initializer> false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" line="35" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1CONLLReader_1af2e3375ba9d59eeae45845c5f2bbd60f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::io::CONLLReader::CONLLReader</definition>
+        <argsstring>(boolean discourseMode)</argsstring>
+        <name>CONLLReader</name>
+        <param>
+          <type>boolean</type>
+          <declname>discourseMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" line="37" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1CONLLReader_1a2abcb2c5d6aae9240a42afcef10a4ccc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+        <definition>DependencyInstance mstparser::io::CONLLReader::getNext</definition>
+        <argsstring>()</argsstring>
+        <name>getNext</name>
+        <reimplements refid="classmstparser_1_1io_1_1DependencyReader_1af36eda4b82f189044bcfe6364458c116">getNext</reimplements>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" line="41" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" bodystart="41" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1CONLLReader_1a9c0574130bd566b1bf98ddc04ae7affe" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::io::CONLLReader::fileContainsLabels</definition>
+        <argsstring>(String file)</argsstring>
+        <name>fileContainsLabels</name>
+        <reimplements refid="classmstparser_1_1io_1_1DependencyReader_1a948c0deb5940f2e25e7a3b2097cd4546">fileContainsLabels</reimplements>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" line="120" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" bodystart="120" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A reader for files in CoNLL format.</para><para>Created: Sat Nov 10 15:25:10 2001 </para><para><simplesect kind="author"><para>Jason Baldridge </para></simplesect>
+<simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Id</title><para>CONLLReader.java 112 2007-03-23 19:19:28Z jasonbaldridge </para></simplesect>
+<simplesect kind="see"><para><ref refid="classmstparser_1_1io_1_1DependencyReader" kindref="compound">mstparser.io.DependencyReader</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="329">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+      <node id="328">
+        <label>mstparser::io::CONLLReader</label>
+        <link refid="classmstparser_1_1io_1_1CONLLReader"/>
+        <childnode refid="329" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="331">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+      <node id="330">
+        <label>mstparser::io::CONLLReader</label>
+        <link refid="classmstparser_1_1io_1_1CONLLReader"/>
+        <childnode refid="331" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" line="33" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/CONLLReader.java" bodystart="33" bodyend="131"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1io_1_1CONLLReader_1af2e3375ba9d59eeae45845c5f2bbd60f" prot="public" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>CONLLReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a1fcb7fe3a6edc5ae299700488477d660" prot="public" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>createDependencyReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1ab5c02feda68bf1c768b4b97e42097873" prot="public" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>createDependencyReader</name></member>
+      <member refid="classmstparser_1_1io_1_1CONLLReader_1a6613a5db92c75663e4c004d1b645394e" prot="protected" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>discourseMode</name></member>
+      <member refid="classmstparser_1_1io_1_1CONLLReader_1a9c0574130bd566b1bf98ddc04ae7affe" prot="protected" virt="virtual"><scope>mstparser::io::CONLLReader</scope><name>fileContainsLabels</name></member>
+      <member refid="classmstparser_1_1io_1_1CONLLReader_1a2abcb2c5d6aae9240a42afcef10a4ccc" prot="public" virt="virtual"><scope>mstparser::io::CONLLReader</scope><name>getNext</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a0b69bc5195ebb436a8a5f0c22deee407" prot="protected" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>inputReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1abcd3871e3600780a209d92988627df31" prot="public" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>isLabeled</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a165e26aebb32954e41cfd6efa5cb6338" prot="protected" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>labeled</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a3238309398b641ce0634448e7197d8aa" prot="protected" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>normalize</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1aed6d91d39e122754719d7e3d01f05026" prot="public" virt="non-virtual"><scope>mstparser::io::CONLLReader</scope><name>startReading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

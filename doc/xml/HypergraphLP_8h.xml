@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="HypergraphLP_8h" kind="file">
+    <compoundname>HypergraphLP.h</compoundname>
+    <includes refid="Hypergraph_8h" local="no">Hypergraph.h</includes>
+    <includes local="no">gurobi_c++.h</includes>
+    <includes local="yes">../common.h</includes>
+    <includedby refid="FullParser_8cpp" local="yes">FullParser.cpp</includedby>
+    <includedby refid="FullTagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="DepParseLP_8h" local="yes">lp/DepParseLP.h</includedby>
+    <includedby refid="HardPosConstraints_8h" local="yes">lp/HardPosConstraints.h</includedby>
+    <includedby refid="TagLP_8h" local="yes">lp/TagLP.h</includedby>
+    <includedby refid="Main_8cpp" local="yes">Main.cpp</includedby>
+    <includedby refid="MRFSolver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <includedby refid="PhraseLP_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="PottsTagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <incdepgraph>
+      <node id="1730">
+        <label>lp/HypergraphLP.h</label>
+        <link refid="HypergraphLP.h"/>
+        <childnode refid="1731" relation="include">
+        </childnode>
+        <childnode refid="1745" relation="include">
+        </childnode>
+        <childnode refid="1746" relation="include">
+        </childnode>
+      </node>
+      <node id="1741">
+        <label>cassert</label>
+      </node>
+      <node id="1740">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="1743">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="1739" relation="include">
+        </childnode>
+        <childnode refid="1740" relation="include">
+        </childnode>
+        <childnode refid="1741" relation="include">
+        </childnode>
+      </node>
+      <node id="1736">
+        <label>string</label>
+      </node>
+      <node id="1739">
+        <label>map</label>
+      </node>
+      <node id="1731">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="1732" relation="include">
+        </childnode>
+        <childnode refid="1742" relation="include">
+        </childnode>
+        <childnode refid="1744" relation="include">
+        </childnode>
+        <childnode refid="1736" relation="include">
+        </childnode>
+      </node>
+      <node id="1734">
+        <label>fstream</label>
+      </node>
+      <node id="1732">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="1733" relation="include">
+        </childnode>
+        <childnode refid="1734" relation="include">
+        </childnode>
+        <childnode refid="1735" relation="include">
+        </childnode>
+        <childnode refid="1743" relation="include">
+        </childnode>
+      </node>
+      <node id="1746">
+        <label>../common.h</label>
+      </node>
+      <node id="1742">
+        <label>vector</label>
+      </node>
+      <node id="1737">
+        <label>sstream</label>
+      </node>
+      <node id="1738">
+        <label>cstdlib</label>
+      </node>
+      <node id="1735">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="1736" relation="include">
+        </childnode>
+        <childnode refid="1737" relation="include">
+        </childnode>
+        <childnode refid="1738" relation="include">
+        </childnode>
+        <childnode refid="1735" relation="include">
+        </childnode>
+        <childnode refid="1739" relation="include">
+        </childnode>
+        <childnode refid="1740" relation="include">
+        </childnode>
+        <childnode refid="1741" relation="include">
+        </childnode>
+        <childnode refid="1742" relation="include">
+        </childnode>
+        <childnode refid="1733" relation="include">
+        </childnode>
+      </node>
+      <node id="1733">
+        <label>iostream</label>
+      </node>
+      <node id="1745">
+        <label>gurobi_c++.h</label>
+      </node>
+      <node id="1744">
+        <label>set</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1747">
+        <label>lp/HypergraphLP.h</label>
+        <link refid="HypergraphLP.h"/>
+        <childnode refid="1748" relation="include">
+        </childnode>
+        <childnode refid="1750" relation="include">
+        </childnode>
+        <childnode refid="1751" relation="include">
+        </childnode>
+      </node>
+      <node id="1750">
+        <label>lp/HardPosConstraints.h</label>
+        <link refid="HardPosConstraints_8h_source"/>
+        <childnode refid="1750" relation="include">
+        </childnode>
+      </node>
+      <node id="1752">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="TagMrfLP_8h_source"/>
+      </node>
+      <node id="1749">
+        <label>lp/HardConstraints.h</label>
+        <link refid="HardConstraints_8h_source"/>
+      </node>
+      <node id="1751">
+        <label>lp/TagLP.h</label>
+        <link refid="TagLP_8h_source"/>
+        <childnode refid="1752" relation="include">
+        </childnode>
+      </node>
+      <node id="1748">
+        <label>lp/DepParseLP.h</label>
+        <link refid="DepParseLP_8h_source"/>
+        <childnode refid="1749" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structScarab_1_1HG_1_1HypergraphLP" prot="public">Scarab::HG::HypergraphLP</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HypergraphLPBuilder" prot="public">Scarab::HG::HypergraphLPBuilder</innerclass>
+    <innernamespace refid="namespaceScarab">Scarab</innernamespace>
+    <innernamespace refid="namespaceScarab_1_1HG">Scarab::HG</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>HYPERGRAPHLP_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>HYPERGRAPHLP_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;Hypergraph.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gurobi_c++.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Scarab<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">HG<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="structScarab_1_1HG_1_1HypergraphLP" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref><sp/>&amp;<sp/>h):<sp/><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>_h(h),<sp/>node_vars(h.num_nodes()),<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>edge_vars(h.num_edges())<sp/>{}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache&lt;Hypernode, GRBVar&gt;</ref><sp/><sp/>node_vars;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache&lt;Hyperedge, GRBVar&gt;</ref><sp/><sp/>edge_vars;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref><sp/>&amp;<sp/>_h;<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classScarab_1_1HG_1_1HypergraphLPBuilder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classScarab_1_1HG_1_1HypergraphLPBuilder" kindref="compound">HypergraphLPBuilder</ref><sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>show_hypergraph(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>&amp;<sp/>h_lp)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref><sp/>edge,<sp/>h_lp._h.<ref refid="classScarab_1_1HG_1_1HGraph_1a57328729f90cc4152ca79ff15ecdd4bb" kindref="member">edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GRBVar<sp/>var<sp/>=<sp/>h_lp.edge_vars.get(*edge);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(var.get(GRB_DoubleAttr_X))<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>(GRBLinExpr)var&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>edge-&gt;label()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>var.get(GRB_DoubleAttr_X)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>*<sp/>add_hypergraph(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref><sp/>&amp;<sp/>h,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Hyperedge, double&gt;</ref><sp/>&amp;<sp/>_weights,<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefix,<sp/>GRBModel<sp/>&amp;<sp/>model,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var_type)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>*<sp/><sp/>hypergraph_vars=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref>(h);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for(int<sp/>i<sp/>=0;<sp/>i<sp/>&lt;<sp/>_forest.num_nodes();<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal">(<ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">HNode</ref><sp/>node,<sp/>h.<ref refid="classScarab_1_1HG_1_1HGraph_1a74d893fba015520774f71f02a46bb6ca" kindref="member">nodes</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>buf;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//buf<sp/>&lt;&lt;<sp/>prefix<sp/>&lt;&lt;<sp/>&quot;_node_&quot;<sp/>&lt;&lt;<sp/>node-&gt;id()<sp/>&lt;&lt;<sp/>&quot;_&quot;&lt;&lt;<sp/>node-&gt;label();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hypergraph_vars-&gt;node_vars.set_value(*node,<sp/>model.addVar(0.0,<sp/>1.0,<sp/>0.0<sp/></highlight><highlight class="comment">/*Obj*/</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var_type<sp/></highlight><highlight class="comment">/*cont*/</highlight><highlight class="normal">,<sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.str()</highlight><highlight class="comment">/*names*/</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref><sp/>edge,<sp/>h.<ref refid="classScarab_1_1HG_1_1HGraph_1a57328729f90cc4152ca79ff15ecdd4bb" kindref="member">edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>buf;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>&lt;&lt;<sp/>prefix<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_edge_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>edge-&gt;<ref refid="classScarab_1_1HG_1_1Hyperedge_1af824beb7107253a7545b35992c17e057" kindref="member">id</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal">&lt;&lt;edge-&gt;label();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert<sp/>(_weights.has_value(edge));<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hypergraph_vars-&gt;edge_vars.set_value(*edge,<sp/>model.addVar(0.0,<sp/>1.0,<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_weights.get_value(*edge)<sp/></highlight><highlight class="comment">/*Obj*/</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var_type<sp/></highlight><highlight class="comment">/*cont*/</highlight><highlight class="normal">,<sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.str()</highlight><highlight class="comment">/*names*/</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>model.update();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal">(<ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">HNode</ref><sp/>node,<sp/>h.<ref refid="classScarab_1_1HG_1_1HGraph_1a74d893fba015520774f71f02a46bb6ca" kindref="member">nodes</ref>())<sp/>{<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Downward<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="classScarab_1_1HG_1_1Hypernode_1a3306572ded5b5061c1916bcf268be94e" kindref="member">edges</ref>().size()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GRBLinExpr<sp/>sum;<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref><sp/>edge,<sp/>node-&gt;<ref refid="classScarab_1_1HG_1_1Hypernode_1a3306572ded5b5061c1916bcf268be94e" kindref="member">edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>hyperedges[i]<sp/>=<sp/>sum<sp/>node<sp/>out<sp/>;*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>+=<sp/>hypergraph_vars-&gt;edge_vars.get(*edge);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addConstr(hypergraph_vars-&gt;node_vars.get(*node)<sp/>==<sp/>sum,<sp/></highlight><highlight class="stringliteral">&quot;Downward_edge&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Upward<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="classScarab_1_1HG_1_1Hypernode_1aad118748408663b8242dc52d45bbd49d" kindref="member">in_edges</ref>().size()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GRBLinExpr<sp/>sum;<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref><sp/>edge,<sp/>node-&gt;<ref refid="classScarab_1_1HG_1_1Hypernode_1aad118748408663b8242dc52d45bbd49d" kindref="member">in_edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>+=<sp/>hypergraph_vars-&gt;edge_vars.get(*edge);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.addConstr(hypergraph_vars-&gt;node_vars.get(*node)<sp/>==<sp/>sum,<sp/></highlight><highlight class="stringliteral">&quot;Upward_edge&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>model.addConstr(hypergraph_vars-&gt;node_vars.get(h.<ref refid="classScarab_1_1HG_1_1HGraph_1a5ede392b158e41dd7e95ded1c4b0b5d6" kindref="member">root</ref>())<sp/>==<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;Root&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>model.update();<sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hypergraph_vars;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lp/HypergraphLP.h"/>
+  </compounddef>
+</doxygen>

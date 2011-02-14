@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="PhraseBased_8cpp" kind="file">
+    <compoundname>PhraseBased.cpp</compoundname>
+    <includes refid="PhraseBased_8cpp" local="yes">PhraseBased.h</includes>
+    <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
+    <includes refid="HypergraphImpl_8h" local="yes">HypergraphImpl.h</includes>
+    <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
+    <includedby refid="PhraseBased_8cpp" local="yes">phrasebased/PhraseBased.cpp</includedby>
+    <incdepgraph>
+      <node id="2410">
+        <label>assert.h</label>
+      </node>
+      <node id="2395">
+        <label>cassert</label>
+      </node>
+      <node id="2394">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="2397">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="2393" relation="include">
+        </childnode>
+        <childnode refid="2394" relation="include">
+        </childnode>
+        <childnode refid="2395" relation="include">
+        </childnode>
+      </node>
+      <node id="2406">
+        <label>features.pb.h</label>
+        <link refid="gen__cpp_2features_8pb_8h_source"/>
+        <childnode refid="2390" relation="include">
+        </childnode>
+        <childnode refid="2401" relation="include">
+        </childnode>
+        <childnode refid="2402" relation="include">
+        </childnode>
+        <childnode refid="2403" relation="include">
+        </childnode>
+        <childnode refid="2404" relation="include">
+        </childnode>
+        <childnode refid="2405" relation="include">
+        </childnode>
+        <childnode refid="2400" relation="include">
+        </childnode>
+      </node>
+      <node id="2390">
+        <label>string</label>
+      </node>
+      <node id="2393">
+        <label>map</label>
+      </node>
+      <node id="2408">
+        <label>EdgeCache.h</label>
+        <link refid="EdgeCache_8h_source"/>
+        <childnode refid="2396" relation="include">
+        </childnode>
+        <childnode refid="2409" relation="include">
+        </childnode>
+        <childnode refid="2410" relation="include">
+        </childnode>
+      </node>
+      <node id="2399">
+        <label>HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="2385" relation="include">
+        </childnode>
+        <childnode refid="2400" relation="include">
+        </childnode>
+        <childnode refid="2406" relation="include">
+        </childnode>
+        <childnode refid="2386" relation="include">
+        </childnode>
+        <childnode refid="2407" relation="include">
+        </childnode>
+        <childnode refid="2396" relation="include">
+        </childnode>
+        <childnode refid="2398" relation="include">
+        </childnode>
+      </node>
+      <node id="2385">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="2386" relation="include">
+        </childnode>
+        <childnode refid="2396" relation="include">
+        </childnode>
+        <childnode refid="2398" relation="include">
+        </childnode>
+        <childnode refid="2390" relation="include">
+        </childnode>
+      </node>
+      <node id="2388">
+        <label>fstream</label>
+      </node>
+      <node id="2400">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="2390" relation="include">
+        </childnode>
+        <childnode refid="2401" relation="include">
+        </childnode>
+        <childnode refid="2402" relation="include">
+        </childnode>
+        <childnode refid="2403" relation="include">
+        </childnode>
+        <childnode refid="2404" relation="include">
+        </childnode>
+        <childnode refid="2405" relation="include">
+        </childnode>
+      </node>
+      <node id="2386">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="2387" relation="include">
+        </childnode>
+        <childnode refid="2388" relation="include">
+        </childnode>
+        <childnode refid="2389" relation="include">
+        </childnode>
+        <childnode refid="2397" relation="include">
+        </childnode>
+      </node>
+      <node id="2402">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="2407">
+        <label>../common.h</label>
+      </node>
+      <node id="2409">
+        <label>bitset</label>
+      </node>
+      <node id="2401">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="2396">
+        <label>vector</label>
+      </node>
+      <node id="2391">
+        <label>sstream</label>
+      </node>
+      <node id="2404">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="2384">
+        <label>phrasebased/PhraseBased.cpp</label>
+        <link refid="PhraseBased.cpp"/>
+        <childnode refid="2385" relation="include">
+        </childnode>
+        <childnode refid="2399" relation="include">
+        </childnode>
+        <childnode refid="2408" relation="include">
+        </childnode>
+      </node>
+      <node id="2403">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="2392">
+        <label>cstdlib</label>
+      </node>
+      <node id="2389">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="2390" relation="include">
+        </childnode>
+        <childnode refid="2391" relation="include">
+        </childnode>
+        <childnode refid="2392" relation="include">
+        </childnode>
+        <childnode refid="2389" relation="include">
+        </childnode>
+        <childnode refid="2393" relation="include">
+        </childnode>
+        <childnode refid="2394" relation="include">
+        </childnode>
+        <childnode refid="2395" relation="include">
+        </childnode>
+        <childnode refid="2396" relation="include">
+        </childnode>
+        <childnode refid="2387" relation="include">
+        </childnode>
+      </node>
+      <node id="2387">
+        <label>iostream</label>
+      </node>
+      <node id="2398">
+        <label>set</label>
+      </node>
+      <node id="2405">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;PhraseBased.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.cpp"/>
+  </compounddef>
+</doxygen>

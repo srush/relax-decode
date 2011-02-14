@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="TagLP_8h" kind="file">
+    <compoundname>TagLP.h</compoundname>
+    <includes refid="Hypergraph_8h" local="no">Hypergraph.h</includes>
+    <includes local="no">gurobi_c++.h</includes>
+    <includes refid="Tagger_8h" local="yes">Tagger.h</includes>
+    <includes refid="HypergraphLP_8h" local="yes">HypergraphLP.h</includes>
+    <includes local="yes">../common.h</includes>
+    <includedby refid="FullTagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="TagLP_8cpp" local="yes">lp/TagLP.cpp</includedby>
+    <includedby refid="TagMrfLP_8h" local="yes">lp/TagMrfLP.h</includedby>
+    <includedby refid="PottsTagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <incdepgraph>
+      <node id="1957">
+        <label>HypergraphLP.h</label>
+        <link refid="HypergraphLP_8h_source"/>
+        <childnode refid="1927" relation="include">
+        </childnode>
+        <childnode refid="1941" relation="include">
+        </childnode>
+        <childnode refid="1953" relation="include">
+        </childnode>
+      </node>
+      <node id="1942">
+        <label>Tagger.h</label>
+        <link refid="Tagger_8h_source"/>
+        <childnode refid="1943" relation="include">
+        </childnode>
+        <childnode refid="1950" relation="include">
+        </childnode>
+        <childnode refid="1927" relation="include">
+        </childnode>
+        <childnode refid="1951" relation="include">
+        </childnode>
+        <childnode refid="1954" relation="include">
+        </childnode>
+      </node>
+      <node id="1956">
+        <label>assert.h</label>
+      </node>
+      <node id="1937">
+        <label>cassert</label>
+      </node>
+      <node id="1936">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="1939">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="1935" relation="include">
+        </childnode>
+        <childnode refid="1936" relation="include">
+        </childnode>
+        <childnode refid="1937" relation="include">
+        </childnode>
+      </node>
+      <node id="1952">
+        <label>features.pb.h</label>
+        <link refid="gen__cpp_2features_8pb_8h_source"/>
+        <childnode refid="1932" relation="include">
+        </childnode>
+        <childnode refid="1944" relation="include">
+        </childnode>
+        <childnode refid="1945" relation="include">
+        </childnode>
+        <childnode refid="1946" relation="include">
+        </childnode>
+        <childnode refid="1947" relation="include">
+        </childnode>
+        <childnode refid="1948" relation="include">
+        </childnode>
+        <childnode refid="1949" relation="include">
+        </childnode>
+      </node>
+      <node id="1932">
+        <label>string</label>
+      </node>
+      <node id="1935">
+        <label>map</label>
+      </node>
+      <node id="1954">
+        <label>EdgeCache.h</label>
+        <link refid="EdgeCache_8h_source"/>
+        <childnode refid="1938" relation="include">
+        </childnode>
+        <childnode refid="1955" relation="include">
+        </childnode>
+        <childnode refid="1956" relation="include">
+        </childnode>
+      </node>
+      <node id="1951">
+        <label>HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="1927" relation="include">
+        </childnode>
+        <childnode refid="1949" relation="include">
+        </childnode>
+        <childnode refid="1952" relation="include">
+        </childnode>
+        <childnode refid="1928" relation="include">
+        </childnode>
+        <childnode refid="1953" relation="include">
+        </childnode>
+        <childnode refid="1938" relation="include">
+        </childnode>
+        <childnode refid="1940" relation="include">
+        </childnode>
+      </node>
+      <node id="1927">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="1928" relation="include">
+        </childnode>
+        <childnode refid="1938" relation="include">
+        </childnode>
+        <childnode refid="1940" relation="include">
+        </childnode>
+        <childnode refid="1932" relation="include">
+        </childnode>
+      </node>
+      <node id="1930">
+        <label>fstream</label>
+      </node>
+      <node id="1949">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="1932" relation="include">
+        </childnode>
+        <childnode refid="1944" relation="include">
+        </childnode>
+        <childnode refid="1945" relation="include">
+        </childnode>
+        <childnode refid="1946" relation="include">
+        </childnode>
+        <childnode refid="1947" relation="include">
+        </childnode>
+        <childnode refid="1948" relation="include">
+        </childnode>
+      </node>
+      <node id="1928">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="1929" relation="include">
+        </childnode>
+        <childnode refid="1930" relation="include">
+        </childnode>
+        <childnode refid="1931" relation="include">
+        </childnode>
+        <childnode refid="1939" relation="include">
+        </childnode>
+      </node>
+      <node id="1945">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="1953">
+        <label>../common.h</label>
+      </node>
+      <node id="1955">
+        <label>bitset</label>
+      </node>
+      <node id="1944">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="1938">
+        <label>vector</label>
+      </node>
+      <node id="1933">
+        <label>sstream</label>
+      </node>
+      <node id="1947">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="1946">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="1934">
+        <label>cstdlib</label>
+      </node>
+      <node id="1931">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="1932" relation="include">
+        </childnode>
+        <childnode refid="1933" relation="include">
+        </childnode>
+        <childnode refid="1934" relation="include">
+        </childnode>
+        <childnode refid="1931" relation="include">
+        </childnode>
+        <childnode refid="1935" relation="include">
+        </childnode>
+        <childnode refid="1936" relation="include">
+        </childnode>
+        <childnode refid="1937" relation="include">
+        </childnode>
+        <childnode refid="1938" relation="include">
+        </childnode>
+        <childnode refid="1929" relation="include">
+        </childnode>
+      </node>
+      <node id="1929">
+        <label>iostream</label>
+      </node>
+      <node id="1926">
+        <label>lp/TagLP.h</label>
+        <link refid="TagLP.h"/>
+        <childnode refid="1927" relation="include">
+        </childnode>
+        <childnode refid="1941" relation="include">
+        </childnode>
+        <childnode refid="1942" relation="include">
+        </childnode>
+        <childnode refid="1957" relation="include">
+        </childnode>
+        <childnode refid="1953" relation="include">
+        </childnode>
+      </node>
+      <node id="1941">
+        <label>gurobi_c++.h</label>
+      </node>
+      <node id="1940">
+        <label>set</label>
+      </node>
+      <node id="1950">
+        <label>dep.pb.h</label>
+        <link refid="gen__cpp_2dep_8pb_8h_source"/>
+        <childnode refid="1932" relation="include">
+        </childnode>
+        <childnode refid="1944" relation="include">
+        </childnode>
+        <childnode refid="1945" relation="include">
+        </childnode>
+        <childnode refid="1946" relation="include">
+        </childnode>
+        <childnode refid="1947" relation="include">
+        </childnode>
+        <childnode refid="1948" relation="include">
+        </childnode>
+        <childnode refid="1949" relation="include">
+        </childnode>
+      </node>
+      <node id="1943">
+        <label>tag.pb.h</label>
+        <link refid="gen__cpp_2tag_8pb_8h_source"/>
+        <childnode refid="1932" relation="include">
+        </childnode>
+        <childnode refid="1944" relation="include">
+        </childnode>
+        <childnode refid="1945" relation="include">
+        </childnode>
+        <childnode refid="1946" relation="include">
+        </childnode>
+        <childnode refid="1947" relation="include">
+        </childnode>
+        <childnode refid="1948" relation="include">
+        </childnode>
+        <childnode refid="1949" relation="include">
+        </childnode>
+      </node>
+      <node id="1948">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1959">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="TagMrfLP_8h_source"/>
+      </node>
+      <node id="1958">
+        <label>lp/TagLP.h</label>
+        <link refid="TagLP.h"/>
+        <childnode refid="1959" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structScarab_1_1HG_1_1TagLP" prot="public">Scarab::HG::TagLP</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1TagLPBuilder" prot="public">Scarab::HG::TagLPBuilder</innerclass>
+    <innernamespace refid="namespaceScarab">Scarab</innernamespace>
+    <innernamespace refid="namespaceScarab_1_1HG">Scarab::HG</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>DEPPARSELP_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>DEPPARSELP_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Hypergraph.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gurobi_c++.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Tagger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Scarab<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">HG<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="structScarab_1_1HG_1_1TagLP" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classTagger" kindref="compound">Tagger</ref><sp/>&amp;parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>&amp;hyper_lp)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>p(parser),<sp/>tag_vars(parser.num_tags()),<sp/>h_lp(hyper_lp)<sp/>{}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache&lt;Tag, GRBVar&gt;</ref><sp/><sp/>tag_vars;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classTagger" kindref="compound">Tagger</ref><sp/>&amp;<sp/>p;<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref><sp/>&amp;<sp/>h_lp;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classScarab_1_1HG_1_1TagLPBuilder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classScarab_1_1HG_1_1TagLPBuilder" kindref="compound">TagLPBuilder</ref><sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>show_results(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref><sp/>&amp;<sp/>lp_vars);<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref><sp/>*<sp/>add_tagging(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classTagger" kindref="compound">Tagger</ref><sp/>&amp;<sp/>parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Hyperedge, double&gt;</ref><sp/>&amp;<sp/>weights,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefix,<sp/>GRBModel<sp/>&amp;<sp/>model,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var_type);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lp/TagLP.h"/>
+  </compounddef>
+</doxygen>

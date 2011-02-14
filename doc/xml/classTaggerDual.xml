@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classTaggerDual" kind="class" prot="public">
+    <compoundname>TaggerDual</compoundname>
+    <basecompoundref refid="classDualDecompositionSubproblem" prot="public" virt="non-virtual">DualDecompositionSubproblem</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classTaggerDual_1a0068b276abb09b34ab08e9cc14947ee3" prot="protected" static="no" mutable="no">
+        <type>const vector&lt; const <ref refid="classTagger" kindref="compound">Tagger</ref> * &gt; &amp;</type>
+        <definition>const vector&lt;const Tagger*&gt;&amp; TaggerDual::_taggers</definition>
+        <argsstring></argsstring>
+        <name>_taggers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="43" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a0073fa0f694790d365ca959ed8386e26" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+        <definition>const wvector&amp; TaggerDual::_base_weights</definition>
+        <argsstring></argsstring>
+        <name>_base_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="44" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1ab8845276b234c329c967529091f51e8f" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="classTagConstraints" kindref="compound">TagConstraints</ref> &amp;</type>
+        <definition>const TagConstraints&amp; TaggerDual::_tag_constraints</definition>
+        <argsstring></argsstring>
+        <name>_tag_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="45" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a9974a79ebf2547f3e80e9d68d06b49be" prot="protected" static="no" mutable="no">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+        <definition>wvector* TaggerDual::_cur_weights</definition>
+        <argsstring></argsstring>
+        <name>_cur_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="46" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a57232f5a7702b7715f8517d408086dbe" prot="protected" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classsvector" kindref="compound">wvector</ref> &gt;</type>
+        <definition>vector&lt;wvector&gt; TaggerDual::_subgrad_cache</definition>
+        <argsstring></argsstring>
+        <name>_subgrad_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="47" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a47cdc599b2c73836f33aa443053e3534" prot="protected" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; TaggerDual::_primal_cache</definition>
+        <argsstring></argsstring>
+        <name>_primal_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="48" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a4472c903ae391e7cc4912bc473a9eae2" prot="protected" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; TaggerDual::_dual_cache</definition>
+        <argsstring></argsstring>
+        <name>_dual_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="49" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTaggerDual_1a259d5ef5c5020c75a68527950ff41310" prot="protected" static="no" mutable="no">
+        <type>vector&lt; bool &gt;</type>
+        <definition>vector&lt;bool&gt; TaggerDual::_dirty_cache</definition>
+        <argsstring></argsstring>
+        <name>_dirty_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="50" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTaggerDual_1a2b16f45c3550e4f4871841c9ee02de4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TaggerDual::TaggerDual</definition>
+        <argsstring>(vector&lt; const Tagger * &gt; &amp;taggers, const wvector &amp;base_weights, const TagConstraints &amp;cons)</argsstring>
+        <name>TaggerDual</name>
+        <param>
+          <type>vector&lt; const <ref refid="classTagger" kindref="compound">Tagger</ref> * &gt; &amp;</type>
+          <declname>taggers</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>base_weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classTagConstraints" kindref="compound">TagConstraints</ref> &amp;</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="12" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="9" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classTaggerDual_1a047785058d058492172280e50a8f4c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void TaggerDual::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;, int)</argsstring>
+        <name>solve</name>
+        <reimplements refid="classDualDecompositionSubproblem_1aac234786c13091898be348dc0056a036">solve</reimplements>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <defname>subgrad</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>round</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="24" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.cpp" bodystart="7" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classTaggerDual_1a01f7705a69c7cc993268c6e66df57ae0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void TaggerDual::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights, double mult)</argsstring>
+        <name>update_weights</name>
+        <reimplements refid="classDualDecompositionSubproblem_1a6d26fcb23023d5b03d54b3d191531b02">update_weights</reimplements>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>mult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="27" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="25" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1589">
+        <label>TaggerDual</label>
+        <link refid="classTaggerDual"/>
+        <childnode refid="1590" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1590">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="classDualDecompositionSubproblem"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1617">
+        <label>std::map&lt; F, V &gt;</label>
+      </node>
+      <node id="1608">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="1619">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="1601">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="1602">
+        <label>std::vector&lt; Tag &gt;</label>
+        <childnode refid="1603" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1591">
+        <label>TaggerDual</label>
+        <link refid="classTaggerDual"/>
+        <childnode refid="1592" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1593" relation="usage">
+          <edgelabel>_taggers</edgelabel>
+        </childnode>
+        <childnode refid="1607" relation="usage">
+          <edgelabel>_tag_constraints</edgelabel>
+        </childnode>
+        <childnode refid="1616" relation="usage">
+          <edgelabel>_base_weights</edgelabel>
+          <edgelabel>_cur_weights</edgelabel>
+        </childnode>
+        <childnode refid="1605" relation="usage">
+          <edgelabel>_dirty_cache</edgelabel>
+        </childnode>
+        <childnode refid="1618" relation="usage">
+          <edgelabel>_subgrad_cache</edgelabel>
+        </childnode>
+        <childnode refid="1619" relation="usage">
+          <edgelabel>_dual_cache</edgelabel>
+          <edgelabel>_primal_cache</edgelabel>
+        </childnode>
+      </node>
+      <node id="1595">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1596" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1597" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1599" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="1600" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1598" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="1606">
+        <label>Cache&lt; Tag, vector&lt; const Hyperedge * &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1605" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1598">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="1611">
+        <label>PossibleTag</label>
+        <link refid="structPossibleTag"/>
+        <childnode refid="1612" relation="usage">
+          <edgelabel>group_name</edgelabel>
+        </childnode>
+      </node>
+      <node id="1615">
+        <label>ConstraintGroup</label>
+        <link refid="classConstraintGroup"/>
+        <childnode refid="1610" relation="usage">
+          <edgelabel>group</edgelabel>
+        </childnode>
+      </node>
+      <node id="1604">
+        <label>Cache&lt; Hyperedge, Tag &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1605" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1597">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="1598" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1610">
+        <label>std::vector&lt; PossibleTag &gt;</label>
+        <childnode refid="1611" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1613">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1599">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="1599" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1618">
+        <label>std::vector&lt; wvector &gt;</label>
+        <childnode refid="1616" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1593">
+        <label>std::vector&lt; const Tagger * &gt;</label>
+        <childnode refid="1594" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1596">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1616">
+        <label>svector&lt; F, V &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="1617" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="1605">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1609">
+        <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
+        <childnode refid="1610" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1607">
+        <label>TagConstraints</label>
+        <link refid="classTagConstraints"/>
+        <childnode refid="1608" relation="usage">
+          <edgelabel>groups</edgelabel>
+        </childnode>
+        <childnode refid="1609" relation="usage">
+          <edgelabel>_constrained_words</edgelabel>
+        </childnode>
+        <childnode refid="1614" relation="usage">
+          <edgelabel>_constraint_struct</edgelabel>
+        </childnode>
+        <childnode refid="1610" relation="usage">
+          <edgelabel>_all_constraints</edgelabel>
+        </childnode>
+      </node>
+      <node id="1614">
+        <label>std::vector&lt; ConstraintGroup &gt;</label>
+        <childnode refid="1615" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1592">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="classDualDecompositionSubproblem"/>
+      </node>
+      <node id="1603">
+        <label>Tag</label>
+        <link refid="structTag"/>
+      </node>
+      <node id="1612">
+        <label>std::string</label>
+        <childnode refid="1613" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1594">
+        <label>Tagger</label>
+        <link refid="classTagger"/>
+        <childnode refid="1595" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1602" relation="usage">
+          <edgelabel>_tags</edgelabel>
+        </childnode>
+        <childnode refid="1599" relation="usage">
+          <edgelabel>_h</edgelabel>
+        </childnode>
+        <childnode refid="1604" relation="usage">
+          <edgelabel>_tag_map</edgelabel>
+        </childnode>
+        <childnode refid="1606" relation="usage">
+          <edgelabel>_edge_map</edgelabel>
+        </childnode>
+      </node>
+      <node id="1600">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="1601" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="7" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="7" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classTaggerDual_1a0073fa0f694790d365ca959ed8386e26" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_base_weights</name></member>
+      <member refid="classTaggerDual_1a9974a79ebf2547f3e80e9d68d06b49be" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_cur_weights</name></member>
+      <member refid="classTaggerDual_1a259d5ef5c5020c75a68527950ff41310" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_dirty_cache</name></member>
+      <member refid="classTaggerDual_1a4472c903ae391e7cc4912bc473a9eae2" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_dual_cache</name></member>
+      <member refid="classTaggerDual_1a47cdc599b2c73836f33aa443053e3534" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_primal_cache</name></member>
+      <member refid="classTaggerDual_1a57232f5a7702b7715f8517d408086dbe" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_subgrad_cache</name></member>
+      <member refid="classTaggerDual_1ab8845276b234c329c967529091f51e8f" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_tag_constraints</name></member>
+      <member refid="classTaggerDual_1a0068b276abb09b34ab08e9cc14947ee3" prot="protected" virt="non-virtual"><scope>TaggerDual</scope><name>_taggers</name></member>
+      <member refid="classTaggerDual_1a047785058d058492172280e50a8f4c1a" prot="public" virt="virtual"><scope>TaggerDual</scope><name>solve</name></member>
+      <member refid="classTaggerDual_1a2b16f45c3550e4f4871841c9ee02de4f" prot="public" virt="non-virtual"><scope>TaggerDual</scope><name>TaggerDual</name></member>
+      <member refid="classTaggerDual_1a01f7705a69c7cc993268c6e66df57ae0" prot="public" virt="virtual"><scope>TaggerDual</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classNode" kind="class" prot="public">
+    <compoundname>Node</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNode_1a110cab86cd172c6f8e76439d20891979" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Node::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="16" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Node.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNode_1a6bc1470cedfccfe19c28a2a7e82d3c13" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Node::_label</definition>
+        <argsstring></argsstring>
+        <name>_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="17" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Node.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNode_1a20666d359dc46250f06d3cd92b0baff3" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>vector&lt;Edge&gt; Node::_edges</definition>
+        <argsstring></argsstring>
+        <name>_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="18" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Node.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNode_1a124e3d126cfd0437191f47885185dfee" prot="private" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string Node::_label</definition>
+        <argsstring></argsstring>
+        <name>_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" line="19" bodyfile="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNode_1a7d9f3dcaaedd52cdaf9a2c8ad6df85af" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> * &gt;</type>
+        <definition>vector&lt;Edge *&gt; Node::_edges</definition>
+        <argsstring></argsstring>
+        <name>_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" line="20" bodyfile="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNode_1aab9f64d61ba1d5a93482922d894517b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Node::Node</definition>
+        <argsstring>(int id, const char *label, vector&lt; Edge &gt; edges)</argsstring>
+        <name>Node</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+          <declname>edges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classNode_1a3ed601625954b6ae5f59e414846ccd8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>vector&lt;Edge&gt; Node::edges</definition>
+        <argsstring>()</argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classNode_1a272f2e896143233a009d2f1ac48a27d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Node::id</definition>
+        <argsstring>()</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classNode_1ab07ee1f35978d263f84619cf5cd59ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Node::Node</definition>
+        <argsstring>(int id, string label, vector&lt; Edge * &gt; edges)</argsstring>
+        <name>Node</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> * &gt;</type>
+          <declname>edges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" line="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classNode_1adee8ea2ba28fde52191d10c1fea5ce4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> * &gt;</type>
+        <definition>vector&lt;Edge *&gt; Node::edges</definition>
+        <argsstring>()</argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" line="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classNode_1a272f2e896143233a009d2f1ac48a27d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Node::id</definition>
+        <argsstring>()</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/NodeEdge.h" line="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="786">
+        <label>std::vector&lt; Edge * &gt;</label>
+        <childnode refid="782" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="782">
+        <label>Edge</label>
+        <link refid="classEdge"/>
+        <childnode refid="783" relation="usage">
+          <edgelabel>subs</edgelabel>
+          <edgelabel>_subs</edgelabel>
+        </childnode>
+        <childnode refid="784" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="781">
+        <label>std::vector&lt; Edge &gt;</label>
+        <childnode refid="782" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="780">
+        <label>Node</label>
+        <link refid="classNode"/>
+        <childnode refid="781" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="786" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="784" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="785">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="783">
+        <label>std::vector&lt; Node * &gt;</label>
+        <childnode refid="780" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="784">
+        <label>std::string</label>
+        <childnode refid="785" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Node.h" line="8" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Node.h" bodystart="8" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classNode_1a20666d359dc46250f06d3cd92b0baff3" prot="private" virt="non-virtual"><scope>Node</scope><name>_edges</name></member>
+      <member refid="classNode_1a7d9f3dcaaedd52cdaf9a2c8ad6df85af" prot="private" virt="non-virtual"><scope>Node</scope><name>_edges</name></member>
+      <member refid="classNode_1a110cab86cd172c6f8e76439d20891979" prot="private" virt="non-virtual"><scope>Node</scope><name>_id</name></member>
+      <member refid="classNode_1a6bc1470cedfccfe19c28a2a7e82d3c13" prot="private" virt="non-virtual"><scope>Node</scope><name>_label</name></member>
+      <member refid="classNode_1a124e3d126cfd0437191f47885185dfee" prot="private" virt="non-virtual"><scope>Node</scope><name>_label</name></member>
+      <member refid="classNode_1a3ed601625954b6ae5f59e414846ccd8e" prot="public" virt="non-virtual"><scope>Node</scope><name>edges</name></member>
+      <member refid="classNode_1adee8ea2ba28fde52191d10c1fea5ce4c" prot="public" virt="non-virtual"><scope>Node</scope><name>edges</name></member>
+      <member refid="classNode_1a272f2e896143233a009d2f1ac48a27d8" prot="public" virt="non-virtual"><scope>Node</scope><name>id</name></member>
+      <member refid="classNode_1a272f2e896143233a009d2f1ac48a27d8" prot="public" virt="non-virtual"><scope>Node</scope><name>id</name></member>
+      <member refid="classNode_1aab9f64d61ba1d5a93482922d894517b0" prot="public" virt="non-virtual"><scope>Node</scope><name>Node</name></member>
+      <member refid="classNode_1ab07ee1f35978d263f84619cf5cd59ffb" prot="public" virt="non-virtual"><scope>Node</scope><name>Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

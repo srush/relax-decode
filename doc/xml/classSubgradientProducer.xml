@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classSubgradientProducer" kind="class" prot="public">
+    <compoundname>SubgradientProducer</compoundname>
+    <derivedcompoundref refid="classDecode" prot="public" virt="non-virtual">Decode</derivedcompoundref>
+    <derivedcompoundref refid="classDualDecompositionRunner" prot="public" virt="non-virtual">DualDecompositionRunner</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSubgradientProducer_1acea0e6ef35f9f3fd2f14872740471628" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void SubgradientProducer::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;, int, bool, bool &amp;)=0</argsstring>
+        <name>solve</name>
+        <reimplementedby refid="classDecode_1a6d86f91ee2c591c54ce2bb97c1dd6888">solve</reimplementedby>
+        <reimplementedby refid="classDualDecompositionRunner_1a4bcec895359acf32000d42155c4593ef">solve</reimplementedby>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classSubgradientProducer_1a5b471526b337913722f56221b2461d89" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void SubgradientProducer::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights)=0</argsstring>
+        <name>update_weights</name>
+        <reimplementedby refid="classDecode_1a9beca60221318f111b7f4d5acca8e329">update_weights</reimplementedby>
+        <reimplementedby refid="classDualDecompositionRunner_1a3cdf7ce33f6454f9fee9fb9c3287c5ac">update_weights</reimplementedby>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1519">
+        <label>DualDecompositionRunner</label>
+        <link refid="classDualDecompositionRunner"/>
+        <childnode refid="1517" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1517">
+        <label>SubgradientProducer</label>
+        <link refid="classSubgradientProducer"/>
+      </node>
+      <node id="1518">
+        <label>Decode</label>
+        <link refid="classDecode"/>
+        <childnode refid="1517" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="12" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="12" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classSubgradientProducer_1acea0e6ef35f9f3fd2f14872740471628" prot="public" virt="pure-virtual"><scope>SubgradientProducer</scope><name>solve</name></member>
+      <member refid="classSubgradientProducer_1a5b471526b337913722f56221b2461d89" prot="public" virt="pure-virtual"><scope>SubgradientProducer</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

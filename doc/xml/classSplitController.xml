@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classSplitController" kind="class" prot="public">
+    <compoundname>SplitController</compoundname>
+    <basecompoundref refid="classScarab_1_1HG_1_1Controller" prot="public" virt="non-virtual">Scarab::HG::Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSplitController_1ae1ad62201240e51b52b4957fb8101ea2" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classSubproblem" kindref="compound">Subproblem</ref> &amp;</type>
+        <definition>const Subproblem&amp; SplitController::_subproblem</definition>
+        <argsstring></argsstring>
+        <name>_subproblem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="261" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSplitController_1a06e33e7c7eff6adff055f52e22ca2092" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classForestLattice" kindref="compound">ForestLattice</ref> &amp;</type>
+        <definition>const ForestLattice&amp; SplitController::_lattice</definition>
+        <argsstring></argsstring>
+        <name>_lattice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="262" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSplitController_1a71a37aa3ec641570afe69ada1732be3a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SplitController::_two_classes</definition>
+        <argsstring></argsstring>
+        <name>_two_classes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="263" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSplitController_1adb9c7cfc1d0430277b7c2b93ba7dd058" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;int&gt; &gt; SplitController::_classes</definition>
+        <argsstring></argsstring>
+        <name>_classes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="264" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSplitController_1a11ab6a9279368440a6309ce9fe3fa029" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; SplitController::_inner_projection</definition>
+        <argsstring></argsstring>
+        <name>_inner_projection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="265" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSplitController_1a511e733b586a24c2cad5ba16a6cb381b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SplitController::SplitController</definition>
+        <argsstring>(const Subproblem &amp;s, const ForestLattice &amp;l, bool two_classes)</argsstring>
+        <name>SplitController</name>
+        <param>
+          <type>const <ref refid="classSubproblem" kindref="compound">Subproblem</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classForestLattice" kindref="compound">ForestLattice</ref> &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>two_classes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="75" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="75" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1ac01bf4220c60c35f6862160dc7fcacc7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int SplitController::project_word</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>project_word</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="97" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1a272757bbbfaa9af9d2ee2262b03ef131" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>int SplitController::size</definition>
+        <argsstring>() const </argsstring>
+        <name>size</name>
+        <reimplements refid="classScarab_1_1HG_1_1Controller_1a3498a09d093e6c6ed993e309db51480a">size</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="101" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1ad2aeeafdc31d48526be15a1b1a2e9931" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>int SplitController::dim</definition>
+        <argsstring>() const </argsstring>
+        <name>dim</name>
+        <reimplements refid="classScarab_1_1HG_1_1Controller_1ab4282178c6b8d3670134ab0519eda518">dim</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="106" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="106" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1a6ac91d8fd5fef735c6572c420a05bda4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void SplitController::initialize_hypotheses</definition>
+        <argsstring>(const Hypernode &amp;node, vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const </argsstring>
+        <name>initialize_hypotheses</name>
+        <reimplements refid="classScarab_1_1HG_1_1Controller_1a5019e9591e6d4e5e29eb4ca6ac42d056">initialize_hypotheses</reimplements>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>hyps</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="110" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="110" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1a58e535837326d733c98a193f2c7584c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void SplitController::initialize_out_root</definition>
+        <argsstring>(vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const </argsstring>
+        <name>initialize_out_root</name>
+        <reimplements refid="classScarab_1_1HG_1_1Controller_1a34e4f087d77d06ee27fff2d3a8435473">initialize_out_root</reimplements>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>hyps</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="169" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="168" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classSplitController_1a2138b9bac43d19896f2bff71a619e9af" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double SplitController::find_best</definition>
+        <argsstring>(vector&lt; Hypothesis * &gt; &amp;root_hyps, vector&lt; double &gt; &amp;scores, Hypothesis &amp;best_hyp) const </argsstring>
+        <name>find_best</name>
+        <reimplements refid="classScarab_1_1HG_1_1Controller_1ac4a38bf968379d3dc3f2b95cffabf540">find_best</reimplements>
+        <param>
+          <type>vector&lt; <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> * &gt; &amp;</type>
+          <declname>root_hyps</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>scores</declname>
+        </param>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>best_hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="208" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="207" bodyend="258"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1416">
+        <label>SplitController</label>
+        <link refid="classSplitController"/>
+        <childnode refid="1417" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1417">
+        <label>Scarab::HG::Controller</label>
+        <link refid="classScarab_1_1HG_1_1Controller"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1440">
+        <label>std::vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</label>
+        <childnode refid="1438" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1445">
+        <label>GraphDecompose</label>
+        <link refid="classGraphDecompose"/>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>backward_bigrams</edgelabel>
+          <edgelabel>forward_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="1446" relation="usage">
+          <edgelabel>bigram_paths</edgelabel>
+        </childnode>
+        <childnode refid="1421" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="1438" relation="usage">
+          <edgelabel>all_pairs_path_exist</edgelabel>
+        </childnode>
+        <childnode refid="1441" relation="usage">
+          <edgelabel>all_pairs_path</edgelabel>
+        </childnode>
+        <childnode refid="1423" relation="usage">
+          <edgelabel>valid_bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="1432">
+        <label>T</label>
+      </node>
+      <node id="1427">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="classScarab_1_1Graph_1_1Graphedge"/>
+        <childnode refid="1428" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1423">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="1424" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1431">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="1432" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1421">
+        <label>ForestLattice</label>
+        <link refid="classForestLattice"/>
+        <childnode refid="1422" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="1425" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="1433" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1434" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="1423" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="1444">
+        <label>std::vector&lt; float &gt;</label>
+      </node>
+      <node id="1442">
+        <label>BigramRescore</label>
+        <link refid="classBigramRescore"/>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>forward_paths</edgelabel>
+          <edgelabel>best_split</edgelabel>
+          <edgelabel>backward_paths</edgelabel>
+        </childnode>
+        <childnode refid="1421" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="1438" relation="usage">
+          <edgelabel>need_to_recompute</edgelabel>
+        </childnode>
+        <childnode refid="1441" relation="usage">
+          <edgelabel>bigram_path</edgelabel>
+        </childnode>
+        <childnode refid="1443" relation="usage">
+          <edgelabel>bigram_weights</edgelabel>
+        </childnode>
+        <childnode refid="1434" relation="usage">
+          <edgelabel>update_position</edgelabel>
+        </childnode>
+        <childnode refid="1444" relation="usage">
+          <edgelabel>current_weights</edgelabel>
+        </childnode>
+        <childnode refid="1437" relation="usage">
+          <edgelabel>update_filter</edgelabel>
+        </childnode>
+        <childnode refid="1445" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+      </node>
+      <node id="1439">
+        <label>NgramCache</label>
+        <link refid="classNgramCache"/>
+      </node>
+      <node id="1436">
+        <label>Cache&lt; Graphnode, int &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1434" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="1437" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1433">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="1429" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1424">
+        <label>Bigram</label>
+        <link refid="structBigram"/>
+      </node>
+      <node id="1447">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt;</label>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1418">
+        <label>SplitController</label>
+        <link refid="classSplitController"/>
+        <childnode refid="1419" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>_classes</edgelabel>
+        </childnode>
+        <childnode refid="1421" relation="usage">
+          <edgelabel>_lattice</edgelabel>
+        </childnode>
+        <childnode refid="1434" relation="usage">
+          <edgelabel>_inner_projection</edgelabel>
+        </childnode>
+        <childnode refid="1435" relation="usage">
+          <edgelabel>_subproblem</edgelabel>
+        </childnode>
+      </node>
+      <node id="1419">
+        <label>Scarab::HG::Controller</label>
+        <link refid="classScarab_1_1HG_1_1Controller"/>
+      </node>
+      <node id="1435">
+        <label>Subproblem</label>
+        <link refid="classSubproblem"/>
+        <childnode refid="1420" relation="usage">
+          <edgelabel>cur_best_at_bi</edgelabel>
+          <edgelabel>cur_best_bi_projection_first</edgelabel>
+          <edgelabel>cur_best_bi_projection</edgelabel>
+        </childnode>
+        <childnode refid="1436" relation="usage">
+          <edgelabel>_word_node_cache</edgelabel>
+        </childnode>
+        <childnode refid="1421" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="1438" relation="usage">
+          <edgelabel>bigram_in_lm</edgelabel>
+        </childnode>
+        <childnode refid="1439" relation="usage">
+          <edgelabel>lm</edgelabel>
+        </childnode>
+        <childnode refid="1440" relation="usage">
+          <edgelabel>cur_best_tri_projection_is_new</edgelabel>
+        </childnode>
+        <childnode refid="1441" relation="usage">
+          <edgelabel>forward_trigrams</edgelabel>
+        </childnode>
+        <childnode refid="1442" relation="usage">
+          <edgelabel>bi_rescore_two</edgelabel>
+          <edgelabel>bi_rescore_first</edgelabel>
+        </childnode>
+        <childnode refid="1443" relation="usage">
+          <edgelabel>bigram_weight_cache_two</edgelabel>
+          <edgelabel>bigram_weight_cache_one</edgelabel>
+          <edgelabel>bigram_score_cache</edgelabel>
+          <edgelabel>cur_best_at_bi_score</edgelabel>
+          <edgelabel>cur_best_bi_projection_score</edgelabel>
+          <edgelabel>best_lm_score</edgelabel>
+          <edgelabel>backoff_score_cache</edgelabel>
+        </childnode>
+        <childnode refid="1447" relation="usage">
+          <edgelabel>cur_best_tri_projection</edgelabel>
+          <edgelabel>cur_best_tri_projection_first</edgelabel>
+        </childnode>
+        <childnode refid="1444" relation="usage">
+          <edgelabel>cur_best_score</edgelabel>
+        </childnode>
+        <childnode refid="1434" relation="usage">
+          <edgelabel>projection</edgelabel>
+          <edgelabel>cur_best_two</edgelabel>
+          <edgelabel>cur_best_count</edgelabel>
+          <edgelabel>cur_best_one</edgelabel>
+        </childnode>
+        <childnode refid="1437" relation="usage">
+          <edgelabel>overridden</edgelabel>
+        </childnode>
+        <childnode refid="1445" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+        <childnode refid="1448" relation="usage">
+          <edgelabel>cur_best_tri_projection_score</edgelabel>
+        </childnode>
+        <childnode refid="1449" relation="usage">
+          <edgelabel>forward_trigrams_score</edgelabel>
+        </childnode>
+      </node>
+      <node id="1428">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="classScarab_1_1Graph_1_1Graphnode"/>
+        <childnode refid="1426" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1429" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="1430">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1422">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="1423" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1420">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="1448">
+        <label>std::vector&lt; vector&lt; vector&lt; float &gt; &gt; &gt;</label>
+        <childnode refid="1443" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1443">
+        <label>std::vector&lt; vector&lt; float &gt; &gt;</label>
+        <childnode refid="1444" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1437">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1449">
+        <label>std::vector&lt; vector&lt; vector&lt; double &gt; * &gt; &gt;</label>
+      </node>
+      <node id="1441">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="1446">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="1426">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="1427" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1425">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="classScarab_1_1Graph_1_1Graph"/>
+        <childnode refid="1426" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1431" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1434">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="1438">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="1429">
+        <label>std::string</label>
+        <childnode refid="1430" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="73" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="73" bodyend="266"/>
+    <listofallmembers>
+      <member refid="classSplitController_1adb9c7cfc1d0430277b7c2b93ba7dd058" prot="private" virt="non-virtual"><scope>SplitController</scope><name>_classes</name></member>
+      <member refid="classSplitController_1a11ab6a9279368440a6309ce9fe3fa029" prot="private" virt="non-virtual"><scope>SplitController</scope><name>_inner_projection</name></member>
+      <member refid="classSplitController_1a06e33e7c7eff6adff055f52e22ca2092" prot="private" virt="non-virtual"><scope>SplitController</scope><name>_lattice</name></member>
+      <member refid="classSplitController_1ae1ad62201240e51b52b4957fb8101ea2" prot="private" virt="non-virtual"><scope>SplitController</scope><name>_subproblem</name></member>
+      <member refid="classSplitController_1a71a37aa3ec641570afe69ada1732be3a" prot="private" virt="non-virtual"><scope>SplitController</scope><name>_two_classes</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a34cfe4b8e7496ffca1cedf64cb3f0a73" prot="public" virt="non-virtual"><scope>SplitController</scope><name>combine</name></member>
+      <member refid="classScarab_1_1HG_1_1Controller_1a4b596f04765ad11b691e29383f5fbc3b" prot="public" virt="non-virtual"><scope>SplitController</scope><name>combine_back</name></member>
+      <member refid="classSplitController_1ad2aeeafdc31d48526be15a1b1a2e9931" prot="public" virt="virtual"><scope>SplitController</scope><name>dim</name></member>
+      <member refid="classSplitController_1a2138b9bac43d19896f2bff71a619e9af" prot="public" virt="virtual"><scope>SplitController</scope><name>find_best</name></member>
+      <member refid="classSplitController_1a6ac91d8fd5fef735c6572c420a05bda4" prot="public" virt="virtual"><scope>SplitController</scope><name>initialize_hypotheses</name></member>
+      <member refid="classSplitController_1a58e535837326d733c98a193f2c7584c6" prot="public" virt="virtual"><scope>SplitController</scope><name>initialize_out_root</name></member>
+      <member refid="classSplitController_1ac01bf4220c60c35f6862160dc7fcacc7" prot="public" virt="non-virtual"><scope>SplitController</scope><name>project_word</name></member>
+      <member refid="classSplitController_1a272757bbbfaa9af9d2ee2262b03ef131" prot="public" virt="virtual"><scope>SplitController</scope><name>size</name></member>
+      <member refid="classSplitController_1a511e733b586a24c2cad5ba16a6cb381b" prot="public" virt="non-virtual"><scope>SplitController</scope><name>SplitController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

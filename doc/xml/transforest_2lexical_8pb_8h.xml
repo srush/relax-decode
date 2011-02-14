@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="transforest_2lexical_8pb_8h" kind="file">
+    <compoundname>lexical.pb.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">google/protobuf/stubs/common.h</includes>
+    <includes local="no">google/protobuf/generated_message_util.h</includes>
+    <includes local="no">google/protobuf/repeated_field.h</includes>
+    <includes local="no">google/protobuf/extension_set.h</includes>
+    <includes local="no">google/protobuf/generated_message_reflection.h</includes>
+    <includes refid="transforest_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
+    <includedby refid="transforest_2lexical_8pb_8cc" local="yes">transforest/lexical.pb.cc</includedby>
+    <incdepgraph>
+      <node id="632">
+        <label>string</label>
+      </node>
+      <node id="634">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="633">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="631">
+        <label>transforest/lexical.pb.h</label>
+        <link refid="transforest/lexical.pb.h"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+      </node>
+      <node id="636">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="635">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="638">
+        <label>hypergraph.pb.h</label>
+        <link refid="transforest_2hypergraph_8pb_8h_source"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+      </node>
+      <node id="637">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacegoogle">google</innernamespace>
+    <innernamespace refid="namespacegoogle_1_1protobuf">google::protobuf</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="transforest_2lexical_8pb_8h_1a5bb98a2cbbd24d7a4d2dd9b69ca877e9" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int kIsWordFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kIsWordFieldNumber</name>
+        <initializer> 110</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="41" bodyfile="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="transforest_2lexical_8pb_8h_1a8fbece7259e6a40067c59d0574b758cf" prot="public" static="no" mutable="no">
+        <type>extern::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>,::google::protobuf::internal::PrimitiveTypeTraits&lt; bool &gt;, 8, false &gt;</type>
+        <definition>extern ::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Node, ::google::protobuf::internal::PrimitiveTypeTraits&lt; bool &gt;, 8, false &gt; is_word</definition>
+        <argsstring></argsstring>
+        <name>is_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="44" bodyfile="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="transforest_2lexical_8pb_8h_1a7ce7b8113dc6dd974ef398f40efda2e6" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int kWordFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kWordFieldNumber</name>
+        <initializer> 111</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="45" bodyfile="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="transforest_2lexical_8pb_8h_1a4a6cf8b7395eb2172546579bcd720f38" prot="public" static="no" mutable="no">
+        <type>extern::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>,::google::protobuf::internal::StringTypeTraits, 9, false &gt;</type>
+        <definition>extern ::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Node, ::google::protobuf::internal::StringTypeTraits, 9, false &gt; word</definition>
+        <argsstring></argsstring>
+        <name>word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="48" bodyfile="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="transforest_2lexical_8pb_8h_1aeb7640ce4e956d114e156b011de3c715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AddDesc_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="28" bodyfile="/home/srush/Projects/relax_decode/hypergraph/lexical.pb.cc" bodystart="43" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="transforest_2lexical_8pb_8h_1ae831b67b3b3e409f3eb18769ec8233ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AssignDesc_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="29" bodyfile="/home/srush/Projects/relax_decode/hypergraph/lexical.pb.cc" bodystart="18" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="transforest_2lexical_8pb_8h_1a8bbaef1e71b29095103c29517d7ff2b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_ShutdownFile_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h" line="30" bodyfile="/home/srush/Projects/relax_decode/hypergraph/lexical.pb.cc" bodystart="40" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Generated<sp/>by<sp/>the<sp/>protocol<sp/>buffer<sp/>compiler.<sp/><sp/>DO<sp/>NOT<sp/>EDIT!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PROTOBUF_lexical_2eproto__INCLUDED</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PROTOBUF_lexical_2eproto__INCLUDED</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/stubs/common.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GOOGLE_PROTOBUF_VERSION<sp/>&lt;<sp/>2002000</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>This<sp/>file<sp/>was<sp/>generated<sp/>by<sp/>a<sp/>newer<sp/>version<sp/>of<sp/>protoc<sp/>which<sp/>is</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>incompatible<sp/>with<sp/>your<sp/>Protocol<sp/>Buffer<sp/>headers.<sp/><sp/>Please<sp/>update</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>your<sp/>headers.</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>2002000<sp/>&lt;<sp/>GOOGLE_PROTOBUF_MIN_PROTOC_VERSION</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>This<sp/>file<sp/>was<sp/>generated<sp/>by<sp/>an<sp/>older<sp/>version<sp/>of<sp/>protoc<sp/>which<sp/>is</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>incompatible<sp/>with<sp/>your<sp/>Protocol<sp/>Buffer<sp/>headers.<sp/><sp/>Please</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>regenerate<sp/>this<sp/>file<sp/>with<sp/>a<sp/>newer<sp/>version<sp/>of<sp/>protoc.</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/generated_message_util.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/repeated_field.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/extension_set.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/generated_message_reflection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hypergraph.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Internal<sp/>implementation<sp/>detail<sp/>--<sp/>do<sp/>not<sp/>call<sp/>these.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>protobuf_AddDesc_lexical_2eproto();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_AssignDesc_lexical_2eproto();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_ShutdownFile_lexical_2eproto();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kIsWordFieldNumber<sp/>=<sp/>110;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">extern<sp/>::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Node" kindref="compound"> ::Hypergraph_Node</ref>,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::PrimitiveTypeTraits&lt;<sp/>bool<sp/>&gt;,<sp/>8,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>is_word;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kWordFieldNumber<sp/>=<sp/>111;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">extern<sp/>::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Node" kindref="compound"> ::Hypergraph_Node</ref>,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::StringTypeTraits,<sp/>9,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>word;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SWIG</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">google<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">protobuf<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>google</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>protobuf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>SWIG</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>PROTOBUF_lexical_2eproto__INCLUDED</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/transforest/lexical.pb.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="cy__svector_8hpp" kind="file">
+    <compoundname>cy_svector.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">cstdlib</includes>
+    <includes refid="cy__svector_8hpp" local="yes">svector.hpp</includes>
+    <includes local="no">map</includes>
+    <includes local="no">tr1/unordered_map</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">iostream</includes>
+    <includedby refid="AStar_8cpp" local="no">hypergraph/AStar.cpp</includedby>
+    <includedby refid="HypergraphAlgorithms_8cpp" local="no">hypergraph/HypergraphAlgorithms.cpp</includedby>
+    <includedby refid="hypergraph_2svector_8cpp" local="yes">hypergraph/svector.cpp</includedby>
+    <includedby refid="Weights_8h" local="no">hypergraph/Weights.h</includedby>
+    <includedby refid="LPBuilder_8cpp" local="no">lp/LPBuilder.cpp</includedby>
+    <includedby refid="cy__svector_8hpp" local="yes">third-party/svector/cy_svector.hpp</includedby>
+    <includedby refid="Forest_8cpp" local="yes">transforest/Forest.cpp</includedby>
+    <incdepgraph>
+      <node id="2967">
+        <label>cassert</label>
+      </node>
+      <node id="2966">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="2962">
+        <label>string</label>
+      </node>
+      <node id="2965">
+        <label>map</label>
+      </node>
+      <node id="2968">
+        <label>vector</label>
+      </node>
+      <node id="2963">
+        <label>sstream</label>
+      </node>
+      <node id="2964">
+        <label>cstdlib</label>
+      </node>
+      <node id="2961">
+        <label>third-party/svector/cy_svector.hpp</label>
+        <link refid="cy_svector.hpp"/>
+        <childnode refid="2962" relation="include">
+        </childnode>
+        <childnode refid="2963" relation="include">
+        </childnode>
+        <childnode refid="2964" relation="include">
+        </childnode>
+        <childnode refid="2961" relation="include">
+        </childnode>
+        <childnode refid="2965" relation="include">
+        </childnode>
+        <childnode refid="2966" relation="include">
+        </childnode>
+        <childnode refid="2967" relation="include">
+        </childnode>
+        <childnode refid="2968" relation="include">
+        </childnode>
+        <childnode refid="2969" relation="include">
+        </childnode>
+      </node>
+      <node id="2969">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2996">
+        <label>lp/HypergraphLP.h</label>
+        <link refid="HypergraphLP_8h_source"/>
+        <childnode refid="2989" relation="include">
+        </childnode>
+        <childnode refid="2981" relation="include">
+        </childnode>
+        <childnode refid="2993" relation="include">
+        </childnode>
+      </node>
+      <node id="2981">
+        <label>lp/HardPosConstraints.h</label>
+        <link refid="HardPosConstraints_8h_source"/>
+        <childnode refid="2981" relation="include">
+        </childnode>
+      </node>
+      <node id="2973">
+        <label>CubeLM.h</label>
+        <link refid="CubeLM_8h_source"/>
+      </node>
+      <node id="2992">
+        <label>tagger/Tagger.h</label>
+        <link refid="Tagger_8h_source"/>
+        <childnode refid="2981" relation="include">
+        </childnode>
+        <childnode refid="2993" relation="include">
+        </childnode>
+        <childnode refid="2980" relation="include">
+        </childnode>
+        <childnode refid="2983" relation="include">
+        </childnode>
+      </node>
+      <node id="2987">
+        <label>optimization/MRFHypergraph.h</label>
+        <link refid="MRFHypergraph_8h_source"/>
+      </node>
+      <node id="2982">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="TagMrfLP_8h_source"/>
+      </node>
+      <node id="2990">
+        <label>lp/HardConstraints.h</label>
+        <link refid="HardConstraints_8h_source"/>
+      </node>
+      <node id="2985">
+        <label>optimization/MRF.h</label>
+        <link refid="MRF_8h_source"/>
+        <childnode refid="2986" relation="include">
+        </childnode>
+        <childnode refid="2987" relation="include">
+        </childnode>
+        <childnode refid="2980" relation="include">
+        </childnode>
+      </node>
+      <node id="2984">
+        <label>hypergraph/HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2987" relation="include">
+        </childnode>
+        <childnode refid="2988" relation="include">
+        </childnode>
+        <childnode refid="2991" relation="include">
+        </childnode>
+        <childnode refid="2992" relation="include">
+        </childnode>
+        <childnode refid="2994" relation="include">
+        </childnode>
+      </node>
+      <node id="2972">
+        <label>hypergraph/Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="2973" relation="include">
+        </childnode>
+        <childnode refid="2974" relation="include">
+        </childnode>
+        <childnode refid="2975" relation="include">
+        </childnode>
+        <childnode refid="2978" relation="include">
+        </childnode>
+        <childnode refid="2976" relation="include">
+        </childnode>
+        <childnode refid="2979" relation="include">
+        </childnode>
+        <childnode refid="2984" relation="include">
+        </childnode>
+        <childnode refid="2995" relation="include">
+        </childnode>
+        <childnode refid="2989" relation="include">
+        </childnode>
+        <childnode refid="2981" relation="include">
+        </childnode>
+        <childnode refid="2996" relation="include">
+        </childnode>
+        <childnode refid="2997" relation="include">
+        </childnode>
+        <childnode refid="2993" relation="include">
+        </childnode>
+        <childnode refid="2987" relation="include">
+        </childnode>
+        <childnode refid="2988" relation="include">
+        </childnode>
+        <childnode refid="2991" relation="include">
+        </childnode>
+        <childnode refid="2992" relation="include">
+        </childnode>
+        <childnode refid="2994" relation="include">
+        </childnode>
+      </node>
+      <node id="2997">
+        <label>lp/LPBuilder.h</label>
+        <link refid="LPBuilder_8h_source"/>
+      </node>
+      <node id="2986">
+        <label>lp/MRFLP.h</label>
+        <link refid="MRFLP_8h_source"/>
+        <childnode refid="2982" relation="include">
+        </childnode>
+      </node>
+      <node id="2976">
+        <label>hypergraph/ExtendCKY.h</label>
+        <link refid="ExtendCKY_8h_source"/>
+        <childnode refid="2977" relation="include">
+        </childnode>
+      </node>
+      <node id="2988">
+        <label>parse/DepParser.h</label>
+        <link refid="DepParser_8h_source"/>
+        <childnode refid="2989" relation="include">
+        </childnode>
+      </node>
+      <node id="2971">
+        <label>hypergraph/Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="2972" relation="include">
+        </childnode>
+        <childnode refid="2984" relation="include">
+        </childnode>
+        <childnode refid="2980" relation="include">
+        </childnode>
+      </node>
+      <node id="2974">
+        <label>hypergraph/AStar.h</label>
+        <link refid="AStar_8h_source"/>
+      </node>
+      <node id="2978">
+        <label>hypergraph/CubePruning.h</label>
+        <link refid="CubePruning_8h_source"/>
+        <childnode refid="2973" relation="include">
+        </childnode>
+      </node>
+      <node id="2995">
+        <label>hypergraph/Hypothesis.h</label>
+        <link refid="Hypothesis_8h_source"/>
+        <childnode refid="2974" relation="include">
+        </childnode>
+        <childnode refid="2975" relation="include">
+        </childnode>
+        <childnode refid="2976" relation="include">
+        </childnode>
+      </node>
+      <node id="2980">
+        <label>tagger/TagConstraints.h</label>
+        <link refid="TagConstraints_8h_source"/>
+        <childnode refid="2981" relation="include">
+        </childnode>
+        <childnode refid="2982" relation="include">
+        </childnode>
+        <childnode refid="2983" relation="include">
+        </childnode>
+      </node>
+      <node id="2977">
+        <label>trans_decode/Decode.h</label>
+        <link refid="Decode_8h_source"/>
+      </node>
+      <node id="2979">
+        <label>hypergraph/HypergraphAlgorithms.h</label>
+        <link refid="HypergraphAlgorithms_8h_source"/>
+        <childnode refid="2975" relation="include">
+        </childnode>
+        <childnode refid="2980" relation="include">
+        </childnode>
+        <childnode refid="2977" relation="include">
+        </childnode>
+      </node>
+      <node id="2994">
+        <label>transforest/Forest.h</label>
+        <link refid="Forest_8h_source"/>
+        <childnode refid="2977" relation="include">
+        </childnode>
+      </node>
+      <node id="2970">
+        <label>third-party/svector/cy_svector.hpp</label>
+        <link refid="cy_svector.hpp"/>
+        <childnode refid="2971" relation="include">
+        </childnode>
+        <childnode refid="2970" relation="include">
+        </childnode>
+      </node>
+      <node id="2993">
+        <label>lp/TagLP.h</label>
+        <link refid="TagLP_8h_source"/>
+        <childnode refid="2982" relation="include">
+        </childnode>
+      </node>
+      <node id="2991">
+        <label>phrasebased/PhraseBased.h</label>
+        <link refid="PhraseBased_8h_source"/>
+      </node>
+      <node id="2989">
+        <label>lp/DepParseLP.h</label>
+        <link refid="DepParseLP_8h_source"/>
+        <childnode refid="2990" relation="include">
+        </childnode>
+      </node>
+      <node id="2975">
+        <label>hypergraph/BestHyp.h</label>
+        <link refid="BestHyp_8h_source"/>
+        <childnode refid="2974" relation="include">
+        </childnode>
+        <childnode refid="2976" relation="include">
+        </childnode>
+      </node>
+      <node id="2983">
+        <label>tagger/TagSolvers.h</label>
+        <link refid="TagSolvers_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structsvector__iterator" prot="public">svector_iterator</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="cy__svector_8hpp_1aa61327e213ce262502b73783ec0a5f80" prot="public" static="yes" mutable="no">
+        <type><ref refid="classnumberizer" kindref="compound">numberizer</ref>&lt; std::string &gt;</type>
+        <definition>numberizer&lt;std::string&gt; feature_numberizer</definition>
+        <argsstring></argsstring>
+        <name>feature_numberizer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="12" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cy__svector_8hpp_1a1eb94dafbd3c2b73d7dae050360e737a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class F</type>
+          </param>
+          <param>
+            <type>class V</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void svector_setitem</definition>
+        <argsstring>(svector&lt; F, V &gt; &amp;v, F f, V x)</argsstring>
+        <name>svector_setitem</name>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">svector</ref>&lt; F, V &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="15" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="cy__svector_8hpp_1acb1438fba163d1d81f75e20948923f06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class F</type>
+          </param>
+          <param>
+            <type>class V</type>
+          </param>
+        </templateparamlist>
+        <type>V</type>
+        <definition>V svector_getitem</definition>
+        <argsstring>(const svector&lt; F, V &gt; &amp;v, F f)</argsstring>
+        <name>svector_getitem</name>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">svector</ref>&lt; F, V &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="18" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="18" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="cy__svector_8hpp_1a6a909e8a67025237367a46c1a800ee39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class F</type>
+          </param>
+          <param>
+            <type>class V</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool svector_contains</definition>
+        <argsstring>(const svector&lt; F, V &gt; &amp;v, F f)</argsstring>
+        <name>svector_contains</name>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">svector</ref>&lt; F, V &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="28" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="cy__svector_8hpp_1a03ba04d462dd78f427ecd57cea3fae57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class F</type>
+          </param>
+          <param>
+            <type>class V</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string svector_str</definition>
+        <argsstring>(const svector&lt; F, V &gt; &amp;sv)</argsstring>
+        <name>svector_str</name>
+        <param>
+          <type>const <ref refid="classsvector" kindref="compound">svector</ref>&lt; F, V &gt; &amp;</type>
+          <declname>sv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="34" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="34" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="cy__svector_8hpp_1aaaf815f6bf66e62a584494d883b536a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class F</type>
+          </param>
+          <param>
+            <type>class V</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classsvector" kindref="compound">svector</ref>&lt; F, V &gt; *</type>
+        <definition>svector&lt;F,V&gt;* svector_from_str</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>svector_from_str</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" line="48" bodyfile="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp" bodystart="48" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CY_SVECTOR_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CY_SVECTOR_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;svector.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;numberizer.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classnumberizer" kindref="compound">numberizer&lt;std::string&gt;</ref><sp/>feature_numberizer;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>svector_setitem(<ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref>&amp;<sp/>v,<sp/>F<sp/>f,<sp/>V<sp/>x)<sp/>{<sp/>v[f]<sp/>=<sp/>x;<sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">V<sp/>svector_getitem(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref>&amp;<sp/>v,<sp/>F<sp/>f)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>svector&lt;F,V&gt;::const_iterator<sp/>it<sp/>=<sp/>v.find(f);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it<sp/>!=<sp/>v.end())</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>it-&gt;second;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>V();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>svector_contains(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref>&amp;<sp/>v,<sp/>F<sp/>f)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>svector&lt;F,V&gt;::const_iterator<sp/>it<sp/>=<sp/>v.find(f);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>it<sp/>!=<sp/>v.end();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">std::string<sp/>svector_str(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref><sp/>&amp;sv)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>std::ostringstream<sp/>out;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>svector&lt;F,V&gt;::const_iterator<sp/>it=sv.begin();<sp/>it<sp/>!=<sp/>sv.end();<sp/>++it)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!first)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>feature_numberizer.index_to_word(it-&gt;first)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>it-&gt;second;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>first<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out.str();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref><sp/>*svector_from_str(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;s)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref><sp/>*sv<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>std::istringstream<sp/>tokenizer(s);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>std::string<sp/>tok;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(tokenizer<sp/>&gt;&gt;<sp/>tok)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>i<sp/>=<sp/>tok.rfind(</highlight><highlight class="charliteral">&apos;=&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnumberizer" kindref="compound">numberizer&lt;std::string&gt;::index_type</ref><sp/>feature<sp/>=<sp/>feature_numberizer.word_to_index(tok.substr(0,<sp/>i));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>std::strtod(tok.substr(i+1).c_str(),<sp/>NULL);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>sv-&gt;insert(std::pair&lt;F,V&gt;(feature,<sp/>value));</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sv;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="65" refid="structsvector__iterator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsvector__iterator" kindref="compound">svector_iterator</ref><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>svector&lt;F,V&gt;::const_iterator<sp/>cur,<sp/>end;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;F,V&gt;</ref>&amp;<sp/>v)<sp/>:<sp/>cur(v.begin()),<sp/>end(v.end())<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>has_next()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cur<sp/>!=<sp/>end;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>std::string<sp/>key()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>feature_numberizer.index_to_word(cur-&gt;first);<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>V<sp/>value()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cur-&gt;second;<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>next()<sp/>{<sp/>++cur;<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/third-party/svector/cy_svector.hpp"/>
+  </compounddef>
+</doxygen>

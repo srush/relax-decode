@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classNgramCache" kind="class" prot="public">
+    <compoundname>NgramCache</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNgramCache_1aafa9fbc938b520bb0a172d1c8fc423d4" prot="private" static="no" mutable="no">
+        <type>LogP</type>
+        <definition>LogP NgramCache::logp</definition>
+        <argsstring></argsstring>
+        <name>logp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="22" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNgramCache_1a6bf45fca2ed5d05caa778ec72339b219" prot="private" static="no" mutable="no">
+        <type>LogP</type>
+        <definition>LogP NgramCache::bow</definition>
+        <argsstring></argsstring>
+        <name>bow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="23" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNgramCache_1a49422a3c26587a4f7f3c80cebc721d8d" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned NgramCache::found</definition>
+        <argsstring></argsstring>
+        <name>found</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="24" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNgramCache_1a01374cd9d015896dcec97f8f50780a53" prot="private" static="no" mutable="no">
+        <type>BOtrie *</type>
+        <definition>BOtrie* NgramCache::trieNode</definition>
+        <argsstring></argsstring>
+        <name>trieNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="26" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNgramCache_1a5d60344144288535be7fa4d75d178e61" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned NgramCache::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="27" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNgramCache_1a1d8b66016081c1e0d15b2199e48c4df9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NgramCache::NgramCache</definition>
+        <argsstring>(Vocab &amp;v, int i)</argsstring>
+        <name>NgramCache</name>
+        <param>
+          <type>Vocab &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="11" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="10" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classNgramCache_1aaf831fb4e48aa1a8f8d46287adb7c419" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NgramCache::hasNext</definition>
+        <argsstring>(const VocabIndex next)</argsstring>
+        <name>hasNext</name>
+        <param>
+          <type>const VocabIndex</type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="14" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classNgramCache_1a3444ab6a1b5a140edb089efb51b071c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LogP</type>
+        <definition>LogP NgramCache::wordProbPrimeCache</definition>
+        <argsstring>(VocabIndex word, const VocabIndex *context)</argsstring>
+        <name>wordProbPrimeCache</name>
+        <param>
+          <type>VocabIndex</type>
+          <declname>word</declname>
+        </param>
+        <param>
+          <type>const VocabIndex *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="19" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.cpp" bodystart="36" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classNgramCache_1a7806b0a2832644fcde66aa928a58caa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LogP</type>
+        <definition>LogP NgramCache::wordProbFromCache</definition>
+        <argsstring>(VocabIndex word, const VocabIndex *context)</argsstring>
+        <name>wordProbFromCache</name>
+        <param>
+          <type>VocabIndex</type>
+          <declname>word</declname>
+        </param>
+        <param>
+          <type>const VocabIndex *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="20" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.cpp" bodystart="6" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="8" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" bodystart="8" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classNgramCache_1a6bf45fca2ed5d05caa778ec72339b219" prot="private" virt="non-virtual"><scope>NgramCache</scope><name>bow</name></member>
+      <member refid="classNgramCache_1a49422a3c26587a4f7f3c80cebc721d8d" prot="private" virt="non-virtual"><scope>NgramCache</scope><name>found</name></member>
+      <member refid="classNgramCache_1aaf831fb4e48aa1a8f8d46287adb7c419" prot="public" virt="non-virtual"><scope>NgramCache</scope><name>hasNext</name></member>
+      <member refid="classNgramCache_1a5d60344144288535be7fa4d75d178e61" prot="private" virt="non-virtual"><scope>NgramCache</scope><name>i</name></member>
+      <member refid="classNgramCache_1aafa9fbc938b520bb0a172d1c8fc423d4" prot="private" virt="non-virtual"><scope>NgramCache</scope><name>logp</name></member>
+      <member refid="classNgramCache_1a1d8b66016081c1e0d15b2199e48c4df9" prot="public" virt="non-virtual"><scope>NgramCache</scope><name>NgramCache</name></member>
+      <member refid="classNgramCache_1a01374cd9d015896dcec97f8f50780a53" prot="private" virt="non-virtual"><scope>NgramCache</scope><name>trieNode</name></member>
+      <member refid="classNgramCache_1a7806b0a2832644fcde66aa928a58caa9" prot="public" virt="non-virtual"><scope>NgramCache</scope><name>wordProbFromCache</name></member>
+      <member refid="classNgramCache_1a3444ab6a1b5a140edb089efb51b071c1" prot="public" virt="non-virtual"><scope>NgramCache</scope><name>wordProbPrimeCache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

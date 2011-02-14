@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespaceprotobuf__json" kind="namespace">
+    <compoundname>protobuf_json</compoundname>
+    <innerclass refid="classprotobuf__json_1_1ParseError" prot="public">protobuf_json::ParseError</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceprotobuf__json_1a2c7e09829e9c5985fba5429a68799b35" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string protobuf_json::__version__</definition>
+        <argsstring></argsstring>
+        <name>__version__</name>
+        <initializer>&apos;0.0.5&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="40" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotobuf__json_1afa14e003b5470858a25803b11ecabfc4" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string protobuf_json::__author__</definition>
+        <argsstring></argsstring>
+        <name>__author__</name>
+        <initializer>&apos;Paul Dovbush &lt;dpp@dpp.su&gt;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="41" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotobuf__json_1ac5e9fe7c67a788f1468fe08318373fd5" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary protobuf_json::_ftype2js</definition>
+        <argsstring></argsstring>
+        <name>_ftype2js</name>
+        <initializer>{
+	FD.TYPE_DOUBLE: float,
+	FD.TYPE_FLOAT: float,
+	FD.TYPE_INT64: long,
+	FD.TYPE_UINT64: long,
+	FD.TYPE_INT32: int,
+	FD.TYPE_FIXED64: float,
+	FD.TYPE_FIXED32: float,
+	FD.TYPE_BOOL: bool,
+	FD.TYPE_STRING: unicode,
+	#FD.TYPE_MESSAGE: pb2json,		#handled specially
+	FD.TYPE_BYTES: lambda x: x.encode(&apos;string_escape&apos;),
+	FD.TYPE_UINT32: int,
+	FD.TYPE_ENUM: int,
+	FD.TYPE_SFIXED32: float,
+	FD.TYPE_SFIXED64: float,
+	FD.TYPE_SINT32: int,
+	FD.TYPE_SINT64: long,
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="101" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotobuf__json_1ade51357758ada73b96db2a3160b2423a" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary protobuf_json::_js2ftype</definition>
+        <argsstring></argsstring>
+        <name>_js2ftype</name>
+        <initializer>{
+	FD.TYPE_DOUBLE: float,
+	FD.TYPE_FLOAT: float,
+	FD.TYPE_INT64: long,
+	FD.TYPE_UINT64: long,
+	FD.TYPE_INT32: int,
+	FD.TYPE_FIXED64: float,
+	FD.TYPE_FIXED32: float,
+	FD.TYPE_BOOL: bool,
+	FD.TYPE_STRING: unicode,
+	# FD.TYPE_MESSAGE: json2pb,	#handled specially
+	FD.TYPE_BYTES: lambda x: x.decode(&apos;string_escape&apos;),
+	FD.TYPE_UINT32: int,
+	FD.TYPE_ENUM: int,
+	FD.TYPE_SFIXED32: float,
+	FD.TYPE_SFIXED64: float,
+	FD.TYPE_SINT32: int,
+	FD.TYPE_SINT64: long,
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="121" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceprotobuf__json_1ad432ac2420d2529638d126a1b0693a9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def protobuf_json::json2pb</definition>
+        <argsstring></argsstring>
+        <name>json2pb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>convert JSON string to google.protobuf.descriptor instance </verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="51" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="51" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceprotobuf__json_1aa900f77b37a17c54455879d5a99db780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def protobuf_json::pb2json</definition>
+        <argsstring></argsstring>
+        <name>pb2json</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>convert google.protobuf.descriptor instance to JSON string </verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="79" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" bodystart="79" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/example/protobuf_json.py" line="1"/>
+  </compounddef>
+</doxygen>

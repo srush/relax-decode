@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="MRFHypergraph_8cpp" kind="file">
+    <compoundname>MRFHypergraph.cpp</compoundname>
+    <includes refid="MRFHypergraph_8cpp" local="yes">MRFHypergraph.h</includes>
+    <includes refid="MRF_8h" local="yes">MRF.h</includes>
+    <includes refid="Hypergraph_8h" local="no">Hypergraph.h</includes>
+    <includes refid="HypergraphImpl_8h" local="no">HypergraphImpl.h</includes>
+    <includes refid="EdgeCache_8h" local="no">EdgeCache.h</includes>
+    <includedby refid="MRFHypergraph_8cpp" local="yes">optimization/MRFHypergraph.cpp</includedby>
+    <incdepgraph>
+      <node id="2200">
+        <label>assert.h</label>
+      </node>
+      <node id="2182">
+        <label>mrf.pb.h</label>
+        <link refid="gen-py_2mrf_8pb_8h_source"/>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2177" relation="include">
+        </childnode>
+        <childnode refid="2178" relation="include">
+        </childnode>
+        <childnode refid="2179" relation="include">
+        </childnode>
+        <childnode refid="2180" relation="include">
+        </childnode>
+        <childnode refid="2181" relation="include">
+        </childnode>
+        <childnode refid="2176" relation="include">
+        </childnode>
+      </node>
+      <node id="2170">
+        <label>MRF.h</label>
+        <link refid="MRF_8h_source"/>
+        <childnode refid="2171" relation="include">
+        </childnode>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2173" relation="include">
+        </childnode>
+        <childnode refid="2176" relation="include">
+        </childnode>
+        <childnode refid="2182" relation="include">
+        </childnode>
+        <childnode refid="2183" relation="include">
+        </childnode>
+        <childnode refid="2197" relation="include">
+        </childnode>
+        <childnode refid="2198" relation="include">
+        </childnode>
+      </node>
+      <node id="2171">
+        <label>cassert</label>
+      </node>
+      <node id="2192">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="2193">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="2191" relation="include">
+        </childnode>
+        <childnode refid="2192" relation="include">
+        </childnode>
+        <childnode refid="2171" relation="include">
+        </childnode>
+      </node>
+      <node id="2196">
+        <label>features.pb.h</label>
+        <link refid="gen__cpp_2features_8pb_8h_source"/>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2177" relation="include">
+        </childnode>
+        <childnode refid="2178" relation="include">
+        </childnode>
+        <childnode refid="2179" relation="include">
+        </childnode>
+        <childnode refid="2180" relation="include">
+        </childnode>
+        <childnode refid="2181" relation="include">
+        </childnode>
+        <childnode refid="2195" relation="include">
+        </childnode>
+      </node>
+      <node id="2172">
+        <label>string</label>
+      </node>
+      <node id="2191">
+        <label>map</label>
+      </node>
+      <node id="2198">
+        <label>EdgeCache.h</label>
+        <link refid="EdgeCache_8h_source"/>
+        <childnode refid="2174" relation="include">
+        </childnode>
+        <childnode refid="2199" relation="include">
+        </childnode>
+        <childnode refid="2200" relation="include">
+        </childnode>
+      </node>
+      <node id="2183">
+        <label>HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="2184" relation="include">
+        </childnode>
+        <childnode refid="2195" relation="include">
+        </childnode>
+        <childnode refid="2196" relation="include">
+        </childnode>
+        <childnode refid="2185" relation="include">
+        </childnode>
+        <childnode refid="2175" relation="include">
+        </childnode>
+        <childnode refid="2174" relation="include">
+        </childnode>
+        <childnode refid="2194" relation="include">
+        </childnode>
+      </node>
+      <node id="2184">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="2185" relation="include">
+        </childnode>
+        <childnode refid="2174" relation="include">
+        </childnode>
+        <childnode refid="2194" relation="include">
+        </childnode>
+        <childnode refid="2172" relation="include">
+        </childnode>
+      </node>
+      <node id="2187">
+        <label>fstream</label>
+      </node>
+      <node id="2173">
+        <label>Graph.h</label>
+        <link refid="Graph_8h_source"/>
+        <childnode refid="2174" relation="include">
+        </childnode>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2175" relation="include">
+        </childnode>
+      </node>
+      <node id="2176">
+        <label>graph.pb.h</label>
+        <link refid="gen-py_2graph_8pb_8h_source"/>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2177" relation="include">
+        </childnode>
+        <childnode refid="2178" relation="include">
+        </childnode>
+        <childnode refid="2179" relation="include">
+        </childnode>
+        <childnode refid="2180" relation="include">
+        </childnode>
+        <childnode refid="2181" relation="include">
+        </childnode>
+      </node>
+      <node id="2195">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2177" relation="include">
+        </childnode>
+        <childnode refid="2178" relation="include">
+        </childnode>
+        <childnode refid="2179" relation="include">
+        </childnode>
+        <childnode refid="2180" relation="include">
+        </childnode>
+        <childnode refid="2181" relation="include">
+        </childnode>
+      </node>
+      <node id="2185">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="2186" relation="include">
+        </childnode>
+        <childnode refid="2187" relation="include">
+        </childnode>
+        <childnode refid="2188" relation="include">
+        </childnode>
+        <childnode refid="2193" relation="include">
+        </childnode>
+      </node>
+      <node id="2178">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="2175">
+        <label>../common.h</label>
+      </node>
+      <node id="2199">
+        <label>bitset</label>
+      </node>
+      <node id="2177">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="2174">
+        <label>vector</label>
+      </node>
+      <node id="2197">
+        <label>GraphProtoInterface.h</label>
+        <link refid="GraphProtoInterface_8h_source"/>
+        <childnode refid="2176" relation="include">
+        </childnode>
+        <childnode refid="2173" relation="include">
+        </childnode>
+      </node>
+      <node id="2189">
+        <label>sstream</label>
+      </node>
+      <node id="2180">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="2179">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="2190">
+        <label>cstdlib</label>
+      </node>
+      <node id="2188">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="2172" relation="include">
+        </childnode>
+        <childnode refid="2189" relation="include">
+        </childnode>
+        <childnode refid="2190" relation="include">
+        </childnode>
+        <childnode refid="2188" relation="include">
+        </childnode>
+        <childnode refid="2191" relation="include">
+        </childnode>
+        <childnode refid="2192" relation="include">
+        </childnode>
+        <childnode refid="2171" relation="include">
+        </childnode>
+        <childnode refid="2174" relation="include">
+        </childnode>
+        <childnode refid="2186" relation="include">
+        </childnode>
+      </node>
+      <node id="2186">
+        <label>iostream</label>
+      </node>
+      <node id="2169">
+        <label>optimization/MRFHypergraph.cpp</label>
+        <link refid="MRFHypergraph.cpp"/>
+        <childnode refid="2170" relation="include">
+        </childnode>
+        <childnode refid="2184" relation="include">
+        </childnode>
+        <childnode refid="2183" relation="include">
+        </childnode>
+        <childnode refid="2198" relation="include">
+        </childnode>
+      </node>
+      <node id="2194">
+        <label>set</label>
+      </node>
+      <node id="2181">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;MRFHypergraph.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Turn<sp/>the<sp/>mrf<sp/>into<sp/>a<sp/>hypergraph</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>only<sp/>works<sp/>if<sp/>it<sp/>is<sp/>not<sp/>loopy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classMRFHypergraph" kindref="compound">MRFHypergraph</ref><sp/>MRFHypergraph::from_mrf(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classMRF" kindref="compound">MRF</ref><sp/>&amp;<sp/>mrf)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Basically<sp/>we<sp/>will<sp/>treat<sp/>the<sp/>directionality<sp/>of<sp/>the<sp/>graph<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>as<sp/>an<sp/>elimination<sp/>ordering.<sp/>This<sp/>is<sp/>a<sp/>bit<sp/>hacky,<sp/>but<sp/>general</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>edges<sp/>have<sp/>already<sp/>been<sp/>marginalized<sp/>out.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><ref refid="classMRFHypergraph" kindref="compound">MRFHypergraph</ref><sp/>mrf_hyp;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/><ref refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141" kindref="member">nodes</ref><sp/>=<sp/>mrf.graph().nodes();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>mrf_hyp._canonical_hnode<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache &lt;NodeAssignment, Hypernode * &gt;</ref><sp/>(mrf.assignments());</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>mrf_hyp._canonical_assignment<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Hypernode, NodeAssignment &gt;</ref>(mrf.assignments()*10);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphnode, Cache &lt;Graphnode, Cache &lt;State, Hypernode * &gt;</ref><sp/>*&gt;<sp/>*<sp/>&gt;<sp/>middle_nodes<sp/>(nodes.size());</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hnode_id<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hedge_id<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Node</ref><sp/>n,<sp/>nodes)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphnode, Cache &lt;State, Hypernode * &gt;</ref><sp/>*&gt;<sp/>*<sp/>c<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphnode, Cache &lt;State, Hypernode * &gt;</ref><sp/>*&gt;<sp/>(nodes.size());</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>middle_nodes.set_value(*n,<sp/>c);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>out<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Edge</ref><sp/>e,<sp/>n-&gt;<ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Node</ref><sp/>to_node<sp/>=<sp/>e-&gt;to_node();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;State, Hypernode * &gt;</ref><sp/>*<sp/>c2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;State, Hypernode * &gt;</ref>(mrf.states(*to_node).size());</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>c-&gt;set_value(*to_node,<sp/>c2);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structState" kindref="compound">State</ref><sp/>&amp;<sp/>s,<sp/>mrf.states(*to_node))<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>one<sp/>node<sp/>for<sp/>each<sp/>&quot;message&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>buf;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>&lt;&lt;<sp/>n-&gt;<ref refid="classScarab_1_1Graph_1_1Graphnode_1a74eaaed5d31a0a2c0445f3de0859148f" kindref="member">id</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>to_node-&gt;<ref refid="classScarab_1_1Graph_1_1Graphnode_1a74eaaed5d31a0a2c0445f3de0859148f" kindref="member">id</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>s.id();<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HypernodeImpl<sp/>*<sp/>node<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HypernodeImpl(buf.str(),<sp/>hnode_id,<sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref>());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hnode_id++;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._nodes.push_back(node);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c2-&gt;set_value(s,<sp/>node);<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Cache<sp/>&lt;State<sp/>&gt;<sp/><sp/>*<sp/>can<sp/>=<sp/>new<sp/><sp/>Cache<sp/>&lt;State<sp/>&gt;<sp/>(state(*n));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//mrf_hyp._canonical_hnode-&gt;set_value(*n,<sp/>can);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>One<sp/>hypergraph<sp/>canonical<sp/>node<sp/>for<sp/>each<sp/>hypergraph<sp/>state<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structState" kindref="compound">State</ref><sp/>&amp;<sp/>my_s,<sp/>mrf.states(*n)<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>buf;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>&lt;&lt;<sp/>n-&gt;<ref refid="classScarab_1_1Graph_1_1Graphnode_1a74eaaed5d31a0a2c0445f3de0859148f" kindref="member">id</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>my_s.id();<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>wstr;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>wstr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;value=&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>-mrf.node_pot(*n,<sp/>my_s);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>HypernodeImpl<sp/>*<sp/>base_hnode<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HypernodeImpl(buf.str(),<sp/>hnode_id,<sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svector_from_str&lt;int,<sp/>double&gt;(wstr.str()));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._canonical_hnode-&gt;set_value(mrf.make_assignment(*n,<sp/>my_s),<sp/>base_hnode);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._canonical_assignment-&gt;set_value(*base_hnode,<sp/>mrf.make_assignment(*n,<sp/>my_s));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hnode_id++;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._nodes.push_back(base_hnode);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>outgoing<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Edge</ref><sp/>e,<sp/>n-&gt;<ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Node</ref><sp/>to_node<sp/>=<sp/>e-&gt;to_node();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structState" kindref="compound">State</ref><sp/>&amp;<sp/>to_s,<sp/>mrf.states(*to_node))<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypernode<sp/>*<sp/>to_hnode<sp/>=<sp/>middle_nodes.get(*n)-&gt;get(<sp/>*to_node)-&gt;get(to_s);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;Hypernode<sp/>*&gt;<sp/>tail_node;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tail_node.push_back(<sp/>base_hnode);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>wstr;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wstr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;value=&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>-mrf.edge_pot(*e,<sp/>my_s,<sp/>to_s);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HyperedgeImpl<sp/>*<sp/>edge<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HyperedgeImpl(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svector_from_str&lt;int,<sp/>double&gt;(wstr.str()),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hedge_id,<sp/>tail_node,<sp/>to_hnode);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hedge_id++;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._edges.push_back(edge);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((HypernodeImpl*)to_hnode)-&gt;add_edge(edge);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((HypernodeImpl*)base_hnode)-&gt;add_in_edge(edge);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Incoming<sp/>edges</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;Hypernode<sp/>*&gt;<sp/>tail_nodes;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Edge</ref><sp/>e,<sp/>n-&gt;in_edges())<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Node</ref><sp/>from_node<sp/>=<sp/>e-&gt;from_node();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypernode<sp/>*<sp/>mid_node<sp/>=<sp/>middle_nodes.get(*from_node)-&gt;get(<sp/>*n)-&gt;get(my_s);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tail_nodes.push_back(mid_node);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>HyperedgeImpl<sp/>*<sp/>edge<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HyperedgeImpl(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref>(),<sp/>hedge_id,<sp/>tail_nodes,<sp/>base_hnode);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hedge_id++;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mrf_hyp._edges.push_back(edge);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>base_hnode-&gt;add_edge(edge);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(Hypernode<sp/>*<sp/>tail_node,<sp/>tail_nodes)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((HypernodeImpl*)tail_node)-&gt;add_in_edge(edge);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>last<sp/>node<sp/>is<sp/>root</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Node</ref><sp/><ref refid="classScarab_1_1HG_1_1HypergraphImpl_1a31172009b97d179f6b1199f191197a32" kindref="member">root</ref><sp/>=<sp/>nodes[nodes.size()-1];</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>mrf_hyp._root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HypernodeImpl(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>hnode_id,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref>());</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>hnode_id++;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>mrf_hyp._nodes.push_back(mrf_hyp._root);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structState" kindref="compound">State</ref><sp/>&amp;<sp/>last_state,<sp/>mrf.states(*root)<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>vector<sp/>&lt;Hypernode<sp/>*&gt;<sp/>tail_nodes;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Hypernode<sp/>*<sp/>last_node<sp/>=<sp/>mrf_hyp._canonical_hnode-&gt;get(mrf.make_assignment(*root,<sp/>last_state));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//lookup(root,<sp/>last_state);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>tail_nodes.push_back(last_node);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>HyperedgeImpl<sp/>*<sp/>edge<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HyperedgeImpl(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref>(),<sp/>hedge_id,<sp/>tail_nodes,<sp/>mrf_hyp._root);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>hedge_id++;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>mrf_hyp._edges.push_back(edge);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>((HypernodeImpl*)mrf_hyp._root)-&gt;add_edge(edge);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>((HypernodeImpl*)last_node)-&gt;add_in_edge(edge);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mrf_hyp;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.cpp"/>
+  </compounddef>
+</doxygen>

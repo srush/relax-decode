@@ -1,0 +1,103 @@
+\hypertarget{classmstparser_1_1KBestParseForest}{
+\section{mstparser::KBestParseForest Class Reference}
+\label{classmstparser_1_1KBestParseForest}\index{mstparser::KBestParseForest@{mstparser::KBestParseForest}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_af3078f54092f53fc676789a2c2a8f8c5}{
+{\bfseries KBestParseForest} (int start, int end, \hyperlink{classmstparser_1_1DependencyInstance}{DependencyInstance} inst, int K)}
+\label{classmstparser_1_1KBestParseForest_af3078f54092f53fc676789a2c2a8f8c5}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a0c47096c0fad23a8ddcf6140e9ccd07d}{
+boolean {\bfseries add} (int s, int type, int dir, double score, \hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} fv)}
+\label{classmstparser_1_1KBestParseForest_a0c47096c0fad23a8ddcf6140e9ccd07d}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a2345d80dd0940cb754f7e6f20d709bc1}{
+boolean {\bfseries add} (int s, int r, int t, int type, int dir, int comp, double score, \hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} fv, \hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} p1, \hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} p2)}
+\label{classmstparser_1_1KBestParseForest_a2345d80dd0940cb754f7e6f20d709bc1}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a560082ed7e7af5b4936fa7bcff3de08c}{
+double {\bfseries getProb} (int s, int t, int dir, int comp)}
+\label{classmstparser_1_1KBestParseForest_a560082ed7e7af5b4936fa7bcff3de08c}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a48f509af07258f31a5f8c678919c64b6}{
+double {\bfseries getProb} (int s, int t, int dir, int comp, int i)}
+\label{classmstparser_1_1KBestParseForest_a48f509af07258f31a5f8c678919c64b6}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_af941021f5c7aec7fcadf7fcbb8aa85b1}{
+double\mbox{[}$\,$\mbox{]} {\bfseries getProbs} (int s, int t, int dir, int comp)}
+\label{classmstparser_1_1KBestParseForest_af941021f5c7aec7fcadf7fcbb8aa85b1}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a25b6c76d14dd9f49a3b7c6a8c5c939c8}{
+\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} {\bfseries getItem} (int s, int t, int dir, int comp)}
+\label{classmstparser_1_1KBestParseForest_a25b6c76d14dd9f49a3b7c6a8c5c939c8}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a1df20d5e7fe79d547564a6889220e6b0}{
+\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} {\bfseries getItem} (int s, int t, int dir, int comp, int k)}
+\label{classmstparser_1_1KBestParseForest_a1df20d5e7fe79d547564a6889220e6b0}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a3ae02376607f6b7e40614df447367fdc}{
+\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem}\mbox{[}$\,$\mbox{]} {\bfseries getItems} (int s, int t, int dir, int comp)}
+\label{classmstparser_1_1KBestParseForest_a3ae02376607f6b7e40614df447367fdc}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_ab7783071c1dc0073dfd186e9a7a4abe4}{
+Object\mbox{[}$\,$\mbox{]} {\bfseries getBestParse} ()}
+\label{classmstparser_1_1KBestParseForest_ab7783071c1dc0073dfd186e9a7a4abe4}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_aca52de6fa141c9f5e57f410c8dabaede}{
+Object\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} {\bfseries getBestParses} ()}
+\label{classmstparser_1_1KBestParseForest_aca52de6fa141c9f5e57f410c8dabaede}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a1c2bdd6b5b2fda37ac3f88eb87fcd8f3}{
+\hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} {\bfseries getFeatureVector} (\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} pfi)}
+\label{classmstparser_1_1KBestParseForest_a1c2bdd6b5b2fda37ac3f88eb87fcd8f3}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a2638c1b3d8c6b6ab360d042bd2fc5f71}{
+String {\bfseries getDepString} (\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem} pfi)}
+\label{classmstparser_1_1KBestParseForest_a2638c1b3d8c6b6ab360d042bd2fc5f71}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_ab7a19791f7a0f46cad6d9f81c1c07dcf}{
+\hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} {\bfseries cat} (\hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} fv1, \hyperlink{classmstparser_1_1FeatureVector}{FeatureVector} fv2)}
+\label{classmstparser_1_1KBestParseForest_ab7a19791f7a0f46cad6d9f81c1c07dcf}
+
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_a5acd38a4f2fc07d74e8f6daff4d430ba}{
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} {\bfseries getKBestPairs} (\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem}\mbox{[}$\,$\mbox{]} items1, \hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem}\mbox{[}$\,$\mbox{]} items2)}
+\label{classmstparser_1_1KBestParseForest_a5acd38a4f2fc07d74e8f6daff4d430ba}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_acf13a6481b007292e95accec7154a992}{
+\hyperlink{classmstparser_1_1ParseForestItem}{ParseForestItem}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} {\bfseries chart}}
+\label{classmstparser_1_1KBestParseForest_acf13a6481b007292e95accec7154a992}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmstparser_1_1KBestParseForest_aa7a77fe225d2c67f9026df046c72e4e4}{
+static int {\bfseries rootType}}
+\label{classmstparser_1_1KBestParseForest_aa7a77fe225d2c67f9026df046c72e4e4}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+third-\/party/mstparser/mstparser/KBestParseForest.java\end{DoxyCompactItemize}

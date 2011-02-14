@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1KBestParseForest2O" kind="class" prot="public">
+    <compoundname>mstparser::KBestParseForest2O</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1ab21bd74547902d26f2259ce98fe2ce57" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref>[][][][][]</type>
+        <definition>ParseForestItem [][][][][] mstparser::KBestParseForest2O::chart</definition>
+        <argsstring></argsstring>
+        <name>chart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="5" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1a789be81168e252b4e6f8d90f0d391a68" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] mstparser::KBestParseForest2O::sent</definition>
+        <argsstring></argsstring>
+        <name>sent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="6" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1a95cddfbc1e10315144e13a7eea5db2d6" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] mstparser::KBestParseForest2O::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="6" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1aa5e4922448f2c21ebef608e2ebafb575" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::KBestParseForest2O::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="7" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1a852a47b1ab52b25f2883e88bedfc3b35" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::KBestParseForest2O::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="7" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1KBestParseForest2O_1a86c724a066387f9d218899a3d86708be" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::KBestParseForest2O::K</definition>
+        <argsstring></argsstring>
+        <name>K</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="8" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1aa59fea3a2aa10dd56b7ef3f50c52486f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::KBestParseForest2O::KBestParseForest2O</definition>
+        <argsstring>(int start, int end, DependencyInstance inst, int K)</argsstring>
+        <name>KBestParseForest2O</name>
+        <param>
+          <type>int</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>inst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>K</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="10" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a20266cb403829af6b477f1d188b2a067" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::KBestParseForest2O::add</definition>
+        <argsstring>(int s, int type, int dir, double score, FeatureVector fv)</argsstring>
+        <name>add</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="19" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="19" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a78afa47a2871b7b999a817d1e9a7f8da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::KBestParseForest2O::add</definition>
+        <argsstring>(int s, int r, int t, int type, int dir, int comp, double score, FeatureVector fv, ParseForestItem p1, ParseForestItem p2)</argsstring>
+        <name>add</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="51" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="48" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1ac1ab0a97276b3450514cfe14b291446c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mstparser::KBestParseForest2O::getProb</definition>
+        <argsstring>(int s, int t, int dir, int comp)</argsstring>
+        <name>getProb</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="83" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1acf0b00c9ac6cb6e8c185f2f95bbee125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mstparser::KBestParseForest2O::getProb</definition>
+        <argsstring>(int s, int t, int dir, int comp, int i)</argsstring>
+        <name>getProb</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="87" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a02f335cf12363e2e9a4b2bf8b3976216" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double[]</type>
+        <definition>double [] mstparser::KBestParseForest2O::getProbs</definition>
+        <argsstring>(int s, int t, int dir, int comp)</argsstring>
+        <name>getProbs</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="93" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="93" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a3289dcf0cfbb1a084482ab227db31a78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+        <definition>ParseForestItem mstparser::KBestParseForest2O::getItem</definition>
+        <argsstring>(int s, int t, int dir, int comp)</argsstring>
+        <name>getItem</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="101" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a69fe07f37c8e6dbbeb4b7178d6d4e8c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+        <definition>ParseForestItem mstparser::KBestParseForest2O::getItem</definition>
+        <argsstring>(int s, int t, int dir, int comp, int i)</argsstring>
+        <name>getItem</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="105" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="105" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1ac26c578574e15ac66c64379b348e5beb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref>[]</type>
+        <definition>ParseForestItem [] mstparser::KBestParseForest2O::getItems</definition>
+        <argsstring>(int s, int t, int dir, int comp)</argsstring>
+        <name>getItems</name>
+        <param>
+          <type>int</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>comp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="111" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="111" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a896f763880fedc0c953e0975c39c189b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[]</type>
+        <definition>Object [] mstparser::KBestParseForest2O::getBestParse</definition>
+        <argsstring>()</argsstring>
+        <name>getBestParse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="117" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="117" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1ae8bd28e9846d86af80667fef9eebfb02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[][]</type>
+        <definition>Object [][] mstparser::KBestParseForest2O::getBestParses</definition>
+        <argsstring>()</argsstring>
+        <name>getBestParses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="124" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="124" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a487f347871f70e193b777ffcab7d51a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+        <definition>FeatureVector mstparser::KBestParseForest2O::getFeatureVector</definition>
+        <argsstring>(ParseForestItem pfi)</argsstring>
+        <name>getFeatureVector</name>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+          <declname>pfi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="139" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="139" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1a8dc1f8255461d9ffaf58ad7011134d57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String mstparser::KBestParseForest2O::getDepString</definition>
+        <argsstring>(ParseForestItem pfi)</argsstring>
+        <name>getDepString</name>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref></type>
+          <declname>pfi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="146" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="146" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1aa6f42712f2ffe8767c5e50b70f21ca83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+        <definition>FeatureVector mstparser::KBestParseForest2O::cat</definition>
+        <argsstring>(FeatureVector fv1, FeatureVector fv2)</argsstring>
+        <name>cat</name>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv1</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="157" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1KBestParseForest2O_1ac74e9096663633970c6c9221e24cd6c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[][]</type>
+        <definition>int [][] mstparser::KBestParseForest2O::getKBestPairs</definition>
+        <argsstring>(ParseForestItem[] items1, ParseForestItem[] items2)</argsstring>
+        <name>getKBestPairs</name>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref>[]</type>
+          <declname>items1</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1ParseForestItem" kindref="compound">ParseForestItem</ref>[]</type>
+          <declname>items2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="163" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="163" bodyend="206"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1031">
+        <label>mstparser::FeatureVector</label>
+        <link refid="classmstparser_1_1FeatureVector"/>
+        <childnode refid="1031" relation="usage">
+          <edgelabel>subfv1</edgelabel>
+          <edgelabel>subfv2</edgelabel>
+        </childnode>
+      </node>
+      <node id="1029">
+        <label>mstparser::KBestParseForest2O</label>
+        <link refid="classmstparser_1_1KBestParseForest2O"/>
+        <childnode refid="1030" relation="usage">
+          <edgelabel>chart</edgelabel>
+        </childnode>
+      </node>
+      <node id="1030">
+        <label>mstparser::ParseForestItem</label>
+        <link refid="classmstparser_1_1ParseForestItem"/>
+        <childnode refid="1030" relation="usage">
+          <edgelabel>right</edgelabel>
+          <edgelabel>left</edgelabel>
+        </childnode>
+        <childnode refid="1031" relation="usage">
+          <edgelabel>fv</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" line="3" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/KBestParseForest2O.java" bodystart="3" bodyend="208"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a20266cb403829af6b477f1d188b2a067" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>add</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a78afa47a2871b7b999a817d1e9a7f8da" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>add</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1aa6f42712f2ffe8767c5e50b70f21ca83" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>cat</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1ab21bd74547902d26f2259ce98fe2ce57" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>chart</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a852a47b1ab52b25f2883e88bedfc3b35" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>end</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a896f763880fedc0c953e0975c39c189b" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getBestParse</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1ae8bd28e9846d86af80667fef9eebfb02" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getBestParses</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a8dc1f8255461d9ffaf58ad7011134d57" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getDepString</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a487f347871f70e193b777ffcab7d51a6" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getFeatureVector</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a3289dcf0cfbb1a084482ab227db31a78" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getItem</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a69fe07f37c8e6dbbeb4b7178d6d4e8c6" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getItem</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1ac26c578574e15ac66c64379b348e5beb" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getItems</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1ac74e9096663633970c6c9221e24cd6c7" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getKBestPairs</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1ac1ab0a97276b3450514cfe14b291446c" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getProb</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1acf0b00c9ac6cb6e8c185f2f95bbee125" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getProb</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a02f335cf12363e2e9a4b2bf8b3976216" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>getProbs</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a86c724a066387f9d218899a3d86708be" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>K</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1aa59fea3a2aa10dd56b7ef3f50c52486f" prot="public" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>KBestParseForest2O</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a95cddfbc1e10315144e13a7eea5db2d6" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>pos</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1a789be81168e252b4e6f8d90f0d391a68" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>sent</name></member>
+      <member refid="classmstparser_1_1KBestParseForest2O_1aa5e4922448f2c21ebef608e2ebafb575" prot="private" virt="non-virtual"><scope>mstparser::KBestParseForest2O</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

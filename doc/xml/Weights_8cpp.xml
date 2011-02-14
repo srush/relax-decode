@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="Weights_8cpp" kind="file">
+    <compoundname>Weights.cpp</compoundname>
+    <includes refid="Weights_8h" local="yes">Weights.h</includes>
+    <incdepgraph>
+      <node id="894">
+        <label>cassert</label>
+      </node>
+      <node id="893">
+        <label>tr1/unordered_map</label>
+      </node>
+      <node id="896">
+        <label>svector.hpp</label>
+        <link refid="third-party_2svector_2svector_8hpp_source"/>
+        <childnode refid="892" relation="include">
+        </childnode>
+        <childnode refid="893" relation="include">
+        </childnode>
+        <childnode refid="894" relation="include">
+        </childnode>
+      </node>
+      <node id="889">
+        <label>string</label>
+      </node>
+      <node id="884">
+        <label>hypergraph/Weights.cpp</label>
+        <link refid="Weights.cpp"/>
+        <childnode refid="885" relation="include">
+        </childnode>
+      </node>
+      <node id="892">
+        <label>map</label>
+      </node>
+      <node id="887">
+        <label>fstream</label>
+      </node>
+      <node id="885">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="886" relation="include">
+        </childnode>
+        <childnode refid="887" relation="include">
+        </childnode>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="896" relation="include">
+        </childnode>
+      </node>
+      <node id="895">
+        <label>vector</label>
+      </node>
+      <node id="890">
+        <label>sstream</label>
+      </node>
+      <node id="891">
+        <label>cstdlib</label>
+      </node>
+      <node id="888">
+        <label>cy_svector.hpp</label>
+        <link refid="cy__svector_8hpp_source"/>
+        <childnode refid="889" relation="include">
+        </childnode>
+        <childnode refid="890" relation="include">
+        </childnode>
+        <childnode refid="891" relation="include">
+        </childnode>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="892" relation="include">
+        </childnode>
+        <childnode refid="893" relation="include">
+        </childnode>
+        <childnode refid="894" relation="include">
+        </childnode>
+        <childnode refid="895" relation="include">
+        </childnode>
+        <childnode refid="886" relation="include">
+        </childnode>
+      </node>
+      <node id="886">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Weights_8cpp_1a0095482a61a54f225558100535623397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+        <definition>wvector* load_weights_from_file</definition>
+        <argsstring>(const char *file)</argsstring>
+        <name>load_weights_from_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of file to read from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Weight Vector from the file </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.cpp" line="3" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Weights.cpp" bodystart="3" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Weights.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>load_weights_from_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file)<sp/><sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>fstream<sp/>input(file,<sp/>ios::in<sp/>);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[1000];</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>input.getline(buf,<sp/>100000);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>s(buf);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>svector_from_str&lt;int,<sp/>double&gt;(s);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classcrf_1_1tagger_1_1Feature" kind="class" prot="public">
+    <compoundname>crf::tagger::Feature</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a948db953a912a8ef6ae742c359e5d428" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int crf::tagger::Feature::UNKNOWN_FEATURE</definition>
+        <argsstring></argsstring>
+        <name>UNKNOWN_FEATURE</name>
+        <initializer> 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="19" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a35c32698c326e2ecf83768cb817cc7eb" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int crf::tagger::Feature::EDGE_FEATURE1</definition>
+        <argsstring></argsstring>
+        <name>EDGE_FEATURE1</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="20" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a5b3b6afef6fa2ec3a8b5542b791c859e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int crf::tagger::Feature::STAT_FEATURE1</definition>
+        <argsstring></argsstring>
+        <name>STAT_FEATURE1</name>
+        <initializer> 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="22" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a98102373018fed0e1aad2cedcfa8a33d" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::ftype</definition>
+        <argsstring></argsstring>
+        <name>ftype</name>
+        <initializer> UNKNOWN_FEATURE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="25" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a615412b8630860ad98d65dead7051d27" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::idx</definition>
+        <argsstring></argsstring>
+        <name>idx</name>
+        <initializer> -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="26" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a63f7d5d0a30549930c452d2a12eeb4f1" prot="package" static="no" mutable="no">
+        <type>String</type>
+        <definition>String crf::tagger::Feature::strId</definition>
+        <argsstring></argsstring>
+        <name>strId</name>
+        <initializer> &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="27" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1aef748815f6d45baf4e25a16d18c9383e" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer> -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="28" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a8533d49367cbb1c002d414681e72e17b" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::yp</definition>
+        <argsstring></argsstring>
+        <name>yp</name>
+        <initializer> -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="29" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a7cc8feeafee98fbb4a5202af7e1def51" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::cp</definition>
+        <argsstring></argsstring>
+        <name>cp</name>
+        <initializer> -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="30" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1a72628ec698449e837d4533bd09c2c3c5" prot="package" static="no" mutable="no">
+        <type>float</type>
+        <definition>float crf::tagger::Feature::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="31" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcrf_1_1tagger_1_1Feature_1aadd86b4aaead6fea153fae4ef1d635ff" prot="package" static="no" mutable="no">
+        <type>double</type>
+        <definition>double crf::tagger::Feature::wgt</definition>
+        <argsstring></argsstring>
+        <name>wgt</name>
+        <initializer> 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="32" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1ae87dff687324fdee61a8ff6a7fac5a99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void crf::tagger::Feature::eFeature1Init</definition>
+        <argsstring>(int y, int yp)</argsstring>
+        <name>eFeature1Init</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="35" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="35" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1aa0337470c1a23aae3f3456d2ea4a2274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void crf::tagger::Feature::eFeature1Init</definition>
+        <argsstring>(int y, int yp, Map fmap)</argsstring>
+        <name>eFeature1Init</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yp</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="45" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a8d5ada683127a749c4a7b18db09232de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void crf::tagger::Feature::sFeature1Init</definition>
+        <argsstring>(int y, int cp)</argsstring>
+        <name>sFeature1Init</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="51" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="51" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1ad63a3c9bc363c63ccdf21449799f4400" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void crf::tagger::Feature::sFeature1Init</definition>
+        <argsstring>(int y, int yp, Map fmap)</argsstring>
+        <name>sFeature1Init</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yp</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="61" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a5eb2ddff941b198283b3b6f30effa18d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>crf::tagger::Feature::Feature</definition>
+        <argsstring>()</argsstring>
+        <name>Feature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="66" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="66" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1ab6fbe9a014d45b5db359ac540d2e7864" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>crf::tagger::Feature::Feature</definition>
+        <argsstring>(String line, Map cpStr2Int, Map lbStr2Int)</argsstring>
+        <name>Feature</name>
+        <param>
+          <type>String</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>cpStr2Int</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>lbStr2Int</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="70" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="70" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a23b1b0bdf09bca40a3340473f12ab433" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>crf::tagger::Feature::Feature</definition>
+        <argsstring>(String line, Map cpStr2Int, Map lbStr2Int, Map fmap)</argsstring>
+        <name>Feature</name>
+        <param>
+          <type>String</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>cpStr2Int</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>lbStr2Int</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="110" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="110" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1ae96be026372abdcaf076f20ef12485d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::strId2Idx</definition>
+        <argsstring>(Map fmap)</argsstring>
+        <name>strId2Idx</name>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="152" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="152" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a8ad2bd9851af1c7b41c5db45ef51b597" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::strId2IdxAdd</definition>
+        <argsstring>(Map fmap)</argsstring>
+        <name>strId2IdxAdd</name>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="163" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="163" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a06f97f9d1d21654d103b3b7cb7b96f3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::index</definition>
+        <argsstring>()</argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="175" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="175" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a231c1bb279947c6b43b1ae83eed65261" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int crf::tagger::Feature::index</definition>
+        <argsstring>(Map fmap)</argsstring>
+        <name>index</name>
+        <param>
+          <type>Map</type>
+          <declname>fmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="180" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="180" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classcrf_1_1tagger_1_1Feature_1a01e1599d91e436146d8a8e553e516f09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String crf::tagger::Feature::toString</definition>
+        <argsstring>(Map cpInt2Str, Map lbInt2Str)</argsstring>
+        <name>toString</name>
+        <param>
+          <type>Map</type>
+          <declname>cpInt2Str</declname>
+        </param>
+        <param>
+          <type>Map</type>
+          <declname>lbInt2Str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="185" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="185" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" line="17" bodyfile="/home/srush/Projects/relax_decode/third-party/CRFTagger/src/crf/tagger/Feature.java" bodystart="17" bodyend="222"/>
+    <listofallmembers>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a7cc8feeafee98fbb4a5202af7e1def51" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>cp</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a35c32698c326e2ecf83768cb817cc7eb" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>EDGE_FEATURE1</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1ae87dff687324fdee61a8ff6a7fac5a99" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>eFeature1Init</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1aa0337470c1a23aae3f3456d2ea4a2274" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>eFeature1Init</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a5eb2ddff941b198283b3b6f30effa18d" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>Feature</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1ab6fbe9a014d45b5db359ac540d2e7864" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>Feature</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a23b1b0bdf09bca40a3340473f12ab433" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>Feature</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a98102373018fed0e1aad2cedcfa8a33d" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>ftype</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a615412b8630860ad98d65dead7051d27" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>idx</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a06f97f9d1d21654d103b3b7cb7b96f3a" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>index</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a231c1bb279947c6b43b1ae83eed65261" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>index</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a8d5ada683127a749c4a7b18db09232de" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>sFeature1Init</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1ad63a3c9bc363c63ccdf21449799f4400" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>sFeature1Init</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a5b3b6afef6fa2ec3a8b5542b791c859e" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>STAT_FEATURE1</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a63f7d5d0a30549930c452d2a12eeb4f1" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>strId</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1ae96be026372abdcaf076f20ef12485d0" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>strId2Idx</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a8ad2bd9851af1c7b41c5db45ef51b597" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>strId2IdxAdd</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a01e1599d91e436146d8a8e553e516f09" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>toString</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a948db953a912a8ef6ae742c359e5d428" prot="public" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>UNKNOWN_FEATURE</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a72628ec698449e837d4533bd09c2c3c5" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>val</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1aadd86b4aaead6fea153fae4ef1d635ff" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>wgt</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1aef748815f6d45baf4e25a16d18c9383e" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>y</name></member>
+      <member refid="classcrf_1_1tagger_1_1Feature_1a8533d49367cbb1c002d414681e72e17b" prot="package" virt="non-virtual"><scope>crf::tagger::Feature</scope><name>yp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classExtendCKY" kind="class" prot="public">
+    <compoundname>ExtendCKY</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classExtendCKY_1a1572ad77e37dcd89a95902f1b7eaae95" prot="public" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref>, <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt;</type>
+        <definition>Cache&lt;Hypernode, BestHyp &gt; ExtendCKY::_outside_memo_table</definition>
+        <argsstring></argsstring>
+        <name>_outside_memo_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="42" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a9aa8c8f5bc3dfda2e35810fd56654ec9" prot="public" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &gt;</type>
+        <definition>Cache&lt;Hyperedge, vector&lt;BestHyp&gt; &gt; ExtendCKY::_outside_edge_memo_table</definition>
+        <argsstring></argsstring>
+        <name>_outside_edge_memo_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="43" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classExtendCKY_1a61f85f3fb304b63a08a6973255dc03d1" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1Hypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>const Hypergraph&amp; ExtendCKY::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="46" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a40766be82f1f3286262adad0b3dd9cc3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ExtendCKY::_total_best</definition>
+        <argsstring></argsstring>
+        <name>_total_best</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="47" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a92bf156f2ef1b6259336b95d6fbafed5" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; *</type>
+        <definition>Cache&lt;Hyperedge, double&gt;* ExtendCKY::_edge_weights</definition>
+        <argsstring></argsstring>
+        <name>_edge_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="48" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1afb5a73bc63de9c387a017beb1b1ee559" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; *</type>
+        <definition>Cache&lt;Hyperedge, double&gt;* ExtendCKY::_old_edge_weights</definition>
+        <argsstring></argsstring>
+        <name>_old_edge_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="49" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1abc14b2a71189637c0a090a8654e8daab" prot="private" static="no" mutable="no">
+        <type><ref refid="classController" kindref="compound">Controller</ref> *</type>
+        <definition>Controller* ExtendCKY::_controller</definition>
+        <argsstring></argsstring>
+        <name>_controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="50" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a82502540df2136199cad59dd2b1aadd4" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref>, <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt;</type>
+        <definition>Cache&lt;Hypernode, BestHyp &gt; ExtendCKY::_memo_table</definition>
+        <argsstring></argsstring>
+        <name>_memo_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="52" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a611f1d1a52083cd672ef20ccd60d70fa" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &gt;</type>
+        <definition>Cache&lt;Hyperedge, vector&lt;BestHyp&gt; &gt; ExtendCKY::_memo_edge_table</definition>
+        <argsstring></argsstring>
+        <name>_memo_edge_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="53" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1af5724093fe4254c9fe91b6fe010add7e" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &gt;</type>
+        <definition>Cache&lt;Hyperedge, vector&lt;BestHyp&gt; &gt; ExtendCKY::_memo_edge_back_table</definition>
+        <argsstring></argsstring>
+        <name>_memo_edge_back_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="54" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a3032378fca919c65d3014d05d3319084" prot="private" static="no" mutable="no">
+        <type>queue&lt; int &gt;</type>
+        <definition>queue&lt;int&gt; ExtendCKY::_out_queue</definition>
+        <argsstring></argsstring>
+        <name>_out_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="57" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a13e4f4586402cf59c8cb2914c6525a04" prot="private" static="no" mutable="no">
+        <type>set&lt; int &gt;</type>
+        <definition>set&lt;int&gt; ExtendCKY::_out_done</definition>
+        <argsstring></argsstring>
+        <name>_out_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="58" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a7d0d6cdbae1f4c9acaaf7d62b11254c8" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> * &gt;</type>
+        <definition>vector&lt;BestHyp *&gt; ExtendCKY::_to_delete</definition>
+        <argsstring></argsstring>
+        <name>_to_delete</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="71" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classExtendCKY_1a28915f8065edf108887649d16fc433e9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ExtendCKY::_is_first</definition>
+        <argsstring></argsstring>
+        <name>_is_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="72" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classExtendCKY_1a20aad60b837caf99aa07cbbe9093901e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ExtendCKY::ExtendCKY</definition>
+        <argsstring>(const Hypergraph &amp;forest)</argsstring>
+        <name>ExtendCKY</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>forest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="31" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="25" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1af39407a663c5e5cc017343b7a8f12fee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ExtendCKY::best_path</definition>
+        <argsstring>(NodeBackCache &amp;back_pointers)</argsstring>
+        <name>best_path</name>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_pointers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="35" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="303" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1a71797754255237fbbf21018aaa312ef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::set_params</definition>
+        <argsstring>(Cache&lt; Hyperedge, double &gt; *edge_weights, Controller *cont)</argsstring>
+        <name>set_params</name>
+        <param>
+          <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; *</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type><ref refid="classController" kindref="compound">Controller</ref> *</type>
+          <declname>cont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="36" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="36" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1ac4d489259324dbbc5cc5fda2866560e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::outside</definition>
+        <argsstring>()</argsstring>
+        <name>outside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="41" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="605" bodyend="646"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classExtendCKY_1a4895cc10405bb6948e77889ab4657d01" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::forward_edge</definition>
+        <argsstring>(const Hyperedge &amp;edge, vector&lt; BestHyp &gt; &amp;best_edge_hypotheses)</argsstring>
+        <name>forward_edge</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+          <declname>best_edge_hypotheses</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="61" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="13" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1ad763f82f65a73396b707038c5f32654f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::backward_edge</definition>
+        <argsstring>(const Hyperedge &amp;edge, vector&lt; BestHyp &gt; &amp;best_edge_hypotheses)</argsstring>
+        <name>backward_edge</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classBestHyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+          <declname>best_edge_hypotheses</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="62" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="79" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1ad336085b6f92b7324c5863a15042a7f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::node_best_path</definition>
+        <argsstring>(const Hypernode &amp;node)</argsstring>
+        <name>node_best_path</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="64" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="143" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1ae00a39b8843b8127683a73c3a7260e9f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::node_best_out_path</definition>
+        <argsstring>(const Hypernode &amp;node)</argsstring>
+        <name>node_best_out_path</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="65" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="455" bodyend="603"/>
+      </memberdef>
+      <memberdef kind="function" id="classExtendCKY_1a879ef9d1b286c6b342b3b9b9d7d1807c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExtendCKY::node_best_out_fast</definition>
+        <argsstring>(const Hypernode &amp;node)</argsstring>
+        <name>node_best_out_fast</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="66" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.cpp" bodystart="327" bodyend="453"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="452">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="465">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="449">
+        <label>ExtendCKY</label>
+        <link refid="classExtendCKY"/>
+        <childnode refid="450" relation="usage">
+          <edgelabel>_memo_edge_back_table</edgelabel>
+          <edgelabel>_outside_edge_memo_table</edgelabel>
+          <edgelabel>_memo_edge_table</edgelabel>
+        </childnode>
+        <childnode refid="451" relation="usage">
+          <edgelabel>_out_queue</edgelabel>
+        </childnode>
+        <childnode refid="452" relation="usage">
+          <edgelabel>_out_done</edgelabel>
+        </childnode>
+        <childnode refid="453" relation="usage">
+          <edgelabel>_controller</edgelabel>
+        </childnode>
+        <childnode refid="454" relation="usage">
+          <edgelabel>_old_edge_weights</edgelabel>
+          <edgelabel>_edge_weights</edgelabel>
+        </childnode>
+        <childnode refid="455" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+        <childnode refid="456" relation="usage">
+          <edgelabel>_memo_table</edgelabel>
+          <edgelabel>_outside_memo_table</edgelabel>
+        </childnode>
+        <childnode refid="457" relation="usage">
+          <edgelabel>_to_delete</edgelabel>
+        </childnode>
+      </node>
+      <node id="455">
+        <label>Scarab::Hypergraph</label>
+        <link refid="classScarab_1_1Hypergraph"/>
+      </node>
+      <node id="454">
+        <label>Cache&lt; Hyperedge, double &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="458">
+        <label>BestHyp</label>
+        <link refid="classBestHyp"/>
+        <childnode refid="459" relation="usage">
+          <edgelabel>index_by_id</edgelabel>
+        </childnode>
+        <childnode refid="460" relation="usage">
+          <edgelabel>hyps</edgelabel>
+        </childnode>
+        <childnode refid="464" relation="usage">
+          <edgelabel>index_by_left</edgelabel>
+          <edgelabel>index_by_right</edgelabel>
+        </childnode>
+        <childnode refid="465" relation="usage">
+          <edgelabel>scores</edgelabel>
+        </childnode>
+      </node>
+      <node id="459">
+        <label>std::map&lt; int, int &gt;</label>
+      </node>
+      <node id="461">
+        <label>Hypothesis</label>
+        <link refid="structHypothesis"/>
+        <childnode refid="462" relation="usage">
+          <edgelabel>back_edge</edgelabel>
+        </childnode>
+        <childnode refid="463" relation="usage">
+          <edgelabel>right_side</edgelabel>
+          <edgelabel>hook</edgelabel>
+          <edgelabel>prev_hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="460">
+        <label>std::vector&lt; Hypothesis * &gt;</label>
+        <childnode refid="461" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="450">
+        <label>Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="451">
+        <label>std::queue&lt; int &gt;</label>
+      </node>
+      <node id="457">
+        <label>std::vector&lt; BestHyp * &gt;</label>
+        <childnode refid="458" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="464">
+        <label>std::map&lt; int, vector&lt; int &gt; &gt;</label>
+        <childnode refid="463" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="453">
+        <label>Controller</label>
+        <link refid="classController"/>
+      </node>
+      <node id="456">
+        <label>Cache&lt; Hypernode, BestHyp &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="463">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="462">
+        <label>Scarab::Hyperedge</label>
+        <link refid="classScarab_1_1Hyperedge"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" line="23" bodyfile="/home/srush/Projects/relax_decode/hypergraph/ExtendCKY.h" bodystart="23" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classExtendCKY_1abc14b2a71189637c0a090a8654e8daab" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_controller</name></member>
+      <member refid="classExtendCKY_1a92bf156f2ef1b6259336b95d6fbafed5" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_edge_weights</name></member>
+      <member refid="classExtendCKY_1a61f85f3fb304b63a08a6973255dc03d1" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_forest</name></member>
+      <member refid="classExtendCKY_1a28915f8065edf108887649d16fc433e9" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_is_first</name></member>
+      <member refid="classExtendCKY_1af5724093fe4254c9fe91b6fe010add7e" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_memo_edge_back_table</name></member>
+      <member refid="classExtendCKY_1a611f1d1a52083cd672ef20ccd60d70fa" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_memo_edge_table</name></member>
+      <member refid="classExtendCKY_1a82502540df2136199cad59dd2b1aadd4" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_memo_table</name></member>
+      <member refid="classExtendCKY_1afb5a73bc63de9c387a017beb1b1ee559" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_old_edge_weights</name></member>
+      <member refid="classExtendCKY_1a13e4f4586402cf59c8cb2914c6525a04" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_out_done</name></member>
+      <member refid="classExtendCKY_1a3032378fca919c65d3014d05d3319084" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_out_queue</name></member>
+      <member refid="classExtendCKY_1a9aa8c8f5bc3dfda2e35810fd56654ec9" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>_outside_edge_memo_table</name></member>
+      <member refid="classExtendCKY_1a1572ad77e37dcd89a95902f1b7eaae95" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>_outside_memo_table</name></member>
+      <member refid="classExtendCKY_1a7d0d6cdbae1f4c9acaaf7d62b11254c8" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_to_delete</name></member>
+      <member refid="classExtendCKY_1a40766be82f1f3286262adad0b3dd9cc3" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>_total_best</name></member>
+      <member refid="classExtendCKY_1ad763f82f65a73396b707038c5f32654f" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>backward_edge</name></member>
+      <member refid="classExtendCKY_1af39407a663c5e5cc017343b7a8f12fee" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>best_path</name></member>
+      <member refid="classExtendCKY_1a20aad60b837caf99aa07cbbe9093901e" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>ExtendCKY</name></member>
+      <member refid="classExtendCKY_1a4895cc10405bb6948e77889ab4657d01" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>forward_edge</name></member>
+      <member refid="classExtendCKY_1a879ef9d1b286c6b342b3b9b9d7d1807c" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>node_best_out_fast</name></member>
+      <member refid="classExtendCKY_1ae00a39b8843b8127683a73c3a7260e9f" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>node_best_out_path</name></member>
+      <member refid="classExtendCKY_1ad336085b6f92b7324c5863a15042a7f8" prot="private" virt="non-virtual"><scope>ExtendCKY</scope><name>node_best_path</name></member>
+      <member refid="classExtendCKY_1ac4d489259324dbbc5cc5fda2866560e2" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>outside</name></member>
+      <member refid="classExtendCKY_1a71797754255237fbbf21018aaa312ef0" prot="public" virt="non-virtual"><scope>ExtendCKY</scope><name>set_params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

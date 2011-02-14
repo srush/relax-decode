@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structPottsModelLP" kind="struct" prot="public">
+    <compoundname>PottsModelLP</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPottsModelLP_1ac572d15bc61963f636a39e752951cf31" prot="public" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; Graphnode, <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structState" kindref="compound">State</ref>, GRBVar &gt; * &gt;</type>
+        <definition>Cache&lt;Graphnode, Cache&lt;State, GRBVar&gt; * &gt; PottsModelLP::node_vars</definition>
+        <argsstring></argsstring>
+        <name>node_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="14" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPottsModelLP_1a00e3418b717ea5c1a0334dc30dafcdcc" prot="public" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; Graphedge, <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structState" kindref="compound">State</ref>, <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structState" kindref="compound">State</ref>, GRBVar &gt; * &gt; * &gt;</type>
+        <definition>Cache&lt;Graphedge, Cache&lt;State, Cache &lt;State , GRBVar &gt; * &gt; *&gt; PottsModelLP::edge_vars</definition>
+        <argsstring></argsstring>
+        <name>edge_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="15" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPottsModelLP_1ad829fe7b19ca64ae117303082784d110" prot="public" static="no" mutable="no">
+        <type>const PottsModel &amp;</type>
+        <definition>const PottsModel&amp; PottsModelLP::potts</definition>
+        <argsstring></argsstring>
+        <name>potts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="16" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structPottsModelLP_1af041b236eacf847879e1a2ba53b6e987" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PottsModelLP::PottsModelLP</definition>
+        <argsstring>(const PottsModel &amp;p)</argsstring>
+        <name>PottsModelLP</name>
+        <param>
+          <type>const PottsModel &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="13" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1341">
+        <label>PottsModelLP</label>
+        <link refid="structPottsModelLP"/>
+        <childnode refid="1342" relation="usage">
+          <edgelabel>node_vars</edgelabel>
+        </childnode>
+        <childnode refid="1343" relation="usage">
+          <edgelabel>edge_vars</edgelabel>
+        </childnode>
+      </node>
+      <node id="1342">
+        <label>Cache&lt; Graphnode, Cache&lt; State, GRBVar &gt; * &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="1343">
+        <label>Cache&lt; Graphedge, Cache&lt; State, Cache&lt; State, GRBVar &gt; * &gt; * &gt;</label>
+        <link refid="classCache"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="12" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="12" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structPottsModelLP_1a00e3418b717ea5c1a0334dc30dafcdcc" prot="public" virt="non-virtual"><scope>PottsModelLP</scope><name>edge_vars</name></member>
+      <member refid="structPottsModelLP_1ac572d15bc61963f636a39e752951cf31" prot="public" virt="non-virtual"><scope>PottsModelLP</scope><name>node_vars</name></member>
+      <member refid="structPottsModelLP_1ad829fe7b19ca64ae117303082784d110" prot="public" virt="non-virtual"><scope>PottsModelLP</scope><name>potts</name></member>
+      <member refid="structPottsModelLP_1af041b236eacf847879e1a2ba53b6e987" prot="public" virt="non-virtual"><scope>PottsModelLP</scope><name>PottsModelLP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="conll__tag_8py" kind="file">
+    <compoundname>conll_tag.py</compoundname>
+    <innerclass refid="classformat_1_1conll__tag_1_1ConllTagWord" prot="public">format::conll_tag::ConllTagWord</innerclass>
+    <innerclass refid="classformat_1_1conll__tag_1_1ConllTagSent" prot="public">format::conll_tag::ConllTagSent</innerclass>
+    <innernamespace refid="namespaceformat_1_1conll__tag">format::conll_tag</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="classformat_1_1conll__tag_1_1ConllTagWord" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classformat_1_1conll__tag_1_1ConllTagWord" kindref="compound">ConllTagWord</ref>:</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>word,<sp/>pos):</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagWord_1a6471b1d9f811ae6638fe3a4a7e8f8500" kindref="member">pos</ref><sp/>=<sp/>pos</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagWord_1aa80dd4140490c38f93a4336e6116e111" kindref="member">word</ref><sp/>=<sp/>word</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__repr__(self):</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;\t&quot;</highlight><highlight class="normal">.join((self.<ref refid="classformat_1_1conll__tag_1_1ConllTagWord_1aa80dd4140490c38f93a4336e6116e111" kindref="member">word</ref>,<sp/><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagWord_1a6471b1d9f811ae6638fe3a4a7e8f8500" kindref="member">pos</ref>))</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classformat_1_1conll__tag_1_1ConllTagSent" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classformat_1_1conll__tag_1_1ConllTagSent" kindref="compound">ConllTagSent</ref>:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>words):</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagSent_1aecfcc137bc56f86019f099e6187336a8" kindref="member">words</ref><sp/>=<sp/>tuple(words)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">enum_words(self):</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>enumerate(self.<ref refid="classformat_1_1conll__tag_1_1ConllTagSent_1aecfcc137bc56f86019f099e6187336a8" kindref="member">words</ref>)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__iter__(self):</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagSent_1aecfcc137bc56f86019f099e6187336a8" kindref="member">words</ref>.__iter__()<sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__repr__(self):</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">.join(str(w)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>w<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classformat_1_1conll__tag_1_1ConllTagSent_1aecfcc137bc56f86019f099e6187336a8" kindref="member">words</ref>)<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>@staticmethod<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">from_conll(conll):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ConllTagSent([ConllTagWord(w.word,<sp/>w.pos)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>w<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>conll.words[1:]])</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/data_management/format/conll_tag.py"/>
+  </compounddef>
+</doxygen>

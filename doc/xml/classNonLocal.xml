@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classNonLocal" kind="class" prot="public">
+    <compoundname>NonLocal</compoundname>
+    <derivedcompoundref refid="classBlankNonLocal" prot="public" virt="non-virtual">BlankNonLocal</derivedcompoundref>
+    <derivedcompoundref refid="classLMNonLocal" prot="public" virt="non-virtual">LMNonLocal</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNonLocal_1acd66e7882a5bb3415d3fd658d03ec8fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NonLocal::compute</definition>
+        <argsstring>(const Hyperedge &amp;, const vector&lt; vector&lt; int &gt; &gt; &amp;, double &amp;score, vector&lt; int &gt; &amp;full_derivation, Sig &amp;sig) const =0</argsstring>
+        <name>compute</name>
+        <reimplementedby refid="classBlankNonLocal_1ab48fb9f176d5b929aaa724e3f5b32a6a">compute</reimplementedby>
+        <reimplementedby refid="classLMNonLocal_1a2d14ca694dc6d49ce6e2b80622aafd51">compute</reimplementedby>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+        </param>
+        <param>
+          <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>full_derivation</declname>
+        </param>
+        <param>
+          <type>Sig &amp;</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classNonLocal_1a90f2d399853f5c689a0abdc5c12a8370" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structHyp" kindref="compound">Hyp</ref></type>
+        <definition>virtual Hyp NonLocal::initialize</definition>
+        <argsstring>(const Hypernode &amp;) const =0</argsstring>
+        <name>initialize</name>
+        <reimplementedby refid="classBlankNonLocal_1a61e2ac11c599d217cacfa5c54bd191b8">initialize</reimplementedby>
+        <reimplementedby refid="classLMNonLocal_1a93334d873bfe91d5357cbec933ec3ae9">initialize</reimplementedby>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1235">
+        <label>NonLocal</label>
+        <link refid="classNonLocal"/>
+      </node>
+      <node id="1236">
+        <label>BlankNonLocal</label>
+        <link refid="classBlankNonLocal"/>
+        <childnode refid="1235" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1237">
+        <label>LMNonLocal</label>
+        <link refid="classLMNonLocal"/>
+        <childnode refid="1235" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="28" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="28" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classNonLocal_1acd66e7882a5bb3415d3fd658d03ec8fc" prot="public" virt="pure-virtual"><scope>NonLocal</scope><name>compute</name></member>
+      <member refid="classNonLocal_1a90f2d399853f5c689a0abdc5c12a8370" prot="public" virt="pure-virtual"><scope>NonLocal</scope><name>initialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

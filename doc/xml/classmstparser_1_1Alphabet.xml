@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1Alphabet" kind="class" prot="public">
+    <compoundname>mstparser::Alphabet</compoundname>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1Alphabet_1aee577f63bf8d7584ea059587abb18a98" prot="package" static="no" mutable="no">
+        <type>gnu.trove.TObjectIntHashMap</type>
+        <definition>gnu.trove.TObjectIntHashMap mstparser::Alphabet::map</definition>
+        <argsstring></argsstring>
+        <name>map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="23" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1Alphabet_1a89781049943be9c05005cfa4e7b3cbc1" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::Alphabet::numEntries</definition>
+        <argsstring></argsstring>
+        <name>numEntries</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="24" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1Alphabet_1a48ba6aefb5bf3eb7e53c09c27501c71e" prot="package" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean mstparser::Alphabet::growthStopped</definition>
+        <argsstring></argsstring>
+        <name>growthStopped</name>
+        <initializer> false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="25" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1Alphabet_1a5b425f20a42b00bb9e22fd033000465a" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long mstparser::Alphabet::serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="92" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1Alphabet_1a8ae23115bf000b8ca09dc4a88dc6d280" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int mstparser::Alphabet::CURRENT_SERIAL_VERSION</definition>
+        <argsstring></argsstring>
+        <name>CURRENT_SERIAL_VERSION</name>
+        <initializer> 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="93" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a960e113dd6e8904988983ef503a284dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::Alphabet::Alphabet</definition>
+        <argsstring>(int capacity)</argsstring>
+        <name>Alphabet</name>
+        <param>
+          <type>int</type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="28" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1abdc008267cfe7fc2ea30821d4c64cd31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::Alphabet::Alphabet</definition>
+        <argsstring>()</argsstring>
+        <name>Alphabet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="36" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a76971ecbacfad318bc7a9798effc6192" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mstparser::Alphabet::lookupIndex</definition>
+        <argsstring>(Object entry)</argsstring>
+        <name>lookupIndex</name>
+        <param>
+          <type>Object</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return -1 if entry isn&apos;t present. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="43" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="42" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a9d8582dbe61c1fa676074981537a9ed2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[]</type>
+        <definition>Object [] mstparser::Alphabet::toArray</definition>
+        <argsstring>()</argsstring>
+        <name>toArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="59" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a22fc561a609a40c1c2cc745664ea21aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::Alphabet::contains</definition>
+        <argsstring>(Object entry)</argsstring>
+        <name>contains</name>
+        <param>
+          <type>Object</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="64" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a82a1082c5f7a05b8143314512922af36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mstparser::Alphabet::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="69" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a004ff1e60046fe34d0d58a369208b66a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::Alphabet::stopGrowth</definition>
+        <argsstring>()</argsstring>
+        <name>stopGrowth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="74" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a4cfb6b31a1b15e8344ca65347dd11411" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::Alphabet::allowGrowth</definition>
+        <argsstring>()</argsstring>
+        <name>allowGrowth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="80" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a812b8d5a94f6158e79ed94563a74226b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::Alphabet::growthStopped</definition>
+        <argsstring>()</argsstring>
+        <name>growthStopped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="85" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="84" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a3850ff7417ed3d29af1341d6d161698f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::Alphabet::writeObject</definition>
+        <argsstring>(ObjectOutputStream out)</argsstring>
+        <name>writeObject</name>
+        <param>
+          <type>ObjectOutputStream</type>
+          <declname>out</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="95" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="95" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Alphabet_1a0087fb1fe51770d73a34ade8445e801f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::Alphabet::readObject</definition>
+        <argsstring>(ObjectInputStream in)</argsstring>
+        <name>readObject</name>
+        <param>
+          <type>ObjectInputStream</type>
+          <declname>in</declname>
+        </param>
+        <exceptions> throws IOException, ClassNotFoundException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="102" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="102" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" line="22" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Alphabet.java" bodystart="21" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1Alphabet_1a4cfb6b31a1b15e8344ca65347dd11411" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>allowGrowth</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a960e113dd6e8904988983ef503a284dd" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>Alphabet</name></member>
+      <member refid="classmstparser_1_1Alphabet_1abdc008267cfe7fc2ea30821d4c64cd31" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>Alphabet</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a22fc561a609a40c1c2cc745664ea21aa" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>contains</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a8ae23115bf000b8ca09dc4a88dc6d280" prot="private" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>CURRENT_SERIAL_VERSION</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a48ba6aefb5bf3eb7e53c09c27501c71e" prot="package" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>growthStopped</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a812b8d5a94f6158e79ed94563a74226b" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>growthStopped</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a76971ecbacfad318bc7a9798effc6192" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>lookupIndex</name></member>
+      <member refid="classmstparser_1_1Alphabet_1aee577f63bf8d7584ea059587abb18a98" prot="package" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>map</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a89781049943be9c05005cfa4e7b3cbc1" prot="package" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>numEntries</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a0087fb1fe51770d73a34ade8445e801f" prot="private" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>readObject</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a5b425f20a42b00bb9e22fd033000465a" prot="private" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>serialVersionUID</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a82a1082c5f7a05b8143314512922af36" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>size</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a004ff1e60046fe34d0d58a369208b66a" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>stopGrowth</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a9d8582dbe61c1fa676074981537a9ed2" prot="public" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>toArray</name></member>
+      <member refid="classmstparser_1_1Alphabet_1a3850ff7417ed3d29af1341d6d161698f" prot="private" virt="non-virtual"><scope>mstparser::Alphabet</scope><name>writeObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

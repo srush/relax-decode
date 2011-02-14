@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1io_1_1DependencyReader" kind="class" prot="public">
+    <compoundname>mstparser::io::DependencyReader</compoundname>
+    <derivedcompoundref refid="classmstparser_1_1io_1_1CONLLReader" prot="public" virt="non-virtual">mstparser::io::CONLLReader</derivedcompoundref>
+    <derivedcompoundref refid="classmstparser_1_1io_1_1MSTReader" prot="public" virt="non-virtual">mstparser::io::MSTReader</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1io_1_1DependencyReader_1a0b69bc5195ebb436a8a5f0c22deee407" prot="protected" static="no" mutable="no">
+        <type>BufferedReader</type>
+        <definition>BufferedReader mstparser::io::DependencyReader::inputReader</definition>
+        <argsstring></argsstring>
+        <name>inputReader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="30" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1io_1_1DependencyReader_1a165e26aebb32954e41cfd6efa5cb6338" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean mstparser::io::DependencyReader::labeled</definition>
+        <argsstring></argsstring>
+        <name>labeled</name>
+        <initializer> true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="31" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1a1fcb7fe3a6edc5ae299700488477d660" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1io_1_1DependencyReader" kindref="compound">DependencyReader</ref></type>
+        <definition>static DependencyReader mstparser::io::DependencyReader::createDependencyReader</definition>
+        <argsstring>(String format, boolean discourseMode)</argsstring>
+        <name>createDependencyReader</name>
+        <param>
+          <type>String</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>discourseMode</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="35" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="33" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1ab5c02feda68bf1c768b4b97e42097873" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1io_1_1DependencyReader" kindref="compound">DependencyReader</ref></type>
+        <definition>static DependencyReader mstparser::io::DependencyReader::createDependencyReader</definition>
+        <argsstring>(String format)</argsstring>
+        <name>createDependencyReader</name>
+        <param>
+          <type>String</type>
+          <declname>format</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="49" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="48" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1aed6d91d39e122754719d7e3d01f05026" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::io::DependencyReader::startReading</definition>
+        <argsstring>(String file)</argsstring>
+        <name>startReading</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="55" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1abcd3871e3600780a209d92988627df31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean mstparser::io::DependencyReader::isLabeled</definition>
+        <argsstring>()</argsstring>
+        <name>isLabeled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="61" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1af36eda4b82f189044bcfe6364458c116" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract <ref refid="classmstparser_1_1DependencyInstance" kindref="compound">mstparser.DependencyInstance</ref></type>
+        <definition>abstract mstparser.DependencyInstance mstparser::io::DependencyReader::getNext</definition>
+        <argsstring>()</argsstring>
+        <name>getNext</name>
+        <reimplementedby refid="classmstparser_1_1io_1_1MSTReader_1ad3f8f60a6c186fa6292ba5e7319e51f0">getNext</reimplementedby>
+        <reimplementedby refid="classmstparser_1_1io_1_1CONLLReader_1a2abcb2c5d6aae9240a42afcef10a4ccc">getNext</reimplementedby>
+        <exceptions> throws IOException</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1a948c0deb5940f2e25e7a3b2097cd4546" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean mstparser::io::DependencyReader::fileContainsLabels</definition>
+        <argsstring>(String filename)</argsstring>
+        <name>fileContainsLabels</name>
+        <reimplementedby refid="classmstparser_1_1io_1_1MSTReader_1a6fbb61befba770c62bc50d71e674f73d">fileContainsLabels</reimplementedby>
+        <reimplementedby refid="classmstparser_1_1io_1_1CONLLReader_1a9c0574130bd566b1bf98ddc04ae7affe">fileContainsLabels</reimplementedby>
+        <param>
+          <type>String</type>
+          <declname>filename</declname>
+        </param>
+        <exceptions> throws IOException</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1io_1_1DependencyReader_1a3238309398b641ce0634448e7197d8aa" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String mstparser::io::DependencyReader::normalize</definition>
+        <argsstring>(String s)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>String</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="70" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="70" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class that defines common behavior and abstract methods for readers for different formats.</para><para>Created: Sat Nov 10 15:25:10 2001 </para><para><simplesect kind="author"><para>Jason Baldridge </para></simplesect>
+<simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Id</title><para>DependencyReader.java 112 2007-03-23 19:19:28Z jasonbaldridge </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="531">
+        <label>mstparser::io::MSTReader</label>
+        <link refid="classmstparser_1_1io_1_1MSTReader"/>
+        <childnode refid="529" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="529">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+      <node id="530">
+        <label>mstparser::io::CONLLReader</label>
+        <link refid="classmstparser_1_1io_1_1CONLLReader"/>
+        <childnode refid="529" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" line="28" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/io/DependencyReader.java" bodystart="28" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a1fcb7fe3a6edc5ae299700488477d660" prot="public" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>createDependencyReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1ab5c02feda68bf1c768b4b97e42097873" prot="public" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>createDependencyReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a948c0deb5940f2e25e7a3b2097cd4546" prot="protected" virt="pure-virtual"><scope>mstparser::io::DependencyReader</scope><name>fileContainsLabels</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1af36eda4b82f189044bcfe6364458c116" prot="public" virt="pure-virtual"><scope>mstparser::io::DependencyReader</scope><name>getNext</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a0b69bc5195ebb436a8a5f0c22deee407" prot="protected" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>inputReader</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1abcd3871e3600780a209d92988627df31" prot="public" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>isLabeled</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a165e26aebb32954e41cfd6efa5cb6338" prot="protected" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>labeled</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1a3238309398b641ce0634448e7197d8aa" prot="protected" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>normalize</name></member>
+      <member refid="classmstparser_1_1io_1_1DependencyReader_1aed6d91d39e122754719d7e3d01f05026" prot="public" virt="non-virtual"><scope>mstparser::io::DependencyReader</scope><name>startReading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

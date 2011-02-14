@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespaceprotoc" kind="namespace">
+    <compoundname>protoc</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceprotoc_1a8a1414a27d710d2529c86329f46afc2f" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string protoc::__author__</definition>
+        <argsstring></argsstring>
+        <name>__author__</name>
+        <initializer>&quot;Scott Stafford&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="9" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotoc_1a5bed9469eabb09ba16894fb1248a5a8b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string protoc::protocs</definition>
+        <argsstring></argsstring>
+        <name>protocs</name>
+        <initializer>&apos;protoc&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="21" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotoc_1ae8b1ca3d2ced7243684a0e4e444c1167" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple protoc::ProtocAction</definition>
+        <argsstring></argsstring>
+        <name>ProtocAction</name>
+        <initializer>SCons.Action.Action(&apos;$PROTOCCOM&apos;, &apos;$PROTOCCOMSTR&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="23" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceprotoc_1a111c74671afe293add0dbdbab0a89f53" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple protoc::ProtocBuilder</definition>
+        <argsstring></argsstring>
+        <name>ProtocBuilder</name>
+        <initializer>SCons.Builder.Builder(action = ProtocAction,
+                                   emitter = ProtocEmitter,
+                                   srcsuffix = &apos;$PROTOCSRCSUFFIX&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="59" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceprotoc_1ac5ef9b333395b77ebcb0fa68a1e61957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def protoc::ProtocEmitter</definition>
+        <argsstring></argsstring>
+        <name>ProtocEmitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="24" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="24" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceprotoc_1ad49cf73a0ff7f84b18cbcfbf8d76de0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def protoc::generate</definition>
+        <argsstring></argsstring>
+        <name>generate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Add Builders and construction variables for protoc to an Environment.</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="63" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="63" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceprotoc_1a69ac3d5198cf6e2a42f6256c12496a7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def protoc::exists</definition>
+        <argsstring></argsstring>
+        <name>exists</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/protoc.py" line="79" bodyfile="/home/srush/Projects/relax_decode/protoc.py" bodystart="79" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>
+protoc.py: Protoc Builder for SCons
+
+This Builder invokes protoc to generate C++ and Python 
+from a .proto file.  
+
+NOTE: Java is not currently supported.</verbatim> </para>    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/protoc.py" line="1"/>
+  </compounddef>
+</doxygen>

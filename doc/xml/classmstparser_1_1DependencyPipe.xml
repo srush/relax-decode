@@ -1,0 +1,900 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1DependencyPipe" kind="class" prot="public">
+    <compoundname>mstparser::DependencyPipe</compoundname>
+    <derivedcompoundref refid="classmstparser_1_1DependencyPipe2O" prot="public" virt="non-virtual">mstparser::DependencyPipe2O</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1a6586ec82ff8a563e2518dd4d4b6c896f" prot="public" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1Alphabet" kindref="compound">Alphabet</ref></type>
+        <definition>Alphabet mstparser::DependencyPipe::dataAlphabet</definition>
+        <argsstring></argsstring>
+        <name>dataAlphabet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="10" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1ae9423fcfcf30c013a05ce22fd1145c8f" prot="public" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1Alphabet" kindref="compound">Alphabet</ref></type>
+        <definition>Alphabet mstparser::DependencyPipe::typeAlphabet</definition>
+        <argsstring></argsstring>
+        <name>typeAlphabet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="12" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1ad8b9e8dfcb27e849b0b46bdf508ca83f" prot="public" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] mstparser::DependencyPipe::types</definition>
+        <argsstring></argsstring>
+        <name>types</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="17" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1a138e7bd469d3b16a6f211de1e08d4655" prot="public" static="no" mutable="no">
+        <type>int[]</type>
+        <definition>int [] mstparser::DependencyPipe::typesInt</definition>
+        <argsstring></argsstring>
+        <name>typesInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="18" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1a87501f52449f26b233b6d7dd701d2170" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean mstparser::DependencyPipe::labeled</definition>
+        <argsstring></argsstring>
+        <name>labeled</name>
+        <initializer> false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="20" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1a23302fd5d1f0e3b47e3472959650acfa" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1io_1_1DependencyReader" kindref="compound">DependencyReader</ref></type>
+        <definition>DependencyReader mstparser::DependencyPipe::depReader</definition>
+        <argsstring></argsstring>
+        <name>depReader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="14" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1ae3c8e58bd061082fd1bddc9606a0c681" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1io_1_1DependencyWriter" kindref="compound">DependencyWriter</ref></type>
+        <definition>DependencyWriter mstparser::DependencyPipe::depWriter</definition>
+        <argsstring></argsstring>
+        <name>depWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="15" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1a8ad322b15febea3d6b9c7073dcfbad31" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean mstparser::DependencyPipe::isCONLL</definition>
+        <argsstring></argsstring>
+        <name>isCONLL</name>
+        <initializer> true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="21" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyPipe_1aa1d1b47b4ee7ba2327d97127e352065d" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1ParserOptions" kindref="compound">ParserOptions</ref></type>
+        <definition>ParserOptions mstparser::DependencyPipe::options</definition>
+        <argsstring></argsstring>
+        <name>options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="23" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a28ba5b8395eddec30cc34b43aad932f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::DependencyPipe::DependencyPipe</definition>
+        <argsstring>(ParserOptions options)</argsstring>
+        <name>DependencyPipe</name>
+        <param>
+          <type><ref refid="classmstparser_1_1ParserOptions" kindref="compound">ParserOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="25" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="25" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a58692be62a7785bb29ca3631cdf06624" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::initInputFile</definition>
+        <argsstring>(String file)</argsstring>
+        <name>initInputFile</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="37" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a060afb11ca904f44d41be9fe49ac413f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::initOutputFile</definition>
+        <argsstring>(String file)</argsstring>
+        <name>initOutputFile</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="41" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1aea500939460ea83a22e8c2243563f344" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::outputInstance</definition>
+        <argsstring>(DependencyInstance instance)</argsstring>
+        <name>outputInstance</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="47" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a2d5e277a752411ee3324b78d0e2f0bbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="51" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1abfa0b78511e83ccd5c0b595001e479a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String mstparser::DependencyPipe::getType</definition>
+        <argsstring>(int typeIndex)</argsstring>
+        <name>getType</name>
+        <param>
+          <type>int</type>
+          <declname>typeIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="57" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a5c5902b10053c33e97a543aefd8a0552" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int [] mstparser::DependencyPipe::createInstances</definition>
+        <argsstring>(String file, File featFileName)</argsstring>
+        <name>createInstances</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>featFileName</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="81" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="80" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a1af583e13d04883d762ef7dd7c5b89dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::closeAlphabets</definition>
+        <argsstring>()</argsstring>
+        <name>closeAlphabets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="159" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="159" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1accce7600e50a9c2a6e6a4c4870a1fb66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::add</definition>
+        <argsstring>(String feat, FeatureVector fv)</argsstring>
+        <name>add</name>
+        <param>
+          <type>String</type>
+          <declname>feat</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="175" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="175" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1ad08b56e61ae8a45f4727a23f117e28c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::add</definition>
+        <argsstring>(String feat, double val, FeatureVector fv)</argsstring>
+        <name>add</name>
+        <param>
+          <type>String</type>
+          <declname>feat</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="181" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="181" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a10dc970db3c7ea30b966395aae3272b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+        <definition>FeatureVector mstparser::DependencyPipe::createFeatureVector</definition>
+        <argsstring>(DependencyInstance instance)</argsstring>
+        <name>createFeatureVector</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="188" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="188" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1aa20274a418d473c46ece7d77b8c06c58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::addCoreFeatures</definition>
+        <argsstring>(DependencyInstance instance, int small, int large, boolean attR, FeatureVector fv)</argsstring>
+        <name>addCoreFeatures</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>small</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>large</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>attR</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="222" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="218" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1ac0dc9ce14772e16752b9364b86d00c9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::addLabeledFeatures</definition>
+        <argsstring>(DependencyInstance instance, int word, String type, boolean attR, boolean childFeatures, FeatureVector fv)</argsstring>
+        <name>addLabeledFeatures</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>word</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>attR</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>childFeatures</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="520" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="515" bodyend="556"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a399ebb69f0a5e598353000f377535105" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::fillFeatureVectors</definition>
+        <argsstring>(DependencyInstance instance, FeatureVector[][][] fvs, double[][][] probs, FeatureVector[][][][] nt_fvs, double[][][][] nt_probs, Parameters params)</argsstring>
+        <name>fillFeatureVectors</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>nt_fvs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>nt_probs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1Parameters" kindref="compound">Parameters</ref></type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="744" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="740" bodyend="793"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1ac85ec2345561e573fe598a255117c378" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+        <definition>DependencyInstance mstparser::DependencyPipe::readInstance</definition>
+        <argsstring>(ObjectInputStream in, int length, FeatureVector[][][] fvs, double[][][] probs, FeatureVector[][][][] nt_fvs, double[][][][] nt_probs, Parameters params)</argsstring>
+        <name>readInstance</name>
+        <param>
+          <type>ObjectInputStream</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>nt_fvs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>nt_probs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1Parameters" kindref="compound">Parameters</ref></type>
+          <declname>params</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read an instance from an input stream. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="871" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="865" bodyend="927"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a7f6ef8cbb814772ce8e442768dd88f66" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final <ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+        <definition>final DependencyInstance mstparser::DependencyPipe::nextInstance</definition>
+        <argsstring>()</argsstring>
+        <name>nextInstance</name>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="61" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a47c162d01736e43d885c4b9863888d26" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::addExtendedFeatures</definition>
+        <argsstring>(DependencyInstance instance, FeatureVector fv)</argsstring>
+        <name>addExtendedFeatures</name>
+        <reimplementedby refid="classmstparser_1_1DependencyPipe2O_1acc094918e0f847d4ac0ce3f21c6662a0">addExtendedFeatures</reimplementedby>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="215" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="214" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a3ea85c069bcfe3ddfb89cb6c031d8f36" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::writeInstance</definition>
+        <argsstring>(DependencyInstance instance, ObjectOutputStream out)</argsstring>
+        <name>writeInstance</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>ObjectOutputStream</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write an instance to an output stream for later reading. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="800" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="800" bodyend="849"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a08ecc2b509221d129c2e46fc143a80bc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::writeExtendedFeatures</definition>
+        <argsstring>(DependencyInstance instance, ObjectOutputStream out)</argsstring>
+        <name>writeExtendedFeatures</name>
+        <reimplementedby refid="classmstparser_1_1DependencyPipe2O_1a1a2edeb57ac26d9c0c3ce7026393ef29">writeExtendedFeatures</reimplementedby>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>ObjectOutputStream</type>
+          <declname>out</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Override this method if you have extra features that need to be written to disk. For the basic <ref refid="classmstparser_1_1DependencyPipe" kindref="compound">DependencyPipe</ref>, nothing happens. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="858" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="857" bodyend="858"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a64ae3cad874c489e1e23a0b6911f87fd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::createAlphabet</definition>
+        <argsstring>(String file)</argsstring>
+        <name>createAlphabet</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="135" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="135" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a76c1e3aa12d91675fa8dd2bffadf2c7e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::addLinearFeatures</definition>
+        <argsstring>(String type, String[] obsVals, int first, int second, String attachDistance, FeatureVector fv)</argsstring>
+        <name>addLinearFeatures</name>
+        <param>
+          <type>String</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>String[]</type>
+          <declname>obsVals</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>attachDistance</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="327" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="324" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a742555a1566a120645ca27fbdbffcd21" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::addCorePosFeatures</definition>
+        <argsstring>(String prefix, String leftOf1, String one, String rightOf1, String leftOf2, String two, String rightOf2, String attachDistance, FeatureVector fv)</argsstring>
+        <name>addCorePosFeatures</name>
+        <param>
+          <type>String</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>leftOf1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>one</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>rightOf1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>leftOf2</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>two</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>rightOf2</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>attachDistance</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="356" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="352" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1acee2a552254f5de216f305c236c75e01" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::addTwoObsFeatures</definition>
+        <argsstring>(String prefix, String item1F1, String item1F2, String item2F1, String item2F2, String attachDistance, FeatureVector fv)</argsstring>
+        <name>addTwoObsFeatures</name>
+        <param>
+          <type>String</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>item1F1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>item1F2</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>item2F1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>item2F2</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>attachDistance</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add features for two items, each with two observations, e.g. head, head pos, child, and child pos.</para><para>The use of StringBuilders is not yet as efficient as it could be, but this is a start. (And it abstracts the logic so we can add other features more easily based on other items and observations.) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="445" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="441" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1a327adfe37c286be1c20a3daa9feb2a79" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyPipe::addDiscourseFeatures</definition>
+        <argsstring>(DependencyInstance instance, int small, int large, int headIndex, int childIndex, String attDist, FeatureVector fv)</argsstring>
+        <name>addDiscourseFeatures</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>small</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>large</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>headIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>childIndex</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>attDist</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="565" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="559" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyPipe_1ad69916bf6203197d3b461e43cd6a23ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final void</type>
+        <definition>final void mstparser::DependencyPipe::addOldMSTStemFeatures</definition>
+        <argsstring>(String hLemma, String headP, String cLemma, String childP, String attDist, int hL, int cL, FeatureVector fv)</argsstring>
+        <name>addOldMSTStemFeatures</name>
+        <param>
+          <type>String</type>
+          <declname>hLemma</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>headP</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>cLemma</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>childP</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>attDist</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hL</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cL</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get features for stems the old way. The only way this differs from calling addTwoObsFeatures() is that it checks the lengths of the full lexical items are greater than 5 before adding features. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="939" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="937" bodyend="976"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="513">
+        <label>mstparser::DependencyPipe2O</label>
+        <link refid="classmstparser_1_1DependencyPipe2O"/>
+        <childnode refid="512" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="512">
+        <label>mstparser::DependencyPipe</label>
+        <link refid="classmstparser_1_1DependencyPipe"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="519">
+        <label>mstparser::Alphabet</label>
+        <link refid="classmstparser_1_1Alphabet"/>
+      </node>
+      <node id="516">
+        <label>mstparser::ParserOptions</label>
+        <link refid="classmstparser_1_1ParserOptions"/>
+        <childnode refid="517" relation="usage">
+          <edgelabel>testforest</edgelabel>
+          <edgelabel>trainforest</edgelabel>
+        </childnode>
+      </node>
+      <node id="517">
+        <label>File</label>
+      </node>
+      <node id="514">
+        <label>mstparser::DependencyPipe</label>
+        <link refid="classmstparser_1_1DependencyPipe"/>
+        <childnode refid="515" relation="usage">
+          <edgelabel>depReader</edgelabel>
+        </childnode>
+        <childnode refid="516" relation="usage">
+          <edgelabel>options</edgelabel>
+        </childnode>
+        <childnode refid="518" relation="usage">
+          <edgelabel>depWriter</edgelabel>
+        </childnode>
+        <childnode refid="519" relation="usage">
+          <edgelabel>typeAlphabet</edgelabel>
+          <edgelabel>dataAlphabet</edgelabel>
+        </childnode>
+      </node>
+      <node id="518">
+        <label>mstparser::io::DependencyWriter</label>
+        <link refid="classmstparser_1_1io_1_1DependencyWriter"/>
+      </node>
+      <node id="515">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" line="8" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyPipe.java" bodystart="8" bodyend="978"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1DependencyPipe_1accce7600e50a9c2a6e6a4c4870a1fb66" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>add</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ad08b56e61ae8a45f4727a23f117e28c0" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>add</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1aa20274a418d473c46ece7d77b8c06c58" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addCoreFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a742555a1566a120645ca27fbdbffcd21" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addCorePosFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a327adfe37c286be1c20a3daa9feb2a79" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addDiscourseFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a47c162d01736e43d885c4b9863888d26" prot="protected" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addExtendedFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ac0dc9ce14772e16752b9364b86d00c9a" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addLabeledFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a76c1e3aa12d91675fa8dd2bffadf2c7e" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addLinearFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ad69916bf6203197d3b461e43cd6a23ec" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addOldMSTStemFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1acee2a552254f5de216f305c236c75e01" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>addTwoObsFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a2d5e277a752411ee3324b78d0e2f0bbe" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>close</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a1af583e13d04883d762ef7dd7c5b89dc" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>closeAlphabets</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a64ae3cad874c489e1e23a0b6911f87fd" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>createAlphabet</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a10dc970db3c7ea30b966395aae3272b3" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>createFeatureVector</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a5c5902b10053c33e97a543aefd8a0552" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>createInstances</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a6586ec82ff8a563e2518dd4d4b6c896f" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>dataAlphabet</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a28ba5b8395eddec30cc34b43aad932f9" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>DependencyPipe</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a23302fd5d1f0e3b47e3472959650acfa" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>depReader</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ae3c8e58bd061082fd1bddc9606a0c681" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>depWriter</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a399ebb69f0a5e598353000f377535105" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>fillFeatureVectors</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1abfa0b78511e83ccd5c0b595001e479a2" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>getType</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a58692be62a7785bb29ca3631cdf06624" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>initInputFile</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a060afb11ca904f44d41be9fe49ac413f" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>initOutputFile</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a8ad322b15febea3d6b9c7073dcfbad31" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>isCONLL</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a87501f52449f26b233b6d7dd701d2170" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>labeled</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a7f6ef8cbb814772ce8e442768dd88f66" prot="protected" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>nextInstance</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1aa1d1b47b4ee7ba2327d97127e352065d" prot="private" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>options</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1aea500939460ea83a22e8c2243563f344" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>outputInstance</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ac85ec2345561e573fe598a255117c378" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>readInstance</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ae9423fcfcf30c013a05ce22fd1145c8f" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>typeAlphabet</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1ad8b9e8dfcb27e849b0b46bdf508ca83f" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>types</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a138e7bd469d3b16a6f211de1e08d4655" prot="public" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>typesInt</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a08ecc2b509221d129c2e46fc143a80bc" prot="protected" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>writeExtendedFeatures</name></member>
+      <member refid="classmstparser_1_1DependencyPipe_1a3ea85c069bcfe3ddfb89cb6c031d8f36" prot="protected" virt="non-virtual"><scope>mstparser::DependencyPipe</scope><name>writeInstance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

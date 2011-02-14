@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="pos__constraints__mrf_8py" kind="file">
+    <compoundname>pos_constraints_mrf.py</compoundname>
+    <innerclass refid="classpos__constraints__mrf_1_1PosNode" prot="public">pos_constraints_mrf::PosNode</innerclass>
+    <innerclass refid="classpos__constraints__mrf_1_1PosEdge" prot="public">pos_constraints_mrf::PosEdge</innerclass>
+    <innerclass refid="classpos__constraints__mrf_1_1PosMrf" prot="public">pos_constraints_mrf::PosMrf</innerclass>
+    <innernamespace refid="namespacepos__constraints__mrf">pos_constraints_mrf</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">sys.path.append(</highlight><highlight class="stringliteral">&apos;.&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">sys.path.append(</highlight><highlight class="stringliteral">&apos;../interfaces/graph/gen-py/&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>graph_pb2<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>mrf_pb2<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>itertools<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">#from<sp/>format.conll<sp/>import<sp/>*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>format.simple<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>StringIO<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>StringIO</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>unknown_words<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pickle<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>pos_constraints<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">states<sp/>=<sp/>range(45)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classpos__constraints__mrf_1_1PosNode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpos__constraints__mrf_1_1PosNode" kindref="compound">PosNode</ref>:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>id,<sp/>label):</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1ac34924f0bee456c594a5adeb58c40502" kindref="member">id</ref><sp/>=<sp/>id</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1a9263468af13640d55a884500b87dbf36" kindref="member">label</ref><sp/>=<sp/>label</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1ad36d2ab5212a11cb117ba91ba219e8ff" kindref="member">edges</ref><sp/>=<sp/>[]</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1adbfbeb5b4ce5c7d3e012a57266743d85" kindref="member">potentials</ref><sp/>=<sp/>[]</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_blank_potentials(self):</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1adbfbeb5b4ce5c7d3e012a57266743d85" kindref="member">potentials</ref><sp/>=<sp/>[(state,<sp/>0.0)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>state<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>states]</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">convert_to_protobuf(self,<sp/>proto_node):</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_node.id<sp/>=<sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1ac34924f0bee456c594a5adeb58c40502" kindref="member">id</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_node.label<sp/>=<sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1a9263468af13640d55a884500b87dbf36" kindref="member">label</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_mrf_node<sp/>=<sp/>proto_node.Extensions[mrf_node]</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#print<sp/>self.potentials</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>state_id,p<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1adbfbeb5b4ce5c7d3e012a57266743d85" kindref="member">potentials</ref>:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_node_potentials<sp/>=<sp/>proto_mrf_node.node_potentials.add()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_node_potentials.node_potential<sp/>=<sp/>p</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_node_potentials.state.id<sp/>=<sp/>state_id</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_node_potentials.state.label<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>edge<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosNode_1ad36d2ab5212a11cb117ba91ba219e8ff" kindref="member">edges</ref>:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>edge.convert_to_protobuf(proto_node.edge.add())</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classpos__constraints__mrf_1_1PosEdge" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpos__constraints__mrf_1_1PosEdge" kindref="compound">PosEdge</ref>:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>to_node):</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aeca030c4d6a5adb4ca1d8a7078209754" kindref="member">to_node</ref><sp/>=<sp/>to_node</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#self.label<sp/>=<sp/>label</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aa81ae5ac8eb21adcabc6468a9398f4db" kindref="member">potentials</ref><sp/>=<sp/>[]</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_same_potentials(self,<sp/>bonus):</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aa81ae5ac8eb21adcabc6468a9398f4db" kindref="member">potentials</ref><sp/>=[]</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>s1<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>states:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>s2<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>states:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aa81ae5ac8eb21adcabc6468a9398f4db" kindref="member">potentials</ref>.append((s1,s2,<sp/>bonus<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>s1<sp/>==<sp/>s2<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>0.0))</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">convert_to_protobuf(self,<sp/>proto_edge):</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_edge.to_node<sp/>=<sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aeca030c4d6a5adb4ca1d8a7078209754" kindref="member">to_node</ref></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_mrf_edge<sp/>=<sp/>proto_edge.Extensions[mrf_edge]</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>s1,<sp/>s2,<sp/>bonus<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosEdge_1aa81ae5ac8eb21adcabc6468a9398f4db" kindref="member">potentials</ref>:</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>bonus<sp/>==<sp/>0.0<sp/>:<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_edge_potentials<sp/>=<sp/>proto_mrf_edge.edge_potentials.add()</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_edge_potentials.edge_potential<sp/>=<sp/>bonus</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_edge_potentials.from_state_id<sp/>=<sp/>s1</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proto_edge_potentials.to_state_id<sp/>=<sp/>s2</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classpos__constraints__mrf_1_1PosMrf" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpos__constraints__mrf_1_1PosMrf" kindref="compound">PosMrf</ref>:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">__init__(self,<sp/>label,<sp/>data):</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1a5fc6565b99afc2c10ceb6ecd9420e342" kindref="member">label</ref><sp/>=<sp/>label</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref><sp/>=<sp/>[PosNode(i,<sp/></highlight><highlight class="stringliteral">&quot;%s:%s&quot;</highlight><highlight class="normal">%(sent_num,<sp/>ind))<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>(sent_num,<sp/>ind,<sp/>_)<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(data)]</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#self.edges<sp/>=<sp/>{}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_potts_edges(self,<sp/>bonus):</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>node<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>):</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node.add_blank_potentials()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>j<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(i+1,<sp/>len(self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>)):</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>[i].edges.append(PosEdge(j))</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>[i].edges[-1].add_same_potentials(bonus)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_naive_bayes_edges(self,<sp/>bonus):</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>.append(PosNode(len(self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>),<sp/></highlight><highlight class="stringliteral">&quot;mu&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>node<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node.add_blank_potentials()</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>node<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>[:-1]:</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node.edges.append(PosEdge(self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>[-1].id))</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node.edges[-1].add_same_potentials(bonus)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">convert_to_protobuf(self):</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_graph<sp/>=<sp/>Graph()</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_graph.label<sp/><sp/>=<sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1a5fc6565b99afc2c10ceb6ecd9420e342" kindref="member">label</ref></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>node<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classpos__constraints__mrf_1_1PosMrf_1ad818bb6139a315eb70390ad881b6783a" kindref="member">nodes</ref>:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>node.convert_to_protobuf(proto_graph.node.add())</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>proto_graph</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__==</highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>wc<sp/>=<sp/>load(open(sys.argv[1],<sp/></highlight><highlight class="stringliteral">&apos;rb&apos;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#print<sp/>len(wc.word_counts)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>manager<sp/>=<sp/>PosConstraint(wc)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>s<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(parse_simple_file(open(sys.argv[2]))):</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>manager.inc_sent(s)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>t<sp/>=<sp/>sys.argv[4]</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>s,<sp/>total<sp/>=<sp/>manager.stats()</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>groups<sp/>=<sp/>manager.groups()</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(len(groups)):</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>group1<sp/>=<sp/>groups[i]</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>posmrf<sp/>=<sp/>PosMrf(group1[0],<sp/>group1[1])</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>j<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(len(group1[1])):</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>group1[1][j][0],<sp/>group1[1][j][1]</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>training_seen<sp/>=<sp/>group1[1][0][2]</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>test_seen<sp/>=<sp/>len(group1[1])</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#print<sp/>training_seen,<sp/>test_seen<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>bonus<sp/>=<sp/>2*<sp/>-min((20*test_seen<sp/><sp/>/<sp/>float(20*<sp/>test_seen<sp/>+<sp/>training_seen<sp/>+<sp/>1)),<sp/>1.0);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>&gt;&gt;sys.stderr,<sp/>bonus</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>t<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;nbayes&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>posmrf.add_naive_bayes_edges(bonus)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>t<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;potts&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>at<sp/>best<sp/>potts<sp/>is<sp/>the<sp/>same<sp/>as<sp/>naive<sp/>bayes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>posmrf.add_potts_edges(bonus/float(test_seen))</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>t</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_graph<sp/>=<sp/>posmrf.convert_to_protobuf()</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>f<sp/>=<sp/>open(sys.argv[3]<sp/>+<sp/>str(i),<sp/></highlight><highlight class="stringliteral">&quot;wb&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>f.write(proto_graph.SerializeToString())</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>f.close()</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>zerozero<sp/>=<sp/>manager.zerozero()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>data<sp/>=<sp/>[<sp/>b[0]<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>a,b<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>zerozero]</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>&gt;&gt;sys.stderr,<sp/>data</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>posmrf<sp/>=<sp/>PosMrf(</highlight><highlight class="stringliteral">&quot;unknown&quot;</highlight><highlight class="normal">,<sp/>data)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>posmrf.add_naive_bayes_edges(-1.0)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>proto_graph<sp/>=<sp/>posmrf.convert_to_protobuf()</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>j<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>range(len(data)):</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>i+1,<sp/>j,<sp/>data[j][0],<sp/>data[j][1]</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>f<sp/>=<sp/>open(sys.argv[3]<sp/>+<sp/>str(i+1),<sp/></highlight><highlight class="stringliteral">&quot;wb&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>f.write(proto_graph.SerializeToString())</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>f.close()</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#print<sp/>manager</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#print<sp/>s<sp/>/<sp/>float(total)</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py"/>
+  </compounddef>
+</doxygen>

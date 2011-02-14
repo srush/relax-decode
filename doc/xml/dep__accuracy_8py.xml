@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="dep__accuracy_8py" kind="file">
+    <compoundname>dep_accuracy.py</compoundname>
+    <innernamespace refid="namespaceeval_1_1dep__accuracy">eval::dep_accuracy</innernamespace>
+    <innernamespace refid="namespaceformal_1_1conll">formal::conll</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">from</highlight><highlight class="normal"><sp/>itertools<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>formal.conll<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">eval_dep(test_simple,<sp/>gold_simple):</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>total<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>correct<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>test_sent,<sp/>gold_sent<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>izip(test_simple,<sp/>gold_simple):</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>test_word,<sp/>gold_word<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>izip(test_sent,<sp/>gold_sent):</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/>test_word.word<sp/>==<sp/>gold_word.word</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/>test_word.pos<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">assert</highlight><highlight class="normal"><sp/>gold_word.pos</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>test_word.head<sp/>==<sp/>gold_word.head:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>correct<sp/>+=1<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>total<sp/>+=<sp/>1</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>correct,<sp/>total</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>test_file<sp/>=<sp/>sys.argv[1]</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>gold_file<sp/>=<sp/>sys.argv[2]</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>test_sents<sp/>=<sp/>parse_conll_file(test_file)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>gold_sents<sp/>=<sp/>parse_conll_file(gold_file)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>correct,<sp/>total<sp/>=<sp/>eval_pos(test_sents,<sp/>gold_sents)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Out<sp/>of&quot;</highlight><highlight class="normal">,<sp/>float(total)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Accuracy<sp/>is:&quot;</highlight><highlight class="normal">,<sp/>correct<sp/>/<sp/>float(total)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/data_management/eval/dep_accuracy.py"/>
+  </compounddef>
+</doxygen>

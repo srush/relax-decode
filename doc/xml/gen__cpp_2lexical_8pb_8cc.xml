@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="gen__cpp_2lexical_8pb_8cc" kind="file">
+    <compoundname>lexical.pb.cc</compoundname>
+    <includes refid="gen__cpp_2lexical_8pb_8cc" local="yes">lexical.pb.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">google/protobuf/stubs/common.h</includes>
+    <includes local="no">google/protobuf/generated_message_util.h</includes>
+    <includes local="no">google/protobuf/repeated_field.h</includes>
+    <includes local="no">google/protobuf/extension_set.h</includes>
+    <includes local="no">google/protobuf/generated_message_reflection.h</includes>
+    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">google/protobuf/stubs/once.h</includes>
+    <includes local="no">google/protobuf/io/coded_stream.h</includes>
+    <includes local="no">google/protobuf/wire_format_lite_inl.h</includes>
+    <includes local="no">google/protobuf/descriptor.h</includes>
+    <includes local="no">google/protobuf/reflection_ops.h</includes>
+    <includes local="no">google/protobuf/wire_format.h</includes>
+    <includedby refid="gen__cpp_2lexical_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/lexical.pb.cc</includedby>
+    <incdepgraph>
+      <node id="1278">
+        <label>interfaces/hypergraph/gen_cpp/lexical.pb.cc</label>
+        <link refid="gen_cpp/lexical.pb.cc"/>
+        <childnode refid="1279" relation="include">
+        </childnode>
+        <childnode refid="1280" relation="include">
+        </childnode>
+        <childnode refid="1281" relation="include">
+        </childnode>
+        <childnode refid="1282" relation="include">
+        </childnode>
+        <childnode refid="1283" relation="include">
+        </childnode>
+        <childnode refid="1284" relation="include">
+        </childnode>
+        <childnode refid="1285" relation="include">
+        </childnode>
+        <childnode refid="1286" relation="include">
+        </childnode>
+        <childnode refid="1287" relation="include">
+        </childnode>
+        <childnode refid="1288" relation="include">
+        </childnode>
+        <childnode refid="1289" relation="include">
+        </childnode>
+        <childnode refid="1290" relation="include">
+        </childnode>
+        <childnode refid="1291" relation="include">
+        </childnode>
+        <childnode refid="1292" relation="include">
+        </childnode>
+      </node>
+      <node id="1279">
+        <label>string</label>
+      </node>
+      <node id="1291">
+        <label>google/protobuf/reflection_ops.h</label>
+      </node>
+      <node id="1288">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="1285">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="1279" relation="include">
+        </childnode>
+        <childnode refid="1280" relation="include">
+        </childnode>
+        <childnode refid="1281" relation="include">
+        </childnode>
+        <childnode refid="1282" relation="include">
+        </childnode>
+        <childnode refid="1283" relation="include">
+        </childnode>
+        <childnode refid="1284" relation="include">
+        </childnode>
+      </node>
+      <node id="1281">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="1287">
+        <label>google/protobuf/stubs/once.h</label>
+      </node>
+      <node id="1280">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="1290">
+        <label>google/protobuf/descriptor.h</label>
+      </node>
+      <node id="1283">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="1282">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="1292">
+        <label>google/protobuf/wire_format.h</label>
+      </node>
+      <node id="1289">
+        <label>google/protobuf/wire_format_lite_inl.h</label>
+      </node>
+      <node id="1286">
+        <label>algorithm</label>
+      </node>
+      <node id="1284">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structStaticDescriptorInitializer__lexical__2eproto" prot="public">StaticDescriptorInitializer_lexical_2eproto</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="gen__cpp_2lexical_8pb_8cc_1a020e0a0bb943c4473eac722b585472ea" prot="public" static="no">
+        <name>INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="3" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="gen__cpp_2lexical_8pb_8cc_1ab7e106ce7009d1b890554729f1db9c74" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structStaticDescriptorInitializer__lexical__2eproto" kindref="compound">StaticDescriptorInitializer_lexical_2eproto</ref></type>
+        <definition>struct StaticDescriptorInitializer_lexical_2eproto  static_descriptor_initializer_lexical_2eproto_</definition>
+        <argsstring></argsstring>
+        <name>static_descriptor_initializer_lexical_2eproto_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1ae831b67b3b3e409f3eb18769ec8233ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AssignDesc_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="22" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1a8bbaef1e71b29095103c29517d7ff2b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_ShutdownFile_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="44" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1aeb7640ce4e956d114e156b011de3c715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AddDesc_lexical_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_lexical_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="47" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" bodystart="47" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1abbe44bcc683c8de27df49a11257099cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>,::google::protobuf::internal::PrimitiveTypeTraits&lt; bool &gt;, 8, false &gt;</type>
+        <definition>::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Node, ::google::protobuf::internal::PrimitiveTypeTraits&lt; bool &gt;, 8, false &gt; is_word</definition>
+        <argsstring>(kIsWordFieldNumber, false)</argsstring>
+        <name>is_word</name>
+        <param>
+          <type>kIsWordFieldNumber</type>
+        </param>
+        <param>
+          <type>false</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="78"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1aa41d27c53a65df909ef75abb4646519a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::std::string</type>
+        <definition>const ::std::string word_default</definition>
+        <argsstring>(&quot;&quot;)</argsstring>
+        <name>word_default</name>
+        <param>
+          <type>&quot;&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="79"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2lexical_8pb_8cc_1a2bf474c0a1b5f47d3f449ecf4d0e2949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>,::google::protobuf::internal::StringTypeTraits, 9, false &gt;</type>
+        <definition>::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Node, ::google::protobuf::internal::StringTypeTraits, 9, false &gt; word</definition>
+        <argsstring>(kWordFieldNumber, word_default)</argsstring>
+        <name>word</name>
+        <param>
+          <type>kWordFieldNumber</type>
+        </param>
+        <param>
+          <type>word_default</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc" line="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Generated<sp/>by<sp/>the<sp/>protocol<sp/>buffer<sp/>compiler.<sp/><sp/>DO<sp/>NOT<sp/>EDIT!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&quot;lexical.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/stubs/once.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/io/coded_stream.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/wire_format_lite_inl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/descriptor.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/reflection_ops.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/wire_format.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(includes)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_AssignDesc_lexical_2eproto()<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>protobuf_AddDesc_lexical_2eproto();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>const<sp/>::google::protobuf::FileDescriptor*<sp/>file<sp/>=</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::DescriptorPool::generated_pool()-&gt;FindFileByName(</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;lexical.proto&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>GOOGLE_CHECK(file<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_AssignDescriptorsOnce()<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>::google::protobuf::GoogleOnceInit(&amp;protobuf_AssignDescriptors_once_,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;protobuf_AssignDesc_lexical_2eproto);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_RegisterTypes(const<sp/>::std::string&amp;)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>protobuf_AssignDescriptorsOnce();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_ShutdownFile_lexical_2eproto()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_AddDesc_lexical_2eproto()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>already_here<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(already_here)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>already_here<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>GOOGLE_PROTOBUF_VERIFY_VERSION;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>::protobuf_AddDesc_hypergraph_2eproto();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>::google::protobuf::DescriptorPool::InternalAddGeneratedFile(</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\n\rlexical.proto\032\020hypergraph.proto:!\n\007is_&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;word\022\020.Hypergraph.Node\030n<sp/>\001(\010:\036\n\004word\022\020.H&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ypergraph.Node\030o<sp/>\001(\t&quot;</highlight><highlight class="normal">,<sp/>100);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;lexical.proto&quot;</highlight><highlight class="normal">,<sp/>&amp;protobuf_RegisterTypes);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>::google::protobuf::internal::ExtensionSet::RegisterExtension(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;::Hypergraph_Node::default_instance(),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>110,<sp/>8,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>::google::protobuf::internal::ExtensionSet::RegisterExtension(</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;::Hypergraph_Node::default_instance(),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>111,<sp/>9,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>::google::protobuf::internal::OnShutdown(&amp;protobuf_ShutdownFile_lexical_2eproto);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Force<sp/>AddDescriptors()<sp/>to<sp/>be<sp/>called<sp/>at<sp/>static<sp/>initialization<sp/>time.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structStaticDescriptorInitializer__lexical__2eproto" kindref="compound">StaticDescriptorInitializer_lexical_2eproto</ref><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="structStaticDescriptorInitializer__lexical__2eproto" kindref="compound">StaticDescriptorInitializer_lexical_2eproto</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>protobuf_AddDesc_lexical_2eproto();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/>static_descriptor_initializer_lexical_2eproto_;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Node" kindref="compound"> ::Hypergraph_Node</ref>,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::PrimitiveTypeTraits&lt;<sp/>bool<sp/>&gt;,<sp/>8,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>is_word(kIsWordFieldNumber,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">const<sp/>::std::string<sp/>word_default(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Node" kindref="compound"> ::Hypergraph_Node</ref>,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::StringTypeTraits,<sp/>9,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>word(kWordFieldNumber,<sp/>word_default);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(namespace_scope)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(global_scope)</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/lexical.pb.cc"/>
+  </compounddef>
+</doxygen>

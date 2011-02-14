@@ -1,0 +1,973 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classlattice_1_1Subword" kind="class" prot="public">
+    <compoundname>lattice::Subword</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a795d7849c138b766c0de1000929a9279" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Subword::kWordFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kWordFieldNumber</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="437" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1accafa8353a5d494473b8a7e9903b051d" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Subword::kSubwordOriginalIdFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kSubwordOriginalIdFieldNumber</name>
+        <initializer> 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="448" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a581a69ab155520b618cdd2146bc87752" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Subword::kSubwordHypergraphNodeIdFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kSubwordHypergraphNodeIdFieldNumber</name>
+        <initializer> 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="455" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="455" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a854e22fd275a4570d0261714430000ae" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::UnknownFieldSet</type>
+        <definition>::google::protobuf::UnknownFieldSet lattice::Subword::_unknown_fields_</definition>
+        <argsstring></argsstring>
+        <name>_unknown_fields_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="468" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="468" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a00acca96d0df7c014923ba8328ce2469" prot="private" static="no" mutable="no">
+        <type>::std::string *</type>
+        <definition>::std::string* lattice::Subword::word_</definition>
+        <argsstring></argsstring>
+        <name>word_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="470" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="470" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1ab32fce3923742a7285fc06f0c68b07e8" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>::google::protobuf::int32 lattice::Subword::subword_original_id_</definition>
+        <argsstring></argsstring>
+        <name>subword_original_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="471" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="471" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a58552393f22b64c4a23cbe440bde2c88" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>::google::protobuf::int32 lattice::Subword::subword_hypergraph_node_id_</definition>
+        <argsstring></argsstring>
+        <name>subword_hypergraph_node_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="472" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1a9beec2f1685c8247c907a7e3eef4a7f3" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int lattice::Subword::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="474" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Subword_1af46ccc5b52dd2ee54495d746547d05d1" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::uint32</type>
+        <definition>::google::protobuf::uint32 lattice::Subword::_has_bits_[(3+31)/32]</definition>
+        <argsstring>[(3+31)/32]</argsstring>
+        <name>_has_bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="475" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Subword_1ac6ea8572f130d03cf28e2fdefd0193f1" prot="private" static="yes" mutable="no">
+        <type><ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> *</type>
+        <definition>Subword * lattice::Subword::default_instance_</definition>
+        <argsstring></argsstring>
+        <name>default_instance_</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="482" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="482" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlattice_1_1Subword_1a498de6872d4166eec722ed1686c45970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Subword::Subword</definition>
+        <argsstring>()</argsstring>
+        <name>Subword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="382" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1261" bodyend="1264"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a5454c6d5500f5fc77aaa0ebb9b36d44b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>lattice::Subword::~Subword</definition>
+        <argsstring>()</argsstring>
+        <name>~Subword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="383" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1283" bodyend="1285"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aa0e10ac48dd649a4dddf8e1a6ef9b810" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Subword::Subword</definition>
+        <argsstring>(const Subword &amp;from)</argsstring>
+        <name>Subword</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="385" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1269" bodyend="1273"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a102d4bfb0a00050e86aa85c3d8d1ef20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+        <definition>Subword&amp; lattice::Subword::operator=</definition>
+        <argsstring>(const Subword &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="387" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="387" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aff470f65348c81181cffe6659c9e3d17" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; lattice::Subword::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="392" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="392" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a1fc937024a7c533e1c51d7adedffa24d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* lattice::Subword::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="396" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="396" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aac745475adf60d00b6f8f37c69f443b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::Swap</definition>
+        <argsstring>(Subword *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="403" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1537" bodyend="1546"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a4cc85172f8246ed23ec94de0b6274825" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> *</type>
+        <definition>Subword * lattice::Subword::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="407" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1311" bodyend="1313"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ab08febfe342e4382de8d9d42142b87b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="408" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1520" bodyend="1524"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a9477c976f0289cea8423429c562b7d81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="409" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1492" bodyend="1502"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a433f5e66bd6cea31a3c63d0a74a95de4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::CopyFrom</definition>
+        <argsstring>(const Subword &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="410" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1526" bodyend="1530"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1af8f40895c8ae1ce04f617fedaa377192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::MergeFrom</definition>
+        <argsstring>(const Subword &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="411" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1504" bodyend="1518"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ab1072bac4c0bdeda3c448a40e89c9ed4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="412" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1315" bodyend="1327"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ae032c1b833fdfce330d0f185d3c08f97" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Subword::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="413" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1532" bodyend="1535"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aa8d179aa2974c3c662c5790ca03148bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Subword::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="415" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1455" bodyend="1490"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ade168b7ef9839ed60bc6a1fe33c6a5a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Subword::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="417" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1329" bodyend="1397"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ab8c9ea5fadefc35219ce39839adbf303" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="419" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1399" bodyend="1424"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a39725b39e07a08dff2225fa1f4115e40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>google::protobuf::uint8 * lattice::Subword::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="420" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1426" bodyend="1453"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a93f2c5e53295755297f658ec54e81283" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Subword::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="421" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="421" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a82569d1cb47ab62caa9cadcaf45c07b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>google::protobuf::Metadata lattice::Subword::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="428" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1548" bodyend="1554"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aa069cfdde7b9063126104f005aac89cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Subword::has_word</definition>
+        <argsstring>() const </argsstring>
+        <name>has_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="435" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1088" bodyend="1090"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a0a849e147bf2c78d785197b897b14e53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_word</definition>
+        <argsstring>()</argsstring>
+        <name>clear_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="436" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1097" bodyend="1102"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a2853badbab594ed129df0df6a0e97b65" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::std::string &amp;</type>
+        <definition>const ::std::string &amp; lattice::Subword::word</definition>
+        <argsstring>() const </argsstring>
+        <name>word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="438" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1103" bodyend="1105"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a2b2aeb43d13e2e7e57b06afa5d0e50ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_word</definition>
+        <argsstring>(const ::std::string &amp;value)</argsstring>
+        <name>set_word</name>
+        <param>
+          <type>const ::std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="439" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1106" bodyend="1112"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aeeff8037e9406ee50534fbe6e1f6e702" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_word</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>set_word</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="440" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1113" bodyend="1119"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a3d6126168fe9ce91049687370dcb4977" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_word</definition>
+        <argsstring>(const char *value, size_t size)</argsstring>
+        <name>set_word</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="441" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1120" bodyend="1126"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a4495efa4267a4b124bba594f91bd73fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * lattice::Subword::mutable_word</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="442" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1127" bodyend="1133"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ad6cb356c802ac727d24df1e2cd9ca9ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::std::string *</type>
+        <definition>std::string * lattice::Subword::release_word</definition>
+        <argsstring>()</argsstring>
+        <name>release_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="443" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1134" bodyend="1143"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a8a5d194b546acfd51ab29de9e23eeb69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Subword::has_subword_original_id</definition>
+        <argsstring>() const </argsstring>
+        <name>has_subword_original_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="446" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1146" bodyend="1148"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a3aa83e492f090e44f6fcbf14fe739ba5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_subword_original_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_subword_original_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="447" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1155" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a279ea67dbaee3bb5635d72b5cdae3e52" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 lattice::Subword::subword_original_id</definition>
+        <argsstring>() const </argsstring>
+        <name>subword_original_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="449" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1159" bodyend="1161"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a9ed37556521d3f0abb1e3b01850fa190" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_subword_original_id</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_subword_original_id</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="450" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1162" bodyend="1165"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ac63e04e9d9b551e89e95e7fce5d675a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Subword::has_subword_hypergraph_node_id</definition>
+        <argsstring>() const </argsstring>
+        <name>has_subword_hypergraph_node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="453" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1168" bodyend="1170"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a73913395d719789761d67639d4bd7e6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_subword_hypergraph_node_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_subword_hypergraph_node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="454" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1177" bodyend="1180"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1aedff8077ae76f04a2cfd99045e69763b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 lattice::Subword::subword_hypergraph_node_id</definition>
+        <argsstring>() const </argsstring>
+        <name>subword_hypergraph_node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="456" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1181" bodyend="1183"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ac125d8a6d580639477e164347e65bfc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_subword_hypergraph_node_id</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_subword_hypergraph_node_id</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="457" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1184" bodyend="1187"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlattice_1_1Subword_1a6b98d06b8741d7631593e8248acadb3f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>const ::google::protobuf::Descriptor * lattice::Subword::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="400" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1300" bodyend="1303"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a68365b2839b59dd8805f06a49797e67f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classlattice_1_1Subword" kindref="compound">Subword</ref> &amp;</type>
+        <definition>const Subword &amp; lattice::Subword::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="401" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1305" bodyend="1307"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlattice_1_1Subword_1a7c966890dabca4e3a1afe22a0e862b98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="423" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1275" bodyend="1281"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a602fed21a151881507c9700fa77ddc19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="424" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1287" bodyend="1293"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ad8244e65fe6667964d8b7546ccaf70eb" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="425" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1295" bodyend="1299"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1ac1c8ef79f6ebe45405afc6d95fb3dfd5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_has_word</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="461" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1091" bodyend="1093"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1abc7120e9cea5f907ee4ad05b04874603" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_has_word</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="462" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1094" bodyend="1096"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a99b7f26bffb78da77b6d94cfbe7d2ebc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_has_subword_original_id</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_subword_original_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="463" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1149" bodyend="1151"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a8ad8e48f0867f64883eaa289eedf4744" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_has_subword_original_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_subword_original_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="464" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1152" bodyend="1154"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a65ef98fc2b6ed84b90550e27946c7b47" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::set_has_subword_hypergraph_node_id</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_subword_hypergraph_node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="465" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1171" bodyend="1173"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a3f2c946fae66d258e67f72686f0857b4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::clear_has_subword_hypergraph_node_id</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_subword_hypergraph_node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="466" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1174" bodyend="1176"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Subword_1a9d886d30c4064bec56fe19da984b9c2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Subword::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="481" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1266" bodyend="1267"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classlattice_1_1Subword_1a19e63fb37025879e023cad88064187cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="477"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Subword_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="478"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Subword_1a3c7b187721d0704ceb19ff889729d35a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="479"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1555">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1553">
+        <label>lattice::Subword</label>
+        <link refid="classlattice_1_1Subword"/>
+        <childnode refid="1553" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+        <childnode refid="1554" relation="usage">
+          <edgelabel>word_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1554">
+        <label>std::string</label>
+        <childnode refid="1555" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="380" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="380" bodyend="483"/>
+    <listofallmembers>
+      <member refid="classlattice_1_1Subword_1a9beec2f1685c8247c907a7e3eef4a7f3" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>_cached_size_</name></member>
+      <member refid="classlattice_1_1Subword_1af46ccc5b52dd2ee54495d746547d05d1" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>_has_bits_</name></member>
+      <member refid="classlattice_1_1Subword_1a854e22fd275a4570d0261714430000ae" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>_unknown_fields_</name></member>
+      <member refid="classlattice_1_1Subword_1aa8d179aa2974c3c662c5790ca03148bd" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>ByteSize</name></member>
+      <member refid="classlattice_1_1Subword_1ab1072bac4c0bdeda3c448a40e89c9ed4" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>Clear</name></member>
+      <member refid="classlattice_1_1Subword_1a3f2c946fae66d258e67f72686f0857b4" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_has_subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a8ad8e48f0867f64883eaa289eedf4744" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_has_subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1abc7120e9cea5f907ee4ad05b04874603" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_has_word</name></member>
+      <member refid="classlattice_1_1Subword_1a73913395d719789761d67639d4bd7e6e" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a3aa83e492f090e44f6fcbf14fe739ba5" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1a0a849e147bf2c78d785197b897b14e53" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>clear_word</name></member>
+      <member refid="classlattice_1_1Subword_1ab08febfe342e4382de8d9d42142b87b4" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Subword_1a433f5e66bd6cea31a3c63d0a74a95de4" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Subword_1a68365b2839b59dd8805f06a49797e67f" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>default_instance</name></member>
+      <member refid="classlattice_1_1Subword_1ac6ea8572f130d03cf28e2fdefd0193f1" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>default_instance_</name></member>
+      <member refid="classlattice_1_1Subword_1a6b98d06b8741d7631593e8248acadb3f" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>descriptor</name></member>
+      <member refid="classlattice_1_1Subword_1a93f2c5e53295755297f658ec54e81283" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>GetCachedSize</name></member>
+      <member refid="classlattice_1_1Subword_1a82569d1cb47ab62caa9cadcaf45c07b0" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>GetMetadata</name></member>
+      <member refid="classlattice_1_1Subword_1ac63e04e9d9b551e89e95e7fce5d675a4" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>has_subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a8a5d194b546acfd51ab29de9e23eeb69" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>has_subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1aa069cfdde7b9063126104f005aac89cb" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>has_word</name></member>
+      <member refid="classlattice_1_1Subword_1a9d886d30c4064bec56fe19da984b9c2e" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classlattice_1_1Subword_1ae032c1b833fdfce330d0f185d3c08f97" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>IsInitialized</name></member>
+      <member refid="classlattice_1_1Subword_1a581a69ab155520b618cdd2146bc87752" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>kSubwordHypergraphNodeIdFieldNumber</name></member>
+      <member refid="classlattice_1_1Subword_1accafa8353a5d494473b8a7e9903b051d" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>kSubwordOriginalIdFieldNumber</name></member>
+      <member refid="classlattice_1_1Subword_1a795d7849c138b766c0de1000929a9279" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>kWordFieldNumber</name></member>
+      <member refid="classlattice_1_1Subword_1a9477c976f0289cea8423429c562b7d81" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Subword_1af8f40895c8ae1ce04f617fedaa377192" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Subword_1ade168b7ef9839ed60bc6a1fe33c6a5a2" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classlattice_1_1Subword_1a1fc937024a7c533e1c51d7adedffa24d" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classlattice_1_1Subword_1a4495efa4267a4b124bba594f91bd73fe" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>mutable_word</name></member>
+      <member refid="classlattice_1_1Subword_1a4cc85172f8246ed23ec94de0b6274825" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>New</name></member>
+      <member refid="classlattice_1_1Subword_1a102d4bfb0a00050e86aa85c3d8d1ef20" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>operator=</name></member>
+      <member refid="classlattice_1_1Subword_1a19e63fb37025879e023cad88064187cf" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>protobuf_AddDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Subword_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>protobuf_AssignDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Subword_1a3c7b187721d0704ceb19ff889729d35a" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>protobuf_ShutdownFile_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Subword_1ad6cb356c802ac727d24df1e2cd9ca9ed" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>release_word</name></member>
+      <member refid="classlattice_1_1Subword_1ab8c9ea5fadefc35219ce39839adbf303" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classlattice_1_1Subword_1a39725b39e07a08dff2225fa1f4115e40" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classlattice_1_1Subword_1a65ef98fc2b6ed84b90550e27946c7b47" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>set_has_subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a99b7f26bffb78da77b6d94cfbe7d2ebc" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>set_has_subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1ac1c8ef79f6ebe45405afc6d95fb3dfd5" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>set_has_word</name></member>
+      <member refid="classlattice_1_1Subword_1ac125d8a6d580639477e164347e65bfc5" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>set_subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a9ed37556521d3f0abb1e3b01850fa190" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>set_subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1a2b2aeb43d13e2e7e57b06afa5d0e50ec" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>set_word</name></member>
+      <member refid="classlattice_1_1Subword_1aeeff8037e9406ee50534fbe6e1f6e702" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>set_word</name></member>
+      <member refid="classlattice_1_1Subword_1a3d6126168fe9ce91049687370dcb4977" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>set_word</name></member>
+      <member refid="classlattice_1_1Subword_1ad8244e65fe6667964d8b7546ccaf70eb" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>SetCachedSize</name></member>
+      <member refid="classlattice_1_1Subword_1a7c966890dabca4e3a1afe22a0e862b98" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>SharedCtor</name></member>
+      <member refid="classlattice_1_1Subword_1a602fed21a151881507c9700fa77ddc19" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>SharedDtor</name></member>
+      <member refid="classlattice_1_1Subword_1a498de6872d4166eec722ed1686c45970" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>Subword</name></member>
+      <member refid="classlattice_1_1Subword_1aa0e10ac48dd649a4dddf8e1a6ef9b810" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>Subword</name></member>
+      <member refid="classlattice_1_1Subword_1aedff8077ae76f04a2cfd99045e69763b" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>subword_hypergraph_node_id</name></member>
+      <member refid="classlattice_1_1Subword_1a58552393f22b64c4a23cbe440bde2c88" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>subword_hypergraph_node_id_</name></member>
+      <member refid="classlattice_1_1Subword_1a279ea67dbaee3bb5635d72b5cdae3e52" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>subword_original_id</name></member>
+      <member refid="classlattice_1_1Subword_1ab32fce3923742a7285fc06f0c68b07e8" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>subword_original_id_</name></member>
+      <member refid="classlattice_1_1Subword_1aac745475adf60d00b6f8f37c69f443b0" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>Swap</name></member>
+      <member refid="classlattice_1_1Subword_1aff470f65348c81181cffe6659c9e3d17" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>unknown_fields</name></member>
+      <member refid="classlattice_1_1Subword_1a2853badbab594ed129df0df6a0e97b65" prot="public" virt="non-virtual"><scope>lattice::Subword</scope><name>word</name></member>
+      <member refid="classlattice_1_1Subword_1a00acca96d0df7c014923ba8328ce2469" prot="private" virt="non-virtual"><scope>lattice::Subword</scope><name>word_</name></member>
+      <member refid="classlattice_1_1Subword_1a5454c6d5500f5fc77aaa0ebb9b36d44b" prot="public" virt="virtual"><scope>lattice::Subword</scope><name>~Subword</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

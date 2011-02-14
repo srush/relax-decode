@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classPottsModelBuilderLP" kind="class" prot="public">
+    <compoundname>PottsModelBuilderLP</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPottsModelBuilderLP_1a07e4370fc266d975e385dda8f46eb003" prot="private" static="no" mutable="no">
+        <type>const PottsModel &amp;</type>
+        <definition>const PottsModel&amp; PottsModelBuilderLP::_potts</definition>
+        <argsstring></argsstring>
+        <name>_potts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="123" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classPottsModelBuilderLP_1af62f78dc2bdeb5b4d39444c47f8ad341" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structPottsModelLP" kindref="compound">PottsModelLP</ref> *</type>
+        <definition>static PottsModelLP* PottsModelBuilderLP::add_potts</definition>
+        <argsstring>(const PottsModel &amp;potts, GRBModel &amp;model, int var_type)</argsstring>
+        <name>add_potts</name>
+        <param>
+          <type>const PottsModel &amp;</type>
+          <declname>potts</declname>
+        </param>
+        <param>
+          <type>GRBModel &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>var_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="23" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="23" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" line="20" bodyfile="/home/srush/Projects/relax_decode/lp/PottsModelLP.h" bodystart="20" bodyend="125"/>
+    <listofallmembers>
+      <member refid="classPottsModelBuilderLP_1a07e4370fc266d975e385dda8f46eb003" prot="private" virt="non-virtual"><scope>PottsModelBuilderLP</scope><name>_potts</name></member>
+      <member refid="classPottsModelBuilderLP_1af62f78dc2bdeb5b4d39444c47f8ad341" prot="public" virt="non-virtual"><scope>PottsModelBuilderLP</scope><name>add_potts</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="triple__diff_8py" kind="file">
+    <compoundname>triple_diff.py</compoundname>
+    <innernamespace refid="namespacetriple__diff">triple_diff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys<sp/></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>textwrap</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>itertools<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">files<sp/>=<sp/>map(open,sys.argv[1:])</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>res<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>izip(*files):</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>a,b,c<sp/>=<sp/>map(</highlight><highlight class="keyword">lambda</highlight><highlight class="normal"><sp/>a:<sp/>a.replace(</highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">).strip(),<sp/>res)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>var<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;|cc&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>c<sp/>==<sp/>a<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>b:</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;|cx&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>a<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>c<sp/>==<sp/>b:<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;|xc&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>a<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>b<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>a<sp/>==<sp/>b:<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;|xx&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>a<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>c<sp/>&lt;&gt;<sp/>b<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>a<sp/>&lt;&gt;<sp/>b:<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;|xxd&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>c:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>var<sp/>=</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;%-30s<sp/>%-25s<sp/>%-5s<sp/>%-30s&quot;</highlight><highlight class="normal">%(a,b,var,<sp/>c)</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/experiments/triple_diff.py"/>
+  </compounddef>
+</doxygen>

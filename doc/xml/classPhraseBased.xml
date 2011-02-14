@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classPhraseBased" kind="class" prot="public">
+    <compoundname>PhraseBased</compoundname>
+    <basecompoundref refid="classScarab_1_1HG_1_1HypergraphImpl" prot="public" virt="non-virtual">Scarab::HG::HypergraphImpl</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPhraseBased_1aafc2997b58b3698fed7cb5a1f6f269c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void PhraseBased::print</definition>
+        <argsstring>() const </argsstring>
+        <name>print</name>
+        <reimplements refid="classScarab_1_1HG_1_1HGraph_1ab5aa11c932b28864b56f28e0babbc1c1">print</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the hypergraph for debugging. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" line="12" bodyfile="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classPhraseBased_1a3883660c72be6ce8daab08f368317853" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void PhraseBased::set_up</definition>
+        <argsstring>(const Hypergraph &amp;hgraph)</argsstring>
+        <name>set_up</name>
+        <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1ae91de73e633e450b01664e3ec964019c">set_up</reimplements>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>hgraph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" line="14" bodyfile="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1307">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1308" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1308">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1306">
+        <label>PhraseBased</label>
+        <link refid="classPhraseBased"/>
+        <childnode refid="1307" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1316">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="1310">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1311" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1312" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1314" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="1315" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1313" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="1313">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="1312">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="1313" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1314">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="1314" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1311">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1309">
+        <label>PhraseBased</label>
+        <link refid="classPhraseBased"/>
+        <childnode refid="1310" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1315">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="1316" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" line="10" bodyfile="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a56fb710140f3359646b1a17cb0417d74" prot="protected" virt="non-virtual"><scope>PhraseBased</scope><name>_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a4cc57d9255e2f09714c5913d67cd0554" prot="protected" virt="non-virtual"><scope>PhraseBased</scope><name>_nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a7035fdae4c04d0752aaaf1e7eba7600e" prot="protected" virt="non-virtual"><scope>PhraseBased</scope><name>_root</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a1f33418f90b826db9cfc0bb34e1ca9cf" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>build_from_file</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a30349aca0e3b8f8dc72ed74d78e8c5b8" prot="protected" virt="virtual"><scope>PhraseBased</scope><name>convert_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a93e9e250fa457a2171bf07241b7829eb" prot="protected" virt="virtual"><scope>PhraseBased</scope><name>convert_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0c8373e545fe59b0cb7036b4751508e1" prot="public" virt="virtual"><scope>PhraseBased</scope><name>edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31a148139b888b6bd10e78fe555144c7" prot="public" virt="virtual"><scope>PhraseBased</scope><name>get_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9276a6faa074eb4f3bbb2f8b8d5d4fbf" prot="public" virt="virtual"><scope>PhraseBased</scope><name>get_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1aa7192cf8f168e5bfed67a8faf85c8cb4" prot="protected" virt="non-virtual"><scope>PhraseBased</scope><name>hgraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a067b2daae46f4758f9621fb9d803bef2" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>HypergraphImpl</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a935bed9b8cf9235a1adb61d0889f6ac7" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>HypergraphImpl</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a238a7ce3b578c8126eccbc7803570638" prot="protected" virt="virtual"><scope>PhraseBased</scope><name>make_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af14198ba5fccb5d4118188fa42feb8ff" prot="protected" virt="virtual"><scope>PhraseBased</scope><name>make_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141" prot="public" virt="virtual"><scope>PhraseBased</scope><name>nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0adcc8783b94cbe07b092220082d00ab" prot="public" virt="virtual"><scope>PhraseBased</scope><name>num_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1ad39e917a84acb1d4caf0145ce8a903a2" prot="public" virt="virtual"><scope>PhraseBased</scope><name>num_nodes</name></member>
+      <member refid="classPhraseBased_1aafc2997b58b3698fed7cb5a1f6f269c6" prot="public" virt="virtual"><scope>PhraseBased</scope><name>print</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a98701d5529aaf3e5d4fa386694843f20" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>prune</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31172009b97d179f6b1199f191197a32" prot="public" virt="virtual"><scope>PhraseBased</scope><name>root</name></member>
+      <member refid="classPhraseBased_1a3883660c72be6ce8daab08f368317853" prot="public" virt="virtual"><scope>PhraseBased</scope><name>set_up</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af8f5ed38a355676c473e8d54b5552cc6" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>write_to_file</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" virt="virtual"><scope>PhraseBased</scope><name>~HGraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af9726fe39b4cfdbcbead1cba4efa6a01" prot="public" virt="non-virtual"><scope>PhraseBased</scope><name>~HypergraphImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

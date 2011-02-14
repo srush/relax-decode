@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespaceScarab_1_1HG" kind="namespace">
+    <compoundname>Scarab::HG</compoundname>
+    <innerclass refid="structScarab_1_1HG_1_1Location" prot="public">Scarab::HG::Location</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1Heuristic" prot="public">Scarab::HG::Heuristic</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1QueueHyp" prot="public">Scarab::HG::QueueHyp</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1AStar" prot="public">Scarab::HG::AStar</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1BestHyp" prot="public">Scarab::HG::BestHyp</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1ExtendCKY" prot="public">Scarab::HG::ExtendCKY</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1Hyperedge" prot="public">Scarab::HG::Hyperedge</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1Hypernode" prot="public">Scarab::HG::Hypernode</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HGraph" prot="public">Scarab::HG::HGraph</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1HypergraphPrune" prot="public">Scarab::HG::HypergraphPrune</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HypergraphAlgorithms" prot="public">Scarab::HG::HypergraphAlgorithms</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HyperedgeImpl" prot="public">Scarab::HG::HyperedgeImpl</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HypernodeImpl" prot="public">Scarab::HG::HypernodeImpl</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HypergraphImpl" prot="public">Scarab::HG::HypergraphImpl</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1State" prot="public">Scarab::HG::State</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1Hypothesis" prot="public">Scarab::HG::Hypothesis</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1Controller" prot="public">Scarab::HG::Controller</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1DepParserLP" prot="public">Scarab::HG::DepParserLP</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1DepParserLPBuilder" prot="public">Scarab::HG::DepParserLPBuilder</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1HypergraphLP" prot="public">Scarab::HG::HypergraphLP</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1HypergraphLPBuilder" prot="public">Scarab::HG::HypergraphLPBuilder</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1LatticeVars" prot="public">Scarab::HG::LatticeVars</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1LPBuilder" prot="public">Scarab::HG::LPBuilder</innerclass>
+    <innerclass refid="structScarab_1_1HG_1_1TagLP" prot="public">Scarab::HG::TagLP</innerclass>
+    <innerclass refid="classScarab_1_1HG_1_1TagLPBuilder" prot="public">Scarab::HG::TagLPBuilder</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceScarab_1_1HG_1a5528e0d3bd50063fe07e5862b6afba0c" prot="public" static="no">
+        <name>loc</name>
+        <enumvalue id="namespaceScarab_1_1HG_1a5528e0d3bd50063fe07e5862b6afba0ca12ffd636a7b518de8bbd0bef7b8eb349" prot="public">
+          <name>NODE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceScarab_1_1HG_1a5528e0d3bd50063fe07e5862b6afba0ca40994ba9f4bc163f2458d3bfe918a207" prot="public">
+          <name>EDGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceScarab_1_1HG_1a5528e0d3bd50063fe07e5862b6afba0ca070212f77dbde76a41ae42d1d2252369" prot="public">
+          <name>TOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="23" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1adea99655138afa6d110d7d7cf785cfd9" prot="public" static="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> *</type>
+        <definition>typedef const Hypernode* Scarab::HG::HNode</definition>
+        <argsstring></argsstring>
+        <name>HNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="20" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1a94d129ce4ef707bde215992030c6ce60" prot="public" static="no">
+        <type>vector&lt; const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt;</type>
+        <definition>typedef vector&lt;const Hypernode * &gt; Scarab::HG::HNodes</definition>
+        <argsstring></argsstring>
+        <name>HNodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="22" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1a008f4701675fcafa62de56dfc7c96358" prot="public" static="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> *</type>
+        <definition>typedef const Hyperedge* Scarab::HG::HEdge</definition>
+        <argsstring></argsstring>
+        <name>HEdge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="89" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1a5130d33bc3acccb9984ebdaab874edc2" prot="public" static="no">
+        <type>vector&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref> &gt;</type>
+        <definition>typedef vector&lt;HEdge &gt; Scarab::HG::HEdges</definition>
+        <argsstring></argsstring>
+        <name>HEdges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="90" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1aa23f492a3408f3d8dfbfb3c154ce36e6" prot="public" static="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt;</type>
+        <definition>typedef Cache&lt;Hyperedge, double&gt; Scarab::HG::EdgeCache</definition>
+        <argsstring></argsstring>
+        <name>EdgeCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="12" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1a6ae69ff4ea527e7dc7df67f909ab2c96" prot="public" static="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, double &gt;</type>
+        <definition>typedef Cache&lt;Hypernode, double&gt; Scarab::HG::NodeCache</definition>
+        <argsstring></argsstring>
+        <name>NodeCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="13" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceScarab_1_1HG_1a423a1e06b9f38f9bdc7a16bc9afffff0" prot="public" static="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> * &gt;</type>
+        <definition>typedef Cache&lt;Hypernode, const Hyperedge *&gt; Scarab::HG::NodeBackCache</definition>
+        <argsstring></argsstring>
+        <name>NodeBackCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="14" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a0ed3cea8e2fd5d37bc36636fac3f5ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::extract_back_pointers</definition>
+        <argsstring>(const Hypernode &amp;node, const Hypothesis &amp;best_hyp, const Cache&lt; Hypernode, BestHyp &gt; &amp;memo_table, NodeBackCache &amp;back_pointers)</argsstring>
+        <name>extract_back_pointers</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>best_hyp</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, <ref refid="classScarab_1_1HG_1_1BestHyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+          <declname>memo_table</declname>
+        </param>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_pointers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/BestHyp.cpp" line="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1aa75207452ad3c7952c810cc8c2b293cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Scarab::HG::best_path_helper</definition>
+        <argsstring>(const Hypernode &amp;node, const EdgeCache &amp;edge_weights, NodeCache &amp;score_memo_table, NodeBackCache &amp;back_memo_table)</argsstring>
+        <name>best_path_helper</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>score_memo_table</declname>
+        </param>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="16" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="284" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a28716e5ce4e4b3d9a75e794ff31b7cc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt;</type>
+        <definition>vector&lt; const Hypernode * &gt; Scarab::HG::construct_best_fringe_help</definition>
+        <argsstring>(const Hypernode &amp;node, const NodeBackCache &amp;back_memo_table)</argsstring>
+        <name>construct_best_fringe_help</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="17" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="107" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a44c758fbbe70bb327e25af4ff3476a50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HEdges</type>
+        <definition>HEdges Scarab::HG::construct_best_edges_help</definition>
+        <argsstring>(const Hypernode &amp;node, const NodeBackCache &amp;back_memo_table)</argsstring>
+        <name>construct_best_edges_help</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="18" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="148" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a721ba90422314d8af3e57c1cce7a556d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <definition>wvector Scarab::HG::construct_best_fv_help</definition>
+        <argsstring>(const Hypernode &amp;node, const NodeBackCache &amp;back_memo_table)</argsstring>
+        <name>construct_best_fv_help</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="19" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="128" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a808032cb18abc8b1608232ed55ca6435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::best_outside_path_helper</definition>
+        <argsstring>(const Hypernode &amp;node, const EdgeCache &amp;edge_weights, const NodeCache &amp;score_memo_table, NodeCache &amp;outside_memo_table)</argsstring>
+        <name>best_outside_path_helper</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>score_memo_table</declname>
+        </param>
+        <param>
+          <type><ref refid="classCache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>outside_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="24" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="248" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a025c87cbdb125948f20392d689cb7f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt;</type>
+        <definition>vector&lt;const Hypernode *&gt; Scarab::HG::construct_best_node_order_help</definition>
+        <argsstring>(const Hypernode &amp;node, const NodeBackCache &amp;back_memo_table)</argsstring>
+        <name>construct_best_node_order_help</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" line="169" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="169" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1ae35b363c49782df852ee7554f3ca1670" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; Scarab::HG::operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;os, const State &amp;s)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" line="8" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a36ab15c48a04fb476fc4bba46050a01d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; Scarab::HG::operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;os, const Hypothesis &amp;h)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" line="14" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1a1a770ac0e940cc294603359adcda34e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::show_hyp</definition>
+        <argsstring>(const Hypothesis &amp;hyp)</argsstring>
+        <name>show_hyp</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="73"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceScarab_1_1HG_1ab9ee4a582d251ec037f3734c745d2d9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref>, int &gt; *</type>
+        <definition>const Cache&lt;Graphnode, int&gt;* Scarab::HG::sync_lattice_lm</definition>
+        <argsstring>(const ForestLattice &amp;_lattice, Ngram &amp;lm)</argsstring>
+        <name>sync_lattice_lm</name>
+        <param>
+          <type>const <ref refid="classForestLattice" kindref="compound">ForestLattice</ref> &amp;</type>
+          <declname>_lattice</declname>
+        </param>
+        <param>
+          <type>Ngram &amp;</type>
+          <declname>lm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="875" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="875" bodyend="894"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.cpp" line="12"/>
+  </compounddef>
+</doxygen>

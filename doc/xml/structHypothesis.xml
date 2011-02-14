@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structHypothesis" kind="struct" prot="public">
+    <compoundname>Hypothesis</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structHypothesis_1ac655db78b0537edd6a746d34b4f72b71" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Hypothesis::hook</definition>
+        <argsstring></argsstring>
+        <name>hook</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="35" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1a7eb560f6d9417167ecc22161dd787d4f" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Hypothesis::right_side</definition>
+        <argsstring></argsstring>
+        <name>right_side</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="36" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1af5fbe86aeeebbfd8c0e9ae14ffb88018" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> *</type>
+        <definition>const Hyperedge* Hypothesis::back_edge</definition>
+        <argsstring></argsstring>
+        <name>back_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="37" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1ae57d8dcd62f579e1a8657dfd77bf729a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Hypothesis::is_new</definition>
+        <argsstring></argsstring>
+        <name>is_new</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="38" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1a6e3c295516e153250c5d4f3f82359320" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Hypothesis::is_done</definition>
+        <argsstring></argsstring>
+        <name>is_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="39" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1a21da5a61ebfd89d8d035a1db23b4e3fb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Hypothesis::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="41" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1a94d5ebba76057febd5ca222adc6389da" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Hypothesis::prev_hyp</definition>
+        <argsstring></argsstring>
+        <name>prev_hyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="45" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHypothesis_1a70eeecc496ad9b9049b5b53dd1587c98" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Hypothesis::original_value</definition>
+        <argsstring></argsstring>
+        <name>original_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="46" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structHypothesis_1a14ef162a1130a032a557f2fffb22021c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Hypothesis::Hypothesis</definition>
+        <argsstring>(vector&lt; int &gt; h, vector&lt; int &gt; r, const Hyperedge *be, int d, bool n)</argsstring>
+        <name>Hypothesis</name>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classScarab_1_1Hyperedge" kindref="compound">Hyperedge</ref> *</type>
+          <declname>be</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="25" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="24" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1aa7ddcf20eb35bde418768622125daa4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Hypothesis::Hypothesis</definition>
+        <argsstring>(int d)</argsstring>
+        <name>Hypothesis</name>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="27" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1aa2203d2b6f2ea080695c4a07d11fa50c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Hypothesis::Hypothesis</definition>
+        <argsstring>()</argsstring>
+        <name>Hypothesis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="31" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1ae7706b20be3de3aa79471e2a2293ce7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypothesis::match</definition>
+        <argsstring>(const Hypothesis &amp;other) const </argsstring>
+        <name>match</name>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="49" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1aa8a7f033c6ed9a439482d726f4435042" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypothesis::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="55" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1aaaae0eb7a9b8b0a79e379ea59bf87ec4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypothesis::left</definition>
+        <argsstring>() const </argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="61" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1ac93fa567df306907d438af7ea270d46b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypothesis::right</definition>
+        <argsstring>() const </argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="65" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="structHypothesis_1a7ebf0950bd01963be73f0bc6b63f7eb2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypothesis::operator&lt;</definition>
+        <argsstring>(const Hypothesis &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="70" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="70" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="575">
+        <label>Hypothesis</label>
+        <link refid="structHypothesis"/>
+        <childnode refid="576" relation="usage">
+          <edgelabel>back_edge</edgelabel>
+        </childnode>
+        <childnode refid="577" relation="usage">
+          <edgelabel>right_side</edgelabel>
+          <edgelabel>hook</edgelabel>
+          <edgelabel>prev_hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="577">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="576">
+        <label>Scarab::Hyperedge</label>
+        <link refid="classScarab_1_1Hyperedge"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="22" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="22" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structHypothesis_1af5fbe86aeeebbfd8c0e9ae14ffb88018" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>back_edge</name></member>
+      <member refid="structHypothesis_1a21da5a61ebfd89d8d035a1db23b4e3fb" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>dim</name></member>
+      <member refid="structHypothesis_1ac655db78b0537edd6a746d34b4f72b71" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>hook</name></member>
+      <member refid="structHypothesis_1a14ef162a1130a032a557f2fffb22021c" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structHypothesis_1aa7ddcf20eb35bde418768622125daa4d" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structHypothesis_1aa2203d2b6f2ea080695c4a07d11fa50c" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structHypothesis_1aa8a7f033c6ed9a439482d726f4435042" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>id</name></member>
+      <member refid="structHypothesis_1a6e3c295516e153250c5d4f3f82359320" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>is_done</name></member>
+      <member refid="structHypothesis_1ae57d8dcd62f579e1a8657dfd77bf729a" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>is_new</name></member>
+      <member refid="structHypothesis_1aaaae0eb7a9b8b0a79e379ea59bf87ec4" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>left</name></member>
+      <member refid="structHypothesis_1ae7706b20be3de3aa79471e2a2293ce7a" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>match</name></member>
+      <member refid="structHypothesis_1a7ebf0950bd01963be73f0bc6b63f7eb2" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>operator&lt;</name></member>
+      <member refid="structHypothesis_1a70eeecc496ad9b9049b5b53dd1587c98" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>original_value</name></member>
+      <member refid="structHypothesis_1a94d5ebba76057febd5ca222adc6389da" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>prev_hyp</name></member>
+      <member refid="structHypothesis_1ac93fa567df306907d438af7ea270d46b" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>right</name></member>
+      <member refid="structHypothesis_1a7eb560f6d9417167ecc22161dd787d4f" prot="public" virt="non-virtual"><scope>Hypothesis</scope><name>right_side</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

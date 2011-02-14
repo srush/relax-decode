@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="interfaces_2lattice_2gen-py_2lattice__pb2_8py" kind="file">
+    <compoundname>lattice_pb2.py</compoundname>
+    <innernamespace refid="namespacelattice__pb2">lattice_pb2</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">#<sp/>Generated<sp/>by<sp/>the<sp/>protocol<sp/>buffer<sp/>compiler.<sp/><sp/>DO<sp/>NOT<sp/>EDIT!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>google.protobuf<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>descriptor</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>google.protobuf<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>message</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>google.protobuf<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>reflection</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>google.protobuf<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>descriptor_pb2</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(imports)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">DESCRIPTOR<sp/>=<sp/>descriptor.FileDescriptor(</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;lattice.proto&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>package=</highlight><highlight class="stringliteral">&apos;lattice&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>serialized_pb=</highlight><highlight class="stringliteral">&apos;\n\rlattice.proto\x12\x07lattice\&quot;\xe1\x01\n\x07Lattice\x12\r\n\x05start\x18\x05<sp/>\x02(\x05\x12\r\n\x05\x66inal\x18\x06<sp/>\x03(\x05\x12#\n\x04node\x18\x07<sp/>\x03(\x0b\x32\x15.lattice.Lattice.Node\x1aM\n\x04Node\x12\n\n\x02id\x18\x01<sp/>\x02(\x05\x12\r\n\x05label\x18\x02<sp/>\x01(\t\x12#\n\x04\x65\x64ge\x18\x03<sp/>\x03(\x0b\x32\x15.lattice.Lattice.Edge*\x05\x08\x64\x10\xc8\x01\x1a\x37\n\x04\x45\x64ge\x12\n\n\x02id\x18\x01<sp/>\x01(\x05\x12\r\n\x05label\x18\x02<sp/>\x01(\t\x12\r\n\x05to_id\x18\x03<sp/>\x02(\x05*\x05\x08\x64\x10\xc8\x01*\x04\x08\x01\x10\x05*\x05\x08\x64\x10\xc8\x01\&quot;X\n\x07Subword\x12\x0c\n\x04word\x18\x01<sp/>\x01(\t\x12\x1b\n\x13subword_original_id\x18\x02<sp/>\x01(\x05\x12\&quot;\n\x1asubword_hypergraph_node_id\x18\x03<sp/>\x01(\x05\&quot;N\n\tPhraselet\x12\x1e\n\x04word\x18\x01<sp/>\x03(\x0b\x32\x10.lattice.Subword\x12!\n\x19phraselet_hypergraph_edge\x18\x02<sp/>\x01(\x05\&quot;3\n\nPhraselets\x12%\n\tphraselet\x18\x01<sp/>\x03(\x0b\x32\x12.lattice.Phraselet\&quot;J\n\x06Origin\x12\x17\n\x0fhypergraph_edge\x18\x01<sp/>\x03(\x05\x12\x13\n\x0boriginal_id\x18\x02<sp/>\x01(\x05\x12\x12\n\nhas_origin\x18\x03<sp/>\x01(\x08:&gt;\n\nphraselets\x12\x15.lattice.Lattice.Node\x18\x64<sp/>\x01(\x0b\x32\x13.lattice.Phraselets:*\n\x0bhas_phrases\x12\x15.lattice.Lattice.Node\x18\x65<sp/>\x01(\x08:6\n\x06origin\x12\x15.lattice.Lattice.Edge\x18n<sp/>\x01(\x0b\x32\x0f.lattice.Origin:.\n\x14num_hypergraph_edges\x12\x10.lattice.Lattice\x18y<sp/>\x01(\x05:*\n\x10num_original_ids\x12\x10.lattice.Lattice\x18z<sp/>\x01(\x05&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">PHRASELETS_FIELD_NUMBER<sp/>=<sp/>100</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">phraselets<sp/>=<sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;phraselets&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.phraselets&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>number=100,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=1,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>is_extension=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">HAS_PHRASES_FIELD_NUMBER<sp/>=<sp/>101</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">has_phrases<sp/>=<sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;has_phrases&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.has_phrases&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>number=101,<sp/>type=8,<sp/>cpp_type=7,<sp/>label=1,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>is_extension=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">ORIGIN_FIELD_NUMBER<sp/>=<sp/>110</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">origin<sp/>=<sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;origin&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.origin&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>number=110,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=1,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>is_extension=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">NUM_HYPERGRAPH_EDGES_FIELD_NUMBER<sp/>=<sp/>121</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">num_hypergraph_edges<sp/>=<sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;num_hypergraph_edges&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.num_hypergraph_edges&apos;</highlight><highlight class="normal">,<sp/>index=3,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>number=121,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>is_extension=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">NUM_ORIGINAL_IDS_FIELD_NUMBER<sp/>=<sp/>122</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">num_original_ids<sp/>=<sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;num_original_ids&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.num_original_ids&apos;</highlight><highlight class="normal">,<sp/>index=4,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>number=122,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>is_extension=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">_LATTICE_NODE<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Node&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Node&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Node.id&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=2,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;label&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Node.label&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=2,<sp/>type=9,<sp/>cpp_type=9,<sp/>label=1,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=unicode(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;utf-8&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;edge&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Node.edge&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=3,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=3,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>extension_ranges=[(100,<sp/>200),<sp/>],</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>serialized_start=105,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>serialized_end=182,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">_LATTICE_EDGE<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Edge&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Edge&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Edge.id&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;label&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Edge.label&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=2,<sp/>type=9,<sp/>cpp_type=9,<sp/>label=1,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=unicode(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;utf-8&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;to_id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.Edge.to_id&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=3,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=2,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>extension_ranges=[(100,<sp/>200),<sp/>],</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>serialized_start=184,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>serialized_end=239,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">_LATTICE<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Lattice&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;start&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.start&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=5,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=2,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;final&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.final&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=6,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=3,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;node&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Lattice.node&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=7,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=3,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>nested_types=[_LATTICE_NODE,<sp/>_LATTICE_EDGE,<sp/>],</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">True</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>extension_ranges=[(1,<sp/>5),<sp/>(100,<sp/>200),<sp/>],</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>serialized_start=27,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>serialized_end=252,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal">_SUBWORD<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Subword&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Subword&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;word&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Subword.word&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=9,<sp/>cpp_type=9,<sp/>label=1,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=unicode(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;utf-8&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;subword_original_id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Subword.subword_original_id&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=2,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;subword_hypergraph_node_id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Subword.subword_hypergraph_node_id&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=3,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>extension_ranges=[],</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>serialized_start=254,</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>serialized_end=342,</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">_PHRASELET<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Phraselet&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Phraselet&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;word&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Phraselet.word&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=3,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;phraselet_hypergraph_edge&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Phraselet.phraselet_hypergraph_edge&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=2,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>extension_ranges=[],</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>serialized_start=344,</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>serialized_end=422,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal">_PHRASELETS<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Phraselets&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Phraselets&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;phraselet&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Phraselets.phraselet&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=11,<sp/>cpp_type=10,<sp/>label=3,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/>extension_ranges=[],</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>serialized_start=424,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>serialized_end=475,</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">_ORIGIN<sp/>=<sp/>descriptor.Descriptor(</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;Origin&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Origin&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>filename=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>file=DESCRIPTOR,</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>fields=[</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;hypergraph_edge&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Origin.hypergraph_edge&apos;</highlight><highlight class="normal">,<sp/>index=0,</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=1,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=3,</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=[],</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;original_id&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Origin.original_id&apos;</highlight><highlight class="normal">,<sp/>index=1,</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=2,<sp/>type=5,<sp/>cpp_type=1,<sp/>label=1,</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=0,</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>descriptor.FieldDescriptor(</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name=</highlight><highlight class="stringliteral">&apos;has_origin&apos;</highlight><highlight class="normal">,<sp/>full_name=</highlight><highlight class="stringliteral">&apos;lattice.Origin.has_origin&apos;</highlight><highlight class="normal">,<sp/>index=2,</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>number=3,<sp/>type=8,<sp/>cpp_type=7,<sp/>label=1,</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>has_default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>default_value=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>message_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>enum_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,<sp/>containing_type=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_extension=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,<sp/>extension_scope=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>extensions=[</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>nested_types=[],</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/>enum_types=[</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/>options=</highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/>is_extendable=</highlight><highlight class="keyword">False</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/>extension_ranges=[],</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/>serialized_start=477,</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/>serialized_end=551,</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal">_LATTICE_NODE.fields_by_name[</highlight><highlight class="stringliteral">&apos;edge&apos;</highlight><highlight class="normal">].message_type<sp/>=<sp/>_LATTICE_EDGE</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">_LATTICE_NODE.containing_type<sp/>=<sp/>_LATTICE;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal">_LATTICE_EDGE.containing_type<sp/>=<sp/>_LATTICE;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal">_LATTICE.fields_by_name[</highlight><highlight class="stringliteral">&apos;node&apos;</highlight><highlight class="normal">].message_type<sp/>=<sp/>_LATTICE_NODE</highlight></codeline>
+<codeline lineno="333"><highlight class="normal">_PHRASELET.fields_by_name[</highlight><highlight class="stringliteral">&apos;word&apos;</highlight><highlight class="normal">].message_type<sp/>=<sp/>_SUBWORD</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">_PHRASELETS.fields_by_name[</highlight><highlight class="stringliteral">&apos;phraselet&apos;</highlight><highlight class="normal">].message_type<sp/>=<sp/>_PHRASELET</highlight></codeline>
+<codeline lineno="335"><highlight class="normal">DESCRIPTOR.message_types_by_name[</highlight><highlight class="stringliteral">&apos;Lattice&apos;</highlight><highlight class="normal">]<sp/>=<sp/>_LATTICE</highlight></codeline>
+<codeline lineno="336"><highlight class="normal">DESCRIPTOR.message_types_by_name[</highlight><highlight class="stringliteral">&apos;Subword&apos;</highlight><highlight class="normal">]<sp/>=<sp/>_SUBWORD</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">DESCRIPTOR.message_types_by_name[</highlight><highlight class="stringliteral">&apos;Phraselet&apos;</highlight><highlight class="normal">]<sp/>=<sp/>_PHRASELET</highlight></codeline>
+<codeline lineno="338"><highlight class="normal">DESCRIPTOR.message_types_by_name[</highlight><highlight class="stringliteral">&apos;Phraselets&apos;</highlight><highlight class="normal">]<sp/>=<sp/>_PHRASELETS</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">DESCRIPTOR.message_types_by_name[</highlight><highlight class="stringliteral">&apos;Origin&apos;</highlight><highlight class="normal">]<sp/>=<sp/>_ORIGIN</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Lattice(message.Message):</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Node(message.Message):</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_LATTICE_NODE</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Lattice.Node)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Edge(message.Message):</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_LATTICE_EDGE</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Lattice.Edge)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_LATTICE</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Lattice)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Subword(message.Message):</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_SUBWORD</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Subword)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Phraselet(message.Message):</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_PHRASELET</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Phraselet)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Phraselets(message.Message):</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_PHRASELETS</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Phraselets)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Origin(message.Message):</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/>__metaclass__<sp/>=<sp/>reflection.GeneratedProtocolMessageType</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/>DESCRIPTOR<sp/>=<sp/>_ORIGIN</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(class_scope:lattice.Origin)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal">phraselets.message_type<sp/>=<sp/>_PHRASELETS</highlight></codeline>
+<codeline lineno="384"><highlight class="normal">Lattice.Node.RegisterExtension(phraselets)</highlight></codeline>
+<codeline lineno="385"><highlight class="normal">Lattice.Node.RegisterExtension(has_phrases)</highlight></codeline>
+<codeline lineno="386"><highlight class="normal">origin.message_type<sp/>=<sp/>_ORIGIN</highlight></codeline>
+<codeline lineno="387"><highlight class="normal">Lattice.Edge.RegisterExtension(origin)</highlight></codeline>
+<codeline lineno="388"><highlight class="normal">Lattice.RegisterExtension(num_hypergraph_edges)</highlight></codeline>
+<codeline lineno="389"><highlight class="normal">Lattice.RegisterExtension(num_original_ids)</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight><highlight class="comment">#<sp/>@@protoc_insertion_point(module_scope)</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-py/lattice_pb2.py"/>
+  </compounddef>
+</doxygen>

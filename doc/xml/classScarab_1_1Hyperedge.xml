@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classScarab_1_1Hyperedge" kind="class" prot="public">
+    <compoundname>Scarab::Hyperedge</compoundname>
+    <derivedcompoundref refid="classForestEdge" prot="public" virt="non-virtual">ForestEdge</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classScarab_1_1Hyperedge_1aa211bdbc28c7c82f180fcd1faa2cc7a9" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Scarab::Hyperedge::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="32" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a4a2ac5f6b663137a42aae839830f7f3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::Hyperedge::Hyperedge</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Hyperedge</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="19" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a2306128b0faeb961212d0f7f50df030a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::Hyperedge::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="20" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1aff40ec04bb111347fbcf923f6f4c0cc5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+        <definition>virtual const Hypernode&amp; Scarab::Hyperedge::tail_node</definition>
+        <argsstring>(int i) const =0</argsstring>
+        <name>tail_node</name>
+        <reimplementedby refid="classForestEdge_1aec3eb9a1a1518e202659546f3393c30c">tail_node</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a39b864da3edd971a6c2cf544ff53dfb6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int Scarab::Hyperedge::num_nodes</definition>
+        <argsstring>() const =0</argsstring>
+        <name>num_nodes</name>
+        <reimplementedby refid="classForestEdge_1a4504e6000554b262c1b37f103e6f675e">num_nodes</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a425bd3d28dcff146b5320bd5faa958ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classsvector" kindref="compound">svector</ref>&lt; int, double &gt; &amp;</type>
+        <definition>virtual const svector&lt;int, double&gt;&amp; Scarab::Hyperedge::fvector</definition>
+        <argsstring>() const =0</argsstring>
+        <name>fvector</name>
+        <reimplementedby refid="classForestEdge_1a694457d52b715922cb0487d90ff3ab6c">fvector</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a0216004ee220efcbf1fc7fbb1f67d265" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+        <definition>virtual const Hypernode&amp; Scarab::Hyperedge::head_node</definition>
+        <argsstring>() const =0</argsstring>
+        <name>head_node</name>
+        <reimplementedby refid="classForestEdge_1aedfac137dfc7c4fd7f286470a736b94c">head_node</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classScarab_1_1Hyperedge_1a12f5f3f4f663b72123cca78707e3b67b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const vector&lt; <ref refid="classScarab_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt; &amp;</type>
+        <definition>virtual const vector&lt;Hypernode *&gt;&amp; Scarab::Hyperedge::tail_nodes</definition>
+        <argsstring>() const =0</argsstring>
+        <name>tail_nodes</name>
+        <reimplementedby refid="classForestEdge_1a681d339f62be8409da6582e052a8594e">tail_nodes</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="554">
+        <label>ForestEdge</label>
+        <link refid="classForestEdge"/>
+        <childnode refid="553" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="553">
+        <label>Scarab::Hyperedge</label>
+        <link refid="classScarab_1_1Hyperedge"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" line="17" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypergraph.h" bodystart="17" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classScarab_1_1Hyperedge_1aa211bdbc28c7c82f180fcd1faa2cc7a9" prot="protected" virt="non-virtual"><scope>Scarab::Hyperedge</scope><name>_id</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a425bd3d28dcff146b5320bd5faa958ea" prot="public" virt="pure-virtual"><scope>Scarab::Hyperedge</scope><name>fvector</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a0216004ee220efcbf1fc7fbb1f67d265" prot="public" virt="pure-virtual"><scope>Scarab::Hyperedge</scope><name>head_node</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a4a2ac5f6b663137a42aae839830f7f3f" prot="public" virt="non-virtual"><scope>Scarab::Hyperedge</scope><name>Hyperedge</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a2306128b0faeb961212d0f7f50df030a" prot="public" virt="non-virtual"><scope>Scarab::Hyperedge</scope><name>id</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a39b864da3edd971a6c2cf544ff53dfb6" prot="public" virt="pure-virtual"><scope>Scarab::Hyperedge</scope><name>num_nodes</name></member>
+      <member refid="classScarab_1_1Hyperedge_1aff40ec04bb111347fbcf923f6f4c0cc5" prot="public" virt="pure-virtual"><scope>Scarab::Hyperedge</scope><name>tail_node</name></member>
+      <member refid="classScarab_1_1Hyperedge_1a12f5f3f4f663b72123cca78707e3b67b" prot="public" virt="pure-virtual"><scope>Scarab::Hyperedge</scope><name>tail_nodes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

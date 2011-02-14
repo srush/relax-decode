@@ -1,0 +1,795 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classlattice_1_1Phraselet" kind="class" prot="public">
+    <compoundname>lattice::Phraselet</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1abc30d76e181d14e5a53cee96bdd50eda" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Phraselet::kWordFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kWordFieldNumber</name>
+        <initializer> 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="543" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="543" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1a99ae4ed782afdeef679118bef7361c00" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int lattice::Phraselet::kPhraseletHypergraphEdgeFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kPhraseletHypergraphEdgeFieldNumber</name>
+        <initializer> 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="555" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="555" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1a5ef26c289dc7c23c130ef5b633a011e4" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::UnknownFieldSet</type>
+        <definition>::google::protobuf::UnknownFieldSet lattice::Phraselet::_unknown_fields_</definition>
+        <argsstring></argsstring>
+        <name>_unknown_fields_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="564" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="564" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1aa4d537ef0c51a288bec09754fc82d1cd" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classlattice_1_1Subword" kindref="compound">lattice::Subword</ref> &gt;</type>
+        <definition>::google::protobuf::RepeatedPtrField&lt; ::lattice::Subword &gt; lattice::Phraselet::word_</definition>
+        <argsstring></argsstring>
+        <name>word_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="566" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1a646e26f5e3de06f0630008079b1d4404" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>::google::protobuf::int32 lattice::Phraselet::phraselet_hypergraph_edge_</definition>
+        <argsstring></argsstring>
+        <name>phraselet_hypergraph_edge_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="567" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="567" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1aade4580f1c9f3154ed80d0970375de19" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int lattice::Phraselet::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="569" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="569" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1a2b0c22a3c3b6e13baebed0794933059b" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::uint32</type>
+        <definition>::google::protobuf::uint32 lattice::Phraselet::_has_bits_[(2+31)/32]</definition>
+        <argsstring>[(2+31)/32]</argsstring>
+        <name>_has_bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="570" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="570" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlattice_1_1Phraselet_1ad47843f5d8f136ef4e090f6961a07560" prot="private" static="yes" mutable="no">
+        <type><ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> *</type>
+        <definition>Phraselet * lattice::Phraselet::default_instance_</definition>
+        <argsstring></argsstring>
+        <name>default_instance_</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="577" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="577" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a9e4d43b477212b394982043c92b7b3c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Phraselet::Phraselet</definition>
+        <argsstring>()</argsstring>
+        <name>Phraselet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="488" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1564" bodyend="1567"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a988fcff06273e982bff08a429bf16137" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>lattice::Phraselet::~Phraselet</definition>
+        <argsstring>()</argsstring>
+        <name>~Phraselet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="489" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1584" bodyend="1586"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1aad52fffee57cf2c3c738db3911eb4bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>lattice::Phraselet::Phraselet</definition>
+        <argsstring>(const Phraselet &amp;from)</argsstring>
+        <name>Phraselet</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="491" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1572" bodyend="1576"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a351df01d2ffbf4f31cac03ee8c1fc237" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+        <definition>Phraselet&amp; lattice::Phraselet::operator=</definition>
+        <argsstring>(const Phraselet &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="493" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="493" bodyend="496"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1ad493e6fbf47ab949e24f807b94232c64" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; lattice::Phraselet::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="498" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="498" bodyend="500"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a92f57adf0baa33f5152ee431b1aea6e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* lattice::Phraselet::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="502" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="502" bodyend="504"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a475dcd429c962649f7f26e9cbd8d5a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::Swap</definition>
+        <argsstring>(Phraselet *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="509" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1786" bodyend="1794"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1aec2ac47e7a0c661fc443a048b3f0555c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> *</type>
+        <definition>Phraselet * lattice::Phraselet::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="513" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1609" bodyend="1611"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a2d367abbea6d71d9ffaf3457661b5a42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="514" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1769" bodyend="1773"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a381bcf822ebd538c59bf795dee2b77d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="515" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1746" bodyend="1756"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1aa8bc3ab3f900bfdff4a4134031218fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::CopyFrom</definition>
+        <argsstring>(const Phraselet &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="516" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1775" bodyend="1779"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1aea4c86bf72b788b9afec402442f963df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::MergeFrom</definition>
+        <argsstring>(const Phraselet &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="517" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1758" bodyend="1767"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a380c5bf45d45269bc0ec61e80c4df34e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="518" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1613" bodyend="1620"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1aa25d46e3d15cb431d4a7cf30c8ad5bdb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Phraselet::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="519" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1781" bodyend="1784"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a6b23edd221a64e6553d042f45df86e73" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Phraselet::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="521" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1715" bodyend="1744"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1af794c511c8d6be67e141a790ce18ef6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Phraselet::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="523" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1622" bodyend="1673"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a00627ab143b2b8d5fcbdc686b2496230" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="525" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1675" bodyend="1692"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a860e35d01a5c802dc73aed146a6921ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>google::protobuf::uint8 * lattice::Phraselet::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="526" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1694" bodyend="1713"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1ae94d4b81c0ae8e195346f0b2836fa124" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Phraselet::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="527" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="527" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1acbf23622238396acde2cf8b96dbf6df5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>google::protobuf::Metadata lattice::Phraselet::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="534" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1796" bodyend="1802"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a5136efd90a23878ff47bb0290c5f9678" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int lattice::Phraselet::word_size</definition>
+        <argsstring>() const </argsstring>
+        <name>word_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="541" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1194" bodyend="1196"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a2ac956bf60b94eab43cb142bb2251731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::clear_word</definition>
+        <argsstring>()</argsstring>
+        <name>clear_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="542" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1197" bodyend="1199"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a39c2b7f8be4d23aa423baf985107a0be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::<ref refid="classlattice_1_1Subword" kindref="compound">lattice::Subword</ref> &amp;</type>
+        <definition>const ::lattice::Subword &amp; lattice::Phraselet::word</definition>
+        <argsstring>(int index) const </argsstring>
+        <name>word</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="544" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1200" bodyend="1202"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1abe2be887d98594a7c3ce13844b8a87f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::lattice::Subword *</type>
+        <definition>lattice::Subword * lattice::Phraselet::mutable_word</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_word</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="545" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1203" bodyend="1205"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1af499ae2b30d9739234523c9d790e07eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::lattice::Subword *</type>
+        <definition>lattice::Subword * lattice::Phraselet::add_word</definition>
+        <argsstring>()</argsstring>
+        <name>add_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="546" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1206" bodyend="1208"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1ad442b1e821ee49c64e44191d32200e60" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classlattice_1_1Subword" kindref="compound">lattice::Subword</ref> &gt; &amp;</type>
+        <definition>const ::google::protobuf::RepeatedPtrField&lt;::lattice::Subword &gt; &amp; lattice::Phraselet::word</definition>
+        <argsstring>() const </argsstring>
+        <name>word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="548" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1210" bodyend="1212"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a4789a16818260e9df5f6cf5b954e70ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classlattice_1_1Subword" kindref="compound">lattice::Subword</ref> &gt; *</type>
+        <definition>google::protobuf::RepeatedPtrField&lt;::lattice::Subword &gt; * lattice::Phraselet::mutable_word</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="550" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1214" bodyend="1216"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a9a6afc2d0f7466317b7bbd0ebe8eb5d4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lattice::Phraselet::has_phraselet_hypergraph_edge</definition>
+        <argsstring>() const </argsstring>
+        <name>has_phraselet_hypergraph_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="553" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1219" bodyend="1221"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a4c9f2577858563c51a8531604e30b1a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::clear_phraselet_hypergraph_edge</definition>
+        <argsstring>()</argsstring>
+        <name>clear_phraselet_hypergraph_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="554" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1228" bodyend="1231"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a36ecf9680559a4cfdb011c8531830220" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 lattice::Phraselet::phraselet_hypergraph_edge</definition>
+        <argsstring>() const </argsstring>
+        <name>phraselet_hypergraph_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="556" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1232" bodyend="1234"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1ae9112854c9a8406aeef40c13f9c8b02a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::set_phraselet_hypergraph_edge</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_phraselet_hypergraph_edge</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="557" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1235" bodyend="1238"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a193ff7d5abcd214ec1adb738bff0c420" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>const ::google::protobuf::Descriptor * lattice::Phraselet::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="506" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1598" bodyend="1601"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a52928d0b7933f4bd9eb807da16b82fe0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classlattice_1_1Phraselet" kindref="compound">Phraselet</ref> &amp;</type>
+        <definition>const Phraselet &amp; lattice::Phraselet::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="507" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1603" bodyend="1605"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1ae36689f74eed04aebd3d4cdf59243f6d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="529" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1578" bodyend="1582"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a2b3fffed9d151122e2658833dde43946" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="530" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1588" bodyend="1591"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a4fb59ab0703dfe5a016ccdb2f4156c7c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="531" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1593" bodyend="1597"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1abf6d66d252dd27d202404a2c6ed97a18" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::set_has_phraselet_hypergraph_edge</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_phraselet_hypergraph_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="561" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1222" bodyend="1224"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a0e3a4b2e01e1d05f311faaa0778eacb0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::clear_has_phraselet_hypergraph_edge</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_phraselet_hypergraph_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="562" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="1225" bodyend="1227"/>
+      </memberdef>
+      <memberdef kind="function" id="classlattice_1_1Phraselet_1a148e51eb4ab785c7643eccb7c90bae25" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lattice::Phraselet::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="576" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.cc" bodystart="1569" bodyend="1570"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classlattice_1_1Phraselet_1a19e63fb37025879e023cad88064187cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="572"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Phraselet_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="573"/>
+      </memberdef>
+      <memberdef kind="friend" id="classlattice_1_1Phraselet_1a3c7b187721d0704ceb19ff889729d35a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_lattice_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_lattice_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="574"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1318">
+        <label>lattice::Phraselet</label>
+        <link refid="classlattice_1_1Phraselet"/>
+        <childnode refid="1318" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" line="486" bodyfile="/home/srush/Projects/relax_decode/interfaces/lattice/gen-cpp/lattice.pb.h" bodystart="486" bodyend="578"/>
+    <listofallmembers>
+      <member refid="classlattice_1_1Phraselet_1aade4580f1c9f3154ed80d0970375de19" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>_cached_size_</name></member>
+      <member refid="classlattice_1_1Phraselet_1a2b0c22a3c3b6e13baebed0794933059b" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>_has_bits_</name></member>
+      <member refid="classlattice_1_1Phraselet_1a5ef26c289dc7c23c130ef5b633a011e4" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>_unknown_fields_</name></member>
+      <member refid="classlattice_1_1Phraselet_1af499ae2b30d9739234523c9d790e07eb" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>add_word</name></member>
+      <member refid="classlattice_1_1Phraselet_1a6b23edd221a64e6553d042f45df86e73" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>ByteSize</name></member>
+      <member refid="classlattice_1_1Phraselet_1a380c5bf45d45269bc0ec61e80c4df34e" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>Clear</name></member>
+      <member refid="classlattice_1_1Phraselet_1a0e3a4b2e01e1d05f311faaa0778eacb0" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>clear_has_phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1a4c9f2577858563c51a8531604e30b1a7" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>clear_phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1a2ac956bf60b94eab43cb142bb2251731" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>clear_word</name></member>
+      <member refid="classlattice_1_1Phraselet_1a2d367abbea6d71d9ffaf3457661b5a42" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Phraselet_1aa8bc3ab3f900bfdff4a4134031218fc3" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>CopyFrom</name></member>
+      <member refid="classlattice_1_1Phraselet_1a52928d0b7933f4bd9eb807da16b82fe0" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>default_instance</name></member>
+      <member refid="classlattice_1_1Phraselet_1ad47843f5d8f136ef4e090f6961a07560" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>default_instance_</name></member>
+      <member refid="classlattice_1_1Phraselet_1a193ff7d5abcd214ec1adb738bff0c420" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>descriptor</name></member>
+      <member refid="classlattice_1_1Phraselet_1ae94d4b81c0ae8e195346f0b2836fa124" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>GetCachedSize</name></member>
+      <member refid="classlattice_1_1Phraselet_1acbf23622238396acde2cf8b96dbf6df5" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>GetMetadata</name></member>
+      <member refid="classlattice_1_1Phraselet_1a9a6afc2d0f7466317b7bbd0ebe8eb5d4" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>has_phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1a148e51eb4ab785c7643eccb7c90bae25" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classlattice_1_1Phraselet_1aa25d46e3d15cb431d4a7cf30c8ad5bdb" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>IsInitialized</name></member>
+      <member refid="classlattice_1_1Phraselet_1a99ae4ed782afdeef679118bef7361c00" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>kPhraseletHypergraphEdgeFieldNumber</name></member>
+      <member refid="classlattice_1_1Phraselet_1abc30d76e181d14e5a53cee96bdd50eda" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>kWordFieldNumber</name></member>
+      <member refid="classlattice_1_1Phraselet_1a381bcf822ebd538c59bf795dee2b77d9" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Phraselet_1aea4c86bf72b788b9afec402442f963df" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>MergeFrom</name></member>
+      <member refid="classlattice_1_1Phraselet_1af794c511c8d6be67e141a790ce18ef6f" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classlattice_1_1Phraselet_1a92f57adf0baa33f5152ee431b1aea6e1" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classlattice_1_1Phraselet_1abe2be887d98594a7c3ce13844b8a87f3" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>mutable_word</name></member>
+      <member refid="classlattice_1_1Phraselet_1a4789a16818260e9df5f6cf5b954e70ee" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>mutable_word</name></member>
+      <member refid="classlattice_1_1Phraselet_1aec2ac47e7a0c661fc443a048b3f0555c" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>New</name></member>
+      <member refid="classlattice_1_1Phraselet_1a351df01d2ffbf4f31cac03ee8c1fc237" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>operator=</name></member>
+      <member refid="classlattice_1_1Phraselet_1a9e4d43b477212b394982043c92b7b3c9" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>Phraselet</name></member>
+      <member refid="classlattice_1_1Phraselet_1aad52fffee57cf2c3c738db3911eb4bb9" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>Phraselet</name></member>
+      <member refid="classlattice_1_1Phraselet_1a36ecf9680559a4cfdb011c8531830220" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1a646e26f5e3de06f0630008079b1d4404" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>phraselet_hypergraph_edge_</name></member>
+      <member refid="classlattice_1_1Phraselet_1a19e63fb37025879e023cad88064187cf" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>protobuf_AddDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Phraselet_1a3b0386e09a9fefcf1bdce658cfc480b2" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>protobuf_AssignDesc_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Phraselet_1a3c7b187721d0704ceb19ff889729d35a" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>protobuf_ShutdownFile_lattice_2eproto</name></member>
+      <member refid="classlattice_1_1Phraselet_1a00627ab143b2b8d5fcbdc686b2496230" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classlattice_1_1Phraselet_1a860e35d01a5c802dc73aed146a6921ef" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classlattice_1_1Phraselet_1abf6d66d252dd27d202404a2c6ed97a18" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>set_has_phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1ae9112854c9a8406aeef40c13f9c8b02a" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>set_phraselet_hypergraph_edge</name></member>
+      <member refid="classlattice_1_1Phraselet_1a4fb59ab0703dfe5a016ccdb2f4156c7c" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>SetCachedSize</name></member>
+      <member refid="classlattice_1_1Phraselet_1ae36689f74eed04aebd3d4cdf59243f6d" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>SharedCtor</name></member>
+      <member refid="classlattice_1_1Phraselet_1a2b3fffed9d151122e2658833dde43946" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>SharedDtor</name></member>
+      <member refid="classlattice_1_1Phraselet_1a475dcd429c962649f7f26e9cbd8d5a34" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>Swap</name></member>
+      <member refid="classlattice_1_1Phraselet_1ad493e6fbf47ab949e24f807b94232c64" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>unknown_fields</name></member>
+      <member refid="classlattice_1_1Phraselet_1a39c2b7f8be4d23aa423baf985107a0be" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>word</name></member>
+      <member refid="classlattice_1_1Phraselet_1ad442b1e821ee49c64e44191d32200e60" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>word</name></member>
+      <member refid="classlattice_1_1Phraselet_1aa4d537ef0c51a288bec09754fc82d1cd" prot="private" virt="non-virtual"><scope>lattice::Phraselet</scope><name>word_</name></member>
+      <member refid="classlattice_1_1Phraselet_1a5136efd90a23878ff47bb0290c5f9678" prot="public" virt="non-virtual"><scope>lattice::Phraselet</scope><name>word_size</name></member>
+      <member refid="classlattice_1_1Phraselet_1a988fcff06273e982bff08a429bf16137" prot="public" virt="virtual"><scope>lattice::Phraselet</scope><name>~Phraselet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classForestEdge" kind="class" prot="public">
+    <compoundname>ForestEdge</compoundname>
+    <basecompoundref refid="classScarab_1_1HG_1_1Hyperedge" prot="public" virt="non-virtual">Scarab::HG::Hyperedge</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classForestEdge_1af35b51c633e5582656e5e2352b6120e8" prot="public" static="no" mutable="no">
+        <type>const string &amp;</type>
+        <definition>const string&amp; ForestEdge::_label</definition>
+        <argsstring></argsstring>
+        <name>_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="46" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classForestEdge_1a9200cbe59696a3a9c0b35d72e9efcf7c" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref> * &gt;</type>
+        <definition>vector&lt;Scarab::HG::Hypernode *&gt; ForestEdge::_tail_nodes</definition>
+        <argsstring></argsstring>
+        <name>_tail_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="47" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classForestEdge_1a910b9558426d35ea026025b6a2195886" prot="public" static="no" mutable="no">
+        <type><ref refid="classForestNode" kindref="compound">ForestNode</ref> *</type>
+        <definition>ForestNode* ForestEdge::_head_node</definition>
+        <argsstring></argsstring>
+        <name>_head_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="48" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classForestEdge_1a58546aa0ce2730033d46a8e4746fd286" prot="private" static="no" mutable="no">
+        <type><ref refid="classsvector" kindref="compound">str_vector</ref> *</type>
+        <definition>str_vector* ForestEdge::_features</definition>
+        <argsstring></argsstring>
+        <name>_features</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="52" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classForestEdge_1ad12d0d44f6792688e2ca339ef5f1504e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ForestEdge::ForestEdge</definition>
+        <argsstring>(const string &amp;label, str_vector *features, int id, vector&lt; Scarab::HG::Hypernode * &gt; tail_nodes, ForestNode *head_node)</argsstring>
+        <name>ForestEdge</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">str_vector</ref> *</type>
+          <declname>features</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref> * &gt;</type>
+          <declname>tail_nodes</declname>
+        </param>
+        <param>
+          <type><ref refid="classForestNode" kindref="compound">ForestNode</ref> *</type>
+          <declname>head_node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="24" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classForestEdge_1a20069b896bec6c5a83c24480c9057f4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref> &amp;</type>
+        <definition>const Scarab::HG::Hypernode&amp; ForestEdge::tail_node</definition>
+        <argsstring>(int i) const </argsstring>
+        <name>tail_node</name>
+        <reimplements refid="classScarab_1_1HG_1_1Hyperedge_1a3c5365ccb2a36982ddde36445e39e771">tail_node</reimplements>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a node in this edges tail <xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node position, in tail_node order</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The hypernode </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="28" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classForestEdge_1a46d00caee9d1984712cae52f4a45be7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ForestEdge::num_nodes</definition>
+        <argsstring>() const </argsstring>
+        <name>num_nodes</name>
+        <reimplements refid="classScarab_1_1HG_1_1Hyperedge_1a799d8d98242c129d7eee178bdf1fb535">num_nodes</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of tail nodes in this edge. <xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect><simplesect kind="return"><para>The length </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="32" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classForestEdge_1a694457d52b715922cb0487d90ff3ab6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const <ref refid="classsvector" kindref="compound">str_vector</ref> &amp;</type>
+        <definition>const str_vector&amp; ForestEdge::fvector</definition>
+        <argsstring>() const </argsstring>
+        <name>fvector</name>
+        <reimplements refid="classScarab_1_1HG_1_1Hyperedge_1a0d201ddb955631aadee4c15cc8e709f8">fvector</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The feature vector associated with this node. TODO: remove this from the representation <xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect><simplesect kind="return"><para>Feature vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="38" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classForestEdge_1a75fd8cd6604187f2e046a3bc0b0da349" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref> &amp;</type>
+        <definition>const Scarab::HG::Hypernode&amp; ForestEdge::head_node</definition>
+        <argsstring>() const </argsstring>
+        <name>head_node</name>
+        <reimplements refid="classScarab_1_1HG_1_1Hyperedge_1a6043de341070c103d811f5286193dd46">head_node</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the node at the head of this hyperedge</para><para><simplesect kind="return"><para>Head node </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="42" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classForestEdge_1acb7544b472df09ef760c88afddeab5de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const vector&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref> * &gt; &amp;</type>
+        <definition>const vector&lt; Scarab::HG::Hypernode * &gt; &amp; ForestEdge::tail_nodes</definition>
+        <argsstring>() const </argsstring>
+        <name>tail_nodes</name>
+        <reimplements refid="classScarab_1_1HG_1_1Hyperedge_1abac6d27691186608aa12949de6e1c283">tail_nodes</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get all the nodes in the tail of the hyperedge WARNING: Treat this as a const iterator. <simplesect kind="return"><para>Const iterator to nodes. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="50" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.cpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="484">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="483">
+        <label>ForestEdge</label>
+        <link refid="classForestEdge"/>
+        <childnode refid="484" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="493">
+        <label>std::map&lt; int, double &gt;</label>
+      </node>
+      <node id="491">
+        <label>std::vector&lt; Scarab::HG::Hyperedge * &gt;</label>
+        <childnode refid="486" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="486">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="490">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="492">
+        <label>svector&lt; int, double &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="493" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="488">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="489">
+        <label>ForestNode</label>
+        <link refid="classForestNode"/>
+        <childnode refid="490" relation="public-inheritance">
+        </childnode>
+        <childnode refid="491" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="487" relation="usage">
+          <edgelabel>_label</edgelabel>
+          <edgelabel>_word</edgelabel>
+        </childnode>
+        <childnode refid="492" relation="usage">
+          <edgelabel>_features</edgelabel>
+        </childnode>
+      </node>
+      <node id="494">
+        <label>std::vector&lt; Scarab::HG::Hypernode * &gt;</label>
+        <childnode refid="490" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="485">
+        <label>ForestEdge</label>
+        <link refid="classForestEdge"/>
+        <childnode refid="486" relation="public-inheritance">
+        </childnode>
+        <childnode refid="487" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+        <childnode refid="489" relation="usage">
+          <edgelabel>_head_node</edgelabel>
+        </childnode>
+        <childnode refid="492" relation="usage">
+          <edgelabel>_features</edgelabel>
+        </childnode>
+        <childnode refid="494" relation="usage">
+          <edgelabel>_tail_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="487">
+        <label>std::string</label>
+        <childnode refid="488" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="20" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="20" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classForestEdge_1a58546aa0ce2730033d46a8e4746fd286" prot="private" virt="non-virtual"><scope>ForestEdge</scope><name>_features</name></member>
+      <member refid="classForestEdge_1a910b9558426d35ea026025b6a2195886" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>_head_node</name></member>
+      <member refid="classScarab_1_1HG_1_1Hyperedge_1a9ca1234598f3b5ff08d42da61fd30516" prot="protected" virt="non-virtual"><scope>ForestEdge</scope><name>_id</name></member>
+      <member refid="classForestEdge_1af35b51c633e5582656e5e2352b6120e8" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>_label</name></member>
+      <member refid="classForestEdge_1a9200cbe59696a3a9c0b35d72e9efcf7c" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>_tail_nodes</name></member>
+      <member refid="classForestEdge_1ad12d0d44f6792688e2ca339ef5f1504e" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>ForestEdge</name></member>
+      <member refid="classForestEdge_1a694457d52b715922cb0487d90ff3ab6c" prot="public" virt="virtual"><scope>ForestEdge</scope><name>fvector</name></member>
+      <member refid="classForestEdge_1a75fd8cd6604187f2e046a3bc0b0da349" prot="public" virt="virtual"><scope>ForestEdge</scope><name>head_node</name></member>
+      <member refid="classScarab_1_1HG_1_1Hyperedge_1ae9e961ab14685f45bf72fc2593906b11" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>Hyperedge</name></member>
+      <member refid="classScarab_1_1HG_1_1Hyperedge_1ade62342cf7aaa1571fabf08912c6a673" prot="public" virt="non-virtual"><scope>ForestEdge</scope><name>id</name></member>
+      <member refid="classForestEdge_1a46d00caee9d1984712cae52f4a45be7a" prot="public" virt="virtual"><scope>ForestEdge</scope><name>num_nodes</name></member>
+      <member refid="classForestEdge_1a20069b896bec6c5a83c24480c9057f4f" prot="public" virt="virtual"><scope>ForestEdge</scope><name>tail_node</name></member>
+      <member refid="classForestEdge_1acb7544b472df09ef760c88afddeab5de" prot="public" virt="virtual"><scope>ForestEdge</scope><name>tail_nodes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

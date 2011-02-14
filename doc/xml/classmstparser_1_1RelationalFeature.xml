@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1RelationalFeature" kind="class" prot="public">
+    <compoundname>mstparser::RelationalFeature</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1RelationalFeature_1a20da55ded8d249ee396bd2c296e4ca95" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String mstparser::RelationalFeature::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="7" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1RelationalFeature_1a7f77d67c3c193bfa8803bdc5e38418b0" prot="public" static="no" mutable="no">
+        <type>String[][]</type>
+        <definition>String [][] mstparser::RelationalFeature::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="8" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1RelationalFeature_1aae30e08a19c391ee20957979f15a8d52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::RelationalFeature::RelationalFeature</definition>
+        <argsstring>(int size, String declaration, BufferedReader br)</argsstring>
+        <name>RelationalFeature</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>declaration</declname>
+        </param>
+        <param>
+          <type>BufferedReader</type>
+          <declname>br</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="10" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1RelationalFeature_1a46df7d745110c0c9ead9c84e27915d79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String mstparser::RelationalFeature::getFeature</definition>
+        <argsstring>(int firstIndex, int secondIndex)</argsstring>
+        <name>getFeature</name>
+        <param>
+          <type>int</type>
+          <declname>firstIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>secondIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="19" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="19" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1RelationalFeature_1af871683cd06251bf9de5df2b93312ae8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::RelationalFeature::writeObject</definition>
+        <argsstring>(ObjectOutputStream out)</argsstring>
+        <name>writeObject</name>
+        <param>
+          <type>ObjectOutputStream</type>
+          <declname>out</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="27" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1RelationalFeature_1a65f4f81c34c9c1f7282233e6ea070020" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::RelationalFeature::readObject</definition>
+        <argsstring>(ObjectInputStream in)</argsstring>
+        <name>readObject</name>
+        <param>
+          <type>ObjectInputStream</type>
+          <declname>in</declname>
+        </param>
+        <exceptions> throws IOException, ClassNotFoundException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="33" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="33" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" line="5" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/RelationalFeature.java" bodystart="5" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1RelationalFeature_1a46df7d745110c0c9ead9c84e27915d79" prot="public" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>getFeature</name></member>
+      <member refid="classmstparser_1_1RelationalFeature_1a20da55ded8d249ee396bd2c296e4ca95" prot="public" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>name</name></member>
+      <member refid="classmstparser_1_1RelationalFeature_1a65f4f81c34c9c1f7282233e6ea070020" prot="private" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>readObject</name></member>
+      <member refid="classmstparser_1_1RelationalFeature_1aae30e08a19c391ee20957979f15a8d52" prot="public" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>RelationalFeature</name></member>
+      <member refid="classmstparser_1_1RelationalFeature_1a7f77d67c3c193bfa8803bdc5e38418b0" prot="public" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>values</name></member>
+      <member refid="classmstparser_1_1RelationalFeature_1af871683cd06251bf9de5df2b93312ae8" prot="private" virt="non-virtual"><scope>mstparser::RelationalFeature</scope><name>writeObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

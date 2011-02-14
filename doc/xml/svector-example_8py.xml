@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="svector-example_8py" kind="file">
+    <compoundname>svector-example.py</compoundname>
+    <innernamespace refid="namespacesvector-example">svector-example</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>svector</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>cPickle<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>pickle</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">#<sp/>The<sp/>svector<sp/>module<sp/>has<sp/>only<sp/>one<sp/>class,<sp/>Vector.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">#<sp/>A<sp/>Vector<sp/>is<sp/>essentially<sp/>a<sp/>mapping<sp/>from<sp/>strings<sp/>to<sp/>floats.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">#<sp/>They<sp/>can<sp/>be<sp/>created<sp/>in<sp/>various<sp/>ways:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">v1<sp/>=<sp/>svector.Vector()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>empty</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">v2<sp/>=<sp/>svector.Vector(</highlight><highlight class="stringliteral">&quot;foo=1<sp/>bar=2&quot;</highlight><highlight class="normal">)<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>from<sp/>str;<sp/>most<sp/>convenient<sp/>but<sp/>slowest</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">v3<sp/>=<sp/>svector.Vector({</highlight><highlight class="stringliteral">&quot;foo&quot;</highlight><highlight class="normal">:3,<sp/></highlight><highlight class="stringliteral">&quot;bar&quot;</highlight><highlight class="normal">:4})<sp/></highlight><highlight class="comment">#<sp/>from<sp/>dict</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">v4<sp/>=<sp/>svector.Vector(v2)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>copy<sp/>from<sp/>another<sp/>Vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">#<sp/>convert<sp/>a<sp/>Vector<sp/>to<sp/>a<sp/>string:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>str(v2)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">#<sp/>pickling<sp/>and<sp/>unpickling:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">s<sp/>=<sp/>pickle.dumps(v2)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>pickle.loads(s)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Vectors<sp/>behave<sp/>like<sp/>Python<sp/>containers:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2[</highlight><highlight class="stringliteral">&apos;foo&apos;</highlight><highlight class="normal">]<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>get<sp/>value<sp/>(1.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>len(v2)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>number<sp/>of<sp/>key/value<sp/>pairs<sp/>(2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v1[</highlight><highlight class="stringliteral">&apos;foo&apos;</highlight><highlight class="normal">]<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>default<sp/>value<sp/>(0.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>len(v1)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>=<sp/>0.<sp/>Note<sp/>that<sp/>&apos;foo&apos;<sp/>wasn&apos;t<sp/>inserted.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">v1[</highlight><highlight class="stringliteral">&apos;foo&apos;</highlight><highlight class="normal">]<sp/>=<sp/>0.<sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>set<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>len(v1)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>=<sp/>1.<sp/>Note<sp/>the<sp/>difference<sp/>between<sp/>a<sp/>zero<sp/>value<sp/>and<sp/>no<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&apos;bar&apos;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>v1<sp/></highlight><highlight class="comment">#<sp/>=<sp/>False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">del<sp/>v1[</highlight><highlight class="stringliteral">&apos;foo&apos;</highlight><highlight class="normal">]</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>len(v1)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>x<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>v2:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>x</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>x<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>v2.iterkeys():</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>x</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>x,y<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>v2.iteritems():</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>x,y</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>y<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>v2.itervalues():</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>y</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Algebraic<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Nondestructive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2+v3<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>vector<sp/>addition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2-v3<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>vector<sp/>subtraction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>2.*v2<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>scalar<sp/>product</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2*2.<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>scalar<sp/>product</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>-v2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>same<sp/>as<sp/>-1.*v2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2/2.<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>scalar<sp/>division</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2.dot(v3)<sp/><sp/></highlight><highlight class="comment">#<sp/>dot<sp/>product</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2*v3<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Hadamard<sp/>(elementwise)<sp/>product</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2/v3<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>elementwise<sp/>division</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2.norm()<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Euclidean<sp/>norm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Destructive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">v2<sp/>+=<sp/>v3</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">v2<sp/>-=<sp/>v3</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">v2<sp/>*=<sp/>2.</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">v2<sp/>/=<sp/>2.</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">v2<sp/>*=<sp/>v3</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">v2<sp/>/=<sp/>v3</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordflow">print</highlight><highlight class="normal"><sp/>v2</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/third-party/svector/svector-example.py"/>
+  </compounddef>
+</doxygen>

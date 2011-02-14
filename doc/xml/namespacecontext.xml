@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespacecontext" kind="namespace">
+    <compoundname>context</compoundname>
+    <innerclass refid="classcontext_1_1Context" prot="public">context::Context</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacecontext_1a435a0e7260806129011adc8ff6b44b51" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple context::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <initializer>(&quot;NNP&quot;, &quot;NNP&quot;, &quot;NNP&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="66" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1aefc12aeeef1dbe2cd24f9d9e37a634f0" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list context::all_t</definition>
+        <argsstring></argsstring>
+        <name>all_t</name>
+        <initializer>[]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="67" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1a377ed7652fc72a733a1f28b97ae93cce" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple context::appears_in</definition>
+        <argsstring></argsstring>
+        <name>appears_in</name>
+        <initializer>set()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="69" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1ab9b04d4cc14ff1fb380bdeb67d56d07f" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple context::res</definition>
+        <argsstring></argsstring>
+        <name>res</name>
+        <initializer>sorted(all_t, key=lambda x: x[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="75" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1a6d8103181b6207e064adc8dc7025557a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int context::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="78" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1a7404777afb521f8ddb1a2937178a6961" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple context::buf</definition>
+        <argsstring></argsstring>
+        <name>buf</name>
+        <initializer>StringIO()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="79" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1a8d38878be4a91aa2b539082f1bff3e14" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple context::group_appears</definition>
+        <argsstring></argsstring>
+        <name>group_appears</name>
+        <initializer>set()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="81" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecontext_1ab5b9bc278073cd3fdd099f25595ff5dc" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list context::sent_num</definition>
+        <argsstring></argsstring>
+        <name>sent_num</name>
+        <initializer>v[0]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="84" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacecontext_1ae9d00e7ced0f4ebb7313541306b4b442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def context::constraints_from_context</definition>
+        <argsstring></argsstring>
+        <name>constraints_from_context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="38" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="38" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacecontext_1ae5802a9d74f6e37967364136924029fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def context::sent_to_head_map</definition>
+        <argsstring></argsstring>
+        <name>sent_to_head_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>
+Takes a sent and returns a dict from pos tag to all the positions 
+with that tag
+</verbatim> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="50" bodyfile="/home/srush/Projects/relax_decode/data_management/context.py" bodystart="50" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/data_management/context.py" line="1"/>
+  </compounddef>
+</doxygen>

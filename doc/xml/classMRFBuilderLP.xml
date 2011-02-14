@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classMRFBuilderLP" kind="class" prot="public">
+    <compoundname>MRFBuilderLP</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMRFBuilderLP_1a311720dbead166d002f8fba18bec9e73" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classMRF" kindref="compound">MRF</ref> &amp;</type>
+        <definition>const MRF&amp; MRFBuilderLP::_mrf</definition>
+        <argsstring></argsstring>
+        <name>_mrf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/MRFLP.h" line="26" bodyfile="/home/srush/Projects/relax_decode/lp/MRFLP.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classMRFBuilderLP_1aaace30ed1c0dfb1b0c5c89a22b503e10" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structMRFLP" kindref="compound">MRFLP</ref> *</type>
+        <definition>MRFLP * MRFBuilderLP::add_mrf</definition>
+        <argsstring>(const MRF &amp;mrf, string prefix, GRBModel &amp;model, int var_type)</argsstring>
+        <name>add_mrf</name>
+        <param>
+          <type>const <ref refid="classMRF" kindref="compound">MRF</ref> &amp;</type>
+          <declname>mrf</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>GRBModel &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>var_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/MRFLP.h" line="24" bodyfile="/home/srush/Projects/relax_decode/lp/MRFLP.cpp" bodystart="7" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1158">
+        <label>T</label>
+      </node>
+      <node id="1150">
+        <label>GraphProtoInterface</label>
+        <link refid="classGraphProtoInterface"/>
+        <childnode refid="1151" relation="usage">
+          <edgelabel>_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="1153">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="classScarab_1_1Graph_1_1Graphedge"/>
+        <childnode refid="1154" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1159">
+        <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1160" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1157">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="1158" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1161">
+        <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1160" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1148">
+        <label>MRFBuilderLP</label>
+        <link refid="classMRFBuilderLP"/>
+        <childnode refid="1149" relation="usage">
+          <edgelabel>_mrf</edgelabel>
+        </childnode>
+      </node>
+      <node id="1162">
+        <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1160" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1154">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="classScarab_1_1Graph_1_1Graphnode"/>
+        <childnode refid="1152" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1155" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="1156">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1160">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1152">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="1153" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1151">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="classScarab_1_1Graph_1_1Graph"/>
+        <childnode refid="1152" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1157" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1149">
+        <label>MRF</label>
+        <link refid="classMRF"/>
+        <childnode refid="1150" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1159" relation="usage">
+          <edgelabel>_node_states</edgelabel>
+        </childnode>
+        <childnode refid="1161" relation="usage">
+          <edgelabel>_edge_potentials</edgelabel>
+        </childnode>
+        <childnode refid="1162" relation="usage">
+          <edgelabel>_node_potentials</edgelabel>
+        </childnode>
+      </node>
+      <node id="1155">
+        <label>std::string</label>
+        <childnode refid="1156" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/MRFLP.h" line="22" bodyfile="/home/srush/Projects/relax_decode/lp/MRFLP.h" bodystart="22" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classMRFBuilderLP_1a311720dbead166d002f8fba18bec9e73" prot="private" virt="non-virtual"><scope>MRFBuilderLP</scope><name>_mrf</name></member>
+      <member refid="classMRFBuilderLP_1aaace30ed1c0dfb1b0c5c89a22b503e10" prot="public" virt="non-virtual"><scope>MRFBuilderLP</scope><name>add_mrf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

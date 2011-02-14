@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespacemst__experiment" kind="namespace">
+    <compoundname>mst_experiment</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemst__experiment_1a41cf6326f80c59e46a9cf9d43f4d38b9" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>list mst_experiment::mstparser_dir</definition>
+        <argsstring></argsstring>
+        <name>mstparser_dir</name>
+        <initializer>&apos;&apos;</initializer>
+        <briefdescription>
+<para>Check that MSTPARSER_DIR environment variable is set and get it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="9" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a688185393b9301013286a06472b3b515" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::opt_parser</definition>
+        <argsstring></argsstring>
+        <name>opt_parser</name>
+        <initializer>optparse.OptionParser()</initializer>
+        <briefdescription>
+<para>Get options. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="117" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a6aa2c5dfe18a0c56b4f5dea68fe39eff" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::help</definition>
+        <argsstring></argsstring>
+        <name>help</name>
+        <initializer>&quot;use configurations specific to LANGUAGE&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="119" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1ac3857f6bc17a6be6d384d6a445782d4d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::metavar</definition>
+        <argsstring></argsstring>
+        <name>metavar</name>
+        <initializer>&quot;LANGUAGE&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="120" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1ac526fa0aaa18f9fed0897a0b8d1e35b7" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list mst_experiment::choices</definition>
+        <argsstring></argsstring>
+        <name>choices</name>
+        <initializer>[&apos;proj&apos;, &apos;non-proj&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="125" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a4dd98bee99370cd6e5bd7e2d2d932250" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::default</definition>
+        <argsstring></argsstring>
+        <name>default</name>
+        <initializer>&quot;proj&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="126" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1acec4902f1507fc0ba26df21426eb59be" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mst_experiment::output_dir</definition>
+        <argsstring></argsstring>
+        <name>output_dir</name>
+        <initializer>options.output_dir</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="150" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a225c9b5ec11fe24c03a67ab04c24fde7" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::model_output_filename</definition>
+        <argsstring></argsstring>
+        <name>model_output_filename</name>
+        <initializer>&quot;/model_out&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="160" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a9a452993c6a237fd2b6cf64b6704b97c" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>string mst_experiment::train_filename</definition>
+        <argsstring></argsstring>
+        <name>train_filename</name>
+        <initializer>args[0]</initializer>
+        <briefdescription>
+<para>Process files. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="165" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a12a456b1dda58b1e3f42f74ebee70eda" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::gold_deps_filename</definition>
+        <argsstring></argsstring>
+        <name>gold_deps_filename</name>
+        <initializer>&quot;/gold.deps&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="168" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a2a0096ddb1881bd674c02f010549f7e7" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::num_folds</definition>
+        <argsstring></argsstring>
+        <name>num_folds</name>
+        <initializer>int(options.num_folds)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="172" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a1f43611198e9da624761e5f54ad4eab4" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::train_file</definition>
+        <argsstring></argsstring>
+        <name>train_file</name>
+        <initializer>file(train_filename)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="181" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a6bcc168450022331e580c62676865a8d" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list mst_experiment::examples</definition>
+        <argsstring></argsstring>
+        <name>examples</name>
+        <initializer>[]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="183" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a53d9ac52fc0447ead6795000b2db613d" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::next_example</definition>
+        <argsstring></argsstring>
+        <name>next_example</name>
+        <initializer>train_file.readline()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="185" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a3606bd2f71d524efa21dd7c94496ad97" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mst_experiment::counter</definition>
+        <argsstring></argsstring>
+        <name>counter</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="187" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1acb121e78bd666b21eb6e326584c68146" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mst_experiment::partition</definition>
+        <argsstring></argsstring>
+        <name>partition</name>
+        <initializer>counter%num_folds</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="189" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1acc2b96586795fb52f481f6b9313c4279" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list mst_experiment::elements</definition>
+        <argsstring></argsstring>
+        <name>elements</name>
+        <initializer>[]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="191" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a31675829d0ef9788f28999fde4c1d21e" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::gold_deps</definition>
+        <argsstring></argsstring>
+        <name>gold_deps</name>
+        <initializer>open(gold_deps_filename,&quot;w&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="209" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1ab704191198c45a2c2d235f8fbc9d4a0c" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::train_set</definition>
+        <argsstring></argsstring>
+        <name>train_set</name>
+        <initializer>open(train_filename, &quot;w&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="219" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1aca749c7f9f5a05e83499abe1e41b704b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::test_filename</definition>
+        <argsstring></argsstring>
+        <name>test_filename</name>
+        <initializer>&quot;/test&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="221" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a89f19b6494c2cd88d2630e9aef9583ed" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple mst_experiment::test_set</definition>
+        <argsstring></argsstring>
+        <name>test_set</name>
+        <initializer>open(test_filename, &quot;w&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="222" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemst__experiment_1a0d92cdc20dbae9475245f53897381096" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string mst_experiment::output_filename</definition>
+        <argsstring></argsstring>
+        <name>output_filename</name>
+        <initializer>&quot;/output&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="238" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemst__experiment_1a95292c4786ae638c5ec7a51a274149fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mst_experiment::create_tag_train_file</definition>
+        <argsstring></argsstring>
+        <name>create_tag_train_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="24" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="24" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemst__experiment_1a9862bd9ccb947ce70a863da201ed2642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def mst_experiment::run_single_train_and_test</definition>
+        <argsstring></argsstring>
+        <name>run_single_train_and_test</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="49" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" bodystart="49" bodyend="111"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/mst_experiment.py" line="1"/>
+  </compounddef>
+</doxygen>

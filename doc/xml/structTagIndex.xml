@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structTagIndex" kind="struct" prot="public">
+    <compoundname>TagIndex</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structTagIndex_1a9bde045f6de7e99933920b883af894dc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TagIndex::sent_num</definition>
+        <argsstring></argsstring>
+        <name>sent_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="75" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTagIndex_1ac9cd159e647314e5beaf7af6da56fa6e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TagIndex::ind</definition>
+        <argsstring></argsstring>
+        <name>ind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="76" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTagIndex_1a1182f316658b96f36ecd7689d790f508" prot="public" static="no" mutable="no">
+        <type>POS</type>
+        <definition>POS TagIndex::tag</definition>
+        <argsstring></argsstring>
+        <name>tag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="77" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structTagIndex_1a31447fe5afbdaeae750e186099c727ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TagIndex::TagIndex</definition>
+        <argsstring>()</argsstring>
+        <name>TagIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="73" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structTagIndex_1a30a1bf326d593304ac3d950fd2b8be92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TagIndex::TagIndex</definition>
+        <argsstring>(int sent_num_, int ind_, int tag_)</argsstring>
+        <name>TagIndex</name>
+        <param>
+          <type>int</type>
+          <declname>sent_num_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ind_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tag_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="74" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structTagIndex_1a7b858bbf2ed8ed6bb56d87db8d38aaf2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TagIndex::operator&lt;</definition>
+        <argsstring>(const TagIndex &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structTagIndex" kindref="compound">TagIndex</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="78" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="78" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="72" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="72" bodyend="90"/>
+    <listofallmembers>
+      <member refid="structTagIndex_1ac9cd159e647314e5beaf7af6da56fa6e" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>ind</name></member>
+      <member refid="structTagIndex_1a7b858bbf2ed8ed6bb56d87db8d38aaf2" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>operator&lt;</name></member>
+      <member refid="structTagIndex_1a9bde045f6de7e99933920b883af894dc" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>sent_num</name></member>
+      <member refid="structTagIndex_1a1182f316658b96f36ecd7689d790f508" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>tag</name></member>
+      <member refid="structTagIndex_1a31447fe5afbdaeae750e186099c727ce" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>TagIndex</name></member>
+      <member refid="structTagIndex_1a30a1bf326d593304ac3d950fd2b8be92" prot="public" virt="non-virtual"><scope>TagIndex</scope><name>TagIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

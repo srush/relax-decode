@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespacepos__tag" kind="namespace">
+    <compoundname>pos_tag</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacepos__tag_1af8ec06a1ac858b7d63c65b65f7a367ba" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>list pos_tag::dbparser_dir</definition>
+        <argsstring></argsstring>
+        <name>dbparser_dir</name>
+        <initializer>&apos;&apos;</initializer>
+        <briefdescription>
+<para>Check that DBPARSER_DIR environment variable is set and get it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="10" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a5c6022d1a511f28cfbc85f799f87689b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>list pos_tag::otk_dir</definition>
+        <argsstring></argsstring>
+        <name>otk_dir</name>
+        <initializer>&apos;&apos;</initializer>
+        <briefdescription>
+<para>Check that OPENNLP_DIR environment variable is set and get it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="18" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1ae6506e23b90a20bb9a61b809bf0ad1bc" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_tag::opt_parser</definition>
+        <argsstring></argsstring>
+        <name>opt_parser</name>
+        <initializer>optparse.OptionParser()</initializer>
+        <briefdescription>
+<para>Get options. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="28" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a93b6dc0c45eb930c1a66a9aa2ce9daf5" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::help</definition>
+        <argsstring></argsstring>
+        <name>help</name>
+        <initializer>&quot;save tagger output to DIR&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="30" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1adbe79864673d15a2e35a71820e2272c8" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::metavar</definition>
+        <argsstring></argsstring>
+        <name>metavar</name>
+        <initializer>&quot;DIR&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="31" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a74ba15a72f74295717f499154fa8f4ce" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos_tag::verbose</definition>
+        <argsstring></argsstring>
+        <name>verbose</name>
+        <initializer>options.verbose</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="37" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a9f9b21432c9b8c1b396ce2cecef94406" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos_tag::output_dir</definition>
+        <argsstring></argsstring>
+        <name>output_dir</name>
+        <initializer>options.output_dir</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="39" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a866c6ae9b7404523b0dac4568c613648" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_tag::adwait_tagged_filename</definition>
+        <argsstring></argsstring>
+        <name>adwait_tagged_filename</name>
+        <initializer>args[0]</initializer>
+        <briefdescription>
+<para>Process files. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="49" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a68f62252327d4da06960b3e10a00d663" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_tag::test_sentences</definition>
+        <argsstring></argsstring>
+        <name>test_sentences</name>
+        <initializer>file(args[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="50" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1aacfee18cec7c5816a795770db838611d" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_tag::output_file</definition>
+        <argsstring></argsstring>
+        <name>output_file</name>
+        <initializer>open(args[2], &quot;w&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="51" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a0c47c5b82bb2d61ab232a123c6fd2872" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::model_filename</definition>
+        <argsstring></argsstring>
+        <name>model_filename</name>
+        <initializer>&quot;/model.bin.gz&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="61" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a6357383a67a5cc4e98feb6b628a12b23" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::tag_dictionary_filename</definition>
+        <argsstring></argsstring>
+        <name>tag_dictionary_filename</name>
+        <initializer>&quot;/tag_dict&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="65" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a939609c094a801f00813654d6796a3a8" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::sentences_to_tag_filename</definition>
+        <argsstring></argsstring>
+        <name>sentences_to_tag_filename</name>
+        <initializer>&quot;/to_tag.txt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="73" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1aa647ddbd4a7e457a6fa7f2e7c9556581" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_tag::to_tag_file</definition>
+        <argsstring></argsstring>
+        <name>to_tag_file</name>
+        <initializer>open(sentences_to_tag_filename, &quot;w&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="76" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1af323d3d47fe89726a26ba7bfce242d09" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pos_tag::counter</definition>
+        <argsstring></argsstring>
+        <name>counter</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="77" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1afb15fe7711375d8b03b44682a8678513" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::clean</definition>
+        <argsstring></argsstring>
+        <name>clean</name>
+        <initializer>&quot;\t&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="80" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1af3be0f62208ff3e164f8336c32ca4982" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string pos_tag::tagged_filename</definition>
+        <argsstring></argsstring>
+        <name>tagged_filename</name>
+        <initializer>&quot;/tagged.txt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="85" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a952b5b0a1dde8902591fc1d70696f2af" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_tag::words</definition>
+        <argsstring></argsstring>
+        <name>words</name>
+        <initializer>[]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="96" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__tag_1a703bcb9b4b0627dc7b58133b1f657c18" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_tag::tags</definition>
+        <argsstring></argsstring>
+        <name>tags</name>
+        <initializer>[]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="97" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/bin/pos_tag.py" line="1"/>
+  </compounddef>
+</doxygen>

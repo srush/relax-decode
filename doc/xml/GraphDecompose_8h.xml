@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="GraphDecompose_8h" kind="file">
+    <compoundname>GraphDecompose.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">bitset</includes>
+    <includes refid="ForestLattice_8h" local="yes">ForestLattice.h</includes>
+    <includedby refid="BigramRescore_8cpp" local="yes">lattice/BigramRescore.cpp</includedby>
+    <includedby refid="BigramRescore_8h" local="yes">lattice/BigramRescore.h</includedby>
+    <includedby refid="GraphDecompose_8cpp" local="yes">lattice/GraphDecompose.cpp</includedby>
+    <includedby refid="LPBuilder_8cpp" local="yes">lp/LPBuilder.cpp</includedby>
+    <includedby refid="LPBuilder_8h" local="yes">lp/LPBuilder.h</includedby>
+    <includedby refid="Decode_8cpp" local="yes">trans_decode/Decode.cpp</includedby>
+    <includedby refid="dual__subproblem_8cpp" local="yes">trans_decode/dual_subproblem.cpp</includedby>
+    <includedby refid="dual__subproblem_8h" local="yes">trans_decode/dual_subproblem.h</includedby>
+    <incdepgraph>
+      <node id="1575">
+        <label>lattice/GraphDecompose.h</label>
+        <link refid="GraphDecompose.h"/>
+        <childnode refid="1576" relation="include">
+        </childnode>
+        <childnode refid="1577" relation="include">
+        </childnode>
+        <childnode refid="1578" relation="include">
+        </childnode>
+      </node>
+      <node id="1579">
+        <label>string</label>
+      </node>
+      <node id="1586">
+        <label>Graph.h</label>
+        <link refid="Graph_8h_source"/>
+        <childnode refid="1576" relation="include">
+        </childnode>
+        <childnode refid="1579" relation="include">
+        </childnode>
+        <childnode refid="1587" relation="include">
+        </childnode>
+      </node>
+      <node id="1582">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="1587">
+        <label>../common.h</label>
+      </node>
+      <node id="1577">
+        <label>bitset</label>
+      </node>
+      <node id="1580">
+        <label>lattice.pb.h</label>
+        <link refid="lattice_8pb_8h_source"/>
+        <childnode refid="1579" relation="include">
+        </childnode>
+        <childnode refid="1581" relation="include">
+        </childnode>
+        <childnode refid="1582" relation="include">
+        </childnode>
+        <childnode refid="1583" relation="include">
+        </childnode>
+        <childnode refid="1584" relation="include">
+        </childnode>
+        <childnode refid="1585" relation="include">
+        </childnode>
+      </node>
+      <node id="1581">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="1576">
+        <label>vector</label>
+      </node>
+      <node id="1578">
+        <label>ForestLattice.h</label>
+        <link refid="ForestLattice_8h_source"/>
+        <childnode refid="1579" relation="include">
+        </childnode>
+        <childnode refid="1580" relation="include">
+        </childnode>
+        <childnode refid="1576" relation="include">
+        </childnode>
+        <childnode refid="1586" relation="include">
+        </childnode>
+      </node>
+      <node id="1584">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="1583">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="1585">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1588">
+        <label>lattice/GraphDecompose.h</label>
+        <link refid="GraphDecompose.h"/>
+        <childnode refid="1589" relation="include">
+        </childnode>
+        <childnode refid="1592" relation="include">
+        </childnode>
+        <childnode refid="1590" relation="include">
+        </childnode>
+      </node>
+      <node id="1592">
+        <label>lp/LPBuilder.h</label>
+        <link refid="LPBuilder_8h_source"/>
+      </node>
+      <node id="1591">
+        <label>trans_decode/Decode.h</label>
+        <link refid="Decode_8h_source"/>
+      </node>
+      <node id="1589">
+        <label>lattice/BigramRescore.h</label>
+        <link refid="BigramRescore_8h_source"/>
+        <childnode refid="1590" relation="include">
+        </childnode>
+      </node>
+      <node id="1590">
+        <label>trans_decode/dual_subproblem.h</label>
+        <link refid="dual__subproblem_8h_source"/>
+        <childnode refid="1591" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classGraphDecompose" prot="public">GraphDecompose</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>GRAPHDECOMPOSE_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>GRAPHDECOMPOSE_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bitset&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ForestLattice.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classGraphDecompose" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector&lt;int&gt;<sp/>all_pairs_path_length[NUMSTATES][NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Bigram&gt;<sp/>valid_bigrams;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector<sp/>&lt;Bigram&gt;<sp/>for_updates[NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;vector<sp/>&lt;int&gt;<sp/>&gt;<sp/>forward_bigrams;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;vector<sp/>&lt;int&gt;<sp/>&gt;<sp/>backward_bigrams;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector<sp/>&lt;bitset<sp/>&lt;NUMSTATES&gt;<sp/>&gt;<sp/>bigram_bitset[NUMSTATES][NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//vector<sp/>&lt;vector<sp/>&lt;int&gt;<sp/>&gt;<sp/><sp/>bigram_pairs[NUMSTATES][NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>decompose(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>g);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>path_exists(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w2)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(w1<sp/>&lt;<sp/>g-&gt;num_nodes<sp/>&amp;&amp;<sp/>w2<sp/>&lt;<sp/>g-&gt;num_nodes);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>all_pairs_path_exist[w1][w2];</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;int&gt;<sp/>*<sp/>get_path(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w2)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>all_pairs_path[w1][w2];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>DP<sp/>chart<sp/>-<sp/>points<sp/>to<sp/>the<sp/>next<sp/>node<sp/>on<sp/>the<sp/>path</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>vector&lt;<sp/>vector&lt;vector&lt;int&gt;<sp/>*<sp/>&gt;<sp/>&gt;<sp/>all_pairs_path;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>vector&lt;<sp/>vector&lt;bool&gt;<sp/>&gt;<sp/>all_pairs_path_exist;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;vector<sp/>&lt;vector<sp/>&lt;vector<sp/>&lt;int&gt;<sp/>&gt;<sp/>&gt;<sp/>&gt;<sp/><sp/>bigram_paths;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>g;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>compute_bigrams();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>graph_to_all_pairs();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reconstruct_path(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n2,<sp/>vector<sp/>&lt;vector<sp/>&lt;int&gt;<sp/>&gt;<sp/>&amp;<sp/>array);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//void<sp/>all_pairs_to_bigram();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h"/>
+  </compounddef>
+</doxygen>

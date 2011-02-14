@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="gen__cpp_2features_8pb_8h" kind="file">
+    <compoundname>features.pb.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">google/protobuf/stubs/common.h</includes>
+    <includes local="no">google/protobuf/generated_message_util.h</includes>
+    <includes local="no">google/protobuf/repeated_field.h</includes>
+    <includes local="no">google/protobuf/extension_set.h</includes>
+    <includes local="no">google/protobuf/generated_message_reflection.h</includes>
+    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
+    <includedby refid="ConvertFromFile_8cpp" local="yes">hypergraph/ConvertFromFile.cpp</includedby>
+    <includedby refid="HypergraphImpl_8cpp" local="yes">hypergraph/HypergraphImpl.cpp</includedby>
+    <includedby refid="HypergraphImpl_8h" local="yes">hypergraph/HypergraphImpl.h</includedby>
+    <includedby refid="EisnerToHypergraph_8cpp" local="yes">parse/EisnerToHypergraph.cpp</includedby>
+    <includedby refid="EisnerToHypergraph_8h" local="yes">parse/EisnerToHypergraph.h</includedby>
+    <includedby refid="Forest_8cpp" local="yes">transforest/Forest.cpp</includedby>
+    <incdepgraph>
+      <node id="1161">
+        <label>interfaces/hypergraph/gen_cpp/features.pb.h</label>
+        <link refid="gen_cpp/features.pb.h"/>
+        <childnode refid="1162" relation="include">
+        </childnode>
+        <childnode refid="1163" relation="include">
+        </childnode>
+        <childnode refid="1164" relation="include">
+        </childnode>
+        <childnode refid="1165" relation="include">
+        </childnode>
+        <childnode refid="1166" relation="include">
+        </childnode>
+        <childnode refid="1167" relation="include">
+        </childnode>
+        <childnode refid="1168" relation="include">
+        </childnode>
+      </node>
+      <node id="1162">
+        <label>string</label>
+      </node>
+      <node id="1168">
+        <label>hypergraph.pb.h</label>
+        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
+        <childnode refid="1162" relation="include">
+        </childnode>
+        <childnode refid="1163" relation="include">
+        </childnode>
+        <childnode refid="1164" relation="include">
+        </childnode>
+        <childnode refid="1165" relation="include">
+        </childnode>
+        <childnode refid="1166" relation="include">
+        </childnode>
+        <childnode refid="1167" relation="include">
+        </childnode>
+      </node>
+      <node id="1164">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="1163">
+        <label>google/protobuf/stubs/common.h</label>
+      </node>
+      <node id="1166">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="1165">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="1167">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1176">
+        <label>lp/HardPosConstraints.h</label>
+        <link refid="HardPosConstraints_8h_source"/>
+        <childnode refid="1176" relation="include">
+        </childnode>
+      </node>
+      <node id="1182">
+        <label>tagger/Tagger.h</label>
+        <link refid="Tagger_8h_source"/>
+        <childnode refid="1176" relation="include">
+        </childnode>
+        <childnode refid="1183" relation="include">
+        </childnode>
+        <childnode refid="1175" relation="include">
+        </childnode>
+        <childnode refid="1177" relation="include">
+        </childnode>
+      </node>
+      <node id="1174">
+        <label>optimization/MRFHypergraph.h</label>
+        <link refid="MRFHypergraph_8h_source"/>
+      </node>
+      <node id="1173">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="TagMrfLP_8h_source"/>
+      </node>
+      <node id="1180">
+        <label>lp/HardConstraints.h</label>
+        <link refid="HardConstraints_8h_source"/>
+      </node>
+      <node id="1186">
+        <label>parse/EisnerToHypergraph.h</label>
+        <link refid="EisnerToHypergraph_8h_source"/>
+      </node>
+      <node id="1171">
+        <label>optimization/MRF.h</label>
+        <link refid="MRF_8h_source"/>
+        <childnode refid="1172" relation="include">
+        </childnode>
+        <childnode refid="1174" relation="include">
+        </childnode>
+        <childnode refid="1175" relation="include">
+        </childnode>
+      </node>
+      <node id="1169">
+        <label>interfaces/hypergraph/gen_cpp/features.pb.h</label>
+        <link refid="gen_cpp/features.pb.h"/>
+        <childnode refid="1170" relation="include">
+        </childnode>
+        <childnode refid="1186" relation="include">
+        </childnode>
+      </node>
+      <node id="1170">
+        <label>hypergraph/HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="1171" relation="include">
+        </childnode>
+        <childnode refid="1174" relation="include">
+        </childnode>
+        <childnode refid="1178" relation="include">
+        </childnode>
+        <childnode refid="1181" relation="include">
+        </childnode>
+        <childnode refid="1182" relation="include">
+        </childnode>
+        <childnode refid="1184" relation="include">
+        </childnode>
+      </node>
+      <node id="1172">
+        <label>lp/MRFLP.h</label>
+        <link refid="MRFLP_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+      </node>
+      <node id="1178">
+        <label>parse/DepParser.h</label>
+        <link refid="DepParser_8h_source"/>
+        <childnode refid="1179" relation="include">
+        </childnode>
+      </node>
+      <node id="1175">
+        <label>tagger/TagConstraints.h</label>
+        <link refid="TagConstraints_8h_source"/>
+        <childnode refid="1176" relation="include">
+        </childnode>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1177" relation="include">
+        </childnode>
+      </node>
+      <node id="1185">
+        <label>trans_decode/Decode.h</label>
+        <link refid="Decode_8h_source"/>
+      </node>
+      <node id="1184">
+        <label>transforest/Forest.h</label>
+        <link refid="Forest_8h_source"/>
+        <childnode refid="1185" relation="include">
+        </childnode>
+      </node>
+      <node id="1183">
+        <label>lp/TagLP.h</label>
+        <link refid="TagLP_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+      </node>
+      <node id="1181">
+        <label>phrasebased/PhraseBased.h</label>
+        <link refid="PhraseBased_8h_source"/>
+      </node>
+      <node id="1179">
+        <label>lp/DepParseLP.h</label>
+        <link refid="DepParseLP_8h_source"/>
+        <childnode refid="1180" relation="include">
+        </childnode>
+      </node>
+      <node id="1177">
+        <label>tagger/TagSolvers.h</label>
+        <link refid="TagSolvers_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacegoogle">google</innernamespace>
+    <innernamespace refid="namespacegoogle_1_1protobuf">google::protobuf</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="gen__cpp_2features_8pb_8h_1a6a5d6dd157183c2d79d83618ffbf02a0" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int kNodeFvFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kNodeFvFieldNumber</name>
+        <initializer> 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="40" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="gen__cpp_2features_8pb_8h_1aef0c5942a98f2fbb54848e6e386b9835" prot="public" static="no" mutable="no">
+        <type>extern::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>,::google::protobuf::internal::StringTypeTraits, 9, false &gt;</type>
+        <definition>extern ::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Node, ::google::protobuf::internal::StringTypeTraits, 9, false &gt; node_fv</definition>
+        <argsstring></argsstring>
+        <name>node_fv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="43" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="gen__cpp_2features_8pb_8h_1aa38f4dad32ea457fe61df1e377709320" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int kEdgeFvFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kEdgeFvFieldNumber</name>
+        <initializer> 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="44" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="gen__cpp_2features_8pb_8h_1a8b2761399992cd83e005260fc64473e1" prot="public" static="no" mutable="no">
+        <type>extern::google::protobuf::internal::ExtensionIdentifier&lt; ::<ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref>,::google::protobuf::internal::StringTypeTraits, 9, false &gt;</type>
+        <definition>extern ::google::protobuf::internal::ExtensionIdentifier&lt; ::Hypergraph_Edge, ::google::protobuf::internal::StringTypeTraits, 9, false &gt; edge_fv</definition>
+        <argsstring></argsstring>
+        <name>edge_fv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="47" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gen__cpp_2features_8pb_8h_1aeb7265e4e8ce21262114fbf7111b39fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AddDesc_features_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_features_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="30" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/features.pb.cc" bodystart="47" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2features_8pb_8h_1aaf81fe42fceb893d3699765152c5a954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_AssignDesc_features_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_features_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="31" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/features.pb.cc" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="gen__cpp_2features_8pb_8h_1a8062af76b30524613b81f12c34fc0ea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void protobuf_ShutdownFile_features_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_features_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h" line="32" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/features.pb.cc" bodystart="44" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Generated<sp/>by<sp/>the<sp/>protocol<sp/>buffer<sp/>compiler.<sp/><sp/>DO<sp/>NOT<sp/>EDIT!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>source:<sp/>features.proto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PROTOBUF_features_2eproto__INCLUDED</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PROTOBUF_features_2eproto__INCLUDED</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/stubs/common.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GOOGLE_PROTOBUF_VERSION<sp/>&lt;<sp/>2004000</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>This<sp/>file<sp/>was<sp/>generated<sp/>by<sp/>a<sp/>newer<sp/>version<sp/>of<sp/>protoc<sp/>which<sp/>is</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>incompatible<sp/>with<sp/>your<sp/>Protocol<sp/>Buffer<sp/>headers.<sp/><sp/>Please<sp/>update</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>your<sp/>headers.</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>2004000<sp/>&lt;<sp/>GOOGLE_PROTOBUF_MIN_PROTOC_VERSION</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>This<sp/>file<sp/>was<sp/>generated<sp/>by<sp/>an<sp/>older<sp/>version<sp/>of<sp/>protoc<sp/>which<sp/>is</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>incompatible<sp/>with<sp/>your<sp/>Protocol<sp/>Buffer<sp/>headers.<sp/><sp/>Please</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#error<sp/>regenerate<sp/>this<sp/>file<sp/>with<sp/>a<sp/>newer<sp/>version<sp/>of<sp/>protoc.</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/generated_message_util.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/repeated_field.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/extension_set.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;google/protobuf/generated_message_reflection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hypergraph.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(includes)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Internal<sp/>implementation<sp/>detail<sp/>--<sp/>do<sp/>not<sp/>call<sp/>these.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>protobuf_AddDesc_features_2eproto();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_AssignDesc_features_2eproto();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>protobuf_ShutdownFile_features_2eproto();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kNodeFvFieldNumber<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">extern<sp/>::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Node" kindref="compound"> ::Hypergraph_Node</ref>,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::StringTypeTraits,<sp/>9,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>node_fv;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kEdgeFvFieldNumber<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">extern<sp/>::google::protobuf::internal::ExtensionIdentifier&lt;<ref refid="classHypergraph__Edge" kindref="compound"> ::Hypergraph_Edge</ref>,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>::google::protobuf::internal::StringTypeTraits,<sp/>9,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>&gt;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>edge_fv;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(namespace_scope)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SWIG</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">google<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">protobuf<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>google</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>protobuf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>SWIG</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@@protoc_insertion_point(global_scope)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>PROTOBUF_features_2eproto__INCLUDED</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/features.pb.h"/>
+  </compounddef>
+</doxygen>

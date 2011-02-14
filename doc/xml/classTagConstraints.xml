@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classTagConstraints" kind="class" prot="public">
+    <compoundname>TagConstraints</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classTagConstraints_1ad5aae083cb84eff2294ca7fbbd63cb67" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classConstraintGroup" kindref="compound">ConstraintGroup</ref> &gt;</type>
+        <definition>vector&lt;ConstraintGroup &gt; TagConstraints::_constraint_struct</definition>
+        <argsstring></argsstring>
+        <name>_constraint_struct</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="47" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTagConstraints_1aba1f64a190bc4144fea14f01fe82ecc3" prot="public" static="no" mutable="no">
+        <type>set&lt; int &gt;</type>
+        <definition>set&lt;int&gt; TagConstraints::groups</definition>
+        <argsstring></argsstring>
+        <name>groups</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="48" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTagConstraints_1a83e2347bf237b00f02dc872c19fd4516" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; <ref refid="structPossibleTag" kindref="compound">PossibleTag</ref> &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;PossibleTag&gt; &gt; TagConstraints::_constrained_words</definition>
+        <argsstring></argsstring>
+        <name>_constrained_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="50" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTagConstraints_1a29576d5022d4c5d03e6c8723669c3679" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structPossibleTag" kindref="compound">PossibleTag</ref> &gt;</type>
+        <definition>vector&lt;PossibleTag &gt; TagConstraints::_all_constraints</definition>
+        <argsstring></argsstring>
+        <name>_all_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="51" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTagConstraints_1a8885071b73e699061347d17af6d9aa20" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TagConstraints::_num_tags</definition>
+        <argsstring></argsstring>
+        <name>_num_tags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="64" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTagConstraints_1a58a2e5245400d411de24e36534d11945" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TagConstraints::TagConstraints</definition>
+        <argsstring>(int num_tags)</argsstring>
+        <name>TagConstraints</name>
+        <param>
+          <type>int</type>
+          <declname>num_tags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="52" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classTagConstraints_1adec1a1de8fb49e79b52c4c93517414a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCache" kindref="compound">EdgeCache</ref></type>
+        <definition>EdgeCache TagConstraints::build_tagger_constraint_vector</definition>
+        <argsstring>(int sent_num, const Tagger &amp;tagger, wvector &amp;orig_weights) const </argsstring>
+        <name>build_tagger_constraint_vector</name>
+        <param>
+          <type>int</type>
+          <declname>sent_num</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classTagger" kindref="compound">Tagger</ref> &amp;</type>
+          <declname>tagger</declname>
+        </param>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>orig_weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given an sent_num, the tagger, and a weight vector (indexed on constrained words) produce a weight vector indexed on edges. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="58" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="71" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classTagConstraints_1acec3818d7505e9147828ab7cb3863001" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <definition>wvector TagConstraints::build_tagger_subgradient</definition>
+        <argsstring>(int sent_num, const Tagger &amp;tagger, const vector&lt; const Hyperedge * &gt; used_edges) const </argsstring>
+        <name>build_tagger_subgradient</name>
+        <param>
+          <type>int</type>
+          <declname>sent_num</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classTagger" kindref="compound">Tagger</ref> &amp;</type>
+          <declname>tagger</declname>
+        </param>
+        <param>
+          <type>const vector&lt; const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> * &gt;</type>
+          <declname>used_edges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="60" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="95" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classTagConstraints_1a8b8df130795f2fbc1ce2aac375dfc00a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TagConstraints::read_from_file</definition>
+        <argsstring>(string file_name)</argsstring>
+        <name>read_from_file</name>
+        <param>
+          <type>string</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="63" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="46" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classTagConstraints_1a3e490a8d4d335ed4d04803fab0a82871" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <definition>wvector TagConstraints::solve_hard</definition>
+        <argsstring>(wvector &amp;model) const </argsstring>
+        <name>solve_hard</name>
+        <param>
+          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="66" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="8" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1565">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="1568">
+        <label>PossibleTag</label>
+        <link refid="structPossibleTag"/>
+        <childnode refid="1569" relation="usage">
+          <edgelabel>group_name</edgelabel>
+        </childnode>
+      </node>
+      <node id="1572">
+        <label>ConstraintGroup</label>
+        <link refid="classConstraintGroup"/>
+        <childnode refid="1567" relation="usage">
+          <edgelabel>group</edgelabel>
+        </childnode>
+      </node>
+      <node id="1567">
+        <label>std::vector&lt; PossibleTag &gt;</label>
+        <childnode refid="1568" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1570">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1566">
+        <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
+        <childnode refid="1567" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1564">
+        <label>TagConstraints</label>
+        <link refid="classTagConstraints"/>
+        <childnode refid="1565" relation="usage">
+          <edgelabel>groups</edgelabel>
+        </childnode>
+        <childnode refid="1566" relation="usage">
+          <edgelabel>_constrained_words</edgelabel>
+        </childnode>
+        <childnode refid="1571" relation="usage">
+          <edgelabel>_constraint_struct</edgelabel>
+        </childnode>
+        <childnode refid="1567" relation="usage">
+          <edgelabel>_all_constraints</edgelabel>
+        </childnode>
+      </node>
+      <node id="1571">
+        <label>std::vector&lt; ConstraintGroup &gt;</label>
+        <childnode refid="1572" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1569">
+        <label>std::string</label>
+        <childnode refid="1570" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="45" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="45" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classTagConstraints_1a29576d5022d4c5d03e6c8723669c3679" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>_all_constraints</name></member>
+      <member refid="classTagConstraints_1a83e2347bf237b00f02dc872c19fd4516" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>_constrained_words</name></member>
+      <member refid="classTagConstraints_1ad5aae083cb84eff2294ca7fbbd63cb67" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>_constraint_struct</name></member>
+      <member refid="classTagConstraints_1a8885071b73e699061347d17af6d9aa20" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>_num_tags</name></member>
+      <member refid="classTagConstraints_1adec1a1de8fb49e79b52c4c93517414a0" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>build_tagger_constraint_vector</name></member>
+      <member refid="classTagConstraints_1acec3818d7505e9147828ab7cb3863001" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>build_tagger_subgradient</name></member>
+      <member refid="classTagConstraints_1aba1f64a190bc4144fea14f01fe82ecc3" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>groups</name></member>
+      <member refid="classTagConstraints_1a8b8df130795f2fbc1ce2aac375dfc00a" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>read_from_file</name></member>
+      <member refid="classTagConstraints_1a3e490a8d4d335ed4d04803fab0a82871" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>solve_hard</name></member>
+      <member refid="classTagConstraints_1a58a2e5245400d411de24e36534d11945" prot="public" virt="non-virtual"><scope>TagConstraints</scope><name>TagConstraints</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

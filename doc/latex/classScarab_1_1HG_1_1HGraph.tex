@@ -1,0 +1,96 @@
+\hypertarget{classScarab_1_1HG_1_1HGraph}{
+\section{Scarab::HG::HGraph Class Reference}
+\label{classScarab_1_1HG_1_1HGraph}\index{Scarab::HG::HGraph@{Scarab::HG::HGraph}}
+}
+Inheritance diagram for Scarab::HG::HGraph:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.85635cm]{classScarab_1_1HG_1_1HGraph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classScarab_1_1HG_1_1HGraph_ab5aa11c932b28864b56f28e0babbc1c1}{print} () const =0
+\item 
+virtual const \hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} \& \hyperlink{classScarab_1_1HG_1_1HGraph_a5ede392b158e41dd7e95ded1c4b0b5d6}{root} () const =0
+\item 
+\hypertarget{classScarab_1_1HG_1_1HGraph_a8309003db80be5bdbe4bb64f98a78ea8}{
+virtual unsigned int {\bfseries num\_\-edges} () const =0}
+\label{classScarab_1_1HG_1_1HGraph_a8309003db80be5bdbe4bb64f98a78ea8}
+
+\item 
+\hypertarget{classScarab_1_1HG_1_1HGraph_a6f4d37ef034cb38aa09c702b80a6e4f7}{
+virtual unsigned int {\bfseries num\_\-nodes} () const =0}
+\label{classScarab_1_1HG_1_1HGraph_a6f4d37ef034cb38aa09c702b80a6e4f7}
+
+\item 
+\hypertarget{classScarab_1_1HG_1_1HGraph_acad57dd952956b1a1a4367bba0e9383b}{
+virtual const \hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} \& {\bfseries get\_\-node} (unsigned int i) const =0}
+\label{classScarab_1_1HG_1_1HGraph_acad57dd952956b1a1a4367bba0e9383b}
+
+\item 
+\hypertarget{classScarab_1_1HG_1_1HGraph_aa599b296ae01affc9606f519e4e44e9e}{
+virtual const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} \& {\bfseries get\_\-edge} (unsigned int i) const =0}
+\label{classScarab_1_1HG_1_1HGraph_aa599b296ae01affc9606f519e4e44e9e}
+
+\item 
+virtual const vector$<$ \hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} $\ast$ $>$ \& \hyperlink{classScarab_1_1HG_1_1HGraph_a74d893fba015520774f71f02a46bb6ca}{nodes} () const =0
+\item 
+virtual const vector$<$ \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ \& \hyperlink{classScarab_1_1HG_1_1HGraph_a57328729f90cc4152ca79ff15ecdd4bb}{edges} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classScarab_1_1HG_1_1HGraph_a57328729f90cc4152ca79ff15ecdd4bb}{
+\index{Scarab::HG::HGraph@{Scarab::HG::HGraph}!edges@{edges}}
+\index{edges@{edges}!Scarab::HG::HGraph@{Scarab::HG::HGraph}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}virtual const vector$<${\bf Hyperedge}$\ast$$>$\& Scarab::HG::HGraph::edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1HGraph_a57328729f90cc4152ca79ff15ecdd4bb}
+Get all hyperedges in the hypergraph. (Assume unordered) WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges in hypergraph . 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypergraphImpl_a0c8373e545fe59b0cb7036b4751508e1}{Scarab::HG::HypergraphImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1HGraph_a74d893fba015520774f71f02a46bb6ca}{
+\index{Scarab::HG::HGraph@{Scarab::HG::HGraph}!nodes@{nodes}}
+\index{nodes@{nodes}!Scarab::HG::HGraph@{Scarab::HG::HGraph}}
+\subsubsection[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual const vector$<${\bf Hypernode}$\ast$ $>$\& Scarab::HG::HGraph::nodes () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1HGraph_a74d893fba015520774f71f02a46bb6ca}
+Get all hypernodes in the hypergraph. (Assume unordered) WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to hypernodes in hypergraph . 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypergraphImpl_a9aef2881b489c86d4d83e996a70f8141}{Scarab::HG::HypergraphImpl}.
+
+\hypertarget{classScarab_1_1HG_1_1HGraph_ab5aa11c932b28864b56f28e0babbc1c1}{
+\index{Scarab::HG::HGraph@{Scarab::HG::HGraph}!print@{print}}
+\index{print@{print}!Scarab::HG::HGraph@{Scarab::HG::HGraph}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Scarab::HG::HGraph::print () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1HGraph_ab5aa11c932b28864b56f28e0babbc1c1}
+Display the hypergraph for debugging. 
+
+Implemented in \hyperlink{classMRFHypergraph_aaac6b68c3ece41ddd1f8107e961879bc}{MRFHypergraph}, \hyperlink{classDepParser_a9aebbbde821bad423b6c01cc12f02a2c}{DepParser}, \hyperlink{classPhraseBased_aafc2997b58b3698fed7cb5a1f6f269c6}{PhraseBased}, \hyperlink{classTagger_a4ebe0aebd7c0392970b401a5a6c6cd72}{Tagger}, and \hyperlink{classForest_a621a1a65d0f877bb33b15c79f9e24c4d}{Forest}.
+
+\hypertarget{classScarab_1_1HG_1_1HGraph_a5ede392b158e41dd7e95ded1c4b0b5d6}{
+\index{Scarab::HG::HGraph@{Scarab::HG::HGraph}!root@{root}}
+\index{root@{root}!Scarab::HG::HGraph@{Scarab::HG::HGraph}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf Hypernode}\& Scarab::HG::HGraph::root () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classScarab_1_1HG_1_1HGraph_a5ede392b158e41dd7e95ded1c4b0b5d6}
+Get the root of the hypergraph
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classScarab_1_1HG_1_1Hypernode}{Hypernode} at root 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classScarab_1_1HG_1_1HypergraphImpl_a31172009b97d179f6b1199f191197a32}{Scarab::HG::HypergraphImpl}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+hypergraph/Hypergraph.h\end{DoxyCompactItemize}

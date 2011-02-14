@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1QueueHyp" kind="struct" prot="public">
+    <compoundname>Scarab::HG::QueueHyp</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1QueueHyp_1ae3368ba62dae4842a83766b44bcda346" prot="public" static="no" mutable="no">
+        <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> *</type>
+        <definition>Hypothesis* Scarab::HG::QueueHyp::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="49" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1QueueHyp_1ab4c4483fa92ecb415def41f5ed366e53" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Scarab::HG::QueueHyp::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="50" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1QueueHyp_1ae151535de5fa3bb2cfe44dade082c613" prot="public" static="no" mutable="no">
+        <type><ref refid="structScarab_1_1HG_1_1Location" kindref="compound">Location</ref> *</type>
+        <definition>Location* Scarab::HG::QueueHyp::where</definition>
+        <argsstring></argsstring>
+        <name>where</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="51" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1QueueHyp_1a8a243283cfe137096b0d38595c3a5a25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::QueueHyp::QueueHyp</definition>
+        <argsstring>()</argsstring>
+        <name>QueueHyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="54" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1QueueHyp_1a165e60736b23d97bec8cdaff7c742db7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::QueueHyp::QueueHyp</definition>
+        <argsstring>(Hypothesis *hyp, double score_in, Location *w)</argsstring>
+        <name>QueueHyp</name>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> *</type>
+          <declname>hyp</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>score_in</declname>
+        </param>
+        <param>
+          <type><ref refid="structScarab_1_1HG_1_1Location" kindref="compound">Location</ref> *</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="56" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="55" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1QueueHyp_1aa02f7835d0dd0d00cc5f00ff7430ddf3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::QueueHyp::operator&lt;</definition>
+        <argsstring>(const QueueHyp &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1QueueHyp" kindref="compound">QueueHyp</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="57" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="57" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1354">
+        <label>Scarab::HG::Hypothesis</label>
+        <link refid="structScarab_1_1HG_1_1Hypothesis"/>
+        <childnode refid="1355" relation="usage">
+          <edgelabel>back_edge</edgelabel>
+        </childnode>
+        <childnode refid="1356" relation="usage">
+          <edgelabel>right_side</edgelabel>
+          <edgelabel>hook</edgelabel>
+        </childnode>
+        <childnode refid="1357" relation="usage">
+          <edgelabel>prev_hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="1355">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="1356">
+        <label>Scarab::HG::State</label>
+        <link refid="structScarab_1_1HG_1_1State"/>
+        <childnode refid="1357" relation="usage">
+          <edgelabel>_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1353">
+        <label>Scarab::HG::QueueHyp</label>
+        <link refid="structScarab_1_1HG_1_1QueueHyp"/>
+        <childnode refid="1354" relation="usage">
+          <edgelabel>h</edgelabel>
+        </childnode>
+        <childnode refid="1358" relation="usage">
+          <edgelabel>where</edgelabel>
+        </childnode>
+      </node>
+      <node id="1358">
+        <label>Scarab::HG::Location</label>
+        <link refid="structScarab_1_1HG_1_1Location"/>
+      </node>
+      <node id="1357">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="48" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="48" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1ae3368ba62dae4842a83766b44bcda346" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>h</name></member>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1aa02f7835d0dd0d00cc5f00ff7430ddf3" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>operator&lt;</name></member>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1a8a243283cfe137096b0d38595c3a5a25" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>QueueHyp</name></member>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1a165e60736b23d97bec8cdaff7c742db7" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>QueueHyp</name></member>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1ab4c4483fa92ecb415def41f5ed366e53" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>score</name></member>
+      <member refid="structScarab_1_1HG_1_1QueueHyp_1ae151535de5fa3bb2cfe44dade082c613" prot="public" virt="non-virtual"><scope>Scarab::HG::QueueHyp</scope><name>where</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

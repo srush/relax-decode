@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classHeuristic" kind="class" prot="public">
+    <compoundname>Heuristic</compoundname>
+    <derivedcompoundref refid="classSplitHeuristic" prot="public" virt="non-virtual">SplitHeuristic</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classHeuristic_1a6bd92dacd8fe6aece51e6c2abecf6dd0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool Heuristic::has_value</definition>
+        <argsstring>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</argsstring>
+        <name>has_value</name>
+        <reimplementedby refid="classSplitHeuristic_1a7117c99ce380835ed38aa02f82f8a04e">has_value</reimplementedby>
+        <param>
+          <type>const <ref refid="structLocation" kindref="compound">Location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classHeuristic_1a4e12169efe1bd4323dba387ac94a4248" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Heuristic::get_value</definition>
+        <argsstring>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</argsstring>
+        <name>get_value</name>
+        <reimplementedby refid="classSplitHeuristic_1ab64ec7cde28b49828bcde1ad97862cc2">get_value</reimplementedby>
+        <param>
+          <type>const <ref refid="structLocation" kindref="compound">Location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structHypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="548">
+        <label>SplitHeuristic</label>
+        <link refid="classSplitHeuristic"/>
+        <childnode refid="547" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="547">
+        <label>Heuristic</label>
+        <link refid="classHeuristic"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="37" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="37" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classHeuristic_1a4e12169efe1bd4323dba387ac94a4248" prot="public" virt="pure-virtual"><scope>Heuristic</scope><name>get_value</name></member>
+      <member refid="classHeuristic_1a6bd92dacd8fe6aece51e6c2abecf6dd0" prot="public" virt="pure-virtual"><scope>Heuristic</scope><name>has_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

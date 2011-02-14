@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classMRFHypergraph" kind="class" prot="public">
+    <compoundname>MRFHypergraph</compoundname>
+    <basecompoundref refid="classScarab_1_1HG_1_1HypergraphImpl" prot="public" virt="non-virtual">Scarab::HG::HypergraphImpl</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMRFHypergraph_1aa696bb6f0145ae55e839ccee6acbabc6" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structNodeAssignment" kindref="compound">NodeAssignment</ref>, <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> * &gt; *</type>
+        <definition>Cache&lt;NodeAssignment, Hypernode * &gt;* MRFHypergraph::_canonical_hnode</definition>
+        <argsstring></argsstring>
+        <name>_canonical_hnode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="25" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMRFHypergraph_1a348c1e722ea499fd9363191aa9d1eadb" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, <ref refid="structNodeAssignment" kindref="compound">NodeAssignment</ref> &gt; *</type>
+        <definition>Cache&lt;Hypernode, NodeAssignment &gt;* MRFHypergraph::_canonical_assignment</definition>
+        <argsstring></argsstring>
+        <name>_canonical_assignment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="26" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classMRFHypergraph_1af8808e644c7ff0c938f4fbd9e473dfba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMRFHypergraph" kindref="compound">MRFHypergraph</ref></type>
+        <definition>MRFHypergraph MRFHypergraph::from_mrf</definition>
+        <argsstring>(const MRF &amp;mrf)</argsstring>
+        <name>from_mrf</name>
+        <param>
+          <type>const <ref refid="classMRF" kindref="compound">MRF</ref> &amp;</type>
+          <declname>mrf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="11" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.cpp" bodystart="5" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMRFHypergraph_1a5c717b35842c25c6be9e827f0aa31708" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structNodeAssignment" kindref="compound">NodeAssignment</ref></type>
+        <definition>NodeAssignment MRFHypergraph::assignment_from_node</definition>
+        <argsstring>(Hypernode *node)</argsstring>
+        <name>assignment_from_node</name>
+        <param>
+          <type><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="13" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classMRFHypergraph_1aaac6b68c3ece41ddd1f8107e961879bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void MRFHypergraph::print</definition>
+        <argsstring>() const </argsstring>
+        <name>print</name>
+        <reimplements refid="classScarab_1_1HG_1_1HGraph_1ab5aa11c932b28864b56f28e0babbc1c1">print</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the hypergraph for debugging. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="17" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classMRFHypergraph_1a34f14a3a9cf0d01c7fbfc11e1caa20ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">HNode</ref></type>
+        <definition>HNode MRFHypergraph::assignment_from_node</definition>
+        <argsstring>(NodeAssignment &amp;node_assign)</argsstring>
+        <name>assignment_from_node</name>
+        <param>
+          <type><ref refid="structNodeAssignment" kindref="compound">NodeAssignment</ref> &amp;</type>
+          <declname>node_assign</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="19" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="19" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1166">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1167" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1165">
+        <label>MRFHypergraph</label>
+        <link refid="classMRFHypergraph"/>
+        <childnode refid="1166" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1167">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1178">
+        <label>Cache&lt; NodeAssignment, Hypernode * &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1171" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="1177" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1175">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="1169">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1170" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1171" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1173" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="1174" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1172" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="1172">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="1171">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="1172" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1168">
+        <label>MRFHypergraph</label>
+        <link refid="classMRFHypergraph"/>
+        <childnode refid="1169" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1176" relation="usage">
+          <edgelabel>_canonical_assignment</edgelabel>
+        </childnode>
+        <childnode refid="1178" relation="usage">
+          <edgelabel>_canonical_hnode</edgelabel>
+        </childnode>
+      </node>
+      <node id="1173">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="1173" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1176">
+        <label>Cache&lt; Hypernode, NodeAssignment &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1177" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1170">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1177">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1174">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="1175" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" line="9" bodyfile="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h" bodystart="9" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classMRFHypergraph_1a348c1e722ea499fd9363191aa9d1eadb" prot="private" virt="non-virtual"><scope>MRFHypergraph</scope><name>_canonical_assignment</name></member>
+      <member refid="classMRFHypergraph_1aa696bb6f0145ae55e839ccee6acbabc6" prot="private" virt="non-virtual"><scope>MRFHypergraph</scope><name>_canonical_hnode</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a56fb710140f3359646b1a17cb0417d74" prot="protected" virt="non-virtual"><scope>MRFHypergraph</scope><name>_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a4cc57d9255e2f09714c5913d67cd0554" prot="protected" virt="non-virtual"><scope>MRFHypergraph</scope><name>_nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a7035fdae4c04d0752aaaf1e7eba7600e" prot="protected" virt="non-virtual"><scope>MRFHypergraph</scope><name>_root</name></member>
+      <member refid="classMRFHypergraph_1a5c717b35842c25c6be9e827f0aa31708" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>assignment_from_node</name></member>
+      <member refid="classMRFHypergraph_1a34f14a3a9cf0d01c7fbfc11e1caa20ba" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>assignment_from_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a1f33418f90b826db9cfc0bb34e1ca9cf" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>build_from_file</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a30349aca0e3b8f8dc72ed74d78e8c5b8" prot="protected" virt="virtual"><scope>MRFHypergraph</scope><name>convert_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a93e9e250fa457a2171bf07241b7829eb" prot="protected" virt="virtual"><scope>MRFHypergraph</scope><name>convert_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0c8373e545fe59b0cb7036b4751508e1" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>edges</name></member>
+      <member refid="classMRFHypergraph_1af8808e644c7ff0c938f4fbd9e473dfba" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>from_mrf</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31a148139b888b6bd10e78fe555144c7" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>get_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9276a6faa074eb4f3bbb2f8b8d5d4fbf" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>get_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1aa7192cf8f168e5bfed67a8faf85c8cb4" prot="protected" virt="non-virtual"><scope>MRFHypergraph</scope><name>hgraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a067b2daae46f4758f9621fb9d803bef2" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>HypergraphImpl</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a935bed9b8cf9235a1adb61d0889f6ac7" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>HypergraphImpl</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a238a7ce3b578c8126eccbc7803570638" prot="protected" virt="virtual"><scope>MRFHypergraph</scope><name>make_edge</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af14198ba5fccb5d4118188fa42feb8ff" prot="protected" virt="virtual"><scope>MRFHypergraph</scope><name>make_node</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>nodes</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a0adcc8783b94cbe07b092220082d00ab" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>num_edges</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1ad39e917a84acb1d4caf0145ce8a903a2" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>num_nodes</name></member>
+      <member refid="classMRFHypergraph_1aaac6b68c3ece41ddd1f8107e961879bc" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>print</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a98701d5529aaf3e5d4fa386694843f20" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>prune</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1a31172009b97d179f6b1199f191197a32" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>root</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1ae91de73e633e450b01664e3ec964019c" prot="protected" virt="virtual"><scope>MRFHypergraph</scope><name>set_up</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af8f5ed38a355676c473e8d54b5552cc6" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>write_to_file</name></member>
+      <member refid="classScarab_1_1HG_1_1HGraph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" virt="virtual"><scope>MRFHypergraph</scope><name>~HGraph</name></member>
+      <member refid="classScarab_1_1HG_1_1HypergraphImpl_1af9726fe39b4cfdbcbead1cba4efa6a01" prot="public" virt="non-virtual"><scope>MRFHypergraph</scope><name>~HypergraphImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

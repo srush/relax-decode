@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1Hypothesis" kind="struct" prot="public">
+    <compoundname>Scarab::HG::Hypothesis</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1a53277642394df6145ea8bfc6a3e3996e" prot="public" static="no" mutable="no">
+        <type><ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref></type>
+        <definition>State Scarab::HG::Hypothesis::hook</definition>
+        <argsstring></argsstring>
+        <name>hook</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="110" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1aff1779905d4f7e9a21b71a20cec4f02d" prot="public" static="no" mutable="no">
+        <type><ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref></type>
+        <definition>State Scarab::HG::Hypothesis::right_side</definition>
+        <argsstring></argsstring>
+        <name>right_side</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="111" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1aa31a2d052ecaffa034d8447de748946f" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> *</type>
+        <definition>const Hyperedge* Scarab::HG::Hypothesis::back_edge</definition>
+        <argsstring></argsstring>
+        <name>back_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="112" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1a38b1068d18fe3ce28d6c93e5d12b2225" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Scarab::HG::Hypothesis::is_done</definition>
+        <argsstring></argsstring>
+        <name>is_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="113" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1a93bf33767cecd362e8a12d385c94be1a" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Scarab::HG::Hypothesis::prev_hyp</definition>
+        <argsstring></argsstring>
+        <name>prev_hyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="118" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1Hypothesis_1a95df46740f1263062f4898db1b39cd41" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Scarab::HG::Hypothesis::original_value</definition>
+        <argsstring></argsstring>
+        <name>original_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="119" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1aca7357ce485cb960fadb2cc62f1a888a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::Hypothesis::Hypothesis</definition>
+        <argsstring>(const State &amp;left_hook, const State &amp;right, HEdge back_pointer)</argsstring>
+        <name>Hypothesis</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>left_hook</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">HEdge</ref></type>
+          <declname>back_pointer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> represents the path through an intersection of a hypergraph and finite state automata.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>left_hook</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected fsa state on the left hand side </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>right</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current fsa state on the right hand side </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>back_pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The last hyperedge taken on the path</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="94" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a0d71b86d0d7d3294e61671efed2722bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::Hypothesis::Hypothesis</definition>
+        <argsstring>(const State &amp;left_hook, const State &amp;right)</argsstring>
+        <name>Hypothesis</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>left_hook</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1State" kindref="compound">State</ref> &amp;</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="100" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="99" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a974fd973dd0c8a380f342bbd10013d6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::Hypothesis::Hypothesis</definition>
+        <argsstring>(int d)</argsstring>
+        <name>Hypothesis</name>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="103" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a896c919fe180b0fcd4cdcbeabd9d2e0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::Hypothesis::Hypothesis</definition>
+        <argsstring>()</argsstring>
+        <name>Hypothesis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="106" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a698008183fc3863a0c03ba0c3e5960d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::Hypothesis::match</definition>
+        <argsstring>(const Hypothesis &amp;other) const </argsstring>
+        <name>match</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is it valid to combine this hypothesis with another (do the fsa states match up) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hypothesis to join on the right</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True, if they match </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="128" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a5a69f417c889d4d96ad5a78aa1dd2f7d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::HG::Hypothesis::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the unique identifier for this hypothesis.</para><para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="137" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="137" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1ac428cffa80bad102222f58463bfba7e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::HG::Hypothesis::left</definition>
+        <argsstring>() const </argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the unique identifier for the left state of the hypothesis.</para><para><simplesect kind="return"><para>Left side id </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="148" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="148" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a6c026d211fd4f4875216fc179a78e879" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scarab::HG::Hypothesis::right</definition>
+        <argsstring>() const </argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the unique identifier for the right state of the hypothesis.</para><para><simplesect kind="return"><para>Right side id </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="157" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1Hypothesis_1a70597628ead54cb83fcda7422d6d2f1f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Scarab::HG::Hypothesis::operator&lt;</definition>
+        <argsstring>(const Hypothesis &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="162" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="162" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structScarab_1_1HG_1_1Hypothesis_1a70fdb92646880290a9c906e5018c11bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;output, const Hypothesis &amp;h)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1Hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="108" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="906">
+        <label>Scarab::HG::Hypothesis</label>
+        <link refid="structScarab_1_1HG_1_1Hypothesis"/>
+        <childnode refid="907" relation="usage">
+          <edgelabel>back_edge</edgelabel>
+        </childnode>
+        <childnode refid="908" relation="usage">
+          <edgelabel>right_side</edgelabel>
+          <edgelabel>hook</edgelabel>
+        </childnode>
+        <childnode refid="909" relation="usage">
+          <edgelabel>prev_hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="907">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="908">
+        <label>Scarab::HG::State</label>
+        <link refid="structScarab_1_1HG_1_1State"/>
+        <childnode refid="909" relation="usage">
+          <edgelabel>_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="909">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" line="77" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Hypothesis.h" bodystart="77" bodyend="172"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1aa31a2d052ecaffa034d8447de748946f" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>back_edge</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a53277642394df6145ea8bfc6a3e3996e" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>hook</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1aca7357ce485cb960fadb2cc62f1a888a" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a0d71b86d0d7d3294e61671efed2722bf" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a974fd973dd0c8a380f342bbd10013d6f" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a896c919fe180b0fcd4cdcbeabd9d2e0d" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>Hypothesis</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a5a69f417c889d4d96ad5a78aa1dd2f7d" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>id</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a38b1068d18fe3ce28d6c93e5d12b2225" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>is_done</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1ac428cffa80bad102222f58463bfba7e5" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>left</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a698008183fc3863a0c03ba0c3e5960d1" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>match</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a70597628ead54cb83fcda7422d6d2f1f" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>operator&lt;</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a70fdb92646880290a9c906e5018c11bb" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a95df46740f1263062f4898db1b39cd41" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>original_value</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a93bf33767cecd362e8a12d385c94be1a" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>prev_hyp</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1a6c026d211fd4f4875216fc179a78e879" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>right</name></member>
+      <member refid="structScarab_1_1HG_1_1Hypothesis_1aff1779905d4f7e9a21b71a20cec4f02d" prot="public" virt="non-virtual"><scope>Scarab::HG::Hypothesis</scope><name>right_side</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

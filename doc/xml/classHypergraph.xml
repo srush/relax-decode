@@ -1,0 +1,1511 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classHypergraph" kind="class" prot="public">
+    <compoundname>Hypergraph</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classHypergraph_1a36c26b747a86e20cc9e7b0ce733fe38a" prot="public" static="no">
+        <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref></type>
+        <definition>typedef Hypergraph_Node Hypergraph::Node</definition>
+        <argsstring></argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="315" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classHypergraph_1a8161caf487c105fff5e3ffd589ed176f" prot="public" static="no">
+        <type><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref></type>
+        <definition>typedef Hypergraph_Edge Hypergraph::Edge</definition>
+        <argsstring></argsstring>
+        <name>Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="316" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classHypergraph_1a36c26b747a86e20cc9e7b0ce733fe38a" prot="public" static="no">
+        <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref></type>
+        <definition>typedef Hypergraph_Node Hypergraph::Node</definition>
+        <argsstring></argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="315" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classHypergraph_1a8161caf487c105fff5e3ffd589ed176f" prot="public" static="no">
+        <type><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref></type>
+        <definition>typedef Hypergraph_Edge Hypergraph::Edge</definition>
+        <argsstring></argsstring>
+        <name>Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="316" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classHypergraph_1a2e8f834b9b2c946dc1c7bdaded177a2b" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>static const int Hypergraph::kRootFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kRootFieldNumber</name>
+        <initializer> 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="323" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1a2d9dea1733d42814b38878cd7e93195f" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>static const int Hypergraph::kNodeFieldNumber</definition>
+        <argsstring></argsstring>
+        <name>kNodeFieldNumber</name>
+        <initializer> 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="330" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classHypergraph_1a9a43e790951901ebca679901fca8ddd7" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::internal::ExtensionSet</type>
+        <definition>google::protobuf::internal::ExtensionSet Hypergraph::_extensions_</definition>
+        <argsstring></argsstring>
+        <name>_extensions_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="345" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1abf3945604574f2bb00f1571774b032d2" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::UnknownFieldSet</type>
+        <definition>google::protobuf::UnknownFieldSet Hypergraph::_unknown_fields_</definition>
+        <argsstring></argsstring>
+        <name>_unknown_fields_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="347" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1ac6906db64ec8377c87609c2652da78e8" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &gt;</type>
+        <definition>google::protobuf::RepeatedPtrField&lt;::Hypergraph_Node &gt; Hypergraph::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="349" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1a73033331f45ef2258126cd78b1123f50" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 Hypergraph::root_</definition>
+        <argsstring></argsstring>
+        <name>root_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="350" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1af3de8de60c2071cc8a40d6433345543a" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int Hypergraph::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="352" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHypergraph_1ae7dc2a29bcf20b011bade9c2620e1e88" prot="private" static="no" mutable="no">
+        <type>::google::protobuf::uint32</type>
+        <definition>google::protobuf::uint32 Hypergraph::_has_bits_</definition>
+        <argsstring>[(2+31)/32]</argsstring>
+        <name>_has_bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="353" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classHypergraph_1a4fe9b7fbdb98df4d6acdf9837f33d8db" prot="private" static="yes" mutable="no">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <definition>static Hypergraph * Hypergraph::default_instance_</definition>
+        <argsstring></argsstring>
+        <name>default_instance_</name>
+        <initializer> NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="360" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classHypergraph_1aa1c3d659e130799604c46ca1deeeae7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Hypergraph::Hypergraph</definition>
+        <argsstring>()</argsstring>
+        <name>Hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="265" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="815" bodyend="818"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a91559f924fa8d9aa6d4bb1356f1e98dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Hypergraph::~Hypergraph</definition>
+        <argsstring>()</argsstring>
+        <name>~Hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="266" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="835" bodyend="837"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aa5b69fea3073cbbc6230c403aba60a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Hypergraph::Hypergraph</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>Hypergraph</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="268" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="823" bodyend="827"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a6fa4366f554df3ffd7aa3694a3612006" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>Hypergraph&amp; Hypergraph::operator=</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="270" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a20ec2be2fda0e1db366f26c95817cd89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; Hypergraph::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="275" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="275" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a423987a46404cd3221a5c4035050b4b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* Hypergraph::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="279" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="279" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac4a85460aabebe97e0411a30d80f720d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::Swap</definition>
+        <argsstring>(Hypergraph *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="286" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1067" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aed1ca8c3f4626f4313cd7e1b1ebf2676" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <definition>Hypergraph * Hypergraph::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="290" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="860" bodyend="862"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a344289a1a02daaa7e9bb2284507bc25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="291" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1045" bodyend="1049"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4aafea60a0bf75fe2c2f66172101110b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="292" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1021" bodyend="1031"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4715ac922c373c335985c25f9766a526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::CopyFrom</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="293" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1051" bodyend="1055"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a5e48c533c90271a6e018a26ac8a70538" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::MergeFrom</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="294" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1033" bodyend="1043"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a3377b5de90d222621cc41c2c41b7865d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="295" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="864" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a5327b9372e5dd8dd4e435b160e5f16df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="296" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1057" bodyend="1065"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ab4aa8a83cd1da71a9f31bdad594ffaf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="298" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="988" bodyend="1019"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a30583bfba242ae1439903bc24d069e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="300" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="874" bodyend="930"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a7e8e7f4fe037cbfeb1f0a46e7616fc78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="302" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="932" bodyend="957"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4d695da7efbbcc2444fb1836e88d8849" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>google::protobuf::uint8 * Hypergraph::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="303" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="959" bodyend="986"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a34d579551c68eb5e039062269f875522" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="304" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a5e8ebd56fb4cdfcaa19b9aa43cf25fbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>google::protobuf::Metadata Hypergraph::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="311" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="1078" bodyend="1084"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ab92016742525abd273fb96859b586bed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::has_root</definition>
+        <argsstring>() const </argsstring>
+        <name>has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="321" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="588" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a2404b1cf118c4511b17748d23a51f9c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_root</definition>
+        <argsstring>()</argsstring>
+        <name>clear_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="322" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="597" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac8ba37cfa01a25ccd5f67b82122c359d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>google::protobuf::int32 Hypergraph::root</definition>
+        <argsstring>() const </argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="324" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="601" bodyend="603"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aa3a2d6876af145d4ccf600dbcfb2446d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::set_root</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_root</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="325" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="604" bodyend="607"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac07666e8012c320a265bb25842fa7238" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::node_size</definition>
+        <argsstring>() const </argsstring>
+        <name>node_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="328" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="610" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a85cd3d3e06c7cb448d1a1059f09f1b5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_node</definition>
+        <argsstring>()</argsstring>
+        <name>clear_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="329" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="613" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ad2bd2578cecd21f60bf6592318a2770f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &amp;</type>
+        <definition>const ::Hypergraph_Node &amp; Hypergraph::node</definition>
+        <argsstring>(int index) const </argsstring>
+        <name>node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="331" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="616" bodyend="618"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ae434b3b5045260dd0c085fd7bbf17469" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::Hypergraph_Node *</type>
+        <definition>Hypergraph_Node * Hypergraph::mutable_node</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="332" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="619" bodyend="621"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a919f27df68d64f067227cbeacc863a52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::Hypergraph_Node *</type>
+        <definition>Hypergraph_Node * Hypergraph::add_node</definition>
+        <argsstring>()</argsstring>
+        <name>add_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="333" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="622" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aec184e2ac51df4d3fe07b75eb401a7fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &gt; &amp;</type>
+        <definition>const ::google::protobuf::RepeatedPtrField&lt;::Hypergraph_Node &gt; &amp; Hypergraph::node</definition>
+        <argsstring>() const </argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="335" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="626" bodyend="628"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a837f81cd9e9f3e5832e166ba2520b445" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &gt; *</type>
+        <definition>google::protobuf::RepeatedPtrField&lt;::Hypergraph_Node &gt; * Hypergraph::mutable_node</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="337" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="630" bodyend="632"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aa1c3d659e130799604c46ca1deeeae7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Hypergraph::Hypergraph</definition>
+        <argsstring>()</argsstring>
+        <name>Hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1af186cc588a86fe0b63ddeb4ce8c729f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual Hypergraph::~Hypergraph</definition>
+        <argsstring>()</argsstring>
+        <name>~Hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aa5b69fea3073cbbc6230c403aba60a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Hypergraph::Hypergraph</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>Hypergraph</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a6fa4366f554df3ffd7aa3694a3612006" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>Hypergraph&amp; Hypergraph::operator=</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="270" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a20ec2be2fda0e1db366f26c95817cd89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::UnknownFieldSet &amp;</type>
+        <definition>const ::google::protobuf::UnknownFieldSet&amp; Hypergraph::unknown_fields</definition>
+        <argsstring>() const </argsstring>
+        <name>unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="275" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="275" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a423987a46404cd3221a5c4035050b4b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline::google::protobuf::UnknownFieldSet *</type>
+        <definition>inline ::google::protobuf::UnknownFieldSet* Hypergraph::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="279" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="279" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac4a85460aabebe97e0411a30d80f720d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::Swap</definition>
+        <argsstring>(Hypergraph *other)</argsstring>
+        <name>Swap</name>
+        <param>
+          <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a9b21d571070e88fe8ed3f6751e495b04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <definition>Hypergraph* Hypergraph::New</definition>
+        <argsstring>() const </argsstring>
+        <name>New</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a344289a1a02daaa7e9bb2284507bc25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::CopyFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4aafea60a0bf75fe2c2f66172101110b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::MergeFrom</definition>
+        <argsstring>(const ::google::protobuf::Message &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const ::google::protobuf::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4715ac922c373c335985c25f9766a526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::CopyFrom</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a5e48c533c90271a6e018a26ac8a70538" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::MergeFrom</definition>
+        <argsstring>(const Hypergraph &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <param>
+          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a3377b5de90d222621cc41c2c41b7865d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a5327b9372e5dd8dd4e435b160e5f16df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::IsInitialized</definition>
+        <argsstring>() const </argsstring>
+        <name>IsInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ab4aa8a83cd1da71a9f31bdad594ffaf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::ByteSize</definition>
+        <argsstring>() const </argsstring>
+        <name>ByteSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a30583bfba242ae1439903bc24d069e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::MergePartialFromCodedStream</definition>
+        <argsstring>(::google::protobuf::io::CodedInputStream *input)</argsstring>
+        <name>MergePartialFromCodedStream</name>
+        <param>
+          <type>::google::protobuf::io::CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a7e8e7f4fe037cbfeb1f0a46e7616fc78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SerializeWithCachedSizes</definition>
+        <argsstring>(::google::protobuf::io::CodedOutputStream *output) const </argsstring>
+        <name>SerializeWithCachedSizes</name>
+        <param>
+          <type>::google::protobuf::io::CodedOutputStream *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a86e069313a6ce786d6578d4fa416dd39" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::uint8 *</type>
+        <definition>::google::protobuf::uint8* Hypergraph::SerializeWithCachedSizesToArray</definition>
+        <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
+        <name>SerializeWithCachedSizesToArray</name>
+        <param>
+          <type>::google::protobuf::uint8 *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a34d579551c68eb5e039062269f875522" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::GetCachedSize</definition>
+        <argsstring>() const </argsstring>
+        <name>GetCachedSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="304" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1af2886402d4f2114b650696ce2e53f860" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>::google::protobuf::Metadata</type>
+        <definition>::google::protobuf::Metadata Hypergraph::GetMetadata</definition>
+        <argsstring>() const </argsstring>
+        <name>GetMetadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="311"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ab92016742525abd273fb96859b586bed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hypergraph::has_root</definition>
+        <argsstring>() const </argsstring>
+        <name>has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a2404b1cf118c4511b17748d23a51f9c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_root</definition>
+        <argsstring>()</argsstring>
+        <name>clear_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1af86203cfb1b5ddbbd58cab35cc02b8c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::google::protobuf::int32</type>
+        <definition>inline ::google::protobuf::int32 Hypergraph::root</definition>
+        <argsstring>() const </argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1aa3a2d6876af145d4ccf600dbcfb2446d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::set_root</definition>
+        <argsstring>(::google::protobuf::int32 value)</argsstring>
+        <name>set_root</name>
+        <param>
+          <type>::google::protobuf::int32</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac07666e8012c320a265bb25842fa7238" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Hypergraph::node_size</definition>
+        <argsstring>() const </argsstring>
+        <name>node_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a85cd3d3e06c7cb448d1a1059f09f1b5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_node</definition>
+        <argsstring>()</argsstring>
+        <name>clear_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="329"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a72db8343ef7ab67b8cfbfffd7c83d472" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &amp;</type>
+        <definition>const ::Hypergraph_Node&amp; Hypergraph::node</definition>
+        <argsstring>(int index) const </argsstring>
+        <name>node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a6b45e9545d78b8cf17637b6ef71baa60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::Hypergraph_Node *</type>
+        <definition>inline ::Hypergraph_Node* Hypergraph::mutable_node</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_node</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1abdaf30271c29d8d61c7e2fe77a392b10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::Hypergraph_Node *</type>
+        <definition>inline ::Hypergraph_Node* Hypergraph::add_node</definition>
+        <argsstring>()</argsstring>
+        <name>add_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a07d32ac4f217954bc033d6a304445408" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &gt; &amp;</type>
+        <definition>const ::google::protobuf::RepeatedPtrField&lt; ::Hypergraph_Node &gt;&amp; Hypergraph::node</definition>
+        <argsstring>() const </argsstring>
+        <name>node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a4ea0dbf6904be58bd8afc24ee7acb57d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>inline::google::protobuf::RepeatedPtrField&lt; ::<ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &gt; *</type>
+        <definition>inline ::google::protobuf::RepeatedPtrField&lt; ::Hypergraph_Node &gt;* Hypergraph::mutable_node</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="337"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classHypergraph_1aa234b49896c08a611c8088504cd0db60" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>const ::google::protobuf::Descriptor * Hypergraph::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="283" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="849" bodyend="852"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a370708c0a37cbf8e847a34880519e872" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>const Hypergraph &amp; Hypergraph::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="284" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="854" bodyend="856"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ab26f2bbcbb6ce99b3bbb1a210cdfcd38" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const ::google::protobuf::Descriptor *</type>
+        <definition>static const ::google::protobuf::Descriptor* Hypergraph::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ad44f1245d88fb5a3c542f7c1d7081390" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <definition>static const Hypergraph&amp; Hypergraph::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="284"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classHypergraph_1af448b211195a03daf876ba543ffed975" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="306" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="829" bodyend="833"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a6b150f3f90b001ceb3944c2b5f0d80d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="307" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="839" bodyend="842"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a13cbfbb77dc2381c41aad2f922d6ce3c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="308" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="844" bodyend="848"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1afb9ed2db5d051258104a0c2f0cf4a86e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::set_has_root</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="342" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="591" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac29fa76c811081d6ed1380c110695627" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_has_root</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="343" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="594" bodyend="596"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a58a31da1b8333edf0b0706c59de082fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="359" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="820" bodyend="821"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1af448b211195a03daf876ba543ffed975" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a6b150f3f90b001ceb3944c2b5f0d80d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a13cbfbb77dc2381c41aad2f922d6ce3c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::SetCachedSize</definition>
+        <argsstring>(int size) const </argsstring>
+        <name>SetCachedSize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1afb9ed2db5d051258104a0c2f0cf4a86e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::set_has_root</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1ac29fa76c811081d6ed1380c110695627" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::clear_has_root</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classHypergraph_1a58a31da1b8333edf0b0706c59de082fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Hypergraph::InitAsDefaultInstance</definition>
+        <argsstring>()</argsstring>
+        <name>InitAsDefaultInstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="359"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classHypergraph_1aed4781a70bb54c95ce4bb1aa4f20b05c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="355" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="118" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="friend" id="classHypergraph_1a3cbaa41d7f7b73db437c4e7d1edcb4f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="356" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="31" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="friend" id="classHypergraph_1a424acd7e96228bbed0dba9436582d3c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="357" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="109" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="friend" id="classHypergraph_1aed4781a70bb54c95ce4bb1aa4f20b05c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AddDesc_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AddDesc_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="355" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="118" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="friend" id="classHypergraph_1a3cbaa41d7f7b73db437c4e7d1edcb4f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_AssignDesc_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_AssignDesc_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="356" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="31" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="friend" id="classHypergraph_1a424acd7e96228bbed0dba9436582d3c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void protobuf_ShutdownFile_hypergraph_2eproto</definition>
+        <argsstring>()</argsstring>
+        <name>protobuf_ShutdownFile_hypergraph_2eproto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="357" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="109" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="850">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="850" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" line="263" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.h" bodystart="263" bodyend="361"/>
+    <listofallmembers>
+      <member refid="classHypergraph_1af3de8de60c2071cc8a40d6433345543a" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>_cached_size_</name></member>
+      <member refid="classHypergraph_1a9a43e790951901ebca679901fca8ddd7" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>_extensions_</name></member>
+      <member refid="classHypergraph_1ae7dc2a29bcf20b011bade9c2620e1e88" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>_has_bits_</name></member>
+      <member refid="classHypergraph_1abf3945604574f2bb00f1571774b032d2" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>_unknown_fields_</name></member>
+      <member refid="classHypergraph_1a919f27df68d64f067227cbeacc863a52" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>add_node</name></member>
+      <member refid="classHypergraph_1abdaf30271c29d8d61c7e2fe77a392b10" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>add_node</name></member>
+      <member refid="classHypergraph_1ab4aa8a83cd1da71a9f31bdad594ffaf0" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>ByteSize</name></member>
+      <member refid="classHypergraph_1ab4aa8a83cd1da71a9f31bdad594ffaf0" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>ByteSize</name></member>
+      <member refid="classHypergraph_1a3377b5de90d222621cc41c2c41b7865d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Clear</name></member>
+      <member refid="classHypergraph_1a3377b5de90d222621cc41c2c41b7865d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Clear</name></member>
+      <member refid="classHypergraph_1ac29fa76c811081d6ed1380c110695627" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>clear_has_root</name></member>
+      <member refid="classHypergraph_1ac29fa76c811081d6ed1380c110695627" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>clear_has_root</name></member>
+      <member refid="classHypergraph_1a85cd3d3e06c7cb448d1a1059f09f1b5d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>clear_node</name></member>
+      <member refid="classHypergraph_1a85cd3d3e06c7cb448d1a1059f09f1b5d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>clear_node</name></member>
+      <member refid="classHypergraph_1a2404b1cf118c4511b17748d23a51f9c3" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>clear_root</name></member>
+      <member refid="classHypergraph_1a2404b1cf118c4511b17748d23a51f9c3" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>clear_root</name></member>
+      <member refid="classHypergraph_1a344289a1a02daaa7e9bb2284507bc25b" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>CopyFrom</name></member>
+      <member refid="classHypergraph_1a4715ac922c373c335985c25f9766a526" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>CopyFrom</name></member>
+      <member refid="classHypergraph_1a344289a1a02daaa7e9bb2284507bc25b" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>CopyFrom</name></member>
+      <member refid="classHypergraph_1a4715ac922c373c335985c25f9766a526" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>CopyFrom</name></member>
+      <member refid="classHypergraph_1a370708c0a37cbf8e847a34880519e872" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>default_instance</name></member>
+      <member refid="classHypergraph_1ad44f1245d88fb5a3c542f7c1d7081390" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>default_instance</name></member>
+      <member refid="classHypergraph_1a4fe9b7fbdb98df4d6acdf9837f33d8db" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>default_instance_</name></member>
+      <member refid="classHypergraph_1aa234b49896c08a611c8088504cd0db60" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>descriptor</name></member>
+      <member refid="classHypergraph_1ab26f2bbcbb6ce99b3bbb1a210cdfcd38" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>descriptor</name></member>
+      <member refid="classHypergraph_1a8161caf487c105fff5e3ffd589ed176f" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Edge</name></member>
+      <member refid="classHypergraph_1a8161caf487c105fff5e3ffd589ed176f" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Edge</name></member>
+      <member refid="classHypergraph_1a34d579551c68eb5e039062269f875522" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>GetCachedSize</name></member>
+      <member refid="classHypergraph_1a34d579551c68eb5e039062269f875522" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>GetCachedSize</name></member>
+      <member refid="classHypergraph_1a5e8ebd56fb4cdfcaa19b9aa43cf25fbd" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>GetMetadata</name></member>
+      <member refid="classHypergraph_1af2886402d4f2114b650696ce2e53f860" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>GetMetadata</name></member>
+      <member refid="classHypergraph_1ab92016742525abd273fb96859b586bed" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>has_root</name></member>
+      <member refid="classHypergraph_1ab92016742525abd273fb96859b586bed" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>has_root</name></member>
+      <member refid="classHypergraph_1aa1c3d659e130799604c46ca1deeeae7a" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Hypergraph</name></member>
+      <member refid="classHypergraph_1aa5b69fea3073cbbc6230c403aba60a13" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Hypergraph</name></member>
+      <member refid="classHypergraph_1aa1c3d659e130799604c46ca1deeeae7a" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Hypergraph</name></member>
+      <member refid="classHypergraph_1aa5b69fea3073cbbc6230c403aba60a13" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Hypergraph</name></member>
+      <member refid="classHypergraph_1a58a31da1b8333edf0b0706c59de082fa" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classHypergraph_1a58a31da1b8333edf0b0706c59de082fa" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>InitAsDefaultInstance</name></member>
+      <member refid="classHypergraph_1a5327b9372e5dd8dd4e435b160e5f16df" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>IsInitialized</name></member>
+      <member refid="classHypergraph_1a5327b9372e5dd8dd4e435b160e5f16df" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>IsInitialized</name></member>
+      <member refid="classHypergraph_1a2d9dea1733d42814b38878cd7e93195f" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>kNodeFieldNumber</name></member>
+      <member refid="classHypergraph_1a2e8f834b9b2c946dc1c7bdaded177a2b" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>kRootFieldNumber</name></member>
+      <member refid="classHypergraph_1a4aafea60a0bf75fe2c2f66172101110b" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergeFrom</name></member>
+      <member refid="classHypergraph_1a5e48c533c90271a6e018a26ac8a70538" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergeFrom</name></member>
+      <member refid="classHypergraph_1a4aafea60a0bf75fe2c2f66172101110b" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergeFrom</name></member>
+      <member refid="classHypergraph_1a5e48c533c90271a6e018a26ac8a70538" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergeFrom</name></member>
+      <member refid="classHypergraph_1a30583bfba242ae1439903bc24d069e24" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classHypergraph_1a30583bfba242ae1439903bc24d069e24" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>MergePartialFromCodedStream</name></member>
+      <member refid="classHypergraph_1ae434b3b5045260dd0c085fd7bbf17469" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_node</name></member>
+      <member refid="classHypergraph_1a837f81cd9e9f3e5832e166ba2520b445" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_node</name></member>
+      <member refid="classHypergraph_1a6b45e9545d78b8cf17637b6ef71baa60" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_node</name></member>
+      <member refid="classHypergraph_1a4ea0dbf6904be58bd8afc24ee7acb57d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_node</name></member>
+      <member refid="classHypergraph_1a423987a46404cd3221a5c4035050b4b8" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classHypergraph_1a423987a46404cd3221a5c4035050b4b8" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classHypergraph_1aed1ca8c3f4626f4313cd7e1b1ebf2676" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>New</name></member>
+      <member refid="classHypergraph_1a9b21d571070e88fe8ed3f6751e495b04" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>New</name></member>
+      <member refid="classHypergraph_1a36c26b747a86e20cc9e7b0ce733fe38a" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Node</name></member>
+      <member refid="classHypergraph_1a36c26b747a86e20cc9e7b0ce733fe38a" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Node</name></member>
+      <member refid="classHypergraph_1ad2bd2578cecd21f60bf6592318a2770f" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node</name></member>
+      <member refid="classHypergraph_1aec184e2ac51df4d3fe07b75eb401a7fa" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node</name></member>
+      <member refid="classHypergraph_1a72db8343ef7ab67b8cfbfffd7c83d472" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node</name></member>
+      <member refid="classHypergraph_1a07d32ac4f217954bc033d6a304445408" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node</name></member>
+      <member refid="classHypergraph_1ac6906db64ec8377c87609c2652da78e8" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>node_</name></member>
+      <member refid="classHypergraph_1ac07666e8012c320a265bb25842fa7238" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node_size</name></member>
+      <member refid="classHypergraph_1ac07666e8012c320a265bb25842fa7238" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>node_size</name></member>
+      <member refid="classHypergraph_1a6fa4366f554df3ffd7aa3694a3612006" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>operator=</name></member>
+      <member refid="classHypergraph_1a6fa4366f554df3ffd7aa3694a3612006" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>operator=</name></member>
+      <member refid="classHypergraph_1aed4781a70bb54c95ce4bb1aa4f20b05c" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_AddDesc_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1aed4781a70bb54c95ce4bb1aa4f20b05c" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_AddDesc_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1a3cbaa41d7f7b73db437c4e7d1edcb4f3" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_AssignDesc_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1a3cbaa41d7f7b73db437c4e7d1edcb4f3" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_AssignDesc_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1a424acd7e96228bbed0dba9436582d3c1" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_ShutdownFile_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1a424acd7e96228bbed0dba9436582d3c1" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>protobuf_ShutdownFile_hypergraph_2eproto</name></member>
+      <member refid="classHypergraph_1ac8ba37cfa01a25ccd5f67b82122c359d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>root</name></member>
+      <member refid="classHypergraph_1af86203cfb1b5ddbbd58cab35cc02b8c5" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>root</name></member>
+      <member refid="classHypergraph_1a73033331f45ef2258126cd78b1123f50" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>root_</name></member>
+      <member refid="classHypergraph_1a7e8e7f4fe037cbfeb1f0a46e7616fc78" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classHypergraph_1a7e8e7f4fe037cbfeb1f0a46e7616fc78" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>SerializeWithCachedSizes</name></member>
+      <member refid="classHypergraph_1a4d695da7efbbcc2444fb1836e88d8849" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classHypergraph_1a86e069313a6ce786d6578d4fa416dd39" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classHypergraph_1afb9ed2db5d051258104a0c2f0cf4a86e" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>set_has_root</name></member>
+      <member refid="classHypergraph_1afb9ed2db5d051258104a0c2f0cf4a86e" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>set_has_root</name></member>
+      <member refid="classHypergraph_1aa3a2d6876af145d4ccf600dbcfb2446d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>set_root</name></member>
+      <member refid="classHypergraph_1aa3a2d6876af145d4ccf600dbcfb2446d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>set_root</name></member>
+      <member refid="classHypergraph_1a13cbfbb77dc2381c41aad2f922d6ce3c" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SetCachedSize</name></member>
+      <member refid="classHypergraph_1a13cbfbb77dc2381c41aad2f922d6ce3c" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SetCachedSize</name></member>
+      <member refid="classHypergraph_1af448b211195a03daf876ba543ffed975" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SharedCtor</name></member>
+      <member refid="classHypergraph_1af448b211195a03daf876ba543ffed975" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SharedCtor</name></member>
+      <member refid="classHypergraph_1a6b150f3f90b001ceb3944c2b5f0d80d2" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SharedDtor</name></member>
+      <member refid="classHypergraph_1a6b150f3f90b001ceb3944c2b5f0d80d2" prot="private" virt="non-virtual"><scope>Hypergraph</scope><name>SharedDtor</name></member>
+      <member refid="classHypergraph_1ac4a85460aabebe97e0411a30d80f720d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Swap</name></member>
+      <member refid="classHypergraph_1ac4a85460aabebe97e0411a30d80f720d" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>Swap</name></member>
+      <member refid="classHypergraph_1a20ec2be2fda0e1db366f26c95817cd89" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>unknown_fields</name></member>
+      <member refid="classHypergraph_1a20ec2be2fda0e1db366f26c95817cd89" prot="public" virt="non-virtual"><scope>Hypergraph</scope><name>unknown_fields</name></member>
+      <member refid="classHypergraph_1a91559f924fa8d9aa6d4bb1356f1e98dd" prot="public" virt="virtual"><scope>Hypergraph</scope><name>~Hypergraph</name></member>
+      <member refid="classHypergraph_1af186cc588a86fe0b63ddeb4ce8c729f3" prot="public" virt="virtual"><scope>Hypergraph</scope><name>~Hypergraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

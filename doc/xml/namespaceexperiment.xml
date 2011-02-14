@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespaceexperiment" kind="namespace">
+    <compoundname>experiment</compoundname>
+    <innerclass refid="classexperiment_1_1Experiment" prot="public">experiment::Experiment</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceexperiment_1a1fdf3d5e6928664edb87fef85dc59c8c" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_3</definition>
+        <argsstring></argsstring>
+        <name>small_brown_3</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+  &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+  #&quot;exp_prefix&quot;: &quot;brown_simple_1_3&quot;, 
+  &quot;num_sentences&quot; : 62,
+  &quot;unk_thres&quot; : 3,
+  &quot;train&quot; : &quot;wsj_gold_dependency&quot; ,
+  &quot;penalty&quot; : 10.0
+})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="70" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a29a37a7753d01c2819ef6717e22a8332" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_10</definition>
+        <argsstring></argsstring>
+        <name>small_brown_10</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_10&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;unk_thres&quot; : 10,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 1.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="80" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a85196b23a0f0d946a3f79f80946d868f" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_10_hard</definition>
+        <argsstring></argsstring>
+        <name>small_brown_10_hard</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_10&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;unk_thres&quot; : 10,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 1000.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="89" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a3f515e0f089c4f11ea164f3972808696" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_50</definition>
+        <argsstring></argsstring>
+        <name>small_brown_50</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_50&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;unk_thres&quot; : 50,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 10.0 
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="98" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1adb6f261d62d28ed5e195c684b48c92fc" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_100</definition>
+        <argsstring></argsstring>
+        <name>small_brown_100</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_100&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;unk_thres&quot; : 100,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 1.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="108" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a0f0beaeb2706d51721117b7039de12db" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_100_hard</definition>
+        <argsstring></argsstring>
+        <name>small_brown_100_hard</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_100&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;unk_thres&quot; : 100,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 1000.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="117" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a00472b4f8e1a84e2ec8974f33030dc99" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_200</definition>
+        <argsstring></argsstring>
+        <name>small_brown_200</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_100&quot;, 
+    &quot;model_type&quot;: &quot;nbayes&quot;,
+    &quot;num_sentences&quot; : 62,
+    &quot;num_constraints&quot; : 140,
+    &quot;unk_thres&quot; : 200,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 2.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="127" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a6ba573f380a694270a1826506e5254a3" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_200_potts</definition>
+        <argsstring></argsstring>
+        <name>small_brown_200_potts</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    &quot;model_type&quot;: &quot;potts&quot;,
+    #&quot;exp_prefix&quot;: &quot;brown_simple_1_100&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;num_constraints&quot; : 140,
+    &quot;unk_thres&quot; : 200,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 2.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="138" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1a07dc5496627ef4cd6c0ce74dbc8d06ac" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_500_potts</definition>
+        <argsstring></argsstring>
+        <name>small_brown_500_potts</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    &quot;model_type&quot;: &quot;potts&quot;,
+    &quot;num_sentences&quot; : 62,
+    &quot;num_constraints&quot; : 184,
+    &quot;unk_thres&quot; : 500,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 2.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="149" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceexperiment_1ab32c4b218165bdad00cd46ed07d891fb" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple experiment::small_brown_500</definition>
+        <argsstring></argsstring>
+        <name>small_brown_500</name>
+        <initializer><ref refid="classexperiment_1_1Experiment" kindref="compound">Experiment</ref>({
+    &quot;prefix&quot;: &quot;brown_simple_1&quot;, 
+    &quot;num_sentences&quot; : 62,
+    &quot;num_constraints&quot; : 184,
+    &quot;unk_thres&quot; : 500,
+    &quot;train&quot; : &quot;wsj_gold_dependency&quot;,
+    &quot;penalty&quot; : 2.0
+    })</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="159" bodyfile="/home/srush/Projects/relax_decode/experiments/experiment.py" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/experiments/experiment.py" line="1"/>
+  </compounddef>
+</doxygen>

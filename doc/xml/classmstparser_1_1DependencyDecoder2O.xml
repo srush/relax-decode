@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1DependencyDecoder2O" kind="class" prot="public">
+    <compoundname>mstparser::DependencyDecoder2O</compoundname>
+    <basecompoundref refid="classmstparser_1_1DependencyDecoder" prot="public" virt="non-virtual">mstparser::DependencyDecoder</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1a5a7f250ac724023f0485affab2ae85da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::DependencyDecoder2O::DependencyDecoder2O</definition>
+        <argsstring>(DependencyPipe pipe)</argsstring>
+        <name>DependencyDecoder2O</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyPipe" kindref="compound">DependencyPipe</ref></type>
+          <declname>pipe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="12" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1a4d277985a59605d040323ff7ef5b5099" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[][]</type>
+        <definition>Object [][] mstparser::DependencyDecoder2O::decodeNonProjective</definition>
+        <argsstring>(DependencyInstance inst, FeatureVector[][][] fvs, double[][][] probs, FeatureVector[][][] fvs_trips, double[][][] probs_trips, FeatureVector[][][] fvs_sibs, double[][][] probs_sibs, FeatureVector[][][][] nt_fvs, double[][][][] nt_probs, int K)</argsstring>
+        <name>decodeNonProjective</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>inst</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs_trips</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_trips</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs_sibs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_sibs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>nt_fvs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>nt_probs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>K</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="85" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="77" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1a2d2f846a113931904d142c65a3fd632b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[][]</type>
+        <definition>Object [][] mstparser::DependencyDecoder2O::decodeProjective</definition>
+        <argsstring>(DependencyInstance inst, FeatureVector[][][] fvs, double[][][] probs, FeatureVector[][][] fvs_trips, double[][][] probs_trips, FeatureVector[][][] fvs_sibs, double[][][] probs_sibs, FeatureVector[][][][] nt_fvs, double[][][][] nt_probs, int K)</argsstring>
+        <name>decodeProjective</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyInstance" kindref="compound">DependencyInstance</ref></type>
+          <declname>inst</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs_trips</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_trips</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>fvs_sibs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_sibs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1FeatureVector" kindref="compound">FeatureVector</ref></type>
+          <declname>nt_fvs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>nt_probs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>K</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="171" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="163" bodyend="421"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1a4a50c4ce10e99f90769f89970402d2cd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyDecoder2O::rearrange</definition>
+        <argsstring>(double[][][] probs, double[][][] probs_trips, double[][][] probs_sibs, double[][][][] nt_probs, int[] par, int[] labs)</argsstring>
+        <name>rearrange</name>
+        <param>
+          <type>double</type>
+          <declname>probs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_trips</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>probs_sibs</declname>
+          <array>[][][]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>nt_probs</declname>
+          <array>[][][][]</array>
+        </param>
+        <param>
+          <type>int[]</type>
+          <declname>par</declname>
+        </param>
+        <param>
+          <type>int[]</type>
+          <declname>labs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="18" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="16" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1aa573d02f44954db51ae8899ffa14929b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean[][]</type>
+        <definition>boolean [][] mstparser::DependencyDecoder2O::calcChilds</definition>
+        <argsstring>(int[] par)</argsstring>
+        <name>calcChilds</name>
+        <reimplements refid="classmstparser_1_1DependencyDecoder_1a48c0ab98fb64600c3174cbe06feb4d66">calcChilds</reimplements>
+        <param>
+          <type>int[]</type>
+          <declname>par</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="120" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="120" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyDecoder2O_1ab0f546878c24419d0d3339d8b68c1a9d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int [] mstparser::DependencyDecoder2O::getSibs</definition>
+        <argsstring>(int ch, int[] par)</argsstring>
+        <name>getSibs</name>
+        <param>
+          <type>int</type>
+          <declname>ch</declname>
+        </param>
+        <param>
+          <type>int[]</type>
+          <declname>par</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="132" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="132" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="486">
+        <label>mstparser::DependencyDecoder2O</label>
+        <link refid="classmstparser_1_1DependencyDecoder2O"/>
+        <childnode refid="487" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="487">
+        <label>mstparser::DependencyDecoder</label>
+        <link refid="classmstparser_1_1DependencyDecoder"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="488">
+        <label>mstparser::DependencyDecoder2O</label>
+        <link refid="classmstparser_1_1DependencyDecoder2O"/>
+        <childnode refid="489" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="495">
+        <label>mstparser::Alphabet</label>
+        <link refid="classmstparser_1_1Alphabet"/>
+      </node>
+      <node id="492">
+        <label>mstparser::ParserOptions</label>
+        <link refid="classmstparser_1_1ParserOptions"/>
+        <childnode refid="493" relation="usage">
+          <edgelabel>testforest</edgelabel>
+          <edgelabel>trainforest</edgelabel>
+        </childnode>
+      </node>
+      <node id="493">
+        <label>File</label>
+      </node>
+      <node id="490">
+        <label>mstparser::DependencyPipe</label>
+        <link refid="classmstparser_1_1DependencyPipe"/>
+        <childnode refid="491" relation="usage">
+          <edgelabel>depReader</edgelabel>
+        </childnode>
+        <childnode refid="492" relation="usage">
+          <edgelabel>options</edgelabel>
+        </childnode>
+        <childnode refid="494" relation="usage">
+          <edgelabel>depWriter</edgelabel>
+        </childnode>
+        <childnode refid="495" relation="usage">
+          <edgelabel>typeAlphabet</edgelabel>
+          <edgelabel>dataAlphabet</edgelabel>
+        </childnode>
+      </node>
+      <node id="494">
+        <label>mstparser::io::DependencyWriter</label>
+        <link refid="classmstparser_1_1io_1_1DependencyWriter"/>
+      </node>
+      <node id="489">
+        <label>mstparser::DependencyDecoder</label>
+        <link refid="classmstparser_1_1DependencyDecoder"/>
+        <childnode refid="490" relation="usage">
+          <edgelabel>pipe</edgelabel>
+        </childnode>
+      </node>
+      <node id="491">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" line="10" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyDecoder2O.java" bodystart="10" bodyend="423"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1aa573d02f44954db51ae8899ffa14929b" prot="private" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>calcChilds</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1a4d277985a59605d040323ff7ef5b5099" prot="public" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>decodeNonProjective</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder_1a64a0c62cd4fab571a66ed7d89ab7863a" prot="public" virt="non-virtual" ambiguityscope="mstparser::DependencyDecoder::"><scope>mstparser::DependencyDecoder2O</scope><name>decodeNonProjective</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1a2d2f846a113931904d142c65a3fd632b" prot="public" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>decodeProjective</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder_1a59cae69b2c0146f3212968ba5b65c4b2" prot="public" virt="non-virtual" ambiguityscope="mstparser::DependencyDecoder::"><scope>mstparser::DependencyDecoder2O</scope><name>decodeProjective</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder_1a185a21e3127cfda5b92d26fc66a754c9" prot="public" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>DependencyDecoder</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1a5a7f250ac724023f0485affab2ae85da" prot="public" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>DependencyDecoder2O</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1ab0f546878c24419d0d3339d8b68c1a9d" prot="private" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>getSibs</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder_1acfb28e05937c11be3c629c53589f0025" prot="protected" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>getTypes</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder_1acd26a1532b9a0689ac751ddcb0dc8167" prot="package" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>pipe</name></member>
+      <member refid="classmstparser_1_1DependencyDecoder2O_1a4a50c4ce10e99f90769f89970402d2cd" prot="private" virt="non-virtual"><scope>mstparser::DependencyDecoder2O</scope><name>rearrange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

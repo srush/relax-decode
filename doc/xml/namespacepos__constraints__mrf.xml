@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="namespacepos__constraints__mrf" kind="namespace">
+    <compoundname>pos_constraints_mrf</compoundname>
+    <innerclass refid="classpos__constraints__mrf_1_1PosNode" prot="public">pos_constraints_mrf::PosNode</innerclass>
+    <innerclass refid="classpos__constraints__mrf_1_1PosEdge" prot="public">pos_constraints_mrf::PosEdge</innerclass>
+    <innerclass refid="classpos__constraints__mrf_1_1PosMrf" prot="public">pos_constraints_mrf::PosMrf</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a47d3ffcee3c925892e0306d60f481216" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <initializer>range(45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="15" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a7685c660fc077eec26787b98b5ae6a93" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::wc</definition>
+        <argsstring></argsstring>
+        <name>wc</name>
+        <initializer>load(open(sys.argv[1], &apos;rb&apos;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="99" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a78f366a1c28391de5a8d8374835f626d" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::manager</definition>
+        <argsstring></argsstring>
+        <name>manager</name>
+        <initializer><ref refid="classpos__constraints_1_1PosConstraint" kindref="compound">PosConstraint</ref>(wc)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="101" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1addc704d4b2b0b0650e66363062baf688" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_constraints_mrf::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <initializer>sys.argv[4]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="105" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1acc6465a5f11b8dc177871bbda53dae9c" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::groups</definition>
+        <argsstring></argsstring>
+        <name>groups</name>
+        <initializer>manager.groups()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="108" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a4a52221beee4a20933007cd68142ec44" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_constraints_mrf::group1</definition>
+        <argsstring></argsstring>
+        <name>group1</name>
+        <initializer>groups[i]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="110" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a7ab43206f1a5ab1e406e809e1fcf55d1" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::posmrf</definition>
+        <argsstring></argsstring>
+        <name>posmrf</name>
+        <initializer><ref refid="classpos__constraints__mrf_1_1PosMrf" kindref="compound">PosMrf</ref>(group1[0], group1[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="111" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a3122c3c98e52c11eaabc13b5f15a40d6" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_constraints_mrf::training_seen</definition>
+        <argsstring></argsstring>
+        <name>training_seen</name>
+        <initializer>group1[1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="115" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a3d4ab4bfd2a80b4514bf0887f746d682" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::test_seen</definition>
+        <argsstring></argsstring>
+        <name>test_seen</name>
+        <initializer>len(group1[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="116" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1a8482bb9ee284e9d12bca8eed3c470d95" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int pos_constraints_mrf::bonus</definition>
+        <argsstring></argsstring>
+        <name>bonus</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="119" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1ab3386668dbd600375881b2e1c8bc14e4" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::proto_graph</definition>
+        <argsstring></argsstring>
+        <name>proto_graph</name>
+        <initializer>posmrf.convert_to_protobuf()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="129" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1ac5de64aad4190f059a9d2f3748a27710" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <initializer>open(sys.argv[3] + str(i), &quot;wb&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="131" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1aaa0918badbc09722ca1b1ad456e16709" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple pos_constraints_mrf::zerozero</definition>
+        <argsstring></argsstring>
+        <name>zerozero</name>
+        <initializer>manager.zerozero()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="135" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepos__constraints__mrf_1aa0bfae21eef1814cda7868a778bbaaf9" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list pos_constraints_mrf::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <initializer>[ b[0] for a,b in zerozero]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="136" bodyfile="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/data_management/pos_constraints_mrf.py" line="1"/>
+  </compounddef>
+</doxygen>

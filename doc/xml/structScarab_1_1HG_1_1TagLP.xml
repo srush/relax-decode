@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1TagLP" kind="struct" prot="public">
+    <compoundname>Scarab::HG::TagLP</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1TagLP_1a4e80b783a5dfce94abb94cb957a3fe50" prot="public" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="structTag" kindref="compound">Tag</ref>, GRBVar &gt;</type>
+        <definition>Cache&lt;Tag, GRBVar&gt; Scarab::HG::TagLP::tag_vars</definition>
+        <argsstring></argsstring>
+        <name>tag_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="18" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1TagLP_1a137ec6055ea83b552c873dd19f203c15" prot="public" static="no" mutable="no">
+        <type>const <ref refid="classTagger" kindref="compound">Tagger</ref> &amp;</type>
+        <definition>const Tagger&amp; Scarab::HG::TagLP::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="19" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1TagLP_1a92b885535389aa44e450e8f4682bf543" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref> &amp;</type>
+        <definition>const HypergraphLP&amp; Scarab::HG::TagLP::h_lp</definition>
+        <argsstring></argsstring>
+        <name>h_lp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="20" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1TagLP_1a529942132dc8900bd25d2acaef721694" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::TagLP::TagLP</definition>
+        <argsstring>(const Tagger &amp;parser, const HypergraphLP &amp;hyper_lp)</argsstring>
+        <name>TagLP</name>
+        <param>
+          <type>const <ref refid="classTagger" kindref="compound">Tagger</ref> &amp;</type>
+          <declname>parser</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structScarab_1_1HG_1_1HypergraphLP" kindref="compound">HypergraphLP</ref> &amp;</type>
+          <declname>hyper_lp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="17" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="16" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1640">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="classScarab_1_1HG_1_1Hyperedge"/>
+      </node>
+      <node id="1633">
+        <label>Cache&lt; Hyperedge, GRBVar &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1629" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1628">
+        <label>Cache&lt; Tag, GRBVar &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1629" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1641">
+        <label>std::vector&lt; Tag &gt;</label>
+        <childnode refid="1642" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1635">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
+        <childnode refid="1632" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1636" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1638" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="1639" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1637" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="1630">
+        <label>Scarab::HG::HypergraphLP</label>
+        <link refid="structScarab_1_1HG_1_1HypergraphLP"/>
+        <childnode refid="1631" relation="usage">
+          <edgelabel>node_vars</edgelabel>
+        </childnode>
+        <childnode refid="1632" relation="usage">
+          <edgelabel>_h</edgelabel>
+        </childnode>
+        <childnode refid="1633" relation="usage">
+          <edgelabel>edge_vars</edgelabel>
+        </childnode>
+      </node>
+      <node id="1644">
+        <label>Cache&lt; Tag, vector&lt; const Hyperedge * &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1629" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1637">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="classScarab_1_1HG_1_1Hypernode"/>
+      </node>
+      <node id="1643">
+        <label>Cache&lt; Hyperedge, Tag &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1629" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1631">
+        <label>Cache&lt; Hypernode, GRBVar &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1629" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1636">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="1637" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1627">
+        <label>Scarab::HG::TagLP</label>
+        <link refid="structScarab_1_1HG_1_1TagLP"/>
+        <childnode refid="1628" relation="usage">
+          <edgelabel>tag_vars</edgelabel>
+        </childnode>
+        <childnode refid="1630" relation="usage">
+          <edgelabel>h_lp</edgelabel>
+        </childnode>
+        <childnode refid="1634" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+      </node>
+      <node id="1638">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="1638" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1632">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1629">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1642">
+        <label>Tag</label>
+        <link refid="structTag"/>
+      </node>
+      <node id="1634">
+        <label>Tagger</label>
+        <link refid="classTagger"/>
+        <childnode refid="1635" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1641" relation="usage">
+          <edgelabel>_tags</edgelabel>
+        </childnode>
+        <childnode refid="1638" relation="usage">
+          <edgelabel>_h</edgelabel>
+        </childnode>
+        <childnode refid="1643" relation="usage">
+          <edgelabel>_tag_map</edgelabel>
+        </childnode>
+        <childnode refid="1644" relation="usage">
+          <edgelabel>_edge_map</edgelabel>
+        </childnode>
+      </node>
+      <node id="1639">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="1640" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="14" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1TagLP_1a92b885535389aa44e450e8f4682bf543" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLP</scope><name>h_lp</name></member>
+      <member refid="structScarab_1_1HG_1_1TagLP_1a137ec6055ea83b552c873dd19f203c15" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLP</scope><name>p</name></member>
+      <member refid="structScarab_1_1HG_1_1TagLP_1a4e80b783a5dfce94abb94cb957a3fe50" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLP</scope><name>tag_vars</name></member>
+      <member refid="structScarab_1_1HG_1_1TagLP_1a529942132dc8900bd25d2acaef721694" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLP</scope><name>TagLP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

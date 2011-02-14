@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1Feature" kind="class" prot="public">
+    <compoundname>mstparser::Feature</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1Feature_1a4c473e4481d5556f4566749d3a9142ce" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mstparser::Feature::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="33" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1Feature_1a4b6105d258e0f09324f2d9648804417a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mstparser::Feature::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="34" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1Feature_1a5c445cf0f3cdfadd99a17b4db030b1f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::Feature::Feature</definition>
+        <argsstring>(int i, double v)</argsstring>
+        <name>Feature</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="36" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Feature_1acacd3d0c4a2b4dda3a516146a30c7a07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final <ref refid="classmstparser_1_1Feature" kindref="compound">Feature</ref></type>
+        <definition>final Feature mstparser::Feature::clone</definition>
+        <argsstring>()</argsstring>
+        <name>clone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="41" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Feature_1a6296b249dc1a02defd359bd16d7c78a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final <ref refid="classmstparser_1_1Feature" kindref="compound">Feature</ref></type>
+        <definition>final Feature mstparser::Feature::negation</definition>
+        <argsstring>()</argsstring>
+        <name>negation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="45" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1Feature_1a8a21c64d94814df4f244511fc4553b12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>final String</type>
+        <definition>final String mstparser::Feature::toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="49" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="49" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A simple class holding a feature index and value that can be used in a TLinkedList.</para><para>Created: Sat Nov 10 15:25:10 2001 </para><para><simplesect kind="author"><para>Jason Baldridge </para></simplesect>
+<simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Id</title><para>TLinkedList.java,v 1.5 2005/03/26 17:52:56 ericdf Exp </para></simplesect>
+<simplesect kind="see"><para><ref refid="classmstparser_1_1FeatureVector" kindref="compound">mstparser.FeatureVector</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" line="31" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/Feature.java" bodystart="31" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1Feature_1acacd3d0c4a2b4dda3a516146a30c7a07" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>clone</name></member>
+      <member refid="classmstparser_1_1Feature_1a5c445cf0f3cdfadd99a17b4db030b1f1" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>Feature</name></member>
+      <member refid="classmstparser_1_1Feature_1a4c473e4481d5556f4566749d3a9142ce" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>index</name></member>
+      <member refid="classmstparser_1_1Feature_1a6296b249dc1a02defd359bd16d7c78a6" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>negation</name></member>
+      <member refid="classmstparser_1_1Feature_1a8a21c64d94814df4f244511fc4553b12" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>toString</name></member>
+      <member refid="classmstparser_1_1Feature_1a4b6105d258e0f09324f2d9648804417a" prot="public" virt="non-virtual"><scope>mstparser::Feature</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,77 @@
+\hypertarget{classTaggerDual}{
+\section{TaggerDual Class Reference}
+\label{classTaggerDual}\index{TaggerDual@{TaggerDual}}
+}
+Inheritance diagram for TaggerDual:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classTaggerDual}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTaggerDual_a2b16f45c3550e4f4871841c9ee02de4f}{
+{\bfseries TaggerDual} (vector$<$ const \hyperlink{classTagger}{Tagger} $\ast$ $>$ \&taggers, const \hyperlink{classsvector}{wvector} \&base\_\-weights, const \hyperlink{classTagConstraints}{TagConstraints} \&cons)}
+\label{classTaggerDual_a2b16f45c3550e4f4871841c9ee02de4f}
+
+\item 
+\hypertarget{classTaggerDual_a047785058d058492172280e50a8f4c1a}{
+void {\bfseries solve} (double \&primal, double \&dual, \hyperlink{classsvector}{wvector} \&, int)}
+\label{classTaggerDual_a047785058d058492172280e50a8f4c1a}
+
+\item 
+\hypertarget{classTaggerDual_a01f7705a69c7cc993268c6e66df57ae0}{
+void {\bfseries update\_\-weights} (const \hyperlink{classsvector}{wvector} \&updates, \hyperlink{classsvector}{wvector} $\ast$weights, double mult)}
+\label{classTaggerDual_a01f7705a69c7cc993268c6e66df57ae0}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTaggerDual_a0068b276abb09b34ab08e9cc14947ee3}{
+const vector$<$ const \hyperlink{classTagger}{Tagger} $\ast$ $>$ \& {\bfseries \_\-taggers}}
+\label{classTaggerDual_a0068b276abb09b34ab08e9cc14947ee3}
+
+\item 
+\hypertarget{classTaggerDual_a0073fa0f694790d365ca959ed8386e26}{
+const \hyperlink{classsvector}{wvector} \& {\bfseries \_\-base\_\-weights}}
+\label{classTaggerDual_a0073fa0f694790d365ca959ed8386e26}
+
+\item 
+\hypertarget{classTaggerDual_ab8845276b234c329c967529091f51e8f}{
+const \hyperlink{classTagConstraints}{TagConstraints} \& {\bfseries \_\-tag\_\-constraints}}
+\label{classTaggerDual_ab8845276b234c329c967529091f51e8f}
+
+\item 
+\hypertarget{classTaggerDual_a9974a79ebf2547f3e80e9d68d06b49be}{
+\hyperlink{classsvector}{wvector} $\ast$ {\bfseries \_\-cur\_\-weights}}
+\label{classTaggerDual_a9974a79ebf2547f3e80e9d68d06b49be}
+
+\item 
+\hypertarget{classTaggerDual_a57232f5a7702b7715f8517d408086dbe}{
+vector$<$ \hyperlink{classsvector}{wvector} $>$ {\bfseries \_\-subgrad\_\-cache}}
+\label{classTaggerDual_a57232f5a7702b7715f8517d408086dbe}
+
+\item 
+\hypertarget{classTaggerDual_a47cdc599b2c73836f33aa443053e3534}{
+vector$<$ double $>$ {\bfseries \_\-primal\_\-cache}}
+\label{classTaggerDual_a47cdc599b2c73836f33aa443053e3534}
+
+\item 
+\hypertarget{classTaggerDual_a4472c903ae391e7cc4912bc473a9eae2}{
+vector$<$ double $>$ {\bfseries \_\-dual\_\-cache}}
+\label{classTaggerDual_a4472c903ae391e7cc4912bc473a9eae2}
+
+\item 
+\hypertarget{classTaggerDual_a259d5ef5c5020c75a68527950ff41310}{
+vector$<$ bool $>$ {\bfseries \_\-dirty\_\-cache}}
+\label{classTaggerDual_a259d5ef5c5020c75a68527950ff41310}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+tagger/TagSolvers.h\item 
+tagger/TagSolvers.cpp\end{DoxyCompactItemize}

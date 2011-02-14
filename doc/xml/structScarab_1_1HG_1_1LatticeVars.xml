@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structScarab_1_1HG_1_1LatticeVars" kind="struct" prot="public">
+    <compoundname>Scarab::HG::LatticeVars</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1LatticeVars_1a68c89197d9177fd5550b558358e5ac0b" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</type>
+        <definition>vector&lt; vector &lt; vector &lt; GRBVar &gt; &gt; &gt; Scarab::HG::LatticeVars::all_pairs_vars</definition>
+        <argsstring></argsstring>
+        <name>all_pairs_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="17" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1LatticeVars_1a2f4713dd2316790958cdca48bb6a73d1" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; GRBVar &gt; &gt;</type>
+        <definition>vector&lt; vector &lt; GRBVar &gt; &gt; Scarab::HG::LatticeVars::all_pairs_exist_vars</definition>
+        <argsstring></argsstring>
+        <name>all_pairs_exist_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="18" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1LatticeVars_1ad6cc2ab5e0d3322d35738ddb0e9af503" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</type>
+        <definition>vector&lt; vector &lt; vector &lt; bool &gt; &gt; &gt; Scarab::HG::LatticeVars::has_all_pairs_var</definition>
+        <argsstring></argsstring>
+        <name>has_all_pairs_var</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="19" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structScarab_1_1HG_1_1LatticeVars_1a163eea64436f95f4282590c141f52b1d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Scarab::HG::LatticeVars::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="20" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structScarab_1_1HG_1_1LatticeVars_1a22dc8ef683d47635b8e55adf3520a811" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::LatticeVars::LatticeVars</definition>
+        <argsstring>(string n)</argsstring>
+        <name>LatticeVars</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="22" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1LatticeVars_1a2b1a31d5b8d9673c7c473f28c2e02db9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::LatticeVars::initialize_all_pairs</definition>
+        <argsstring>(const GraphDecompose &amp;gd, const ForestLattice &amp;_lattice, GRBModel *model)</argsstring>
+        <name>initialize_all_pairs</name>
+        <param>
+          <type>const <ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref> &amp;</type>
+          <declname>gd</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classForestLattice" kindref="compound">ForestLattice</ref> &amp;</type>
+          <declname>_lattice</declname>
+        </param>
+        <param>
+          <type>GRBModel *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="29" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="36" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="structScarab_1_1HG_1_1LatticeVars_1a769802ee94dab4d0c8a7956fb861efac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::LatticeVars::add_all_pairs_constraints</definition>
+        <argsstring>(const GraphDecompose &amp;gd, const ForestLattice &amp;_lattice, GRBModel *model)</argsstring>
+        <name>add_all_pairs_constraints</name>
+        <param>
+          <type>const <ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref> &amp;</type>
+          <declname>gd</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classForestLattice" kindref="compound">ForestLattice</ref> &amp;</type>
+          <declname>_lattice</declname>
+        </param>
+        <param>
+          <type>GRBModel *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="32" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="81" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1051">
+        <label>std::vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</label>
+        <childnode refid="1052" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1056">
+        <label>std::vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</label>
+        <childnode refid="1055" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1054">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1050">
+        <label>Scarab::HG::LatticeVars</label>
+        <link refid="structScarab_1_1HG_1_1LatticeVars"/>
+        <childnode refid="1051" relation="usage">
+          <edgelabel>has_all_pairs_var</edgelabel>
+        </childnode>
+        <childnode refid="1053" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="1055" relation="usage">
+          <edgelabel>all_pairs_exist_vars</edgelabel>
+        </childnode>
+        <childnode refid="1056" relation="usage">
+          <edgelabel>all_pairs_vars</edgelabel>
+        </childnode>
+      </node>
+      <node id="1055">
+        <label>std::vector&lt; vector&lt; GRBVar &gt; &gt;</label>
+      </node>
+      <node id="1052">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="1053">
+        <label>std::string</label>
+        <childnode refid="1054" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" line="16" bodyfile="/home/srush/Projects/relax_decode/lp/LPBuilder.cpp" bodystart="16" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a769802ee94dab4d0c8a7956fb861efac" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>add_all_pairs_constraints</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a2f4713dd2316790958cdca48bb6a73d1" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>all_pairs_exist_vars</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a68c89197d9177fd5550b558358e5ac0b" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>all_pairs_vars</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1ad6cc2ab5e0d3322d35738ddb0e9af503" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>has_all_pairs_var</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a2b1a31d5b8d9673c7c473f28c2e02db9" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>initialize_all_pairs</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a22dc8ef683d47635b8e55adf3520a811" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>LatticeVars</name></member>
+      <member refid="structScarab_1_1HG_1_1LatticeVars_1a163eea64436f95f4282590c141f52b1d" prot="public" virt="non-virtual"><scope>Scarab::HG::LatticeVars</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

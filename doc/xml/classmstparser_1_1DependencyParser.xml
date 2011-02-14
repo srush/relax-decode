@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classmstparser_1_1DependencyParser" kind="class" prot="public">
+    <compoundname>mstparser::DependencyParser</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1DependencyParser_1a8216d15b3935fbd0ec207db1a7e43155" prot="public" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1ParserOptions" kindref="compound">ParserOptions</ref></type>
+        <definition>ParserOptions mstparser::DependencyParser::options</definition>
+        <argsstring></argsstring>
+        <name>options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="13" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmstparser_1_1DependencyParser_1a3a25b80916476a5f26fa261f4666a484" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1DependencyPipe" kindref="compound">DependencyPipe</ref></type>
+        <definition>DependencyPipe mstparser::DependencyParser::pipe</definition>
+        <argsstring></argsstring>
+        <name>pipe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="15" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyParser_1aaa3bfabc85749e8b23c09223ccd1255b" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1DependencyDecoder" kindref="compound">DependencyDecoder</ref></type>
+        <definition>DependencyDecoder mstparser::DependencyParser::decoder</definition>
+        <argsstring></argsstring>
+        <name>decoder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="16" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmstparser_1_1DependencyParser_1a494f951e8d07a939939012e7133e6d81" prot="private" static="no" mutable="no">
+        <type><ref refid="classmstparser_1_1Parameters" kindref="compound">Parameters</ref></type>
+        <definition>Parameters mstparser::DependencyParser::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="17" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a0bfeec5afb71a0633b642fafdfcfda03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mstparser::DependencyParser::DependencyParser</definition>
+        <argsstring>(DependencyPipe pipe, ParserOptions options)</argsstring>
+        <name>DependencyParser</name>
+        <param>
+          <type><ref refid="classmstparser_1_1DependencyPipe" kindref="compound">DependencyPipe</ref></type>
+          <declname>pipe</declname>
+        </param>
+        <param>
+          <type><ref refid="classmstparser_1_1ParserOptions" kindref="compound">ParserOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="19" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="19" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a8f238310312e312d248db13414dd9ccf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyParser::train</definition>
+        <argsstring>(int[] instanceLengths, String trainfile, File train_forest)</argsstring>
+        <name>train</name>
+        <param>
+          <type>int[]</type>
+          <declname>instanceLengths</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>trainfile</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>train_forest</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="30" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="29" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a9b60bc1edc2fd5176cd5a6823da8fb5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyParser::saveModel</definition>
+        <argsstring>(String file)</argsstring>
+        <name>saveModel</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="133" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="133" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1ac96ac7e724c9cf2f3736fa8a5c5909f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyParser::loadModel</definition>
+        <argsstring>(String file)</argsstring>
+        <name>loadModel</name>
+        <param>
+          <type>String</type>
+          <declname>file</declname>
+        </param>
+        <exceptions> throws Exception </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="141" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="141" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a9f199c0aa6535bec67d934d0bc6448b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyParser::outputParses</definition>
+        <argsstring>()</argsstring>
+        <name>outputParses</name>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="153" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="153" bodyend="277"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a354c3a0ba063ae6abb73f4e3f4846555" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mstparser::DependencyParser::trainingIter</definition>
+        <argsstring>(int[] instanceLengths, String trainfile, File train_forest, int iter)</argsstring>
+        <name>trainingIter</name>
+        <param>
+          <type>int[]</type>
+          <declname>instanceLengths</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>trainfile</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>train_forest</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iter</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="58" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="57" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmstparser_1_1DependencyParser_1a48f9d8e4dbada5fcf3c8d564782c854d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mstparser::DependencyParser::main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <exceptions> throws FileNotFoundException, Exception     </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="283" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="282" bodyend="336"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="510">
+        <label>mstparser::Alphabet</label>
+        <link refid="classmstparser_1_1Alphabet"/>
+      </node>
+      <node id="511">
+        <label>mstparser::Parameters</label>
+        <link refid="classmstparser_1_1Parameters"/>
+      </node>
+      <node id="507">
+        <label>mstparser::ParserOptions</label>
+        <link refid="classmstparser_1_1ParserOptions"/>
+        <childnode refid="508" relation="usage">
+          <edgelabel>testforest</edgelabel>
+          <edgelabel>trainforest</edgelabel>
+        </childnode>
+      </node>
+      <node id="508">
+        <label>File</label>
+      </node>
+      <node id="505">
+        <label>mstparser::DependencyPipe</label>
+        <link refid="classmstparser_1_1DependencyPipe"/>
+        <childnode refid="506" relation="usage">
+          <edgelabel>depReader</edgelabel>
+        </childnode>
+        <childnode refid="507" relation="usage">
+          <edgelabel>options</edgelabel>
+        </childnode>
+        <childnode refid="509" relation="usage">
+          <edgelabel>depWriter</edgelabel>
+        </childnode>
+        <childnode refid="510" relation="usage">
+          <edgelabel>typeAlphabet</edgelabel>
+          <edgelabel>dataAlphabet</edgelabel>
+        </childnode>
+      </node>
+      <node id="509">
+        <label>mstparser::io::DependencyWriter</label>
+        <link refid="classmstparser_1_1io_1_1DependencyWriter"/>
+      </node>
+      <node id="504">
+        <label>mstparser::DependencyDecoder</label>
+        <link refid="classmstparser_1_1DependencyDecoder"/>
+        <childnode refid="505" relation="usage">
+          <edgelabel>pipe</edgelabel>
+        </childnode>
+      </node>
+      <node id="506">
+        <label>mstparser::io::DependencyReader</label>
+        <link refid="classmstparser_1_1io_1_1DependencyReader"/>
+      </node>
+      <node id="503">
+        <label>mstparser::DependencyParser</label>
+        <link refid="classmstparser_1_1DependencyParser"/>
+        <childnode refid="504" relation="usage">
+          <edgelabel>decoder</edgelabel>
+        </childnode>
+        <childnode refid="505" relation="usage">
+          <edgelabel>pipe</edgelabel>
+        </childnode>
+        <childnode refid="507" relation="usage">
+          <edgelabel>options</edgelabel>
+        </childnode>
+        <childnode refid="511" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" line="11" bodyfile="/home/srush/Projects/relax_decode/third-party/mstparser/mstparser/DependencyParser.java" bodystart="11" bodyend="338"/>
+    <listofallmembers>
+      <member refid="classmstparser_1_1DependencyParser_1aaa3bfabc85749e8b23c09223ccd1255b" prot="private" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>decoder</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a0bfeec5afb71a0633b642fafdfcfda03" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>DependencyParser</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1ac96ac7e724c9cf2f3736fa8a5c5909f3" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>loadModel</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a48f9d8e4dbada5fcf3c8d564782c854d" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>main</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a8216d15b3935fbd0ec207db1a7e43155" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>options</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a9f199c0aa6535bec67d934d0bc6448b6" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>outputParses</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a494f951e8d07a939939012e7133e6d81" prot="private" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>params</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a3a25b80916476a5f26fa261f4666a484" prot="private" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>pipe</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a9b60bc1edc2fd5176cd5a6823da8fb5e" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>saveModel</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a8f238310312e312d248db13414dd9ccf" prot="public" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>train</name></member>
+      <member refid="classmstparser_1_1DependencyParser_1a354c3a0ba063ae6abb73f4e3f4846555" prot="private" virt="non-virtual"><scope>mstparser::DependencyParser</scope><name>trainingIter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

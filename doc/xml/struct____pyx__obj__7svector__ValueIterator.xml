@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct____pyx__obj__7svector__ValueIterator" kind="struct" prot="public">
+    <compoundname>__pyx_obj_7svector_ValueIterator</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____pyx__obj__7svector__ValueIterator_1a84c4b6a57426d1026bc9fee500e1f0bc" prot="public" static="no" mutable="no">
+        <type>PyObject_HEAD <ref refid="structsvector__iterator" kindref="compound">svector_iterator</ref>&lt; int, double &gt; *</type>
+        <definition>PyObject_HEAD svector_iterator&lt; int, double &gt; * __pyx_obj_7svector_ValueIterator::thisptr</definition>
+        <argsstring></argsstring>
+        <name>thisptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="475" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct____pyx__obj__7svector__ValueIterator_1ade8a9afa5e7ac991c03aa06401601931" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref> *</type>
+        <definition>struct __pyx_obj_7svector_Vector * __pyx_obj_7svector_ValueIterator::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="476" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="16">
+        <label>std::map&lt; int, double &gt;</label>
+      </node>
+      <node id="13">
+        <label>__pyx_obj_7svector_ValueIterator</label>
+        <link refid="struct____pyx__obj__7svector__ValueIterator"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>v</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>thisptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>svector&lt; int, double &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>svector_iterator&lt; int, double &gt;</label>
+        <link refid="structsvector__iterator"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>cur</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>__pyx_obj_7svector_Vector</label>
+        <link refid="struct____pyx__obj__7svector__Vector"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>thisptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="473" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="473" bodyend="477"/>
+    <listofallmembers>
+      <member refid="struct____pyx__obj__7svector__ValueIterator_1a84c4b6a57426d1026bc9fee500e1f0bc" prot="public" virt="non-virtual"><scope>__pyx_obj_7svector_ValueIterator</scope><name>thisptr</name></member>
+      <member refid="struct____pyx__obj__7svector__ValueIterator_1ade8a9afa5e7ac991c03aa06401601931" prot="public" virt="non-virtual"><scope>__pyx_obj_7svector_ValueIterator</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classEisnerToHypergraph" kind="class" prot="public">
+    <compoundname>EisnerToHypergraph</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a47df02a8804876cc0e33b55681b9a2f0" prot="public" static="no" mutable="no">
+        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref></type>
+        <definition>Hypergraph EisnerToHypergraph::hgraph</definition>
+        <argsstring></argsstring>
+        <name>hgraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="121" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEisnerToHypergraph_1ad3ac4ca0b277243cb73c54e04f044e09" prot="private" static="no" mutable="no">
+        <type>const vector&lt; int &gt; &amp;</type>
+        <definition>const vector&lt;int&gt;&amp; EisnerToHypergraph::_sent</definition>
+        <argsstring></argsstring>
+        <name>_sent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="198" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a6aa371ceefe14e428a73164af65c969a" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt; &amp;</type>
+        <definition>vector&lt;vector &lt;vector&lt;double &gt; &gt; &gt;&amp; EisnerToHypergraph::_weights</definition>
+        <argsstring></argsstring>
+        <name>_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="199" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a80d5cfb65d2d19d487066f2766c8e9b8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int EisnerToHypergraph::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="201" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a4880899e2f0489ae9ae95f944700fc59" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int EisnerToHypergraph::_edge_id</definition>
+        <argsstring></argsstring>
+        <name>_edge_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="202" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1ac171522977e036ad5d1f0f5b5c6265af" prot="private" static="no" mutable="no">
+        <type>map&lt; <ref refid="structEisnerNode" kindref="compound">EisnerNode</ref>, int &gt;</type>
+        <definition>map&lt; EisnerNode, int &gt; EisnerToHypergraph::_node_to_id</definition>
+        <argsstring></argsstring>
+        <name>_node_to_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="203" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a2aa057dabf5c8cf05fd33339aa1f0af9" prot="private" static="no" mutable="no">
+        <type>map&lt; int, <ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> * &gt;</type>
+        <definition>map&lt; int, Hypergraph_Node * &gt; EisnerToHypergraph::_id_to_proto</definition>
+        <argsstring></argsstring>
+        <name>_id_to_proto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="204" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEisnerToHypergraph_1a50fea768d93c1618ace2323bf0966f7a" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structLocalHyperedge" kindref="compound">LocalHyperedge</ref> &gt;</type>
+        <definition>vector&lt; LocalHyperedge &gt; EisnerToHypergraph::hyperedges</definition>
+        <argsstring></argsstring>
+        <name>hyperedges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="205" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEisnerToHypergraph_1ac4c11a966298244ad74965dd35596c4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EisnerToHypergraph::EisnerToHypergraph</definition>
+        <argsstring>(const vector&lt; int &gt; &amp;sent, vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt; &amp;weights)</argsstring>
+        <name>EisnerToHypergraph</name>
+        <param>
+          <type>const vector&lt; int &gt; &amp;</type>
+          <declname>sent</declname>
+        </param>
+        <param>
+          <type>vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="115" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classEisnerToHypergraph_1a8344d534c1b3d5f2795578c771fe4d31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EisnerToHypergraph::convert</definition>
+        <argsstring>(Hypergraph &amp;_forest)</argsstring>
+        <name>convert</name>
+        <param>
+          <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <declname>_forest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="120" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.cpp" bodystart="9" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classEisnerToHypergraph_1a5bb3adf09f0de42bca25e33d6292997b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int EisnerToHypergraph::length</definition>
+        <argsstring>()</argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="124" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classEisnerToHypergraph_1a7dbc885a4bbe2088e25eaaf35d20912d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> *</type>
+        <definition>Hypergraph_Node* EisnerToHypergraph::finalize_node</definition>
+        <argsstring>(EisnerNode &amp;enode)</argsstring>
+        <name>finalize_node</name>
+        <param>
+          <type><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref> &amp;</type>
+          <declname>enode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="128" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="128" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classEisnerToHypergraph_1a5006966b5a8426d1fbce00d525359067" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void EisnerToHypergraph::finalize_root</definition>
+        <argsstring>()</argsstring>
+        <name>finalize_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="152" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="152" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classEisnerToHypergraph_1a4ff2050caf0f128e717ed00616cbb9ee" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref> &amp;</type>
+        <definition>Hypergraph_Edge&amp; EisnerToHypergraph::finalize_edge</definition>
+        <argsstring>(Hypergraph_Node *hnode, LocalHyperedge ledge)</argsstring>
+        <name>finalize_edge</name>
+        <param>
+          <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> *</type>
+          <declname>hnode</declname>
+        </param>
+        <param>
+          <type><ref refid="structLocalHyperedge" kindref="compound">LocalHyperedge</ref></type>
+          <declname>ledge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="160" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="160" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classEisnerToHypergraph_1a685c967ee7ff398fff635f52dc806421" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double EisnerToHypergraph::get_weight</definition>
+        <argsstring>(int h, int m)</argsstring>
+        <name>get_weight</name>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="184" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="184" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="626">
+        <label>std::map&lt; int, Hypergraph_Node * &gt;</label>
+        <childnode refid="627" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="627">
+        <label>Hypergraph_Node</label>
+        <link refid="classHypergraph__Node"/>
+        <childnode refid="627" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+        <childnode refid="623" relation="usage">
+          <edgelabel>label_</edgelabel>
+        </childnode>
+      </node>
+      <node id="631">
+        <label>std::vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt;</label>
+      </node>
+      <node id="620">
+        <label>EisnerToHypergraph</label>
+        <link refid="classEisnerToHypergraph"/>
+        <childnode refid="621" relation="usage">
+          <edgelabel>hyperedges</edgelabel>
+        </childnode>
+        <childnode refid="626" relation="usage">
+          <edgelabel>_id_to_proto</edgelabel>
+        </childnode>
+        <childnode refid="628" relation="usage">
+          <edgelabel>_node_to_id</edgelabel>
+        </childnode>
+        <childnode refid="631" relation="usage">
+          <edgelabel>_weights</edgelabel>
+        </childnode>
+        <childnode refid="632" relation="usage">
+          <edgelabel>hgraph</edgelabel>
+        </childnode>
+        <childnode refid="625" relation="usage">
+          <edgelabel>_sent</edgelabel>
+        </childnode>
+      </node>
+      <node id="624">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="621">
+        <label>std::vector&lt; LocalHyperedge &gt;</label>
+        <childnode refid="622" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="632">
+        <label>Hypergraph</label>
+        <link refid="classHypergraph"/>
+        <childnode refid="632" relation="usage">
+          <edgelabel>default_instance_</edgelabel>
+        </childnode>
+      </node>
+      <node id="629">
+        <label>EisnerNode</label>
+        <link refid="structEisnerNode"/>
+        <childnode refid="630" relation="usage">
+          <edgelabel>node_span</edgelabel>
+        </childnode>
+      </node>
+      <node id="628">
+        <label>std::map&lt; EisnerNode, int &gt;</label>
+        <childnode refid="629" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="622">
+        <label>LocalHyperedge</label>
+        <link refid="structLocalHyperedge"/>
+        <childnode refid="623" relation="usage">
+          <edgelabel>label</edgelabel>
+        </childnode>
+        <childnode refid="625" relation="usage">
+          <edgelabel>tail_node_ids</edgelabel>
+        </childnode>
+      </node>
+      <node id="625">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="623">
+        <label>std::string</label>
+        <childnode refid="624" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="630">
+        <label>Span</label>
+        <link refid="structSpan"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="111" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="111" bodyend="208"/>
+    <listofallmembers>
+      <member refid="classEisnerToHypergraph_1a4880899e2f0489ae9ae95f944700fc59" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_edge_id</name></member>
+      <member refid="classEisnerToHypergraph_1a80d5cfb65d2d19d487066f2766c8e9b8" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_id</name></member>
+      <member refid="classEisnerToHypergraph_1a2aa057dabf5c8cf05fd33339aa1f0af9" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_id_to_proto</name></member>
+      <member refid="classEisnerToHypergraph_1ac171522977e036ad5d1f0f5b5c6265af" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_node_to_id</name></member>
+      <member refid="classEisnerToHypergraph_1ad3ac4ca0b277243cb73c54e04f044e09" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_sent</name></member>
+      <member refid="classEisnerToHypergraph_1a6aa371ceefe14e428a73164af65c969a" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>_weights</name></member>
+      <member refid="classEisnerToHypergraph_1a8344d534c1b3d5f2795578c771fe4d31" prot="public" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>convert</name></member>
+      <member refid="classEisnerToHypergraph_1ac4c11a966298244ad74965dd35596c4c" prot="public" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>EisnerToHypergraph</name></member>
+      <member refid="classEisnerToHypergraph_1a4ff2050caf0f128e717ed00616cbb9ee" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>finalize_edge</name></member>
+      <member refid="classEisnerToHypergraph_1a7dbc885a4bbe2088e25eaaf35d20912d" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>finalize_node</name></member>
+      <member refid="classEisnerToHypergraph_1a5006966b5a8426d1fbce00d525359067" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>finalize_root</name></member>
+      <member refid="classEisnerToHypergraph_1a685c967ee7ff398fff635f52dc806421" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>get_weight</name></member>
+      <member refid="classEisnerToHypergraph_1a47df02a8804876cc0e33b55681b9a2f0" prot="public" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>hgraph</name></member>
+      <member refid="classEisnerToHypergraph_1a50fea768d93c1618ace2323bf0966f7a" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>hyperedges</name></member>
+      <member refid="classEisnerToHypergraph_1a5bb3adf09f0de42bca25e33d6292997b" prot="private" virt="non-virtual"><scope>EisnerToHypergraph</scope><name>length</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

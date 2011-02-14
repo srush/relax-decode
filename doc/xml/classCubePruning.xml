@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classCubePruning" kind="class" prot="public">
+    <compoundname>CubePruning</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCubePruning_1a7c031b1742e446a1db7e28a41f5d66df" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+        <definition>const HGraph&amp; CubePruning::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="103" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1ac0962dfa9a109dd8822b1a980e09c58a" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+        <definition>const Cache&lt;Hyperedge, double&gt;&amp; CubePruning::_weights</definition>
+        <argsstring></argsstring>
+        <name>_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="104" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1abef892f4e09b46377f16525995508a72" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classNonLocal" kindref="compound">NonLocal</ref> &amp;</type>
+        <definition>const NonLocal&amp; CubePruning::_non_local</definition>
+        <argsstring></argsstring>
+        <name>_non_local</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="105" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1a6158216cbc0dbb94b284a3e146c835b5" prot="private" static="no" mutable="no">
+        <type>const uint</type>
+        <definition>const uint CubePruning::_k</definition>
+        <argsstring></argsstring>
+        <name>_k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="106" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1a13103f0ed1cb53e0f4b976f43a4ce57d" prot="private" static="no" mutable="no">
+        <type>const uint</type>
+        <definition>const uint CubePruning::_ratio</definition>
+        <argsstring></argsstring>
+        <name>_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="107" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1a8782ee2405c6fce6c669353ec0a7954b" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, vector&lt; <ref refid="structHyp" kindref="compound">Hyp</ref> &gt; &gt;</type>
+        <definition>Cache&lt;Hypernode, vector &lt;Hyp&gt; &gt; CubePruning::_hypothesis_cache</definition>
+        <argsstring></argsstring>
+        <name>_hypothesis_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="109" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCubePruning_1ab33f8ead8b29cb92a0a6c6dd52cdafe3" prot="private" static="no" mutable="no">
+        <type><ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref>, set&lt; vector&lt; int &gt; &gt; &gt;</type>
+        <definition>Cache&lt;Hyperedge, set &lt; vector &lt;int&gt; &gt; &gt; CubePruning::_oldvec</definition>
+        <argsstring></argsstring>
+        <name>_oldvec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="110" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCubePruning_1af17d9dda17f79a2c44b47501b9d99870" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CubePruning::CubePruning</definition>
+        <argsstring>(const HGraph &amp;forest, const Cache&lt; Hyperedge, double &gt; &amp;weights, const NonLocal &amp;non_local, int k, int ratio)</argsstring>
+        <name>CubePruning</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+          <declname>forest</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classNonLocal" kindref="compound">NonLocal</ref> &amp;</type>
+          <declname>non_local</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ratio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="90" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1a0e8d07fc09d695095be5b70780db95d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CubePruning::get_derivation</definition>
+        <argsstring>(vector&lt; int &gt; &amp;der)</argsstring>
+        <name>get_derivation</name>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>der</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="92" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1adf80c0c689d075765f250649433833e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double CubePruning::parse</definition>
+        <argsstring>()</argsstring>
+        <name>parse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="94" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.cpp" bodystart="12" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1ab949710c0d8e552cbadbe837b1b62d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CubePruning::run</definition>
+        <argsstring>(const Hypernode &amp;cur_node, vector&lt; Hyp &gt; &amp;kbest_hyps)</argsstring>
+        <name>run</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>cur_node</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="structHyp" kindref="compound">Hyp</ref> &gt; &amp;</type>
+          <declname>kbest_hyps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1a14a4e797c638d07744dc328cf2ce568e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CubePruning::init_cube</definition>
+        <argsstring>(const Hypernode &amp;cur_node, Candidates &amp;cands)</argsstring>
+        <name>init_cube</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>cur_node</declname>
+        </param>
+        <param>
+          <type>Candidates &amp;</type>
+          <declname>cands</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1abe8c53bd14fe4ad98ff6388f38a849cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CubePruning::kbest</definition>
+        <argsstring>(Candidates &amp;cands, vector&lt; Hyp &gt; &amp;)</argsstring>
+        <name>kbest</name>
+        <param>
+          <type>Candidates &amp;</type>
+          <declname>cands</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="structHyp" kindref="compound">Hyp</ref> &gt; &amp;</type>
+          <defname>newhypvec</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="97" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.cpp" bodystart="90" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1a5d3ab59862953b9000154e9c07c69634" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CubePruning::next</definition>
+        <argsstring>(const Hyperedge &amp;cedge, const vector&lt; int &gt; &amp;cvecj, Candidates &amp;cands)</argsstring>
+        <name>next</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>cedge</declname>
+        </param>
+        <param>
+          <type>const vector&lt; int &gt; &amp;</type>
+          <declname>cvecj</declname>
+        </param>
+        <param>
+          <type>Candidates &amp;</type>
+          <declname>cands</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classCubePruning_1aa7d26357be4241b594f9eb24ac52da22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CubePruning::gethyp</definition>
+        <argsstring>(const Hyperedge &amp;cedge, const vector&lt; int &gt; &amp;vecj, Hyp &amp;item)</argsstring>
+        <name>gethyp</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>cedge</declname>
+        </param>
+        <param>
+          <type>const vector&lt; int &gt; &amp;</type>
+          <declname>vecj</declname>
+        </param>
+        <param>
+          <type><ref refid="structHyp" kindref="compound">Hyp</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="99"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="423">
+        <label>Cache&lt; Hyperedge, set&lt; vector&lt; int &gt; &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="421" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="425">
+        <label>Cache&lt; Hyperedge, double &gt;</label>
+        <link refid="classCache"/>
+      </node>
+      <node id="422">
+        <label>NonLocal</label>
+        <link refid="classNonLocal"/>
+      </node>
+      <node id="424">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="421">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="420">
+        <label>Cache&lt; Hypernode, vector&lt; Hyp &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="421" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="419">
+        <label>CubePruning</label>
+        <link refid="classCubePruning"/>
+        <childnode refid="420" relation="usage">
+          <edgelabel>_hypothesis_cache</edgelabel>
+        </childnode>
+        <childnode refid="422" relation="usage">
+          <edgelabel>_non_local</edgelabel>
+        </childnode>
+        <childnode refid="423" relation="usage">
+          <edgelabel>_oldvec</edgelabel>
+        </childnode>
+        <childnode refid="424" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+        <childnode refid="425" relation="usage">
+          <edgelabel>_weights</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="85" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="85" bodyend="114"/>
+    <listofallmembers>
+      <member refid="classCubePruning_1a7c031b1742e446a1db7e28a41f5d66df" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_forest</name></member>
+      <member refid="classCubePruning_1a8782ee2405c6fce6c669353ec0a7954b" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_hypothesis_cache</name></member>
+      <member refid="classCubePruning_1a6158216cbc0dbb94b284a3e146c835b5" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_k</name></member>
+      <member refid="classCubePruning_1abef892f4e09b46377f16525995508a72" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_non_local</name></member>
+      <member refid="classCubePruning_1ab33f8ead8b29cb92a0a6c6dd52cdafe3" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_oldvec</name></member>
+      <member refid="classCubePruning_1a13103f0ed1cb53e0f4b976f43a4ce57d" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_ratio</name></member>
+      <member refid="classCubePruning_1ac0962dfa9a109dd8822b1a980e09c58a" prot="private" virt="non-virtual"><scope>CubePruning</scope><name>_weights</name></member>
+      <member refid="classCubePruning_1af17d9dda17f79a2c44b47501b9d99870" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>CubePruning</name></member>
+      <member refid="classCubePruning_1a0e8d07fc09d695095be5b70780db95d6" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>get_derivation</name></member>
+      <member refid="classCubePruning_1aa7d26357be4241b594f9eb24ac52da22" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>gethyp</name></member>
+      <member refid="classCubePruning_1a14a4e797c638d07744dc328cf2ce568e" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>init_cube</name></member>
+      <member refid="classCubePruning_1abe8c53bd14fe4ad98ff6388f38a849cb" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>kbest</name></member>
+      <member refid="classCubePruning_1a5d3ab59862953b9000154e9c07c69634" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>next</name></member>
+      <member refid="classCubePruning_1adf80c0c689d075765f250649433833e4" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>parse</name></member>
+      <member refid="classCubePruning_1ab949710c0d8e552cbadbe837b1b62d47" prot="public" virt="non-virtual"><scope>CubePruning</scope><name>run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

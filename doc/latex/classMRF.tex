@@ -1,0 +1,83 @@
+\hypertarget{classMRF}{
+\section{MRF Class Reference}
+\label{classMRF}\index{MRF@{MRF}}
+}
+Inheritance diagram for MRF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classMRF}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMRF_a3a2f7eb349a7345abfba2c5869f85b1f}{
+void {\bfseries process\_\-node} (\hyperlink{classgraph_1_1Graph__Node}{graph::Graph\_\-Node}, \hyperlink{classScarab_1_1Graph_1_1Graphnode}{Graphnode} $\ast$)}
+\label{classMRF_a3a2f7eb349a7345abfba2c5869f85b1f}
+
+\item 
+\hypertarget{classMRF_aed7b8a7a2e3af7c14b501040630e9589}{
+void {\bfseries process\_\-edge} (\hyperlink{classgraph_1_1Graph__Edge}{graph::Graph\_\-Edge}, \hyperlink{classScarab_1_1Graph_1_1Graphedge}{Graphedge} $\ast$)}
+\label{classMRF_aed7b8a7a2e3af7c14b501040630e9589}
+
+\item 
+\hypertarget{classMRF_a34f0d586337501d668a62726eb0046d7}{
+\hyperlink{classHypergraph}{Hypergraph} $\ast$ {\bfseries build\_\-hypergraph} ()}
+\label{classMRF_a34f0d586337501d668a62726eb0046d7}
+
+\item 
+void \hyperlink{classMRF_a928f19f948fa97796462fd9542a985fd}{set\_\-up} (\hyperlink{classgraph_1_1Graph}{graph::Graph} graph, int nodes, int edges)
+\item 
+\hypertarget{classMRF_a3a7f11091d96ab8b2f830deb343fc3a6}{
+const double {\bfseries node\_\-pot} (const \hyperlink{classScarab_1_1Graph_1_1Graphnode}{Graphnode} \&node, const \hyperlink{structState}{State} \&s1) const }
+\label{classMRF_a3a7f11091d96ab8b2f830deb343fc3a6}
+
+\item 
+\hypertarget{classMRF_ab73d5f7b51c206754bee9eea9405c0fb}{
+const bool {\bfseries has\_\-edge\_\-pot} (const \hyperlink{classScarab_1_1Graph_1_1Graphedge}{Graphedge} \&edge, const \hyperlink{structState}{State} \&s1, const \hyperlink{structState}{State} \&s2) const }
+\label{classMRF_ab73d5f7b51c206754bee9eea9405c0fb}
+
+\item 
+\hypertarget{classMRF_a9f98956295352e9bfc9917328999c1b2}{
+const double {\bfseries edge\_\-pot} (const \hyperlink{classScarab_1_1Graph_1_1Graphedge}{Graphedge} \&edge, const \hyperlink{structState}{State} \&s1, const \hyperlink{structState}{State} \&s2) const }
+\label{classMRF_a9f98956295352e9bfc9917328999c1b2}
+
+\item 
+\hypertarget{classMRF_a7c01a68384b81d1ba7d24508f767d216}{
+const vector$<$ \hyperlink{structState}{State} $>$ \& {\bfseries states} (const \hyperlink{classScarab_1_1Graph_1_1Graphnode}{Graphnode} \&node) const }
+\label{classMRF_a7c01a68384b81d1ba7d24508f767d216}
+
+\item 
+\hypertarget{classMRF_aaf17c4a671ea4f06553c33fca90bfa35}{
+const int {\bfseries assignments} () const }
+\label{classMRF_aaf17c4a671ea4f06553c33fca90bfa35}
+
+\item 
+\hypertarget{classMRF_a9326b3fd5aea915a1bb8a1ad2ac50f3f}{
+\hyperlink{structNodeAssignment}{NodeAssignment} {\bfseries make\_\-assignment} (const \hyperlink{classScarab_1_1Graph_1_1Graphnode}{Graphnode} \&n, const \hyperlink{structState}{State} \&my\_\-s) const }
+\label{classMRF_a9326b3fd5aea915a1bb8a1ad2ac50f3f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMRF_a928f19f948fa97796462fd9542a985fd}{
+\index{MRF@{MRF}!set\_\-up@{set\_\-up}}
+\index{set\_\-up@{set\_\-up}!MRF@{MRF}}
+\subsubsection[{set\_\-up}]{\setlength{\rightskip}{0pt plus 5cm}void MRF::set\_\-up ({\bf graph::Graph} {\em graph}, \/  int {\em nodes}, \/  int {\em edges})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classMRF_a928f19f948fa97796462fd9542a985fd}
+Solve the potts model with the given node potentials
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em node\_\-potentials}]\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classGraphProtoInterface}{GraphProtoInterface}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+optimization/MRF.h\item 
+optimization/MRF.cpp\end{DoxyCompactItemize}

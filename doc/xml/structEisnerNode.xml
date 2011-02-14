@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structEisnerNode" kind="struct" prot="public">
+    <compoundname>EisnerNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEisnerNode_1a1e3b0f200089af99ca744d6d0a9c7f72" prot="public" static="no" mutable="no">
+        <type><ref refid="structSpan" kindref="compound">Span</ref></type>
+        <definition>Span EisnerNode::node_span</definition>
+        <argsstring></argsstring>
+        <name>node_span</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="54" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEisnerNode_1a0013abe4607fb7979aa1d915a58868a1" prot="public" static="no" mutable="no">
+        <type>Direction</type>
+        <definition>Direction EisnerNode::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="55" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEisnerNode_1a682edd0712304525c84939b820a141d3" prot="public" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape EisnerNode::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="56" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structEisnerNode_1a38fe91d99e35e7d8a6bda3c1bb45f3d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string EisnerNode::name</definition>
+        <argsstring>()</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="58" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="58" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="structEisnerNode_1a16b4c3b130c5cacf4639fb8fc01d1894" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EisnerNode::EisnerNode</definition>
+        <argsstring>(Span ns, Direction d_in, Shape s_in)</argsstring>
+        <name>EisnerNode</name>
+        <param>
+          <type><ref refid="structSpan" kindref="compound">Span</ref></type>
+          <declname>ns</declname>
+        </param>
+        <param>
+          <type>Direction</type>
+          <declname>d_in</declname>
+        </param>
+        <param>
+          <type>Shape</type>
+          <declname>s_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="82" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="81" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structEisnerNode_1a8ede91dac02b136ef673afbb68566623" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EisnerNode::operator&lt;</definition>
+        <argsstring>(const EisnerNode &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structEisnerNode" kindref="compound">EisnerNode</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="84" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="84" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="617">
+        <label>EisnerNode</label>
+        <link refid="structEisnerNode"/>
+        <childnode refid="618" relation="usage">
+          <edgelabel>node_span</edgelabel>
+        </childnode>
+      </node>
+      <node id="618">
+        <label>Span</label>
+        <link refid="structSpan"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="53" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="53" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structEisnerNode_1a0013abe4607fb7979aa1d915a58868a1" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>d</name></member>
+      <member refid="structEisnerNode_1a16b4c3b130c5cacf4639fb8fc01d1894" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>EisnerNode</name></member>
+      <member refid="structEisnerNode_1a38fe91d99e35e7d8a6bda3c1bb45f3d6" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>name</name></member>
+      <member refid="structEisnerNode_1a1e3b0f200089af99ca744d6d0a9c7f72" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>node_span</name></member>
+      <member refid="structEisnerNode_1a8ede91dac02b136ef673afbb68566623" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>operator&lt;</name></member>
+      <member refid="structEisnerNode_1a682edd0712304525c84939b820a141d3" prot="public" virt="non-virtual"><scope>EisnerNode</scope><name>s</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

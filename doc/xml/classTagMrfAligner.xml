@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classTagMrfAligner" kind="class" prot="public">
+    <compoundname>TagMrfAligner</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classTagMrfAligner_1a8a5d34bcfecdfb8c3901297ad34e301d" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classMRF" kindref="compound">MRF</ref> * &gt;</type>
+        <definition>vector&lt;MRF *&gt; TagMrfAligner::mrf_models</definition>
+        <argsstring></argsstring>
+        <name>mrf_models</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="115" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTagMrfAligner_1ae20f5a7d1131701986a36b70dca2c26f" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; <ref refid="structTagIndex" kindref="compound">TagIndex</ref> &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;TagIndex&gt; &gt; TagMrfAligner::tag_constraints</definition>
+        <argsstring></argsstring>
+        <name>tag_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="116" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTagMrfAligner_1ae26a953cc83027d6b47464a166a302c4" prot="private" static="no" mutable="no">
+        <type>map&lt; <ref refid="structTagIndex" kindref="compound">TagIndex</ref>, <ref refid="structMrfIndex" kindref="compound">MrfIndex</ref> &gt;</type>
+        <definition>map&lt;TagIndex, MrfIndex&gt; TagMrfAligner::alignment</definition>
+        <argsstring></argsstring>
+        <name>alignment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="118" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTagMrfAligner_1ae2bae21b52efb547b46f2da80f61ec42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TagMrfAligner::build_from_constraints</definition>
+        <argsstring>(string file_name)</argsstring>
+        <name>build_from_constraints</name>
+        <param>
+          <type>string</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="103" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="117" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classTagMrfAligner_1a5b6ecf59596d656333f8113f6f05eba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TagMrfAligner::align</definition>
+        <argsstring>(TagIndex tag_ind, MrfIndex &amp;mrf_ind)</argsstring>
+        <name>align</name>
+        <param>
+          <type><ref refid="structTagIndex" kindref="compound">TagIndex</ref></type>
+          <declname>tag_ind</declname>
+        </param>
+        <param>
+          <type><ref refid="structMrfIndex" kindref="compound">MrfIndex</ref> &amp;</type>
+          <declname>mrf_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="105" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="105" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1659">
+        <label>T</label>
+      </node>
+      <node id="1651">
+        <label>GraphProtoInterface</label>
+        <link refid="classGraphProtoInterface"/>
+        <childnode refid="1652" relation="usage">
+          <edgelabel>_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="1654">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="classScarab_1_1Graph_1_1Graphedge"/>
+        <childnode refid="1655" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1660">
+        <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1661" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1658">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="1659" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1666">
+        <label>MrfIndex</label>
+        <link refid="structMrfIndex"/>
+      </node>
+      <node id="1662">
+        <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1661" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1665">
+        <label>std::map&lt; TagIndex, MrfIndex &gt;</label>
+        <childnode refid="1666" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+        <childnode refid="1667" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="1663">
+        <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1661" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1655">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="classScarab_1_1Graph_1_1Graphnode"/>
+        <childnode refid="1653" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1656" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="1657">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1664">
+        <label>std::vector&lt; vector&lt; TagIndex &gt; &gt;</label>
+      </node>
+      <node id="1648">
+        <label>TagMrfAligner</label>
+        <link refid="classTagMrfAligner"/>
+        <childnode refid="1649" relation="usage">
+          <edgelabel>mrf_models</edgelabel>
+        </childnode>
+        <childnode refid="1664" relation="usage">
+          <edgelabel>tag_constraints</edgelabel>
+        </childnode>
+        <childnode refid="1665" relation="usage">
+          <edgelabel>alignment</edgelabel>
+        </childnode>
+      </node>
+      <node id="1649">
+        <label>std::vector&lt; MRF * &gt;</label>
+        <childnode refid="1650" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1667">
+        <label>TagIndex</label>
+        <link refid="structTagIndex"/>
+      </node>
+      <node id="1661">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1653">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="1654" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1652">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="classScarab_1_1Graph_1_1Graph"/>
+        <childnode refid="1653" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1658" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1650">
+        <label>MRF</label>
+        <link refid="classMRF"/>
+        <childnode refid="1651" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1660" relation="usage">
+          <edgelabel>_node_states</edgelabel>
+        </childnode>
+        <childnode refid="1662" relation="usage">
+          <edgelabel>_edge_potentials</edgelabel>
+        </childnode>
+        <childnode refid="1663" relation="usage">
+          <edgelabel>_node_potentials</edgelabel>
+        </childnode>
+      </node>
+      <node id="1656">
+        <label>std::string</label>
+        <childnode refid="1657" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="100" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="100" bodyend="119"/>
+    <listofallmembers>
+      <member refid="classTagMrfAligner_1a5b6ecf59596d656333f8113f6f05eba4" prot="public" virt="non-virtual"><scope>TagMrfAligner</scope><name>align</name></member>
+      <member refid="classTagMrfAligner_1ae26a953cc83027d6b47464a166a302c4" prot="private" virt="non-virtual"><scope>TagMrfAligner</scope><name>alignment</name></member>
+      <member refid="classTagMrfAligner_1ae2bae21b52efb547b46f2da80f61ec42" prot="public" virt="non-virtual"><scope>TagMrfAligner</scope><name>build_from_constraints</name></member>
+      <member refid="classTagMrfAligner_1a8a5d34bcfecdfb8c3901297ad34e301d" prot="public" virt="non-virtual"><scope>TagMrfAligner</scope><name>mrf_models</name></member>
+      <member refid="classTagMrfAligner_1ae20f5a7d1131701986a36b70dca2c26f" prot="public" virt="non-virtual"><scope>TagMrfAligner</scope><name>tag_constraints</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

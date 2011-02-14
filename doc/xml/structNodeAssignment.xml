@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structNodeAssignment" kind="struct" prot="public">
+    <compoundname>NodeAssignment</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structNodeAssignment_1a595045041aa245ed3108284223ce766d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NodeAssignment::node_id</definition>
+        <argsstring></argsstring>
+        <name>node_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="39" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNodeAssignment_1affe9bfbc195ba56f34dcdbd4fb10411e" prot="public" static="no" mutable="no">
+        <type><ref refid="structState" kindref="compound">State</ref></type>
+        <definition>State NodeAssignment::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="40" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNodeAssignment_1ac3b88ac2cbd270733ee835e00279a4ad" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NodeAssignment::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="41" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structNodeAssignment_1a23f5d30b0061c746cc24968babde9dd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NodeAssignment::NodeAssignment</definition>
+        <argsstring>()</argsstring>
+        <name>NodeAssignment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="37" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structNodeAssignment_1afb4f063136a9da957865d42faa2a3943" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NodeAssignment::NodeAssignment</definition>
+        <argsstring>(int node_id_, const State state_, int length_)</argsstring>
+        <name>NodeAssignment</name>
+        <param>
+          <type>int</type>
+          <declname>node_id_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structState" kindref="compound">State</ref></type>
+          <declname>state_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="38" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="structNodeAssignment_1aea41536d91eba4d9c6440065953aa4e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int NodeAssignment::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="43" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="43" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1225">
+        <label>State</label>
+        <link refid="structState"/>
+        <childnode refid="1226" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="1227">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1224">
+        <label>NodeAssignment</label>
+        <link refid="structNodeAssignment"/>
+        <childnode refid="1225" relation="usage">
+          <edgelabel>s</edgelabel>
+        </childnode>
+      </node>
+      <node id="1226">
+        <label>std::string</label>
+        <childnode refid="1227" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="36" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="36" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structNodeAssignment_1aea41536d91eba4d9c6440065953aa4e0" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>id</name></member>
+      <member refid="structNodeAssignment_1ac3b88ac2cbd270733ee835e00279a4ad" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>length</name></member>
+      <member refid="structNodeAssignment_1a595045041aa245ed3108284223ce766d" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>node_id</name></member>
+      <member refid="structNodeAssignment_1a23f5d30b0061c746cc24968babde9dd9" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>NodeAssignment</name></member>
+      <member refid="structNodeAssignment_1afb4f063136a9da957865d42faa2a3943" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>NodeAssignment</name></member>
+      <member refid="structNodeAssignment_1affe9bfbc195ba56f34dcdbd4fb10411e" prot="public" virt="non-virtual"><scope>NodeAssignment</scope><name>s</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

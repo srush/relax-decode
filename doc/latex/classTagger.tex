@@ -1,0 +1,104 @@
+\hypertarget{classTagger}{
+\section{Tagger Class Reference}
+\label{classTagger}\index{Tagger@{Tagger}}
+}
+Inheritance diagram for Tagger:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classTagger}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTagger_a6e812fd7e339a21155f7b30f04292be1}{
+{\bfseries Tagger} (int num\_\-tags\_\-)}
+\label{classTagger_a6e812fd7e339a21155f7b30f04292be1}
+
+\item 
+void \hyperlink{classTagger_a4ebe0aebd7c0392970b401a5a6c6cd72}{print} () const 
+\item 
+\hypertarget{classTagger_afafa6e435d17467db344ca615f24746f}{
+void {\bfseries set\_\-up} (const \hyperlink{classHypergraph}{Hypergraph} \&hgraph)}
+\label{classTagger_afafa6e435d17467db344ca615f24746f}
+
+\item 
+\hypertarget{classTagger_ad694ed218149b86c4ef5253328a41c49}{
+const \hyperlink{classHypergraph}{Hypergraph} \& {\bfseries hypergraph} () const }
+\label{classTagger_ad694ed218149b86c4ef5253328a41c49}
+
+\item 
+\hypertarget{classTagger_ae1e3802fb545c3430ca4d52ea5fd95db}{
+vector$<$ \hyperlink{structTag}{Tag} $>$ {\bfseries tags} () const }
+\label{classTagger_ae1e3802fb545c3430ca4d52ea5fd95db}
+
+\item 
+\hypertarget{classTagger_a5da221998377bf36c84013ba0d471b36}{
+uint {\bfseries num\_\-tags} () const }
+\label{classTagger_a5da221998377bf36c84013ba0d471b36}
+
+\item 
+\hypertarget{classTagger_ae762dd21f446b9ec618b0b83204bdc2e}{
+uint {\bfseries sent\_\-length} () const }
+\label{classTagger_ae762dd21f446b9ec618b0b83204bdc2e}
+
+\item 
+\hypertarget{classTagger_af01daf511528271a118a281b8595e0df}{
+\hyperlink{structTag}{Tag} {\bfseries make\_\-tag} (int ind, int tag) const }
+\label{classTagger_af01daf511528271a118a281b8595e0df}
+
+\item 
+\hypertarget{classTagger_a26472c386e7f5eebcb05c9d1843c1975}{
+const vector$<$ const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ \& {\bfseries tag\_\-to\_\-edge} (const \hyperlink{structTag}{Tag} \&tag) const }
+\label{classTagger_a26472c386e7f5eebcb05c9d1843c1975}
+
+\item 
+\hypertarget{classTagger_ae270a5be64b93945c180996aedcf6372}{
+bool {\bfseries tag\_\-has\_\-edge} (const \hyperlink{structTag}{Tag} \&tag) const }
+\label{classTagger_ae270a5be64b93945c180996aedcf6372}
+
+\item 
+\hypertarget{classTagger_ad615c8356f380baab01ae6675a25c409}{
+const \hyperlink{structTag}{Tag} \& {\bfseries edge\_\-to\_\-tag} (const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} \&edge) const }
+\label{classTagger_ad615c8356f380baab01ae6675a25c409}
+
+\item 
+\hypertarget{classTagger_ad7f1dda6082e71cd113a3d77e9c33275}{
+bool {\bfseries edge\_\-has\_\-tag} (const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} \&edge) const }
+\label{classTagger_ad7f1dda6082e71cd113a3d77e9c33275}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTagger_a4bf3332c608c078cbb2d5692c4f13b43}{
+int {\bfseries num\_\-tag}}
+\label{classTagger_a4bf3332c608c078cbb2d5692c4f13b43}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTagger_a305fd4cf75f2149a57109772e195eb47}{
+void {\bfseries make\_\-edge} (const \hyperlink{classHypergraph__Edge}{Hypergraph\_\-Edge} \&edge, const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Scarab::HG::Hyperedge} $\ast$our\_\-edge)}
+\label{classTagger_a305fd4cf75f2149a57109772e195eb47}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTagger_a4ebe0aebd7c0392970b401a5a6c6cd72}{
+\index{Tagger@{Tagger}!print@{print}}
+\index{print@{print}!Tagger@{Tagger}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Tagger::print () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classTagger_a4ebe0aebd7c0392970b401a5a6c6cd72}
+Display the hypergraph for debugging. 
+
+Implements \hyperlink{classScarab_1_1HG_1_1HGraph_ab5aa11c932b28864b56f28e0babbc1c1}{Scarab::HG::HGraph}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+tagger/Tagger.h\item 
+tagger/Tagger.cpp\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="structPossibleDep" kind="struct" prot="public">
+    <compoundname>PossibleDep</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPossibleDep_1a2f693c6bb47703c1a989f8971e06d561" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PossibleDep::ind</definition>
+        <argsstring></argsstring>
+        <name>ind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="10" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPossibleDep_1ad2c0887a242af14d7bdd6bc7a3528bf3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PossibleDep::group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="11" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPossibleDep_1a2f685f514a785a8365c9a1682fce4d5a" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string PossibleDep::group_name</definition>
+        <argsstring></argsstring>
+        <name>group_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="12" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPossibleDep_1a4b4536449d9c17e05b7f5454b0d922f7" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; PossibleDep::head_inds</definition>
+        <argsstring></argsstring>
+        <name>head_inds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="13" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPossibleDep_1acec0859157184e3f1fe962236fe6303b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PossibleDep::sent_num</definition>
+        <argsstring></argsstring>
+        <name>sent_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="14" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1330">
+        <label>PossibleDep</label>
+        <link refid="structPossibleDep"/>
+        <childnode refid="1331" relation="usage">
+          <edgelabel>group_name</edgelabel>
+        </childnode>
+        <childnode refid="1333" relation="usage">
+          <edgelabel>head_inds</edgelabel>
+        </childnode>
+      </node>
+      <node id="1332">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1333">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="1331">
+        <label>std::string</label>
+        <childnode refid="1332" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="9" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="structPossibleDep_1ad2c0887a242af14d7bdd6bc7a3528bf3" prot="public" virt="non-virtual"><scope>PossibleDep</scope><name>group</name></member>
+      <member refid="structPossibleDep_1a2f685f514a785a8365c9a1682fce4d5a" prot="public" virt="non-virtual"><scope>PossibleDep</scope><name>group_name</name></member>
+      <member refid="structPossibleDep_1a4b4536449d9c17e05b7f5454b0d922f7" prot="public" virt="non-virtual"><scope>PossibleDep</scope><name>head_inds</name></member>
+      <member refid="structPossibleDep_1a2f693c6bb47703c1a989f8971e06d561" prot="public" virt="non-virtual"><scope>PossibleDep</scope><name>ind</name></member>
+      <member refid="structPossibleDep_1acec0859157184e3f1fe962236fe6303b" prot="public" virt="non-virtual"><scope>PossibleDep</scope><name>sent_num</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

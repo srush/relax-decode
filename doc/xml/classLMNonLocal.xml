@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="classLMNonLocal" kind="class" prot="public">
+    <compoundname>LMNonLocal</compoundname>
+    <basecompoundref refid="classNonLocal" prot="public" virt="non-virtual">NonLocal</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLMNonLocal_1ad5c2e12e0381b2cc1f59f43a01a4d94a" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+        <definition>const HGraph&amp; LMNonLocal::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="113" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLMNonLocal_1a29f795da73182d4f17c7f8ae11194920" prot="private" static="no" mutable="no">
+        <type>Ngram &amp;</type>
+        <definition>Ngram&amp; LMNonLocal::_lm</definition>
+        <argsstring></argsstring>
+        <name>_lm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="114" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLMNonLocal_1ab6ba992d82a784336b4f3cfc11444e58" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, int &gt; &amp;</type>
+        <definition>const Cache&lt;Hypernode, int&gt;&amp; LMNonLocal::_word_cache</definition>
+        <argsstring></argsstring>
+        <name>_word_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="115" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLMNonLocal_1a7a6000f6118f1c8df727fac29c849b58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LMNonLocal::LMNonLocal</definition>
+        <argsstring>(const HGraph &amp;forest, Ngram &amp;lm, const Cache&lt; Hypernode, int &gt; &amp;word_cache)</argsstring>
+        <name>LMNonLocal</name>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref> &amp;</type>
+          <declname>forest</declname>
+        </param>
+        <param>
+          <type>Ngram &amp;</type>
+          <declname>lm</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classCache" kindref="compound">Cache</ref>&lt; <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref>, int &gt; &amp;</type>
+          <declname>word_cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="13" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classLMNonLocal_1a2d14ca694dc6d49ce6e2b80622aafd51" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void LMNonLocal::compute</definition>
+        <argsstring>(const Hyperedge &amp;edge, const vector&lt; vector&lt; int &gt; &gt; &amp;subder, double &amp;score, vector&lt; int &gt; &amp;full_derivation, vector&lt; int &gt; &amp;sig) const </argsstring>
+        <name>compute</name>
+        <reimplements refid="classNonLocal_1acd66e7882a5bb3415d3fd658d03ec8fc">compute</reimplements>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+          <declname>subder</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>full_derivation</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="20" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="15" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classLMNonLocal_1a93334d873bfe91d5357cbec933ec3ae9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="structHyp" kindref="compound">Hyp</ref></type>
+        <definition>Hyp LMNonLocal::initialize</definition>
+        <argsstring>(const Hypernode &amp;node) const </argsstring>
+        <name>initialize</name>
+        <reimplements refid="classNonLocal_1a90f2d399853f5c689a0abdc5c12a8370">initialize</reimplements>
+        <param>
+          <type>const <ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="94" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="94" bodyend="111"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1071">
+        <label>NonLocal</label>
+        <link refid="classNonLocal"/>
+      </node>
+      <node id="1070">
+        <label>LMNonLocal</label>
+        <link refid="classLMNonLocal"/>
+        <childnode refid="1071" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1073">
+        <label>NonLocal</label>
+        <link refid="classNonLocal"/>
+      </node>
+      <node id="1074">
+        <label>Cache&lt; Hypernode, int &gt;</label>
+        <link refid="classCache"/>
+        <childnode refid="1075" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="1076" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1077">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="classScarab_1_1HG_1_1HGraph"/>
+      </node>
+      <node id="1072">
+        <label>LMNonLocal</label>
+        <link refid="classLMNonLocal"/>
+        <childnode refid="1073" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1074" relation="usage">
+          <edgelabel>_word_cache</edgelabel>
+        </childnode>
+        <childnode refid="1077" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+      </node>
+      <node id="1076">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1075">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/CubeLM.h" line="9" bodyfile="/home/srush/Projects/relax_decode/CubeLM.h" bodystart="9" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classLMNonLocal_1ad5c2e12e0381b2cc1f59f43a01a4d94a" prot="private" virt="non-virtual"><scope>LMNonLocal</scope><name>_forest</name></member>
+      <member refid="classLMNonLocal_1a29f795da73182d4f17c7f8ae11194920" prot="private" virt="non-virtual"><scope>LMNonLocal</scope><name>_lm</name></member>
+      <member refid="classLMNonLocal_1ab6ba992d82a784336b4f3cfc11444e58" prot="private" virt="non-virtual"><scope>LMNonLocal</scope><name>_word_cache</name></member>
+      <member refid="classLMNonLocal_1a2d14ca694dc6d49ce6e2b80622aafd51" prot="public" virt="virtual"><scope>LMNonLocal</scope><name>compute</name></member>
+      <member refid="classLMNonLocal_1a93334d873bfe91d5357cbec933ec3ae9" prot="public" virt="virtual"><scope>LMNonLocal</scope><name>initialize</name></member>
+      <member refid="classLMNonLocal_1a7a6000f6118f1c8df727fac29c849b58" prot="public" virt="non-virtual"><scope>LMNonLocal</scope><name>LMNonLocal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

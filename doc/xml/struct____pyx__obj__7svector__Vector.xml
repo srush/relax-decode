@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct____pyx__obj__7svector__Vector" kind="struct" prot="public">
+    <compoundname>__pyx_obj_7svector_Vector</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____pyx__obj__7svector__Vector_1af079a183d80d335744c531c224658a16" prot="public" static="no" mutable="no">
+        <type>PyObject_HEAD <ref refid="classsvector" kindref="compound">svector</ref>&lt; int, double &gt; *</type>
+        <definition>PyObject_HEAD svector&lt; int, double &gt; * __pyx_obj_7svector_Vector::thisptr</definition>
+        <argsstring></argsstring>
+        <name>thisptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="434" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="21">
+        <label>std::map&lt; int, double &gt;</label>
+      </node>
+      <node id="20">
+        <label>svector&lt; int, double &gt;</label>
+        <link refid="classsvector"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>__pyx_obj_7svector_Vector</label>
+        <link refid="struct____pyx__obj__7svector__Vector"/>
+        <childnode refid="20" relation="usage">
+          <edgelabel>thisptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="432" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="432" bodyend="435"/>
+    <listofallmembers>
+      <member refid="struct____pyx__obj__7svector__Vector_1af079a183d80d335744c531c224658a16" prot="public" virt="non-virtual"><scope>__pyx_obj_7svector_Vector</scope><name>thisptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
