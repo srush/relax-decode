@@ -1,7 +1,7 @@
 Import('env')
 
 
-sources = ["Tagger.cpp", "tag.pb.cc", "TagConstraints.cpp", "TagSolvers.cpp"]
+sources = ["Tagger.cpp",  "TagConstraints.cpp", "TagSolvers.cpp", "$HYP_PROTO/tag.pb.cc"]
 
 
 

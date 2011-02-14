@@ -1,7 +1,7 @@
 Import('env')
 
 
-sources = ["Subgradient.cpp", "DualDecomposition.cpp", "MRF.cpp", "MRFHypergraph.cpp", "mrf.pb.cc"]
+sources = ["Subgradient.cpp", "DualDecomposition.cpp", "MRF.cpp", "MRFHypergraph.cpp", "$GRAPH_PROTO/mrf.pb.cc"]
 
 lib = env.Library('optimization', sources)
 

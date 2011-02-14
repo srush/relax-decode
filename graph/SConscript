@@ -1,7 +1,7 @@
 Import('env')
 
 
-sources = ["GraphProtoInterface.cpp", "graph.pb.cc"]
+sources = ["GraphProtoInterface.cpp", "$GRAPH_PROTO/graph.pb.cc"]
 
 hyp_lib = env.Library('graph', sources)
 

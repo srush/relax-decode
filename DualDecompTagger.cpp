@@ -17,6 +17,7 @@
 using namespace std;
 using namespace Scarab::HG;
 
+
 int main(int argc, char ** argv) {
   
   GOOGLE_PROTOBUF_VERIFY_VERSION;

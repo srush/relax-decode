@@ -1,6 +1,6 @@
 Import('env build_config')
 
-sources = ["BigramRescore.cpp", "ForestLattice.cpp", "lattice.pb.cc", "GraphDecompose.cpp"]
+sources = ["BigramRescore.cpp", "ForestLattice.cpp", "$LAT_PROTO/lattice.pb.cc", "GraphDecompose.cpp"]
 
 lat_lib = env.Library('lattice', sources)
 

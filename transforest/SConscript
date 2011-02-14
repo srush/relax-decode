@@ -1,6 +1,8 @@
 Import('env build_config')
 
-sources = ["Forest.cpp", "hypergraph.pb.cc", "features.pb.cc", "translation.pb.cc", "lexical.pb.cc"]
+sources = ["Forest.cpp", 
+           "$HYP_PROTO/hypergraph.pb.cc", "$HYP_PROTO/features.pb.cc", "$HYP_PROTO/translation.pb.cc", 
+           "$HYP_PROTO/lexical.pb.cc"]
 
 trans_lib = env.Library('transforest', sources )
 

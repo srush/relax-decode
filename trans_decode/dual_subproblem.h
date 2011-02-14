@@ -8,7 +8,7 @@
 #include "BigramRescore.h"
 #include "NGramCache.h"
 //#define NUMWORDS 300
-#include "common.h"
+#include "../common.h"
 #include<fstream>
 #include<set>
 #define MAX_PROJ 30

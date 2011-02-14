@@ -1,9 +1,9 @@
 #include <time.h>
 #include "GraphDecompose.h"
 #include "dual_subproblem.h"
-#include "util.h"
+
 #include "EdgeCache.h"
-#include "common.h"
+#include "../common.h"
 //#include <cstdlib>
 //#include "GraphColor.h"
 //#define INF 100000000

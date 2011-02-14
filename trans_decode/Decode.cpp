@@ -4,13 +4,11 @@
 #include "Forest.h"
 
 #include "Decode.h"
-#include "util.h"
 #include "time.h"
 #include "ExtendCKY.h"
 #include <iomanip>
 #include "AStar.h"
-#include "common.h"
-#include <boost/foreach.hpp>
+#include "../common.h"
 #define TIMING 0
 #define IS_TRY 0
 //#define PROJECT 1si
@@ -20,7 +18,6 @@
 #define GREEDY 0
 #define BACK 2
 
-#define foreach BOOST_FOREACH
 
 
 
