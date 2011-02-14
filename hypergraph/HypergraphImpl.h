@@ -158,6 +158,9 @@ private:
 class HypergraphImpl : public HGraph {
  public:
   HypergraphImpl(){}
+
+  HypergraphImpl(vector <Hypernode*> nodes, vector <Hyperedge*> edges, Hypernode* root):
+  _nodes(nodes), _edges(edges), _root(root){}
   ~HypergraphImpl(){}
   //HypergraphImpl(const char* filename);//const Hypergraph & pb);
       
@@ -197,7 +200,7 @@ class HypergraphImpl : public HGraph {
   }
 
   void prune(const HypergraphPrune & prune );
-
+  void write_to_file(const char * file_name);
  protected:
   ::Hypergraph * hgraph;
   Hypernode * _root;
@@ -213,7 +216,7 @@ class HypergraphImpl : public HGraph {
   virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge ) {}
   virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node ) {}
   virtual void set_up(const Hypergraph & hgraph) {}
-  void write_to_file(const char * file_name);
+  
 };
 
 

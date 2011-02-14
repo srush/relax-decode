@@ -53,7 +53,7 @@ void TagConstraints::read_from_file(string file_name) {
     while (input) {
       PossibleTag tag;
       
-      input >> tag.group >> tag.group_name >> tag.sent_num >> tag.ind >> tag.training_count >> tag.test_count ;
+      input >> tag.group >> tag.group_name >> tag.sent_num >> tag.ind >> tag.training_count >> tag.test_count;
       tag.id = id;
       id++;
       _constraint_struct[tag.group].group.push_back(tag);
@@ -111,4 +111,27 @@ wvector TagConstraints::build_tagger_subgradient(int sent_num, const Tagger & ta
     }
     return ret;
   }
+
+
+
+void TagMrfAligner::build_from_constraints(string file_name) {
+  int positions;
+  fstream input(file_name.c_str(), ios::in );
+  while (input) {
+    //PossibleTag tag;
+    int constraint_group; 
+    int constraint_node; 
+    TagIndex tag_index;
+    string group_name;
+    input >> constraint_group >>  constraint_node >> tag_index.sent_num >> tag_index.ind;// >> tag.deviance_penalty;
+    
+    //tag_constraints[constraint_group].push_back(tag_index);    
+    for (int s=0; s < Tag::MAX_TAG; s++) {
+      tag_index.tag = s;
+      alignment[tag_index] = MrfIndex(constraint_group, constraint_node, s);
+    }
+  }
+  input.close();
+
+}
 

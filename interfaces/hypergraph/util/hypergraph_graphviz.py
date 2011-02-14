@@ -22,6 +22,7 @@ def make_graph(hgraph):
       node.attr["color"] = "Green"
 
     for e in n.edge:
+      print e.Extensions[edge_fv]
       G.add_edge("n" + str(n.id), "e" + str(e.id))
       edge = G.get_node("e" + str(e.id))
       edge.attr["color"] = "Blue"

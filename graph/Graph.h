@@ -1,6 +1,8 @@
 #ifndef GRAPH_H_
 #define GRAPH_H_
 #include <vector>
+#include <string>
+#include "../common.h"
 using namespace std;
 
 namespace Scarab {
@@ -8,7 +10,6 @@ namespace Graph {
 
 
 // Graph interface for internal use. 
-// This interface is entirely immutable! Every function is const
 // See Cache.h for implementing state on top of graphs.  
 
 class Graphnode;
@@ -73,6 +74,10 @@ class Graphnode {
     uint num_edges() const {
      return _edges.size();
    }  
+
+   uint num_in_edges() const {
+     return _edges.size();
+   }  
  
   // TODO: These should be (lazy) iterators, figure that part out
   /** 
@@ -83,19 +88,36 @@ class Graphnode {
    const Edges & edges() const {
      return _edges;
    } 
+
+   const Edges & in_edges() const {
+     return _in_edges;
+   } 
    
    void set_edges(Edges edges ) {
      _edges = edges;
    }
+
+   void add_edge(Edge edge) {
+     _edges.push_back(edge);
+   }
+
+   void add_in_edge(Edge edge) {
+     _in_edges.push_back(edge);
+   }
+
+   void set_label(string lab) {
+     _label = lab;
+   }
  private:
    uint _id;
    Edges _edges;
-   
+   Edges _in_edges;
+   string _label;
 };
 
 class Graph {
  public:
-   Graph(Nodes nodes, Edges edges):_nodes(nodes), _edges(edges) {}
+   Graph( const Nodes & nodes,  const Edges & edges):_nodes(nodes), _edges(edges) {}
   /** 
    * Display the graph for debugging. 
    * 
@@ -103,8 +125,8 @@ class Graph {
   //virtual void print() const = 0;
     
   // TODO: remove these 
-  uint num_edges() const {return _nodes.size();}
-  uint num_nodes() const {return _edges.size();}
+  uint num_edges() const {return _edges.size();}
+  uint num_nodes() const {return _nodes.size();}
     
   
   const Nodes & nodes() const {
@@ -120,8 +142,8 @@ class Graph {
   }
  
  private:
-  const Nodes & _nodes;
-  const Edges & _edges;
+  const Nodes _nodes;
+  const Edges _edges;
   
 };
  

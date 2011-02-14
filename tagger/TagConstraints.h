@@ -8,9 +8,10 @@
 #include <set>
 #include "Weights.h"
 #include "EdgeCache.h"
+//#include "PottsModel.h"
+#include "MRF.h"
 #include "HypergraphAlgorithms.h"
 
-#define PENALTY 1000
 using namespace std;
 
 struct PossibleTag {
@@ -19,6 +20,7 @@ struct PossibleTag {
   int sent_num;
   int group;
   string group_name;
+  //double deviance_penalty;
   int training_count;
   int test_count;
   
@@ -63,9 +65,58 @@ class TagConstraints {
 
   wvector solve_hard( wvector & model) const; 
  private:
-
 };
 
+
+
+struct TagIndex {
+TagIndex() {}
+TagIndex(int sent_num_, int ind_, int tag_): sent_num(sent_num_), ind(ind_), tag(tag_) {}
+  int sent_num;
+  int ind;
+  POS tag;
+  bool operator<(const TagIndex & other) const {
+    if (sent_num != other.sent_num) {
+      return sent_num < other.sent_num;
+    }
+    if (ind != other.ind) {
+      return ind < other.ind;
+    }
+    if (tag != other.tag) {
+      return tag < other.tag;
+    }
+    return false;
+  }
+};
+
+
+struct MrfIndex {
+MrfIndex(){}
+MrfIndex(int group_, int node_, int state_): group(group_), node(node_), state(state_)  {}
+  int group, node, state ;
+};
+
+// Class for building an mrf and aligning it with the tag sequence
+class TagMrfAligner {
+ public:
+
+  void build_from_constraints(string file_name);
+
+  bool align(TagIndex tag_ind, MrfIndex & mrf_ind) {
+    map <TagIndex, MrfIndex>::iterator iter = alignment.find(tag_ind);
+    if (iter == alignment.end()) {
+      return false;
+    } else {
+      mrf_ind = iter->second;
+      return true;
+    }
+  }
+
+  vector <MRF *> mrf_models;
+  vector <vector <TagIndex> > tag_constraints;
+ private:
+  map <TagIndex, MrfIndex> alignment;
+};
 
 
 

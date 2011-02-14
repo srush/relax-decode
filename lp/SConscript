@@ -1,6 +1,6 @@
 Import('env')
 
-sources = ["LPBuilder.cpp"]
+sources = ["LPBuilder.cpp", "MRFLP.cpp", "TagLP.cpp", "DepParseLP.cpp"]
 
 trans_lib = env.Library('lp', sources )
 

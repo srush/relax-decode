@@ -5,7 +5,7 @@ from experiment import *
 root = os.environ["SCARAB_ROOT"]
 
 def unknown_list(source, target, env, for_signature=False):
-     return "awk '{print $2}' %s | grep -v '^$' > %s" %(source[0], target[0])
+     return "awk '{print $2}' %s | grep -v '^$' > %s " %(source[0], target[0])
 
 def train_unknown(source, target, env, for_signature=False):
      return "python $SCARAB_PY/unknown_words.py $UNK_THRES %s < %s"%(target[0], source[0])
@@ -53,10 +53,10 @@ def eval_run_emit(source, target, env):
      return target, source
 
 def full_lp(source, target, env, for_signature=False):
-     return '$SCARAB_ROOT/run_full_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
+     return '$SCARAB_ROOT/run_potts_tagger $SCARAB_ROOT/parse/config.ini %s %s 0 $END_INDEX 0 $END_CONST %s $PENALTY | tee %s' % (source[0], source[1], source[2], target[0]) 
 
 def full_lp_emit(source, target, env):
-     source.append('$SCARAB_ROOT/run_full_tagger')
+     source.append('$SCARAB_ROOT/run_potts_tagger')
      return target, source
 
 
@@ -68,11 +68,20 @@ def decomp_emit(source, target, env):
      source.append('$SCARAB_ROOT/run_dual_tagger')
      return target, source
 
-def pos_cons_build(source, target, env, for_signature=False):
+def pos_cons_old_build(source, target, env, for_signature=False):
      return 'python $SCARAB_PY/pos_constraints.py %s %s > %s' % (source[0], source[1], target[0]) 
 
+def pos_cons_old_emit(source, target, env):
+     source.append('$SCARAB_PY/pos_constraints.py')
+     return target, source
+
+
+def pos_cons_build(source, target, env, for_signature=False):
+     
+     return 'python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE  > %s' % (source[0], source[1], target[0], target[1]) 
+
 def pos_cons_emit(source, target, env):
-     source.append('$SCARAB_ROOT/pos_constraints.py')
+     source.append('$SCARAB_PY/pos_constraints_mrf.py')
      return target, source
 
 
@@ -121,7 +130,9 @@ builders = {
                        suffix= '.flattagging',
                        src_suffix='.tagging'),
      
-     "BuildConstraint": Builder(generator = pos_cons_build, suffix='.constraints'),
+     "BuildConstraint": Builder(generator = pos_cons_build, emitter= pos_cons_emit),
+
+     "BuildConstraintOld": Builder(generator = pos_cons_old_build, emitter= pos_cons_old_emit),
 
      "UnknownList": Builder(generator = unknown_list, 
                             src_suffix=".constraints", suffix='.unknown'),
@@ -149,9 +160,15 @@ def register_experiment(env, exp):
 
      unk_map = env.TrainUnknown(exp.unknown_words(), exp.train_file(), UNK_THRES = exp.unk_thres)
           
-     constraints = env.BuildConstraint( exp.constraint_prefix(),
-                          (unk_map,
+     constraints_mrf, mrf_link = env.BuildConstraint( (exp.constraint_mrf_prefix(), 
+                                                         exp.mrf_link_prefix()),
+                          (unk_map,                      
+                           exp.original_simple_file()), CONST_TYPE=exp.constraint_type())
+
+     constraints = env.BuildConstraintOld(exp.constraint_old_prefix(),
+                          (unk_map,                      
                            exp.original_simple_file()))
+
      
      unk_list = env.UnknownList(
           exp.unknown_prefix(), 
@@ -170,14 +187,15 @@ def register_experiment(env, exp):
                                        END_INDEX = exp.num_sent())
 
      decoders['lp']= env.FullLP( exp.result_prefix() + "_lp", 
-                                 (lattice_hypergraphs, constraints), 
+                                 (lattice_hypergraphs, constraints_mrf, mrf_link), 
                                  END_INDEX=exp.num_sent(),
+                                 END_CONST=exp.num_constraints(),
                                  PENALTY = exp.penalty())
 
-     decoders['decomp'] = env.DecompTag( exp.result_prefix() + "_decomp", 
-                                 (lattice_hypergraphs, constraints), 
-                                 END_INDEX=exp.num_sent(),
-                                 PENALTY =exp.penalty())
+     # decoders['decomp'] = env.DecompTag( exp.result_prefix() + "_decomp", 
+     #                             (lattice_hypergraphs, constraints_mrf, constraints), 
+     #                             END_INDEX=exp.num_sent(),
+     #                             PENALTY =exp.penalty())
 
 
      flats = {}
@@ -286,11 +304,13 @@ def register_experiment(env, exp):
      # env.UnknownList("$SCARAB_ROOT/parse/data/brown_simple_1", 
      #                 "$SCARAB_ROOT/parse/data/brown_simple_1")
 
-register_experiment(env, small_brown_3)
-register_experiment(env, small_brown_10)
-register_experiment(env, small_brown_10_hard)
-register_experiment(env, small_brown_50)
-register_experiment(env, small_brown_100_hard)
-register_experiment(env, small_brown_100)
+# register_experiment(env, small_brown_3)
+# register_experiment(env, small_brown_10)
+# register_experiment(env, small_brown_10_hard)
+# register_experiment(env, small_brown_50)
+# register_experiment(env, small_brown_100_hard)
+# register_experiment(env, small_brown_100)
 register_experiment(env, small_brown_500)
+register_experiment(env, small_brown_500_potts)
 register_experiment(env, small_brown_200)
+register_experiment(env, small_brown_200_potts)

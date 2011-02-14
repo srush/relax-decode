@@ -1,21 +1,24 @@
 from build_config import *
+from protoc import *
+import os
 debug = ARGUMENTS.get('debug', 1)
 profile = ARGUMENTS.get('profile', 0)
-
+env = Environment(ENV=os.environ, tools=['default', 'protoc'], toolpath = '.')
 
 if int(debug):
-   env = Environment(CC = 'g++',
+   env.Append(CC = 'g++',
                      CCFLAGS = '-g -Wall')
 elif int(profile):
-   env = Environment(CC = 'g++',
+   env.Append(CC = 'g++',
                      CCFLAGS = '-O2 -pg',
                      LINKFLAGS = '-O2 -pg')
 else:
-   env = Environment(CC = 'g++',
-                     CCFLAGS = '-O3  -DNDEBUG',
-                     LINKFLAGS = '-O3  -DNDEBUG')
+   env.Append(CC = 'g++',
+              CCFLAGS = '-O3  -DNDEBUG',
+              LINKFLAGS = '-O3  -DNDEBUG')
 
 env.Append(ROOT=build_config['scarab_root'])
+
 
 sources = ("dual_subproblem.cpp", "Decode.cpp", "NGramCache.cpp")
 
@@ -41,13 +44,16 @@ env.Append(LIBPATH =('.',build_config['sri_lib'], '#/graph', '#/hypergraph', '#/
 env.Append( CPPPATH=  ('.', build_config['svector_path'], '#/graph', '#/lp','#hypergraph', '#lattice', '#transforest', '#/parse', '#/tagger', '#/optimization',
                        '#/phrasebased',
                        build_config['sri_path'], 
-                       build_config['lattice_proto_path'], 
-                       build_config['forest_proto_path']) + include_path )
+                       '#/interfaces/hypergraph/gen_cpp',
+                       '#/interfaces/lattice/gen-cpp',
+                       '#/interfaces/graph/gen-cpp') + include_path )
 
 env.Append( LIBS=  libs)
 
 local_libs = SConscript(dirs=sub_dirs,
                         exports=['env', 'build_config']) 
+
+SConscript(dirs=["interfaces"], exports=['env'])
 
 decode = env.Library('decode', sources + local_libs,
                       LIBS = libs)
@@ -64,9 +70,13 @@ env.Program('run_full_tagger', ("FullTagger.cpp", decode)+ local_libs, LIBS = li
 
 env.Program('run_dual_tagger', ("DualDecompTagger.cpp", decode)+ local_libs, LIBS = libs)
 
-env.Program('run_phrase_based_viterbi', ("PhraseLP.cpp", decode)+ local_libs, LIBS = libs)
+env.Program('run_phrase_based_lp', ("PhraseLP.cpp", decode)+ local_libs, LIBS = libs)
 
-env.Program('run_phrase_based_lp', ("PhraseViterbi.cpp", decode)+ local_libs, LIBS = libs)
+env.Program('run_phrase_based_viterbi', ("PhraseViterbi.cpp", decode)+ local_libs, LIBS = libs)
+
+env.Program('run_potts_tagger', ("PottsTagger.cpp", decode)+ local_libs, LIBS = libs)
+
+env.Program('solve_mrf', ("MRFSolver.cpp", decode)+ local_libs, LIBS = libs)
 
 
 

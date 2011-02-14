@@ -1,0 +1,21 @@
+package graph;
+
+message Graph {
+  message Node {
+    required int32 id = 1;
+    optional string label = 2;
+    repeated Edge edge = 3;
+    extensions 100 to 199;
+  }
+  
+  message Edge {    
+    optional int32 id =1;
+    optional string label = 2;
+    required int32 to_node = 3;
+    extensions 100 to 199;
+  }
+  extensions 1 to 4;
+  optional string label = 5;
+  repeated Node node = 6;
+  extensions 100 to 199;
+}

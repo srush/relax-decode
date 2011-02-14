@@ -1,0 +1,6 @@
+Import('env')
+dirs = ["graph", 'lattice', 'hypergraph']
+
+SConscript(dirs=dirs, exports=['env']) 
+
+

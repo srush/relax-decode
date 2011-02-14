@@ -15,7 +15,7 @@
 #define foreach BOOST_FOREACH
 #define INF 1e8
 
-
+typedef unsigned int uint;
 class Clock {
  public:
   static double diffclock(clock_t clock1,clock_t clock2){
