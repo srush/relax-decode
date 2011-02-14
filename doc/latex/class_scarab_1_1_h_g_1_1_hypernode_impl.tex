@@ -1,0 +1,189 @@
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl}{
+\section{Scarab::HG::HypernodeImpl Class Reference}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl}\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+}
+Inheritance diagram for Scarab::HG::HypernodeImpl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_scarab_1_1_h_g_1_1_hypernode_impl}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a574c6f1386fb27894075977ef1ca56d6}{
+{\bfseries HypernodeImpl} (const string \&label, int id, wvector $\ast$features)}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a574c6f1386fb27894075977ef1ca56d6}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a0899a4e97f535c2f005d7c5ab5364681}{
+void {\bfseries add\_\-edge} (\hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$edge)}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a0899a4e97f535c2f005d7c5ab5364681}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_ab05500702d5fa1c896efe941f9c54bf3}{
+void {\bfseries add\_\-in\_\-edge} (\hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$edge)}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_ab05500702d5fa1c896efe941f9c54bf3}
+
+\item 
+bool \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a2bb4b33ff207c3c1babe135b9af6323e}{is\_\-terminal} () const 
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a6675d677bd7e794ae9a8bf72645b828a}{
+void {\bfseries prune\_\-edges} (const set$<$ int $>$ \&keep\_\-edges)}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a6675d677bd7e794ae9a8bf72645b828a}
+
+\item 
+const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \& \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a328189f28a4185d435035686a27592c2}{edge} (uint i) const 
+\item 
+unsigned int \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a7fed4809706319cc916ed4c04a641436}{num\_\-edges} () const 
+\item 
+unsigned int \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a9a13a37fcece16603ec4bf3f364e6fcc}{num\_\-in\_\-edges} () const 
+\item 
+const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \& \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a26ff9db30c03c7b74181e9f901aa71d4}{in\_\-edge} (uint i) const 
+\item 
+uint \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a2579ef1e67ad8f51d23838c130440d21}{id} () const 
+\item 
+const vector$<$ \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ \& \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_ada979dcddc1bf0abf0fc2530d1ea8761}{edges} () const 
+\item 
+const vector$<$ \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ \& \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a77fe0de2e3927be6145cb8fc018088c9}{in\_\-edges} () const 
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a9b0df10dfd6c20c094a928f1ced76f90}{
+void {\bfseries reid} (int new\_\-id)}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a9b0df10dfd6c20c094a928f1ced76f90}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_aaa189784dcf714f3c1ca54ea8cd0dc83}{
+vector$<$ \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ {\bfseries \_\-edges}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_aaa189784dcf714f3c1ca54ea8cd0dc83}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_aefb3b14843d6fb8ed2284ae0d6a53dbd}{
+const string \& {\bfseries \_\-label}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_aefb3b14843d6fb8ed2284ae0d6a53dbd}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a328189f28a4185d435035686a27592c2}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!edge@{edge}}
+\index{edge@{edge}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{edge}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Hyperedge}\& Scarab::HG::HypernodeImpl::edge (uint {\em i}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a328189f28a4185d435035686a27592c2}
+Get the hyperedge this node as head \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000009}{Deprecated}]\end{Desc}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Local local id of edge\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hyperedge 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_a3bface6832eb54a00d90e4fe8d1999f7}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_ada979dcddc1bf0abf0fc2530d1ea8761}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!edges@{edges}}
+\index{edges@{edges}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}const vector$<${\bf Hyperedge}$\ast$$>$\& Scarab::HG::HypernodeImpl::edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_ada979dcddc1bf0abf0fc2530d1ea8761}
+Get all hyperedges with this hypernode as head. WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_a3306572ded5b5061c1916bcf268be94e}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a2579ef1e67ad8f51d23838c130440d21}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!id@{id}}
+\index{id@{id}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}uint Scarab::HG::HypernodeImpl::id () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a2579ef1e67ad8f51d23838c130440d21}
+The unique identifier of the \hyperlink{class_scarab_1_1_h_g_1_1_hypernode}{Hypernode} \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000006}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_a0aeaee6c2ca2a011fcd086f803aaa4d0}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a26ff9db30c03c7b74181e9f901aa71d4}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!in\_\-edge@{in\_\-edge}}
+\index{in\_\-edge@{in\_\-edge}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{in\_\-edge}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Hyperedge}\& Scarab::HG::HypernodeImpl::in\_\-edge (uint {\em i}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a26ff9db30c03c7b74181e9f901aa71d4}
+Get the hyperedge this node as tail \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000010}{Deprecated}]\end{Desc}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Local local id of edge\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hyperedge 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_a533d3e0bc2269ec07edbda32305daf70}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a77fe0de2e3927be6145cb8fc018088c9}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!in\_\-edges@{in\_\-edges}}
+\index{in\_\-edges@{in\_\-edges}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{in\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}const vector$<${\bf Hyperedge}$\ast$$>$\& Scarab::HG::HypernodeImpl::in\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a77fe0de2e3927be6145cb8fc018088c9}
+Get all hyperedges with this hypernode as a tail. WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_aad118748408663b8242dc52d45bbd49d}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a2bb4b33ff207c3c1babe135b9af6323e}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!is\_\-terminal@{is\_\-terminal}}
+\index{is\_\-terminal@{is\_\-terminal}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{is\_\-terminal}]{\setlength{\rightskip}{0pt plus 5cm}bool Scarab::HG::HypernodeImpl::is\_\-terminal () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a2bb4b33ff207c3c1babe135b9af6323e}
+Is this node a terminal nodes. (no children)
+
+\begin{DoxyReturn}{Returns}
+True if terminal (assert \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a2bb4b33ff207c3c1babe135b9af6323e}{is\_\-terminal()} == (\hyperlink{class_scarab_1_1_h_g_1_1_hypernode_impl_a7fed4809706319cc916ed4c04a641436}{num\_\-edges()} == 0)) 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_ae3e1107309a8817d1015bd70a90c1c49}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a7fed4809706319cc916ed4c04a641436}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!num\_\-edges@{num\_\-edges}}
+\index{num\_\-edges@{num\_\-edges}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{num\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Scarab::HG::HypernodeImpl::num\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a7fed4809706319cc916ed4c04a641436}
+Get the number of hyperedges that have this node as head \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000007}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_add2f4d556be223b906bfbab9f1b60870}{Scarab::HG::Hypernode}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hypernode_impl_a9a13a37fcece16603ec4bf3f364e6fcc}{
+\index{Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}!num\_\-in\_\-edges@{num\_\-in\_\-edges}}
+\index{num\_\-in\_\-edges@{num\_\-in\_\-edges}!Scarab::HG::HypernodeImpl@{Scarab::HG::HypernodeImpl}}
+\subsubsection[{num\_\-in\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Scarab::HG::HypernodeImpl::num\_\-in\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hypernode_impl_a9a13a37fcece16603ec4bf3f364e6fcc}
+Get the number of hyperedges that have this node as tail \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000008}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_hypernode_a4b1a4ffaa8a8b0295763673e6d86d693}{Scarab::HG::Hypernode}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+hypergraph/HypergraphImpl.h\end{DoxyCompactItemize}

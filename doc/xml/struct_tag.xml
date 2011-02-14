@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_tag" kind="struct" prot="public">
+    <compoundname>Tag</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_tag_1a072cbc6c6ac82c2398ad409a5eb28b71" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tag::ind</definition>
+        <argsstring></argsstring>
+        <name>ind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="15" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tag_1a7b67562e1a664c9fed9afb74902b0fe5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tag::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="16" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tag_1a5f97e5e57a82b467da83f2990a276e81" prot="public" static="no" mutable="no">
+        <type>POS</type>
+        <definition>POS Tag::tag</definition>
+        <argsstring></argsstring>
+        <name>tag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="17" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="struct_tag_1acb96fe3a41181e0e10628ae00fe63878" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Tag::MAX_TAG</definition>
+        <argsstring></argsstring>
+        <name>MAX_TAG</name>
+        <initializer> 45</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="19" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_tag_1a5cc9a25145063597a4335a2db3a2a452" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tag::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="42" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_tag_1af2008705aa18e21efecb9e737b6b1a26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Tag::Tag</definition>
+        <argsstring>()</argsstring>
+        <name>Tag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="21" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tag_1ab32833339e272705062ac1a5d5f1ca10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Tag::Tag</definition>
+        <argsstring>(uint ind_, POS tag_, int len_)</argsstring>
+        <name>Tag</name>
+        <param>
+          <type>uint</type>
+          <declname>ind_</declname>
+        </param>
+        <param>
+          <type>POS</type>
+          <declname>tag_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="26" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="23" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tag_1aed3aabe09176d4a6acbb2cc7b3170228" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const bool</type>
+        <definition>const bool Tag::operator&lt;</definition>
+        <argsstring>(const Tag &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="struct_tag" kindref="compound">Tag</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="32" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tag_1a5458e1229013075f4597c1dba313ce83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Tag::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="39" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="13" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="13" bodyend="43"/>
+    <listofallmembers>
+      <member refid="struct_tag_1a5cc9a25145063597a4335a2db3a2a452" prot="private" virt="non-virtual"><scope>Tag</scope><name>_id</name></member>
+      <member refid="struct_tag_1a5458e1229013075f4597c1dba313ce83" prot="public" virt="non-virtual"><scope>Tag</scope><name>id</name></member>
+      <member refid="struct_tag_1a072cbc6c6ac82c2398ad409a5eb28b71" prot="public" virt="non-virtual"><scope>Tag</scope><name>ind</name></member>
+      <member refid="struct_tag_1a7b67562e1a664c9fed9afb74902b0fe5" prot="public" virt="non-virtual"><scope>Tag</scope><name>length</name></member>
+      <member refid="struct_tag_1acb96fe3a41181e0e10628ae00fe63878" prot="public" virt="non-virtual"><scope>Tag</scope><name>MAX_TAG</name></member>
+      <member refid="struct_tag_1aed3aabe09176d4a6acbb2cc7b3170228" prot="public" virt="non-virtual"><scope>Tag</scope><name>operator&lt;</name></member>
+      <member refid="struct_tag_1af2008705aa18e21efecb9e737b6b1a26" prot="public" virt="non-virtual"><scope>Tag</scope><name>Tag</name></member>
+      <member refid="struct_tag_1ab32833339e272705062ac1a5d5f1ca10" prot="public" virt="non-virtual"><scope>Tag</scope><name>Tag</name></member>
+      <member refid="struct_tag_1a5f97e5e57a82b467da83f2990a276e81" prot="public" virt="non-virtual"><scope>Tag</scope><name>tag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

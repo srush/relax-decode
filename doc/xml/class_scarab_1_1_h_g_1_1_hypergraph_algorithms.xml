@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms" kind="class" prot="public">
+    <compoundname>Scarab::HG::HypergraphAlgorithms</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a2d58cdb7b8bafc95146dfd3ffdbfe3cb" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_scarab_1_1_h_g_1_1_h_graph" kindref="compound">HGraph</ref> &amp;</type>
+        <definition>const HGraph&amp; Scarab::HG::HypergraphAlgorithms::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="85" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a71e2da9111a9a484e5ef370991fdb6aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::HypergraphAlgorithms::HypergraphAlgorithms</definition>
+        <argsstring>(const HGraph &amp;hypergraph)</argsstring>
+        <name>HypergraphAlgorithms</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_h_graph" kindref="compound">HGraph</ref> &amp;</type>
+          <declname>hypergraph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="20" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_cache" kindref="compound">EdgeCache</ref> *</type>
+        <definition>EdgeCache * Scarab::HG::HypergraphAlgorithms::cache_edge_weights</definition>
+        <argsstring>(const svector&lt; int, double &gt; &amp;weight_vector) const </argsstring>
+        <name>cache_edge_weights</name>
+        <param>
+          <type>const svector&lt; int, double &gt; &amp;</type>
+          <declname>weight_vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associate a weight which each edge in the hypergraph <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weight_vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A weight vector </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A cache associated a weight with each edge </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="26" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="63" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1ae815dc19968e9ab557d19dd2563fca38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_cache" kindref="compound">EdgeCache</ref> *</type>
+        <definition>EdgeCache * Scarab::HG::HypergraphAlgorithms::combine_edge_weights</definition>
+        <argsstring>(const EdgeCache &amp;w1, const EdgeCache &amp;w2) const </argsstring>
+        <name>combine_edge_weights</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Combine two weight vectors fix this! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="32" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="79" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1af5bcb325e1d58dd9d4c26517c4dfeca0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>HNodes</type>
+        <definition>vector&lt; const Hypernode * &gt; Scarab::HG::HypergraphAlgorithms::construct_best_fringe</definition>
+        <argsstring>(const NodeBackCache &amp;back_memo_table) const </argsstring>
+        <name>construct_best_fringe</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given a hypergraph and back pointers, produces the left-to-right fringe <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>forest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hypergraph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>back_memo_table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The associated back pointers (possibly obtained through best_path) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A const iterator of hypernodes in &quot;inorder&quot; order </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="39" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1ab054762a5d6a0af7ee667c8e90585668" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>HEdges</type>
+        <definition>HEdges Scarab::HG::HypergraphAlgorithms::construct_best_edges</definition>
+        <argsstring>(const NodeBackCache &amp;back_memo_table) const </argsstring>
+        <name>construct_best_edges</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given a hypergraph and back pointers, produces the best edges used in the path <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>back_memo_table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The associated back pointers (possibly obtained through best_path) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector of const edges </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="46" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="144" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1acf3eea6f89752404f12c0a3dd45d397d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>HNodes</type>
+        <definition>vector&lt; const Hypernode * &gt; Scarab::HG::HypergraphAlgorithms::construct_best_node_order</definition>
+        <argsstring>(const NodeBackCache &amp;back_memo_table) const </argsstring>
+        <name>construct_best_node_order</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given a hypergraph and back pointers, produces the best nodes used in the path (in inorder order)</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>back_memo_table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The associated back pointers (possibly obtained through best_path) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector of const hypernodes </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="53" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="194" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a4ff84fd293173b5cee2f902a3509a5c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>wvector</type>
+        <definition>wvector Scarab::HG::HypergraphAlgorithms::construct_best_feature_vector</definition>
+        <argsstring>(const NodeBackCache &amp;back_memo_table) const </argsstring>
+        <name>construct_best_feature_vector</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="56" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1aa9a28bf42d17a166ec5e780067e33259" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Scarab::HG::HypergraphAlgorithms::best_path</definition>
+        <argsstring>(const EdgeCache &amp;edge_weights, NodeCache &amp;score_memo_table, NodeBackCache &amp;back_memo_table) const </argsstring>
+        <name>best_path</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type><ref refid="class_cache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>score_memo_table</declname>
+        </param>
+        <param>
+          <type><ref refid="class_cache" kindref="compound">NodeBackCache</ref> &amp;</type>
+          <declname>back_memo_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find the best path, lowest weight, through a weighted hypergraph <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>edge_weights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cached edge weights associated with the graph </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>score_memo_table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The shortest path to each node </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>back_memo_table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The back pointers. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Weight of shortest path </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="66" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="279" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a8eea2c8f3cd86a08962b46d1a4c57a20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Scarab::HG::HypergraphAlgorithms::best_outside_path</definition>
+        <argsstring>(const EdgeCache &amp;edge_weights, const NodeCache &amp;score_memo_table, NodeCache &amp;outside_score_table) const </argsstring>
+        <name>best_outside_path</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>score_memo_table</declname>
+        </param>
+        <param>
+          <type><ref refid="class_cache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>outside_score_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="71" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="230" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1afeb33bac104955747948b3d4a885cdc4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>HNodes</type>
+        <definition>vector&lt; const Hypernode * &gt; Scarab::HG::HypergraphAlgorithms::topological_sort</definition>
+        <argsstring>() const </argsstring>
+        <name>topological_sort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Topologically sort the given hypergraph (immutable) <simplesect kind="return"><para>The ids of the hypergraph in topological order </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="77" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="27" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a3b26656f35480c12e79f4040dce7bae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_prune" kindref="compound">HypergraphPrune</ref></type>
+        <definition>HypergraphPrune Scarab::HG::HypergraphAlgorithms::pretty_good_pruning</definition>
+        <argsstring>(const EdgeCache &amp;edge_weights, const NodeCache &amp;score_memo_table, const NodeCache &amp;outside_memo_table, double cutoff)</argsstring>
+        <name>pretty_good_pruning</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">EdgeCache</ref> &amp;</type>
+          <declname>edge_weights</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>score_memo_table</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">NodeCache</ref> &amp;</type>
+          <declname>outside_memo_table</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>cutoff</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="82" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.cpp" bodystart="198" bodyend="226"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="675">
+        <label>Scarab::HG::HypergraphAlgorithms</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms"/>
+        <childnode refid="676" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+      </node>
+      <node id="676">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="class_scarab_1_1_h_g_1_1_h_graph"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" line="18" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphAlgorithms.h" bodystart="18" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a2d58cdb7b8bafc95146dfd3ffdbfe3cb" prot="private" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>_forest</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a8eea2c8f3cd86a08962b46d1a4c57a20" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>best_outside_path</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1aa9a28bf42d17a166ec5e780067e33259" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>best_path</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>cache_edge_weights</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1ae815dc19968e9ab557d19dd2563fca38" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>combine_edge_weights</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1ab054762a5d6a0af7ee667c8e90585668" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>construct_best_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a4ff84fd293173b5cee2f902a3509a5c2" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>construct_best_feature_vector</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1af5bcb325e1d58dd9d4c26517c4dfeca0" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>construct_best_fringe</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1acf3eea6f89752404f12c0a3dd45d397d" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>construct_best_node_order</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a71e2da9111a9a484e5ef370991fdb6aa" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>HypergraphAlgorithms</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1a3b26656f35480c12e79f4040dce7bae1" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>pretty_good_pruning</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms_1afeb33bac104955747948b3d4a885cdc4" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphAlgorithms</scope><name>topological_sort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

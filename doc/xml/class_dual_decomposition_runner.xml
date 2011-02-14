@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_dual_decomposition_runner" kind="class" prot="public">
+    <compoundname>DualDecompositionRunner</compoundname>
+    <basecompoundref refid="class_subgradient_producer" prot="public" virt="non-virtual">SubgradientProducer</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_dual_decomposition_runner_1a13371fbf1e5109e8a9d920d2ed0b7bea" prot="public" static="no" mutable="no">
+        <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+        <definition>DualDecompositionSubproblem&amp; DualDecompositionRunner::_sub_producer1</definition>
+        <argsstring></argsstring>
+        <name>_sub_producer1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="58" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_dual_decomposition_runner_1a988b68df84c131bc47d142ae8638fbd1" prot="public" static="no" mutable="no">
+        <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+        <definition>DualDecompositionSubproblem&amp; DualDecompositionRunner::_sub_producer2</definition>
+        <argsstring></argsstring>
+        <name>_sub_producer2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="59" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_dual_decomposition_runner_1ad0af4c8b1a73612770d329cf560af9d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DualDecompositionRunner::DualDecompositionRunner</definition>
+        <argsstring>(DualDecompositionSubproblem &amp;s1, DualDecompositionSubproblem &amp;s2)</argsstring>
+        <name>DualDecompositionRunner</name>
+        <param>
+          <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="21" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_dual_decomposition_runner_1a4bcec895359acf32000d42155c4593ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void DualDecompositionRunner::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;subgrad, int round, bool is_stuck, bool &amp;bump_rate)</argsstring>
+        <name>solve</name>
+        <reimplements refid="class_subgradient_producer_1acea0e6ef35f9f3fd2f14872740471628">solve</reimplements>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type>wvector &amp;</type>
+          <declname>subgrad</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>round</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_stuck</declname>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+          <declname>bump_rate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="25" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="24" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_dual_decomposition_runner_1a3cdf7ce33f6454f9fee9fb9c3287c5ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void DualDecompositionRunner::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights)</argsstring>
+        <name>update_weights</name>
+        <reimplements refid="class_subgradient_producer_1a5b471526b337913722f56221b2461d89">update_weights</reimplements>
+        <param>
+          <type>const wvector &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type>wvector *</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="52" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="51" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="467">
+        <label>DualDecompositionRunner</label>
+        <link refid="class_dual_decomposition_runner"/>
+        <childnode refid="468" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="468">
+        <label>SubgradientProducer</label>
+        <link refid="class_subgradient_producer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="469">
+        <label>DualDecompositionRunner</label>
+        <link refid="class_dual_decomposition_runner"/>
+        <childnode refid="470" relation="public-inheritance">
+        </childnode>
+        <childnode refid="471" relation="usage">
+          <edgelabel>_sub_producer1</edgelabel>
+          <edgelabel>_sub_producer2</edgelabel>
+        </childnode>
+      </node>
+      <node id="470">
+        <label>SubgradientProducer</label>
+        <link refid="class_subgradient_producer"/>
+      </node>
+      <node id="471">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="class_dual_decomposition_subproblem"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="18" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="18" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_dual_decomposition_runner_1a13371fbf1e5109e8a9d920d2ed0b7bea" prot="public" virt="non-virtual"><scope>DualDecompositionRunner</scope><name>_sub_producer1</name></member>
+      <member refid="class_dual_decomposition_runner_1a988b68df84c131bc47d142ae8638fbd1" prot="public" virt="non-virtual"><scope>DualDecompositionRunner</scope><name>_sub_producer2</name></member>
+      <member refid="class_dual_decomposition_runner_1ad0af4c8b1a73612770d329cf560af9d1" prot="public" virt="non-virtual"><scope>DualDecompositionRunner</scope><name>DualDecompositionRunner</name></member>
+      <member refid="class_dual_decomposition_runner_1a4bcec895359acf32000d42155c4593ef" prot="public" virt="virtual"><scope>DualDecompositionRunner</scope><name>solve</name></member>
+      <member refid="class_dual_decomposition_runner_1a3cdf7ce33f6454f9fee9fb9c3287c5ac" prot="public" virt="virtual"><scope>DualDecompositionRunner</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

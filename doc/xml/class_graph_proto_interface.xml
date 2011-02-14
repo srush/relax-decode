@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_graph_proto_interface" kind="class" prot="public">
+    <compoundname>GraphProtoInterface</compoundname>
+    <derivedcompoundref refid="class_m_r_f" prot="public" virt="non-virtual">MRF</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_graph_proto_interface_1a8e262de0a3f65eaa20e5c528363bbb2a" prot="public" static="no" mutable="no">
+        <type><ref refid="class_scarab_1_1_graph_1_1_graph" kindref="compound">Graph</ref> *</type>
+        <definition>Graph* GraphProtoInterface::_graph</definition>
+        <argsstring></argsstring>
+        <name>_graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="17" bodyfile="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_graph_proto_interface_1a4845501ec86ea627ce484cd78162c84c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphProtoInterface::build_from_file</definition>
+        <argsstring>(const char *file_name)</argsstring>
+        <name>build_from_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="8" bodyfile="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.cpp" bodystart="9" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_proto_interface_1a0dbd0905dbab167b9293d0ef32409af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GraphProtoInterface::process_node</definition>
+        <argsstring>(graph::Graph_Node, Graphnode *)=0</argsstring>
+        <name>process_node</name>
+        <reimplementedby refid="class_m_r_f_1a3a2f7eb349a7345abfba2c5869f85b1f">process_node</reimplementedby>
+        <param>
+          <type>graph::Graph_Node</type>
+        </param>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_proto_interface_1a3178c5f1eff8ed61d2512af8522cc550" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GraphProtoInterface::process_edge</definition>
+        <argsstring>(graph::Graph_Edge, Graphedge *)=0</argsstring>
+        <name>process_edge</name>
+        <reimplementedby refid="class_m_r_f_1aed7b8a7a2e3af7c14b501040630e9589">process_edge</reimplementedby>
+        <param>
+          <type>graph::Graph_Edge</type>
+        </param>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Graphedge</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_proto_interface_1a8b3125379c7b2bbf832b6b955496b76e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void GraphProtoInterface::set_up</definition>
+        <argsstring>(graph::Graph, int, int)</argsstring>
+        <name>set_up</name>
+        <reimplementedby refid="class_m_r_f_1a928f19f948fa97796462fd9542a985fd">set_up</reimplementedby>
+        <param>
+          <type>graph::Graph</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="13" bodyfile="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_proto_interface_1a920e88785192db805206c875a8a3feed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_scarab_1_1_graph_1_1_graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>const Graph&amp; GraphProtoInterface::graph</definition>
+        <argsstring>() const </argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="14" bodyfile="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="621">
+        <label>GraphProtoInterface</label>
+        <link refid="class_graph_proto_interface"/>
+      </node>
+      <node id="622">
+        <label>MRF</label>
+        <link refid="class_m_r_f"/>
+        <childnode refid="621" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="631">
+        <label>T</label>
+      </node>
+      <node id="623">
+        <label>GraphProtoInterface</label>
+        <link refid="class_graph_proto_interface"/>
+        <childnode refid="624" relation="usage">
+          <edgelabel>_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="626">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="627" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="630">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="631" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="627">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="625" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="628" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="629">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="625">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="626" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="624">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="625" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="630" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="628">
+        <label>std::string</label>
+        <childnode refid="629" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" line="6" bodyfile="/home/srush/Projects/relax_decode/graph/GraphProtoInterface.h" bodystart="6" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_graph_proto_interface_1a8e262de0a3f65eaa20e5c528363bbb2a" prot="public" virt="non-virtual"><scope>GraphProtoInterface</scope><name>_graph</name></member>
+      <member refid="class_graph_proto_interface_1a4845501ec86ea627ce484cd78162c84c" prot="public" virt="non-virtual"><scope>GraphProtoInterface</scope><name>build_from_file</name></member>
+      <member refid="class_graph_proto_interface_1a920e88785192db805206c875a8a3feed" prot="public" virt="non-virtual"><scope>GraphProtoInterface</scope><name>graph</name></member>
+      <member refid="class_graph_proto_interface_1a3178c5f1eff8ed61d2512af8522cc550" prot="public" virt="pure-virtual"><scope>GraphProtoInterface</scope><name>process_edge</name></member>
+      <member refid="class_graph_proto_interface_1a0dbd0905dbab167b9293d0ef32409af3" prot="public" virt="pure-virtual"><scope>GraphProtoInterface</scope><name>process_node</name></member>
+      <member refid="class_graph_proto_interface_1a8b3125379c7b2bbf832b6b955496b76e" prot="public" virt="virtual"><scope>GraphProtoInterface</scope><name>set_up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

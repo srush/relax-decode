@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_dual_decomposition" kind="class" prot="public">
+    <compoundname>DualDecomposition</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_dual_decomposition_1ad4d8c2d0dc2548585f24a359e12b2de6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_dual_decomposition_runner" kindref="compound">DualDecompositionRunner</ref></type>
+        <definition>DualDecompositionRunner DualDecomposition::_runner</definition>
+        <argsstring></argsstring>
+        <name>_runner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="78" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_dual_decomposition_1ac56b116e08ea70881c4a27f2690fa8fa" prot="private" static="no" mutable="no">
+        <type><ref refid="class_subgradient" kindref="compound">Subgradient</ref></type>
+        <definition>Subgradient DualDecomposition::_subgradsolver</definition>
+        <argsstring></argsstring>
+        <name>_subgradsolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="79" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_dual_decomposition_1a652c2229bad83ce7b135aa06ef1283a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DualDecomposition::DualDecomposition</definition>
+        <argsstring>(DualDecompositionSubproblem &amp;s1, DualDecompositionSubproblem &amp;s2)</argsstring>
+        <name>DualDecomposition</name>
+        <param>
+          <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type><ref refid="class_dual_decomposition_subproblem" kindref="compound">DualDecompositionSubproblem</ref> &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="67" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_dual_decomposition_1a0013544261cba254dc2ca2c68cbb1679" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DualDecomposition::solve</definition>
+        <argsstring>(int example)</argsstring>
+        <name>solve</name>
+        <param>
+          <type>int</type>
+          <declname>example</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="71" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="71" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="466">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+      <node id="465">
+        <label>Subgradient</label>
+        <link refid="class_subgradient"/>
+        <childnode refid="463" relation="usage">
+          <edgelabel>_s</edgelabel>
+        </childnode>
+        <childnode refid="466" relation="usage">
+          <edgelabel>_duals</edgelabel>
+          <edgelabel>_primals</edgelabel>
+        </childnode>
+      </node>
+      <node id="462">
+        <label>DualDecompositionRunner</label>
+        <link refid="class_dual_decomposition_runner"/>
+        <childnode refid="463" relation="public-inheritance">
+        </childnode>
+        <childnode refid="464" relation="usage">
+          <edgelabel>_sub_producer1</edgelabel>
+          <edgelabel>_sub_producer2</edgelabel>
+        </childnode>
+      </node>
+      <node id="461">
+        <label>DualDecomposition</label>
+        <link refid="class_dual_decomposition"/>
+        <childnode refid="462" relation="usage">
+          <edgelabel>_runner</edgelabel>
+        </childnode>
+        <childnode refid="465" relation="usage">
+          <edgelabel>_subgradsolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="463">
+        <label>SubgradientProducer</label>
+        <link refid="class_subgradient_producer"/>
+      </node>
+      <node id="464">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="class_dual_decomposition_subproblem"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="63" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="63" bodyend="82"/>
+    <listofallmembers>
+      <member refid="class_dual_decomposition_1ad4d8c2d0dc2548585f24a359e12b2de6" prot="private" virt="non-virtual"><scope>DualDecomposition</scope><name>_runner</name></member>
+      <member refid="class_dual_decomposition_1ac56b116e08ea70881c4a27f2690fa8fa" prot="private" virt="non-virtual"><scope>DualDecomposition</scope><name>_subgradsolver</name></member>
+      <member refid="class_dual_decomposition_1a652c2229bad83ce7b135aa06ef1283a5" prot="public" virt="non-virtual"><scope>DualDecomposition</scope><name>DualDecomposition</name></member>
+      <member refid="class_dual_decomposition_1a0013544261cba254dc2ca2c68cbb1679" prot="public" virt="non-virtual"><scope>DualDecomposition</scope><name>solve</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

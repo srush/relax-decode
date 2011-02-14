@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_tag_constraints_8h" kind="file">
+    <compoundname>TagConstraints.h</compoundname>
+    <includes refid="_tagger_8h" local="no">Tagger.h</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">set</includes>
+    <includes refid="_weights_8h" local="yes">Weights.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
+    <includes refid="_m_r_f_8h" local="yes">MRF.h</includes>
+    <includes refid="_hypergraph_algorithms_8h" local="yes">HypergraphAlgorithms.h</includes>
+    <includedby refid="_dual_decomp_tagger_8cpp" local="yes">DualDecompTagger.cpp</includedby>
+    <includedby refid="_full_tagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="_hard_pos_constraints_8h" local="yes">lp/HardPosConstraints.h</includedby>
+    <includedby refid="_tag_mrf_l_p_8h" local="yes">lp/TagMrfLP.h</includedby>
+    <includedby refid="_tag_solvers_8cpp" local="yes">tagger/TagSolvers.cpp</includedby>
+    <includedby refid="_tag_solvers_8h" local="yes">tagger/TagSolvers.h</includedby>
+    <incdepgraph>
+      <node id="1517">
+        <label>Tagger.h</label>
+        <link refid="_tagger_8h_source"/>
+        <childnode refid="1518" relation="include">
+        </childnode>
+        <childnode refid="1519" relation="include">
+        </childnode>
+        <childnode refid="1520" relation="include">
+        </childnode>
+        <childnode refid="1529" relation="include">
+        </childnode>
+        <childnode refid="1533" relation="include">
+        </childnode>
+      </node>
+      <node id="1535">
+        <label>assert.h</label>
+      </node>
+      <node id="1536">
+        <label>MRF.h</label>
+        <link refid="_m_r_f_8h_source"/>
+        <childnode refid="1537" relation="include">
+        </childnode>
+        <childnode refid="1528" relation="include">
+        </childnode>
+        <childnode refid="1538" relation="include">
+        </childnode>
+        <childnode refid="1539" relation="include">
+        </childnode>
+        <childnode refid="1540" relation="include">
+        </childnode>
+        <childnode refid="1529" relation="include">
+        </childnode>
+        <childnode refid="1541" relation="include">
+        </childnode>
+        <childnode refid="1533" relation="include">
+        </childnode>
+      </node>
+      <node id="1537">
+        <label>cassert</label>
+      </node>
+      <node id="1528">
+        <label>string</label>
+      </node>
+      <node id="1530">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1533">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1534" relation="include">
+        </childnode>
+        <childnode refid="1535" relation="include">
+        </childnode>
+      </node>
+      <node id="1529">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1520" relation="include">
+        </childnode>
+        <childnode refid="1530" relation="include">
+        </childnode>
+        <childnode refid="1531" relation="include">
+        </childnode>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1532" relation="include">
+        </childnode>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1527" relation="include">
+        </childnode>
+      </node>
+      <node id="1520">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1527" relation="include">
+        </childnode>
+        <childnode refid="1528" relation="include">
+        </childnode>
+      </node>
+      <node id="1523">
+        <label>fstream</label>
+      </node>
+      <node id="1538">
+        <label>Graph.h</label>
+        <link refid="_graph_8h_source"/>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1528" relation="include">
+        </childnode>
+        <childnode refid="1532" relation="include">
+        </childnode>
+      </node>
+      <node id="1525">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1521">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1522" relation="include">
+        </childnode>
+        <childnode refid="1523" relation="include">
+        </childnode>
+        <childnode refid="1524" relation="include">
+        </childnode>
+        <childnode refid="1525" relation="include">
+        </childnode>
+      </node>
+      <node id="1532">
+        <label>../common.h</label>
+      </node>
+      <node id="1534">
+        <label>bitset</label>
+      </node>
+      <node id="1518">
+        <label>tag.pb.h</label>
+      </node>
+      <node id="1519">
+        <label>dep.pb.h</label>
+      </node>
+      <node id="1516">
+        <label>tagger/TagConstraints.h</label>
+        <link refid="TagConstraints.h"/>
+        <childnode refid="1517" relation="include">
+        </childnode>
+        <childnode refid="1523" relation="include">
+        </childnode>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1528" relation="include">
+        </childnode>
+        <childnode refid="1527" relation="include">
+        </childnode>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1533" relation="include">
+        </childnode>
+        <childnode refid="1536" relation="include">
+        </childnode>
+        <childnode refid="1542" relation="include">
+        </childnode>
+      </node>
+      <node id="1526">
+        <label>vector</label>
+      </node>
+      <node id="1541">
+        <label>GraphProtoInterface.h</label>
+        <link refid="_graph_proto_interface_8h_source"/>
+        <childnode refid="1539" relation="include">
+        </childnode>
+        <childnode refid="1538" relation="include">
+        </childnode>
+      </node>
+      <node id="1542">
+        <label>HypergraphAlgorithms.h</label>
+        <link refid="_hypergraph_algorithms_8h_source"/>
+        <childnode refid="1525" relation="include">
+        </childnode>
+        <childnode refid="1533" relation="include">
+        </childnode>
+        <childnode refid="1520" relation="include">
+        </childnode>
+      </node>
+      <node id="1540">
+        <label>mrf.pb.h</label>
+      </node>
+      <node id="1539">
+        <label>graph.pb.h</label>
+      </node>
+      <node id="1522">
+        <label>iostream</label>
+      </node>
+      <node id="1524">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1527">
+        <label>set</label>
+      </node>
+      <node id="1531">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1544">
+        <label>lp/HardPosConstraints.h</label>
+        <link refid="_hard_pos_constraints_8h_source"/>
+        <childnode refid="1544" relation="include">
+        </childnode>
+      </node>
+      <node id="1545">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="_tag_mrf_l_p_8h_source"/>
+      </node>
+      <node id="1543">
+        <label>tagger/TagConstraints.h</label>
+        <link refid="TagConstraints.h"/>
+        <childnode refid="1544" relation="include">
+        </childnode>
+        <childnode refid="1545" relation="include">
+        </childnode>
+        <childnode refid="1546" relation="include">
+        </childnode>
+      </node>
+      <node id="1546">
+        <label>tagger/TagSolvers.h</label>
+        <link refid="_tag_solvers_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_possible_tag" prot="public">PossibleTag</innerclass>
+    <innerclass refid="class_constraint_group" prot="public">ConstraintGroup</innerclass>
+    <innerclass refid="class_tag_constraints" prot="public">TagConstraints</innerclass>
+    <innerclass refid="struct_tag_index" prot="public">TagIndex</innerclass>
+    <innerclass refid="struct_mrf_index" prot="public">MrfIndex</innerclass>
+    <innerclass refid="class_tag_mrf_aligner" prot="public">TagMrfAligner</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_tag_constraints_8h_1af58fc0b920e1db9149072b67edc15525" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;output, const PossibleTag &amp;ptag)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_possible_tag" kindref="compound">PossibleTag</ref> &amp;</type>
+          <declname>ptag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="36" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="3" bodyend="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TAGCONSTRAINTS_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>TAGCONSTRAINTS_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Tagger.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Weights.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;EdgeCache.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;PottsModel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;MRF.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphAlgorithms.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="struct_possible_tag" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_possible_tag" kindref="compound">PossibleTag</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sent_num;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>group;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>group_name;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//double<sp/>deviance_penalty;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>training_count;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>test_count;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>weight_id(POS<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">*<sp/>Tag::MAX_TAG<sp/>+<sp/>tag;<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&lt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_possible_tag" kindref="compound">PossibleTag</ref><sp/>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&lt;<sp/>other.id;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">ostream&amp;<sp/>operator&lt;&lt;(ostream&amp;<sp/>output,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_possible_tag" kindref="compound">PossibleTag</ref>&amp;<sp/>ptag);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_constraint_group" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_constraint_group" kindref="compound">ConstraintGroup</ref><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;PossibleTag&gt;<sp/>group;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>wvector<sp/>solve_hard(wvector<sp/>&amp;<sp/>weights)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="class_tag_constraints" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tag_constraints" kindref="compound">TagConstraints</ref><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;ConstraintGroup<sp/>&gt;<sp/>_constraint_struct;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>set&lt;int&gt;<sp/>groups;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;vector<sp/>&lt;PossibleTag&gt;<sp/>&gt;<sp/>_constrained_words;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;PossibleTag<sp/>&gt;<sp/>_all_constraints;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="class_tag_constraints" kindref="compound">TagConstraints</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_tags)<sp/>:<sp/>_num_tags(num_tags)<sp/>{}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">EdgeCache</ref><sp/><ref refid="class_tag_constraints_1adec1a1de8fb49e79b52c4c93517414a0" kindref="member">build_tagger_constraint_vector</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sent_num,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_tagger" kindref="compound">Tagger</ref><sp/>&amp;<sp/>tagger,<sp/><sp/>wvector<sp/>&amp;<sp/>orig_weights<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>wvector<sp/>build_tagger_subgradient(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sent_num,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_tagger" kindref="compound">Tagger</ref><sp/>&amp;<sp/>tagger,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector&lt;const<sp/>Hyperedge<sp/>*&gt;<sp/>used_edges)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>read_from_file(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>file_name)<sp/>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_num_tags;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>wvector<sp/>solve_hard(<sp/>wvector<sp/>&amp;<sp/>model)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="struct_tag_index" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tag_index" kindref="compound">TagIndex</ref><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><ref refid="struct_tag_index" kindref="compound">TagIndex</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="struct_tag_index" kindref="compound">TagIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sent_num_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag_):<sp/>sent_num(sent_num_),<sp/>ind(ind_),<sp/>tag(tag_)<sp/>{}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sent_num;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>POS<sp/>tag;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&lt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_tag_index" kindref="compound">TagIndex</ref><sp/>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sent_num<sp/>!=<sp/>other.sent_num)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sent_num<sp/>&lt;<sp/>other.sent_num;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ind<sp/>!=<sp/>other.ind)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ind<sp/>&lt;<sp/>other.ind;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tag<sp/>!=<sp/>other.tag)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tag<sp/>&lt;<sp/>other.tag;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="struct_mrf_index" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_mrf_index" kindref="compound">MrfIndex</ref><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="struct_mrf_index" kindref="compound">MrfIndex</ref>(){}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><ref refid="struct_mrf_index" kindref="compound">MrfIndex</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>group_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>node_,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state_):<sp/>group(group_),<sp/>node(node_),<sp/>state(state_)<sp/><sp/>{}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>group,<sp/>node,<sp/>state<sp/>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Class<sp/>for<sp/>building<sp/>an<sp/>mrf<sp/>and<sp/>aligning<sp/>it<sp/>with<sp/>the<sp/>tag<sp/>sequence</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="class_tag_mrf_aligner" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tag_mrf_aligner" kindref="compound">TagMrfAligner</ref><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>build_from_constraints(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>file_name);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>align(<ref refid="struct_tag_index" kindref="compound">TagIndex</ref><sp/>tag_ind,<sp/><ref refid="struct_mrf_index" kindref="compound">MrfIndex</ref><sp/>&amp;<sp/>mrf_ind)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>map<sp/>&lt;TagIndex,<sp/>MrfIndex&gt;::iterator<sp/>iter<sp/>=<sp/>alignment.find(tag_ind);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iter<sp/>==<sp/>alignment.end())<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mrf_ind<sp/>=<sp/>iter-&gt;second;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;MRF<sp/>*&gt;<sp/>mrf_models;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;vector<sp/>&lt;TagIndex&gt;<sp/>&gt;<sp/>tag_constraints;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>map<sp/>&lt;TagIndex,<sp/>MrfIndex&gt;<sp/>alignment;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h"/>
+  </compounddef>
+</doxygen>

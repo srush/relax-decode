@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_potts_tagger_8cpp" kind="file">
+    <compoundname>PottsTagger.cpp</compoundname>
+    <includes refid="_weights_8h" local="yes">Weights.h</includes>
+    <includes refid="_forest_8h" local="yes">Forest.h</includes>
+    <includes refid="_hypergraph_algorithms_8h" local="no">HypergraphAlgorithms.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">iomanip</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes local="no">boost/program_options.hpp</includes>
+    <includes refid="_hypergraph_l_p_8h" local="yes">HypergraphLP.h</includes>
+    <includes refid="_tag_l_p_8h" local="yes">TagLP.h</includes>
+    <includes refid="_tag_mrf_l_p_8h" local="yes">TagMrfLP.h</includes>
+    <includes refid="_tagger_8h" local="yes">Tagger.h</includes>
+    <includes refid="_m_r_f_l_p_8h" local="yes">MRFLP.h</includes>
+    <incdepgraph>
+      <node id="1404">
+        <label>HypergraphLP.h</label>
+        <link refid="_hypergraph_l_p_8h_source"/>
+        <childnode refid="1391" relation="include">
+        </childnode>
+        <childnode refid="1405" relation="include">
+        </childnode>
+        <childnode refid="1396" relation="include">
+        </childnode>
+      </node>
+      <node id="1400">
+        <label>iomanip</label>
+      </node>
+      <node id="1407">
+        <label>Tagger.h</label>
+        <link refid="_tagger_8h_source"/>
+        <childnode refid="1408" relation="include">
+        </childnode>
+        <childnode refid="1409" relation="include">
+        </childnode>
+        <childnode refid="1391" relation="include">
+        </childnode>
+        <childnode refid="1393" relation="include">
+        </childnode>
+        <childnode refid="1398" relation="include">
+        </childnode>
+      </node>
+      <node id="1390">
+        <label>assert.h</label>
+      </node>
+      <node id="1401">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+        <childnode refid="1402" relation="include">
+        </childnode>
+      </node>
+      <node id="1402">
+        <label>boost/foreach.hpp</label>
+      </node>
+      <node id="1410">
+        <label>TagMrfLP.h</label>
+        <link refid="_tag_mrf_l_p_8h_source"/>
+        <childnode refid="1406" relation="include">
+        </childnode>
+        <childnode refid="1411" relation="include">
+        </childnode>
+        <childnode refid="1418" relation="include">
+        </childnode>
+      </node>
+      <node id="1412">
+        <label>MRF.h</label>
+        <link refid="_m_r_f_8h_source"/>
+        <childnode refid="1413" relation="include">
+        </childnode>
+        <childnode refid="1389" relation="include">
+        </childnode>
+        <childnode refid="1414" relation="include">
+        </childnode>
+        <childnode refid="1415" relation="include">
+        </childnode>
+        <childnode refid="1416" relation="include">
+        </childnode>
+        <childnode refid="1393" relation="include">
+        </childnode>
+        <childnode refid="1417" relation="include">
+        </childnode>
+        <childnode refid="1398" relation="include">
+        </childnode>
+      </node>
+      <node id="1413">
+        <label>cassert</label>
+      </node>
+      <node id="1389">
+        <label>string</label>
+      </node>
+      <node id="1394">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1398">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1399" relation="include">
+        </childnode>
+        <childnode refid="1390" relation="include">
+        </childnode>
+      </node>
+      <node id="1393">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1391" relation="include">
+        </childnode>
+        <childnode refid="1394" relation="include">
+        </childnode>
+        <childnode refid="1395" relation="include">
+        </childnode>
+        <childnode refid="1382" relation="include">
+        </childnode>
+        <childnode refid="1396" relation="include">
+        </childnode>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1392" relation="include">
+        </childnode>
+      </node>
+      <node id="1391">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1382" relation="include">
+        </childnode>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1392" relation="include">
+        </childnode>
+        <childnode refid="1389" relation="include">
+        </childnode>
+      </node>
+      <node id="1384">
+        <label>fstream</label>
+      </node>
+      <node id="1403">
+        <label>boost/program_options.hpp</label>
+      </node>
+      <node id="1414">
+        <label>Graph.h</label>
+        <link refid="_graph_8h_source"/>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1389" relation="include">
+        </childnode>
+        <childnode refid="1396" relation="include">
+        </childnode>
+      </node>
+      <node id="1411">
+        <label>MRFLP.h</label>
+        <link refid="_m_r_f_l_p_8h_source"/>
+        <childnode refid="1405" relation="include">
+        </childnode>
+        <childnode refid="1412" relation="include">
+        </childnode>
+        <childnode refid="1414" relation="include">
+        </childnode>
+      </node>
+      <node id="1386">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1382">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1383" relation="include">
+        </childnode>
+        <childnode refid="1384" relation="include">
+        </childnode>
+        <childnode refid="1385" relation="include">
+        </childnode>
+        <childnode refid="1386" relation="include">
+        </childnode>
+      </node>
+      <node id="1396">
+        <label>../common.h</label>
+      </node>
+      <node id="1399">
+        <label>bitset</label>
+      </node>
+      <node id="1408">
+        <label>tag.pb.h</label>
+      </node>
+      <node id="1409">
+        <label>dep.pb.h</label>
+      </node>
+      <node id="1418">
+        <label>TagConstraints.h</label>
+        <link refid="_tag_constraints_8h_source"/>
+        <childnode refid="1407" relation="include">
+        </childnode>
+        <childnode refid="1384" relation="include">
+        </childnode>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1389" relation="include">
+        </childnode>
+        <childnode refid="1392" relation="include">
+        </childnode>
+        <childnode refid="1382" relation="include">
+        </childnode>
+        <childnode refid="1398" relation="include">
+        </childnode>
+        <childnode refid="1412" relation="include">
+        </childnode>
+        <childnode refid="1397" relation="include">
+        </childnode>
+      </node>
+      <node id="1388">
+        <label>vector</label>
+      </node>
+      <node id="1417">
+        <label>GraphProtoInterface.h</label>
+        <link refid="_graph_proto_interface_8h_source"/>
+        <childnode refid="1415" relation="include">
+        </childnode>
+        <childnode refid="1414" relation="include">
+        </childnode>
+      </node>
+      <node id="1397">
+        <label>HypergraphAlgorithms.h</label>
+        <link refid="_hypergraph_algorithms_8h_source"/>
+        <childnode refid="1386" relation="include">
+        </childnode>
+        <childnode refid="1398" relation="include">
+        </childnode>
+        <childnode refid="1391" relation="include">
+        </childnode>
+      </node>
+      <node id="1387">
+        <label>Forest.h</label>
+        <link refid="_forest_8h_source"/>
+        <childnode refid="1388" relation="include">
+        </childnode>
+        <childnode refid="1386" relation="include">
+        </childnode>
+        <childnode refid="1389" relation="include">
+        </childnode>
+        <childnode refid="1390" relation="include">
+        </childnode>
+        <childnode refid="1391" relation="include">
+        </childnode>
+        <childnode refid="1393" relation="include">
+        </childnode>
+        <childnode refid="1394" relation="include">
+        </childnode>
+      </node>
+      <node id="1416">
+        <label>mrf.pb.h</label>
+      </node>
+      <node id="1415">
+        <label>graph.pb.h</label>
+      </node>
+      <node id="1383">
+        <label>iostream</label>
+      </node>
+      <node id="1406">
+        <label>TagLP.h</label>
+        <link refid="_tag_l_p_8h_source"/>
+        <childnode refid="1391" relation="include">
+        </childnode>
+        <childnode refid="1405" relation="include">
+        </childnode>
+        <childnode refid="1407" relation="include">
+        </childnode>
+        <childnode refid="1404" relation="include">
+        </childnode>
+        <childnode refid="1396" relation="include">
+        </childnode>
+      </node>
+      <node id="1385">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1405">
+        <label>gurobi_c++.h</label>
+      </node>
+      <node id="1392">
+        <label>set</label>
+      </node>
+      <node id="1395">
+        <label>features.pb.h</label>
+      </node>
+      <node id="1381">
+        <label>PottsTagger.cpp</label>
+        <link refid="PottsTagger.cpp"/>
+        <childnode refid="1382" relation="include">
+        </childnode>
+        <childnode refid="1387" relation="include">
+        </childnode>
+        <childnode refid="1397" relation="include">
+        </childnode>
+        <childnode refid="1383" relation="include">
+        </childnode>
+        <childnode refid="1400" relation="include">
+        </childnode>
+        <childnode refid="1401" relation="include">
+        </childnode>
+        <childnode refid="1403" relation="include">
+        </childnode>
+        <childnode refid="1404" relation="include">
+        </childnode>
+        <childnode refid="1406" relation="include">
+        </childnode>
+        <childnode refid="1410" relation="include">
+        </childnode>
+        <childnode refid="1407" relation="include">
+        </childnode>
+        <childnode refid="1411" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_potts_tagger_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/PottsTagger.cpp" line="24" bodyfile="/home/srush/Projects/relax_decode/PottsTagger.cpp" bodystart="24" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Weights.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Forest.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;HypergraphAlgorithms.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/program_options.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;lexical.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;TagLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;TagMrfLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Tagger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;MRFLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">Scarab::HG;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>argv)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>GOOGLE_PROTOBUF_VERIFY_VERSION;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Viterbi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>wvector<sp/>*<sp/>weight<sp/>=<sp/>load_weights_from_file(<sp/>argv[1]);<sp/></highlight><highlight class="comment">//vm[&quot;weights&quot;].as&lt;<sp/>string<sp/>&gt;().c_str());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>penalty<sp/>=<sp/>atof(argv[6]);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>GRBEnv<sp/>env<sp/>=<sp/>GRBEnv();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>GRBModel<sp/>model(env);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>try{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//HardConstraints<sp/>hard_cons;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//hard_cons.read_from_file(argv[5]);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;const<sp/>TagLP<sp/>*<sp/>&gt;<sp/>lp_vars;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;const<sp/>MRFLP<sp/>*&gt;<sp/>mrf_lp;<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="class_tag_mrf_aligner" kindref="compound">TagMrfAligner</ref><sp/>tag_align;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>tag_align.build_from_constraints(argv[8]);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=atoi(argv[6]);<sp/>i<sp/>&lt;=<sp/>atoi(argv[7]);<sp/>i++)<sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>fname;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>fname<sp/>&lt;&lt;<sp/>argv[3]<sp/>&lt;&lt;<sp/>i;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>*<sp/>mrf<sp/>=</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref>();<sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>fname.str()<sp/>&lt;&lt;endl;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>mrf-&gt;build_from_file(fname.str().c_str());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>prefix;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>prefix<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;cgroup_&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>i;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>mrf_lp.push_back((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_m_r_f_l_p" kindref="compound">MRFLP</ref><sp/>*)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MRFBuilderLP::add_mrf(*mrf,<sp/>prefix.str(),<sp/>model,<sp/>GRB_CONTINUOUS));<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>total<sp/>=0.0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=atoi(argv[4]);<sp/>i<sp/>&lt;=<sp/>atoi(argv[5]);<sp/>i++)<sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>fname;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>fname<sp/>&lt;&lt;<sp/>argv[2]<sp/>&lt;&lt;<sp/>i;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_tagger" kindref="compound">Tagger</ref><sp/>*<sp/>f<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_tagger" kindref="compound">Tagger</ref>(100);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>fname.str()<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>f-&gt;build_from_file(fname.str().c_str());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_scarab_1_1_h_g_1_1_hypergraph_algorithms" kindref="compound">HypergraphAlgorithms</ref><sp/>ha(*f);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_cache" kindref="compound">EdgeCache</ref><sp/>*<sp/>edge_weights<sp/>=<sp/>ha.cache_edge_weights(*weight);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_cache" kindref="compound">NodeCache</ref><sp/><sp/>score_memo_table(f-&gt;num_nodes());<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_cache" kindref="compound">NodeBackCache</ref><sp/><sp/>back_memo_table(f-&gt;num_nodes());</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>score<sp/>=<sp/>ha.best_path(<sp/>*edge_weights,<sp/>score_memo_table,<sp/>back_memo_table);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>total<sp/>+=<sp/>score;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>prefix;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>prefix<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;parse&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_scarab_1_1_h_g_1_1_tag_l_p" kindref="compound">TagLP</ref><sp/>*<sp/>lp_parse<sp/>=<sp/>TagLPBuilder::add_tagging(*f,<sp/>*edge_weights,<sp/>prefix.str(),<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model,<sp/>GRB_CONTINUOUS);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>lp_vars.push_back((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_scarab_1_1_h_g_1_1_tag_l_p" kindref="compound">TagLP</ref>*)lp_parse);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;SCORE&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>total<sp/>&lt;&lt;endl;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>TagMrfLP::align_tag_mrf(mrf_lp,<sp/>lp_vars,<sp/>tag_align,<sp/>model,<sp/>GRB_CONTINUOUS);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>model.update();<sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//hard_cons.add_to_lp(lp_vars,<sp/>model);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//model.computeIIS();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//model.write(&quot;/tmp/model.ilp&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>model.write(</highlight><highlight class="stringliteral">&quot;/tmp/model.lp&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>model.set(GRB_IntAttr_ModelSense,<sp/>1);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>model.optimize();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<sp/>lp_vars.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PARSE:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;SENT:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>TagLPBuilder::show_results(*lp_vars[i]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//hard_cons.show_results();<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>catch<sp/>(GRBException<sp/>e)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>cerr<sp/>&lt;&lt;<sp/>&quot;Error<sp/>code<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>e.getErrorCode()<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>cerr<sp/>&lt;&lt;<sp/>e.getMessage()<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>google::protobuf::ShutdownProtobufLibrary();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/PottsTagger.cpp"/>
+  </compounddef>
+</doxygen>

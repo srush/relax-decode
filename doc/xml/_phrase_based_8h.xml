@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_phrase_based_8h" kind="file">
+    <compoundname>PhraseBased.h</compoundname>
+    <includes refid="_hypergraph_8h" local="yes">Hypergraph.h</includes>
+    <includes refid="_hypergraph_impl_8h" local="yes">HypergraphImpl.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
+    <includedby refid="_phrase_l_p_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="_phrase_viterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
+    <incdepgraph>
+      <node id="1327">
+        <label>assert.h</label>
+      </node>
+      <node id="1320">
+        <label>string</label>
+      </node>
+      <node id="1322">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1325">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1318" relation="include">
+        </childnode>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1327" relation="include">
+        </childnode>
+      </node>
+      <node id="1321">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1312" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1323" relation="include">
+        </childnode>
+        <childnode refid="1313" relation="include">
+        </childnode>
+        <childnode refid="1324" relation="include">
+        </childnode>
+        <childnode refid="1318" relation="include">
+        </childnode>
+        <childnode refid="1319" relation="include">
+        </childnode>
+      </node>
+      <node id="1312">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1313" relation="include">
+        </childnode>
+        <childnode refid="1318" relation="include">
+        </childnode>
+        <childnode refid="1319" relation="include">
+        </childnode>
+        <childnode refid="1320" relation="include">
+        </childnode>
+      </node>
+      <node id="1315">
+        <label>fstream</label>
+      </node>
+      <node id="1317">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1313">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1314" relation="include">
+        </childnode>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1317" relation="include">
+        </childnode>
+      </node>
+      <node id="1324">
+        <label>../common.h</label>
+      </node>
+      <node id="1326">
+        <label>bitset</label>
+      </node>
+      <node id="1318">
+        <label>vector</label>
+      </node>
+      <node id="1314">
+        <label>iostream</label>
+      </node>
+      <node id="1316">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1311">
+        <label>phrasebased/PhraseBased.h</label>
+        <link refid="PhraseBased.h"/>
+        <childnode refid="1312" relation="include">
+        </childnode>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1325" relation="include">
+        </childnode>
+      </node>
+      <node id="1319">
+        <label>set</label>
+      </node>
+      <node id="1323">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_phrase_based" prot="public">PhraseBased</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PHRASEBASED_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PHRASEBASED_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Hypergraph.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphImpl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;EdgeCache.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">Scarab::HG;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_phrase_based" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_phrase_based" kindref="compound">PhraseBased</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Scarab::HG::<ref refid="class_scarab_1_1_h_g_1_1_hypergraph_impl" kindref="compound">HypergraphImpl</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12" refid="class_phrase_based_1aafc2997b58b3698fed7cb5a1f6f269c6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_phrase_based_1aafc2997b58b3698fed7cb5a1f6f269c6" kindref="member">print</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph<sp/>&amp;<sp/>hgraph){}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.h"/>
+  </compounddef>
+</doxygen>

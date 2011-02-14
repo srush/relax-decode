@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_phrase_based_8cpp" kind="file">
+    <compoundname>PhraseBased.cpp</compoundname>
+    <includes refid="_phrase_based_8cpp" local="yes">PhraseBased.h</includes>
+    <includes refid="_hypergraph_8h" local="yes">Hypergraph.h</includes>
+    <includes refid="_hypergraph_impl_8h" local="yes">HypergraphImpl.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
+    <includedby refid="_phrase_based_8cpp" local="yes">phrasebased/PhraseBased.cpp</includedby>
+    <incdepgraph>
+      <node id="1309">
+        <label>assert.h</label>
+      </node>
+      <node id="1302">
+        <label>string</label>
+      </node>
+      <node id="1304">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1307">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1300" relation="include">
+        </childnode>
+        <childnode refid="1308" relation="include">
+        </childnode>
+        <childnode refid="1309" relation="include">
+        </childnode>
+      </node>
+      <node id="1303">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1294" relation="include">
+        </childnode>
+        <childnode refid="1304" relation="include">
+        </childnode>
+        <childnode refid="1305" relation="include">
+        </childnode>
+        <childnode refid="1295" relation="include">
+        </childnode>
+        <childnode refid="1306" relation="include">
+        </childnode>
+        <childnode refid="1300" relation="include">
+        </childnode>
+        <childnode refid="1301" relation="include">
+        </childnode>
+      </node>
+      <node id="1294">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1295" relation="include">
+        </childnode>
+        <childnode refid="1300" relation="include">
+        </childnode>
+        <childnode refid="1301" relation="include">
+        </childnode>
+        <childnode refid="1302" relation="include">
+        </childnode>
+      </node>
+      <node id="1297">
+        <label>fstream</label>
+      </node>
+      <node id="1299">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1295">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1296" relation="include">
+        </childnode>
+        <childnode refid="1297" relation="include">
+        </childnode>
+        <childnode refid="1298" relation="include">
+        </childnode>
+        <childnode refid="1299" relation="include">
+        </childnode>
+      </node>
+      <node id="1306">
+        <label>../common.h</label>
+      </node>
+      <node id="1308">
+        <label>bitset</label>
+      </node>
+      <node id="1300">
+        <label>vector</label>
+      </node>
+      <node id="1293">
+        <label>phrasebased/PhraseBased.cpp</label>
+        <link refid="PhraseBased.cpp"/>
+        <childnode refid="1294" relation="include">
+        </childnode>
+        <childnode refid="1303" relation="include">
+        </childnode>
+        <childnode refid="1307" relation="include">
+        </childnode>
+      </node>
+      <node id="1296">
+        <label>iostream</label>
+      </node>
+      <node id="1298">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1301">
+        <label>set</label>
+      </node>
+      <node id="1305">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;PhraseBased.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/phrasebased/PhraseBased.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_m_r_f_hypergraph_8h" kind="file">
+    <compoundname>MRFHypergraph.h</compoundname>
+    <includes refid="_m_r_f_8h" local="yes">MRF.h</includes>
+    <includes refid="_hypergraph_8h" local="no">Hypergraph.h</includes>
+    <includes refid="_hypergraph_impl_8h" local="no">HypergraphImpl.h</includes>
+    <includes refid="_edge_cache_8h" local="no">EdgeCache.h</includes>
+    <includedby refid="_m_r_f_solver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <incdepgraph>
+      <node id="1190">
+        <label>assert.h</label>
+      </node>
+      <node id="1168">
+        <label>optimization/MRFHypergraph.h</label>
+        <link refid="MRFHypergraph.h"/>
+        <childnode refid="1169" relation="include">
+        </childnode>
+        <childnode refid="1178" relation="include">
+        </childnode>
+        <childnode refid="1177" relation="include">
+        </childnode>
+        <childnode refid="1188" relation="include">
+        </childnode>
+      </node>
+      <node id="1169">
+        <label>MRF.h</label>
+        <link refid="_m_r_f_8h_source"/>
+        <childnode refid="1170" relation="include">
+        </childnode>
+        <childnode refid="1171" relation="include">
+        </childnode>
+        <childnode refid="1172" relation="include">
+        </childnode>
+        <childnode refid="1175" relation="include">
+        </childnode>
+        <childnode refid="1176" relation="include">
+        </childnode>
+        <childnode refid="1177" relation="include">
+        </childnode>
+        <childnode refid="1187" relation="include">
+        </childnode>
+        <childnode refid="1188" relation="include">
+        </childnode>
+      </node>
+      <node id="1170">
+        <label>cassert</label>
+      </node>
+      <node id="1171">
+        <label>string</label>
+      </node>
+      <node id="1185">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1188">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1189" relation="include">
+        </childnode>
+        <childnode refid="1190" relation="include">
+        </childnode>
+      </node>
+      <node id="1177">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1178" relation="include">
+        </childnode>
+        <childnode refid="1185" relation="include">
+        </childnode>
+        <childnode refid="1186" relation="include">
+        </childnode>
+        <childnode refid="1179" relation="include">
+        </childnode>
+        <childnode refid="1174" relation="include">
+        </childnode>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1184" relation="include">
+        </childnode>
+      </node>
+      <node id="1178">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1179" relation="include">
+        </childnode>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1184" relation="include">
+        </childnode>
+        <childnode refid="1171" relation="include">
+        </childnode>
+      </node>
+      <node id="1181">
+        <label>fstream</label>
+      </node>
+      <node id="1172">
+        <label>Graph.h</label>
+        <link refid="_graph_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1171" relation="include">
+        </childnode>
+        <childnode refid="1174" relation="include">
+        </childnode>
+      </node>
+      <node id="1183">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1179">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1180" relation="include">
+        </childnode>
+        <childnode refid="1181" relation="include">
+        </childnode>
+        <childnode refid="1182" relation="include">
+        </childnode>
+        <childnode refid="1183" relation="include">
+        </childnode>
+      </node>
+      <node id="1174">
+        <label>../common.h</label>
+      </node>
+      <node id="1189">
+        <label>bitset</label>
+      </node>
+      <node id="1173">
+        <label>vector</label>
+      </node>
+      <node id="1187">
+        <label>GraphProtoInterface.h</label>
+        <link refid="_graph_proto_interface_8h_source"/>
+        <childnode refid="1175" relation="include">
+        </childnode>
+        <childnode refid="1172" relation="include">
+        </childnode>
+      </node>
+      <node id="1176">
+        <label>mrf.pb.h</label>
+      </node>
+      <node id="1175">
+        <label>graph.pb.h</label>
+      </node>
+      <node id="1180">
+        <label>iostream</label>
+      </node>
+      <node id="1182">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1184">
+        <label>set</label>
+      </node>
+      <node id="1186">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_m_r_f_hypergraph" prot="public">MRFHypergraph</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MRFHYPERGRAPH_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MRFHYPERGRAPH_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;MRF.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Hypergraph.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;HypergraphImpl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;EdgeCache.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">Scarab::HG;</highlight></codeline>
+<codeline lineno="9" refid="class_m_r_f_hypergraph" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_m_r_f_hypergraph" kindref="compound">MRFHypergraph</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_scarab_1_1_h_g_1_1_hypergraph_impl" kindref="compound">HypergraphImpl</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f_hypergraph" kindref="compound">MRFHypergraph</ref><sp/>from_mrf(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>&amp;<sp/>mrf);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="struct_node_assignment" kindref="compound">NodeAssignment</ref><sp/>assignment_from_node(<ref refid="class_scarab_1_1_h_g_1_1_hypernode" kindref="compound">Hypernode</ref>*<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_canonical_assignment-&gt;get(*node);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="class_m_r_f_hypergraph_1aaac6b68c3ece41ddd1f8107e961879bc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f_hypergraph_1aaac6b68c3ece41ddd1f8107e961879bc" kindref="member">print</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{}<sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="class_scarab_1_1_h_g_1_1_hypernode" kindref="compound">HNode</ref><sp/>assignment_from_node(<ref refid="struct_node_assignment" kindref="compound">NodeAssignment</ref><sp/>&amp;<sp/>node_assign)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_canonical_hnode-&gt;get(node_assign);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache &lt;NodeAssignment, Hypernode * &gt;</ref><sp/>*<sp/>_canonical_hnode;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache &lt;Hypernode, NodeAssignment &gt;</ref><sp/>*<sp/>_canonical_assignment;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/optimization/MRFHypergraph.h"/>
+  </compounddef>
+</doxygen>

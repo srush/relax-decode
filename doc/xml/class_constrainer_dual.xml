@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_constrainer_dual" kind="class" prot="public">
+    <compoundname>ConstrainerDual</compoundname>
+    <basecompoundref refid="class_dual_decomposition_subproblem" prot="public" virt="non-virtual">DualDecompositionSubproblem</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_constrainer_dual_1abda18ff85d425d3748f49709534ec9ea" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="class_tag_constraints" kindref="compound">TagConstraints</ref> &amp;</type>
+        <definition>const TagConstraints&amp; ConstrainerDual::_tag_constraints</definition>
+        <argsstring></argsstring>
+        <name>_tag_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="72" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constrainer_dual_1a4dd6e580712c0b35da77e42e137c7274" prot="protected" static="no" mutable="no">
+        <type>wvector *</type>
+        <definition>wvector* ConstrainerDual::_cur_weights</definition>
+        <argsstring></argsstring>
+        <name>_cur_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="73" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_constrainer_dual_1ae74adbb392415eec3451dd5a20820b6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ConstrainerDual::ConstrainerDual</definition>
+        <argsstring>(const TagConstraints &amp;cons)</argsstring>
+        <name>ConstrainerDual</name>
+        <param>
+          <type>const <ref refid="class_tag_constraints" kindref="compound">TagConstraints</ref> &amp;</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="56" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_constrainer_dual_1a8cd72c1288fc93a0fec014095ac7252b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ConstrainerDual::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;, int)</argsstring>
+        <name>solve</name>
+        <reimplements refid="class_dual_decomposition_subproblem_1aac234786c13091898be348dc0056a036">solve</reimplements>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type>wvector &amp;</type>
+          <defname>subgrad</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>round</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="61" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.cpp" bodystart="65" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_constrainer_dual_1a622b99f704a3324133f08521eb4924f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void ConstrainerDual::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights, double mult)</argsstring>
+        <name>update_weights</name>
+        <reimplements refid="class_dual_decomposition_subproblem_1a6d26fcb23023d5b03d54b3d191531b02">update_weights</reimplements>
+        <param>
+          <type>const wvector &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type>wvector *</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>mult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="65" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="63" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="339">
+        <label>ConstrainerDual</label>
+        <link refid="class_constrainer_dual"/>
+        <childnode refid="340" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="340">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="class_dual_decomposition_subproblem"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="344">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="347">
+        <label>PossibleTag</label>
+        <link refid="struct_possible_tag"/>
+        <childnode refid="348" relation="usage">
+          <edgelabel>group_name</edgelabel>
+        </childnode>
+      </node>
+      <node id="351">
+        <label>ConstraintGroup</label>
+        <link refid="class_constraint_group"/>
+        <childnode refid="346" relation="usage">
+          <edgelabel>group</edgelabel>
+        </childnode>
+      </node>
+      <node id="341">
+        <label>ConstrainerDual</label>
+        <link refid="class_constrainer_dual"/>
+        <childnode refid="342" relation="public-inheritance">
+        </childnode>
+        <childnode refid="343" relation="usage">
+          <edgelabel>_tag_constraints</edgelabel>
+        </childnode>
+      </node>
+      <node id="346">
+        <label>std::vector&lt; PossibleTag &gt;</label>
+        <childnode refid="347" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="349">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="345">
+        <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
+        <childnode refid="346" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="343">
+        <label>TagConstraints</label>
+        <link refid="class_tag_constraints"/>
+        <childnode refid="344" relation="usage">
+          <edgelabel>groups</edgelabel>
+        </childnode>
+        <childnode refid="345" relation="usage">
+          <edgelabel>_constrained_words</edgelabel>
+        </childnode>
+        <childnode refid="350" relation="usage">
+          <edgelabel>_constraint_struct</edgelabel>
+        </childnode>
+        <childnode refid="346" relation="usage">
+          <edgelabel>_all_constraints</edgelabel>
+        </childnode>
+      </node>
+      <node id="350">
+        <label>std::vector&lt; ConstraintGroup &gt;</label>
+        <childnode refid="351" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="342">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="class_dual_decomposition_subproblem"/>
+      </node>
+      <node id="348">
+        <label>std::string</label>
+        <childnode refid="349" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="54" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="54" bodyend="75"/>
+    <listofallmembers>
+      <member refid="class_constrainer_dual_1a4dd6e580712c0b35da77e42e137c7274" prot="protected" virt="non-virtual"><scope>ConstrainerDual</scope><name>_cur_weights</name></member>
+      <member refid="class_constrainer_dual_1abda18ff85d425d3748f49709534ec9ea" prot="protected" virt="non-virtual"><scope>ConstrainerDual</scope><name>_tag_constraints</name></member>
+      <member refid="class_constrainer_dual_1ae74adbb392415eec3451dd5a20820b6b" prot="public" virt="non-virtual"><scope>ConstrainerDual</scope><name>ConstrainerDual</name></member>
+      <member refid="class_constrainer_dual_1a8cd72c1288fc93a0fec014095ac7252b" prot="public" virt="virtual"><scope>ConstrainerDual</scope><name>solve</name></member>
+      <member refid="class_constrainer_dual_1a622b99f704a3324133f08521eb4924f5" prot="public" virt="virtual"><scope>ConstrainerDual</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

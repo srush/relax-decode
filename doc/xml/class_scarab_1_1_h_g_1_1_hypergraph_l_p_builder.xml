@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder" kind="class" prot="public">
+    <compoundname>Scarab::HG::HypergraphLPBuilder</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder_1a7653a6f997f1505c0d6668618b28d6d8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Scarab::HG::HypergraphLPBuilder::show_hypergraph</definition>
+        <argsstring>(const HypergraphLP &amp;h_lp)</argsstring>
+        <name>show_hypergraph</name>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref> &amp;</type>
+          <declname>h_lp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" line="26" bodyfile="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder_1a3a711a79152e0f5d4cc9157737673b95" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref> *</type>
+        <definition>static HypergraphLP* Scarab::HG::HypergraphLPBuilder::add_hypergraph</definition>
+        <argsstring>(const HGraph &amp;h, const Cache&lt; Hyperedge, double &gt; &amp;_weights, string prefix, GRBModel &amp;model, int var_type)</argsstring>
+        <name>add_hypergraph</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_h_graph" kindref="compound">HGraph</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+          <declname>_weights</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>GRBModel &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>var_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" line="36" bodyfile="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" bodystart="35" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" line="24" bodyfile="/home/srush/Projects/relax_decode/lp/HypergraphLP.h" bodystart="24" bodyend="92"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder_1a3a711a79152e0f5d4cc9157737673b95" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphLPBuilder</scope><name>add_hypergraph</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder_1a7653a6f997f1505c0d6668618b28d6d8" prot="public" virt="non-virtual"><scope>Scarab::HG::HypergraphLPBuilder</scope><name>show_hypergraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_blank_non_local" kind="class" prot="public">
+    <compoundname>BlankNonLocal</compoundname>
+    <basecompoundref refid="class_non_local" prot="public" virt="non-virtual">NonLocal</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_blank_non_local_1a5ed5f82fd688ea1cd7fb52f40ea519e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BlankNonLocal::BlankNonLocal</definition>
+        <argsstring>()</argsstring>
+        <name>BlankNonLocal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="44" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blank_non_local_1ab48fb9f176d5b929aaa724e3f5b32a6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void BlankNonLocal::compute</definition>
+        <argsstring>(const Hyperedge &amp;edge, const vector&lt; vector&lt; int &gt; &gt; &amp;subder, double &amp;score, vector&lt; int &gt; &amp;full_derivation, Sig &amp;sig) const </argsstring>
+        <name>compute</name>
+        <reimplements refid="class_non_local_1acd66e7882a5bb3415d3fd658d03ec8fc">compute</reimplements>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+          <declname>subder</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>full_derivation</declname>
+        </param>
+        <param>
+          <type>Sig &amp;</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="53" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="48" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blank_non_local_1a61e2ac11c599d217cacfa5c54bd191b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="struct_hyp" kindref="compound">Hyp</ref></type>
+        <definition>virtual Hyp BlankNonLocal::initialize</definition>
+        <argsstring>(const Hypernode &amp;node) const </argsstring>
+        <name>initialize</name>
+        <reimplements refid="class_non_local_1a90f2d399853f5c689a0abdc5c12a8370">initialize</reimplements>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hypernode" kindref="compound">Hypernode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="58" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="58" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="281">
+        <label>NonLocal</label>
+        <link refid="class_non_local"/>
+      </node>
+      <node id="280">
+        <label>BlankNonLocal</label>
+        <link refid="class_blank_non_local"/>
+        <childnode refid="281" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="283">
+        <label>NonLocal</label>
+        <link refid="class_non_local"/>
+      </node>
+      <node id="282">
+        <label>BlankNonLocal</label>
+        <link refid="class_blank_non_local"/>
+        <childnode refid="283" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="42" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="42" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_blank_non_local_1a5ed5f82fd688ea1cd7fb52f40ea519e2" prot="public" virt="non-virtual"><scope>BlankNonLocal</scope><name>BlankNonLocal</name></member>
+      <member refid="class_blank_non_local_1ab48fb9f176d5b929aaa724e3f5b32a6a" prot="public" virt="virtual"><scope>BlankNonLocal</scope><name>compute</name></member>
+      <member refid="class_blank_non_local_1a61e2ac11c599d217cacfa5c54bd191b8" prot="public" virt="virtual"><scope>BlankNonLocal</scope><name>initialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

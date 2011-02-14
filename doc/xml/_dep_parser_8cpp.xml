@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_dep_parser_8cpp" kind="file">
+    <compoundname>DepParser.cpp</compoundname>
+    <includes refid="_dep_parser_8cpp" local="yes">DepParser.h</includes>
+    <includes local="yes">dep.pb.h</includes>
+    <includes refid="_hypergraph_8h" local="yes">Hypergraph.h</includes>
+    <includes refid="_hypergraph_impl_8h" local="yes">HypergraphImpl.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
+    <includedby refid="_dep_parser_8cpp" local="yes">parse/DepParser.cpp</includedby>
+    <incdepgraph>
+      <node id="1252">
+        <label>assert.h</label>
+      </node>
+      <node id="1245">
+        <label>string</label>
+      </node>
+      <node id="1247">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1250">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="1243" relation="include">
+        </childnode>
+        <childnode refid="1251" relation="include">
+        </childnode>
+        <childnode refid="1252" relation="include">
+        </childnode>
+      </node>
+      <node id="1246">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="1237" relation="include">
+        </childnode>
+        <childnode refid="1247" relation="include">
+        </childnode>
+        <childnode refid="1248" relation="include">
+        </childnode>
+        <childnode refid="1238" relation="include">
+        </childnode>
+        <childnode refid="1249" relation="include">
+        </childnode>
+        <childnode refid="1243" relation="include">
+        </childnode>
+        <childnode refid="1244" relation="include">
+        </childnode>
+      </node>
+      <node id="1237">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="1238" relation="include">
+        </childnode>
+        <childnode refid="1243" relation="include">
+        </childnode>
+        <childnode refid="1244" relation="include">
+        </childnode>
+        <childnode refid="1245" relation="include">
+        </childnode>
+      </node>
+      <node id="1235">
+        <label>parse/DepParser.cpp</label>
+        <link refid="DepParser.cpp"/>
+        <childnode refid="1236" relation="include">
+        </childnode>
+        <childnode refid="1237" relation="include">
+        </childnode>
+        <childnode refid="1246" relation="include">
+        </childnode>
+        <childnode refid="1250" relation="include">
+        </childnode>
+      </node>
+      <node id="1240">
+        <label>fstream</label>
+      </node>
+      <node id="1242">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1238">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="1239" relation="include">
+        </childnode>
+        <childnode refid="1240" relation="include">
+        </childnode>
+        <childnode refid="1241" relation="include">
+        </childnode>
+        <childnode refid="1242" relation="include">
+        </childnode>
+      </node>
+      <node id="1249">
+        <label>../common.h</label>
+      </node>
+      <node id="1251">
+        <label>bitset</label>
+      </node>
+      <node id="1236">
+        <label>dep.pb.h</label>
+      </node>
+      <node id="1243">
+        <label>vector</label>
+      </node>
+      <node id="1239">
+        <label>iostream</label>
+      </node>
+      <node id="1241">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1244">
+        <label>set</label>
+      </node>
+      <node id="1248">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_dep_parser_8cpp_1aa09e8330088daeb8451c865e32caeaf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;output, const Dependency &amp;h)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_dependency" kindref="compound">Dependency</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/DepParser.cpp" line="4" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.cpp" bodystart="4" bodyend="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;DepParser.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">ostream&amp;<sp/>operator&lt;&lt;(ostream&amp;<sp/>output,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_dependency" kindref="compound">Dependency</ref>&amp;<sp/>h)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>output<sp/>&lt;&lt;<sp/>h.head<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>h.mod;</highlight><highlight class="comment">//<sp/>&lt;&lt;<sp/>&quot;(&quot;&lt;&lt;<sp/>h.length<sp/>&lt;&lt;<sp/>&quot;)&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}<sp/></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/parse/DepParser.cpp"/>
+  </compounddef>
+</doxygen>

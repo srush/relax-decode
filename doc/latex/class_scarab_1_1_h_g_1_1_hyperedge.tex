@@ -1,0 +1,123 @@
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge}{
+\section{Scarab::HG::Hyperedge Class Reference}
+\label{class_scarab_1_1_h_g_1_1_hyperedge}\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+}
+Inheritance diagram for Scarab::HG::Hyperedge:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_scarab_1_1_h_g_1_1_hyperedge}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual unsigned int \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_af824beb7107253a7545b35992c17e057}{id} () const =0
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_a8442c017fcee87c1f865b2254b49900f}{
+virtual string {\bfseries label} () const =0}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_a8442c017fcee87c1f865b2254b49900f}
+
+\item 
+virtual const \hyperlink{class_scarab_1_1_h_g_1_1_hypernode}{Hypernode} \& \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_a9ec8cf9ea7b5f762f359a6f9f1c038da}{tail\_\-node} (unsigned int i) const =0
+\item 
+virtual unsigned int \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_a799d8d98242c129d7eee178bdf1fb535}{num\_\-nodes} () const =0
+\item 
+virtual const svector$<$ int, double $>$ \& \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_a0d201ddb955631aadee4c15cc8e709f8}{fvector} () const =0
+\item 
+virtual const \hyperlink{class_scarab_1_1_h_g_1_1_hypernode}{Hypernode} \& \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_a6043de341070c103d811f5286193dd46}{head\_\-node} () const =0
+\item 
+virtual const vector$<$ \hyperlink{class_scarab_1_1_h_g_1_1_hypernode}{Hypernode} $\ast$ $>$ \& \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_abac6d27691186608aa12949de6e1c283}{tail\_\-nodes} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_a0d201ddb955631aadee4c15cc8e709f8}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!fvector@{fvector}}
+\index{fvector@{fvector}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{fvector}]{\setlength{\rightskip}{0pt plus 5cm}virtual const svector$<$int, double$>$\& Scarab::HG::Hyperedge::fvector () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_a0d201ddb955631aadee4c15cc8e709f8}
+The feature vector associated with this node. TODO: remove this from the representation \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000005}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+Feature vector 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_a359446c285164a93995bb87e6ea74882}{Scarab::HG::HyperedgeImpl}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_a6043de341070c103d811f5286193dd46}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!head\_\-node@{head\_\-node}}
+\index{head\_\-node@{head\_\-node}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{head\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf Hypernode}\& Scarab::HG::Hyperedge::head\_\-node () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_a6043de341070c103d811f5286193dd46}
+Get the node at the head of this hyperedge
+
+\begin{DoxyReturn}{Returns}
+Head node 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_ae194bfc8ecac2a12791fa36c1c2c62a7}{Scarab::HG::HyperedgeImpl}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_af824beb7107253a7545b35992c17e057}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!id@{id}}
+\index{id@{id}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Scarab::HG::Hyperedge::id () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_af824beb7107253a7545b35992c17e057}
+Get edge id
+
+\begin{DoxyReturn}{Returns}
+The id of this edge in a fixed hypergraph 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_afa81943347267781c25c4e68f7f5f547}{Scarab::HG::HyperedgeImpl}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_a799d8d98242c129d7eee178bdf1fb535}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!num\_\-nodes@{num\_\-nodes}}
+\index{num\_\-nodes@{num\_\-nodes}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{num\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Scarab::HG::Hyperedge::num\_\-nodes () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_a799d8d98242c129d7eee178bdf1fb535}
+The number of tail nodes in this edge. \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000004}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The length 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_a9a5bef8789c9c7caee6f53833ea4acc7}{Scarab::HG::HyperedgeImpl}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_a9ec8cf9ea7b5f762f359a6f9f1c038da}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!tail\_\-node@{tail\_\-node}}
+\index{tail\_\-node@{tail\_\-node}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{tail\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}virtual const {\bf Hypernode}\& Scarab::HG::Hyperedge::tail\_\-node (unsigned int {\em i}) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_a9ec8cf9ea7b5f762f359a6f9f1c038da}
+Get a node in this edges tail \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000003}{Deprecated}]\end{Desc}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]The node position, in tail\_\-node order\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hypernode 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_a7087ba121f3056eb5946d1909c4b3d58}{Scarab::HG::HyperedgeImpl}.
+
+\hypertarget{class_scarab_1_1_h_g_1_1_hyperedge_abac6d27691186608aa12949de6e1c283}{
+\index{Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}!tail\_\-nodes@{tail\_\-nodes}}
+\index{tail\_\-nodes@{tail\_\-nodes}!Scarab::HG::Hyperedge@{Scarab::HG::Hyperedge}}
+\subsubsection[{tail\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual const vector$<${\bf Hypernode} $\ast$$>$\& Scarab::HG::Hyperedge::tail\_\-nodes () const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_hyperedge_abac6d27691186608aa12949de6e1c283}
+Get all the nodes in the tail of the hyperedge WARNING: Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to nodes. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge_impl_a3bf00c8c032397150f59e196aea5e245}{Scarab::HG::HyperedgeImpl}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+hypergraph/Hypergraph.h\end{DoxyCompactItemize}

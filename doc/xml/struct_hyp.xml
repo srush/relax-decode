@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_hyp" kind="struct" prot="public">
+    <compoundname>Hyp</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_hyp_1a7d24c5a317140b8050dc57255bb7922a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Hyp::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="21" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_hyp_1a4aa96a03dc6b82416074985e0ecd39c3" prot="public" static="no" mutable="no">
+        <type>Sig</type>
+        <definition>Sig Hyp::sig</definition>
+        <argsstring></argsstring>
+        <name>sig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="22" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_hyp_1a076825f81d94a1f2b20bb5141eb9f4c7" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Hyp::full_derivation</definition>
+        <argsstring></argsstring>
+        <name>full_derivation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="23" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_hyp_1a5a489de5f40008993c20ea19744196e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Hyp::Hyp</definition>
+        <argsstring>()</argsstring>
+        <name>Hyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="17" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_hyp_1a5fba7860265cf935133e4c0c73fec090" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Hyp::Hyp</definition>
+        <argsstring>(double score_in, Sig sig_in, vector&lt; int &gt; full_der)</argsstring>
+        <name>Hyp</name>
+        <param>
+          <type>double</type>
+          <declname>score_in</declname>
+        </param>
+        <param>
+          <type>Sig</type>
+          <declname>sig_in</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>full_der</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="20" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="19" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_hyp_1a547883a1aa9a7573d328d0f6b385dca8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Hyp::operator&lt;</definition>
+        <argsstring>(const Hyp &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="struct_hyp" kindref="compound">Hyp</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="24" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="24" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="661">
+        <label>Hyp</label>
+        <link refid="struct_hyp"/>
+        <childnode refid="662" relation="usage">
+          <edgelabel>full_derivation</edgelabel>
+          <edgelabel>sig</edgelabel>
+        </childnode>
+      </node>
+      <node id="662">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="15" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="15" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_hyp_1a076825f81d94a1f2b20bb5141eb9f4c7" prot="public" virt="non-virtual"><scope>Hyp</scope><name>full_derivation</name></member>
+      <member refid="struct_hyp_1a5a489de5f40008993c20ea19744196e8" prot="public" virt="non-virtual"><scope>Hyp</scope><name>Hyp</name></member>
+      <member refid="struct_hyp_1a5fba7860265cf935133e4c0c73fec090" prot="public" virt="non-virtual"><scope>Hyp</scope><name>Hyp</name></member>
+      <member refid="struct_hyp_1a547883a1aa9a7573d328d0f6b385dca8" prot="public" virt="non-virtual"><scope>Hyp</scope><name>operator&lt;</name></member>
+      <member refid="struct_hyp_1a7d24c5a317140b8050dc57255bb7922a" prot="public" virt="non-virtual"><scope>Hyp</scope><name>score</name></member>
+      <member refid="struct_hyp_1a4aa96a03dc6b82416074985e0ecd39c3" prot="public" virt="non-virtual"><scope>Hyp</scope><name>sig</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_graph_decompose" kind="class" prot="public">
+    <compoundname>GraphDecompose</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_graph_decompose_1afbeb52935da971f4bc27f0e80ed48d33" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_bigram" kindref="compound">Bigram</ref> &gt;</type>
+        <definition>vector&lt;Bigram&gt; GraphDecompose::valid_bigrams</definition>
+        <argsstring></argsstring>
+        <name>valid_bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="15" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_graph_decompose_1aca254d25cf0f2d2ad0d58a5775a297a8" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;int&gt; &gt; GraphDecompose::forward_bigrams</definition>
+        <argsstring></argsstring>
+        <name>forward_bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="17" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_graph_decompose_1a2b5c495d7725ccd63c0c3d2590ebd1e1" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;int&gt; &gt; GraphDecompose::backward_bigrams</definition>
+        <argsstring></argsstring>
+        <name>backward_bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="18" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_graph_decompose_1a995544f00db3f554d00a01aa0dad2fd4" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;vector&lt;int&gt; * &gt; &gt; GraphDecompose::all_pairs_path</definition>
+        <argsstring></argsstring>
+        <name>all_pairs_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="37" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_graph_decompose_1ab796844444689e795b83256f84eae00d" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; bool &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;bool&gt; &gt; GraphDecompose::all_pairs_path_exist</definition>
+        <argsstring></argsstring>
+        <name>all_pairs_path_exist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="38" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_graph_decompose_1a1b816922d0f47a646c40b2092dc50af1" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector &lt;vector &lt;int&gt; &gt; &gt; &gt; GraphDecompose::bigram_paths</definition>
+        <argsstring></argsstring>
+        <name>bigram_paths</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="40" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_graph_decompose_1a73e8b0e3aa23fff46df75640ec1633d1" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+        <definition>const ForestLattice* GraphDecompose::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="41" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_graph_decompose_1a79d486e583e40b058f642d1d60f6c800" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GraphDecompose::GraphDecompose</definition>
+        <argsstring>()</argsstring>
+        <name>GraphDecompose</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="22" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_decompose_1a671b195e2a0eff48eeefcee64d40fcb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphDecompose::decompose</definition>
+        <argsstring>(const ForestLattice *g)</argsstring>
+        <name>decompose</name>
+        <param>
+          <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="23" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.cpp" bodystart="71" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_decompose_1a8e85b51d78e6bd961bbff6d121399ba7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphDecompose::path_exists</definition>
+        <argsstring>(int w1, int w2) const </argsstring>
+        <name>path_exists</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="25" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_decompose_1a48e47d62512330c280ed8a89bafe3e10" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; int &gt; *</type>
+        <definition>vector&lt;int&gt;* GraphDecompose::get_path</definition>
+        <argsstring>(int w1, int w2) const </argsstring>
+        <name>get_path</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="30" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="30" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_graph_decompose_1ac81de8323e0772507b700fa434674710" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphDecompose::compute_bigrams</definition>
+        <argsstring>()</argsstring>
+        <name>compute_bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="43" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.cpp" bodystart="20" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_decompose_1a5a0a6da18e3045631d3bc51441c2fba6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphDecompose::graph_to_all_pairs</definition>
+        <argsstring>()</argsstring>
+        <name>graph_to_all_pairs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="44" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.cpp" bodystart="94" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_graph_decompose_1a18df0d9bb4f322244c1f31e43ed2f951" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphDecompose::reconstruct_path</definition>
+        <argsstring>(int n, int n2, vector&lt; vector&lt; int &gt; &gt; &amp;array)</argsstring>
+        <name>reconstruct_path</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n2</declname>
+        </param>
+        <param>
+          <type>vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="45" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.cpp" bodystart="167" bodyend="200"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="590">
+        <label>GraphDecompose</label>
+        <link refid="class_graph_decompose"/>
+        <childnode refid="591" relation="usage">
+          <edgelabel>backward_bigrams</edgelabel>
+          <edgelabel>forward_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="592" relation="usage">
+          <edgelabel>bigram_paths</edgelabel>
+        </childnode>
+        <childnode refid="593" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="607" relation="usage">
+          <edgelabel>all_pairs_path_exist</edgelabel>
+        </childnode>
+        <childnode refid="608" relation="usage">
+          <edgelabel>all_pairs_path</edgelabel>
+        </childnode>
+        <childnode refid="595" relation="usage">
+          <edgelabel>valid_bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="604">
+        <label>T</label>
+      </node>
+      <node id="599">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="600" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="595">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="596" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="603">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="604" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="593">
+        <label>ForestLattice</label>
+        <link refid="class_forest_lattice"/>
+        <childnode refid="594" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="591" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="597" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="605" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="606" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="595" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="605">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="601" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="596">
+        <label>Bigram</label>
+        <link refid="struct_bigram"/>
+      </node>
+      <node id="600">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="598" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="601" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="602">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="594">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="595" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="591">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="608">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="592">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="598">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="599" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="597">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="598" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="603" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="606">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="607">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="601">
+        <label>std::string</label>
+        <childnode refid="602" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" line="11" bodyfile="/home/srush/Projects/relax_decode/lattice/GraphDecompose.h" bodystart="11" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_graph_decompose_1a995544f00db3f554d00a01aa0dad2fd4" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>all_pairs_path</name></member>
+      <member refid="class_graph_decompose_1ab796844444689e795b83256f84eae00d" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>all_pairs_path_exist</name></member>
+      <member refid="class_graph_decompose_1a2b5c495d7725ccd63c0c3d2590ebd1e1" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>backward_bigrams</name></member>
+      <member refid="class_graph_decompose_1a1b816922d0f47a646c40b2092dc50af1" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>bigram_paths</name></member>
+      <member refid="class_graph_decompose_1ac81de8323e0772507b700fa434674710" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>compute_bigrams</name></member>
+      <member refid="class_graph_decompose_1a671b195e2a0eff48eeefcee64d40fcb1" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>decompose</name></member>
+      <member refid="class_graph_decompose_1aca254d25cf0f2d2ad0d58a5775a297a8" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>forward_bigrams</name></member>
+      <member refid="class_graph_decompose_1a73e8b0e3aa23fff46df75640ec1633d1" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>g</name></member>
+      <member refid="class_graph_decompose_1a48e47d62512330c280ed8a89bafe3e10" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>get_path</name></member>
+      <member refid="class_graph_decompose_1a5a0a6da18e3045631d3bc51441c2fba6" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>graph_to_all_pairs</name></member>
+      <member refid="class_graph_decompose_1a79d486e583e40b058f642d1d60f6c800" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>GraphDecompose</name></member>
+      <member refid="class_graph_decompose_1a8e85b51d78e6bd961bbff6d121399ba7" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>path_exists</name></member>
+      <member refid="class_graph_decompose_1a18df0d9bb4f322244c1f31e43ed2f951" prot="private" virt="non-virtual"><scope>GraphDecompose</scope><name>reconstruct_path</name></member>
+      <member refid="class_graph_decompose_1afbeb52935da971f4bc27f0e80ed48d33" prot="public" virt="non-virtual"><scope>GraphDecompose</scope><name>valid_bigrams</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

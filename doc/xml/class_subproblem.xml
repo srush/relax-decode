@@ -1,0 +1,1418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_subproblem" kind="class" prot="public">
+    <compoundname>Subproblem</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_subproblem_1aac90e8ff8e757aa0c68fc619c547f58e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Subproblem::_first_time_proj[MAX_PROJ][MAX_PROJ]</definition>
+        <argsstring>[MAX_PROJ][MAX_PROJ]</argsstring>
+        <name>_first_time_proj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="25" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a6e1a534d1d46267855aca38f8ff32117" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Subproblem::cur_best_count</definition>
+        <argsstring></argsstring>
+        <name>cur_best_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="26" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a8f5433f085509c9b756647fd7a4a1258" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Subproblem::projection</definition>
+        <argsstring></argsstring>
+        <name>projection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="29" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1ae8aa19f592682ec439282eb4b4ea658c" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; Subproblem::cur_best_at_bi</definition>
+        <argsstring></argsstring>
+        <name>cur_best_at_bi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="30" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a0b32d5edf6826eeaef44fa7f87ea4738" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;float&gt; &gt; Subproblem::cur_best_at_bi_score</definition>
+        <argsstring></argsstring>
+        <name>cur_best_at_bi_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="31" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a01f322bfc4840e58dcabf54de6929a13" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; Subproblem::cur_best_bi_projection</definition>
+        <argsstring></argsstring>
+        <name>cur_best_bi_projection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="33" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1afb2f2cc06a01d6a352207ed518fee5b8" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; Subproblem::cur_best_bi_projection_first</definition>
+        <argsstring></argsstring>
+        <name>cur_best_bi_projection_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="34" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a99269ee5048becf3535b21290d4d6a79" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;float&gt; &gt; Subproblem::cur_best_bi_projection_score</definition>
+        <argsstring></argsstring>
+        <name>cur_best_bi_projection_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="35" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a4f61c01d8061ff6e540b77701f11f7ca" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector&lt;int&gt; &gt; &gt; Subproblem::cur_best_tri_projection</definition>
+        <argsstring></argsstring>
+        <name>cur_best_tri_projection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="37" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a4262aed363f1e021f92b7d391018da17" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector&lt;int&gt; &gt; &gt; Subproblem::cur_best_tri_projection_first</definition>
+        <argsstring></argsstring>
+        <name>cur_best_tri_projection_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="38" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a9ba71979483a60c3dd1ec1f2bdda0406" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; float &gt; &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector &lt;float&gt; &gt; &gt; Subproblem::cur_best_tri_projection_score</definition>
+        <argsstring></argsstring>
+        <name>cur_best_tri_projection_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="39" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a3a9a08474f52791f4e415ccb5a82bf4a" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector&lt;bool&gt; &gt; &gt; Subproblem::cur_best_tri_projection_is_new</definition>
+        <argsstring></argsstring>
+        <name>cur_best_tri_projection_is_new</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="42" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a5cd02f92aec0f5679528a2704713d722" prot="private" static="no" mutable="no">
+        <type>vector&lt; float &gt;</type>
+        <definition>vector&lt;float&gt; Subproblem::cur_best_score</definition>
+        <argsstring></argsstring>
+        <name>cur_best_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="45" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a411f76917d16dc2d46332170c6028d39" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Subproblem::cur_best_one</definition>
+        <argsstring></argsstring>
+        <name>cur_best_one</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="46" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a6a80babf2d5b64a248a2601dd64dca83" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Subproblem::cur_best_two</definition>
+        <argsstring></argsstring>
+        <name>cur_best_two</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="47" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1ac346c40eeb09d322d06a22236eabd839" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Subproblem::first_time</definition>
+        <argsstring></argsstring>
+        <name>first_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="174" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a540fc361669695cfa02c13608648436f" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float &gt; &gt; Subproblem::best_lm_score</definition>
+        <argsstring></argsstring>
+        <name>best_lm_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="189" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1aa54b303bc7f0dea332985943df9d7387" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float &gt; &gt; Subproblem::bigram_score_cache</definition>
+        <argsstring></argsstring>
+        <name>bigram_score_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="191" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1ad2c106f2938814c7a0dcbd8304f5136b" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float &gt; &gt; Subproblem::backoff_score_cache</definition>
+        <argsstring></argsstring>
+        <name>backoff_score_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="193" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a016f7d75e40b30d7415b4143019cdfac" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float &gt; &gt; Subproblem::bigram_weight_cache_one</definition>
+        <argsstring></argsstring>
+        <name>bigram_weight_cache_one</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="195" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a52ddca940d8bc6eeba11331c29ef0d60" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float &gt; &gt; Subproblem::bigram_weight_cache_two</definition>
+        <argsstring></argsstring>
+        <name>bigram_weight_cache_two</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="196" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a30d8d310daebe0b4ae49d745dfc058b2" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; bool &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;bool &gt; &gt; Subproblem::bigram_in_lm</definition>
+        <argsstring></argsstring>
+        <name>bigram_in_lm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="198" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a9e11271c97d355302e611a1e4ca5c7d7" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;vector &lt;int&gt; *&gt; &gt; Subproblem::forward_trigrams</definition>
+        <argsstring></argsstring>
+        <name>forward_trigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="200" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a5bb738b4a6ab66dc955b0730c6efa7bc" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; double &gt; * &gt; &gt;</type>
+        <definition>vector&lt; vector&lt; vector &lt;double&gt; * &gt; &gt; Subproblem::forward_trigrams_score</definition>
+        <argsstring></argsstring>
+        <name>forward_trigrams_score</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="202" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a56565336347e92bfe2c1da5528a15a88" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+        <definition>const ForestLattice* Subproblem::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="205" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a129e781c3e40b205f2b07ff01abf20c4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref> *</type>
+        <definition>NgramCache* Subproblem::lm</definition>
+        <argsstring></argsstring>
+        <name>lm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="206" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a2f92cf122793421cfd6a671eba4d9b4a" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref> *</type>
+        <definition>const GraphDecompose* Subproblem::gd</definition>
+        <argsstring></argsstring>
+        <name>gd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="208" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1afa9440dbccbbd613893500eb172d6222" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref>, int &gt;</type>
+        <definition>const Cache&lt;Graphnode, int&gt; Subproblem::_word_node_cache</definition>
+        <argsstring></argsstring>
+        <name>_word_node_cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="209" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a255151c68d10129530611f0341524749" prot="private" static="no" mutable="no">
+        <type><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref> *</type>
+        <definition>BigramRescore* Subproblem::bi_rescore_first</definition>
+        <argsstring></argsstring>
+        <name>bi_rescore_first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="211" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1a3e144fc8c55d2f7ab12f6512d1c6fcb0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref> *</type>
+        <definition>BigramRescore* Subproblem::bi_rescore_two</definition>
+        <argsstring></argsstring>
+        <name>bi_rescore_two</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="212" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_subproblem_1ab162552f8af9ee111227f6ec30b7a4f5" prot="public" static="no" mutable="no">
+        <type>vector&lt; bool &gt;</type>
+        <definition>vector&lt;bool &gt; Subproblem::overridden</definition>
+        <argsstring></argsstring>
+        <name>overridden</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="59" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_subproblem_1aa981fb8aa661221937b3cd021d72c396" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Subproblem::projection_dims</definition>
+        <argsstring></argsstring>
+        <name>projection_dims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="66" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_subproblem_1a0731d27c3c4c516126f7ae5cbf0e892f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::solve_proj</definition>
+        <argsstring>(int d2, int d3, bool first_time_proj, vector&lt; int &gt; &amp;proj_best_one, vector&lt; int &gt; &amp;proj_best_two, vector&lt; float &gt; &amp;proj_best_score, vector&lt; bool &gt; &amp;proj_best_is_new, bool is_simple)</argsstring>
+        <name>solve_proj</name>
+        <param>
+          <type>int</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>first_time_proj</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>proj_best_one</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>proj_best_two</declname>
+        </param>
+        <param>
+          <type>vector&lt; float &gt; &amp;</type>
+          <declname>proj_best_score</declname>
+        </param>
+        <param>
+          <type>vector&lt; bool &gt; &amp;</type>
+          <declname>proj_best_is_new</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_simple</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="55" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="441" bodyend="870"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1abadb1a6c35161686af3460076c4651b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::fixed_last_bigram</definition>
+        <argsstring>(int w1)</argsstring>
+        <name>fixed_last_bigram</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="176" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="332" bodyend="353"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_subproblem_1a1f76e6e7b079168299046c42e484c9cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::overridden_by</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>overridden_by</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="61" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1aba36ea76049a46e9ba1f0ac3ccec540a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::project</definition>
+        <argsstring>(int proj_dim, vector&lt; int &gt; projection)</argsstring>
+        <name>project</name>
+        <param>
+          <type>int</type>
+          <declname>proj_dim</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>projection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="67" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="883" bodyend="891"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a7c86b92cc388505602707376e52a0804" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::project_word</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>project_word</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="69" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a3f6d78f4567e70c35785d27a53a55490" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::separate</definition>
+        <argsstring>(int w1, int w2)</argsstring>
+        <name>separate</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="73" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a503126c48810484433fd6c3e428f6537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::projection_with_constraints</definition>
+        <argsstring>(int limit, int &amp;k, map&lt; int, set&lt; int &gt; &gt; &amp;constraints, vector&lt; int &gt; &amp;)</argsstring>
+        <name>projection_with_constraints</name>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>map&lt; int, set&lt; int &gt; &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <defname>proj</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="79" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="125" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a4c12e798de9d3e96d6935bd755f92a97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::best_one</definition>
+        <argsstring>(int w1, int w2, int w3) const </argsstring>
+        <name>best_one</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="82" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="82" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1abf452bcac2a8a28adbdbffe402e64dde" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::best_two</definition>
+        <argsstring>(int w1, int w2, int w3) const </argsstring>
+        <name>best_two</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="97" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="97" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a80e4996ec87d5c3501ef10abdd953260" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::best_score_dim</definition>
+        <argsstring>(int w1, int d, int d2) const </argsstring>
+        <name>best_score_dim</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="112" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="112" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a2e2a665cfdb9208f753eef143147d66c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::best_score_dim_min</definition>
+        <argsstring>(int w1, vector&lt; int &gt; ds, vector&lt; int &gt; ds2) const </argsstring>
+        <name>best_score_dim_min</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>ds2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="120" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="120" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a2b43a2a68724d8eb624f6d81a7745b70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Subproblem::is_new_dim</definition>
+        <argsstring>(int w1, int d, int d2) const </argsstring>
+        <name>is_new_dim</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="131" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="131" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a8359ae9db4d8a830d390312bc57eef6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::best_score</definition>
+        <argsstring>(int w1, int w2, int w3) const </argsstring>
+        <name>best_score</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="140" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="140" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1ae6b6a16e00079ebd5b56acbdfdaf3aab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Subproblem::Subproblem</definition>
+        <argsstring>(const ForestLattice *g, NgramCache *lm_in, const GraphDecompose *gd_in, const Cache&lt; Graphnode, int &gt; &amp;word_node_cache_in)</argsstring>
+        <name>Subproblem</name>
+        <param>
+          <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref> *</type>
+          <declname>lm_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref> *</type>
+          <declname>gd_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref>, int &gt; &amp;</type>
+          <declname>word_node_cache_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="156" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="20" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1adf6eb478907ed5c7c9f08a3cfcdfec76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::update_weights</definition>
+        <argsstring>(vector&lt; int &gt; u_pos, vector&lt; float &gt; u_values, bool first)</argsstring>
+        <name>update_weights</name>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>u_pos</declname>
+        </param>
+        <param>
+          <type>vector&lt; float &gt;</type>
+          <declname>u_values</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>first</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="157" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="298" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a27c807a807f154ea28e7da7692466638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::solve</definition>
+        <argsstring>()</argsstring>
+        <name>solve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="158" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="412" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a8220595977ed219234d36dfadd0dde82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Subproblem::initialize_caches</definition>
+        <argsstring>()</argsstring>
+        <name>initialize_caches</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="159" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="355" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a9c57f3bd41e2788d9f393db8bbbe26ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt; int &gt; Subproblem::get_best_nodes_between</definition>
+        <argsstring>(int w1, int w2, bool first)</argsstring>
+        <name>get_best_nodes_between</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>first</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="161" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="307" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a3c426fd46fcacefc561b68f0fc111795" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Subproblem::get_best_bigram_weight</definition>
+        <argsstring>(int w1, int w2, bool first)</argsstring>
+        <name>get_best_bigram_weight</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>first</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="162" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="324" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1adfba5511e1f004b989f7b2e03d998c4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Subproblem::primal_score</definition>
+        <argsstring>(int word[], int l)</argsstring>
+        <name>primal_score</name>
+        <param>
+          <type>int</type>
+          <declname>word</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="163" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="937" bodyend="943"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1ab5e3b5e167561a79da1d815af120b6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::word_prob</definition>
+        <argsstring>(int, int, int)</argsstring>
+        <name>word_prob</name>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>j</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>k</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="165" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="945" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1acc456e9852f19058da2d884feec15679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::word_backoff</definition>
+        <argsstring>(int)</argsstring>
+        <name>word_backoff</name>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="166" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="950" bodyend="957"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1afd0b98fea6ebb39ae5ad46d1010cb6a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::word_backoff_two</definition>
+        <argsstring>(int i, int j)</argsstring>
+        <name>word_backoff_two</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="167" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="959" bodyend="967"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a32718cd109a52be59a7eecd3dc5f4c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::word_prob_reverse</definition>
+        <argsstring>(int, int, int)</argsstring>
+        <name>word_prob_reverse</name>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>j</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>k</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="168" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="969" bodyend="972"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1ab612e729dd11b5ac27ce9f67e0135c0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Subproblem::word_prob_bigram_reverse</definition>
+        <argsstring>(int i, int j)</argsstring>
+        <name>word_prob_bigram_reverse</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="169" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="974" bodyend="977"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a522f5f38fddff38424fe3958104a9612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::word_bow_reverse</definition>
+        <argsstring>(int i, int j, int k)</argsstring>
+        <name>word_bow_reverse</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="170" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="987" bodyend="996"/>
+      </memberdef>
+      <memberdef kind="function" id="class_subproblem_1a1bce1ad18ee9c123677f39cccda7feb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Subproblem::word_bow_bigram_reverse</definition>
+        <argsstring>(int i, int j)</argsstring>
+        <name>word_bow_bigram_reverse</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="171" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.cpp" bodystart="980" bodyend="985"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1198">
+        <label>std::vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</label>
+        <childnode refid="1196" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1203">
+        <label>GraphDecompose</label>
+        <link refid="class_graph_decompose"/>
+        <childnode refid="1179" relation="usage">
+          <edgelabel>backward_bigrams</edgelabel>
+          <edgelabel>forward_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="1204" relation="usage">
+          <edgelabel>bigram_paths</edgelabel>
+        </childnode>
+        <childnode refid="1183" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="1196" relation="usage">
+          <edgelabel>all_pairs_path_exist</edgelabel>
+        </childnode>
+        <childnode refid="1199" relation="usage">
+          <edgelabel>all_pairs_path</edgelabel>
+        </childnode>
+        <childnode refid="1185" relation="usage">
+          <edgelabel>valid_bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="1194">
+        <label>T</label>
+      </node>
+      <node id="1189">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="1190" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1185">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="1186" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1193">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="1194" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1183">
+        <label>ForestLattice</label>
+        <link refid="class_forest_lattice"/>
+        <childnode refid="1184" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="1179" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="1187" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="1195" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1181" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="1185" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="1202">
+        <label>std::vector&lt; float &gt;</label>
+      </node>
+      <node id="1200">
+        <label>BigramRescore</label>
+        <link refid="class_bigram_rescore"/>
+        <childnode refid="1179" relation="usage">
+          <edgelabel>forward_paths</edgelabel>
+          <edgelabel>best_split</edgelabel>
+          <edgelabel>backward_paths</edgelabel>
+        </childnode>
+        <childnode refid="1183" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="1196" relation="usage">
+          <edgelabel>need_to_recompute</edgelabel>
+        </childnode>
+        <childnode refid="1199" relation="usage">
+          <edgelabel>bigram_path</edgelabel>
+        </childnode>
+        <childnode refid="1201" relation="usage">
+          <edgelabel>bigram_weights</edgelabel>
+        </childnode>
+        <childnode refid="1181" relation="usage">
+          <edgelabel>update_position</edgelabel>
+        </childnode>
+        <childnode refid="1202" relation="usage">
+          <edgelabel>current_weights</edgelabel>
+        </childnode>
+        <childnode refid="1182" relation="usage">
+          <edgelabel>update_filter</edgelabel>
+        </childnode>
+        <childnode refid="1203" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+      </node>
+      <node id="1197">
+        <label>NgramCache</label>
+        <link refid="class_ngram_cache"/>
+      </node>
+      <node id="1180">
+        <label>Cache&lt; Graphnode, int &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="1181" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="1182" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1195">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="1191" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1186">
+        <label>Bigram</label>
+        <link refid="struct_bigram"/>
+      </node>
+      <node id="1205">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt;</label>
+        <childnode refid="1179" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1178">
+        <label>Subproblem</label>
+        <link refid="class_subproblem"/>
+        <childnode refid="1179" relation="usage">
+          <edgelabel>cur_best_at_bi</edgelabel>
+          <edgelabel>cur_best_bi_projection_first</edgelabel>
+          <edgelabel>cur_best_bi_projection</edgelabel>
+        </childnode>
+        <childnode refid="1180" relation="usage">
+          <edgelabel>_word_node_cache</edgelabel>
+        </childnode>
+        <childnode refid="1183" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="1196" relation="usage">
+          <edgelabel>bigram_in_lm</edgelabel>
+        </childnode>
+        <childnode refid="1197" relation="usage">
+          <edgelabel>lm</edgelabel>
+        </childnode>
+        <childnode refid="1198" relation="usage">
+          <edgelabel>cur_best_tri_projection_is_new</edgelabel>
+        </childnode>
+        <childnode refid="1199" relation="usage">
+          <edgelabel>forward_trigrams</edgelabel>
+        </childnode>
+        <childnode refid="1200" relation="usage">
+          <edgelabel>bi_rescore_two</edgelabel>
+          <edgelabel>bi_rescore_first</edgelabel>
+        </childnode>
+        <childnode refid="1201" relation="usage">
+          <edgelabel>bigram_weight_cache_two</edgelabel>
+          <edgelabel>bigram_weight_cache_one</edgelabel>
+          <edgelabel>bigram_score_cache</edgelabel>
+          <edgelabel>cur_best_at_bi_score</edgelabel>
+          <edgelabel>cur_best_bi_projection_score</edgelabel>
+          <edgelabel>best_lm_score</edgelabel>
+          <edgelabel>backoff_score_cache</edgelabel>
+        </childnode>
+        <childnode refid="1205" relation="usage">
+          <edgelabel>cur_best_tri_projection</edgelabel>
+          <edgelabel>cur_best_tri_projection_first</edgelabel>
+        </childnode>
+        <childnode refid="1202" relation="usage">
+          <edgelabel>cur_best_score</edgelabel>
+        </childnode>
+        <childnode refid="1181" relation="usage">
+          <edgelabel>projection</edgelabel>
+          <edgelabel>cur_best_two</edgelabel>
+          <edgelabel>cur_best_count</edgelabel>
+          <edgelabel>cur_best_one</edgelabel>
+        </childnode>
+        <childnode refid="1182" relation="usage">
+          <edgelabel>overridden</edgelabel>
+        </childnode>
+        <childnode refid="1203" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+        <childnode refid="1206" relation="usage">
+          <edgelabel>cur_best_tri_projection_score</edgelabel>
+        </childnode>
+        <childnode refid="1207" relation="usage">
+          <edgelabel>forward_trigrams_score</edgelabel>
+        </childnode>
+      </node>
+      <node id="1190">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="1188" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1191" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="1192">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1184">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="1185" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1179">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="1206">
+        <label>std::vector&lt; vector&lt; vector&lt; float &gt; &gt; &gt;</label>
+        <childnode refid="1201" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1201">
+        <label>std::vector&lt; vector&lt; float &gt; &gt;</label>
+        <childnode refid="1202" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1182">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1207">
+        <label>std::vector&lt; vector&lt; vector&lt; double &gt; * &gt; &gt;</label>
+      </node>
+      <node id="1199">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="1204">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="1188">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="1189" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1187">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="1188" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1193" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="1181">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="1196">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="1191">
+        <label>std::string</label>
+        <childnode refid="1192" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" line="21" bodyfile="/home/srush/Projects/relax_decode/trans_decode/dual_subproblem.h" bodystart="21" bodyend="213"/>
+    <listofallmembers>
+      <member refid="class_subproblem_1aac90e8ff8e757aa0c68fc619c547f58e" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>_first_time_proj</name></member>
+      <member refid="class_subproblem_1afa9440dbccbbd613893500eb172d6222" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>_word_node_cache</name></member>
+      <member refid="class_subproblem_1ad2c106f2938814c7a0dcbd8304f5136b" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>backoff_score_cache</name></member>
+      <member refid="class_subproblem_1a540fc361669695cfa02c13608648436f" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>best_lm_score</name></member>
+      <member refid="class_subproblem_1a4c12e798de9d3e96d6935bd755f92a97" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>best_one</name></member>
+      <member refid="class_subproblem_1a8359ae9db4d8a830d390312bc57eef6f" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>best_score</name></member>
+      <member refid="class_subproblem_1a80e4996ec87d5c3501ef10abdd953260" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>best_score_dim</name></member>
+      <member refid="class_subproblem_1a2e2a665cfdb9208f753eef143147d66c" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>best_score_dim_min</name></member>
+      <member refid="class_subproblem_1abf452bcac2a8a28adbdbffe402e64dde" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>best_two</name></member>
+      <member refid="class_subproblem_1a255151c68d10129530611f0341524749" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bi_rescore_first</name></member>
+      <member refid="class_subproblem_1a3e144fc8c55d2f7ab12f6512d1c6fcb0" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bi_rescore_two</name></member>
+      <member refid="class_subproblem_1a30d8d310daebe0b4ae49d745dfc058b2" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bigram_in_lm</name></member>
+      <member refid="class_subproblem_1aa54b303bc7f0dea332985943df9d7387" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bigram_score_cache</name></member>
+      <member refid="class_subproblem_1a016f7d75e40b30d7415b4143019cdfac" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bigram_weight_cache_one</name></member>
+      <member refid="class_subproblem_1a52ddca940d8bc6eeba11331c29ef0d60" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>bigram_weight_cache_two</name></member>
+      <member refid="class_subproblem_1ae8aa19f592682ec439282eb4b4ea658c" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_at_bi</name></member>
+      <member refid="class_subproblem_1a0b32d5edf6826eeaef44fa7f87ea4738" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_at_bi_score</name></member>
+      <member refid="class_subproblem_1a01f322bfc4840e58dcabf54de6929a13" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_bi_projection</name></member>
+      <member refid="class_subproblem_1afb2f2cc06a01d6a352207ed518fee5b8" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_bi_projection_first</name></member>
+      <member refid="class_subproblem_1a99269ee5048becf3535b21290d4d6a79" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_bi_projection_score</name></member>
+      <member refid="class_subproblem_1a6e1a534d1d46267855aca38f8ff32117" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_count</name></member>
+      <member refid="class_subproblem_1a411f76917d16dc2d46332170c6028d39" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_one</name></member>
+      <member refid="class_subproblem_1a5cd02f92aec0f5679528a2704713d722" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_score</name></member>
+      <member refid="class_subproblem_1a4f61c01d8061ff6e540b77701f11f7ca" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_tri_projection</name></member>
+      <member refid="class_subproblem_1a4262aed363f1e021f92b7d391018da17" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_tri_projection_first</name></member>
+      <member refid="class_subproblem_1a3a9a08474f52791f4e415ccb5a82bf4a" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_tri_projection_is_new</name></member>
+      <member refid="class_subproblem_1a9ba71979483a60c3dd1ec1f2bdda0406" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_tri_projection_score</name></member>
+      <member refid="class_subproblem_1a6a80babf2d5b64a248a2601dd64dca83" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>cur_best_two</name></member>
+      <member refid="class_subproblem_1ac346c40eeb09d322d06a22236eabd839" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>first_time</name></member>
+      <member refid="class_subproblem_1abadb1a6c35161686af3460076c4651b3" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>fixed_last_bigram</name></member>
+      <member refid="class_subproblem_1a9e11271c97d355302e611a1e4ca5c7d7" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>forward_trigrams</name></member>
+      <member refid="class_subproblem_1a5bb738b4a6ab66dc955b0730c6efa7bc" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>forward_trigrams_score</name></member>
+      <member refid="class_subproblem_1a2f92cf122793421cfd6a671eba4d9b4a" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>gd</name></member>
+      <member refid="class_subproblem_1a3c426fd46fcacefc561b68f0fc111795" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>get_best_bigram_weight</name></member>
+      <member refid="class_subproblem_1a9c57f3bd41e2788d9f393db8bbbe26ef" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>get_best_nodes_between</name></member>
+      <member refid="class_subproblem_1a56565336347e92bfe2c1da5528a15a88" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>graph</name></member>
+      <member refid="class_subproblem_1a8220595977ed219234d36dfadd0dde82" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>initialize_caches</name></member>
+      <member refid="class_subproblem_1a2b43a2a68724d8eb624f6d81a7745b70" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>is_new_dim</name></member>
+      <member refid="class_subproblem_1a129e781c3e40b205f2b07ff01abf20c4" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>lm</name></member>
+      <member refid="class_subproblem_1ab162552f8af9ee111227f6ec30b7a4f5" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>overridden</name></member>
+      <member refid="class_subproblem_1a1f76e6e7b079168299046c42e484c9cf" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>overridden_by</name></member>
+      <member refid="class_subproblem_1adfba5511e1f004b989f7b2e03d998c4e" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>primal_score</name></member>
+      <member refid="class_subproblem_1aba36ea76049a46e9ba1f0ac3ccec540a" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>project</name></member>
+      <member refid="class_subproblem_1a7c86b92cc388505602707376e52a0804" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>project_word</name></member>
+      <member refid="class_subproblem_1a8f5433f085509c9b756647fd7a4a1258" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>projection</name></member>
+      <member refid="class_subproblem_1aa981fb8aa661221937b3cd021d72c396" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>projection_dims</name></member>
+      <member refid="class_subproblem_1a503126c48810484433fd6c3e428f6537" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>projection_with_constraints</name></member>
+      <member refid="class_subproblem_1a3f6d78f4567e70c35785d27a53a55490" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>separate</name></member>
+      <member refid="class_subproblem_1a27c807a807f154ea28e7da7692466638" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>solve</name></member>
+      <member refid="class_subproblem_1a0731d27c3c4c516126f7ae5cbf0e892f" prot="private" virt="non-virtual"><scope>Subproblem</scope><name>solve_proj</name></member>
+      <member refid="class_subproblem_1ae6b6a16e00079ebd5b56acbdfdaf3aab" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>Subproblem</name></member>
+      <member refid="class_subproblem_1adf6eb478907ed5c7c9f08a3cfcdfec76" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>update_weights</name></member>
+      <member refid="class_subproblem_1acc456e9852f19058da2d884feec15679" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_backoff</name></member>
+      <member refid="class_subproblem_1afd0b98fea6ebb39ae5ad46d1010cb6a3" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_backoff_two</name></member>
+      <member refid="class_subproblem_1a1bce1ad18ee9c123677f39cccda7feb5" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_bow_bigram_reverse</name></member>
+      <member refid="class_subproblem_1a522f5f38fddff38424fe3958104a9612" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_bow_reverse</name></member>
+      <member refid="class_subproblem_1ab5e3b5e167561a79da1d815af120b6bd" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_prob</name></member>
+      <member refid="class_subproblem_1ab612e729dd11b5ac27ce9f67e0135c0a" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_prob_bigram_reverse</name></member>
+      <member refid="class_subproblem_1a32718cd109a52be59a7eecd3dc5f4c8a" prot="public" virt="non-virtual"><scope>Subproblem</scope><name>word_prob_reverse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

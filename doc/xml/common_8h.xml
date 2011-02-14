@@ -3,18 +3,18 @@
   <compounddef id="common_8h" kind="file">
     <compoundname>common.h</compoundname>
     <includes local="no">boost/foreach.hpp</includes>
-    <includedby refid="CubeLM_8cpp" local="yes">CubeLM.cpp</includedby>
-    <includedby refid="CubeLM_8h" local="yes">CubeLM.h</includedby>
-    <includedby refid="DualDecompTagger_8cpp" local="yes">DualDecompTagger.cpp</includedby>
-    <includedby refid="FullParser_8cpp" local="yes">FullParser.cpp</includedby>
-    <includedby refid="FullTagger_8cpp" local="yes">FullTagger.cpp</includedby>
-    <includedby refid="Main_8cpp" local="yes">Main.cpp</includedby>
-    <includedby refid="MRFSolver_8cpp" local="yes">MRFSolver.cpp</includedby>
-    <includedby refid="Parse_8cpp" local="yes">Parse.cpp</includedby>
-    <includedby refid="PhraseLP_8cpp" local="yes">PhraseLP.cpp</includedby>
-    <includedby refid="PhraseViterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
-    <includedby refid="PottsTagger_8cpp" local="yes">PottsTagger.cpp</includedby>
-    <includedby refid="Tag_8cpp" local="yes">Tag.cpp</includedby>
+    <includedby refid="_cube_l_m_8cpp" local="yes">CubeLM.cpp</includedby>
+    <includedby refid="_cube_l_m_8h" local="yes">CubeLM.h</includedby>
+    <includedby refid="_dual_decomp_tagger_8cpp" local="yes">DualDecompTagger.cpp</includedby>
+    <includedby refid="_full_parser_8cpp" local="yes">FullParser.cpp</includedby>
+    <includedby refid="_full_tagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="_main_8cpp" local="yes">Main.cpp</includedby>
+    <includedby refid="_m_r_f_solver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <includedby refid="_parse_8cpp" local="yes">Parse.cpp</includedby>
+    <includedby refid="_phrase_l_p_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="_phrase_viterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
+    <includedby refid="_potts_tagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <includedby refid="_tag_8cpp" local="yes">Tag.cpp</includedby>
     <incdepgraph>
       <node id="0">
         <label>common.h</label>
@@ -29,7 +29,7 @@
     <invincdepgraph>
       <node id="3">
         <label>CubeLM.h</label>
-        <link refid="CubeLM_8h_source"/>
+        <link refid="_cube_l_m_8h_source"/>
       </node>
       <node id="2">
         <label>common.h</label>
@@ -38,7 +38,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classClock" prot="public">Clock</innerclass>
+    <innerclass refid="class_clock" prot="public">Clock</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="common_8h_1afc23d36363fbbe2abc70fc848a6513d2" prot="public" static="no">
         <name>LMWEIGHT</name>
@@ -112,7 +112,7 @@
 <codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INF<sp/>1e8</highlight></codeline>
 <codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>uint;</highlight></codeline>
-<codeline lineno="19" refid="classClock" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classClock" kindref="compound">Clock</ref><sp/>{</highlight></codeline>
+<codeline lineno="19" refid="class_clock" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_clock" kindref="compound">Clock</ref><sp/>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diffclock(clock_t<sp/>clock1,clock_t<sp/>clock2){</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diffticks=clock1-clock2;</highlight></codeline>

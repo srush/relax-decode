@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kind="struct" prot="public">
+    <compoundname>Scarab::HG::DepParserLP</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1af31e9d91e3407559cd2588bfef2296e3" prot="public" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="struct_dependency" kindref="compound">Dependency</ref>, GRBVar &gt;</type>
+        <definition>Cache&lt;Dependency, GRBVar&gt; Scarab::HG::DepParserLP::dep_vars</definition>
+        <argsstring></argsstring>
+        <name>dep_vars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h" line="18" bodyfile="/home/srush/Projects/relax_decode/lp/DepParseLP.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1a93d0f269dabdd6fe83c68ee51baafb62" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_dep_parser" kindref="compound">DepParser</ref> &amp;</type>
+        <definition>const DepParser&amp; Scarab::HG::DepParserLP::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h" line="19" bodyfile="/home/srush/Projects/relax_decode/lp/DepParseLP.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1acab7463a0d1349c5a1250ac0653c0569" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref> &amp;</type>
+        <definition>const HypergraphLP&amp; Scarab::HG::DepParserLP::h_lp</definition>
+        <argsstring></argsstring>
+        <name>h_lp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h" line="20" bodyfile="/home/srush/Projects/relax_decode/lp/DepParseLP.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1aaec1248e50de35594c4a20e89a782e95" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::HG::DepParserLP::DepParserLP</definition>
+        <argsstring>(const DepParser &amp;parser, const HypergraphLP &amp;hyper_lp)</argsstring>
+        <name>DepParserLP</name>
+        <param>
+          <type>const <ref refid="class_dep_parser" kindref="compound">DepParser</ref> &amp;</type>
+          <declname>parser</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref> &amp;</type>
+          <declname>hyper_lp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h" line="17" bodyfile="/home/srush/Projects/relax_decode/lp/DepParseLP.h" bodystart="16" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="444">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hyperedge"/>
+      </node>
+      <node id="436">
+        <label>Cache&lt; Hyperedge, GRBVar &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="434" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="440">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypergraph_impl"/>
+        <childnode refid="435" relation="public-inheritance">
+        </childnode>
+        <childnode refid="441" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="443" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="442" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="432">
+        <label>Scarab::HG::HypergraphLP</label>
+        <link refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p"/>
+        <childnode refid="433" relation="usage">
+          <edgelabel>node_vars</edgelabel>
+        </childnode>
+        <childnode refid="435" relation="usage">
+          <edgelabel>_h</edgelabel>
+        </childnode>
+        <childnode refid="436" relation="usage">
+          <edgelabel>edge_vars</edgelabel>
+        </childnode>
+      </node>
+      <node id="442">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode"/>
+      </node>
+      <node id="448">
+        <label>Cache&lt; Dependency, vector&lt; const Hyperedge * &gt; &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="434" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="445">
+        <label>Cache&lt; Hyperedge, Dependency &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="434" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="439">
+        <label>DepParser</label>
+        <link refid="class_dep_parser"/>
+        <childnode refid="440" relation="public-inheritance">
+        </childnode>
+        <childnode refid="445" relation="usage">
+          <edgelabel>_dep_map</edgelabel>
+        </childnode>
+        <childnode refid="446" relation="usage">
+          <edgelabel>_dependencies</edgelabel>
+        </childnode>
+        <childnode refid="448" relation="usage">
+          <edgelabel>_edge_map</edgelabel>
+        </childnode>
+      </node>
+      <node id="437">
+        <label>Cache&lt; Dependency, GRBVar &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="438" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="434" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="447">
+        <label>Dependency</label>
+        <link refid="struct_dependency"/>
+      </node>
+      <node id="433">
+        <label>Cache&lt; Hypernode, GRBVar &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="434" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="441">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="442" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="435">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="class_scarab_1_1_h_g_1_1_h_graph"/>
+      </node>
+      <node id="438">
+        <label>std::vector&lt; GRBVar &gt;</label>
+      </node>
+      <node id="446">
+        <label>std::vector&lt; Dependency &gt;</label>
+        <childnode refid="447" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="434">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="431">
+        <label>Scarab::HG::DepParserLP</label>
+        <link refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p"/>
+        <childnode refid="432" relation="usage">
+          <edgelabel>h_lp</edgelabel>
+        </childnode>
+        <childnode refid="437" relation="usage">
+          <edgelabel>dep_vars</edgelabel>
+        </childnode>
+        <childnode refid="439" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+      </node>
+      <node id="443">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="444" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h" line="14" bodyfile="/home/srush/Projects/relax_decode/lp/DepParseLP.h" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1af31e9d91e3407559cd2588bfef2296e3" prot="public" virt="non-virtual"><scope>Scarab::HG::DepParserLP</scope><name>dep_vars</name></member>
+      <member refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1aaec1248e50de35594c4a20e89a782e95" prot="public" virt="non-virtual"><scope>Scarab::HG::DepParserLP</scope><name>DepParserLP</name></member>
+      <member refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1acab7463a0d1349c5a1250ac0653c0569" prot="public" virt="non-virtual"><scope>Scarab::HG::DepParserLP</scope><name>h_lp</name></member>
+      <member refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p_1a93d0f269dabdd6fe83c68ee51baafb62" prot="public" virt="non-virtual"><scope>Scarab::HG::DepParserLP</scope><name>p</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_scarab_1_1_h_g_1_1_tag_l_p_builder" kind="class" prot="public">
+    <compoundname>Scarab::HG::TagLPBuilder</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_tag_l_p_builder_1aa4990c224df5a1c82220a655ee51bd73" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::HG::TagLPBuilder::show_results</definition>
+        <argsstring>(const TagLP &amp;lp_vars)</argsstring>
+        <name>show_results</name>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_tag_l_p" kindref="compound">TagLP</ref> &amp;</type>
+          <declname>lp_vars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="26" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.cpp" bodystart="6" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_tag_l_p_builder_1a9c0f3ee542cbbed34945b80932272cea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_scarab_1_1_h_g_1_1_tag_l_p" kindref="compound">TagLP</ref> *</type>
+        <definition>TagLP * Scarab::HG::TagLPBuilder::add_tagging</definition>
+        <argsstring>(const Tagger &amp;parser, const Cache&lt; Hyperedge, double &gt; &amp;weights, string prefix, GRBModel &amp;model, int var_type)</argsstring>
+        <name>add_tagging</name>
+        <param>
+          <type>const <ref refid="class_tagger" kindref="compound">Tagger</ref> &amp;</type>
+          <declname>parser</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, double &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>GRBModel &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>var_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="28" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.cpp" bodystart="33" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/srush/Projects/relax_decode/lp/TagLP.h" line="24" bodyfile="/home/srush/Projects/relax_decode/lp/TagLP.h" bodystart="24" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_h_g_1_1_tag_l_p_builder_1a9c0f3ee542cbbed34945b80932272cea" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLPBuilder</scope><name>add_tagging</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_tag_l_p_builder_1aa4990c224df5a1c82220a655ee51bd73" prot="public" virt="non-virtual"><scope>Scarab::HG::TagLPBuilder</scope><name>show_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

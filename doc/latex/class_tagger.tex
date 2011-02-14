@@ -1,0 +1,111 @@
+\hypertarget{class_tagger}{
+\section{Tagger Class Reference}
+\label{class_tagger}\index{Tagger@{Tagger}}
+}
+Inheritance diagram for Tagger:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_tagger}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_tagger_a6e812fd7e339a21155f7b30f04292be1}{
+{\bfseries Tagger} (int num\_\-tags\_\-)}
+\label{class_tagger_a6e812fd7e339a21155f7b30f04292be1}
+
+\item 
+void \hyperlink{class_tagger_a4ebe0aebd7c0392970b401a5a6c6cd72}{print} () const 
+\item 
+\hypertarget{class_tagger_afafa6e435d17467db344ca615f24746f}{
+void {\bfseries set\_\-up} (const Hypergraph \&hgraph)}
+\label{class_tagger_afafa6e435d17467db344ca615f24746f}
+
+\item 
+\hypertarget{class_tagger_ad694ed218149b86c4ef5253328a41c49}{
+const Hypergraph \& {\bfseries hypergraph} () const }
+\label{class_tagger_ad694ed218149b86c4ef5253328a41c49}
+
+\item 
+vector$<$ \hyperlink{struct_tag}{Tag} $>$ \hyperlink{class_tagger_ae1e3802fb545c3430ca4d52ea5fd95db}{tags} () const 
+\item 
+\hypertarget{class_tagger_a5da221998377bf36c84013ba0d471b36}{
+uint {\bfseries num\_\-tags} () const }
+\label{class_tagger_a5da221998377bf36c84013ba0d471b36}
+
+\item 
+\hypertarget{class_tagger_ae762dd21f446b9ec618b0b83204bdc2e}{
+uint {\bfseries sent\_\-length} () const }
+\label{class_tagger_ae762dd21f446b9ec618b0b83204bdc2e}
+
+\item 
+\hypertarget{class_tagger_af01daf511528271a118a281b8595e0df}{
+\hyperlink{struct_tag}{Tag} {\bfseries make\_\-tag} (int ind, int tag) const }
+\label{class_tagger_af01daf511528271a118a281b8595e0df}
+
+\item 
+\hypertarget{class_tagger_a26472c386e7f5eebcb05c9d1843c1975}{
+const vector$<$ const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ \& {\bfseries tag\_\-to\_\-edge} (const \hyperlink{struct_tag}{Tag} \&tag) const }
+\label{class_tagger_a26472c386e7f5eebcb05c9d1843c1975}
+
+\item 
+\hypertarget{class_tagger_ae270a5be64b93945c180996aedcf6372}{
+bool {\bfseries tag\_\-has\_\-edge} (const \hyperlink{struct_tag}{Tag} \&tag) const }
+\label{class_tagger_ae270a5be64b93945c180996aedcf6372}
+
+\item 
+\hypertarget{class_tagger_ad615c8356f380baab01ae6675a25c409}{
+const \hyperlink{struct_tag}{Tag} \& {\bfseries edge\_\-to\_\-tag} (const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \&edge) const }
+\label{class_tagger_ad615c8356f380baab01ae6675a25c409}
+
+\item 
+\hypertarget{class_tagger_ad7f1dda6082e71cd113a3d77e9c33275}{
+bool {\bfseries edge\_\-has\_\-tag} (const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \&edge) const }
+\label{class_tagger_ad7f1dda6082e71cd113a3d77e9c33275}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_tagger_a4bf3332c608c078cbb2d5692c4f13b43}{
+int {\bfseries num\_\-tag}}
+\label{class_tagger_a4bf3332c608c078cbb2d5692c4f13b43}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_tagger_a305fd4cf75f2149a57109772e195eb47}{
+void {\bfseries make\_\-edge} (const Hypergraph\_\-Edge \&edge, const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Scarab::HG::Hyperedge} $\ast$our\_\-edge)}
+\label{class_tagger_a305fd4cf75f2149a57109772e195eb47}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tagger_a4ebe0aebd7c0392970b401a5a6c6cd72}{
+\index{Tagger@{Tagger}!print@{print}}
+\index{print@{print}!Tagger@{Tagger}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Tagger::print () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_tagger_a4ebe0aebd7c0392970b401a5a6c6cd72}
+Display the hypergraph for debugging. 
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_h_graph_ab5aa11c932b28864b56f28e0babbc1c1}{Scarab::HG::HGraph}.
+
+\hypertarget{class_tagger_ae1e3802fb545c3430ca4d52ea5fd95db}{
+\index{Tagger@{Tagger}!tags@{tags}}
+\index{tags@{tags}!Tagger@{Tagger}}
+\subsubsection[{tags}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Tag} $>$ Tagger::tags () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_tagger_ae1e3802fb545c3430ca4d52ea5fd95db}
+Enumerate all the possible tags for this sentence
+
+\begin{DoxyReturn}{Returns}
+An enumerator to all the tags in the sentence 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+tagger/Tagger.h\item 
+tagger/Tagger.cpp\end{DoxyCompactItemize}

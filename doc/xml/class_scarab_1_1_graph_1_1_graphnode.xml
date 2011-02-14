@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_scarab_1_1_graph_1_1_graphnode" kind="class" prot="public">
+    <compoundname>Scarab::Graph::Graphnode</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_scarab_1_1_graph_1_1_graphnode_1a5adfcfca409e5a5889a4a61e894d27a4" prot="private" static="no" mutable="no">
+        <type>uint</type>
+        <definition>uint Scarab::Graph::Graphnode::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="115" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scarab_1_1_graph_1_1_graphnode_1adff66a573b955bdcddf0ef3e17ae478d" prot="private" static="no" mutable="no">
+        <type>Edges</type>
+        <definition>Edges Scarab::Graph::Graphnode::_edges</definition>
+        <argsstring></argsstring>
+        <name>_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="116" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scarab_1_1_graph_1_1_graphnode_1a2e2b77e77174e9514786c41347c6562d" prot="private" static="no" mutable="no">
+        <type>Edges</type>
+        <definition>Edges Scarab::Graph::Graphnode::_in_edges</definition>
+        <argsstring></argsstring>
+        <name>_in_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="117" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scarab_1_1_graph_1_1_graphnode_1a2cda1b5dc57a6920b7cc551b92b0db0a" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Scarab::Graph::Graphnode::_label</definition>
+        <argsstring></argsstring>
+        <name>_label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="118" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1adce1b3b5b83d8fca4952f244bd093b9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Scarab::Graph::Graphnode::Graphnode</definition>
+        <argsstring>(uint id)</argsstring>
+        <name>Graphnode</name>
+        <param>
+          <type>uint</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="56" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a0ee84da523f29d984e86b0f9637c67df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Scarab::Graph::Graphnode::~Graphnode</definition>
+        <argsstring>()</argsstring>
+        <name>~Graphnode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="57" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a74eaaed5d31a0a2c0445f3de0859148f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint Scarab::Graph::Graphnode::id</definition>
+        <argsstring>() const </argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The unique identifier of the <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> <xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect><simplesect kind="return"><para>The number </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="64" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a78229cc45113d24f1373a50a13bc7be4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint Scarab::Graph::Graphnode::num_edges</definition>
+        <argsstring>() const </argsstring>
+        <name>num_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the number of edges connected to this node <xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription></xrefdescription></xrefsect><simplesect kind="return"><para>The number </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="74" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a717294ebbae2d29e9f97633407dae4ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint Scarab::Graph::Graphnode::num_in_edges</definition>
+        <argsstring>() const </argsstring>
+        <name>num_in_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="78" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a4ffd990052c812242cbdeeae7b0e1104" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Edges &amp;</type>
+        <definition>const Edges&amp; Scarab::Graph::Graphnode::edges</definition>
+        <argsstring>() const </argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get all edges with this node as head.</para><para>Treat this as a const iterator. <simplesect kind="return"><para>Const iterator to edges. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="90" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a001915a0fd7a6d4b06886f7865fc5189" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Edges &amp;</type>
+        <definition>const Edges&amp; Scarab::Graph::Graphnode::in_edges</definition>
+        <argsstring>() const </argsstring>
+        <name>in_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="95" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1ae37c75fd607395376ade1cda5294e2a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::Graph::Graphnode::set_edges</definition>
+        <argsstring>(Edges edges)</argsstring>
+        <name>set_edges</name>
+        <param>
+          <type>Edges</type>
+          <declname>edges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="99" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a22e722e5bcd49dcfa643304d631416dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::Graph::Graphnode::add_edge</definition>
+        <argsstring>(Edge edge)</argsstring>
+        <name>add_edge</name>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Edge</ref></type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="103" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a092b914639364b7b9168c84e3e556cea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::Graph::Graphnode::add_in_edge</definition>
+        <argsstring>(Edge edge)</argsstring>
+        <name>add_in_edge</name>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Edge</ref></type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="107" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_graph_1_1_graphnode_1a7ec0926462b47496b1158f16b87e69ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Scarab::Graph::Graphnode::set_label</definition>
+        <argsstring>(string lab)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>string</type>
+          <declname>lab</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="111" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="618">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="616" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="616">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="617" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="619" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="620">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="617">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="618" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="619">
+        <label>std::string</label>
+        <childnode refid="620" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/graph/Graph.h" line="54" bodyfile="/home/srush/Projects/relax_decode/graph/Graph.h" bodystart="54" bodyend="119"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1adff66a573b955bdcddf0ef3e17ae478d" prot="private" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a5adfcfca409e5a5889a4a61e894d27a4" prot="private" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>_id</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a2e2b77e77174e9514786c41347c6562d" prot="private" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>_in_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a2cda1b5dc57a6920b7cc551b92b0db0a" prot="private" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>_label</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a22e722e5bcd49dcfa643304d631416dc" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>add_edge</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a092b914639364b7b9168c84e3e556cea" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>add_in_edge</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a4ffd990052c812242cbdeeae7b0e1104" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1adce1b3b5b83d8fca4952f244bd093b9f" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>Graphnode</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a74eaaed5d31a0a2c0445f3de0859148f" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>id</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a001915a0fd7a6d4b06886f7865fc5189" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>in_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a78229cc45113d24f1373a50a13bc7be4" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>num_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a717294ebbae2d29e9f97633407dae4ce" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>num_in_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1ae37c75fd607395376ade1cda5294e2a4" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>set_edges</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a7ec0926462b47496b1158f16b87e69ca" prot="public" virt="non-virtual"><scope>Scarab::Graph::Graphnode</scope><name>set_label</name></member>
+      <member refid="class_scarab_1_1_graph_1_1_graphnode_1a0ee84da523f29d984e86b0f9637c67df" prot="public" virt="virtual"><scope>Scarab::Graph::Graphnode</scope><name>~Graphnode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

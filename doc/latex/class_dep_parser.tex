@@ -1,0 +1,85 @@
+\hypertarget{class_dep_parser}{
+\section{DepParser Class Reference}
+\label{class_dep_parser}\index{DepParser@{DepParser}}
+}
+Inheritance diagram for DepParser:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_dep_parser}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_dep_parser_a9aebbbde821bad423b6c01cc12f02a2c}{print} () const 
+\item 
+\hypertarget{class_dep_parser_a6131e95a8ec7b07f7a4d68dae224d52f}{
+void {\bfseries set\_\-up} (const Hypergraph \&hgraph)}
+\label{class_dep_parser_a6131e95a8ec7b07f7a4d68dae224d52f}
+
+\item 
+\hypertarget{class_dep_parser_aaec31758432c2d3336d2164996571688}{
+const Hypergraph \& {\bfseries hypergraph} () const }
+\label{class_dep_parser_aaec31758432c2d3336d2164996571688}
+
+\item 
+\hypertarget{class_dep_parser_aa64f67830bf4c3bf9936ba6056dfdff0}{
+vector$<$ \hyperlink{struct_dependency}{Dependency} $>$ {\bfseries dependencies} () const }
+\label{class_dep_parser_aa64f67830bf4c3bf9936ba6056dfdff0}
+
+\item 
+\hypertarget{class_dep_parser_aaff55cf38fd9b1fbfb22090ddeb72ba8}{
+uint {\bfseries num\_\-deps} () const }
+\label{class_dep_parser_aaff55cf38fd9b1fbfb22090ddeb72ba8}
+
+\item 
+\hypertarget{class_dep_parser_a86b99d09d76b7d6f8733b208e9f32822}{
+uint {\bfseries sent\_\-length} () const }
+\label{class_dep_parser_a86b99d09d76b7d6f8733b208e9f32822}
+
+\item 
+\hypertarget{class_dep_parser_a49afcb1a83a3c924869faf34cd9e968e}{
+\hyperlink{struct_dependency}{Dependency} {\bfseries make\_\-dep} (int head, int mod) const }
+\label{class_dep_parser_a49afcb1a83a3c924869faf34cd9e968e}
+
+\item 
+\hypertarget{class_dep_parser_a9fa2f0bf24cd870404f0a99b5926c558}{
+const vector$<$ const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ \& {\bfseries dep\_\-to\_\-edge} (const \hyperlink{struct_dependency}{Dependency} \&dep) const }
+\label{class_dep_parser_a9fa2f0bf24cd870404f0a99b5926c558}
+
+\item 
+\hypertarget{class_dep_parser_aa5ff87f99326c60633fb8e26d1737776}{
+const \hyperlink{struct_dependency}{Dependency} \& {\bfseries edge\_\-to\_\-dep} (const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \&edge) const }
+\label{class_dep_parser_aa5ff87f99326c60633fb8e26d1737776}
+
+\item 
+\hypertarget{class_dep_parser_abd0b9171e59c1c40cdb58807a46a5449}{
+bool {\bfseries edge\_\-has\_\-dep} (const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} \&edge) const }
+\label{class_dep_parser_abd0b9171e59c1c40cdb58807a46a5449}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_dep_parser_a04d313d931d1e8b0bac3a36ca7be469b}{
+void {\bfseries make\_\-edge} (const Hypergraph\_\-Edge \&edge, const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Scarab::HG::Hyperedge} $\ast$our\_\-edge)}
+\label{class_dep_parser_a04d313d931d1e8b0bac3a36ca7be469b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_dep_parser_a9aebbbde821bad423b6c01cc12f02a2c}{
+\index{DepParser@{DepParser}!print@{print}}
+\index{print@{print}!DepParser@{DepParser}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void DepParser::print () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_dep_parser_a9aebbbde821bad423b6c01cc12f02a2c}
+Display the hypergraph for debugging. 
+
+Implements \hyperlink{class_scarab_1_1_h_g_1_1_h_graph_ab5aa11c932b28864b56f28e0babbc1c1}{Scarab::HG::HGraph}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+parse/DepParser.h\end{DoxyCompactItemize}

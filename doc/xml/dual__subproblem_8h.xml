@@ -2,15 +2,15 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
   <compounddef id="dual__subproblem_8h" kind="file">
     <compoundname>dual_subproblem.h</compoundname>
-    <includes refid="ForestLattice_8h" local="yes">ForestLattice.h</includes>
-    <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
-    <includes refid="GraphDecompose_8h" local="yes">GraphDecompose.h</includes>
-    <includes refid="BigramRescore_8h" local="yes">BigramRescore.h</includes>
-    <includes refid="NGramCache_8h" local="yes">NGramCache.h</includes>
+    <includes refid="_forest_lattice_8h" local="yes">ForestLattice.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
+    <includes refid="_graph_decompose_8h" local="yes">GraphDecompose.h</includes>
+    <includes refid="_bigram_rescore_8h" local="yes">BigramRescore.h</includes>
+    <includes refid="_n_gram_cache_8h" local="yes">NGramCache.h</includes>
     <includes local="yes">../common.h</includes>
     <includes local="no">fstream</includes>
     <includes local="no">set</includes>
-    <includedby refid="Decode_8h" local="yes">trans_decode/Decode.h</includedby>
+    <includedby refid="_decode_8h" local="yes">trans_decode/Decode.h</includedby>
     <includedby refid="dual__subproblem_8cpp" local="yes">trans_decode/dual_subproblem.cpp</includedby>
     <incdepgraph>
       <node id="1760">
@@ -18,7 +18,7 @@
       </node>
       <node id="1761">
         <label>GraphDecompose.h</label>
-        <link refid="GraphDecompose_8h_source"/>
+        <link refid="_graph_decompose_8h_source"/>
         <childnode refid="1755" relation="include">
         </childnode>
         <childnode refid="1759" relation="include">
@@ -31,7 +31,7 @@
       </node>
       <node id="1758">
         <label>EdgeCache.h</label>
-        <link refid="EdgeCache_8h_source"/>
+        <link refid="_edge_cache_8h_source"/>
         <childnode refid="1755" relation="include">
         </childnode>
         <childnode refid="1759" relation="include">
@@ -44,7 +44,7 @@
       </node>
       <node id="1756">
         <label>Graph.h</label>
-        <link refid="Graph_8h_source"/>
+        <link refid="_graph_8h_source"/>
         <childnode refid="1755" relation="include">
         </childnode>
         <childnode refid="1753" relation="include">
@@ -54,7 +54,7 @@
       </node>
       <node id="1764">
         <label>NGramCache.h</label>
-        <link refid="NGramCache_8h_source"/>
+        <link refid="_n_gram_cache_8h_source"/>
         <childnode refid="1765" relation="include">
         </childnode>
         <childnode refid="1766" relation="include">
@@ -80,7 +80,7 @@
       </node>
       <node id="1762">
         <label>BigramRescore.h</label>
-        <link refid="BigramRescore_8h_source"/>
+        <link refid="_bigram_rescore_8h_source"/>
         <childnode refid="1752" relation="include">
         </childnode>
         <childnode refid="1761" relation="include">
@@ -114,7 +114,7 @@
       </node>
       <node id="1752">
         <label>ForestLattice.h</label>
-        <link refid="ForestLattice_8h_source"/>
+        <link refid="_forest_lattice_8h_source"/>
         <childnode refid="1753" relation="include">
         </childnode>
         <childnode refid="1754" relation="include">
@@ -134,7 +134,7 @@
     <invincdepgraph>
       <node id="1770">
         <label>trans_decode/Decode.h</label>
-        <link refid="Decode_8h_source"/>
+        <link refid="_decode_8h_source"/>
       </node>
       <node id="1769">
         <label>trans_decode/dual_subproblem.h</label>
@@ -143,7 +143,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classSubproblem" prot="public">Subproblem</innerclass>
+    <innerclass refid="class_subproblem" prot="public">Subproblem</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="dual__subproblem_8h_1a43e22deb2a5c0899c3e5602ad1e90682" prot="public" static="no">
         <name>MAX_PROJ</name>
@@ -204,7 +204,7 @@
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SkipTrigram;</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="classSubproblem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSubproblem" kindref="compound">Subproblem</ref><sp/>{</highlight></codeline>
+<codeline lineno="21" refid="class_subproblem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_subproblem" kindref="compound">Subproblem</ref><sp/>{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
@@ -338,8 +338,8 @@
 <codeline lineno="152"><highlight class="normal"></highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
 <codeline lineno="154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="classSubproblem" kindref="compound">Subproblem</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*g,<sp/><ref refid="classNgramCache" kindref="compound">NgramCache</ref><sp/>*<sp/>lm_in,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd_in,<sp/></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>&amp;<sp/>word_node_cache_in);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="class_subproblem" kindref="compound">Subproblem</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref><sp/>*g,<sp/><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref><sp/>*<sp/>lm_in,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd_in,<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>&amp;<sp/>word_node_cache_in);</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(vector<sp/>&lt;int&gt;<sp/>u_pos,<sp/>vector<sp/>&lt;float&gt;<sp/>u_values,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first);</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>solve();</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialize_caches();</highlight></codeline>
@@ -388,14 +388,14 @@
 <codeline lineno="202"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;<sp/>vector&lt;<sp/>vector<sp/>&lt;double&gt;<sp/>*<sp/>&gt;<sp/>&gt;<sp/>forward_trigrams_score;</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Bigram<sp/>valid_bigrams[NUMSTATES*NUMSTATES];</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>graph;</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="classNgramCache" kindref="compound">NgramCache</ref><sp/>*<sp/>lm;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>graph;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref><sp/>*<sp/>lm;</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd;</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>_word_node_cache;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>_word_node_cache;</highlight></codeline>
 <codeline lineno="210"><highlight class="normal"></highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref><sp/>*<sp/>bi_rescore_first;</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref><sp/>*<sp/>bi_rescore_two;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref><sp/>*<sp/>bi_rescore_first;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref><sp/>*<sp/>bi_rescore_two;</highlight></codeline>
 <codeline lineno="213"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"></highlight></codeline>
 <codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>class<sp/>SkipTrigram<sp/>{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>

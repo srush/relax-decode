@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_split_heuristic" kind="class" prot="public">
+    <compoundname>SplitHeuristic</compoundname>
+    <basecompoundref refid="class_scarab_1_1_h_g_1_1_heuristic" prot="public" virt="non-virtual">Scarab::HG::Heuristic</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_split_heuristic_1aeaf44350dbd9f28bbcf6d99f9a7cb65f" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hypernode" kindref="compound">Hypernode</ref>, <ref refid="class_scarab_1_1_h_g_1_1_best_hyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+        <definition>const Cache&lt;Hypernode , BestHyp&gt;&amp; SplitHeuristic::_outside_scores</definition>
+        <argsstring></argsstring>
+        <name>_outside_scores</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="68" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_split_heuristic_1a65f473db60e7ae2f318b987695a0a079" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="class_scarab_1_1_h_g_1_1_best_hyp" kindref="compound">BestHyp</ref> &gt; &gt; &amp;</type>
+        <definition>const Cache&lt;Hyperedge, vector&lt;BestHyp&gt; &gt;&amp; SplitHeuristic::_outside_edge_scores</definition>
+        <argsstring></argsstring>
+        <name>_outside_edge_scores</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="69" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_split_heuristic_1a8f58e4a4833f73460e2b2fb9c38448f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SplitHeuristic::SplitHeuristic</definition>
+        <argsstring>(const Cache&lt; Hypernode, BestHyp &gt; &amp;outside_scores, Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt; &amp;outside_edge_scores)</argsstring>
+        <name>SplitHeuristic</name>
+        <param>
+          <type>const <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hypernode" kindref="compound">Hypernode</ref>, <ref refid="class_scarab_1_1_h_g_1_1_best_hyp" kindref="compound">BestHyp</ref> &gt; &amp;</type>
+          <declname>outside_scores</declname>
+        </param>
+        <param>
+          <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, vector&lt; <ref refid="class_scarab_1_1_h_g_1_1_best_hyp" kindref="compound">BestHyp</ref> &gt; &gt; &amp;</type>
+          <declname>outside_edge_scores</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="29" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_split_heuristic_1a0080cc4428de2635263f31d7931c3066" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int SplitHeuristic::lower_id</definition>
+        <argsstring>(const Hypothesis &amp;hyp) const </argsstring>
+        <name>lower_id</name>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="31" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_split_heuristic_1a7117c99ce380835ed38aa02f82f8a04e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool SplitHeuristic::has_value</definition>
+        <argsstring>(const Location &amp;l, const Hypothesis &amp;hyp) const </argsstring>
+        <name>has_value</name>
+        <reimplements refid="class_scarab_1_1_h_g_1_1_heuristic_1afad5a99d38b6783521e4c670d3edcf0a">has_value</reimplements>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_location" kindref="compound">Location</ref> &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="36" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="36" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_split_heuristic_1ab64ec7cde28b49828bcde1ad97862cc2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double SplitHeuristic::get_value</definition>
+        <argsstring>(const Location &amp;l, const Hypothesis &amp;hyp) const </argsstring>
+        <name>get_value</name>
+        <reimplements refid="class_scarab_1_1_h_g_1_1_heuristic_1aca6b5924257b35be9e65058062fdc0d5">get_value</reimplements>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_location" kindref="compound">Location</ref> &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="54" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="54" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1130">
+        <label>SplitHeuristic</label>
+        <link refid="class_split_heuristic"/>
+        <childnode refid="1131" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1131">
+        <label>Scarab::HG::Heuristic</label>
+        <link refid="class_scarab_1_1_h_g_1_1_heuristic"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1132">
+        <label>SplitHeuristic</label>
+        <link refid="class_split_heuristic"/>
+        <childnode refid="1133" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1134" relation="usage">
+          <edgelabel>_outside_edge_scores</edgelabel>
+        </childnode>
+        <childnode refid="1135" relation="usage">
+          <edgelabel>_outside_scores</edgelabel>
+        </childnode>
+      </node>
+      <node id="1134">
+        <label>Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt;</label>
+        <link refid="class_cache"/>
+      </node>
+      <node id="1133">
+        <label>Scarab::HG::Heuristic</label>
+        <link refid="class_scarab_1_1_h_g_1_1_heuristic"/>
+      </node>
+      <node id="1135">
+        <label>Cache&lt; Hypernode, BestHyp &gt;</label>
+        <link refid="class_cache"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" line="24" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="24" bodyend="70"/>
+    <listofallmembers>
+      <member refid="class_split_heuristic_1a65f473db60e7ae2f318b987695a0a079" prot="private" virt="non-virtual"><scope>SplitHeuristic</scope><name>_outside_edge_scores</name></member>
+      <member refid="class_split_heuristic_1aeaf44350dbd9f28bbcf6d99f9a7cb65f" prot="private" virt="non-virtual"><scope>SplitHeuristic</scope><name>_outside_scores</name></member>
+      <member refid="class_split_heuristic_1ab64ec7cde28b49828bcde1ad97862cc2" prot="public" virt="virtual"><scope>SplitHeuristic</scope><name>get_value</name></member>
+      <member refid="class_split_heuristic_1a7117c99ce380835ed38aa02f82f8a04e" prot="public" virt="virtual"><scope>SplitHeuristic</scope><name>has_value</name></member>
+      <member refid="class_split_heuristic_1a0080cc4428de2635263f31d7931c3066" prot="public" virt="non-virtual"><scope>SplitHeuristic</scope><name>lower_id</name></member>
+      <member refid="class_split_heuristic_1a8f58e4a4833f73460e2b2fb9c38448f1" prot="public" virt="non-virtual"><scope>SplitHeuristic</scope><name>SplitHeuristic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

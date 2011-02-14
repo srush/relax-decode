@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_hard_constraints" kind="class" prot="public">
+    <compoundname>HardConstraints</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_hard_constraints_1ae0305e95d8065eb186ccae220b8e16f4" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; <ref refid="struct_possible_dep" kindref="compound">PossibleDep</ref> &gt; &gt;</type>
+        <definition>vector&lt; vector &lt;PossibleDep&gt; &gt; HardConstraints::_constraint_struct</definition>
+        <argsstring></argsstring>
+        <name>_constraint_struct</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="19" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hard_constraints_1a6b370ae5376bf283115092ab4bd33743" prot="public" static="no" mutable="no">
+        <type>vector&lt; GRBVar &gt;</type>
+        <definition>vector&lt; GRBVar &gt; HardConstraints::group_used</definition>
+        <argsstring></argsstring>
+        <name>group_used</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="20" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hard_constraints_1ad457a78e966e6ce3d71bfb3401b0300b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HardConstraints::read_from_file</definition>
+        <argsstring>(string file_name)</argsstring>
+        <name>read_from_file</name>
+        <param>
+          <type>string</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="22" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="22" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hard_constraints_1a923f4ddd8b164d924147c22f054a9c7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>GRBLinExpr</type>
+        <definition>GRBLinExpr HardConstraints::make_lin_expr</definition>
+        <argsstring>(const vector&lt; DepParserLP * &gt; &amp;lp_vars, const PossibleDep &amp;dep)</argsstring>
+        <name>make_lin_expr</name>
+        <param>
+          <type>const vector&lt; <ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref> * &gt; &amp;</type>
+          <declname>lp_vars</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_possible_dep" kindref="compound">PossibleDep</ref> &amp;</type>
+          <declname>dep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="45" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="45" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hard_constraints_1a0945fb67209be1cc95b31522d96e51cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HardConstraints::show_results</definition>
+        <argsstring>()</argsstring>
+        <name>show_results</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="60" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="60" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hard_constraints_1a71ae98e67f5e5d3035aff1c2ef941a92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HardConstraints::add_to_lp</definition>
+        <argsstring>(const vector&lt; DepParserLP * &gt; &amp;lp_vars, GRBModel &amp;model)</argsstring>
+        <name>add_to_lp</name>
+        <param>
+          <type>const vector&lt; <ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref> * &gt; &amp;</type>
+          <declname>lp_vars</declname>
+        </param>
+        <param>
+          <type>GRBModel &amp;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="68" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="68" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="633">
+        <label>HardConstraints</label>
+        <link refid="class_hard_constraints"/>
+        <childnode refid="634" relation="usage">
+          <edgelabel>_constraint_struct</edgelabel>
+        </childnode>
+        <childnode refid="635" relation="usage">
+          <edgelabel>group_used</edgelabel>
+        </childnode>
+      </node>
+      <node id="635">
+        <label>std::vector&lt; GRBVar &gt;</label>
+      </node>
+      <node id="634">
+        <label>std::vector&lt; vector&lt; PossibleDep &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lp/HardConstraints.h" line="17" bodyfile="/home/srush/Projects/relax_decode/lp/HardConstraints.h" bodystart="17" bodyend="98"/>
+    <listofallmembers>
+      <member refid="class_hard_constraints_1ae0305e95d8065eb186ccae220b8e16f4" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>_constraint_struct</name></member>
+      <member refid="class_hard_constraints_1a71ae98e67f5e5d3035aff1c2ef941a92" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>add_to_lp</name></member>
+      <member refid="class_hard_constraints_1a6b370ae5376bf283115092ab4bd33743" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>group_used</name></member>
+      <member refid="class_hard_constraints_1a923f4ddd8b164d924147c22f054a9c7e" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>make_lin_expr</name></member>
+      <member refid="class_hard_constraints_1ad457a78e966e6ce3d71bfb3401b0300b" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>read_from_file</name></member>
+      <member refid="class_hard_constraints_1a0945fb67209be1cc95b31522d96e51cc" prot="public" virt="non-virtual"><scope>HardConstraints</scope><name>show_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_n_gram_cache_8h" kind="file">
+    <compoundname>NGramCache.h</compoundname>
+    <includes local="no">Ngram.h</includes>
+    <includes local="no">Prob.h</includes>
+    <includedby refid="_cube_l_m_8cpp" local="no">CubeLM.cpp</includedby>
+    <includedby refid="_run_8cpp" local="yes">Run.cpp</includedby>
+    <includedby refid="dual__subproblem_8h" local="yes">trans_decode/dual_subproblem.h</includedby>
+    <includedby refid="_n_gram_cache_8cpp" local="yes">trans_decode/NGramCache.cpp</includedby>
+    <incdepgraph>
+      <node id="1776">
+        <label>trans_decode/NGramCache.h</label>
+        <link refid="NGramCache.h"/>
+        <childnode refid="1777" relation="include">
+        </childnode>
+        <childnode refid="1778" relation="include">
+        </childnode>
+      </node>
+      <node id="1777">
+        <label>Ngram.h</label>
+      </node>
+      <node id="1778">
+        <label>Prob.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1779">
+        <label>trans_decode/NGramCache.h</label>
+        <link refid="NGramCache.h"/>
+        <childnode refid="1780" relation="include">
+        </childnode>
+      </node>
+      <node id="1781">
+        <label>trans_decode/Decode.h</label>
+        <link refid="_decode_8h_source"/>
+      </node>
+      <node id="1780">
+        <label>trans_decode/dual_subproblem.h</label>
+        <link refid="dual__subproblem_8h_source"/>
+        <childnode refid="1781" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_ngram_cache" prot="public">NgramCache</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_n_gram_cache_8h_1aa27429c110b33c64bc27a30b1702265e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref> *</type>
+        <definition>NgramCache* load_ngram_cache</definition>
+        <argsstring>(const char *filename)</argsstring>
+        <name>load_ngram_cache</name>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h" line="34" bodyfile="/home/srush/Projects/relax_decode/trans_decode/NGramCache.cpp" bodystart="77" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>NGRAMCACHE_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NGRAMCACHE_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Ngram.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Prob.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_ngram_cache" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Ngram<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref>(Vocab<sp/>&amp;<sp/>v,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>:Ngram(v,<sp/>i)<sp/>{}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasNext(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VocabIndex<sp/>next)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)<sp/>trieNode-&gt;findTrie(next);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>LogP<sp/>wordProbPrimeCache(VocabIndex<sp/>word,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VocabIndex<sp/>*context);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>LogP<sp/>wordProbFromCache(VocabIndex<sp/>word,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VocabIndex<sp/>*context);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>LogP<sp/>logp;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>LogP<sp/>bow;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>found;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>BOtrie<sp/>*trieNode;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>helper<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref><sp/>*<sp/>load_ngram_cache(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>filename);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/NGramCache.h"/>
+  </compounddef>
+</doxygen>

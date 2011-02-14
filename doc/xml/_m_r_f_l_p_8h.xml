@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_m_r_f_l_p_8h" kind="file">
+    <compoundname>MRFLP.h</compoundname>
+    <includes local="yes">gurobi_c++.h</includes>
+    <includes refid="_m_r_f_8h" local="yes">MRF.h</includes>
+    <includes refid="_graph_8h" local="yes">Graph.h</includes>
+    <includedby refid="_tag_mrf_l_p_8h" local="yes">lp/TagMrfLP.h</includedby>
+    <includedby refid="_m_r_f_solver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <includedby refid="_potts_tagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <incdepgraph>
+      <node id="929">
+        <label>assert.h</label>
+      </node>
+      <node id="908">
+        <label>MRF.h</label>
+        <link refid="_m_r_f_8h_source"/>
+        <childnode refid="909" relation="include">
+        </childnode>
+        <childnode refid="910" relation="include">
+        </childnode>
+        <childnode refid="911" relation="include">
+        </childnode>
+        <childnode refid="914" relation="include">
+        </childnode>
+        <childnode refid="915" relation="include">
+        </childnode>
+        <childnode refid="916" relation="include">
+        </childnode>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="927" relation="include">
+        </childnode>
+      </node>
+      <node id="909">
+        <label>cassert</label>
+      </node>
+      <node id="910">
+        <label>string</label>
+      </node>
+      <node id="924">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="927">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+      </node>
+      <node id="916">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="917" relation="include">
+        </childnode>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+        <childnode refid="918" relation="include">
+        </childnode>
+        <childnode refid="913" relation="include">
+        </childnode>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="923" relation="include">
+        </childnode>
+      </node>
+      <node id="917">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="918" relation="include">
+        </childnode>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="923" relation="include">
+        </childnode>
+        <childnode refid="910" relation="include">
+        </childnode>
+      </node>
+      <node id="920">
+        <label>fstream</label>
+      </node>
+      <node id="911">
+        <label>Graph.h</label>
+        <link refid="_graph_8h_source"/>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="910" relation="include">
+        </childnode>
+        <childnode refid="913" relation="include">
+        </childnode>
+      </node>
+      <node id="906">
+        <label>lp/MRFLP.h</label>
+        <link refid="MRFLP.h"/>
+        <childnode refid="907" relation="include">
+        </childnode>
+        <childnode refid="908" relation="include">
+        </childnode>
+        <childnode refid="911" relation="include">
+        </childnode>
+      </node>
+      <node id="922">
+        <label>svector.hpp</label>
+      </node>
+      <node id="918">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="919" relation="include">
+        </childnode>
+        <childnode refid="920" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="922" relation="include">
+        </childnode>
+      </node>
+      <node id="913">
+        <label>../common.h</label>
+      </node>
+      <node id="928">
+        <label>bitset</label>
+      </node>
+      <node id="912">
+        <label>vector</label>
+      </node>
+      <node id="926">
+        <label>GraphProtoInterface.h</label>
+        <link refid="_graph_proto_interface_8h_source"/>
+        <childnode refid="914" relation="include">
+        </childnode>
+        <childnode refid="911" relation="include">
+        </childnode>
+      </node>
+      <node id="915">
+        <label>mrf.pb.h</label>
+      </node>
+      <node id="914">
+        <label>graph.pb.h</label>
+      </node>
+      <node id="919">
+        <label>iostream</label>
+      </node>
+      <node id="921">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="907">
+        <label>gurobi_c++.h</label>
+      </node>
+      <node id="923">
+        <label>set</label>
+      </node>
+      <node id="925">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="931">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="_tag_mrf_l_p_8h_source"/>
+      </node>
+      <node id="930">
+        <label>lp/MRFLP.h</label>
+        <link refid="MRFLP.h"/>
+        <childnode refid="931" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_m_r_f_l_p" prot="public">MRFLP</innerclass>
+    <innerclass refid="class_m_r_f_builder_l_p" prot="public">MRFBuilderLP</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MRFLP_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MRFLP_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gurobi_c++.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;MRF.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Graph.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="struct_m_r_f_l_p" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_m_r_f_l_p" kindref="compound">MRFLP</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="struct_m_r_f_l_p" kindref="compound">MRFLP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>&amp;p)<sp/>:<sp/>mrf(p),<sp/>node_vars(p.graph().num_nodes()),<sp/>edge_vars(p.graph().<ref refid="class_scarab_1_1_graph_1_1_graph_1afdfbdd8e5427a646707ceb22ca15d2e2" kindref="member">num_edges</ref>()),<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>from_state_blank_vars(p.graph().<ref refid="class_scarab_1_1_graph_1_1_graph_1afdfbdd8e5427a646707ceb22ca15d2e2" kindref="member">num_edges</ref>()),</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>to_state_blank_vars(p.graph().<ref refid="class_scarab_1_1_graph_1_1_graph_1afdfbdd8e5427a646707ceb22ca15d2e2" kindref="member">num_edges</ref>())<sp/>{}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphnode, Cache&lt;State, GRBVar&gt;</ref><sp/>*<sp/>&gt;<sp/><sp/>node_vars;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphedge, Cache&lt;State, Cache &lt;State , GRBVar &gt;</ref><sp/>*<sp/>&gt;<sp/>*&gt;<sp/>edge_vars;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphedge, Cache&lt;State, GRBVar&gt;</ref><sp/>*<sp/>&gt;<sp/>from_state_blank_vars;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphedge, Cache&lt;State, GRBVar&gt;</ref><sp/>*<sp/>&gt;<sp/>to_state_blank_vars;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>&amp;<sp/>mrf;<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="class_m_r_f_builder_l_p" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_m_r_f_builder_l_p" kindref="compound">MRFBuilderLP</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_m_r_f_l_p" kindref="compound">MRFLP</ref><sp/>*<sp/>add_mrf(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>&amp;<sp/>mrf,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefix,<sp/>GRBModel<sp/>&amp;<sp/>model,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var_type);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_m_r_f" kindref="compound">MRF</ref><sp/>&amp;<sp/>_mrf;<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lp/MRFLP.h"/>
+  </compounddef>
+</doxygen>

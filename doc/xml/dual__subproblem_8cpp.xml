@@ -3,9 +3,9 @@
   <compounddef id="dual__subproblem_8cpp" kind="file">
     <compoundname>dual_subproblem.cpp</compoundname>
     <includes local="no">time.h</includes>
-    <includes refid="GraphDecompose_8h" local="yes">GraphDecompose.h</includes>
+    <includes refid="_graph_decompose_8h" local="yes">GraphDecompose.h</includes>
     <includes refid="dual__subproblem_8h" local="yes">dual_subproblem.h</includes>
-    <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
+    <includes refid="_edge_cache_8h" local="yes">EdgeCache.h</includes>
     <includes local="yes">../common.h</includes>
     <includes local="no">bitset</includes>
     <incdepgraph>
@@ -30,7 +30,7 @@
       </node>
       <node id="1732">
         <label>GraphDecompose.h</label>
-        <link refid="GraphDecompose_8h_source"/>
+        <link refid="_graph_decompose_8h_source"/>
         <childnode refid="1733" relation="include">
         </childnode>
         <childnode refid="1734" relation="include">
@@ -43,7 +43,7 @@
       </node>
       <node id="1741">
         <label>EdgeCache.h</label>
-        <link refid="EdgeCache_8h_source"/>
+        <link refid="_edge_cache_8h_source"/>
         <childnode refid="1733" relation="include">
         </childnode>
         <childnode refid="1734" relation="include">
@@ -56,7 +56,7 @@
       </node>
       <node id="1738">
         <label>Graph.h</label>
-        <link refid="Graph_8h_source"/>
+        <link refid="_graph_8h_source"/>
         <childnode refid="1733" relation="include">
         </childnode>
         <childnode refid="1736" relation="include">
@@ -66,7 +66,7 @@
       </node>
       <node id="1745">
         <label>NGramCache.h</label>
-        <link refid="NGramCache_8h_source"/>
+        <link refid="_n_gram_cache_8h_source"/>
         <childnode refid="1746" relation="include">
         </childnode>
         <childnode refid="1747" relation="include">
@@ -92,7 +92,7 @@
       </node>
       <node id="1743">
         <label>BigramRescore.h</label>
-        <link refid="BigramRescore_8h_source"/>
+        <link refid="_bigram_rescore_8h_source"/>
         <childnode refid="1735" relation="include">
         </childnode>
         <childnode refid="1732" relation="include">
@@ -126,7 +126,7 @@
       </node>
       <node id="1735">
         <label>ForestLattice.h</label>
-        <link refid="ForestLattice_8h_source"/>
+        <link refid="_forest_lattice_8h_source"/>
         <childnode refid="1736" relation="include">
         </childnode>
         <childnode refid="1737" relation="include">
@@ -205,13 +205,13 @@
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">Subproblem::Subproblem(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classForestLattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>g,<sp/><ref refid="classNgramCache" kindref="compound">NgramCache</ref><sp/>*lm_in,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGraphDecompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd_in,<sp/></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>&amp;<sp/>word_node_cache_in)<sp/>:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">Subproblem::Subproblem(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref><sp/>*<sp/>g,<sp/><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref><sp/>*lm_in,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref><sp/>*<sp/>gd_in,<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Graphnode, int&gt;</ref><sp/>&amp;<sp/>word_node_cache_in)<sp/>:</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/>graph(g),<sp/>lm(lm_in),<sp/>gd(gd_in),<sp/>_word_node_cache(word_node_cache_in){</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//update_filter.reset();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>bi_rescore_first<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref>(graph,<sp/>gd_in);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>bi_rescore_two<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBigramRescore" kindref="compound">BigramRescore</ref>(graph,<sp/>gd_in);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>bi_rescore_first<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref>(graph,<sp/>gd_in);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>bi_rescore_two<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_bigram_rescore" kindref="compound">BigramRescore</ref>(graph,<sp/>gd_in);</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//bigram_cache.resize(graph-&gt;num_nodes);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//for<sp/>(unsigned<sp/>int<sp/>i=0;<sp/>i<sp/>&lt;<sp/>graph-&gt;num_nodes;<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
@@ -290,7 +290,7 @@
 <codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
 <codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<sp/>gd-&gt;valid_bigrams.size()<sp/>;i++)<sp/>{</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBigram" kindref="compound">Bigram</ref><sp/>b<sp/>=<sp/>gd-&gt;valid_bigrams[i];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_bigram" kindref="compound">Bigram</ref><sp/>b<sp/>=<sp/>gd-&gt;valid_bigrams[i];</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert(gd-&gt;bigram_pairs[b.w1][b.w2].size()<sp/>&gt;<sp/>0);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//bigram_weights[b.w1][b.w2].resize(gd-&gt;bigram_pairs[b.w1][b.w2].size());</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(unsigned<sp/>int<sp/>path=0;<sp/>path<sp/>&lt;<sp/>gd-&gt;bigram_pairs[b.w1][b.w2].size();<sp/>path++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
@@ -542,7 +542,7 @@
 <codeline lineno="354"><highlight class="normal"></highlight></codeline>
 <codeline lineno="355"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Subproblem::initialize_caches()<sp/>{</highlight></codeline>
 <codeline lineno="356"><highlight class="normal"></highlight></codeline>
-<codeline lineno="357"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structBigram" kindref="compound">Bigram</ref><sp/>b,<sp/>gd-&gt;valid_bigrams)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="struct_bigram" kindref="compound">Bigram</ref><sp/>b,<sp/>gd-&gt;valid_bigrams)<sp/>{<sp/></highlight></codeline>
 <codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>i=0;<sp/>i<sp/>&lt;<sp/>gd-&gt;valid_bigrams.size();<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Bigram<sp/>b<sp/>=<sp/>gd-&gt;valid_bigrams[i];</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1<sp/>=<sp/>b.w1;</highlight></codeline>
@@ -665,7 +665,7 @@
 <codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>best_bigram_with_backoff_forward[i]<sp/>=<sp/>-1;</highlight></codeline>
 <codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structBigram" kindref="compound">Bigram</ref><sp/>b,<sp/>gd-&gt;valid_bigrams)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="struct_bigram" kindref="compound">Bigram</ref><sp/>b,<sp/>gd-&gt;valid_bigrams)<sp/>{<sp/></highlight></codeline>
 <codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(int<sp/>i=0;<sp/>i<sp/>&lt;<sp/>gd-&gt;valid_bigrams.size();<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Bigram<sp/>b<sp/>=<sp/>gd-&gt;valid_bigrams[i];</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>

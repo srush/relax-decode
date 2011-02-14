@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="hypergraph_2_test_8cpp" kind="file">
+    <compoundname>Test.cpp</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hypergraph_2_test_8cpp_1ac0f2228420376f4db7e1274f2b41667c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, const char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Test.cpp" line="122" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Test.cpp" bodystart="122" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*#include<sp/>&lt;google/protobuf/stubs/common.h&gt;</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">#include<sp/>&lt;cpptest.h&gt;</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">#include<sp/>&lt;string&gt;</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">#include<sp/>&lt;cpptest-suite.h&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">#include<sp/>&quot;Forest.h&quot;</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">#include<sp/>&quot;CubePruning.h&quot;</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">#include<sp/>&quot;HypergraphAlgorithms.h&quot;</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">#include<sp/>&lt;sstream&gt;</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">#include<sp/>&lt;iostream&gt;</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">#include<sp/>&lt;fstream&gt;</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">#include<sp/>&lt;cy_svector.hpp&gt;</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">#include<sp/>&lt;svector.hpp&gt;</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">#include<sp/>&quot;EdgeCache.h&quot;</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">#include<sp/>&quot;ExtendCKY.h&quot;</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">using<sp/>namespace<sp/>Test;</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">using<sp/>namespace<sp/>std;</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"></highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"></highlight></codeline>
+<codeline lineno="20"><highlight class="comment">class<sp/>LocalTestSuite<sp/>:<sp/>public<sp/>Test::Suite</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">public:</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/>LocalTestSuite()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>Forest<sp/>tests<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/>TEST_ADD(LocalTestSuite::load_forest_test);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/>TEST_ADD(LocalTestSuite::load_test);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/>void<sp/>setup()<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/>GOOGLE_PROTOBUF_VERIFY_VERSION;</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/>void<sp/>teardown()<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/>google::protobuf::ShutdownProtobufLibrary();</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/>void<sp/>load_forest_test()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>Load<sp/>in<sp/>forests<sp/>and<sp/>check<sp/>that<sp/>they<sp/>are<sp/>valid</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>string<sp/>forest_file<sp/>=<sp/><sp/>&quot;test_data/t2s.forest&quot;;</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/>Forest<sp/>f<sp/>=<sp/>Forest::from_file(forest_file.c_str());</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/>//<sp/>Check<sp/><sp/>basic<sp/>properties<sp/>of<sp/>the<sp/>forest<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/>void<sp/>check_forest(const<sp/>Forest<sp/>&amp;<sp/>forest)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/>TEST_ASSERT(forest.num_nodes()<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/>TEST_ASSERT(forest.num_edges()<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/>int<sp/>edges<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i=0;<sp/>i<sp/>&lt;<sp/>forest.num_nodes();<sp/>i++<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>ForestNode<sp/>&amp;<sp/><sp/>node<sp/>=<sp/>forest.get_node(i);</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>j=0;<sp/>j<sp/>&lt;<sp/><sp/>node.num_edges();<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>ForestEdge<sp/>&amp;<sp/>edge<sp/><sp/>=<sp/>node.edge(j);</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edges<sp/>++;</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/>assert(edges<sp/>==<sp/>forest.num_edges());<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/>void<sp/>load_test()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/>string<sp/>forest_file<sp/>=<sp/><sp/>&quot;test_data/t2s.forest&quot;;</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>Forest<sp/>f<sp/>=<sp/>Forest::from_file<sp/>(forest_file.c_str());</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>Optional:<sp/><sp/>Delete<sp/>all<sp/>global<sp/>objects<sp/>allocated<sp/>by<sp/>libprotobuf.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/>google::protobuf::ShutdownProtobufLibrary();</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>svector&lt;int,<sp/>double&gt;<sp/>*<sp/>weight;</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>fstream<sp/>input(&quot;test_data/config.ini&quot;,<sp/>ios::in<sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>char<sp/>buf[1000];</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>input.getline(buf,<sp/>100000);</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>s<sp/>(buf);</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>weight<sp/>=<sp/>svector_from_str&lt;int,<sp/>double&gt;(s);</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>EdgeCache<sp/>*<sp/>w<sp/>=<sp/>cache_edge_weights(f,<sp/>*weight);</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/>NodeBackCache<sp/>bcache(f.num_nodes()),<sp/><sp/>bcache2(f.num_nodes());</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>NodeCache<sp/>ncache(f.num_nodes());</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>//CubePruning<sp/>p(f,<sp/>*w,<sp/>BlankNonLocal(),<sp/>100,<sp/>5);</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/>vector<sp/>&lt;Hyp&gt;<sp/>kbest;</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/>//p.run(f.root(),<sp/>kbest);</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>//p.parse();</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/>double<sp/>best<sp/>=<sp/>best_path(f,<sp/>*w,<sp/>ncache,<sp/>bcache);</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>best<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/>TrivialController<sp/>c;</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/>ExtendCKY<sp/>ecky(f);</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/>ecky.set_params(w,<sp/>&amp;c);</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/>best<sp/>=<sp/>ecky.best_path(bcache2);</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>double<sp/>total<sp/>=0.0;</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=0;<sp/>i<sp/>&lt;<sp/>f.num_nodes();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>ForestNode<sp/>&amp;<sp/>node<sp/>=<sp/>f.get_node(i);</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!node.is_word()<sp/>&amp;&amp;<sp/>bcache2.has_key(node))<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//assert(bcache.get_value(node)<sp/>==<sp/>bcache2.get_value(node));</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total<sp/>+=<sp/>w-&gt;get_value(*(bcache2.get_value(node)));</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>best<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>total<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="120"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[])<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Test::TextOutput<sp/>output(Test::TextOutput::Verbose);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//LocalTestSuite<sp/>ets;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//ets.load_test();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Test.cpp"/>
+  </compounddef>
+</doxygen>

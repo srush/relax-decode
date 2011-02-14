@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_candidate" kind="struct" prot="public">
+    <compoundname>Candidate</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_candidate_1a22db5a9c75fdebb31827505d6bc7d274" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_hyp" kindref="compound">Hyp</ref></type>
+        <definition>Hyp Candidate::hyp</definition>
+        <argsstring></argsstring>
+        <name>hyp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="67" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_candidate_1acdb6d12cbf33f6e78b97fed5013a181b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+        <definition>const Hyperedge&amp; Candidate::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="68" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_candidate_1afe2daf1c20513a5489d8407492ca7597" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Candidate::vec</definition>
+        <argsstring></argsstring>
+        <name>vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="69" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_candidate_1ac13c7ec637d37b63fc4d6bf3361fd449" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Candidate::Candidate</definition>
+        <argsstring>(Hyp h, const Hyperedge &amp;e, const vector&lt; int &gt; &amp;v)</argsstring>
+        <name>Candidate</name>
+        <param>
+          <type><ref refid="struct_hyp" kindref="compound">Hyp</ref></type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>const vector&lt; int &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="65" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="64" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_candidate_1a5644a3a3d2d92498923ecc443bb4583c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Candidate::operator&lt;</definition>
+        <argsstring>(const Candidate &amp;other) const </argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="struct_candidate" kindref="compound">Candidate</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="70" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="70" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="290">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hyperedge"/>
+      </node>
+      <node id="292">
+        <label>Hyp</label>
+        <link refid="struct_hyp"/>
+        <childnode refid="291" relation="usage">
+          <edgelabel>full_derivation</edgelabel>
+          <edgelabel>sig</edgelabel>
+        </childnode>
+      </node>
+      <node id="289">
+        <label>Candidate</label>
+        <link refid="struct_candidate"/>
+        <childnode refid="290" relation="usage">
+          <edgelabel>edge</edgelabel>
+        </childnode>
+        <childnode refid="291" relation="usage">
+          <edgelabel>vec</edgelabel>
+        </childnode>
+        <childnode refid="292" relation="usage">
+          <edgelabel>hyp</edgelabel>
+        </childnode>
+      </node>
+      <node id="291">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" line="63" bodyfile="/home/srush/Projects/relax_decode/hypergraph/CubePruning.h" bodystart="63" bodyend="74"/>
+    <listofallmembers>
+      <member refid="struct_candidate_1ac13c7ec637d37b63fc4d6bf3361fd449" prot="public" virt="non-virtual"><scope>Candidate</scope><name>Candidate</name></member>
+      <member refid="struct_candidate_1acdb6d12cbf33f6e78b97fed5013a181b" prot="public" virt="non-virtual"><scope>Candidate</scope><name>edge</name></member>
+      <member refid="struct_candidate_1a22db5a9c75fdebb31827505d6bc7d274" prot="public" virt="non-virtual"><scope>Candidate</scope><name>hyp</name></member>
+      <member refid="struct_candidate_1a5644a3a3d2d92498923ecc443bb4583c" prot="public" virt="non-virtual"><scope>Candidate</scope><name>operator&lt;</name></member>
+      <member refid="struct_candidate_1afe2daf1c20513a5489d8407492ca7597" prot="public" virt="non-virtual"><scope>Candidate</scope><name>vec</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

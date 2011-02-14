@@ -1,0 +1,86 @@
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode}{
+\section{Scarab::Graph::Graphnode Class Reference}
+\label{class_scarab_1_1_graph_1_1_graphnode}\index{Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_adce1b3b5b83d8fca4952f244bd093b9f}{
+{\bfseries Graphnode} (uint id)}
+\label{class_scarab_1_1_graph_1_1_graphnode_adce1b3b5b83d8fca4952f244bd093b9f}
+
+\item 
+uint \hyperlink{class_scarab_1_1_graph_1_1_graphnode_a74eaaed5d31a0a2c0445f3de0859148f}{id} () const 
+\item 
+uint \hyperlink{class_scarab_1_1_graph_1_1_graphnode_a78229cc45113d24f1373a50a13bc7be4}{num\_\-edges} () const 
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a717294ebbae2d29e9f97633407dae4ce}{
+uint {\bfseries num\_\-in\_\-edges} () const }
+\label{class_scarab_1_1_graph_1_1_graphnode_a717294ebbae2d29e9f97633407dae4ce}
+
+\item 
+const Edges \& \hyperlink{class_scarab_1_1_graph_1_1_graphnode_a4ffd990052c812242cbdeeae7b0e1104}{edges} () const 
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a001915a0fd7a6d4b06886f7865fc5189}{
+const Edges \& {\bfseries in\_\-edges} () const }
+\label{class_scarab_1_1_graph_1_1_graphnode_a001915a0fd7a6d4b06886f7865fc5189}
+
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_ae37c75fd607395376ade1cda5294e2a4}{
+void {\bfseries set\_\-edges} (Edges edges)}
+\label{class_scarab_1_1_graph_1_1_graphnode_ae37c75fd607395376ade1cda5294e2a4}
+
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a22e722e5bcd49dcfa643304d631416dc}{
+void {\bfseries add\_\-edge} (\hyperlink{class_scarab_1_1_graph_1_1_graphedge}{Edge} edge)}
+\label{class_scarab_1_1_graph_1_1_graphnode_a22e722e5bcd49dcfa643304d631416dc}
+
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a092b914639364b7b9168c84e3e556cea}{
+void {\bfseries add\_\-in\_\-edge} (\hyperlink{class_scarab_1_1_graph_1_1_graphedge}{Edge} edge)}
+\label{class_scarab_1_1_graph_1_1_graphnode_a092b914639364b7b9168c84e3e556cea}
+
+\item 
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a7ec0926462b47496b1158f16b87e69ca}{
+void {\bfseries set\_\-label} (string lab)}
+\label{class_scarab_1_1_graph_1_1_graphnode_a7ec0926462b47496b1158f16b87e69ca}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a4ffd990052c812242cbdeeae7b0e1104}{
+\index{Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}!edges@{edges}}
+\index{edges@{edges}!Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}}
+\subsubsection[{edges}]{\setlength{\rightskip}{0pt plus 5cm}const Edges\& Scarab::Graph::Graphnode::edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scarab_1_1_graph_1_1_graphnode_a4ffd990052c812242cbdeeae7b0e1104}
+Get all edges with this node as head.
+
+Treat this as a const iterator. \begin{DoxyReturn}{Returns}
+Const iterator to edges. 
+\end{DoxyReturn}
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a74eaaed5d31a0a2c0445f3de0859148f}{
+\index{Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}!id@{id}}
+\index{id@{id}!Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}uint Scarab::Graph::Graphnode::id () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scarab_1_1_graph_1_1_graphnode_a74eaaed5d31a0a2c0445f3de0859148f}
+The unique identifier of the \hyperlink{class_scarab_1_1_graph_1_1_graphnode}{Graphnode} \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+\hypertarget{class_scarab_1_1_graph_1_1_graphnode_a78229cc45113d24f1373a50a13bc7be4}{
+\index{Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}!num\_\-edges@{num\_\-edges}}
+\index{num\_\-edges@{num\_\-edges}!Scarab::Graph::Graphnode@{Scarab::Graph::Graphnode}}
+\subsubsection[{num\_\-edges}]{\setlength{\rightskip}{0pt plus 5cm}uint Scarab::Graph::Graphnode::num\_\-edges () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scarab_1_1_graph_1_1_graphnode_a78229cc45113d24f1373a50a13bc7be4}
+Get the number of edges connected to this node \begin{Desc}
+\item[\hyperlink{deprecated__deprecated000002}{Deprecated}]\end{Desc}
+\begin{DoxyReturn}{Returns}
+The number 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+graph/Graph.h\end{DoxyCompactItemize}

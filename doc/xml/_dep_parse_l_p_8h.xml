@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_dep_parse_l_p_8h" kind="file">
+    <compoundname>DepParseLP.h</compoundname>
+    <includes refid="_hypergraph_8h" local="no">Hypergraph.h</includes>
+    <includes local="no">gurobi_c++.h</includes>
+    <includes refid="_dep_parser_8h" local="yes">DepParser.h</includes>
+    <includes refid="_hypergraph_l_p_8h" local="yes">HypergraphLP.h</includes>
+    <includes local="yes">../common.h</includes>
+    <includedby refid="_full_parser_8cpp" local="yes">FullParser.cpp</includedby>
+    <includedby refid="_hard_constraints_8h" local="yes">lp/HardConstraints.h</includedby>
+    <incdepgraph>
+      <node id="761">
+        <label>HypergraphLP.h</label>
+        <link refid="_hypergraph_l_p_8h_source"/>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="751" relation="include">
+        </childnode>
+        <childnode refid="757" relation="include">
+        </childnode>
+      </node>
+      <node id="760">
+        <label>assert.h</label>
+      </node>
+      <node id="750">
+        <label>string</label>
+      </node>
+      <node id="755">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="758">
+        <label>EdgeCache.h</label>
+        <link refid="_edge_cache_8h_source"/>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="759" relation="include">
+        </childnode>
+        <childnode refid="760" relation="include">
+        </childnode>
+      </node>
+      <node id="754">
+        <label>HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="755" relation="include">
+        </childnode>
+        <childnode refid="756" relation="include">
+        </childnode>
+        <childnode refid="743" relation="include">
+        </childnode>
+        <childnode refid="757" relation="include">
+        </childnode>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="749" relation="include">
+        </childnode>
+      </node>
+      <node id="742">
+        <label>Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="743" relation="include">
+        </childnode>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="749" relation="include">
+        </childnode>
+        <childnode refid="750" relation="include">
+        </childnode>
+      </node>
+      <node id="745">
+        <label>fstream</label>
+      </node>
+      <node id="752">
+        <label>DepParser.h</label>
+        <link refid="_dep_parser_8h_source"/>
+        <childnode refid="753" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="754" relation="include">
+        </childnode>
+        <childnode refid="758" relation="include">
+        </childnode>
+      </node>
+      <node id="747">
+        <label>svector.hpp</label>
+      </node>
+      <node id="743">
+        <label>Weights.h</label>
+        <link refid="_weights_8h_source"/>
+        <childnode refid="744" relation="include">
+        </childnode>
+        <childnode refid="745" relation="include">
+        </childnode>
+        <childnode refid="746" relation="include">
+        </childnode>
+        <childnode refid="747" relation="include">
+        </childnode>
+      </node>
+      <node id="757">
+        <label>../common.h</label>
+      </node>
+      <node id="759">
+        <label>bitset</label>
+      </node>
+      <node id="753">
+        <label>dep.pb.h</label>
+      </node>
+      <node id="748">
+        <label>vector</label>
+      </node>
+      <node id="744">
+        <label>iostream</label>
+      </node>
+      <node id="746">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="751">
+        <label>gurobi_c++.h</label>
+      </node>
+      <node id="749">
+        <label>set</label>
+      </node>
+      <node id="741">
+        <label>lp/DepParseLP.h</label>
+        <link refid="DepParseLP.h"/>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="751" relation="include">
+        </childnode>
+        <childnode refid="752" relation="include">
+        </childnode>
+        <childnode refid="761" relation="include">
+        </childnode>
+        <childnode refid="757" relation="include">
+        </childnode>
+      </node>
+      <node id="756">
+        <label>features.pb.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="763">
+        <label>lp/HardConstraints.h</label>
+        <link refid="_hard_constraints_8h_source"/>
+      </node>
+      <node id="762">
+        <label>lp/DepParseLP.h</label>
+        <link refid="DepParseLP.h"/>
+        <childnode refid="763" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" prot="public">Scarab::HG::DepParserLP</innerclass>
+    <innerclass refid="class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder" prot="public">Scarab::HG::DepParserLPBuilder</innerclass>
+    <innernamespace refid="namespace_scarab">Scarab</innernamespace>
+    <innernamespace refid="namespace_scarab_1_1_h_g">Scarab::HG</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>DEPPARSELP_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>DEPPARSELP_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Hypergraph.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gurobi_c++.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;DepParser.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphLP.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Scarab<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">HG<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dep_parser" kindref="compound">DepParser</ref><sp/>&amp;parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref><sp/>&amp;hyper_lp)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>p(parser),<sp/>dep_vars(parser.num_deps()),<sp/>h_lp(hyper_lp)<sp/>{}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Dependency, GRBVar&gt;</ref><sp/><sp/>dep_vars;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dep_parser" kindref="compound">DepParser</ref><sp/>&amp;<sp/>p;<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_scarab_1_1_h_g_1_1_hypergraph_l_p" kindref="compound">HypergraphLP</ref><sp/>&amp;<sp/>h_lp;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder" kindref="compound">DepParserLPBuilder</ref><sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>show_results(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref><sp/>&amp;<sp/>lp_vars);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_scarab_1_1_h_g_1_1_dep_parser_l_p" kindref="compound">DepParserLP</ref><sp/>*<sp/>add_parse(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_dep_parser" kindref="compound">DepParser</ref><sp/>&amp;<sp/>parser,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_cache" kindref="compound">Cache&lt;Hyperedge, double&gt;</ref><sp/>&amp;<sp/>weights,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>prefix,<sp/>GRBModel<sp/>&amp;<sp/>model,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var_type);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/lp/DepParseLP.h"/>
+  </compounddef>
+</doxygen>

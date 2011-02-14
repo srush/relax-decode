@@ -1,0 +1,151 @@
+\hypertarget{class_subproblem}{
+\section{Subproblem Class Reference}
+\label{class_subproblem}\index{Subproblem@{Subproblem}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_subproblem_a1f76e6e7b079168299046c42e484c9cf}{
+int {\bfseries overridden\_\-by} (int w) const }
+\label{class_subproblem_a1f76e6e7b079168299046c42e484c9cf}
+
+\item 
+\hypertarget{class_subproblem_aba36ea76049a46e9ba1f0ac3ccec540a}{
+void {\bfseries project} (int proj\_\-dim, vector$<$ int $>$ projection)}
+\label{class_subproblem_aba36ea76049a46e9ba1f0ac3ccec540a}
+
+\item 
+\hypertarget{class_subproblem_a7c86b92cc388505602707376e52a0804}{
+int {\bfseries project\_\-word} (int w) const }
+\label{class_subproblem_a7c86b92cc388505602707376e52a0804}
+
+\item 
+\hypertarget{class_subproblem_a3f6d78f4567e70c35785d27a53a55490}{
+void {\bfseries separate} (int w1, int w2)}
+\label{class_subproblem_a3f6d78f4567e70c35785d27a53a55490}
+
+\item 
+\hypertarget{class_subproblem_a503126c48810484433fd6c3e428f6537}{
+void {\bfseries projection\_\-with\_\-constraints} (int limit, int \&k, map$<$ int, set$<$ int $>$ $>$ \&constraints, vector$<$ int $>$ \&)}
+\label{class_subproblem_a503126c48810484433fd6c3e428f6537}
+
+\item 
+\hypertarget{class_subproblem_a4c12e798de9d3e96d6935bd755f92a97}{
+int {\bfseries best\_\-one} (int w1, int w2, int w3) const }
+\label{class_subproblem_a4c12e798de9d3e96d6935bd755f92a97}
+
+\item 
+\hypertarget{class_subproblem_abf452bcac2a8a28adbdbffe402e64dde}{
+int {\bfseries best\_\-two} (int w1, int w2, int w3) const }
+\label{class_subproblem_abf452bcac2a8a28adbdbffe402e64dde}
+
+\item 
+\hypertarget{class_subproblem_a80e4996ec87d5c3501ef10abdd953260}{
+double {\bfseries best\_\-score\_\-dim} (int w1, int d, int d2) const }
+\label{class_subproblem_a80e4996ec87d5c3501ef10abdd953260}
+
+\item 
+\hypertarget{class_subproblem_a2e2a665cfdb9208f753eef143147d66c}{
+double {\bfseries best\_\-score\_\-dim\_\-min} (int w1, vector$<$ int $>$ ds, vector$<$ int $>$ ds2) const }
+\label{class_subproblem_a2e2a665cfdb9208f753eef143147d66c}
+
+\item 
+\hypertarget{class_subproblem_a2b43a2a68724d8eb624f6d81a7745b70}{
+bool {\bfseries is\_\-new\_\-dim} (int w1, int d, int d2) const }
+\label{class_subproblem_a2b43a2a68724d8eb624f6d81a7745b70}
+
+\item 
+\hypertarget{class_subproblem_a8359ae9db4d8a830d390312bc57eef6f}{
+double {\bfseries best\_\-score} (int w1, int w2, int w3) const }
+\label{class_subproblem_a8359ae9db4d8a830d390312bc57eef6f}
+
+\item 
+\hypertarget{class_subproblem_ae6b6a16e00079ebd5b56acbdfdaf3aab}{
+{\bfseries Subproblem} (const \hyperlink{class_forest_lattice}{ForestLattice} $\ast$g, \hyperlink{class_ngram_cache}{NgramCache} $\ast$lm\_\-in, const \hyperlink{class_graph_decompose}{GraphDecompose} $\ast$gd\_\-in, const \hyperlink{class_cache}{Cache}$<$ \hyperlink{class_scarab_1_1_graph_1_1_graphnode}{Graphnode}, int $>$ \&word\_\-node\_\-cache\_\-in)}
+\label{class_subproblem_ae6b6a16e00079ebd5b56acbdfdaf3aab}
+
+\item 
+\hypertarget{class_subproblem_adf6eb478907ed5c7c9f08a3cfcdfec76}{
+void {\bfseries update\_\-weights} (vector$<$ int $>$ u\_\-pos, vector$<$ float $>$ u\_\-values, bool first)}
+\label{class_subproblem_adf6eb478907ed5c7c9f08a3cfcdfec76}
+
+\item 
+\hypertarget{class_subproblem_a27c807a807f154ea28e7da7692466638}{
+void {\bfseries solve} ()}
+\label{class_subproblem_a27c807a807f154ea28e7da7692466638}
+
+\item 
+\hypertarget{class_subproblem_a8220595977ed219234d36dfadd0dde82}{
+void {\bfseries initialize\_\-caches} ()}
+\label{class_subproblem_a8220595977ed219234d36dfadd0dde82}
+
+\item 
+\hypertarget{class_subproblem_a9c57f3bd41e2788d9f393db8bbbe26ef}{
+vector$<$ int $>$ {\bfseries get\_\-best\_\-nodes\_\-between} (int w1, int w2, bool first)}
+\label{class_subproblem_a9c57f3bd41e2788d9f393db8bbbe26ef}
+
+\item 
+\hypertarget{class_subproblem_a3c426fd46fcacefc561b68f0fc111795}{
+float {\bfseries get\_\-best\_\-bigram\_\-weight} (int w1, int w2, bool first)}
+\label{class_subproblem_a3c426fd46fcacefc561b68f0fc111795}
+
+\item 
+\hypertarget{class_subproblem_adfba5511e1f004b989f7b2e03d998c4e}{
+float {\bfseries primal\_\-score} (int word\mbox{[}$\,$\mbox{]}, int l)}
+\label{class_subproblem_adfba5511e1f004b989f7b2e03d998c4e}
+
+\item 
+\hypertarget{class_subproblem_ab5e3b5e167561a79da1d815af120b6bd}{
+double {\bfseries word\_\-prob} (int, int, int)}
+\label{class_subproblem_ab5e3b5e167561a79da1d815af120b6bd}
+
+\item 
+\hypertarget{class_subproblem_acc456e9852f19058da2d884feec15679}{
+double {\bfseries word\_\-backoff} (int)}
+\label{class_subproblem_acc456e9852f19058da2d884feec15679}
+
+\item 
+\hypertarget{class_subproblem_afd0b98fea6ebb39ae5ad46d1010cb6a3}{
+double {\bfseries word\_\-backoff\_\-two} (int i, int j)}
+\label{class_subproblem_afd0b98fea6ebb39ae5ad46d1010cb6a3}
+
+\item 
+\hypertarget{class_subproblem_a32718cd109a52be59a7eecd3dc5f4c8a}{
+double {\bfseries word\_\-prob\_\-reverse} (int, int, int)}
+\label{class_subproblem_a32718cd109a52be59a7eecd3dc5f4c8a}
+
+\item 
+\hypertarget{class_subproblem_ab612e729dd11b5ac27ce9f67e0135c0a}{
+double {\bfseries word\_\-prob\_\-bigram\_\-reverse} (int i, int j)}
+\label{class_subproblem_ab612e729dd11b5ac27ce9f67e0135c0a}
+
+\item 
+\hypertarget{class_subproblem_a522f5f38fddff38424fe3958104a9612}{
+int {\bfseries word\_\-bow\_\-reverse} (int i, int j, int k)}
+\label{class_subproblem_a522f5f38fddff38424fe3958104a9612}
+
+\item 
+\hypertarget{class_subproblem_a1bce1ad18ee9c123677f39cccda7feb5}{
+int {\bfseries word\_\-bow\_\-bigram\_\-reverse} (int i, int j)}
+\label{class_subproblem_a1bce1ad18ee9c123677f39cccda7feb5}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_subproblem_ab162552f8af9ee111227f6ec30b7a4f5}{
+vector$<$ bool $>$ {\bfseries overridden}}
+\label{class_subproblem_ab162552f8af9ee111227f6ec30b7a4f5}
+
+\item 
+\hypertarget{class_subproblem_aa981fb8aa661221937b3cd021d72c396}{
+int {\bfseries projection\_\-dims}}
+\label{class_subproblem_aa981fb8aa661221937b3cd021d72c396}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+trans\_\-decode/dual\_\-subproblem.h\item 
+trans\_\-decode/dual\_\-subproblem.cpp\end{DoxyCompactItemize}

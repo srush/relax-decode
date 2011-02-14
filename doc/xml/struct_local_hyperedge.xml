@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="struct_local_hyperedge" kind="struct" prot="public">
+    <compoundname>LocalHyperedge</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_local_hyperedge_1a94cbc62434996702ca1d0e28b6dde622" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; LocalHyperedge::tail_node_ids</definition>
+        <argsstring></argsstring>
+        <name>tail_node_ids</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="99" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_local_hyperedge_1a71c8831cc00fefbfb29575856a22fc8a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LocalHyperedge::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="100" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_local_hyperedge_1a875e26d7749b13e387b7f0978a4f97a5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double LocalHyperedge::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="101" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_local_hyperedge_1ae1b43e113b237128ed95691034ec715e" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string LocalHyperedge::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="102" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_local_hyperedge_1a8c94fa5634a89063f5b205678c6e523a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LocalHyperedge::LocalHyperedge</definition>
+        <argsstring>()</argsstring>
+        <name>LocalHyperedge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="103" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="860">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="858">
+        <label>LocalHyperedge</label>
+        <link refid="struct_local_hyperedge"/>
+        <childnode refid="859" relation="usage">
+          <edgelabel>label</edgelabel>
+        </childnode>
+        <childnode refid="861" relation="usage">
+          <edgelabel>tail_node_ids</edgelabel>
+        </childnode>
+      </node>
+      <node id="861">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="859">
+        <label>std::string</label>
+        <childnode refid="860" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="98" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="98" bodyend="106"/>
+    <listofallmembers>
+      <member refid="struct_local_hyperedge_1a71c8831cc00fefbfb29575856a22fc8a" prot="public" virt="non-virtual"><scope>LocalHyperedge</scope><name>head</name></member>
+      <member refid="struct_local_hyperedge_1ae1b43e113b237128ed95691034ec715e" prot="public" virt="non-virtual"><scope>LocalHyperedge</scope><name>label</name></member>
+      <member refid="struct_local_hyperedge_1a8c94fa5634a89063f5b205678c6e523a" prot="public" virt="non-virtual"><scope>LocalHyperedge</scope><name>LocalHyperedge</name></member>
+      <member refid="struct_local_hyperedge_1a94cbc62434996702ca1d0e28b6dde622" prot="public" virt="non-virtual"><scope>LocalHyperedge</scope><name>tail_node_ids</name></member>
+      <member refid="struct_local_hyperedge_1a875e26d7749b13e387b7f0978a4f97a5" prot="public" virt="non-virtual"><scope>LocalHyperedge</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

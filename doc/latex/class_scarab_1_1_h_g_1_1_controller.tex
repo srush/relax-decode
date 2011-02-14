@@ -1,0 +1,64 @@
+\hypertarget{class_scarab_1_1_h_g_1_1_controller}{
+\section{Scarab::HG::Controller Class Reference}
+\label{class_scarab_1_1_h_g_1_1_controller}\index{Scarab::HG::Controller@{Scarab::HG::Controller}}
+}
+Inheritance diagram for Scarab::HG::Controller:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_scarab_1_1_h_g_1_1_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_scarab_1_1_h_g_1_1_controller_a34cfe4b8e7496ffca1cedf64cb3f0a73}{combine} (const \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&a, const \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&b, \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&ret) const 
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_a4b596f04765ad11b691e29383f5fbc3b}{
+double {\bfseries combine\_\-back} (const \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&a, const \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&b, \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&ret) const }
+\label{class_scarab_1_1_h_g_1_1_controller_a4b596f04765ad11b691e29383f5fbc3b}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_a5019e9591e6d4e5e29eb4ca6ac42d056}{
+virtual void {\bfseries initialize\_\-hypotheses} (const \hyperlink{class_scarab_1_1_h_g_1_1_hypernode}{Hypernode} \&node, vector$<$ \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} $\ast$ $>$ \&initialize, vector$<$ double $>$ \&scores) const =0}
+\label{class_scarab_1_1_h_g_1_1_controller_a5019e9591e6d4e5e29eb4ca6ac42d056}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_a34e4f087d77d06ee27fff2d3a8435473}{
+virtual void {\bfseries initialize\_\-out\_\-root} (vector$<$ \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} $\ast$ $>$ \&hyps, vector$<$ double $>$ \&scores) const =0}
+\label{class_scarab_1_1_h_g_1_1_controller_a34e4f087d77d06ee27fff2d3a8435473}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_ac4a38bf968379d3dc3f2b95cffabf540}{
+virtual double {\bfseries find\_\-best} (vector$<$ \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} $\ast$ $>$ \&at\_\-root, vector$<$ double $>$ \&scores, \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \&best\_\-hyp) const =0}
+\label{class_scarab_1_1_h_g_1_1_controller_ac4a38bf968379d3dc3f2b95cffabf540}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_a3498a09d093e6c6ed993e309db51480a}{
+virtual int {\bfseries size} () const =0}
+\label{class_scarab_1_1_h_g_1_1_controller_a3498a09d093e6c6ed993e309db51480a}
+
+\item 
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_ab4282178c6b8d3670134ab0519eda518}{
+virtual int {\bfseries dim} () const =0}
+\label{class_scarab_1_1_h_g_1_1_controller_ab4282178c6b8d3670134ab0519eda518}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scarab_1_1_h_g_1_1_controller_a34cfe4b8e7496ffca1cedf64cb3f0a73}{
+\index{Scarab::HG::Controller@{Scarab::HG::Controller}!combine@{combine}}
+\index{combine@{combine}!Scarab::HG::Controller@{Scarab::HG::Controller}}
+\subsubsection[{combine}]{\setlength{\rightskip}{0pt plus 5cm}double Scarab::HG::Controller::combine (const {\bf Hypothesis} \& {\em a}, \/  const {\bf Hypothesis} \& {\em b}, \/  {\bf Hypothesis} \& {\em ret}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scarab_1_1_h_g_1_1_controller_a34cfe4b8e7496ffca1cedf64cb3f0a73}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em a}]Left hypothesis \item[{\em b}]Right \hyperlink{struct_scarab_1_1_h_g_1_1_hypothesis}{Hypothesis} \item[{\em ret}]New constructed hypothesis\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Added weight 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+hypergraph/Hypothesis.h\end{DoxyCompactItemize}

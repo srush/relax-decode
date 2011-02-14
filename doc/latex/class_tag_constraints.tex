@@ -1,0 +1,71 @@
+\hypertarget{class_tag_constraints}{
+\section{TagConstraints Class Reference}
+\label{class_tag_constraints}\index{TagConstraints@{TagConstraints}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_tag_constraints_a58a2e5245400d411de24e36534d11945}{
+{\bfseries TagConstraints} (int num\_\-tags)}
+\label{class_tag_constraints_a58a2e5245400d411de24e36534d11945}
+
+\item 
+\hyperlink{class_cache}{EdgeCache} \hyperlink{class_tag_constraints_adec1a1de8fb49e79b52c4c93517414a0}{build\_\-tagger\_\-constraint\_\-vector} (int sent\_\-num, const \hyperlink{class_tagger}{Tagger} \&tagger, wvector \&orig\_\-weights) const 
+\item 
+\hypertarget{class_tag_constraints_acec3818d7505e9147828ab7cb3863001}{
+wvector {\bfseries build\_\-tagger\_\-subgradient} (int sent\_\-num, const \hyperlink{class_tagger}{Tagger} \&tagger, const vector$<$ const \hyperlink{class_scarab_1_1_h_g_1_1_hyperedge}{Hyperedge} $\ast$ $>$ used\_\-edges) const }
+\label{class_tag_constraints_acec3818d7505e9147828ab7cb3863001}
+
+\item 
+\hypertarget{class_tag_constraints_a8b8df130795f2fbc1ce2aac375dfc00a}{
+void {\bfseries read\_\-from\_\-file} (string file\_\-name)}
+\label{class_tag_constraints_a8b8df130795f2fbc1ce2aac375dfc00a}
+
+\item 
+\hypertarget{class_tag_constraints_a3e490a8d4d335ed4d04803fab0a82871}{
+wvector {\bfseries solve\_\-hard} (wvector \&model) const }
+\label{class_tag_constraints_a3e490a8d4d335ed4d04803fab0a82871}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_tag_constraints_ad5aae083cb84eff2294ca7fbbd63cb67}{
+vector$<$ \hyperlink{class_constraint_group}{ConstraintGroup} $>$ {\bfseries \_\-constraint\_\-struct}}
+\label{class_tag_constraints_ad5aae083cb84eff2294ca7fbbd63cb67}
+
+\item 
+\hypertarget{class_tag_constraints_aba1f64a190bc4144fea14f01fe82ecc3}{
+set$<$ int $>$ {\bfseries groups}}
+\label{class_tag_constraints_aba1f64a190bc4144fea14f01fe82ecc3}
+
+\item 
+\hypertarget{class_tag_constraints_a83e2347bf237b00f02dc872c19fd4516}{
+vector$<$ vector$<$ \hyperlink{struct_possible_tag}{PossibleTag} $>$ $>$ {\bfseries \_\-constrained\_\-words}}
+\label{class_tag_constraints_a83e2347bf237b00f02dc872c19fd4516}
+
+\item 
+\hypertarget{class_tag_constraints_a29576d5022d4c5d03e6c8723669c3679}{
+vector$<$ \hyperlink{struct_possible_tag}{PossibleTag} $>$ {\bfseries \_\-all\_\-constraints}}
+\label{class_tag_constraints_a29576d5022d4c5d03e6c8723669c3679}
+
+\item 
+\hypertarget{class_tag_constraints_a8885071b73e699061347d17af6d9aa20}{
+int {\bfseries \_\-num\_\-tags}}
+\label{class_tag_constraints_a8885071b73e699061347d17af6d9aa20}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tag_constraints_adec1a1de8fb49e79b52c4c93517414a0}{
+\index{TagConstraints@{TagConstraints}!build\_\-tagger\_\-constraint\_\-vector@{build\_\-tagger\_\-constraint\_\-vector}}
+\index{build\_\-tagger\_\-constraint\_\-vector@{build\_\-tagger\_\-constraint\_\-vector}!TagConstraints@{TagConstraints}}
+\subsubsection[{build\_\-tagger\_\-constraint\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EdgeCache} TagConstraints::build\_\-tagger\_\-constraint\_\-vector (int {\em sent\_\-num}, \/  const {\bf Tagger} \& {\em tagger}, \/  wvector \& {\em orig\_\-weights}) const}}
+\label{class_tag_constraints_adec1a1de8fb49e79b52c4c93517414a0}
+Given an sent\_\-num, the tagger, and a weight vector (indexed on constrained words) produce a weight vector indexed on edges. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+tagger/TagConstraints.h\item 
+tagger/TagConstraints.cpp\end{DoxyCompactItemize}

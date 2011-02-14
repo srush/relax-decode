@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_dual_decomposition_subproblem" kind="class" prot="public">
+    <compoundname>DualDecompositionSubproblem</compoundname>
+    <derivedcompoundref refid="class_constrainer_dual" prot="public" virt="non-virtual">ConstrainerDual</derivedcompoundref>
+    <derivedcompoundref refid="class_tagger_dual" prot="public" virt="non-virtual">TaggerDual</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_dual_decomposition_subproblem_1aac234786c13091898be348dc0056a036" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void DualDecompositionSubproblem::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;, int)=0</argsstring>
+        <name>solve</name>
+        <reimplementedby refid="class_constrainer_dual_1a8cd72c1288fc93a0fec014095ac7252b">solve</reimplementedby>
+        <reimplementedby refid="class_tagger_dual_1a047785058d058492172280e50a8f4c1a">solve</reimplementedby>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type>wvector &amp;</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_dual_decomposition_subproblem_1a6d26fcb23023d5b03d54b3d191531b02" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void DualDecompositionSubproblem::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights, double mult)=0</argsstring>
+        <name>update_weights</name>
+        <reimplementedby refid="class_constrainer_dual_1a622b99f704a3324133f08521eb4924f5">update_weights</reimplementedby>
+        <reimplementedby refid="class_tagger_dual_1a01f7705a69c7cc993268c6e66df57ae0">update_weights</reimplementedby>
+        <param>
+          <type>const wvector &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type>wvector *</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>mult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="474">
+        <label>TaggerDual</label>
+        <link refid="class_tagger_dual"/>
+        <childnode refid="472" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="473">
+        <label>ConstrainerDual</label>
+        <link refid="class_constrainer_dual"/>
+        <childnode refid="472" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="472">
+        <label>DualDecompositionSubproblem</label>
+        <link refid="class_dual_decomposition_subproblem"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" line="7" bodyfile="/home/srush/Projects/relax_decode/optimization/DualDecomposition.h" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_dual_decomposition_subproblem_1aac234786c13091898be348dc0056a036" prot="public" virt="pure-virtual"><scope>DualDecompositionSubproblem</scope><name>solve</name></member>
+      <member refid="class_dual_decomposition_subproblem_1a6d26fcb23023d5b03d54b3d191531b02" prot="public" virt="pure-virtual"><scope>DualDecompositionSubproblem</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

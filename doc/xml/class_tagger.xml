@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_tagger" kind="class" prot="public">
+    <compoundname>Tagger</compoundname>
+    <basecompoundref refid="class_scarab_1_1_h_g_1_1_hypergraph_impl" prot="public" virt="non-virtual">Scarab::HG::HypergraphImpl</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_tagger_1a4bf3332c608c078cbb2d5692c4f13b43" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tagger::num_tag</definition>
+        <argsstring></argsstring>
+        <name>num_tag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="49" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_tagger_1ac8ed2492ae2ce36f4ce83bd7a545c9fc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tagger::_sent_length</definition>
+        <argsstring></argsstring>
+        <name>_sent_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="116" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tagger_1a106632ffd00a38af99be57e0cf963a7e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Tagger::_tag_length</definition>
+        <argsstring></argsstring>
+        <name>_tag_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="117" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tagger_1aac55f3e2b9e6158c0c446d154ba3cf3f" prot="private" static="no" mutable="no">
+        <type>Hypergraph *</type>
+        <definition>Hypergraph* Tagger::_h</definition>
+        <argsstring></argsstring>
+        <name>_h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="118" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tagger_1ac0b735700c16a29bfe6c06a89b4bc5e0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="struct_tag" kindref="compound">Tag</ref>, vector&lt; const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> * &gt; &gt; *</type>
+        <definition>Cache&lt;Tag, vector &lt;const Hyperedge *&gt; &gt;* Tagger::_edge_map</definition>
+        <argsstring></argsstring>
+        <name>_edge_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="119" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tagger_1a55fd768226a8ac0f955a614c0834719d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, <ref refid="struct_tag" kindref="compound">Tag</ref> &gt; *</type>
+        <definition>Cache&lt;Hyperedge, Tag&gt;* Tagger::_tag_map</definition>
+        <argsstring></argsstring>
+        <name>_tag_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="120" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tagger_1a33ee2966e5dd9a6c4177105d3539fa26" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_tag" kindref="compound">Tag</ref> &gt;</type>
+        <definition>vector&lt;Tag&gt; Tagger::_tags</definition>
+        <argsstring></argsstring>
+        <name>_tags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="122" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_tagger_1a6e812fd7e339a21155f7b30f04292be1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Tagger::Tagger</definition>
+        <argsstring>(int num_tags_)</argsstring>
+        <name>Tagger</name>
+        <param>
+          <type>int</type>
+          <declname>num_tags_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="52" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1a6d4836101f4e024ecd44a041f60499c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Tagger::~Tagger</definition>
+        <argsstring>()</argsstring>
+        <name>~Tagger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="55" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1a4ebe0aebd7c0392970b401a5a6c6cd72" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void Tagger::print</definition>
+        <argsstring>() const </argsstring>
+        <name>print</name>
+        <reimplements refid="class_scarab_1_1_h_g_1_1_h_graph_1ab5aa11c932b28864b56f28e0babbc1c1">print</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the hypergraph for debugging. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="59" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1afafa6e435d17467db344ca615f24746f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Tagger::set_up</definition>
+        <argsstring>(const Hypergraph &amp;hgraph)</argsstring>
+        <name>set_up</name>
+        <reimplements refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1ae91de73e633e450b01664e3ec964019c">set_up</reimplements>
+        <param>
+          <type>const Hypergraph &amp;</type>
+          <declname>hgraph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="61" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.cpp" bodystart="9" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ad694ed218149b86c4ef5253328a41c49" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Hypergraph &amp;</type>
+        <definition>const Hypergraph&amp; Tagger::hypergraph</definition>
+        <argsstring>() const </argsstring>
+        <name>hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="63" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ae1e3802fb545c3430ca4d52ea5fd95db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; <ref refid="struct_tag" kindref="compound">Tag</ref> &gt;</type>
+        <definition>vector&lt;Tag &gt; Tagger::tags</definition>
+        <argsstring>() const </argsstring>
+        <name>tags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enumerate all the possible tags for this sentence</para><para><simplesect kind="return"><para>An enumerator to all the tags in the sentence </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="77" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1a5da221998377bf36c84013ba0d471b36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint Tagger::num_tags</definition>
+        <argsstring>() const </argsstring>
+        <name>num_tags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="81" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ae762dd21f446b9ec618b0b83204bdc2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint</type>
+        <definition>uint Tagger::sent_length</definition>
+        <argsstring>() const </argsstring>
+        <name>sent_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="85" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1af01daf511528271a118a281b8595e0df" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_tag" kindref="compound">Tag</ref></type>
+        <definition>Tag Tagger::make_tag</definition>
+        <argsstring>(int ind, int tag) const </argsstring>
+        <name>make_tag</name>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="89" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1a26472c386e7f5eebcb05c9d1843c1975" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> * &gt; &amp;</type>
+        <definition>const vector&lt;const Hyperedge*&gt;&amp; Tagger::tag_to_edge</definition>
+        <argsstring>(const Tag &amp;tag) const </argsstring>
+        <name>tag_to_edge</name>
+        <param>
+          <type>const <ref refid="struct_tag" kindref="compound">Tag</ref> &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="93" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ae270a5be64b93945c180996aedcf6372" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tagger::tag_has_edge</definition>
+        <argsstring>(const Tag &amp;tag) const </argsstring>
+        <name>tag_has_edge</name>
+        <param>
+          <type>const <ref refid="struct_tag" kindref="compound">Tag</ref> &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="97" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ad615c8356f380baab01ae6675a25c409" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="struct_tag" kindref="compound">Tag</ref> &amp;</type>
+        <definition>const Tag&amp; Tagger::edge_to_tag</definition>
+        <argsstring>(const Hyperedge &amp;edge) const </argsstring>
+        <name>edge_to_tag</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="101" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tagger_1ad7f1dda6082e71cd113a3d77e9c33275" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Tagger::edge_has_tag</definition>
+        <argsstring>(const Hyperedge &amp;edge) const </argsstring>
+        <name>edge_has_tag</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="105" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="105" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_tagger_1a305fd4cf75f2149a57109772e195eb47" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Tagger::make_edge</definition>
+        <argsstring>(const Hypergraph_Edge &amp;edge, const Scarab::HG::Hyperedge *our_edge)</argsstring>
+        <name>make_edge</name>
+        <reimplements refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a238a7ce3b578c8126eccbc7803570638">make_edge</reimplements>
+        <param>
+          <type>const Hypergraph_Edge &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Scarab::HG::Hyperedge</ref> *</type>
+          <declname>our_edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="111" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.cpp" bodystart="38" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1221">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypergraph_impl"/>
+        <childnode refid="1222" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1222">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="class_scarab_1_1_h_g_1_1_h_graph"/>
+      </node>
+      <node id="1220">
+        <label>Tagger</label>
+        <link refid="class_tagger"/>
+        <childnode refid="1221" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1229">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hyperedge"/>
+      </node>
+      <node id="1230">
+        <label>std::vector&lt; Tag &gt;</label>
+        <childnode refid="1231" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1224">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypergraph_impl"/>
+        <childnode refid="1225" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1226" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="1228" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="1227" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="1234">
+        <label>Cache&lt; Tag, vector&lt; const Hyperedge * &gt; &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="1233" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1227">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode"/>
+      </node>
+      <node id="1232">
+        <label>Cache&lt; Hyperedge, Tag &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="1233" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1226">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="1227" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1225">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="class_scarab_1_1_h_g_1_1_h_graph"/>
+      </node>
+      <node id="1233">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1231">
+        <label>Tag</label>
+        <link refid="struct_tag"/>
+      </node>
+      <node id="1223">
+        <label>Tagger</label>
+        <link refid="class_tagger"/>
+        <childnode refid="1224" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1230" relation="usage">
+          <edgelabel>_tags</edgelabel>
+        </childnode>
+        <childnode refid="1232" relation="usage">
+          <edgelabel>_tag_map</edgelabel>
+        </childnode>
+        <childnode refid="1234" relation="usage">
+          <edgelabel>_edge_map</edgelabel>
+        </childnode>
+      </node>
+      <node id="1228">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="1229" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h" line="47" bodyfile="/home/srush/Projects/relax_decode/tagger/Tagger.h" bodystart="47" bodyend="123"/>
+    <listofallmembers>
+      <member refid="class_tagger_1ac0b735700c16a29bfe6c06a89b4bc5e0" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_edge_map</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a56fb710140f3359646b1a17cb0417d74" prot="protected" virt="non-virtual"><scope>Tagger</scope><name>_edges</name></member>
+      <member refid="class_tagger_1aac55f3e2b9e6158c0c446d154ba3cf3f" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_h</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a4cc57d9255e2f09714c5913d67cd0554" prot="protected" virt="non-virtual"><scope>Tagger</scope><name>_nodes</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a7035fdae4c04d0752aaaf1e7eba7600e" prot="protected" virt="non-virtual"><scope>Tagger</scope><name>_root</name></member>
+      <member refid="class_tagger_1ac8ed2492ae2ce36f4ce83bd7a545c9fc" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_sent_length</name></member>
+      <member refid="class_tagger_1a106632ffd00a38af99be57e0cf963a7e" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_tag_length</name></member>
+      <member refid="class_tagger_1a55fd768226a8ac0f955a614c0834719d" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_tag_map</name></member>
+      <member refid="class_tagger_1a33ee2966e5dd9a6c4177105d3539fa26" prot="private" virt="non-virtual"><scope>Tagger</scope><name>_tags</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a1f33418f90b826db9cfc0bb34e1ca9cf" prot="public" virt="non-virtual"><scope>Tagger</scope><name>build_from_file</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a30349aca0e3b8f8dc72ed74d78e8c5b8" prot="protected" virt="virtual"><scope>Tagger</scope><name>convert_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a93e9e250fa457a2171bf07241b7829eb" prot="protected" virt="virtual"><scope>Tagger</scope><name>convert_node</name></member>
+      <member refid="class_tagger_1ad7f1dda6082e71cd113a3d77e9c33275" prot="public" virt="non-virtual"><scope>Tagger</scope><name>edge_has_tag</name></member>
+      <member refid="class_tagger_1ad615c8356f380baab01ae6675a25c409" prot="public" virt="non-virtual"><scope>Tagger</scope><name>edge_to_tag</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a0c8373e545fe59b0cb7036b4751508e1" prot="public" virt="virtual"><scope>Tagger</scope><name>edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a31a148139b888b6bd10e78fe555144c7" prot="public" virt="virtual"><scope>Tagger</scope><name>get_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a9276a6faa074eb4f3bbb2f8b8d5d4fbf" prot="public" virt="virtual"><scope>Tagger</scope><name>get_node</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1aa7192cf8f168e5bfed67a8faf85c8cb4" prot="protected" virt="non-virtual"><scope>Tagger</scope><name>hgraph</name></member>
+      <member refid="class_tagger_1ad694ed218149b86c4ef5253328a41c49" prot="public" virt="non-virtual"><scope>Tagger</scope><name>hypergraph</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a067b2daae46f4758f9621fb9d803bef2" prot="public" virt="non-virtual"><scope>Tagger</scope><name>HypergraphImpl</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a935bed9b8cf9235a1adb61d0889f6ac7" prot="public" virt="non-virtual"><scope>Tagger</scope><name>HypergraphImpl</name></member>
+      <member refid="class_tagger_1a305fd4cf75f2149a57109772e195eb47" prot="protected" virt="virtual"><scope>Tagger</scope><name>make_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1af14198ba5fccb5d4118188fa42feb8ff" prot="protected" virt="virtual"><scope>Tagger</scope><name>make_node</name></member>
+      <member refid="class_tagger_1af01daf511528271a118a281b8595e0df" prot="public" virt="non-virtual"><scope>Tagger</scope><name>make_tag</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a9aef2881b489c86d4d83e996a70f8141" prot="public" virt="virtual"><scope>Tagger</scope><name>nodes</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a0adcc8783b94cbe07b092220082d00ab" prot="public" virt="virtual"><scope>Tagger</scope><name>num_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1ad39e917a84acb1d4caf0145ce8a903a2" prot="public" virt="virtual"><scope>Tagger</scope><name>num_nodes</name></member>
+      <member refid="class_tagger_1a4bf3332c608c078cbb2d5692c4f13b43" prot="public" virt="non-virtual"><scope>Tagger</scope><name>num_tag</name></member>
+      <member refid="class_tagger_1a5da221998377bf36c84013ba0d471b36" prot="public" virt="non-virtual"><scope>Tagger</scope><name>num_tags</name></member>
+      <member refid="class_tagger_1a4ebe0aebd7c0392970b401a5a6c6cd72" prot="public" virt="virtual"><scope>Tagger</scope><name>print</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a98701d5529aaf3e5d4fa386694843f20" prot="public" virt="non-virtual"><scope>Tagger</scope><name>prune</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1a31172009b97d179f6b1199f191197a32" prot="public" virt="virtual"><scope>Tagger</scope><name>root</name></member>
+      <member refid="class_tagger_1ae762dd21f446b9ec618b0b83204bdc2e" prot="public" virt="non-virtual"><scope>Tagger</scope><name>sent_length</name></member>
+      <member refid="class_tagger_1afafa6e435d17467db344ca615f24746f" prot="public" virt="virtual"><scope>Tagger</scope><name>set_up</name></member>
+      <member refid="class_tagger_1ae270a5be64b93945c180996aedcf6372" prot="public" virt="non-virtual"><scope>Tagger</scope><name>tag_has_edge</name></member>
+      <member refid="class_tagger_1a26472c386e7f5eebcb05c9d1843c1975" prot="public" virt="non-virtual"><scope>Tagger</scope><name>tag_to_edge</name></member>
+      <member refid="class_tagger_1a6e812fd7e339a21155f7b30f04292be1" prot="public" virt="non-virtual"><scope>Tagger</scope><name>Tagger</name></member>
+      <member refid="class_tagger_1ae1e3802fb545c3430ca4d52ea5fd95db" prot="public" virt="non-virtual"><scope>Tagger</scope><name>tags</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1af8f5ed38a355676c473e8d54b5552cc6" prot="public" virt="non-virtual"><scope>Tagger</scope><name>write_to_file</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_h_graph_1a54e1901fef9f35caecf6f1f75eecf21a" prot="public" virt="virtual"><scope>Tagger</scope><name>~HGraph</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypergraph_impl_1af9726fe39b4cfdbcbead1cba4efa6a01" prot="public" virt="non-virtual"><scope>Tagger</scope><name>~HypergraphImpl</name></member>
+      <member refid="class_tagger_1a6d4836101f4e024ecd44a041f60499c2" prot="public" virt="non-virtual"><scope>Tagger</scope><name>~Tagger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

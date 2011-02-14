@@ -1,0 +1,623 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_bigram_rescore" kind="class" prot="public">
+    <compoundname>BigramRescore</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_bigram_rescore_1a28dbb94694337f7242cdcc11c3f4991c" prot="private" static="no" mutable="no">
+        <type>vector&lt; float &gt;</type>
+        <definition>vector&lt;float &gt; BigramRescore::current_weights</definition>
+        <argsstring></argsstring>
+        <name>current_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="63" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a744dbdec56457d73483d9bfcfc17d611" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int &gt; BigramRescore::update_position</definition>
+        <argsstring></argsstring>
+        <name>update_position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="64" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1aa83a3f7d332d91506504616e74b2fea3" prot="private" static="no" mutable="no">
+        <type>vector&lt; bool &gt;</type>
+        <definition>vector&lt;bool &gt; BigramRescore::update_filter</definition>
+        <argsstring></argsstring>
+        <name>update_filter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="65" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a43f3e0de663790facaedf1bda6caea4b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BigramRescore::update_len</definition>
+        <argsstring></argsstring>
+        <name>update_len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="66" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1afa08f063330b0baa7670b36f91f17de3" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</type>
+        <definition>vector&lt; vector &lt; vector &lt;int&gt; *&gt; &gt; BigramRescore::bigram_path</definition>
+        <argsstring></argsstring>
+        <name>bigram_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="69" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a02a749bfc729660c00179f7e7784c973" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt; vector &lt; int &gt; &gt; BigramRescore::best_split</definition>
+        <argsstring></argsstring>
+        <name>best_split</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="71" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a2e29fa7eae001bee8e7dd098bb976dcc" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; float &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;float&gt; &gt; BigramRescore::bigram_weights</definition>
+        <argsstring></argsstring>
+        <name>bigram_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="72" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a0dde118f5790a6afd007e62754ebd4e6" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; bool &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;bool&gt; &gt; BigramRescore::need_to_recompute</definition>
+        <argsstring></argsstring>
+        <name>need_to_recompute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="75" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a466991eda63f64df056e15e2619f627e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BigramRescore::recomputed</definition>
+        <argsstring></argsstring>
+        <name>recomputed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="80" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a2402483d0d9768ca83d4ff64a4823032" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BigramRescore::score_changed</definition>
+        <argsstring></argsstring>
+        <name>score_changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="80" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a87df9ef1bcde242d9ac6c9e7ef753689" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;int&gt; &gt; BigramRescore::forward_paths</definition>
+        <argsstring></argsstring>
+        <name>forward_paths</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="83" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1ae2bc760e32b7cab4a5fd5ec0f0a5073e" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt; vector&lt;int&gt; &gt; BigramRescore::backward_paths</definition>
+        <argsstring></argsstring>
+        <name>backward_paths</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="84" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1a9e315ecd42f963994d15ef08e20df79d" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref> *</type>
+        <definition>const GraphDecompose* BigramRescore::gd</definition>
+        <argsstring></argsstring>
+        <name>gd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="89" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bigram_rescore_1abe410aa73b326f5d06099926fcd93459" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+        <definition>const ForestLattice* BigramRescore::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="90" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bigram_rescore_1ac1fc6a3f7ac90cbf158e6bcd2f6518f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BigramRescore::BigramRescore</definition>
+        <argsstring>(const ForestLattice *graph_in, const GraphDecompose *gd_in)</argsstring>
+        <name>BigramRescore</name>
+        <param>
+          <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> *</type>
+          <declname>graph_in</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref> *</type>
+          <declname>gd_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="15" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="13" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a2d3ec18a2decf6adbb92c2a044505041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::update_weights</definition>
+        <argsstring>(vector&lt; int &gt; u_pos, vector&lt; float &gt; u_values, int len)</argsstring>
+        <name>update_weights</name>
+        <param>
+          <type>vector&lt; int &gt;</type>
+          <declname>u_pos</declname>
+        </param>
+        <param>
+          <type>vector&lt; float &gt;</type>
+          <declname>u_values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="16" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="50" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a25b5c1d281493c722ae1c0a02171d5ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::recompute_bigram_weights</definition>
+        <argsstring>(bool init)</argsstring>
+        <name>recompute_bigram_weights</name>
+        <param>
+          <type>bool</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="19" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="215" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a726d2e7088c39e26d924038e223e297c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; int &gt;</type>
+        <definition>const vector&lt;int&gt; BigramRescore::get_bigram_path</definition>
+        <argsstring>(int w1, int w2)</argsstring>
+        <name>get_bigram_path</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="22" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="22" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a4ddc874583100444b08e97c44038f743" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float BigramRescore::get_bigram_weight</definition>
+        <argsstring>(int w1, int w2)</argsstring>
+        <name>get_bigram_weight</name>
+        <param>
+          <type>int</type>
+          <declname>w1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>w2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="49" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="49" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_bigram_rescore_1a61ce65b0179222ed94c8fb0ee38b0906" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::reconstruct_path</definition>
+        <argsstring>(int n1, int n2, const vector&lt; vector&lt; int &gt; &gt; &amp;best_split, vector&lt; int &gt; &amp;array)</argsstring>
+        <name>reconstruct_path</name>
+        <param>
+          <type>int</type>
+          <declname>n1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n2</declname>
+        </param>
+        <param>
+          <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+          <declname>best_split</declname>
+        </param>
+        <param>
+          <type>vector&lt; int &gt; &amp;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="61" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="122" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a72701d7c6cfd54cf1300e0240d11b2c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::cache_paths</definition>
+        <argsstring>(int, int)</argsstring>
+        <name>cache_paths</name>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1acc354ce6c7a48da5857f3ad766093701" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::cache_forward</definition>
+        <argsstring>()</argsstring>
+        <name>cache_forward</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="82" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="102" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a82f2cd4a6c0572473160175bc4351ebe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::setup_problems</definition>
+        <argsstring>()</argsstring>
+        <name>setup_problems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bigram_rescore_1a8bde2161b64398be90982fc05e1372f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BigramRescore::find_shortest</definition>
+        <argsstring>(int n1, int n2)</argsstring>
+        <name>find_shortest</name>
+        <param>
+          <type>int</type>
+          <declname>n1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="88" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.cpp" bodystart="141" bodyend="212"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="276">
+        <label>GraphDecompose</label>
+        <link refid="class_graph_decompose"/>
+        <childnode refid="256" relation="usage">
+          <edgelabel>backward_bigrams</edgelabel>
+          <edgelabel>forward_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="277" relation="usage">
+          <edgelabel>bigram_paths</edgelabel>
+        </childnode>
+        <childnode refid="257" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="271" relation="usage">
+          <edgelabel>all_pairs_path_exist</edgelabel>
+        </childnode>
+        <childnode refid="272" relation="usage">
+          <edgelabel>all_pairs_path</edgelabel>
+        </childnode>
+        <childnode refid="259" relation="usage">
+          <edgelabel>valid_bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="268">
+        <label>T</label>
+      </node>
+      <node id="263">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="264" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="259">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="260" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="267">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="268" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="257">
+        <label>ForestLattice</label>
+        <link refid="class_forest_lattice"/>
+        <childnode refid="258" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="256" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="261" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="269" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="270" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="259" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="274">
+        <label>std::vector&lt; float &gt;</label>
+      </node>
+      <node id="255">
+        <label>BigramRescore</label>
+        <link refid="class_bigram_rescore"/>
+        <childnode refid="256" relation="usage">
+          <edgelabel>forward_paths</edgelabel>
+          <edgelabel>best_split</edgelabel>
+          <edgelabel>backward_paths</edgelabel>
+        </childnode>
+        <childnode refid="257" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="271" relation="usage">
+          <edgelabel>need_to_recompute</edgelabel>
+        </childnode>
+        <childnode refid="272" relation="usage">
+          <edgelabel>bigram_path</edgelabel>
+        </childnode>
+        <childnode refid="273" relation="usage">
+          <edgelabel>bigram_weights</edgelabel>
+        </childnode>
+        <childnode refid="270" relation="usage">
+          <edgelabel>update_position</edgelabel>
+        </childnode>
+        <childnode refid="274" relation="usage">
+          <edgelabel>current_weights</edgelabel>
+        </childnode>
+        <childnode refid="275" relation="usage">
+          <edgelabel>update_filter</edgelabel>
+        </childnode>
+        <childnode refid="276" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+      </node>
+      <node id="269">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="265" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="260">
+        <label>Bigram</label>
+        <link refid="struct_bigram"/>
+      </node>
+      <node id="264">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="262" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="265" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="266">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="258">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="259" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="256">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="273">
+        <label>std::vector&lt; vector&lt; float &gt; &gt;</label>
+        <childnode refid="274" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="275">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="272">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="277">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="262">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="263" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="261">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="262" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="267" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="270">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="271">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="265">
+        <label>std::string</label>
+        <childnode refid="266" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" line="11" bodyfile="/home/srush/Projects/relax_decode/lattice/BigramRescore.h" bodystart="11" bodyend="93"/>
+    <listofallmembers>
+      <member refid="class_bigram_rescore_1ae2bc760e32b7cab4a5fd5ec0f0a5073e" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>backward_paths</name></member>
+      <member refid="class_bigram_rescore_1a02a749bfc729660c00179f7e7784c973" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>best_split</name></member>
+      <member refid="class_bigram_rescore_1afa08f063330b0baa7670b36f91f17de3" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>bigram_path</name></member>
+      <member refid="class_bigram_rescore_1a2e29fa7eae001bee8e7dd098bb976dcc" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>bigram_weights</name></member>
+      <member refid="class_bigram_rescore_1ac1fc6a3f7ac90cbf158e6bcd2f6518f8" prot="public" virt="non-virtual"><scope>BigramRescore</scope><name>BigramRescore</name></member>
+      <member refid="class_bigram_rescore_1acc354ce6c7a48da5857f3ad766093701" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>cache_forward</name></member>
+      <member refid="class_bigram_rescore_1a72701d7c6cfd54cf1300e0240d11b2c6" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>cache_paths</name></member>
+      <member refid="class_bigram_rescore_1a28dbb94694337f7242cdcc11c3f4991c" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>current_weights</name></member>
+      <member refid="class_bigram_rescore_1a8bde2161b64398be90982fc05e1372f3" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>find_shortest</name></member>
+      <member refid="class_bigram_rescore_1a87df9ef1bcde242d9ac6c9e7ef753689" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>forward_paths</name></member>
+      <member refid="class_bigram_rescore_1a9e315ecd42f963994d15ef08e20df79d" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>gd</name></member>
+      <member refid="class_bigram_rescore_1a726d2e7088c39e26d924038e223e297c" prot="public" virt="non-virtual"><scope>BigramRescore</scope><name>get_bigram_path</name></member>
+      <member refid="class_bigram_rescore_1a4ddc874583100444b08e97c44038f743" prot="public" virt="non-virtual"><scope>BigramRescore</scope><name>get_bigram_weight</name></member>
+      <member refid="class_bigram_rescore_1abe410aa73b326f5d06099926fcd93459" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>graph</name></member>
+      <member refid="class_bigram_rescore_1a0dde118f5790a6afd007e62754ebd4e6" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>need_to_recompute</name></member>
+      <member refid="class_bigram_rescore_1a25b5c1d281493c722ae1c0a02171d5ec" prot="public" virt="non-virtual"><scope>BigramRescore</scope><name>recompute_bigram_weights</name></member>
+      <member refid="class_bigram_rescore_1a466991eda63f64df056e15e2619f627e" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>recomputed</name></member>
+      <member refid="class_bigram_rescore_1a61ce65b0179222ed94c8fb0ee38b0906" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>reconstruct_path</name></member>
+      <member refid="class_bigram_rescore_1a2402483d0d9768ca83d4ff64a4823032" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>score_changed</name></member>
+      <member refid="class_bigram_rescore_1a82f2cd4a6c0572473160175bc4351ebe" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>setup_problems</name></member>
+      <member refid="class_bigram_rescore_1aa83a3f7d332d91506504616e74b2fea3" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>update_filter</name></member>
+      <member refid="class_bigram_rescore_1a43f3e0de663790facaedf1bda6caea4b" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>update_len</name></member>
+      <member refid="class_bigram_rescore_1a744dbdec56457d73483d9bfcfc17d611" prot="private" virt="non-virtual"><scope>BigramRescore</scope><name>update_position</name></member>
+      <member refid="class_bigram_rescore_1a2d3ec18a2decf6adbb92c2a044505041" prot="public" virt="non-virtual"><scope>BigramRescore</scope><name>update_weights</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="_weights_8h" kind="file">
+    <compoundname>Weights.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">cy_svector.hpp</includes>
+    <includes local="no">svector.hpp</includes>
+    <includedby refid="_dual_decomp_tagger_8cpp" local="yes">DualDecompTagger.cpp</includedby>
+    <includedby refid="_full_parser_8cpp" local="yes">FullParser.cpp</includedby>
+    <includedby refid="_full_tagger_8cpp" local="yes">FullTagger.cpp</includedby>
+    <includedby refid="_convert_from_file_8cpp" local="yes">hypergraph/ConvertFromFile.cpp</includedby>
+    <includedby refid="_hypergraph_8h" local="yes">hypergraph/Hypergraph.h</includedby>
+    <includedby refid="_hypergraph_impl_8cpp" local="yes">hypergraph/HypergraphImpl.cpp</includedby>
+    <includedby refid="_hypergraph_impl_8h" local="yes">hypergraph/HypergraphImpl.h</includedby>
+    <includedby refid="_weights_8cpp" local="yes">hypergraph/Weights.cpp</includedby>
+    <includedby refid="_main_8cpp" local="yes">Main.cpp</includedby>
+    <includedby refid="_m_r_f_solver_8cpp" local="yes">MRFSolver.cpp</includedby>
+    <includedby refid="_parse_8cpp" local="yes">Parse.cpp</includedby>
+    <includedby refid="_phrase_l_p_8cpp" local="yes">PhraseLP.cpp</includedby>
+    <includedby refid="_phrase_viterbi_8cpp" local="yes">PhraseViterbi.cpp</includedby>
+    <includedby refid="_potts_tagger_8cpp" local="yes">PottsTagger.cpp</includedby>
+    <includedby refid="_run_8cpp" local="yes">Run.cpp</includedby>
+    <includedby refid="_tag_8cpp" local="yes">Tag.cpp</includedby>
+    <includedby refid="_tag_constraints_8cpp" local="yes">tagger/TagConstraints.cpp</includedby>
+    <includedby refid="_tag_constraints_8h" local="yes">tagger/TagConstraints.h</includedby>
+    <incdepgraph>
+      <node id="614">
+        <label>fstream</label>
+      </node>
+      <node id="616">
+        <label>svector.hpp</label>
+      </node>
+      <node id="612">
+        <label>hypergraph/Weights.h</label>
+        <link refid="Weights.h"/>
+        <childnode refid="613" relation="include">
+        </childnode>
+        <childnode refid="614" relation="include">
+        </childnode>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="616" relation="include">
+        </childnode>
+      </node>
+      <node id="613">
+        <label>iostream</label>
+      </node>
+      <node id="615">
+        <label>cy_svector.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="642">
+        <label>lp/HypergraphLP.h</label>
+        <link refid="_hypergraph_l_p_8h_source"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+      </node>
+      <node id="627">
+        <label>lp/HardPosConstraints.h</label>
+        <link refid="_hard_pos_constraints_8h_source"/>
+        <childnode refid="627" relation="include">
+        </childnode>
+      </node>
+      <node id="619">
+        <label>CubeLM.h</label>
+        <link refid="_cube_l_m_8h_source"/>
+      </node>
+      <node id="638">
+        <label>tagger/Tagger.h</label>
+        <link refid="_tagger_8h_source"/>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+      </node>
+      <node id="633">
+        <label>optimization/MRFHypergraph.h</label>
+        <link refid="_m_r_f_hypergraph_8h_source"/>
+      </node>
+      <node id="628">
+        <label>lp/TagMrfLP.h</label>
+        <link refid="_tag_mrf_l_p_8h_source"/>
+      </node>
+      <node id="636">
+        <label>lp/HardConstraints.h</label>
+        <link refid="_hard_constraints_8h_source"/>
+      </node>
+      <node id="631">
+        <label>optimization/MRF.h</label>
+        <link refid="_m_r_f_8h_source"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+      </node>
+      <node id="630">
+        <label>hypergraph/HypergraphImpl.h</label>
+        <link refid="_hypergraph_impl_8h_source"/>
+        <childnode refid="631" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+      </node>
+      <node id="618">
+        <label>hypergraph/Hypergraph.h</label>
+        <link refid="_hypergraph_8h_source"/>
+        <childnode refid="619" relation="include">
+        </childnode>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="630" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="643" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+      </node>
+      <node id="643">
+        <label>lp/LPBuilder.h</label>
+        <link refid="_l_p_builder_8h_source"/>
+      </node>
+      <node id="632">
+        <label>lp/MRFLP.h</label>
+        <link refid="_m_r_f_l_p_8h_source"/>
+        <childnode refid="628" relation="include">
+        </childnode>
+      </node>
+      <node id="622">
+        <label>hypergraph/ExtendCKY.h</label>
+        <link refid="_extend_c_k_y_8h_source"/>
+        <childnode refid="623" relation="include">
+        </childnode>
+      </node>
+      <node id="634">
+        <label>parse/DepParser.h</label>
+        <link refid="_dep_parser_8h_source"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+      </node>
+      <node id="617">
+        <label>hypergraph/Weights.h</label>
+        <link refid="Weights.h"/>
+        <childnode refid="618" relation="include">
+        </childnode>
+        <childnode refid="630" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+      </node>
+      <node id="620">
+        <label>hypergraph/AStar.h</label>
+        <link refid="_a_star_8h_source"/>
+      </node>
+      <node id="624">
+        <label>hypergraph/CubePruning.h</label>
+        <link refid="_cube_pruning_8h_source"/>
+        <childnode refid="619" relation="include">
+        </childnode>
+      </node>
+      <node id="641">
+        <label>hypergraph/Hypothesis.h</label>
+        <link refid="_hypothesis_8h_source"/>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+      </node>
+      <node id="626">
+        <label>tagger/TagConstraints.h</label>
+        <link refid="_tag_constraints_8h_source"/>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="628" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+      </node>
+      <node id="623">
+        <label>trans_decode/Decode.h</label>
+        <link refid="_decode_8h_source"/>
+      </node>
+      <node id="625">
+        <label>hypergraph/HypergraphAlgorithms.h</label>
+        <link refid="_hypergraph_algorithms_8h_source"/>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="623" relation="include">
+        </childnode>
+      </node>
+      <node id="640">
+        <label>transforest/Forest.h</label>
+        <link refid="_forest_8h_source"/>
+        <childnode refid="623" relation="include">
+        </childnode>
+      </node>
+      <node id="639">
+        <label>lp/TagLP.h</label>
+        <link refid="_tag_l_p_8h_source"/>
+        <childnode refid="628" relation="include">
+        </childnode>
+      </node>
+      <node id="637">
+        <label>phrasebased/PhraseBased.h</label>
+        <link refid="_phrase_based_8h_source"/>
+      </node>
+      <node id="635">
+        <label>lp/DepParseLP.h</label>
+        <link refid="_dep_parse_l_p_8h_source"/>
+        <childnode refid="636" relation="include">
+        </childnode>
+      </node>
+      <node id="621">
+        <label>hypergraph/BestHyp.h</label>
+        <link refid="_best_hyp_8h_source"/>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+      </node>
+      <node id="629">
+        <label>tagger/TagSolvers.h</label>
+        <link refid="_tag_solvers_8h_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_weights_8h_1ae908848834ffe0602906f263f3582c8b" prot="public" static="no">
+        <type>svector&lt; int, double &gt;</type>
+        <definition>typedef svector&lt;int, double&gt; wvector</definition>
+        <argsstring></argsstring>
+        <name>wvector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.h" line="12" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Weights.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_weights_8h_1a84bcf2ad7c65c829bd866269494b339c" prot="public" static="no">
+        <type>svector&lt; int, double &gt;</type>
+        <definition>typedef svector&lt;int, double&gt; str_vector</definition>
+        <argsstring></argsstring>
+        <name>str_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.h" line="14" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Weights.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_weights_8h_1a0095482a61a54f225558100535623397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>wvector *</type>
+        <definition>wvector* load_weights_from_file</definition>
+        <argsstring>(const char *file)</argsstring>
+        <name>load_weights_from_file</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of file to read from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Weight Vector from the file </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.h" line="19" bodyfile="/home/srush/Projects/relax_decode/hypergraph/Weights.cpp" bodystart="3" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>WEIGHTS_H_</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>WEIGHTS_H_</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Weights.h<sp/>-<sp/>helper<sp/>methods<sp/>for<sp/>using<sp/>David<sp/>Chiang&apos;s<sp/>sparse<sp/>vector<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cy_svector.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;svector.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Weight<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>svector&lt;int,<sp/>double&gt;<sp/>wvector;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>svector&lt;int,<sp/>double&gt;<sp/>str_vector;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">wvector<sp/>*<sp/>load_weights_from_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/Weights.h"/>
+  </compounddef>
+</doxygen>

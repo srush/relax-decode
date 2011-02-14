@@ -1,0 +1,975 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_decode" kind="class" prot="public">
+    <compoundname>Decode</compoundname>
+    <basecompoundref refid="class_subgradient_producer" prot="public" virt="non-virtual">SubgradientProducer</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_decode_1a7309573ff383c7a4f3e38e84b8ff883b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_subproblem" kindref="compound">Subproblem</ref> *</type>
+        <definition>Subproblem* Decode::_subproblem</definition>
+        <argsstring></argsstring>
+        <name>_subproblem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="56" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a6119c9cbc0e650fe340a9412e8f63983" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_forest" kindref="compound">Forest</ref> &amp;</type>
+        <definition>const Forest&amp; Decode::_forest</definition>
+        <argsstring></argsstring>
+        <name>_forest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="57" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a05b24d98820a212580d80cf7dae65deb" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> &amp;</type>
+        <definition>const ForestLattice&amp; Decode::_lattice</definition>
+        <argsstring></argsstring>
+        <name>_lattice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="58" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a6276e1c9f68c49b698b405a894a1910b" prot="private" static="no" mutable="no">
+        <type>const wvector &amp;</type>
+        <definition>const wvector&amp; Decode::_weight</definition>
+        <argsstring></argsstring>
+        <name>_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="59" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a0491a78a0d2cb8f14526f275de89c38e" prot="private" static="no" mutable="no">
+        <type>wvector *</type>
+        <definition>wvector* Decode::_lagrange_weights</definition>
+        <argsstring></argsstring>
+        <name>_lagrange_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="60" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1adf787bcbcf522da65ff4d1c009eb3da2" prot="private" static="no" mutable="no">
+        <type><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref> &amp;</type>
+        <definition>NgramCache&amp; Decode::_lm</definition>
+        <argsstring></argsstring>
+        <name>_lm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="61" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a486c2aa683af4e51bece37d07bebd17e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_graph_decompose" kindref="compound">GraphDecompose</ref></type>
+        <definition>GraphDecompose Decode::_gd</definition>
+        <argsstring></argsstring>
+        <name>_gd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="62" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a90b47b6cc57b63ac14e828b3962c7352" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_h_g_1_1_hyperedge" kindref="compound">Hyperedge</ref>, double &gt; *</type>
+        <definition>Cache&lt;Hyperedge, double&gt;* Decode::_cached_weights</definition>
+        <argsstring></argsstring>
+        <name>_cached_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="63" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a65cd6a259bc924d8adb8c087009d0e40" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref>, int &gt; *</type>
+        <definition>Cache&lt;Graphnode, int&gt;* Decode::_cached_words</definition>
+        <argsstring></argsstring>
+        <name>_cached_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="64" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a6ff22b34a04df90a0912a877264da674" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int &gt; Decode::_projection</definition>
+        <argsstring></argsstring>
+        <name>_projection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="70" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a4d092aa5b1f9bbe420e198bd85640c68" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Decode::_proj_dim</definition>
+        <argsstring></argsstring>
+        <name>_proj_dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="71" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1aa3b5dce8fdc2e7dfcf185edf6c4879bf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Decode::lm_total</definition>
+        <argsstring></argsstring>
+        <name>lm_total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="72" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a729f774a479323ee73a67906ebc4c202" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Decode::o_total</definition>
+        <argsstring></argsstring>
+        <name>o_total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="72" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a0f0ec6371be425e512f08a5b11ad5a17" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Decode::lag_total</definition>
+        <argsstring></argsstring>
+        <name>lag_total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="72" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1ad3163d84210926b84bd5008469e935a7" prot="private" static="no" mutable="no">
+        <type>map&lt; int, set&lt; int &gt; &gt;</type>
+        <definition>map&lt;int, set &lt;int&gt; &gt; Decode::_constraints</definition>
+        <argsstring></argsstring>
+        <name>_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="74" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1acec5f8dc7046633f1733153af259e224" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Decode::_maintain_constraints</definition>
+        <argsstring></argsstring>
+        <name>_maintain_constraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="75" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_decode_1a3b7e3a724342fe922e4d333292bde4a1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Decode::_is_stuck_round</definition>
+        <argsstring></argsstring>
+        <name>_is_stuck_round</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="76" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_decode_1a57bd53ddaf49e2fe4b86a7aad782110f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Decode::Decode</definition>
+        <argsstring>(const Forest &amp;forest, const ForestLattice &amp;lattice, const wvector &amp;weight, NgramCache &amp;lm)</argsstring>
+        <name>Decode</name>
+        <param>
+          <type>const <ref refid="class_forest" kindref="compound">Forest</ref> &amp;</type>
+          <declname>forest</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_forest_lattice" kindref="compound">ForestLattice</ref> &amp;</type>
+          <declname>lattice</declname>
+        </param>
+        <param>
+          <type>const wvector &amp;</type>
+          <declname>weight</declname>
+        </param>
+        <param>
+          <type><ref refid="class_ngram_cache" kindref="compound">NgramCache</ref> &amp;</type>
+          <declname>lm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="26" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="24" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a44f43126a6daa82c3a701625025877da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Decode::~Decode</definition>
+        <argsstring>()</argsstring>
+        <name>~Decode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="41" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a6d86f91ee2c591c54ce2bb97c1dd6888" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Decode::solve</definition>
+        <argsstring>(double &amp;primal, double &amp;dual, wvector &amp;, int, bool, bool &amp;)</argsstring>
+        <name>solve</name>
+        <reimplements refid="class_subgradient_producer_1acea0e6ef35f9f3fd2f14872740471628">solve</reimplements>
+        <param>
+          <type>double &amp;</type>
+          <declname>primal</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>dual</declname>
+        </param>
+        <param>
+          <type>wvector &amp;</type>
+          <defname>subgrad</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>round</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <defname>is_stuck</defname>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+          <defname>bump_rate</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="47" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="530" bodyend="1087"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a9beca60221318f111b7f4d5acca8e329" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Decode::update_weights</definition>
+        <argsstring>(const wvector &amp;updates, wvector *weights)</argsstring>
+        <name>update_weights</name>
+        <reimplements refid="class_subgradient_producer_1a5b471526b337913722f56221b2461d89">update_weights</reimplements>
+        <param>
+          <type>const wvector &amp;</type>
+          <declname>updates</declname>
+        </param>
+        <param>
+          <type>wvector *</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="48" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="269" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_decode_1a8f632992517beb5f95c1ed6096507a9d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Decode::debug</definition>
+        <argsstring>(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end)</argsstring>
+        <name>debug</name>
+        <param>
+          <type>int</type>
+          <declname>start_from</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dual_mid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dual_end</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>primal_mid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>primal_end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="51" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="324" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a1adedd4e04bb25a2696567218640260c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Decode::greedy_projection</definition>
+        <argsstring>(int dual_mid, int dual_end, int primal_mid, int primal_end)</argsstring>
+        <name>greedy_projection</name>
+        <param>
+          <type>int</type>
+          <declname>dual_mid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dual_end</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>primal_mid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>primal_end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="52" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="355" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1abcc15af5f67c483ff32fe6dff7bb41a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Decode::add_subgrad</definition>
+        <argsstring>(wvector &amp;subgrad, int start_from, int mid_at, int end_at, bool first)</argsstring>
+        <name>add_subgrad</name>
+        <param>
+          <type>wvector &amp;</type>
+          <declname>subgrad</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start_from</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mid_at</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end_at</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>first</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="53" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="418" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1ab68ea75c3b7a96d488bbda5017b447f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Decode::compute_primal</definition>
+        <argsstring>(HEdges used_edges, const vector&lt; const ForestNode * &gt; used_nodes)</argsstring>
+        <name>compute_primal</name>
+        <param>
+          <type>HEdges</type>
+          <declname>used_edges</declname>
+        </param>
+        <param>
+          <type>const vector&lt; const <ref refid="class_forest_node" kindref="compound">ForestNode</ref> * &gt;</type>
+          <declname>used_nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="54" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="1090" bodyend="1121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a029fb5b3c6d38453572ad9a50110953c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Decode::lookup_string</definition>
+        <argsstring>(string word)</argsstring>
+        <name>lookup_string</name>
+        <param>
+          <type>string</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="55" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="1122" bodyend="1131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1aa22ac7d6caa50d70c54801a6eacb0451" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt; int &gt; Decode::get_lat_edges</definition>
+        <argsstring>(int edge_id)</argsstring>
+        <name>get_lat_edges</name>
+        <param>
+          <type>int</type>
+          <declname>edge_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="65" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="318" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a1084f9c2ff1eac08c6b1ed284ab5a57a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt; int &gt; Decode::get_lex_lat_edges</definition>
+        <argsstring>(int edge_id)</argsstring>
+        <name>get_lex_lat_edges</name>
+        <param>
+          <type>int</type>
+          <declname>edge_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="66" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="302" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1ac52e73ad021707c4d7abaeb437610492" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Decode::sync_lattice_lm</definition>
+        <argsstring>()</argsstring>
+        <name>sync_lattice_lm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="67" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="1133" bodyend="1153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_decode_1a9ab8ce9976610b8c50cc720c51eeeaec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Decode::print_output</definition>
+        <argsstring>(const wvector &amp;)</argsstring>
+        <name>print_output</name>
+        <param>
+          <type>const wvector &amp;</type>
+          <defname>subgrad</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="68" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.cpp" bodystart="496" bodyend="528"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="370">
+        <label>SubgradientProducer</label>
+        <link refid="class_subgradient_producer"/>
+      </node>
+      <node id="369">
+        <label>Decode</label>
+        <link refid="class_decode"/>
+        <childnode refid="370" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="406">
+        <label>std::vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</label>
+        <childnode refid="403" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="401">
+        <label>GraphDecompose</label>
+        <link refid="class_graph_decompose"/>
+        <childnode refid="382" relation="usage">
+          <edgelabel>backward_bigrams</edgelabel>
+          <edgelabel>forward_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="402" relation="usage">
+          <edgelabel>bigram_paths</edgelabel>
+        </childnode>
+        <childnode refid="378" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="403" relation="usage">
+          <edgelabel>all_pairs_path_exist</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>all_pairs_path</edgelabel>
+        </childnode>
+        <childnode refid="380" relation="usage">
+          <edgelabel>valid_bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="377">
+        <label>std::set&lt; int &gt;</label>
+      </node>
+      <node id="390">
+        <label>T</label>
+      </node>
+      <node id="385">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="386" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="400">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hyperedge"/>
+      </node>
+      <node id="380">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="381" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="389">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="390" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="378">
+        <label>ForestLattice</label>
+        <link refid="class_forest_lattice"/>
+        <childnode refid="379" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="382" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="383" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="374" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="380" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="409">
+        <label>std::vector&lt; float &gt;</label>
+      </node>
+      <node id="395">
+        <label>Scarab::HG::HypergraphImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypergraph_impl"/>
+        <childnode refid="396" relation="public-inheritance">
+        </childnode>
+        <childnode refid="397" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+        <childnode refid="399" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>_root</edgelabel>
+        </childnode>
+      </node>
+      <node id="407">
+        <label>BigramRescore</label>
+        <link refid="class_bigram_rescore"/>
+        <childnode refid="382" relation="usage">
+          <edgelabel>forward_paths</edgelabel>
+          <edgelabel>best_split</edgelabel>
+          <edgelabel>backward_paths</edgelabel>
+        </childnode>
+        <childnode refid="378" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="403" relation="usage">
+          <edgelabel>need_to_recompute</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>bigram_path</edgelabel>
+        </childnode>
+        <childnode refid="408" relation="usage">
+          <edgelabel>bigram_weights</edgelabel>
+        </childnode>
+        <childnode refid="374" relation="usage">
+          <edgelabel>update_position</edgelabel>
+        </childnode>
+        <childnode refid="409" relation="usage">
+          <edgelabel>current_weights</edgelabel>
+        </childnode>
+        <childnode refid="375" relation="usage">
+          <edgelabel>update_filter</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+      </node>
+      <node id="392">
+        <label>NgramCache</label>
+        <link refid="class_ngram_cache"/>
+      </node>
+      <node id="373">
+        <label>Cache&lt; Graphnode, int &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="374" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="375" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="398">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode"/>
+      </node>
+      <node id="393">
+        <label>Cache&lt; Hyperedge, double &gt;</label>
+        <link refid="class_cache"/>
+      </node>
+      <node id="391">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="387" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="381">
+        <label>Bigram</label>
+        <link refid="struct_bigram"/>
+      </node>
+      <node id="410">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt;</label>
+        <childnode refid="382" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="397">
+        <label>std::vector&lt; Hypernode * &gt;</label>
+        <childnode refid="398" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="405">
+        <label>Subproblem</label>
+        <link refid="class_subproblem"/>
+        <childnode refid="382" relation="usage">
+          <edgelabel>cur_best_at_bi</edgelabel>
+          <edgelabel>cur_best_bi_projection_first</edgelabel>
+          <edgelabel>cur_best_bi_projection</edgelabel>
+        </childnode>
+        <childnode refid="373" relation="usage">
+          <edgelabel>_word_node_cache</edgelabel>
+        </childnode>
+        <childnode refid="378" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+        <childnode refid="403" relation="usage">
+          <edgelabel>bigram_in_lm</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>lm</edgelabel>
+        </childnode>
+        <childnode refid="406" relation="usage">
+          <edgelabel>cur_best_tri_projection_is_new</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>forward_trigrams</edgelabel>
+        </childnode>
+        <childnode refid="407" relation="usage">
+          <edgelabel>bi_rescore_two</edgelabel>
+          <edgelabel>bi_rescore_first</edgelabel>
+        </childnode>
+        <childnode refid="408" relation="usage">
+          <edgelabel>bigram_weight_cache_two</edgelabel>
+          <edgelabel>bigram_weight_cache_one</edgelabel>
+          <edgelabel>bigram_score_cache</edgelabel>
+          <edgelabel>cur_best_at_bi_score</edgelabel>
+          <edgelabel>cur_best_bi_projection_score</edgelabel>
+          <edgelabel>best_lm_score</edgelabel>
+          <edgelabel>backoff_score_cache</edgelabel>
+        </childnode>
+        <childnode refid="410" relation="usage">
+          <edgelabel>cur_best_tri_projection</edgelabel>
+          <edgelabel>cur_best_tri_projection_first</edgelabel>
+        </childnode>
+        <childnode refid="409" relation="usage">
+          <edgelabel>cur_best_score</edgelabel>
+        </childnode>
+        <childnode refid="374" relation="usage">
+          <edgelabel>projection</edgelabel>
+          <edgelabel>cur_best_two</edgelabel>
+          <edgelabel>cur_best_count</edgelabel>
+          <edgelabel>cur_best_one</edgelabel>
+        </childnode>
+        <childnode refid="375" relation="usage">
+          <edgelabel>overridden</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>gd</edgelabel>
+        </childnode>
+        <childnode refid="411" relation="usage">
+          <edgelabel>cur_best_tri_projection_score</edgelabel>
+        </childnode>
+        <childnode refid="412" relation="usage">
+          <edgelabel>forward_trigrams_score</edgelabel>
+        </childnode>
+      </node>
+      <node id="386">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="384" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="387" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="388">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="379">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="380" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="382">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="394">
+        <label>Forest</label>
+        <link refid="class_forest"/>
+        <childnode refid="395" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="411">
+        <label>std::vector&lt; vector&lt; vector&lt; float &gt; &gt; &gt;</label>
+        <childnode refid="408" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="376">
+        <label>std::map&lt; int, set&lt; int &gt; &gt;</label>
+        <childnode refid="377" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="396">
+        <label>Scarab::HG::HGraph</label>
+        <link refid="class_scarab_1_1_h_g_1_1_h_graph"/>
+      </node>
+      <node id="408">
+        <label>std::vector&lt; vector&lt; float &gt; &gt;</label>
+        <childnode refid="409" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="372">
+        <label>SubgradientProducer</label>
+        <link refid="class_subgradient_producer"/>
+      </node>
+      <node id="375">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="412">
+        <label>std::vector&lt; vector&lt; vector&lt; double &gt; * &gt; &gt;</label>
+      </node>
+      <node id="404">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="402">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="384">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="385" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="383">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="384" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="389" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="374">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="403">
+        <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
+      </node>
+      <node id="387">
+        <label>std::string</label>
+        <childnode refid="388" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="371">
+        <label>Decode</label>
+        <link refid="class_decode"/>
+        <childnode refid="372" relation="public-inheritance">
+        </childnode>
+        <childnode refid="373" relation="usage">
+          <edgelabel>_cached_words</edgelabel>
+        </childnode>
+        <childnode refid="376" relation="usage">
+          <edgelabel>_constraints</edgelabel>
+        </childnode>
+        <childnode refid="378" relation="usage">
+          <edgelabel>_lattice</edgelabel>
+        </childnode>
+        <childnode refid="392" relation="usage">
+          <edgelabel>_lm</edgelabel>
+        </childnode>
+        <childnode refid="393" relation="usage">
+          <edgelabel>_cached_weights</edgelabel>
+        </childnode>
+        <childnode refid="374" relation="usage">
+          <edgelabel>_projection</edgelabel>
+        </childnode>
+        <childnode refid="394" relation="usage">
+          <edgelabel>_forest</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>_gd</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>_subproblem</edgelabel>
+        </childnode>
+      </node>
+      <node id="399">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="400" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/trans_decode/Decode.h" line="22" bodyfile="/home/srush/Projects/relax_decode/trans_decode/Decode.h" bodystart="22" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_decode_1a90b47b6cc57b63ac14e828b3962c7352" prot="private" virt="non-virtual"><scope>Decode</scope><name>_cached_weights</name></member>
+      <member refid="class_decode_1a65cd6a259bc924d8adb8c087009d0e40" prot="private" virt="non-virtual"><scope>Decode</scope><name>_cached_words</name></member>
+      <member refid="class_decode_1ad3163d84210926b84bd5008469e935a7" prot="private" virt="non-virtual"><scope>Decode</scope><name>_constraints</name></member>
+      <member refid="class_decode_1a6119c9cbc0e650fe340a9412e8f63983" prot="private" virt="non-virtual"><scope>Decode</scope><name>_forest</name></member>
+      <member refid="class_decode_1a486c2aa683af4e51bece37d07bebd17e" prot="private" virt="non-virtual"><scope>Decode</scope><name>_gd</name></member>
+      <member refid="class_decode_1a3b7e3a724342fe922e4d333292bde4a1" prot="private" virt="non-virtual"><scope>Decode</scope><name>_is_stuck_round</name></member>
+      <member refid="class_decode_1a0491a78a0d2cb8f14526f275de89c38e" prot="private" virt="non-virtual"><scope>Decode</scope><name>_lagrange_weights</name></member>
+      <member refid="class_decode_1a05b24d98820a212580d80cf7dae65deb" prot="private" virt="non-virtual"><scope>Decode</scope><name>_lattice</name></member>
+      <member refid="class_decode_1adf787bcbcf522da65ff4d1c009eb3da2" prot="private" virt="non-virtual"><scope>Decode</scope><name>_lm</name></member>
+      <member refid="class_decode_1acec5f8dc7046633f1733153af259e224" prot="private" virt="non-virtual"><scope>Decode</scope><name>_maintain_constraints</name></member>
+      <member refid="class_decode_1a4d092aa5b1f9bbe420e198bd85640c68" prot="private" virt="non-virtual"><scope>Decode</scope><name>_proj_dim</name></member>
+      <member refid="class_decode_1a6ff22b34a04df90a0912a877264da674" prot="private" virt="non-virtual"><scope>Decode</scope><name>_projection</name></member>
+      <member refid="class_decode_1a7309573ff383c7a4f3e38e84b8ff883b" prot="private" virt="non-virtual"><scope>Decode</scope><name>_subproblem</name></member>
+      <member refid="class_decode_1a6276e1c9f68c49b698b405a894a1910b" prot="private" virt="non-virtual"><scope>Decode</scope><name>_weight</name></member>
+      <member refid="class_decode_1abcc15af5f67c483ff32fe6dff7bb41a2" prot="private" virt="non-virtual"><scope>Decode</scope><name>add_subgrad</name></member>
+      <member refid="class_decode_1ab68ea75c3b7a96d488bbda5017b447f4" prot="private" virt="non-virtual"><scope>Decode</scope><name>compute_primal</name></member>
+      <member refid="class_decode_1a8f632992517beb5f95c1ed6096507a9d" prot="private" virt="non-virtual"><scope>Decode</scope><name>debug</name></member>
+      <member refid="class_decode_1a57bd53ddaf49e2fe4b86a7aad782110f" prot="public" virt="non-virtual"><scope>Decode</scope><name>Decode</name></member>
+      <member refid="class_decode_1aa22ac7d6caa50d70c54801a6eacb0451" prot="private" virt="non-virtual"><scope>Decode</scope><name>get_lat_edges</name></member>
+      <member refid="class_decode_1a1084f9c2ff1eac08c6b1ed284ab5a57a" prot="private" virt="non-virtual"><scope>Decode</scope><name>get_lex_lat_edges</name></member>
+      <member refid="class_decode_1a1adedd4e04bb25a2696567218640260c" prot="private" virt="non-virtual"><scope>Decode</scope><name>greedy_projection</name></member>
+      <member refid="class_decode_1a0f0ec6371be425e512f08a5b11ad5a17" prot="private" virt="non-virtual"><scope>Decode</scope><name>lag_total</name></member>
+      <member refid="class_decode_1aa3b5dce8fdc2e7dfcf185edf6c4879bf" prot="private" virt="non-virtual"><scope>Decode</scope><name>lm_total</name></member>
+      <member refid="class_decode_1a029fb5b3c6d38453572ad9a50110953c" prot="private" virt="non-virtual"><scope>Decode</scope><name>lookup_string</name></member>
+      <member refid="class_decode_1a729f774a479323ee73a67906ebc4c202" prot="private" virt="non-virtual"><scope>Decode</scope><name>o_total</name></member>
+      <member refid="class_decode_1a9ab8ce9976610b8c50cc720c51eeeaec" prot="private" virt="non-virtual"><scope>Decode</scope><name>print_output</name></member>
+      <member refid="class_decode_1a6d86f91ee2c591c54ce2bb97c1dd6888" prot="public" virt="virtual"><scope>Decode</scope><name>solve</name></member>
+      <member refid="class_decode_1ac52e73ad021707c4d7abaeb437610492" prot="private" virt="non-virtual"><scope>Decode</scope><name>sync_lattice_lm</name></member>
+      <member refid="class_decode_1a9beca60221318f111b7f4d5acca8e329" prot="public" virt="virtual"><scope>Decode</scope><name>update_weights</name></member>
+      <member refid="class_decode_1a44f43126a6daa82c3a701625025877da" prot="public" virt="non-virtual"><scope>Decode</scope><name>~Decode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

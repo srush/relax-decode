@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_store_cache" kind="class" prot="public">
+    <compoundname>StoreCache</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class C</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_store_cache_1a99393733357e04fe79cf703d3f4d8f44" prot="public" static="no" mutable="no">
+        <type>vector&lt; V &gt;</type>
+        <definition>vector&lt;V&gt; StoreCache&lt; C, V &gt;::store</definition>
+        <argsstring></argsstring>
+        <name>store</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="69" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_store_cache_1a0df08d5576ce34c4a8fd4f7428fd9ad3" prot="public" static="no" mutable="no">
+        <type>vector&lt; C &gt;</type>
+        <definition>vector&lt;C&gt; StoreCache&lt; C, V &gt;::full_keys</definition>
+        <argsstring></argsstring>
+        <name>full_keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="70" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_store_cache_1acdfad2c43fd63e37fbb818ce282f6493" prot="public" static="no" mutable="no">
+        <type>vector&lt; bool &gt;</type>
+        <definition>vector&lt;bool&gt; StoreCache&lt; C, V &gt;::has_value</definition>
+        <argsstring></argsstring>
+        <name>has_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="71" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_store_cache_1afb884936a49c7849dfb70ea1853ad475" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StoreCache&lt; C, V &gt;::StoreCache</definition>
+        <argsstring>()</argsstring>
+        <name>StoreCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="73" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1adeb02113caf8141430705ec5bab08a54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StoreCache&lt; C, V &gt;::StoreCache</definition>
+        <argsstring>(int size)</argsstring>
+        <name>StoreCache</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="74" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1a5aaafba803337cf3547159a6ac70a0ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void StoreCache&lt; C, V &gt;::resize</definition>
+        <argsstring>(int size)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="76" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="76" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1aa4673d48544458b6b05770fe5970d961" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int StoreCache&lt; C, V &gt;::size</definition>
+        <argsstring>() const </argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="82" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="82" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1a455dbf75e40300745b354fdcc039279a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V StoreCache&lt; C, V &gt;::get_value</definition>
+        <argsstring>(const C &amp;edge) const </argsstring>
+        <name>get_value</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="86" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1a23309f685f0ba18912dcc2e8643de932" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void StoreCache&lt; C, V &gt;::set_value</definition>
+        <argsstring>(const C &amp;edge, V val)</argsstring>
+        <name>set_value</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="92" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="92" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1aa1289fedb472667dfa926c1e00f22b95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool StoreCache&lt; C, V &gt;::has_key</definition>
+        <argsstring>(const C &amp;edge) const </argsstring>
+        <name>has_key</name>
+        <param>
+          <type>const C &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="99" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_store_cache_1ad358ce23080bb52db50a55db583f1bba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool StoreCache&lt; C, V &gt;::has_key</definition>
+        <argsstring>(int k) const </argsstring>
+        <name>has_key</name>
+        <param>
+          <type>int</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="103" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1147">
+        <label>StoreCache&lt; C, V &gt;</label>
+        <link refid="class_store_cache"/>
+        <childnode refid="1148" relation="usage">
+          <edgelabel>store</edgelabel>
+        </childnode>
+        <childnode refid="1149" relation="usage">
+          <edgelabel>full_keys</edgelabel>
+        </childnode>
+        <childnode refid="1150" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="1148">
+        <label>std::vector&lt; V &gt;</label>
+      </node>
+      <node id="1150">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="1149">
+        <label>std::vector&lt; C &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" line="66" bodyfile="/home/srush/Projects/relax_decode/hypergraph/EdgeCache.h" bodystart="66" bodyend="107"/>
+    <listofallmembers>
+      <member refid="class_store_cache_1a0df08d5576ce34c4a8fd4f7428fd9ad3" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>full_keys</name></member>
+      <member refid="class_store_cache_1a455dbf75e40300745b354fdcc039279a" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>get_value</name></member>
+      <member refid="class_store_cache_1aa1289fedb472667dfa926c1e00f22b95" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>has_key</name></member>
+      <member refid="class_store_cache_1ad358ce23080bb52db50a55db583f1bba" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>has_key</name></member>
+      <member refid="class_store_cache_1acdfad2c43fd63e37fbb818ce282f6493" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>has_value</name></member>
+      <member refid="class_store_cache_1a5aaafba803337cf3547159a6ac70a0ab" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>resize</name></member>
+      <member refid="class_store_cache_1a23309f685f0ba18912dcc2e8643de932" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>set_value</name></member>
+      <member refid="class_store_cache_1aa4673d48544458b6b05770fe5970d961" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>size</name></member>
+      <member refid="class_store_cache_1a99393733357e04fe79cf703d3f4d8f44" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>store</name></member>
+      <member refid="class_store_cache_1afb884936a49c7849dfb70ea1853ad475" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>StoreCache</name></member>
+      <member refid="class_store_cache_1adeb02113caf8141430705ec5bab08a54" prot="public" virt="non-virtual"><scope>StoreCache</scope><name>StoreCache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_forest_node" kind="class" prot="public">
+    <compoundname>ForestNode</compoundname>
+    <basecompoundref refid="class_scarab_1_1_h_g_1_1_hypernode_impl" prot="public" virt="non-virtual">Scarab::HG::HypernodeImpl</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_forest_node_1a0b79c0678d7555fdd0ccb7945f154dde" prot="private" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string ForestNode::_word</definition>
+        <argsstring></argsstring>
+        <name>_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="84" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_node_1ae2cc9551c0625ab16b633157905b60b3" prot="private" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool ForestNode::_is_word</definition>
+        <argsstring></argsstring>
+        <name>_is_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="85" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_forest_node_1aeeb649eef15a82d283ae728b0a44d183" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ForestNode::ForestNode</definition>
+        <argsstring>(const string &amp;label, int id, str_vector *features, string word, bool is_word)</argsstring>
+        <name>ForestNode</name>
+        <param>
+          <type>const string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>str_vector *</type>
+          <declname>features</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>word</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_word</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="68" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="67" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_node_1ab44af8003df7af0ce93b9b904301fb92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ForestNode::is_word</definition>
+        <argsstring>() const </argsstring>
+        <name>is_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="74" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_node_1a18c00f9aae93bc963358e488f2cce308" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string ForestNode::word</definition>
+        <argsstring>() const </argsstring>
+        <name>word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="78" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="78" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="558">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode"/>
+      </node>
+      <node id="557">
+        <label>Scarab::HG::HypernodeImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode_impl"/>
+        <childnode refid="558" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="556">
+        <label>ForestNode</label>
+        <link refid="class_forest_node"/>
+        <childnode refid="557" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="565">
+        <label>Scarab::HG::Hyperedge</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hyperedge"/>
+      </node>
+      <node id="561">
+        <label>Scarab::HG::Hypernode</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode"/>
+      </node>
+      <node id="563">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="560">
+        <label>Scarab::HG::HypernodeImpl</label>
+        <link refid="class_scarab_1_1_h_g_1_1_hypernode_impl"/>
+        <childnode refid="561" relation="public-inheritance">
+        </childnode>
+        <childnode refid="562" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+        <childnode refid="564" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+      </node>
+      <node id="559">
+        <label>ForestNode</label>
+        <link refid="class_forest_node"/>
+        <childnode refid="560" relation="public-inheritance">
+        </childnode>
+        <childnode refid="562" relation="usage">
+          <edgelabel>_word</edgelabel>
+        </childnode>
+      </node>
+      <node id="562">
+        <label>std::string</label>
+        <childnode refid="563" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="564">
+        <label>std::vector&lt; Hyperedge * &gt;</label>
+        <childnode refid="565" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/transforest/Forest.h" line="65" bodyfile="/home/srush/Projects/relax_decode/transforest/Forest.h" bodystart="65" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1aaa189784dcf714f3c1ca54ea8cd0dc83" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>_edges</name></member>
+      <member refid="class_forest_node_1ae2cc9551c0625ab16b633157905b60b3" prot="private" virt="non-virtual"><scope>ForestNode</scope><name>_is_word</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1aefb3b14843d6fb8ed2284ae0d6a53dbd" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>_label</name></member>
+      <member refid="class_forest_node_1a0b79c0678d7555fdd0ccb7945f154dde" prot="private" virt="non-virtual"><scope>ForestNode</scope><name>_word</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a0899a4e97f535c2f005d7c5ab5364681" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>add_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1ab05500702d5fa1c896efe941f9c54bf3" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>add_in_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a328189f28a4185d435035686a27592c2" prot="public" virt="virtual"><scope>ForestNode</scope><name>edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1ada979dcddc1bf0abf0fc2530d1ea8761" prot="public" virt="virtual"><scope>ForestNode</scope><name>edges</name></member>
+      <member refid="class_forest_node_1aeeb649eef15a82d283ae728b0a44d183" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>ForestNode</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a574c6f1386fb27894075977ef1ca56d6" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>HypernodeImpl</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a2579ef1e67ad8f51d23838c130440d21" prot="public" virt="virtual"><scope>ForestNode</scope><name>id</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a26ff9db30c03c7b74181e9f901aa71d4" prot="public" virt="virtual"><scope>ForestNode</scope><name>in_edge</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a77fe0de2e3927be6145cb8fc018088c9" prot="public" virt="virtual"><scope>ForestNode</scope><name>in_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a2bb4b33ff207c3c1babe135b9af6323e" prot="public" virt="virtual"><scope>ForestNode</scope><name>is_terminal</name></member>
+      <member refid="class_forest_node_1ab44af8003df7af0ce93b9b904301fb92" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>is_word</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a7fed4809706319cc916ed4c04a641436" prot="public" virt="virtual"><scope>ForestNode</scope><name>num_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a9a13a37fcece16603ec4bf3f364e6fcc" prot="public" virt="virtual"><scope>ForestNode</scope><name>num_in_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a6675d677bd7e794ae9a8bf72645b828a" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>prune_edges</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a9b0df10dfd6c20c094a928f1ced76f90" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>reid</name></member>
+      <member refid="class_forest_node_1a18c00f9aae93bc963358e488f2cce308" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>word</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_1a0657cc96f62d29da3ae4b5b9bcab1ce6" prot="public" virt="virtual"><scope>ForestNode</scope><name>~Hypernode</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_hypernode_impl_1a07ec2768129a4e202f9f1e47ff0f12c7" prot="public" virt="non-virtual"><scope>ForestNode</scope><name>~HypernodeImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

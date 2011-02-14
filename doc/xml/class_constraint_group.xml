@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_constraint_group" kind="class" prot="public">
+    <compoundname>ConstraintGroup</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_constraint_group_1ac96c45d3b2c4c1a6e1068837bc024d9c" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_possible_tag" kindref="compound">PossibleTag</ref> &gt;</type>
+        <definition>vector&lt;PossibleTag&gt; ConstraintGroup::group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="40" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_constraint_group_1a4f37823a56e405c16148c0ba6ae7f114" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>wvector</type>
+        <definition>wvector ConstraintGroup::solve_hard</definition>
+        <argsstring>(wvector &amp;weights) const </argsstring>
+        <name>solve_hard</name>
+        <param>
+          <type>wvector &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="42" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="16" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="355">
+        <label>PossibleTag</label>
+        <link refid="struct_possible_tag"/>
+        <childnode refid="356" relation="usage">
+          <edgelabel>group_name</edgelabel>
+        </childnode>
+      </node>
+      <node id="353">
+        <label>ConstraintGroup</label>
+        <link refid="class_constraint_group"/>
+        <childnode refid="354" relation="usage">
+          <edgelabel>group</edgelabel>
+        </childnode>
+      </node>
+      <node id="354">
+        <label>std::vector&lt; PossibleTag &gt;</label>
+        <childnode refid="355" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="357">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="356">
+        <label>std::string</label>
+        <childnode refid="357" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="38" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" bodystart="38" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_constraint_group_1ac96c45d3b2c4c1a6e1068837bc024d9c" prot="public" virt="non-virtual"><scope>ConstraintGroup</scope><name>group</name></member>
+      <member refid="class_constraint_group_1a4f37823a56e405c16148c0ba6ae7f114" prot="public" virt="non-virtual"><scope>ConstraintGroup</scope><name>solve_hard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

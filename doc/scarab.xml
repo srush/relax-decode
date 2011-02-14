@@ -2,205 +2,205 @@
 <tagfile>
   <compound kind="struct">
     <name>Bigram</name>
-    <filename>structBigram.html</filename>
+    <filename>struct_bigram.html</filename>
     <member kind="function">
       <type></type>
       <name>Bigram</name>
-      <anchorfile>structBigram.html</anchorfile>
+      <anchorfile>struct_bigram.html</anchorfile>
       <anchor>a020c686282bd0fb8d36bb1599c6b1a14</anchor>
       <arglist>(int word1, int word2)</arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>w1</name>
-      <anchorfile>structBigram.html</anchorfile>
+      <anchorfile>struct_bigram.html</anchorfile>
       <anchor>a27e17775db4f1239992f52ca5946c42b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>w2</name>
-      <anchorfile>structBigram.html</anchorfile>
+      <anchorfile>struct_bigram.html</anchorfile>
       <anchor>a0dfa6c244c9d3a4730c1338e94b1723b</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>BigramRescore</name>
-    <filename>classBigramRescore.html</filename>
+    <filename>class_bigram_rescore.html</filename>
     <member kind="function">
       <type></type>
       <name>BigramRescore</name>
-      <anchorfile>classBigramRescore.html</anchorfile>
+      <anchorfile>class_bigram_rescore.html</anchorfile>
       <anchor>ac1fc6a3f7ac90cbf158e6bcd2f6518f8</anchor>
       <arglist>(const ForestLattice *graph_in, const GraphDecompose *gd_in)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classBigramRescore.html</anchorfile>
+      <anchorfile>class_bigram_rescore.html</anchorfile>
       <anchor>a2d3ec18a2decf6adbb92c2a044505041</anchor>
       <arglist>(vector&lt; int &gt; u_pos, vector&lt; float &gt; u_values, int len)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>recompute_bigram_weights</name>
-      <anchorfile>classBigramRescore.html</anchorfile>
+      <anchorfile>class_bigram_rescore.html</anchorfile>
       <anchor>a25b5c1d281493c722ae1c0a02171d5ec</anchor>
       <arglist>(bool init)</arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; int &gt;</type>
       <name>get_bigram_path</name>
-      <anchorfile>classBigramRescore.html</anchorfile>
+      <anchorfile>class_bigram_rescore.html</anchorfile>
       <anchor>a726d2e7088c39e26d924038e223e297c</anchor>
       <arglist>(int w1, int w2)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>get_bigram_weight</name>
-      <anchorfile>classBigramRescore.html</anchorfile>
+      <anchorfile>class_bigram_rescore.html</anchorfile>
       <anchor>a4ddc874583100444b08e97c44038f743</anchor>
       <arglist>(int w1, int w2)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>BlankNonLocal</name>
-    <filename>classBlankNonLocal.html</filename>
+    <filename>class_blank_non_local.html</filename>
     <base>NonLocal</base>
     <member kind="function">
       <type>void</type>
       <name>compute</name>
-      <anchorfile>classBlankNonLocal.html</anchorfile>
+      <anchorfile>class_blank_non_local.html</anchorfile>
       <anchor>ab48fb9f176d5b929aaa724e3f5b32a6a</anchor>
       <arglist>(const Hyperedge &amp;edge, const vector&lt; vector&lt; int &gt; &gt; &amp;subder, double &amp;score, vector&lt; int &gt; &amp;full_derivation, Sig &amp;sig) const </arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual Hyp</type>
       <name>initialize</name>
-      <anchorfile>classBlankNonLocal.html</anchorfile>
+      <anchorfile>class_blank_non_local.html</anchorfile>
       <anchor>a61e2ac11c599d217cacfa5c54bd191b8</anchor>
       <arglist>(const Hypernode &amp;node) const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Cache</name>
-    <filename>classCache.html</filename>
+    <filename>class_cache.html</filename>
     <templarg>C</templarg>
     <templarg>V</templarg>
     <member kind="function">
       <type></type>
       <name>Cache</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>ace98594381db6cd76b3228a73b18190a</anchor>
       <arglist>(int size)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>size</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>ad0a38f45b45b59a772d1e1fd92e59973</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const V &amp;</type>
       <name>get</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a8d126a64723abe79878befff1c622145</anchor>
       <arglist>(const C &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>V &amp;</type>
       <name>get_no_check</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a2616bfc563def72da44f91977552ca62</anchor>
       <arglist>(const C &amp;edge)</arglist>
     </member>
     <member kind="function">
       <type>V &amp;</type>
       <name>get</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a9256aebb417928fbea6090f820d0652d</anchor>
       <arglist>(const C &amp;edge)</arglist>
     </member>
     <member kind="function">
       <type>V</type>
       <name>get_value</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a509df0fde9598a4df9879b5ddb9d93d9</anchor>
       <arglist>(const C &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_value</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>aeb9ab922add6cf79e2bef1b714f57e8a</anchor>
       <arglist>(const C &amp;edge, V val)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_key</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a0864be6a32d0840a4c3009f9ae417902</anchor>
       <arglist>(const C &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_key</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a213273226c6bb403d33e10e2bc769fe1</anchor>
       <arglist>(int k) const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; V &gt;</type>
       <name>store</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a4de9009630d4bdc7e78b9db7ea734411</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; bool &gt;</type>
       <name>has_value</name>
-      <anchorfile>classCache.html</anchorfile>
+      <anchorfile>class_cache.html</anchorfile>
       <anchor>a30fcdd51d6ff0cd602cc23d4a12b5348</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Candidate</name>
-    <filename>structCandidate.html</filename>
+    <filename>struct_candidate.html</filename>
     <member kind="function">
       <type></type>
       <name>Candidate</name>
-      <anchorfile>structCandidate.html</anchorfile>
+      <anchorfile>struct_candidate.html</anchorfile>
       <anchor>ac13c7ec637d37b63fc4d6bf3361fd449</anchor>
       <arglist>(Hyp h, const Hyperedge &amp;e, const vector&lt; int &gt; &amp;v)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structCandidate.html</anchorfile>
+      <anchorfile>struct_candidate.html</anchorfile>
       <anchor>a5644a3a3d2d92498923ecc443bb4583c</anchor>
       <arglist>(const Candidate &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>Hyp</type>
       <name>hyp</name>
-      <anchorfile>structCandidate.html</anchorfile>
+      <anchorfile>struct_candidate.html</anchorfile>
       <anchor>a22db5a9c75fdebb31827505d6bc7d274</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const Hyperedge &amp;</type>
       <name>edge</name>
-      <anchorfile>structCandidate.html</anchorfile>
+      <anchorfile>struct_candidate.html</anchorfile>
       <anchor>acdb6d12cbf33f6e78b97fed5013a181b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>vec</name>
-      <anchorfile>structCandidate.html</anchorfile>
+      <anchorfile>struct_candidate.html</anchorfile>
       <anchor>afe2daf1c20513a5489d8407492ca7597</anchor>
       <arglist></arglist>
     </member>
@@ -218,3846 +218,3846 @@
   </compound>
   <compound kind="class">
     <name>Clock</name>
-    <filename>classClock.html</filename>
+    <filename>class_clock.html</filename>
     <member kind="function" static="yes">
       <type>static double</type>
       <name>diffclock</name>
-      <anchorfile>classClock.html</anchorfile>
+      <anchorfile>class_clock.html</anchorfile>
       <anchor>af45b8db844300755b8c4244a65f60833</anchor>
       <arglist>(clock_t clock1, clock_t clock2)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>ConstrainerDual</name>
-    <filename>classConstrainerDual.html</filename>
+    <filename>class_constrainer_dual.html</filename>
     <base>DualDecompositionSubproblem</base>
     <member kind="function">
       <type></type>
       <name>ConstrainerDual</name>
-      <anchorfile>classConstrainerDual.html</anchorfile>
+      <anchorfile>class_constrainer_dual.html</anchorfile>
       <anchor>ae74adbb392415eec3451dd5a20820b6b</anchor>
       <arglist>(const TagConstraints &amp;cons)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classConstrainerDual.html</anchorfile>
+      <anchorfile>class_constrainer_dual.html</anchorfile>
       <anchor>a8cd72c1288fc93a0fec014095ac7252b</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;, int)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classConstrainerDual.html</anchorfile>
+      <anchorfile>class_constrainer_dual.html</anchorfile>
       <anchor>a622b99f704a3324133f08521eb4924f5</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights, double mult)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>const TagConstraints &amp;</type>
       <name>_tag_constraints</name>
-      <anchorfile>classConstrainerDual.html</anchorfile>
+      <anchorfile>class_constrainer_dual.html</anchorfile>
       <anchor>abda18ff85d425d3748f49709534ec9ea</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>wvector *</type>
       <name>_cur_weights</name>
-      <anchorfile>classConstrainerDual.html</anchorfile>
+      <anchorfile>class_constrainer_dual.html</anchorfile>
       <anchor>a4dd6e580712c0b35da77e42e137c7274</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>ConstraintGroup</name>
-    <filename>classConstraintGroup.html</filename>
+    <filename>class_constraint_group.html</filename>
     <member kind="function">
       <type>wvector</type>
       <name>solve_hard</name>
-      <anchorfile>classConstraintGroup.html</anchorfile>
+      <anchorfile>class_constraint_group.html</anchorfile>
       <anchor>a4f37823a56e405c16148c0ba6ae7f114</anchor>
       <arglist>(wvector &amp;weights) const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; PossibleTag &gt;</type>
       <name>group</name>
-      <anchorfile>classConstraintGroup.html</anchorfile>
+      <anchorfile>class_constraint_group.html</anchorfile>
       <anchor>ac96c45d3b2c4c1a6e1068837bc024d9c</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>CubePruning</name>
-    <filename>classCubePruning.html</filename>
+    <filename>class_cube_pruning.html</filename>
     <member kind="function">
       <type></type>
       <name>CubePruning</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>af17d9dda17f79a2c44b47501b9d99870</anchor>
       <arglist>(const HGraph &amp;forest, const Cache&lt; Hyperedge, double &gt; &amp;weights, const NonLocal &amp;non_local, int k, int ratio)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>get_derivation</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>a0e8d07fc09d695095be5b70780db95d6</anchor>
       <arglist>(vector&lt; int &gt; &amp;der)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>parse</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>adf80c0c689d075765f250649433833e4</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>run</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>ab949710c0d8e552cbadbe837b1b62d47</anchor>
       <arglist>(const Hypernode &amp;cur_node, vector&lt; Hyp &gt; &amp;kbest_hyps)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>init_cube</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>a14a4e797c638d07744dc328cf2ce568e</anchor>
       <arglist>(const Hypernode &amp;cur_node, Candidates &amp;cands)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>kbest</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>abe8c53bd14fe4ad98ff6388f38a849cb</anchor>
       <arglist>(Candidates &amp;cands, vector&lt; Hyp &gt; &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>next</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>a5d3ab59862953b9000154e9c07c69634</anchor>
       <arglist>(const Hyperedge &amp;cedge, const vector&lt; int &gt; &amp;cvecj, Candidates &amp;cands)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>gethyp</name>
-      <anchorfile>classCubePruning.html</anchorfile>
+      <anchorfile>class_cube_pruning.html</anchorfile>
       <anchor>aa7d26357be4241b594f9eb24ac52da22</anchor>
       <arglist>(const Hyperedge &amp;cedge, const vector&lt; int &gt; &amp;vecj, Hyp &amp;item)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Decode</name>
-    <filename>classDecode.html</filename>
+    <filename>class_decode.html</filename>
     <base>SubgradientProducer</base>
     <member kind="function">
       <type></type>
       <name>Decode</name>
-      <anchorfile>classDecode.html</anchorfile>
+      <anchorfile>class_decode.html</anchorfile>
       <anchor>a57bd53ddaf49e2fe4b86a7aad782110f</anchor>
       <arglist>(const Forest &amp;forest, const ForestLattice &amp;lattice, const wvector &amp;weight, NgramCache &amp;lm)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classDecode.html</anchorfile>
+      <anchorfile>class_decode.html</anchorfile>
       <anchor>a6d86f91ee2c591c54ce2bb97c1dd6888</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;, int, bool, bool &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classDecode.html</anchorfile>
+      <anchorfile>class_decode.html</anchorfile>
       <anchor>a9beca60221318f111b7f4d5acca8e329</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Dependency</name>
-    <filename>structDependency.html</filename>
+    <filename>struct_dependency.html</filename>
     <member kind="function">
       <type></type>
       <name>Dependency</name>
-      <anchorfile>structDependency.html</anchorfile>
+      <anchorfile>struct_dependency.html</anchorfile>
       <anchor>a92ebdf715c4c81e556bc274f86027400</anchor>
       <arglist>(int l, int h, int m)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structDependency.html</anchorfile>
+      <anchorfile>struct_dependency.html</anchorfile>
       <anchor>a38ba361a116c72f4e41298b6320a6540</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>head</name>
-      <anchorfile>structDependency.html</anchorfile>
+      <anchorfile>struct_dependency.html</anchorfile>
       <anchor>ae50c91ea1c7f2a16a29e7ecf9cf0a6ba</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>mod</name>
-      <anchorfile>structDependency.html</anchorfile>
+      <anchorfile>struct_dependency.html</anchorfile>
       <anchor>a45e806cfc00a3bcce4d5ebaab52c1f77</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>length</name>
-      <anchorfile>structDependency.html</anchorfile>
+      <anchorfile>struct_dependency.html</anchorfile>
       <anchor>a95f049533781d9ae8fea8f447e4739fe</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>DepParser</name>
-    <filename>classDepParser.html</filename>
+    <filename>class_dep_parser.html</filename>
     <base>Scarab::HG::HypergraphImpl</base>
     <member kind="function">
       <type>void</type>
       <name>print</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a9aebbbde821bad423b6c01cc12f02a2c</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_up</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a6131e95a8ec7b07f7a4d68dae224d52f</anchor>
       <arglist>(const Hypergraph &amp;hgraph)</arglist>
     </member>
     <member kind="function">
       <type>const Hypergraph &amp;</type>
       <name>hypergraph</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>aaec31758432c2d3336d2164996571688</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>vector&lt; Dependency &gt;</type>
       <name>dependencies</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>aa64f67830bf4c3bf9936ba6056dfdff0</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_deps</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>aaff55cf38fd9b1fbfb22090ddeb72ba8</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>sent_length</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a86b99d09d76b7d6f8733b208e9f32822</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>Dependency</type>
       <name>make_dep</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a49afcb1a83a3c924869faf34cd9e968e</anchor>
       <arglist>(int head, int mod) const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; const Hyperedge * &gt; &amp;</type>
       <name>dep_to_edge</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a9fa2f0bf24cd870404f0a99b5926c558</anchor>
       <arglist>(const Dependency &amp;dep) const </arglist>
     </member>
     <member kind="function">
       <type>const Dependency &amp;</type>
       <name>edge_to_dep</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>aa5ff87f99326c60633fb8e26d1737776</anchor>
       <arglist>(const Hyperedge &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>edge_has_dep</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>abd0b9171e59c1c40cdb58807a46a5449</anchor>
       <arglist>(const Hyperedge &amp;edge) const </arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>make_edge</name>
-      <anchorfile>classDepParser.html</anchorfile>
+      <anchorfile>class_dep_parser.html</anchorfile>
       <anchor>a04d313d931d1e8b0bac3a36ca7be469b</anchor>
       <arglist>(const Hypergraph_Edge &amp;edge, const Scarab::HG::Hyperedge *our_edge)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>DualDecomposition</name>
-    <filename>classDualDecomposition.html</filename>
+    <filename>class_dual_decomposition.html</filename>
     <member kind="function">
       <type></type>
       <name>DualDecomposition</name>
-      <anchorfile>classDualDecomposition.html</anchorfile>
+      <anchorfile>class_dual_decomposition.html</anchorfile>
       <anchor>a652c2229bad83ce7b135aa06ef1283a5</anchor>
       <arglist>(DualDecompositionSubproblem &amp;s1, DualDecompositionSubproblem &amp;s2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classDualDecomposition.html</anchorfile>
+      <anchorfile>class_dual_decomposition.html</anchorfile>
       <anchor>a0013544261cba254dc2ca2c68cbb1679</anchor>
       <arglist>(int example)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>DualDecompositionRunner</name>
-    <filename>classDualDecompositionRunner.html</filename>
+    <filename>class_dual_decomposition_runner.html</filename>
     <base>SubgradientProducer</base>
     <member kind="function">
       <type></type>
       <name>DualDecompositionRunner</name>
-      <anchorfile>classDualDecompositionRunner.html</anchorfile>
+      <anchorfile>class_dual_decomposition_runner.html</anchorfile>
       <anchor>ad0af4c8b1a73612770d329cf560af9d1</anchor>
       <arglist>(DualDecompositionSubproblem &amp;s1, DualDecompositionSubproblem &amp;s2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classDualDecompositionRunner.html</anchorfile>
+      <anchorfile>class_dual_decomposition_runner.html</anchorfile>
       <anchor>a4bcec895359acf32000d42155c4593ef</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;subgrad, int round, bool is_stuck, bool &amp;bump_rate)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classDualDecompositionRunner.html</anchorfile>
+      <anchorfile>class_dual_decomposition_runner.html</anchorfile>
       <anchor>a3cdf7ce33f6454f9fee9fb9c3287c5ac</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights)</arglist>
     </member>
     <member kind="variable">
       <type>DualDecompositionSubproblem &amp;</type>
       <name>_sub_producer1</name>
-      <anchorfile>classDualDecompositionRunner.html</anchorfile>
+      <anchorfile>class_dual_decomposition_runner.html</anchorfile>
       <anchor>a13371fbf1e5109e8a9d920d2ed0b7bea</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>DualDecompositionSubproblem &amp;</type>
       <name>_sub_producer2</name>
-      <anchorfile>classDualDecompositionRunner.html</anchorfile>
+      <anchorfile>class_dual_decomposition_runner.html</anchorfile>
       <anchor>a988b68df84c131bc47d142ae8638fbd1</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>DualDecompositionSubproblem</name>
-    <filename>classDualDecompositionSubproblem.html</filename>
+    <filename>class_dual_decomposition_subproblem.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>solve</name>
-      <anchorfile>classDualDecompositionSubproblem.html</anchorfile>
+      <anchorfile>class_dual_decomposition_subproblem.html</anchorfile>
       <anchor>aac234786c13091898be348dc0056a036</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;, int)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>update_weights</name>
-      <anchorfile>classDualDecompositionSubproblem.html</anchorfile>
+      <anchorfile>class_dual_decomposition_subproblem.html</anchorfile>
       <anchor>a6d26fcb23023d5b03d54b3d191531b02</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights, double mult)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>EisnerNode</name>
-    <filename>structEisnerNode.html</filename>
+    <filename>struct_eisner_node.html</filename>
     <member kind="function">
       <type>string</type>
       <name>name</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a38fe91d99e35e7d8a6bda3c1bb45f3d6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>EisnerNode</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a16b4c3b130c5cacf4639fb8fc01d1894</anchor>
       <arglist>(Span ns, Direction d_in, Shape s_in)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a8ede91dac02b136ef673afbb68566623</anchor>
       <arglist>(const EisnerNode &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>Span</type>
       <name>node_span</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a1e3b0f200089af99ca744d6d0a9c7f72</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Direction</type>
       <name>d</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a0013abe4607fb7979aa1d915a58868a1</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Shape</type>
       <name>s</name>
-      <anchorfile>structEisnerNode.html</anchorfile>
+      <anchorfile>struct_eisner_node.html</anchorfile>
       <anchor>a682edd0712304525c84939b820a141d3</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>EisnerToHypergraph</name>
-    <filename>classEisnerToHypergraph.html</filename>
+    <filename>class_eisner_to_hypergraph.html</filename>
     <member kind="function">
       <type></type>
       <name>EisnerToHypergraph</name>
-      <anchorfile>classEisnerToHypergraph.html</anchorfile>
+      <anchorfile>class_eisner_to_hypergraph.html</anchorfile>
       <anchor>ac4c11a966298244ad74965dd35596c4c</anchor>
       <arglist>(const vector&lt; int &gt; &amp;sent, vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt; &amp;weights)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>convert</name>
-      <anchorfile>classEisnerToHypergraph.html</anchorfile>
+      <anchorfile>class_eisner_to_hypergraph.html</anchorfile>
       <anchor>a8344d534c1b3d5f2795578c771fe4d31</anchor>
       <arglist>(Hypergraph &amp;_forest)</arglist>
     </member>
     <member kind="variable">
       <type>Hypergraph</type>
       <name>hgraph</name>
-      <anchorfile>classEisnerToHypergraph.html</anchorfile>
+      <anchorfile>class_eisner_to_hypergraph.html</anchorfile>
       <anchor>a47df02a8804876cc0e33b55681b9a2f0</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Forest</name>
-    <filename>classForest.html</filename>
+    <filename>class_forest.html</filename>
     <base>Scarab::HG::HypergraphImpl</base>
     <member kind="function">
       <type>void</type>
       <name>print</name>
-      <anchorfile>classForest.html</anchorfile>
+      <anchorfile>class_forest.html</anchorfile>
       <anchor>a621a1a65d0f877bb33b15c79f9e24c4d</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>append_end_nodes</name>
-      <anchorfile>classForest.html</anchorfile>
+      <anchorfile>class_forest.html</anchorfile>
       <anchor>a4cc0cf94c18913eadd0b36f3dcf68cef</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static Forest</type>
       <name>from_file</name>
-      <anchorfile>classForest.html</anchorfile>
+      <anchorfile>class_forest.html</anchorfile>
       <anchor>a1b9ddc0e03c1ccfcc73987fe9378fa84</anchor>
       <arglist>(const char *file_name)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>Scarab::HG::Hypernode *</type>
       <name>make_node</name>
-      <anchorfile>classForest.html</anchorfile>
+      <anchorfile>class_forest.html</anchorfile>
       <anchor>ab40070ea9e3885d252fb7848c11f27ef</anchor>
       <arglist>(const Hypergraph_Node &amp;node, wvector *features)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>ForestLattice</name>
-    <filename>classForestLattice.html</filename>
+    <filename>class_forest_lattice.html</filename>
     <member kind="function">
       <type>string</type>
       <name>get_word</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>ad14bc799ac36b716c292f410e1609462</anchor>
       <arglist>(int word_num) const </arglist>
     </member>
     <member kind="function">
       <type>const Graph &amp;</type>
       <name>get_graph</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a8303ce943210d4a62132f1e4054b7191</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Graphnode &amp;</type>
       <name>node</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a744558d8489b4428c44275f0966d587e</anchor>
       <arglist>(int i) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_phrase_node</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a8afba92a7fb437a93db30b2336ad3824</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_word</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a9d82493dff97186334923b582999f63c</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>ForestLattice</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a9ecaabd3e59148b28b3fad096806f9e9</anchor>
       <arglist>(const Lattice &amp;lattice)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>get_edge</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a981af70e7207ece0e3454251b64fb6fa</anchor>
       <arglist>(int n1, int edge_num) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>num_edges</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a142184cf6e8d4275923774edbca97f5d</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>lookup_word</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a3921d0378a94ef040246dc87e60df1c7</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>get_edge_label</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a92e37fd15cd36ae5c9d0e3fe309d876e</anchor>
       <arglist>(int n1, int n2) const </arglist>
     </member>
     <member kind="function">
       <type>Bigram</type>
       <name>get_nodes_by_labels</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a2474198bedc98ef2e3c8a02ebae14f00</anchor>
       <arglist>(int orig_id) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>num_first_words</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a6fe3508e7fd7d62b44c423dcc113881b</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>num_last_words</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>ae6c29306adee71cca87bb2dc2c1047df</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>num_last_bigrams</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a7fcb5b75caf3d4e17b782849fc847ec9</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>first_words</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a3b8e0f2d304ad0d9b10d9efb79d7905c</anchor>
       <arglist>(int n, int i) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>last_words</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a9af5d9ea84e0638599d13c5f78868d92</anchor>
       <arglist>(int n, int i) const </arglist>
     </member>
     <member kind="function">
       <type>Bigram</type>
       <name>last_bigrams</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a3332ad66005be68e6ac38d7daa40bb9d</anchor>
       <arglist>(int n, int i) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>get_same</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a4da765944fa6d5892786ca592ef8c859</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>get_hypergraph_node_from_word</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a01fa72075f1de8421dd21e15540ce5c0</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>get_word_from_hypergraph_node</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a226887bedd13a3f3dc5cbe91242bd17a</anchor>
       <arglist>(int n) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>make_proper_graph</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a8f474062475f4d272a8d8b676cdd0118</anchor>
       <arglist>(const Lattice &amp;lat)</arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>num_nodes</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a3c194341d2a88457604e0042534358fc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>num_word_nodes</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>af7ac8b02750f52523a49b5b810e36601</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>final</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>ab0e2ec92e11ab7d77e33c109f2451d7d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>start</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a95785401e57ddbcc516116f59391a7cd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; int &gt; &gt;</type>
       <name>original_edges</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a2a0ccc16eaa3f83ae395c825c8bcf583</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; int &gt; &gt;</type>
       <name>edges_original</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>af55e45f3503fafeb79ef53d25abfc78b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; Bigram &gt; &gt;</type>
       <name>bigrams_at_node</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>ac38a1f457fae9f29fab0b922dd8b5b81</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; string &gt;</type>
       <name>_edge_label_by_nodes</name>
-      <anchorfile>classForestLattice.html</anchorfile>
+      <anchorfile>class_forest_lattice.html</anchorfile>
       <anchor>a80b60a05f3f81f4291b1989baf240cf8</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>ForestNode</name>
-    <filename>classForestNode.html</filename>
+    <filename>class_forest_node.html</filename>
     <base>Scarab::HG::HypernodeImpl</base>
     <member kind="function">
       <type></type>
       <name>ForestNode</name>
-      <anchorfile>classForestNode.html</anchorfile>
+      <anchorfile>class_forest_node.html</anchorfile>
       <anchor>aeeb649eef15a82d283ae728b0a44d183</anchor>
       <arglist>(const string &amp;label, int id, str_vector *features, string word, bool is_word)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_word</name>
-      <anchorfile>classForestNode.html</anchorfile>
+      <anchorfile>class_forest_node.html</anchorfile>
       <anchor>ab44af8003df7af0ce93b9b904301fb92</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>string</type>
       <name>word</name>
-      <anchorfile>classForestNode.html</anchorfile>
+      <anchorfile>class_forest_node.html</anchorfile>
       <anchor>a18c00f9aae93bc963358e488f2cce308</anchor>
       <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>GraphDecompose</name>
-    <filename>classGraphDecompose.html</filename>
+    <filename>class_graph_decompose.html</filename>
     <member kind="function">
       <type>void</type>
       <name>decompose</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>a671b195e2a0eff48eeefcee64d40fcb1</anchor>
       <arglist>(const ForestLattice *g)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>path_exists</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>a8e85b51d78e6bd961bbff6d121399ba7</anchor>
       <arglist>(int w1, int w2) const </arglist>
     </member>
     <member kind="function">
       <type>vector&lt; int &gt; *</type>
       <name>get_path</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>a48e47d62512330c280ed8a89bafe3e10</anchor>
       <arglist>(int w1, int w2) const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; Bigram &gt;</type>
       <name>valid_bigrams</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>afbeb52935da971f4bc27f0e80ed48d33</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; int &gt; &gt;</type>
       <name>forward_bigrams</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>aca254d25cf0f2d2ad0d58a5775a297a8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; int &gt; &gt;</type>
       <name>backward_bigrams</name>
-      <anchorfile>classGraphDecompose.html</anchorfile>
+      <anchorfile>class_graph_decompose.html</anchorfile>
       <anchor>a2b5c495d7725ccd63c0c3d2590ebd1e1</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>GraphProtoInterface</name>
-    <filename>classGraphProtoInterface.html</filename>
+    <filename>class_graph_proto_interface.html</filename>
     <member kind="function">
       <type>void</type>
       <name>build_from_file</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a4845501ec86ea627ce484cd78162c84c</anchor>
       <arglist>(const char *file_name)</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>process_node</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a0dbd0905dbab167b9293d0ef32409af3</anchor>
       <arglist>(graph::Graph_Node, Graphnode *)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>process_edge</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a3178c5f1eff8ed61d2512af8522cc550</anchor>
       <arglist>(graph::Graph_Edge, Graphedge *)=0</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>set_up</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a8b3125379c7b2bbf832b6b955496b76e</anchor>
       <arglist>(graph::Graph, int, int)</arglist>
     </member>
     <member kind="function">
       <type>const Graph &amp;</type>
       <name>graph</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a920e88785192db805206c875a8a3feed</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="variable">
       <type>Graph *</type>
       <name>_graph</name>
-      <anchorfile>classGraphProtoInterface.html</anchorfile>
+      <anchorfile>class_graph_proto_interface.html</anchorfile>
       <anchor>a8e262de0a3f65eaa20e5c528363bbb2a</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>HardConstraints</name>
-    <filename>classHardConstraints.html</filename>
+    <filename>class_hard_constraints.html</filename>
     <member kind="function">
       <type>void</type>
       <name>read_from_file</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>ad457a78e966e6ce3d71bfb3401b0300b</anchor>
       <arglist>(string file_name)</arglist>
     </member>
     <member kind="function">
       <type>GRBLinExpr</type>
       <name>make_lin_expr</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>a923f4ddd8b164d924147c22f054a9c7e</anchor>
       <arglist>(const vector&lt; DepParserLP * &gt; &amp;lp_vars, const PossibleDep &amp;dep)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>show_results</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>a0945fb67209be1cc95b31522d96e51cc</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_to_lp</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>a71ae98e67f5e5d3035aff1c2ef941a92</anchor>
       <arglist>(const vector&lt; DepParserLP * &gt; &amp;lp_vars, GRBModel &amp;model)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; PossibleDep &gt; &gt;</type>
       <name>_constraint_struct</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>ae0305e95d8065eb186ccae220b8e16f4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; GRBVar &gt;</type>
       <name>group_used</name>
-      <anchorfile>classHardConstraints.html</anchorfile>
+      <anchorfile>class_hard_constraints.html</anchorfile>
       <anchor>a6b370ae5376bf283115092ab4bd33743</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>HardPosConstraintsLP</name>
-    <filename>classHardPosConstraintsLP.html</filename>
+    <filename>class_hard_pos_constraints_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>HardPosConstraintsLP</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>a2979e37eb163b00f48a38ee8fccd1a64</anchor>
       <arglist>(const TagConstraints &amp;constraints, double penalty)</arglist>
     </member>
     <member kind="function">
       <type>GRBLinExpr</type>
       <name>make_lin_expr</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>aa841ffcec001c0ee31714d0d39027c26</anchor>
       <arglist>(const vector&lt; TagLP * &gt; &amp;lp_vars, const PossibleTag &amp;tag, POS restricted_to)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_to_lp</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>a7a7bb0c41351c9de3130045f0013c67b</anchor>
       <arglist>(const vector&lt; TagLP * &gt; &amp;lp_vars, GRBModel &amp;model)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>show_results</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>a4307bcde1a701018736de348a718262b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; GRBVar &gt; &gt;</type>
       <name>group_used</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>a16ba65107e587a8cb43cc10949b0ebcf</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</type>
       <name>slacks_pos</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>ad3b98e9e78140b02098420c674fcbaab</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</type>
       <name>slacks_neg</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>ac758c0971f82ef892f7f708db15bf472</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>set&lt; int &gt;</type>
       <name>groups</name>
-      <anchorfile>classHardPosConstraintsLP.html</anchorfile>
+      <anchorfile>class_hard_pos_constraints_l_p.html</anchorfile>
       <anchor>aa5c46efababe8dd5282a71ceb233c548</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Hyp</name>
-    <filename>structHyp.html</filename>
+    <filename>struct_hyp.html</filename>
     <member kind="function">
       <type></type>
       <name>Hyp</name>
-      <anchorfile>structHyp.html</anchorfile>
+      <anchorfile>struct_hyp.html</anchorfile>
       <anchor>a5fba7860265cf935133e4c0c73fec090</anchor>
       <arglist>(double score_in, Sig sig_in, vector&lt; int &gt; full_der)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structHyp.html</anchorfile>
+      <anchorfile>struct_hyp.html</anchorfile>
       <anchor>a547883a1aa9a7573d328d0f6b385dca8</anchor>
       <arglist>(const Hyp &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>score</name>
-      <anchorfile>structHyp.html</anchorfile>
+      <anchorfile>struct_hyp.html</anchorfile>
       <anchor>a7d24c5a317140b8050dc57255bb7922a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Sig</type>
       <name>sig</name>
-      <anchorfile>structHyp.html</anchorfile>
+      <anchorfile>struct_hyp.html</anchorfile>
       <anchor>a4aa96a03dc6b82416074985e0ecd39c3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>full_derivation</name>
-      <anchorfile>structHyp.html</anchorfile>
+      <anchorfile>struct_hyp.html</anchorfile>
       <anchor>a076825f81d94a1f2b20bb5141eb9f4c7</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>HypergraphTools</name>
-    <filename>classHypergraphTools.html</filename>
+    <filename>class_hypergraph_tools.html</filename>
     <member kind="function">
       <type>void</type>
       <name>viterbi</name>
-      <anchorfile>classHypergraphTools.html</anchorfile>
+      <anchorfile>class_hypergraph_tools.html</anchorfile>
       <anchor>a188643770705ed9482616956e22ebfd4</anchor>
       <arglist>(HGraph g)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>LMNonLocal</name>
-    <filename>classLMNonLocal.html</filename>
+    <filename>class_l_m_non_local.html</filename>
     <base>NonLocal</base>
     <member kind="function">
       <type></type>
       <name>LMNonLocal</name>
-      <anchorfile>classLMNonLocal.html</anchorfile>
+      <anchorfile>class_l_m_non_local.html</anchorfile>
       <anchor>a7a6000f6118f1c8df727fac29c849b58</anchor>
       <arglist>(const HGraph &amp;forest, Ngram &amp;lm, const Cache&lt; Hypernode, int &gt; &amp;word_cache)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>compute</name>
-      <anchorfile>classLMNonLocal.html</anchorfile>
+      <anchorfile>class_l_m_non_local.html</anchorfile>
       <anchor>a2d14ca694dc6d49ce6e2b80622aafd51</anchor>
       <arglist>(const Hyperedge &amp;edge, const vector&lt; vector&lt; int &gt; &gt; &amp;subder, double &amp;score, vector&lt; int &gt; &amp;full_derivation, vector&lt; int &gt; &amp;sig) const </arglist>
     </member>
     <member kind="function">
       <type>Hyp</type>
       <name>initialize</name>
-      <anchorfile>classLMNonLocal.html</anchorfile>
+      <anchorfile>class_l_m_non_local.html</anchorfile>
       <anchor>a93334d873bfe91d5357cbec933ec3ae9</anchor>
       <arglist>(const Hypernode &amp;node) const </arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>LocalHyperedge</name>
-    <filename>structLocalHyperedge.html</filename>
+    <filename>struct_local_hyperedge.html</filename>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>tail_node_ids</name>
-      <anchorfile>structLocalHyperedge.html</anchorfile>
+      <anchorfile>struct_local_hyperedge.html</anchorfile>
       <anchor>a94cbc62434996702ca1d0e28b6dde622</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>head</name>
-      <anchorfile>structLocalHyperedge.html</anchorfile>
+      <anchorfile>struct_local_hyperedge.html</anchorfile>
       <anchor>a71c8831cc00fefbfb29575856a22fc8a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>weight</name>
-      <anchorfile>structLocalHyperedge.html</anchorfile>
+      <anchorfile>struct_local_hyperedge.html</anchorfile>
       <anchor>a875e26d7749b13e387b7f0978a4f97a5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>string</type>
       <name>label</name>
-      <anchorfile>structLocalHyperedge.html</anchorfile>
+      <anchorfile>struct_local_hyperedge.html</anchorfile>
       <anchor>ae1b43e113b237128ed95691034ec715e</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>LocalTestSuite</name>
-    <filename>classLocalTestSuite.html</filename>
+    <filename>class_local_test_suite.html</filename>
   </compound>
   <compound kind="class">
     <name>MRF</name>
-    <filename>classMRF.html</filename>
+    <filename>class_m_r_f.html</filename>
     <base>GraphProtoInterface</base>
     <member kind="function">
       <type>void</type>
       <name>process_node</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a3a2f7eb349a7345abfba2c5869f85b1f</anchor>
       <arglist>(graph::Graph_Node, Graphnode *)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process_edge</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>aed7b8a7a2e3af7c14b501040630e9589</anchor>
       <arglist>(graph::Graph_Edge, Graphedge *)</arglist>
     </member>
     <member kind="function">
       <type>Hypergraph *</type>
       <name>build_hypergraph</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a34f0d586337501d668a62726eb0046d7</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_up</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a928f19f948fa97796462fd9542a985fd</anchor>
       <arglist>(graph::Graph graph, int nodes, int edges)</arglist>
     </member>
     <member kind="function">
       <type>const double</type>
       <name>node_pot</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a3a7f11091d96ab8b2f830deb343fc3a6</anchor>
       <arglist>(const Graphnode &amp;node, const State &amp;s1) const </arglist>
     </member>
     <member kind="function">
       <type>const bool</type>
       <name>has_edge_pot</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>ab73d5f7b51c206754bee9eea9405c0fb</anchor>
       <arglist>(const Graphedge &amp;edge, const State &amp;s1, const State &amp;s2) const </arglist>
     </member>
     <member kind="function">
       <type>const double</type>
       <name>edge_pot</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a9f98956295352e9bfc9917328999c1b2</anchor>
       <arglist>(const Graphedge &amp;edge, const State &amp;s1, const State &amp;s2) const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; State &gt; &amp;</type>
       <name>states</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a7c01a68384b81d1ba7d24508f767d216</anchor>
       <arglist>(const Graphnode &amp;node) const </arglist>
     </member>
     <member kind="function">
       <type>const int</type>
       <name>assignments</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>aaf17c4a671ea4f06553c33fca90bfa35</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>NodeAssignment</type>
       <name>make_assignment</name>
-      <anchorfile>classMRF.html</anchorfile>
+      <anchorfile>class_m_r_f.html</anchorfile>
       <anchor>a9326b3fd5aea915a1bb8a1ad2ac50f3f</anchor>
       <arglist>(const Graphnode &amp;n, const State &amp;my_s) const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>MRFBuilderLP</name>
-    <filename>classMRFBuilderLP.html</filename>
+    <filename>class_m_r_f_builder_l_p.html</filename>
     <member kind="function" static="yes">
       <type>static MRFLP *</type>
       <name>add_mrf</name>
-      <anchorfile>classMRFBuilderLP.html</anchorfile>
+      <anchorfile>class_m_r_f_builder_l_p.html</anchorfile>
       <anchor>aaace30ed1c0dfb1b0c5c89a22b503e10</anchor>
       <arglist>(const MRF &amp;mrf, string prefix, GRBModel &amp;model, int var_type)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>MRFHypergraph</name>
-    <filename>classMRFHypergraph.html</filename>
+    <filename>class_m_r_f_hypergraph.html</filename>
     <base>Scarab::HG::HypergraphImpl</base>
     <member kind="function">
       <type>NodeAssignment</type>
       <name>assignment_from_node</name>
-      <anchorfile>classMRFHypergraph.html</anchorfile>
+      <anchorfile>class_m_r_f_hypergraph.html</anchorfile>
       <anchor>a5c717b35842c25c6be9e827f0aa31708</anchor>
       <arglist>(Hypernode *node)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>print</name>
-      <anchorfile>classMRFHypergraph.html</anchorfile>
+      <anchorfile>class_m_r_f_hypergraph.html</anchorfile>
       <anchor>aaac6b68c3ece41ddd1f8107e961879bc</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>HNode</type>
       <name>assignment_from_node</name>
-      <anchorfile>classMRFHypergraph.html</anchorfile>
+      <anchorfile>class_m_r_f_hypergraph.html</anchorfile>
       <anchor>a34f14a3a9cf0d01c7fbfc11e1caa20ba</anchor>
       <arglist>(NodeAssignment &amp;node_assign)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static MRFHypergraph</type>
       <name>from_mrf</name>
-      <anchorfile>classMRFHypergraph.html</anchorfile>
+      <anchorfile>class_m_r_f_hypergraph.html</anchorfile>
       <anchor>af8808e644c7ff0c938f4fbd9e473dfba</anchor>
       <arglist>(const MRF &amp;mrf)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>MrfIndex</name>
-    <filename>structMrfIndex.html</filename>
+    <filename>struct_mrf_index.html</filename>
     <member kind="function">
       <type></type>
       <name>MrfIndex</name>
-      <anchorfile>structMrfIndex.html</anchorfile>
+      <anchorfile>struct_mrf_index.html</anchorfile>
       <anchor>adc62126e39eeccb67aed83b8d33514e9</anchor>
       <arglist>(int group_, int node_, int state_)</arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>group</name>
-      <anchorfile>structMrfIndex.html</anchorfile>
+      <anchorfile>struct_mrf_index.html</anchorfile>
       <anchor>a10be38457b3798cfdf70f224814ce8eb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>node</name>
-      <anchorfile>structMrfIndex.html</anchorfile>
+      <anchorfile>struct_mrf_index.html</anchorfile>
       <anchor>a9c765fbc8576d8d6541a072eb75c2c8a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>state</name>
-      <anchorfile>structMrfIndex.html</anchorfile>
+      <anchorfile>struct_mrf_index.html</anchorfile>
       <anchor>a2cea032a5c169945c3c0e8d96fbc1477</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>MRFLP</name>
-    <filename>structMRFLP.html</filename>
+    <filename>struct_m_r_f_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>MRFLP</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>a868a64efdbf8d42682c7953361af4c31</anchor>
       <arglist>(const MRF &amp;p)</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphnode, Cache&lt; State, GRBVar &gt; * &gt;</type>
       <name>node_vars</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>a1ddb2cc0eb980dc0d9d94bf731e3f4ae</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphedge, Cache&lt; State, Cache&lt; State, GRBVar &gt; * &gt; * &gt;</type>
       <name>edge_vars</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>a7f977d31ba7f70b5913279466a46e2b2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphedge, Cache&lt; State, GRBVar &gt; * &gt;</type>
       <name>from_state_blank_vars</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>a46a1042ee20d632ca11afee0a1965fb9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphedge, Cache&lt; State, GRBVar &gt; * &gt;</type>
       <name>to_state_blank_vars</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>ae1b4c653d4a3b3c6759a160f8f1c4fc6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const MRF &amp;</type>
       <name>mrf</name>
-      <anchorfile>structMRFLP.html</anchorfile>
+      <anchorfile>struct_m_r_f_l_p.html</anchorfile>
       <anchor>a546b7ee8de350e2a882e9ae9beb6af6f</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>NgramCache</name>
-    <filename>classNgramCache.html</filename>
+    <filename>class_ngram_cache.html</filename>
     <member kind="function">
       <type></type>
       <name>NgramCache</name>
-      <anchorfile>classNgramCache.html</anchorfile>
+      <anchorfile>class_ngram_cache.html</anchorfile>
       <anchor>a1d8b66016081c1e0d15b2199e48c4df9</anchor>
       <arglist>(Vocab &amp;v, int i)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>hasNext</name>
-      <anchorfile>classNgramCache.html</anchorfile>
+      <anchorfile>class_ngram_cache.html</anchorfile>
       <anchor>aaf831fb4e48aa1a8f8d46287adb7c419</anchor>
       <arglist>(const VocabIndex next)</arglist>
     </member>
     <member kind="function">
       <type>LogP</type>
       <name>wordProbPrimeCache</name>
-      <anchorfile>classNgramCache.html</anchorfile>
+      <anchorfile>class_ngram_cache.html</anchorfile>
       <anchor>a3444ab6a1b5a140edb089efb51b071c1</anchor>
       <arglist>(VocabIndex word, const VocabIndex *context)</arglist>
     </member>
     <member kind="function">
       <type>LogP</type>
       <name>wordProbFromCache</name>
-      <anchorfile>classNgramCache.html</anchorfile>
+      <anchorfile>class_ngram_cache.html</anchorfile>
       <anchor>a7806b0a2832644fcde66aa928a58caa9</anchor>
       <arglist>(VocabIndex word, const VocabIndex *context)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>NodeAssignment</name>
-    <filename>structNodeAssignment.html</filename>
+    <filename>struct_node_assignment.html</filename>
     <member kind="function">
       <type></type>
       <name>NodeAssignment</name>
-      <anchorfile>structNodeAssignment.html</anchorfile>
+      <anchorfile>struct_node_assignment.html</anchorfile>
       <anchor>afb4f063136a9da957865d42faa2a3943</anchor>
       <arglist>(int node_id_, const State state_, int length_)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structNodeAssignment.html</anchorfile>
+      <anchorfile>struct_node_assignment.html</anchorfile>
       <anchor>aea41536d91eba4d9c6440065953aa4e0</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>node_id</name>
-      <anchorfile>structNodeAssignment.html</anchorfile>
+      <anchorfile>struct_node_assignment.html</anchorfile>
       <anchor>a595045041aa245ed3108284223ce766d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>State</type>
       <name>s</name>
-      <anchorfile>structNodeAssignment.html</anchorfile>
+      <anchorfile>struct_node_assignment.html</anchorfile>
       <anchor>affe9bfbc195ba56f34dcdbd4fb10411e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>length</name>
-      <anchorfile>structNodeAssignment.html</anchorfile>
+      <anchorfile>struct_node_assignment.html</anchorfile>
       <anchor>ac3b88ac2cbd270733ee835e00279a4ad</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>NonLocal</name>
-    <filename>classNonLocal.html</filename>
+    <filename>class_non_local.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>compute</name>
-      <anchorfile>classNonLocal.html</anchorfile>
+      <anchorfile>class_non_local.html</anchorfile>
       <anchor>acd66e7882a5bb3415d3fd658d03ec8fc</anchor>
       <arglist>(const Hyperedge &amp;, const vector&lt; vector&lt; int &gt; &gt; &amp;, double &amp;score, vector&lt; int &gt; &amp;full_derivation, Sig &amp;sig) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual Hyp</type>
       <name>initialize</name>
-      <anchorfile>classNonLocal.html</anchorfile>
+      <anchorfile>class_non_local.html</anchorfile>
       <anchor>a90f2d399853f5c689a0abdc5c12a8370</anchor>
       <arglist>(const Hypernode &amp;) const =0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>PhraseBased</name>
-    <filename>classPhraseBased.html</filename>
+    <filename>class_phrase_based.html</filename>
     <base>Scarab::HG::HypergraphImpl</base>
     <member kind="function">
       <type>void</type>
       <name>print</name>
-      <anchorfile>classPhraseBased.html</anchorfile>
+      <anchorfile>class_phrase_based.html</anchorfile>
       <anchor>aafc2997b58b3698fed7cb5a1f6f269c6</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_up</name>
-      <anchorfile>classPhraseBased.html</anchorfile>
+      <anchorfile>class_phrase_based.html</anchorfile>
       <anchor>a3883660c72be6ce8daab08f368317853</anchor>
       <arglist>(const Hypergraph &amp;hgraph)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>PossibleDep</name>
-    <filename>structPossibleDep.html</filename>
+    <filename>struct_possible_dep.html</filename>
     <member kind="variable">
       <type>int</type>
       <name>ind</name>
-      <anchorfile>structPossibleDep.html</anchorfile>
+      <anchorfile>struct_possible_dep.html</anchorfile>
       <anchor>a2f693c6bb47703c1a989f8971e06d561</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>group</name>
-      <anchorfile>structPossibleDep.html</anchorfile>
+      <anchorfile>struct_possible_dep.html</anchorfile>
       <anchor>ad2c0887a242af14d7bdd6bc7a3528bf3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>string</type>
       <name>group_name</name>
-      <anchorfile>structPossibleDep.html</anchorfile>
+      <anchorfile>struct_possible_dep.html</anchorfile>
       <anchor>a2f685f514a785a8365c9a1682fce4d5a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>head_inds</name>
-      <anchorfile>structPossibleDep.html</anchorfile>
+      <anchorfile>struct_possible_dep.html</anchorfile>
       <anchor>a4b4536449d9c17e05b7f5454b0d922f7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>sent_num</name>
-      <anchorfile>structPossibleDep.html</anchorfile>
+      <anchorfile>struct_possible_dep.html</anchorfile>
       <anchor>acec0859157184e3f1fe962236fe6303b</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>PossibleTag</name>
-    <filename>structPossibleTag.html</filename>
+    <filename>struct_possible_tag.html</filename>
     <member kind="function">
       <type>int</type>
       <name>weight_id</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a63f51fa07de58355955633c1fc5ec5c7</anchor>
       <arglist>(POS tag) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a83442edca34aefb4376d36dee744a28b</anchor>
       <arglist>(const PossibleTag &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a8c69b59e1e75a5f80623cce26baacabb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>ind</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a822aff1087d9f91882bf45da7f129e75</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>sent_num</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a26244f2c445f233652e4c3ffebafa894</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>group</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>a25eb72efa84dc8e030a928c091391609</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>string</type>
       <name>group_name</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>afcfa2ffd67a92a564d5c16aa3945b8a0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>training_count</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>adc65412fc67deda1ac5554fdbb0264d2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>test_count</name>
-      <anchorfile>structPossibleTag.html</anchorfile>
+      <anchorfile>struct_possible_tag.html</anchorfile>
       <anchor>ae933b21144c99f1197a5254e8ceb1c7c</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>PottsModelBuilderLP</name>
-    <filename>classPottsModelBuilderLP.html</filename>
+    <filename>class_potts_model_builder_l_p.html</filename>
     <member kind="function" static="yes">
       <type>static PottsModelLP *</type>
       <name>add_potts</name>
-      <anchorfile>classPottsModelBuilderLP.html</anchorfile>
+      <anchorfile>class_potts_model_builder_l_p.html</anchorfile>
       <anchor>af62f78dc2bdeb5b4d39444c47f8ad341</anchor>
       <arglist>(const PottsModel &amp;potts, GRBModel &amp;model, int var_type)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>PottsModelLP</name>
-    <filename>structPottsModelLP.html</filename>
+    <filename>struct_potts_model_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>PottsModelLP</name>
-      <anchorfile>structPottsModelLP.html</anchorfile>
+      <anchorfile>struct_potts_model_l_p.html</anchorfile>
       <anchor>af041b236eacf847879e1a2ba53b6e987</anchor>
       <arglist>(const PottsModel &amp;p)</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphnode, Cache&lt; State, GRBVar &gt; * &gt;</type>
       <name>node_vars</name>
-      <anchorfile>structPottsModelLP.html</anchorfile>
+      <anchorfile>struct_potts_model_l_p.html</anchorfile>
       <anchor>ac572d15bc61963f636a39e752951cf31</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Graphedge, Cache&lt; State, Cache&lt; State, GRBVar &gt; * &gt; * &gt;</type>
       <name>edge_vars</name>
-      <anchorfile>structPottsModelLP.html</anchorfile>
+      <anchorfile>struct_potts_model_l_p.html</anchorfile>
       <anchor>a00e3418b717ea5c1a0334dc30dafcdcc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const PottsModel &amp;</type>
       <name>potts</name>
-      <anchorfile>structPottsModelLP.html</anchorfile>
+      <anchorfile>struct_potts_model_l_p.html</anchorfile>
       <anchor>ad829fe7b19ca64ae117303082784d110</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Span</name>
-    <filename>structSpan.html</filename>
+    <filename>struct_span.html</filename>
     <member kind="function">
       <type></type>
       <name>Span</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>aa5fb6e25d5c38cd540cc82ca179c82f2</anchor>
       <arglist>(int s, int e)</arglist>
     </member>
     <member kind="function">
       <type>string</type>
       <name>name</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>af6e7cf8f52e52996cf52bd7d702e9744</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator==</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>acebe6ab7baeb922c9c69aac317bbcb7a</anchor>
       <arglist>(const Span &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>a413ed85231167a494dafeaea71fb4ae0</anchor>
       <arglist>(const Span &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>start</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>a383594a5e203891204e7fa5849b48e78</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>end</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>ab1d7ba41653ccb2e46cf061c4a476f1d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>size</name>
-      <anchorfile>structSpan.html</anchorfile>
+      <anchorfile>struct_span.html</anchorfile>
       <anchor>a8637010e702d0acf63cdf790ad49c83e</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>SplitController</name>
-    <filename>classSplitController.html</filename>
+    <filename>class_split_controller.html</filename>
     <base>Scarab::HG::Controller</base>
     <member kind="function">
       <type></type>
       <name>SplitController</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>a511e733b586a24c2cad5ba16a6cb381b</anchor>
       <arglist>(const Subproblem &amp;s, const ForestLattice &amp;l, bool two_classes)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>project_word</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>ac01bf4220c60c35f6862160dc7fcacc7</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>size</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>a272757bbbfaa9af9d2ee2262b03ef131</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>dim</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>ad2aeeafdc31d48526be15a1b1a2e9931</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initialize_hypotheses</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>a6ac91d8fd5fef735c6572c420a05bda4</anchor>
       <arglist>(const Hypernode &amp;node, vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initialize_out_root</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>a58e535837326d733c98a193f2c7584c6</anchor>
       <arglist>(vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>find_best</name>
-      <anchorfile>classSplitController.html</anchorfile>
+      <anchorfile>class_split_controller.html</anchorfile>
       <anchor>a2138b9bac43d19896f2bff71a619e9af</anchor>
       <arglist>(vector&lt; Hypothesis * &gt; &amp;root_hyps, vector&lt; double &gt; &amp;scores, Hypothesis &amp;best_hyp) const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>SplitHeuristic</name>
-    <filename>classSplitHeuristic.html</filename>
+    <filename>class_split_heuristic.html</filename>
     <base>Scarab::HG::Heuristic</base>
     <member kind="function">
       <type></type>
       <name>SplitHeuristic</name>
-      <anchorfile>classSplitHeuristic.html</anchorfile>
+      <anchorfile>class_split_heuristic.html</anchorfile>
       <anchor>a8f58e4a4833f73460e2b2fb9c38448f1</anchor>
       <arglist>(const Cache&lt; Hypernode, BestHyp &gt; &amp;outside_scores, Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt; &amp;outside_edge_scores)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>lower_id</name>
-      <anchorfile>classSplitHeuristic.html</anchorfile>
+      <anchorfile>class_split_heuristic.html</anchorfile>
       <anchor>a0080cc4428de2635263f31d7931c3066</anchor>
       <arglist>(const Hypothesis &amp;hyp) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_value</name>
-      <anchorfile>classSplitHeuristic.html</anchorfile>
+      <anchorfile>class_split_heuristic.html</anchorfile>
       <anchor>a7117c99ce380835ed38aa02f82f8a04e</anchor>
       <arglist>(const Location &amp;l, const Hypothesis &amp;hyp) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>get_value</name>
-      <anchorfile>classSplitHeuristic.html</anchorfile>
+      <anchorfile>class_split_heuristic.html</anchorfile>
       <anchor>ab64ec7cde28b49828bcde1ad97862cc2</anchor>
       <arglist>(const Location &amp;l, const Hypothesis &amp;hyp) const </arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>State</name>
-    <filename>structState.html</filename>
+    <filename>struct_state.html</filename>
     <member kind="function">
       <type></type>
       <name>State</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>aa536880320a9aff707fb1e6aab3f58d4</anchor>
       <arglist>(int id_, string label_)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>aea25c6702974d1ac86358b4ba96d7891</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>string</type>
       <name>label</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>a2809d0a34cd576cc5daaa7a6d0ffb2b5</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator==</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>a6687a56382a022034927ba43aad39524</anchor>
       <arglist>(const State &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>_id</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>ae0482e3d4b3db023647833efd344831a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>string</type>
       <name>_label</name>
-      <anchorfile>structState.html</anchorfile>
+      <anchorfile>struct_state.html</anchorfile>
       <anchor>a1bf6100c59d50bc94ba781230a85a2e5</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>StoreCache</name>
-    <filename>classStoreCache.html</filename>
+    <filename>class_store_cache.html</filename>
     <templarg></templarg>
     <templarg></templarg>
     <member kind="function">
       <type></type>
       <name>StoreCache</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>adeb02113caf8141430705ec5bab08a54</anchor>
       <arglist>(int size)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>resize</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>a5aaafba803337cf3547159a6ac70a0ab</anchor>
       <arglist>(int size)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>size</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>aa4673d48544458b6b05770fe5970d961</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>V</type>
       <name>get_value</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>a455dbf75e40300745b354fdcc039279a</anchor>
       <arglist>(const C &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_value</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>a23309f685f0ba18912dcc2e8643de932</anchor>
       <arglist>(const C &amp;edge, V val)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_key</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>aa1289fedb472667dfa926c1e00f22b95</anchor>
       <arglist>(const C &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_key</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>ad358ce23080bb52db50a55db583f1bba</anchor>
       <arglist>(int k) const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; V &gt;</type>
       <name>store</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>a99393733357e04fe79cf703d3f4d8f44</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; C &gt;</type>
       <name>full_keys</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>a0df08d5576ce34c4a8fd4f7428fd9ad3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; bool &gt;</type>
       <name>has_value</name>
-      <anchorfile>classStoreCache.html</anchorfile>
+      <anchorfile>class_store_cache.html</anchorfile>
       <anchor>acdfad2c43fd63e37fbb818ce282f6493</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Subgradient</name>
-    <filename>classSubgradient.html</filename>
+    <filename>class_subgradient.html</filename>
     <member kind="function">
       <type></type>
       <name>Subgradient</name>
-      <anchorfile>classSubgradient.html</anchorfile>
+      <anchorfile>class_subgradient.html</anchorfile>
       <anchor>a2509e39964e1280532fd4994b3d747ce</anchor>
       <arglist>(SubgradientProducer &amp;subgrad_producer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classSubgradient.html</anchorfile>
+      <anchorfile>class_subgradient.html</anchorfile>
       <anchor>a183205851cdb362195baf914fb8d3ae0</anchor>
       <arglist>(int example)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_stuck</name>
-      <anchorfile>classSubgradient.html</anchorfile>
+      <anchorfile>class_subgradient.html</anchorfile>
       <anchor>a54907389766b702c467cf2ab20f8d051</anchor>
       <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>SubgradientProducer</name>
-    <filename>classSubgradientProducer.html</filename>
+    <filename>class_subgradient_producer.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>solve</name>
-      <anchorfile>classSubgradientProducer.html</anchorfile>
+      <anchorfile>class_subgradient_producer.html</anchorfile>
       <anchor>acea0e6ef35f9f3fd2f14872740471628</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;, int, bool, bool &amp;)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>update_weights</name>
-      <anchorfile>classSubgradientProducer.html</anchorfile>
+      <anchorfile>class_subgradient_producer.html</anchorfile>
       <anchor>a5b471526b337913722f56221b2461d89</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Subproblem</name>
-    <filename>classSubproblem.html</filename>
+    <filename>class_subproblem.html</filename>
     <member kind="function">
       <type>int</type>
       <name>overridden_by</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a1f76e6e7b079168299046c42e484c9cf</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>project</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>aba36ea76049a46e9ba1f0ac3ccec540a</anchor>
       <arglist>(int proj_dim, vector&lt; int &gt; projection)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>project_word</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a7c86b92cc388505602707376e52a0804</anchor>
       <arglist>(int w) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>separate</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a3f6d78f4567e70c35785d27a53a55490</anchor>
       <arglist>(int w1, int w2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>projection_with_constraints</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a503126c48810484433fd6c3e428f6537</anchor>
       <arglist>(int limit, int &amp;k, map&lt; int, set&lt; int &gt; &gt; &amp;constraints, vector&lt; int &gt; &amp;)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>best_one</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a4c12e798de9d3e96d6935bd755f92a97</anchor>
       <arglist>(int w1, int w2, int w3) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>best_two</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>abf452bcac2a8a28adbdbffe402e64dde</anchor>
       <arglist>(int w1, int w2, int w3) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_score_dim</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a80e4996ec87d5c3501ef10abdd953260</anchor>
       <arglist>(int w1, int d, int d2) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_score_dim_min</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a2e2a665cfdb9208f753eef143147d66c</anchor>
       <arglist>(int w1, vector&lt; int &gt; ds, vector&lt; int &gt; ds2) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_new_dim</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a2b43a2a68724d8eb624f6d81a7745b70</anchor>
       <arglist>(int w1, int d, int d2) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_score</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a8359ae9db4d8a830d390312bc57eef6f</anchor>
       <arglist>(int w1, int w2, int w3) const </arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Subproblem</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>ae6b6a16e00079ebd5b56acbdfdaf3aab</anchor>
       <arglist>(const ForestLattice *g, NgramCache *lm_in, const GraphDecompose *gd_in, const Cache&lt; Graphnode, int &gt; &amp;word_node_cache_in)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>adf6eb478907ed5c7c9f08a3cfcdfec76</anchor>
       <arglist>(vector&lt; int &gt; u_pos, vector&lt; float &gt; u_values, bool first)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a27c807a807f154ea28e7da7692466638</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initialize_caches</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a8220595977ed219234d36dfadd0dde82</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>vector&lt; int &gt;</type>
       <name>get_best_nodes_between</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a9c57f3bd41e2788d9f393db8bbbe26ef</anchor>
       <arglist>(int w1, int w2, bool first)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>get_best_bigram_weight</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a3c426fd46fcacefc561b68f0fc111795</anchor>
       <arglist>(int w1, int w2, bool first)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
       <name>primal_score</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>adfba5511e1f004b989f7b2e03d998c4e</anchor>
       <arglist>(int word[], int l)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>word_prob</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>ab5e3b5e167561a79da1d815af120b6bd</anchor>
       <arglist>(int, int, int)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>word_backoff</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>acc456e9852f19058da2d884feec15679</anchor>
       <arglist>(int)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>word_backoff_two</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>afd0b98fea6ebb39ae5ad46d1010cb6a3</anchor>
       <arglist>(int i, int j)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>word_prob_reverse</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a32718cd109a52be59a7eecd3dc5f4c8a</anchor>
       <arglist>(int, int, int)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>word_prob_bigram_reverse</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>ab612e729dd11b5ac27ce9f67e0135c0a</anchor>
       <arglist>(int i, int j)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>word_bow_reverse</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a522f5f38fddff38424fe3958104a9612</anchor>
       <arglist>(int i, int j, int k)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>word_bow_bigram_reverse</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>a1bce1ad18ee9c123677f39cccda7feb5</anchor>
       <arglist>(int i, int j)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; bool &gt;</type>
       <name>overridden</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>ab162552f8af9ee111227f6ec30b7a4f5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>projection_dims</name>
-      <anchorfile>classSubproblem.html</anchorfile>
+      <anchorfile>class_subproblem.html</anchorfile>
       <anchor>aa981fb8aa661221937b3cd021d72c396</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Tag</name>
-    <filename>structTag.html</filename>
+    <filename>struct_tag.html</filename>
     <member kind="function">
       <type></type>
       <name>Tag</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>ab32833339e272705062ac1a5d5f1ca10</anchor>
       <arglist>(uint ind_, POS tag_, int len_)</arglist>
     </member>
     <member kind="function">
       <type>const bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>aed3aabe09176d4a6acbb2cc7b3170228</anchor>
       <arglist>(const Tag &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>a5458e1229013075f4597c1dba313ce83</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>ind</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>a072cbc6c6ac82c2398ad409a5eb28b71</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>length</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>a7b67562e1a664c9fed9afb74902b0fe5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>POS</type>
       <name>tag</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>a5f97e5e57a82b467da83f2990a276e81</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const int</type>
       <name>MAX_TAG</name>
-      <anchorfile>structTag.html</anchorfile>
+      <anchorfile>struct_tag.html</anchorfile>
       <anchor>acb96fe3a41181e0e10628ae00fe63878</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>TagConstraints</name>
-    <filename>classTagConstraints.html</filename>
+    <filename>class_tag_constraints.html</filename>
     <member kind="function">
       <type></type>
       <name>TagConstraints</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a58a2e5245400d411de24e36534d11945</anchor>
       <arglist>(int num_tags)</arglist>
     </member>
     <member kind="function">
       <type>EdgeCache</type>
       <name>build_tagger_constraint_vector</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>adec1a1de8fb49e79b52c4c93517414a0</anchor>
       <arglist>(int sent_num, const Tagger &amp;tagger, wvector &amp;orig_weights) const </arglist>
     </member>
     <member kind="function">
       <type>wvector</type>
       <name>build_tagger_subgradient</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>acec3818d7505e9147828ab7cb3863001</anchor>
       <arglist>(int sent_num, const Tagger &amp;tagger, const vector&lt; const Hyperedge * &gt; used_edges) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>read_from_file</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a8b8df130795f2fbc1ce2aac375dfc00a</anchor>
       <arglist>(string file_name)</arglist>
     </member>
     <member kind="function">
       <type>wvector</type>
       <name>solve_hard</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a3e490a8d4d335ed4d04803fab0a82871</anchor>
       <arglist>(wvector &amp;model) const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; ConstraintGroup &gt;</type>
       <name>_constraint_struct</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>ad5aae083cb84eff2294ca7fbbd63cb67</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>set&lt; int &gt;</type>
       <name>groups</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>aba1f64a190bc4144fea14f01fe82ecc3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; PossibleTag &gt; &gt;</type>
       <name>_constrained_words</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a83e2347bf237b00f02dc872c19fd4516</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; PossibleTag &gt;</type>
       <name>_all_constraints</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a29576d5022d4c5d03e6c8723669c3679</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>_num_tags</name>
-      <anchorfile>classTagConstraints.html</anchorfile>
+      <anchorfile>class_tag_constraints.html</anchorfile>
       <anchor>a8885071b73e699061347d17af6d9aa20</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Tagger</name>
-    <filename>classTagger.html</filename>
+    <filename>class_tagger.html</filename>
     <base>Scarab::HG::HypergraphImpl</base>
     <member kind="function">
       <type></type>
       <name>Tagger</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a6e812fd7e339a21155f7b30f04292be1</anchor>
       <arglist>(int num_tags_)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>print</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a4ebe0aebd7c0392970b401a5a6c6cd72</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_up</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>afafa6e435d17467db344ca615f24746f</anchor>
       <arglist>(const Hypergraph &amp;hgraph)</arglist>
     </member>
     <member kind="function">
       <type>const Hypergraph &amp;</type>
       <name>hypergraph</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ad694ed218149b86c4ef5253328a41c49</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>vector&lt; Tag &gt;</type>
       <name>tags</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ae1e3802fb545c3430ca4d52ea5fd95db</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_tags</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a5da221998377bf36c84013ba0d471b36</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>sent_length</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ae762dd21f446b9ec618b0b83204bdc2e</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>Tag</type>
       <name>make_tag</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>af01daf511528271a118a281b8595e0df</anchor>
       <arglist>(int ind, int tag) const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; const Hyperedge * &gt; &amp;</type>
       <name>tag_to_edge</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a26472c386e7f5eebcb05c9d1843c1975</anchor>
       <arglist>(const Tag &amp;tag) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>tag_has_edge</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ae270a5be64b93945c180996aedcf6372</anchor>
       <arglist>(const Tag &amp;tag) const </arglist>
     </member>
     <member kind="function">
       <type>const Tag &amp;</type>
       <name>edge_to_tag</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ad615c8356f380baab01ae6675a25c409</anchor>
       <arglist>(const Hyperedge &amp;edge) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>edge_has_tag</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>ad7f1dda6082e71cd113a3d77e9c33275</anchor>
       <arglist>(const Hyperedge &amp;edge) const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>num_tag</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a4bf3332c608c078cbb2d5692c4f13b43</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>make_edge</name>
-      <anchorfile>classTagger.html</anchorfile>
+      <anchorfile>class_tagger.html</anchorfile>
       <anchor>a305fd4cf75f2149a57109772e195eb47</anchor>
       <arglist>(const Hypergraph_Edge &amp;edge, const Scarab::HG::Hyperedge *our_edge)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>TaggerDual</name>
-    <filename>classTaggerDual.html</filename>
+    <filename>class_tagger_dual.html</filename>
     <base>DualDecompositionSubproblem</base>
     <member kind="function">
       <type></type>
       <name>TaggerDual</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a2b16f45c3550e4f4871841c9ee02de4f</anchor>
       <arglist>(vector&lt; const Tagger * &gt; &amp;taggers, const wvector &amp;base_weights, const TagConstraints &amp;cons)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a047785058d058492172280e50a8f4c1a</anchor>
       <arglist>(double &amp;primal, double &amp;dual, wvector &amp;, int)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>update_weights</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a01f7705a69c7cc993268c6e66df57ae0</anchor>
       <arglist>(const wvector &amp;updates, wvector *weights, double mult)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>const vector&lt; const Tagger * &gt; &amp;</type>
       <name>_taggers</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a0068b276abb09b34ab08e9cc14947ee3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>const wvector &amp;</type>
       <name>_base_weights</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a0073fa0f694790d365ca959ed8386e26</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>const TagConstraints &amp;</type>
       <name>_tag_constraints</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>ab8845276b234c329c967529091f51e8f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>wvector *</type>
       <name>_cur_weights</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a9974a79ebf2547f3e80e9d68d06b49be</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; wvector &gt;</type>
       <name>_subgrad_cache</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a57232f5a7702b7715f8517d408086dbe</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; double &gt;</type>
       <name>_primal_cache</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a47cdc599b2c73836f33aa443053e3534</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; double &gt;</type>
       <name>_dual_cache</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a4472c903ae391e7cc4912bc473a9eae2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; bool &gt;</type>
       <name>_dirty_cache</name>
-      <anchorfile>classTaggerDual.html</anchorfile>
+      <anchorfile>class_tagger_dual.html</anchorfile>
       <anchor>a259d5ef5c5020c75a68527950ff41310</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>TagIndex</name>
-    <filename>structTagIndex.html</filename>
+    <filename>struct_tag_index.html</filename>
     <member kind="function">
       <type></type>
       <name>TagIndex</name>
-      <anchorfile>structTagIndex.html</anchorfile>
+      <anchorfile>struct_tag_index.html</anchorfile>
       <anchor>a30a1bf326d593304ac3d950fd2b8be92</anchor>
       <arglist>(int sent_num_, int ind_, int tag_)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structTagIndex.html</anchorfile>
+      <anchorfile>struct_tag_index.html</anchorfile>
       <anchor>a7b858bbf2ed8ed6bb56d87db8d38aaf2</anchor>
       <arglist>(const TagIndex &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>sent_num</name>
-      <anchorfile>structTagIndex.html</anchorfile>
+      <anchorfile>struct_tag_index.html</anchorfile>
       <anchor>a9bde045f6de7e99933920b883af894dc</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>ind</name>
-      <anchorfile>structTagIndex.html</anchorfile>
+      <anchorfile>struct_tag_index.html</anchorfile>
       <anchor>ac9cd159e647314e5beaf7af6da56fa6e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>POS</type>
       <name>tag</name>
-      <anchorfile>structTagIndex.html</anchorfile>
+      <anchorfile>struct_tag_index.html</anchorfile>
       <anchor>a1182f316658b96f36ecd7689d790f508</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>TagMrfAligner</name>
-    <filename>classTagMrfAligner.html</filename>
+    <filename>class_tag_mrf_aligner.html</filename>
     <member kind="function">
       <type>void</type>
       <name>build_from_constraints</name>
-      <anchorfile>classTagMrfAligner.html</anchorfile>
+      <anchorfile>class_tag_mrf_aligner.html</anchorfile>
       <anchor>ae2bae21b52efb547b46f2da80f61ec42</anchor>
       <arglist>(string file_name)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>align</name>
-      <anchorfile>classTagMrfAligner.html</anchorfile>
+      <anchorfile>class_tag_mrf_aligner.html</anchorfile>
       <anchor>a5b6ecf59596d656333f8113f6f05eba4</anchor>
       <arglist>(TagIndex tag_ind, MrfIndex &amp;mrf_ind)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; MRF * &gt;</type>
       <name>mrf_models</name>
-      <anchorfile>classTagMrfAligner.html</anchorfile>
+      <anchorfile>class_tag_mrf_aligner.html</anchorfile>
       <anchor>a8a5d34bcfecdfb8c3901297ad34e301d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; TagIndex &gt; &gt;</type>
       <name>tag_constraints</name>
-      <anchorfile>classTagMrfAligner.html</anchorfile>
+      <anchorfile>class_tag_mrf_aligner.html</anchorfile>
       <anchor>ae20f5a7d1131701986a36b70dca2c26f</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>TagMrfLP</name>
-    <filename>classTagMrfLP.html</filename>
+    <filename>class_tag_mrf_l_p.html</filename>
     <member kind="function" static="yes">
       <type>static void</type>
       <name>align_tag_mrf</name>
-      <anchorfile>classTagMrfLP.html</anchorfile>
+      <anchorfile>class_tag_mrf_l_p.html</anchorfile>
       <anchor>a7f9f963c533c5c712acca41db36f9a5a</anchor>
       <arglist>(const vector&lt; const MRFLP * &gt; &amp;mrflp, const vector&lt; const TagLP * &gt; &amp;taglp, TagMrfAligner aligner, GRBModel &amp;model, int var_type)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::Graph::Graphedge</name>
-    <filename>classScarab_1_1Graph_1_1Graphedge.html</filename>
+    <filename>class_scarab_1_1_graph_1_1_graphedge.html</filename>
     <member kind="function">
       <type></type>
       <name>Graphedge</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphedge.html</anchorfile>
       <anchor>aea165d2e0b46a46180f5e684df52abdf</anchor>
       <arglist>(uint id, const Graphnode &amp;from, const Graphnode &amp;to)</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphedge.html</anchorfile>
       <anchor>af4e2b922eb0db014aa6af45ef911e47c</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>Node</type>
       <name>from_node</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphedge.html</anchorfile>
       <anchor>a10760ab9034b358f9bd4aa28c44117d5</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>Node</type>
       <name>to_node</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphedge.html</anchorfile>
       <anchor>ae5b1fccfa8a11847b8be2a27690243f0</anchor>
       <arglist>() const </arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::Graph::Graphnode</name>
-    <filename>classScarab_1_1Graph_1_1Graphnode.html</filename>
+    <filename>class_scarab_1_1_graph_1_1_graphnode.html</filename>
     <member kind="function">
       <type></type>
       <name>Graphnode</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>adce1b3b5b83d8fca4952f244bd093b9f</anchor>
       <arglist>(uint id)</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a74eaaed5d31a0a2c0445f3de0859148f</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a78229cc45113d24f1373a50a13bc7be4</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_in_edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a717294ebbae2d29e9f97633407dae4ce</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Edges &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a4ffd990052c812242cbdeeae7b0e1104</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Edges &amp;</type>
       <name>in_edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a001915a0fd7a6d4b06886f7865fc5189</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>ae37c75fd607395376ade1cda5294e2a4</anchor>
       <arglist>(Edges edges)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_edge</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a22e722e5bcd49dcfa643304d631416dc</anchor>
       <arglist>(Edge edge)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_in_edge</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a092b914639364b7b9168c84e3e556cea</anchor>
       <arglist>(Edge edge)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>set_label</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graphnode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graphnode.html</anchorfile>
       <anchor>a7ec0926462b47496b1158f16b87e69ca</anchor>
       <arglist>(string lab)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::Graph::Graph</name>
-    <filename>classScarab_1_1Graph_1_1Graph.html</filename>
+    <filename>class_scarab_1_1_graph_1_1_graph.html</filename>
     <member kind="function">
       <type></type>
       <name>Graph</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>ac753f9750341458516e06fb1437a1258</anchor>
       <arglist>(const Nodes &amp;nodes, const Edges &amp;edges)</arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>afdfbdd8e5427a646707ceb22ca15d2e2</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_nodes</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>ac35877b52ec1f625ff452a4073026b26</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Nodes &amp;</type>
       <name>nodes</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>a8d0c6189ef1569626348a30e908870e4</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Edges &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>a19a63be838e64b57e46cba029e273162</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Graphnode &amp;</type>
       <name>node</name>
-      <anchorfile>classScarab_1_1Graph_1_1Graph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_graph_1_1_graph.html</anchorfile>
       <anchor>af226b4907b00e178a8f7bd6e972e42d2</anchor>
       <arglist>(uint i) const </arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::Location</name>
-    <filename>structScarab_1_1HG_1_1Location.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_location.html</filename>
     <member kind="function">
       <type>void</type>
       <name>show</name>
-      <anchorfile>structScarab_1_1HG_1_1Location.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_location.html</anchorfile>
       <anchor>a66e686eed3a0038886fd24171ec0ae8e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
       <type>loc</type>
       <name>location</name>
-      <anchorfile>structScarab_1_1HG_1_1Location.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_location.html</anchorfile>
       <anchor>a493249f5c4c2ad6870d1cf1f9dd3f5f5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>node_id</name>
-      <anchorfile>structScarab_1_1HG_1_1Location.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_location.html</anchorfile>
       <anchor>a9a11d2d02ffd88048526a28c7619a3c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>edge_id</name>
-      <anchorfile>structScarab_1_1HG_1_1Location.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_location.html</anchorfile>
       <anchor>a618dd1682636ccc635ced4dc536be305</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>int</type>
       <name>edge_pos</name>
-      <anchorfile>structScarab_1_1HG_1_1Location.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_location.html</anchorfile>
       <anchor>a9e3f8708a3b6c0271a7a854bc6dbde79</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::Heuristic</name>
-    <filename>classScarab_1_1HG_1_1Heuristic.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_heuristic.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual bool</type>
       <name>has_value</name>
-      <anchorfile>classScarab_1_1HG_1_1Heuristic.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_heuristic.html</anchorfile>
       <anchor>afad5a99d38b6783521e4c670d3edcf0a</anchor>
       <arglist>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual double</type>
       <name>get_value</name>
-      <anchorfile>classScarab_1_1HG_1_1Heuristic.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_heuristic.html</anchorfile>
       <anchor>aca6b5924257b35be9e65058062fdc0d5</anchor>
       <arglist>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::QueueHyp</name>
-    <filename>structScarab_1_1HG_1_1QueueHyp.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_queue_hyp.html</filename>
     <member kind="function">
       <type></type>
       <name>QueueHyp</name>
-      <anchorfile>structScarab_1_1HG_1_1QueueHyp.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_queue_hyp.html</anchorfile>
       <anchor>a165e60736b23d97bec8cdaff7c742db7</anchor>
       <arglist>(Hypothesis *hyp, double score_in, Location *w)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structScarab_1_1HG_1_1QueueHyp.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_queue_hyp.html</anchorfile>
       <anchor>aa02f7835d0dd0d00cc5f00ff7430ddf3</anchor>
       <arglist>(const QueueHyp &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>Hypothesis *</type>
       <name>h</name>
-      <anchorfile>structScarab_1_1HG_1_1QueueHyp.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_queue_hyp.html</anchorfile>
       <anchor>ae3368ba62dae4842a83766b44bcda346</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>score</name>
-      <anchorfile>structScarab_1_1HG_1_1QueueHyp.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_queue_hyp.html</anchorfile>
       <anchor>ab4c4483fa92ecb415def41f5ed366e53</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Location *</type>
       <name>where</name>
-      <anchorfile>structScarab_1_1HG_1_1QueueHyp.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_queue_hyp.html</anchorfile>
       <anchor>ae151535de5fa3bb2cfe44dade082c613</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::AStar</name>
-    <filename>classScarab_1_1HG_1_1AStar.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_a_star.html</filename>
     <member kind="function">
       <type></type>
       <name>AStar</name>
-      <anchorfile>classScarab_1_1HG_1_1AStar.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_a_star.html</anchorfile>
       <anchor>add1bfbed92beae4cd239af9a150b060b</anchor>
       <arglist>(const HGraph &amp;f, const Controller &amp;cont, const Cache&lt; Hyperedge, double &gt; &amp;edge_weights, const Heuristic &amp;heu)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_path</name>
-      <anchorfile>classScarab_1_1HG_1_1AStar.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_a_star.html</anchorfile>
       <anchor>a8079591e07aa9c4a5e4e14a5b1acb18b</anchor>
       <arglist>(NodeBackCache &amp;back_pointers)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::BestHyp</name>
-    <filename>classScarab_1_1HG_1_1BestHyp.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_best_hyp.html</filename>
     <member kind="function">
       <type>int</type>
       <name>size</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>a8ebb56ed4cd363e793bc13936551a58a</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clear</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>a3c032ac35ce142d64fdad17b8950b493</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Hypothesis &amp;</type>
       <name>get_hyp</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>a33ebfb0c6fc093b02e8d2e33082fd8a9</anchor>
       <arglist>(int i) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>get_score</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>afd75d0946faf6a48d113d815c1f86bce</anchor>
       <arglist>(int i) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>get_score_by_id</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>a60998ae47c3087d809d0ab1be0d2c21a</anchor>
       <arglist>(int id) const </arglist>
     </member>
     <member kind="function">
       <type>const Hypothesis &amp;</type>
       <name>get_hyp_by_id</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>ad68702666a75575acffd113f9038e92a</anchor>
       <arglist>(int id) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>has_id</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>acdb194cd10fe47e64ac7c96de296cb4e</anchor>
       <arglist>(int id) const </arglist>
     </member>
     <member kind="function">
       <type>vector&lt; int &gt;</type>
       <name>join</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>adb8421adc7af8cb8b4f5116599e807fd</anchor>
       <arglist>(const Hypothesis &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>vector&lt; int &gt;</type>
       <name>join_back</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>ac9e2d1fc7e0d88865fa18d25877d63b8</anchor>
       <arglist>(const Hypothesis &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>try_set_hyp</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>ac079b15bdd5c65ede04d4e99eb683ff8</anchor>
       <arglist>(Hypothesis *hyp, double score)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; Hypothesis * &gt;</type>
       <name>hyps</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>ab293f04d4d58e1503066c0d7b4e4013b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; double &gt;</type>
       <name>scores</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>a63d4d0feac5cff2ce7e00bdd15feb738</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>bool</type>
       <name>has_new</name>
-      <anchorfile>classScarab_1_1HG_1_1BestHyp.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_best_hyp.html</anchorfile>
       <anchor>abf49848ebb40edc6cd7c30af8139f389</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::ExtendCKY</name>
-    <filename>classScarab_1_1HG_1_1ExtendCKY.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</filename>
     <member kind="function">
       <type></type>
       <name>ExtendCKY</name>
-      <anchorfile>classScarab_1_1HG_1_1ExtendCKY.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</anchorfile>
       <anchor>a393c61229e019cb875ba6b7b6b176aff</anchor>
       <arglist>(const HGraph &amp;forest, const Cache&lt; Hyperedge, double &gt; &amp;edge_weights, const Controller &amp;cont)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_path</name>
-      <anchorfile>classScarab_1_1HG_1_1ExtendCKY.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</anchorfile>
       <anchor>ae72fa6e6e0bb69464c575bd5225b1423</anchor>
       <arglist>(NodeBackCache &amp;back_pointers)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>outside</name>
-      <anchorfile>classScarab_1_1HG_1_1ExtendCKY.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</anchorfile>
       <anchor>a038f64197127bc278e6a25c4565c72bd</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Hypernode, BestHyp &gt;</type>
       <name>_outside_memo_table</name>
-      <anchorfile>classScarab_1_1HG_1_1ExtendCKY.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</anchorfile>
       <anchor>a008898035d6c06258e25a502fbfd7377</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt;</type>
       <name>_outside_edge_memo_table</name>
-      <anchorfile>classScarab_1_1HG_1_1ExtendCKY.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_extend_c_k_y.html</anchorfile>
       <anchor>a554aa074d56b38acb561fda8584b9b8a</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::Hyperedge</name>
-    <filename>classScarab_1_1HG_1_1Hyperedge.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hyperedge.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>af824beb7107253a7545b35992c17e057</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual string</type>
       <name>label</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>a8442c017fcee87c1f865b2254b49900f</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hypernode &amp;</type>
       <name>tail_node</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>a9ec8cf9ea7b5f762f359a6f9f1c038da</anchor>
       <arglist>(unsigned int i) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>num_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>a799d8d98242c129d7eee178bdf1fb535</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const svector&lt; int, double &gt; &amp;</type>
       <name>fvector</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>a0d201ddb955631aadee4c15cc8e709f8</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hypernode &amp;</type>
       <name>head_node</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>a6043de341070c103d811f5286193dd46</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const vector&lt; Hypernode * &gt; &amp;</type>
       <name>tail_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1Hyperedge.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge.html</anchorfile>
       <anchor>abac6d27691186608aa12949de6e1c283</anchor>
       <arglist>() const =0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::Hypernode</name>
-    <filename>classScarab_1_1HG_1_1Hypernode.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hypernode.html</filename>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~Hypernode</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a0657cc96f62d29da3ae4b5b9bcab1ce6</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a0aeaee6c2ca2a011fcd086f803aaa4d0</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>add2f4d556be223b906bfbab9f1b60870</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>num_in_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a4b1a4ffaa8a8b0295763673e6d86d693</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hyperedge &amp;</type>
       <name>edge</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a3bface6832eb54a00d90e4fe8d1999f7</anchor>
       <arglist>(unsigned int i) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hyperedge &amp;</type>
       <name>in_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a533d3e0bc2269ec07edbda32305daf70</anchor>
       <arglist>(unsigned int i) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual bool</type>
       <name>is_terminal</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>ae3e1107309a8817d1015bd70a90c1c49</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>a3306572ded5b5061c1916bcf268be94e</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>in_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1Hypernode.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode.html</anchorfile>
       <anchor>aad118748408663b8242dc52d45bbd49d</anchor>
       <arglist>() const =0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HGraph</name>
-    <filename>classScarab_1_1HG_1_1HGraph.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_h_graph.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>print</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>ab5aa11c932b28864b56f28e0babbc1c1</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hypernode &amp;</type>
       <name>root</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>a5ede392b158e41dd7e95ded1c4b0b5d6</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>a8309003db80be5bdbe4bb64f98a78ea8</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual unsigned int</type>
       <name>num_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>a6f4d37ef034cb38aa09c702b80a6e4f7</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hypernode &amp;</type>
       <name>get_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>acad57dd952956b1a1a4367bba0e9383b</anchor>
       <arglist>(unsigned int i) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const Hyperedge &amp;</type>
       <name>get_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>aa599b296ae01affc9606f519e4e44e9e</anchor>
       <arglist>(unsigned int i) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const vector&lt; Hypernode * &gt; &amp;</type>
       <name>nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>a74d893fba015520774f71f02a46bb6ca</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HGraph.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_h_graph.html</anchorfile>
       <anchor>a57328729f90cc4152ca79ff15ecdd4bb</anchor>
       <arglist>() const =0</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::HypergraphPrune</name>
-    <filename>structScarab_1_1HG_1_1HypergraphPrune.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_hypergraph_prune.html</filename>
     <member kind="function">
       <type></type>
       <name>HypergraphPrune</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphPrune.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_prune.html</anchorfile>
       <anchor>adc29528f39ad9ced03be8b48341c3e84</anchor>
       <arglist>(const HGraph &amp;hgraph_)</arglist>
     </member>
     <member kind="variable">
       <type>set&lt; int &gt;</type>
       <name>nodes</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphPrune.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_prune.html</anchorfile>
       <anchor>a1ff0fd7b723f888db33ae542d186d0b4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>set&lt; int &gt;</type>
       <name>edges</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphPrune.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_prune.html</anchorfile>
       <anchor>adff9a55407cd2cff9199d440ef513029</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const HGraph &amp;</type>
       <name>hgraph</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphPrune.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_prune.html</anchorfile>
       <anchor>a55f12db438013ace2d307efb284bcb7b</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HypergraphAlgorithms</name>
-    <filename>classScarab_1_1HG_1_1HypergraphAlgorithms.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</filename>
     <member kind="function">
       <type></type>
       <name>HypergraphAlgorithms</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>a71e2da9111a9a484e5ef370991fdb6aa</anchor>
       <arglist>(const HGraph &amp;hypergraph)</arglist>
     </member>
     <member kind="function">
       <type>EdgeCache *</type>
       <name>cache_edge_weights</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>a28f83d7616f6153ca7c909fe82c5b0fa</anchor>
       <arglist>(const svector&lt; int, double &gt; &amp;weight_vector) const </arglist>
     </member>
     <member kind="function">
       <type>EdgeCache *</type>
       <name>combine_edge_weights</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>ae815dc19968e9ab557d19dd2563fca38</anchor>
       <arglist>(const EdgeCache &amp;w1, const EdgeCache &amp;w2) const </arglist>
     </member>
     <member kind="function">
       <type>HNodes</type>
       <name>construct_best_fringe</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>af5bcb325e1d58dd9d4c26517c4dfeca0</anchor>
       <arglist>(const NodeBackCache &amp;back_memo_table) const </arglist>
     </member>
     <member kind="function">
       <type>HEdges</type>
       <name>construct_best_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>ab054762a5d6a0af7ee667c8e90585668</anchor>
       <arglist>(const NodeBackCache &amp;back_memo_table) const </arglist>
     </member>
     <member kind="function">
       <type>HNodes</type>
       <name>construct_best_node_order</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>acf3eea6f89752404f12c0a3dd45d397d</anchor>
       <arglist>(const NodeBackCache &amp;back_memo_table) const </arglist>
     </member>
     <member kind="function">
       <type>wvector</type>
       <name>construct_best_feature_vector</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>a4ff84fd293173b5cee2f902a3509a5c2</anchor>
       <arglist>(const NodeBackCache &amp;back_memo_table) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_path</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>aa9a28bf42d17a166ec5e780067e33259</anchor>
       <arglist>(const EdgeCache &amp;edge_weights, NodeCache &amp;score_memo_table, NodeBackCache &amp;back_memo_table) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>best_outside_path</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>a8eea2c8f3cd86a08962b46d1a4c57a20</anchor>
       <arglist>(const EdgeCache &amp;edge_weights, const NodeCache &amp;score_memo_table, NodeCache &amp;outside_score_table) const </arglist>
     </member>
     <member kind="function">
       <type>HNodes</type>
       <name>topological_sort</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>afeb33bac104955747948b3d4a885cdc4</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>HypergraphPrune</type>
       <name>pretty_good_pruning</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphAlgorithms.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_algorithms.html</anchorfile>
       <anchor>a3b26656f35480c12e79f4040dce7bae1</anchor>
       <arglist>(const EdgeCache &amp;edge_weights, const NodeCache &amp;score_memo_table, const NodeCache &amp;outside_memo_table, double cutoff)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HyperedgeImpl</name>
-    <filename>classScarab_1_1HG_1_1HyperedgeImpl.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</filename>
     <base>Scarab::HG::Hyperedge</base>
     <member kind="function">
       <type></type>
       <name>HyperedgeImpl</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a3c141efe1be2e8ee78d45caca4711c6e</anchor>
       <arglist>(const string &amp;label, str_vector *features, int id, vector&lt; Hypernode * &gt; tail_nodes, Hypernode *head_node)</arglist>
     </member>
     <member kind="function">
       <type>const Hypernode &amp;</type>
       <name>tail_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a7087ba121f3056eb5946d1909c4b3d58</anchor>
       <arglist>(unsigned int i) const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a9a5bef8789c9c7caee6f53833ea4acc7</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const wvector &amp;</type>
       <name>fvector</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a359446c285164a93995bb87e6ea74882</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Scarab::HG::Hypernode &amp;</type>
       <name>head_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>ae194bfc8ecac2a12791fa36c1c2c62a7</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; Scarab::HG::Hypernode * &gt; &amp;</type>
       <name>tail_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a3bf00c8c032397150f59e196aea5e245</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>afa81943347267781c25c4e68f7f5f547</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>string</type>
       <name>label</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a8fe687c9914de37c4d91c353ba669665</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>reid</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a068e4291cbcaa68a59ad64ede34f9edc</anchor>
       <arglist>(int new_id)</arglist>
     </member>
     <member kind="variable">
       <type>const string</type>
       <name>_label</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>ab14180934c56806b0004bcbdac9eef88</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; Hypernode * &gt;</type>
       <name>_tail_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a70fab435c66aab79825aab6b9058cda5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Hypernode *</type>
       <name>_head_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HyperedgeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hyperedge_impl.html</anchorfile>
       <anchor>a92aeb9593a64be769f18666c3bfd0a20</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HypernodeImpl</name>
-    <filename>classScarab_1_1HG_1_1HypernodeImpl.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hypernode_impl.html</filename>
     <base>Scarab::HG::Hypernode</base>
     <member kind="function">
       <type></type>
       <name>HypernodeImpl</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a574c6f1386fb27894075977ef1ca56d6</anchor>
       <arglist>(const string &amp;label, int id, wvector *features)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a0899a4e97f535c2f005d7c5ab5364681</anchor>
       <arglist>(Hyperedge *edge)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_in_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>ab05500702d5fa1c896efe941f9c54bf3</anchor>
       <arglist>(Hyperedge *edge)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>is_terminal</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a2bb4b33ff207c3c1babe135b9af6323e</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>prune_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a6675d677bd7e794ae9a8bf72645b828a</anchor>
       <arglist>(const set&lt; int &gt; &amp;keep_edges)</arglist>
     </member>
     <member kind="function">
       <type>const Hyperedge &amp;</type>
       <name>edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a328189f28a4185d435035686a27592c2</anchor>
       <arglist>(uint i) const </arglist>
     </member>
     <member kind="function">
       <type>unsigned int</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a7fed4809706319cc916ed4c04a641436</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>unsigned int</type>
       <name>num_in_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a9a13a37fcece16603ec4bf3f364e6fcc</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Hyperedge &amp;</type>
       <name>in_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a26ff9db30c03c7b74181e9f901aa71d4</anchor>
       <arglist>(uint i) const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>id</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a2579ef1e67ad8f51d23838c130440d21</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>ada979dcddc1bf0abf0fc2530d1ea8761</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>in_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a77fe0de2e3927be6145cb8fc018088c9</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>reid</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>a9b0df10dfd6c20c094a928f1ced76f90</anchor>
       <arglist>(int new_id)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; Hyperedge * &gt;</type>
       <name>_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>aaa189784dcf714f3c1ca54ea8cd0dc83</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const string &amp;</type>
       <name>_label</name>
-      <anchorfile>classScarab_1_1HG_1_1HypernodeImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypernode_impl.html</anchorfile>
       <anchor>aefb3b14843d6fb8ed2284ae0d6a53dbd</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HypergraphImpl</name>
-    <filename>classScarab_1_1HG_1_1HypergraphImpl.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</filename>
     <base>Scarab::HG::HGraph</base>
     <member kind="function">
       <type></type>
       <name>HypergraphImpl</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a935bed9b8cf9235a1adb61d0889f6ac7</anchor>
       <arglist>(vector&lt; Hypernode * &gt; nodes, vector&lt; Hyperedge * &gt; edges, Hypernode *root)</arglist>
     </member>
     <member kind="function">
       <type>const Hypernode &amp;</type>
       <name>root</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a31172009b97d179f6b1199f191197a32</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>unsigned int</type>
       <name>num_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a0adcc8783b94cbe07b092220082d00ab</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>uint</type>
       <name>num_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>ad39e917a84acb1d4caf0145ce8a903a2</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const Hypernode &amp;</type>
       <name>get_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a9276a6faa074eb4f3bbb2f8b8d5d4fbf</anchor>
       <arglist>(unsigned int i) const </arglist>
     </member>
     <member kind="function">
       <type>const Hyperedge &amp;</type>
       <name>get_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a31a148139b888b6bd10e78fe555144c7</anchor>
       <arglist>(uint i) const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>build_from_file</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a1f33418f90b826db9cfc0bb34e1ca9cf</anchor>
       <arglist>(const char *file_name)</arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; Hypernode * &gt; &amp;</type>
       <name>nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a9aef2881b489c86d4d83e996a70f8141</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>const vector&lt; Hyperedge * &gt; &amp;</type>
       <name>edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a0c8373e545fe59b0cb7036b4751508e1</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>prune</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a98701d5529aaf3e5d4fa386694843f20</anchor>
       <arglist>(const HypergraphPrune &amp;prune)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>write_to_file</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>af8f5ed38a355676c473e8d54b5552cc6</anchor>
       <arglist>(const char *file_name)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual Hypernode *</type>
       <name>make_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>af14198ba5fccb5d4118188fa42feb8ff</anchor>
       <arglist>(const Hypergraph_Node &amp;node, wvector *features)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
       <name>make_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a238a7ce3b578c8126eccbc7803570638</anchor>
       <arglist>(const Hypergraph_Edge &amp;edge, const Hyperedge *our_edge)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
       <name>convert_edge</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a30349aca0e3b8f8dc72ed74d78e8c5b8</anchor>
       <arglist>(const Hyperedge *our_edge, Hypergraph_Edge *edge)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
       <name>convert_node</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a93e9e250fa457a2171bf07241b7829eb</anchor>
       <arglist>(const Hypernode *our_node, Hypergraph_Node *node)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
       <name>set_up</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>ae91de73e633e450b01664e3ec964019c</anchor>
       <arglist>(const Hypergraph &amp;hgraph)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>::Hypergraph *</type>
       <name>hgraph</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>aa7192cf8f168e5bfed67a8faf85c8cb4</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>Hypernode *</type>
       <name>_root</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a7035fdae4c04d0752aaaf1e7eba7600e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; Hypernode * &gt;</type>
       <name>_nodes</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a4cc57d9255e2f09714c5913d67cd0554</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>vector&lt; Hyperedge * &gt;</type>
       <name>_edges</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphImpl.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_impl.html</anchorfile>
       <anchor>a56fb710140f3359646b1a17cb0417d74</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::State</name>
-    <filename>structScarab_1_1HG_1_1State.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_state.html</filename>
     <member kind="function">
       <type></type>
       <name>State</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>a61592030e999341da1e674274db11307</anchor>
       <arglist>(const vector&lt; int &gt; &amp;ids, uint dim)</arglist>
     </member>
     <member kind="function">
       <type>State</type>
       <name>project</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>a6597ae0951c6d0c9146ae6bd5b91b52f</anchor>
       <arglist>(int split, int down_to) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>ac7f5641edb1dd813dcac3b76be28d305</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator==</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>a17d205eca9f3be9c01c7d41e3fe4d809</anchor>
       <arglist>(const State &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>compatible</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>acd8ef3e5bd73ec5034de0d70f2bb2492</anchor>
       <arglist>(const State &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>abadb936b551a91d952af74b3bfc7d43d</anchor>
       <arglist>(const State &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>possible_states</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>afc65eeacc345b5396a673e4328cccc11</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>_state</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>a1c516b546a5e3de3a5f9bb8f39a3cf20</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>uint</type>
       <name>_dim</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>ae3d755b161845bd295deae4096d4c9f8</anchor>
       <arglist></arglist>
     </member>
     <member kind="friend">
       <type>friend ostream &amp;</type>
       <name>operator&lt;&lt;</name>
-      <anchorfile>structScarab_1_1HG_1_1State.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_state.html</anchorfile>
       <anchor>a353ffb342165fcaec0e812d0288fc329</anchor>
       <arglist>(ostream &amp;output, const State &amp;p)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::Hypothesis</name>
-    <filename>structScarab_1_1HG_1_1Hypothesis.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_hypothesis.html</filename>
     <member kind="function">
       <type></type>
       <name>Hypothesis</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>aca7357ce485cb960fadb2cc62f1a888a</anchor>
       <arglist>(const State &amp;left_hook, const State &amp;right, HEdge back_pointer)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Hypothesis</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a0d71b86d0d7d3294e61671efed2722bf</anchor>
       <arglist>(const State &amp;left_hook, const State &amp;right)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>Hypothesis</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a974fd973dd0c8a380f342bbd10013d6f</anchor>
       <arglist>(int d)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>match</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a698008183fc3863a0c03ba0c3e5960d1</anchor>
       <arglist>(const Hypothesis &amp;other) const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>id</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a5a69f417c889d4d96ad5a78aa1dd2f7d</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>left</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>ac428cffa80bad102222f58463bfba7e5</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>right</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a6c026d211fd4f4875216fc179a78e879</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>operator&lt;</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a70597628ead54cb83fcda7422d6d2f1f</anchor>
       <arglist>(const Hypothesis &amp;other) const </arglist>
     </member>
     <member kind="variable">
       <type>State</type>
       <name>hook</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a53277642394df6145ea8bfc6a3e3996e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>State</type>
       <name>right_side</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>aff1779905d4f7e9a21b71a20cec4f02d</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const Hyperedge *</type>
       <name>back_edge</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>aa31a2d052ecaffa034d8447de748946f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>bool</type>
       <name>is_done</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a38b1068d18fe3ce28d6c93e5d12b2225</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; int &gt;</type>
       <name>prev_hyp</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a93bf33767cecd362e8a12d385c94be1a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>original_value</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a95df46740f1263062f4898db1b39cd41</anchor>
       <arglist></arglist>
     </member>
     <member kind="friend">
       <type>friend ostream &amp;</type>
       <name>operator&lt;&lt;</name>
-      <anchorfile>structScarab_1_1HG_1_1Hypothesis.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypothesis.html</anchorfile>
       <anchor>a70fdb92646880290a9c906e5018c11bb</anchor>
       <arglist>(ostream &amp;output, const Hypothesis &amp;h)</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::Controller</name>
-    <filename>classScarab_1_1HG_1_1Controller.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_controller.html</filename>
     <member kind="function">
       <type>double</type>
       <name>combine</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>a34cfe4b8e7496ffca1cedf64cb3f0a73</anchor>
       <arglist>(const Hypothesis &amp;a, const Hypothesis &amp;b, Hypothesis &amp;ret) const </arglist>
     </member>
     <member kind="function">
       <type>double</type>
       <name>combine_back</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>a4b596f04765ad11b691e29383f5fbc3b</anchor>
       <arglist>(const Hypothesis &amp;a, const Hypothesis &amp;b, Hypothesis &amp;ret) const </arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>initialize_hypotheses</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>a5019e9591e6d4e5e29eb4ca6ac42d056</anchor>
       <arglist>(const Hypernode &amp;node, vector&lt; Hypothesis * &gt; &amp;initialize, vector&lt; double &gt; &amp;scores) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>initialize_out_root</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>a34e4f087d77d06ee27fff2d3a8435473</anchor>
       <arglist>(vector&lt; Hypothesis * &gt; &amp;hyps, vector&lt; double &gt; &amp;scores) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual double</type>
       <name>find_best</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>ac4a38bf968379d3dc3f2b95cffabf540</anchor>
       <arglist>(vector&lt; Hypothesis * &gt; &amp;at_root, vector&lt; double &gt; &amp;scores, Hypothesis &amp;best_hyp) const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual int</type>
       <name>size</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>a3498a09d093e6c6ed993e309db51480a</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual int</type>
       <name>dim</name>
-      <anchorfile>classScarab_1_1HG_1_1Controller.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_controller.html</anchorfile>
       <anchor>ab4282178c6b8d3670134ab0519eda518</anchor>
       <arglist>() const =0</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::DepParserLP</name>
-    <filename>structScarab_1_1HG_1_1DepParserLP.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_dep_parser_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>DepParserLP</name>
-      <anchorfile>structScarab_1_1HG_1_1DepParserLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_dep_parser_l_p.html</anchorfile>
       <anchor>aaec1248e50de35594c4a20e89a782e95</anchor>
       <arglist>(const DepParser &amp;parser, const HypergraphLP &amp;hyper_lp)</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Dependency, GRBVar &gt;</type>
       <name>dep_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1DepParserLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_dep_parser_l_p.html</anchorfile>
       <anchor>af31e9d91e3407559cd2588bfef2296e3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const DepParser &amp;</type>
       <name>p</name>
-      <anchorfile>structScarab_1_1HG_1_1DepParserLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_dep_parser_l_p.html</anchorfile>
       <anchor>a93d0f269dabdd6fe83c68ee51baafb62</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const HypergraphLP &amp;</type>
       <name>h_lp</name>
-      <anchorfile>structScarab_1_1HG_1_1DepParserLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_dep_parser_l_p.html</anchorfile>
       <anchor>acab7463a0d1349c5a1250ac0653c0569</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::DepParserLPBuilder</name>
-    <filename>classScarab_1_1HG_1_1DepParserLPBuilder.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder.html</filename>
     <member kind="function" static="yes">
       <type>static void</type>
       <name>show_results</name>
-      <anchorfile>classScarab_1_1HG_1_1DepParserLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder.html</anchorfile>
       <anchor>a8864b215a93fa51c4df30669dacb0ddc</anchor>
       <arglist>(const DepParserLP &amp;lp_vars)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static DepParserLP *</type>
       <name>add_parse</name>
-      <anchorfile>classScarab_1_1HG_1_1DepParserLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_dep_parser_l_p_builder.html</anchorfile>
       <anchor>a862127f9347f244103941a119747b810</anchor>
       <arglist>(const DepParser &amp;parser, const Cache&lt; Hyperedge, double &gt; &amp;weights, string prefix, GRBModel &amp;model, int var_type)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::HypergraphLP</name>
-    <filename>structScarab_1_1HG_1_1HypergraphLP.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_hypergraph_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>HypergraphLP</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_l_p.html</anchorfile>
       <anchor>a332edf79e5fc5b617ec6e948a73cc4a4</anchor>
       <arglist>(const HGraph &amp;h)</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Hypernode, GRBVar &gt;</type>
       <name>node_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_l_p.html</anchorfile>
       <anchor>ae9c9c441b112e98e412e8129e91a28ce</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Hyperedge, GRBVar &gt;</type>
       <name>edge_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_l_p.html</anchorfile>
       <anchor>a8e71b062f3d6691eef27bb85c718604f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const HGraph &amp;</type>
       <name>_h</name>
-      <anchorfile>structScarab_1_1HG_1_1HypergraphLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_hypergraph_l_p.html</anchorfile>
       <anchor>a52fa717afa9c902f7d8ef3adf18c5204</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::HypergraphLPBuilder</name>
-    <filename>classScarab_1_1HG_1_1HypergraphLPBuilder.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder.html</filename>
     <member kind="function" static="yes">
       <type>static void</type>
       <name>show_hypergraph</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder.html</anchorfile>
       <anchor>a7653a6f997f1505c0d6668618b28d6d8</anchor>
       <arglist>(const HypergraphLP &amp;h_lp)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static HypergraphLP *</type>
       <name>add_hypergraph</name>
-      <anchorfile>classScarab_1_1HG_1_1HypergraphLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_hypergraph_l_p_builder.html</anchorfile>
       <anchor>a3a711a79152e0f5d4cc9157737673b95</anchor>
       <arglist>(const HGraph &amp;h, const Cache&lt; Hyperedge, double &gt; &amp;_weights, string prefix, GRBModel &amp;model, int var_type)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::LatticeVars</name>
-    <filename>structScarab_1_1HG_1_1LatticeVars.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_lattice_vars.html</filename>
     <member kind="function">
       <type></type>
       <name>LatticeVars</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a22dc8ef683d47635b8e55adf3520a811</anchor>
       <arglist>(string n)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>initialize_all_pairs</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a2b1a31d5b8d9673c7c473f28c2e02db9</anchor>
       <arglist>(const GraphDecompose &amp;gd, const ForestLattice &amp;_lattice, GRBModel *model)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>add_all_pairs_constraints</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a769802ee94dab4d0c8a7956fb861efac</anchor>
       <arglist>(const GraphDecompose &amp;gd, const ForestLattice &amp;_lattice, GRBModel *model)</arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</type>
       <name>all_pairs_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a68c89197d9177fd5550b558358e5ac0b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; GRBVar &gt; &gt;</type>
       <name>all_pairs_exist_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a2f4713dd2316790958cdca48bb6a73d1</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>vector&lt; vector&lt; vector&lt; bool &gt; &gt; &gt;</type>
       <name>has_all_pairs_var</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>ad6cc2ab5e0d3322d35738ddb0e9af503</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>string</type>
       <name>name</name>
-      <anchorfile>structScarab_1_1HG_1_1LatticeVars.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_lattice_vars.html</anchorfile>
       <anchor>a163eea64436f95f4282590c141f52b1d</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::LPBuilder</name>
-    <filename>classScarab_1_1HG_1_1LPBuilder.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_l_p_builder.html</filename>
     <member kind="function">
       <type></type>
       <name>LPBuilder</name>
-      <anchorfile>classScarab_1_1HG_1_1LPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_l_p_builder.html</anchorfile>
       <anchor>aba798e4d3faf87e8411607f9d974fc7f</anchor>
       <arglist>(const HGraph &amp;forest, const ForestLattice &amp;lat)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve_hypergraph</name>
-      <anchorfile>classScarab_1_1HG_1_1LPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_l_p_builder.html</anchorfile>
       <anchor>abfa755f4c94dc432c022be35861a8200</anchor>
       <arglist>(const Cache&lt; Hyperedge, double &gt; &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>solve_full</name>
-      <anchorfile>classScarab_1_1HG_1_1LPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_l_p_builder.html</anchorfile>
       <anchor>a963bdf9c956b4a08d52be06e1cb6a05a</anchor>
       <arglist>(int run_num, const Cache&lt; Hyperedge, double &gt; &amp;_weights, Ngram &amp;lm, const Cache&lt; Graphnode, int &gt; &amp;word_cache)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>Scarab::HG::TagLP</name>
-    <filename>structScarab_1_1HG_1_1TagLP.html</filename>
+    <filename>struct_scarab_1_1_h_g_1_1_tag_l_p.html</filename>
     <member kind="function">
       <type></type>
       <name>TagLP</name>
-      <anchorfile>structScarab_1_1HG_1_1TagLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_tag_l_p.html</anchorfile>
       <anchor>a529942132dc8900bd25d2acaef721694</anchor>
       <arglist>(const Tagger &amp;parser, const HypergraphLP &amp;hyper_lp)</arglist>
     </member>
     <member kind="variable">
       <type>Cache&lt; Tag, GRBVar &gt;</type>
       <name>tag_vars</name>
-      <anchorfile>structScarab_1_1HG_1_1TagLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_tag_l_p.html</anchorfile>
       <anchor>a4e80b783a5dfce94abb94cb957a3fe50</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const Tagger &amp;</type>
       <name>p</name>
-      <anchorfile>structScarab_1_1HG_1_1TagLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_tag_l_p.html</anchorfile>
       <anchor>a137ec6055ea83b552c873dd19f203c15</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>const HypergraphLP &amp;</type>
       <name>h_lp</name>
-      <anchorfile>structScarab_1_1HG_1_1TagLP.html</anchorfile>
+      <anchorfile>struct_scarab_1_1_h_g_1_1_tag_l_p.html</anchorfile>
       <anchor>a92b885535389aa44e450e8f4682bf543</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Scarab::HG::TagLPBuilder</name>
-    <filename>classScarab_1_1HG_1_1TagLPBuilder.html</filename>
+    <filename>class_scarab_1_1_h_g_1_1_tag_l_p_builder.html</filename>
     <member kind="function" static="yes">
       <type>static void</type>
       <name>show_results</name>
-      <anchorfile>classScarab_1_1HG_1_1TagLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_tag_l_p_builder.html</anchorfile>
       <anchor>aa4990c224df5a1c82220a655ee51bd73</anchor>
       <arglist>(const TagLP &amp;lp_vars)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static TagLP *</type>
       <name>add_tagging</name>
-      <anchorfile>classScarab_1_1HG_1_1TagLPBuilder.html</anchorfile>
+      <anchorfile>class_scarab_1_1_h_g_1_1_tag_l_p_builder.html</anchorfile>
       <anchor>a9c0f3ee542cbbed34945b80932272cea</anchor>
       <arglist>(const Tagger &amp;parser, const Cache&lt; Hyperedge, double &gt; &amp;weights, string prefix, GRBModel &amp;model, int var_type)</arglist>
     </member>

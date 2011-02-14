@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_m_r_f" kind="class" prot="public">
+    <compoundname>MRF</compoundname>
+    <basecompoundref refid="class_graph_proto_interface" prot="public" virt="non-virtual">GraphProtoInterface</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_m_r_f_1a046ce906740e370cf7ebd54bb5a443f0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref>, vector&lt; <ref refid="struct_state" kindref="compound">State</ref> &gt; &gt; *</type>
+        <definition>Cache&lt;Graphnode, vector &lt;State&gt; &gt;* MRF::_node_states</definition>
+        <argsstring></argsstring>
+        <name>_node_states</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="107" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_r_f_1a6726e4cd32554d0bd42864ba7ecc13c5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref>, <ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="struct_state" kindref="compound">State</ref>, double &gt; * &gt; *</type>
+        <definition>Cache&lt;Graphnode, Cache &lt;State, double&gt; * &gt;* MRF::_node_potentials</definition>
+        <argsstring></argsstring>
+        <name>_node_potentials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="108" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_r_f_1ac793035f2079812b9ffca81b1fdb2772" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cache" kindref="compound">Cache</ref>&lt; <ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Graphedge</ref>, map&lt; pair&lt; int, int &gt;, double &gt; &gt; *</type>
+        <definition>Cache&lt;Graphedge, map &lt;pair&lt;int,int&gt;, double&gt; &gt;* MRF::_edge_potentials</definition>
+        <argsstring></argsstring>
+        <name>_edge_potentials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="111" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_r_f_1a42b3637ade8396ddbdbb6017a72b4b78" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MRF::_num_assignments</definition>
+        <argsstring></argsstring>
+        <name>_num_assignments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="113" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_m_r_f_1a3a2f7eb349a7345abfba2c5869f85b1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MRF::process_node</definition>
+        <argsstring>(graph::Graph_Node, Graphnode *)</argsstring>
+        <name>process_node</name>
+        <reimplements refid="class_graph_proto_interface_1a0dbd0905dbab167b9293d0ef32409af3">process_node</reimplements>
+        <param>
+          <type>graph::Graph_Node</type>
+          <defname>proto_node</defname>
+        </param>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> *</type>
+          <defname>internal_node</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="50" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.cpp" bodystart="5" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1aed7b8a7a2e3af7c14b501040630e9589" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MRF::process_edge</definition>
+        <argsstring>(graph::Graph_Edge, Graphedge *)</argsstring>
+        <name>process_edge</name>
+        <reimplements refid="class_graph_proto_interface_1a3178c5f1eff8ed61d2512af8522cc550">process_edge</reimplements>
+        <param>
+          <type>graph::Graph_Edge</type>
+          <defname>proto_edge</defname>
+        </param>
+        <param>
+          <type><ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Graphedge</ref> *</type>
+          <defname>internal_edge</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="51" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.cpp" bodystart="23" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a34f0d586337501d668a62726eb0046d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Hypergraph *</type>
+        <definition>Hypergraph* MRF::build_hypergraph</definition>
+        <argsstring>()</argsstring>
+        <name>build_hypergraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a928f19f948fa97796462fd9542a985fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MRF::set_up</definition>
+        <argsstring>(graph::Graph graph, int nodes, int edges)</argsstring>
+        <name>set_up</name>
+        <reimplements refid="class_graph_proto_interface_1a8b3125379c7b2bbf832b6b955496b76e">set_up</reimplements>
+        <param>
+          <type>graph::Graph</type>
+          <declname>graph</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nodes</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>edges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the potts model with the given node potentials</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node_potentials</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="62" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a3a7f11091d96ab8b2f830deb343fc3a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double</type>
+        <definition>const double MRF::node_pot</definition>
+        <argsstring>(const Graphnode &amp;node, const State &amp;s1) const </argsstring>
+        <name>node_pot</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="63" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1ab73d5f7b51c206754bee9eea9405c0fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const bool</type>
+        <definition>const bool MRF::has_edge_pot</definition>
+        <argsstring>(const Graphedge &amp;edge, const State &amp;s1, const State &amp;s2) const </argsstring>
+        <name>has_edge_pot</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Graphedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="67" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a9f98956295352e9bfc9917328999c1b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double</type>
+        <definition>const double MRF::edge_pot</definition>
+        <argsstring>(const Graphedge &amp;edge, const State &amp;s1, const State &amp;s2) const </argsstring>
+        <name>edge_pot</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_graph_1_1_graphedge" kindref="compound">Graphedge</ref> &amp;</type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="71" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="71" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a7c01a68384b81d1ba7d24508f767d216" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; <ref refid="struct_state" kindref="compound">State</ref> &gt; &amp;</type>
+        <definition>const vector&lt;State&gt;&amp; MRF::states</definition>
+        <argsstring>(const Graphnode &amp;node) const </argsstring>
+        <name>states</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="93" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1aaf17c4a671ea4f06553c33fca90bfa35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int</type>
+        <definition>const int MRF::assignments</definition>
+        <argsstring>() const </argsstring>
+        <name>assignments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="97" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_r_f_1a9326b3fd5aea915a1bb8a1ad2ac50f3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_node_assignment" kindref="compound">NodeAssignment</ref></type>
+        <definition>NodeAssignment MRF::make_assignment</definition>
+        <argsstring>(const Graphnode &amp;n, const State &amp;my_s) const </argsstring>
+        <name>make_assignment</name>
+        <param>
+          <type>const <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_state" kindref="compound">State</ref> &amp;</type>
+          <declname>my_s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="101" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="101" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="897">
+        <label>GraphProtoInterface</label>
+        <link refid="class_graph_proto_interface"/>
+      </node>
+      <node id="896">
+        <label>MRF</label>
+        <link refid="class_m_r_f"/>
+        <childnode refid="897" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="907">
+        <label>T</label>
+      </node>
+      <node id="899">
+        <label>GraphProtoInterface</label>
+        <link refid="class_graph_proto_interface"/>
+        <childnode refid="900" relation="usage">
+          <edgelabel>_graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="902">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="903" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="908">
+        <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="909" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="906">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="907" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="910">
+        <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="909" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="911">
+        <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
+        <link refid="class_cache"/>
+        <childnode refid="909" relation="usage">
+          <edgelabel>has_value</edgelabel>
+        </childnode>
+      </node>
+      <node id="903">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="901" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="904" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="905">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="909">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="901">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="902" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="900">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="901" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="906" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="898">
+        <label>MRF</label>
+        <link refid="class_m_r_f"/>
+        <childnode refid="899" relation="public-inheritance">
+        </childnode>
+        <childnode refid="908" relation="usage">
+          <edgelabel>_node_states</edgelabel>
+        </childnode>
+        <childnode refid="910" relation="usage">
+          <edgelabel>_edge_potentials</edgelabel>
+        </childnode>
+        <childnode refid="911" relation="usage">
+          <edgelabel>_node_potentials</edgelabel>
+        </childnode>
+      </node>
+      <node id="904">
+        <label>std::string</label>
+        <childnode refid="905" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="48" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.h" bodystart="48" bodyend="123"/>
+    <listofallmembers>
+      <member refid="class_m_r_f_1ac793035f2079812b9ffca81b1fdb2772" prot="private" virt="non-virtual"><scope>MRF</scope><name>_edge_potentials</name></member>
+      <member refid="class_graph_proto_interface_1a8e262de0a3f65eaa20e5c528363bbb2a" prot="public" virt="non-virtual"><scope>MRF</scope><name>_graph</name></member>
+      <member refid="class_m_r_f_1a6726e4cd32554d0bd42864ba7ecc13c5" prot="private" virt="non-virtual"><scope>MRF</scope><name>_node_potentials</name></member>
+      <member refid="class_m_r_f_1a046ce906740e370cf7ebd54bb5a443f0" prot="private" virt="non-virtual"><scope>MRF</scope><name>_node_states</name></member>
+      <member refid="class_m_r_f_1a42b3637ade8396ddbdbb6017a72b4b78" prot="private" virt="non-virtual"><scope>MRF</scope><name>_num_assignments</name></member>
+      <member refid="class_m_r_f_1aaf17c4a671ea4f06553c33fca90bfa35" prot="public" virt="non-virtual"><scope>MRF</scope><name>assignments</name></member>
+      <member refid="class_graph_proto_interface_1a4845501ec86ea627ce484cd78162c84c" prot="public" virt="non-virtual"><scope>MRF</scope><name>build_from_file</name></member>
+      <member refid="class_m_r_f_1a34f0d586337501d668a62726eb0046d7" prot="public" virt="non-virtual"><scope>MRF</scope><name>build_hypergraph</name></member>
+      <member refid="class_m_r_f_1a9f98956295352e9bfc9917328999c1b2" prot="public" virt="non-virtual"><scope>MRF</scope><name>edge_pot</name></member>
+      <member refid="class_graph_proto_interface_1a920e88785192db805206c875a8a3feed" prot="public" virt="non-virtual"><scope>MRF</scope><name>graph</name></member>
+      <member refid="class_m_r_f_1ab73d5f7b51c206754bee9eea9405c0fb" prot="public" virt="non-virtual"><scope>MRF</scope><name>has_edge_pot</name></member>
+      <member refid="class_m_r_f_1a9326b3fd5aea915a1bb8a1ad2ac50f3f" prot="public" virt="non-virtual"><scope>MRF</scope><name>make_assignment</name></member>
+      <member refid="class_m_r_f_1a3a7f11091d96ab8b2f830deb343fc3a6" prot="public" virt="non-virtual"><scope>MRF</scope><name>node_pot</name></member>
+      <member refid="class_m_r_f_1aed7b8a7a2e3af7c14b501040630e9589" prot="public" virt="virtual"><scope>MRF</scope><name>process_edge</name></member>
+      <member refid="class_m_r_f_1a3a2f7eb349a7345abfba2c5869f85b1f" prot="public" virt="virtual"><scope>MRF</scope><name>process_node</name></member>
+      <member refid="class_m_r_f_1a928f19f948fa97796462fd9542a985fd" prot="public" virt="virtual"><scope>MRF</scope><name>set_up</name></member>
+      <member refid="class_m_r_f_1a7c01a68384b81d1ba7d24508f767d216" prot="public" virt="non-virtual"><scope>MRF</scope><name>states</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

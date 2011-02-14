@@ -1,0 +1,884 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_forest_lattice" kind="class" prot="public">
+    <compoundname>ForestLattice</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_forest_lattice_1a3c194341d2a88457604e0042534358fc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ForestLattice::num_nodes</definition>
+        <argsstring></argsstring>
+        <name>num_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="63" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1af7ac8b02750f52523a49b5b810e36601" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ForestLattice::num_word_nodes</definition>
+        <argsstring></argsstring>
+        <name>num_word_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="64" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1ab0e2ec92e11ab7d77e33c109f2451d7d" prot="public" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::final</definition>
+        <argsstring></argsstring>
+        <name>final</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="68" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a95785401e57ddbcc516116f59391a7cd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ForestLattice::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="69" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a2a0ccc16eaa3f83ae395c825c8bcf583" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;int&gt; &gt; ForestLattice::original_edges</definition>
+        <argsstring></argsstring>
+        <name>original_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="72" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1af55e45f3503fafeb79ef53d25abfc78b" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector &lt;int&gt; &gt; ForestLattice::edges_original</definition>
+        <argsstring></argsstring>
+        <name>edges_original</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="73" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1ac38a1f457fae9f29fab0b922dd8b5b81" prot="public" static="no" mutable="no">
+        <type>vector&lt; vector&lt; <ref refid="struct_bigram" kindref="compound">Bigram</ref> &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;Bigram&gt; &gt; ForestLattice::bigrams_at_node</definition>
+        <argsstring></argsstring>
+        <name>bigrams_at_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="148" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a80b60a05f3f81f4291b1989baf240cf8" prot="public" static="no" mutable="no">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt;string&gt; ForestLattice::_edge_label_by_nodes</definition>
+        <argsstring></argsstring>
+        <name>_edge_label_by_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="149" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_forest_lattice_1a3ddc7aaaa5a19287476cd2f16da244dc" prot="private" static="no" mutable="no">
+        <type><ref refid="class_scarab_1_1_graph_1_1_graph" kindref="compound">Graph</ref> *</type>
+        <definition>Graph* ForestLattice::_proper_graph</definition>
+        <argsstring></argsstring>
+        <name>_proper_graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="151" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a3cfeb97f95e8ade9ba797d47395774c5" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::word_node</definition>
+        <argsstring></argsstring>
+        <name>word_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="154" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a98716f121b996283b696507d70739d10" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::node_edges</definition>
+        <argsstring></argsstring>
+        <name>node_edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="156" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1ab053bac22f4786ab9b51b078f6517c23" prot="private" static="no" mutable="no">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt;string&gt; ForestLattice::_words</definition>
+        <argsstring></argsstring>
+        <name>_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="157" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a0d93c5fe5e267b9bf93845e2b9f40dad" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::_is_word</definition>
+        <argsstring></argsstring>
+        <name>_is_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="158" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1aefd360c9d562d321b77a473044c03651" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::_words_lookup</definition>
+        <argsstring></argsstring>
+        <name>_words_lookup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="159" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1ad4cd9e803f63de8ff6314b809096436c" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; ForestLattice::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="161" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a885f3d2c7a5040022e92795fd8681051" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; ForestLattice::_edge_by_nodes</definition>
+        <argsstring></argsstring>
+        <name>_edge_by_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="162" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1ab517764d45352cc1667d9eadf7cd411d" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; ForestLattice::_first_words</definition>
+        <argsstring></argsstring>
+        <name>_first_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="164" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1adf857c9b4dc930da64a0a832cec66366" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; int &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;int&gt; &gt; ForestLattice::_last_words</definition>
+        <argsstring></argsstring>
+        <name>_last_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="165" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a4a76b017a25479fec90611c445e91bf5" prot="private" static="no" mutable="no">
+        <type>vector&lt; vector&lt; <ref refid="struct_bigram" kindref="compound">Bigram</ref> &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;Bigram&gt; &gt; ForestLattice::_last_bigrams</definition>
+        <argsstring></argsstring>
+        <name>_last_bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="166" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a8fdd0c1e5b188140e9fd3d07e7b21443" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::_last_same</definition>
+        <argsstring></argsstring>
+        <name>_last_same</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="168" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a82c1ae83f29774968bcc7f9fdf5207a8" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::edge_node</definition>
+        <argsstring></argsstring>
+        <name>edge_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="170" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1afc023ff4666f929f698aaac521711df2" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::ignore_nodes</definition>
+        <argsstring></argsstring>
+        <name>ignore_nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="171" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a032bb31ac2c963bbb8535eedb0a93a1a" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_bigram" kindref="compound">Bigram</ref> &gt;</type>
+        <definition>vector&lt;Bigram&gt; ForestLattice::_original_id_to_edge</definition>
+        <argsstring></argsstring>
+        <name>_original_id_to_edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="173" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a73a47f67c1d70046601d8a0d10b6de19" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::_lat_word_to_hyp_node</definition>
+        <argsstring></argsstring>
+        <name>_lat_word_to_hyp_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="175" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_forest_lattice_1a1c0cfdc7b74623edcadf6cbd728c3068" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; ForestLattice::_hyp_node_to_lat_word</definition>
+        <argsstring></argsstring>
+        <name>_hyp_node_to_lat_word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="176" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_forest_lattice_1ad14bc799ac36b716c292f410e1609462" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string ForestLattice::get_word</definition>
+        <argsstring>(int word_num) const </argsstring>
+        <name>get_word</name>
+        <param>
+          <type>int</type>
+          <declname>word_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="39" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a8303ce943210d4a62132f1e4054b7191" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_scarab_1_1_graph_1_1_graph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>const Graph&amp; ForestLattice::get_graph</definition>
+        <argsstring>() const </argsstring>
+        <name>get_graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="44" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a744558d8489b4428c44275f0966d587e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_scarab_1_1_graph_1_1_graphnode" kindref="compound">Graphnode</ref> &amp;</type>
+        <definition>const Graphnode&amp; ForestLattice::node</definition>
+        <argsstring>(int i) const </argsstring>
+        <name>node</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="48" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a8afba92a7fb437a93db30b2336ad3824" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ForestLattice::is_phrase_node</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>is_phrase_node</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="53" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a9d82493dff97186334923b582999f63c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ForestLattice::is_word</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>is_word</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="57" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a9ecaabd3e59148b28b3fad096806f9e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ForestLattice::ForestLattice</definition>
+        <argsstring>(const Lattice &amp;lattice)</argsstring>
+        <name>ForestLattice</name>
+        <param>
+          <type>const Lattice &amp;</type>
+          <declname>lattice</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="70" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.cpp" bodystart="41" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a981af70e7207ece0e3454251b64fb6fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::get_edge</definition>
+        <argsstring>(int n1, int edge_num) const </argsstring>
+        <name>get_edge</name>
+        <param>
+          <type>int</type>
+          <declname>n1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>edge_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="76" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="76" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a142184cf6e8d4275923774edbca97f5d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::num_edges</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>num_edges</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="82" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a3921d0378a94ef040246dc87e60df1c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::lookup_word</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>lookup_word</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="87" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a92e37fd15cd36ae5c9d0e3fe309d876e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::get_edge_label</definition>
+        <argsstring>(int n1, int n2) const </argsstring>
+        <name>get_edge_label</name>
+        <param>
+          <type>int</type>
+          <declname>n1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="92" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a2474198bedc98ef2e3c8a02ebae14f00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_bigram" kindref="compound">Bigram</ref></type>
+        <definition>Bigram ForestLattice::get_nodes_by_labels</definition>
+        <argsstring>(int orig_id) const </argsstring>
+        <name>get_nodes_by_labels</name>
+        <param>
+          <type>int</type>
+          <declname>orig_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="96" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a6fe3508e7fd7d62b44c423dcc113881b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::num_first_words</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>num_first_words</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="102" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1ae6c29306adee71cca87bb2dc2c1047df" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::num_last_words</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>num_last_words</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="107" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a7fcb5b75caf3d4e17b782849fc847ec9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::num_last_bigrams</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>num_last_bigrams</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="112" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a3b8e0f2d304ad0d9b10d9efb79d7905c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::first_words</definition>
+        <argsstring>(int n, int i) const </argsstring>
+        <name>first_words</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="118" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a9af5d9ea84e0638599d13c5f78868d92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::last_words</definition>
+        <argsstring>(int n, int i) const </argsstring>
+        <name>last_words</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="123" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a3332ad66005be68e6ac38d7daa40bb9d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_bigram" kindref="compound">Bigram</ref></type>
+        <definition>Bigram ForestLattice::last_bigrams</definition>
+        <argsstring>(int n, int i) const </argsstring>
+        <name>last_bigrams</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="128" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a4da765944fa6d5892786ca592ef8c859" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::get_same</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>get_same</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="134" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="134" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a01fa72075f1de8421dd21e15540ce5c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::get_hypergraph_node_from_word</definition>
+        <argsstring>(int w) const </argsstring>
+        <name>get_hypergraph_node_from_word</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="138" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="138" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a226887bedd13a3f3dc5cbe91242bd17a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ForestLattice::get_word_from_hypergraph_node</definition>
+        <argsstring>(int n) const </argsstring>
+        <name>get_word_from_hypergraph_node</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="143" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_forest_lattice_1a8f474062475f4d272a8d8b676cdd0118" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ForestLattice::make_proper_graph</definition>
+        <argsstring>(const Lattice &amp;lat)</argsstring>
+        <name>make_proper_graph</name>
+        <param>
+          <type>const Lattice &amp;</type>
+          <declname>lat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="146" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.cpp" bodystart="8" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="553">
+        <label>T</label>
+      </node>
+      <node id="548">
+        <label>Scarab::Graph::Graphedge</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphedge"/>
+        <childnode refid="549" relation="usage">
+          <edgelabel>_to_node</edgelabel>
+          <edgelabel>_from_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="543">
+        <label>std::vector&lt; Bigram &gt;</label>
+        <childnode refid="544" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="552">
+        <label>std::vector&lt; T &gt;</label>
+        <childnode refid="553" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="541">
+        <label>ForestLattice</label>
+        <link refid="class_forest_lattice"/>
+        <childnode refid="542" relation="usage">
+          <edgelabel>bigrams_at_node</edgelabel>
+          <edgelabel>_last_bigrams</edgelabel>
+        </childnode>
+        <childnode refid="545" relation="usage">
+          <edgelabel>_last_words</edgelabel>
+          <edgelabel>graph</edgelabel>
+          <edgelabel>_first_words</edgelabel>
+          <edgelabel>edges_original</edgelabel>
+          <edgelabel>_edge_by_nodes</edgelabel>
+          <edgelabel>original_edges</edgelabel>
+        </childnode>
+        <childnode refid="546" relation="usage">
+          <edgelabel>_proper_graph</edgelabel>
+        </childnode>
+        <childnode refid="554" relation="usage">
+          <edgelabel>_words</edgelabel>
+          <edgelabel>_edge_label_by_nodes</edgelabel>
+        </childnode>
+        <childnode refid="555" relation="usage">
+          <edgelabel>_last_same</edgelabel>
+          <edgelabel>_hyp_node_to_lat_word</edgelabel>
+          <edgelabel>_words_lookup</edgelabel>
+          <edgelabel>word_node</edgelabel>
+          <edgelabel>ignore_nodes</edgelabel>
+          <edgelabel>edge_node</edgelabel>
+          <edgelabel>_is_word</edgelabel>
+          <edgelabel>node_edges</edgelabel>
+          <edgelabel>_lat_word_to_hyp_node</edgelabel>
+          <edgelabel>final</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="543" relation="usage">
+          <edgelabel>_original_id_to_edge</edgelabel>
+        </childnode>
+      </node>
+      <node id="554">
+        <label>std::vector&lt; string &gt;</label>
+        <childnode refid="550" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="544">
+        <label>Bigram</label>
+        <link refid="struct_bigram"/>
+      </node>
+      <node id="549">
+        <label>Scarab::Graph::Graphnode</label>
+        <link refid="class_scarab_1_1_graph_1_1_graphnode"/>
+        <childnode refid="547" relation="usage">
+          <edgelabel>_in_edges</edgelabel>
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="550" relation="usage">
+          <edgelabel>_label</edgelabel>
+        </childnode>
+      </node>
+      <node id="551">
+        <label>std::basic_string&lt; char &gt;</label>
+      </node>
+      <node id="542">
+        <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
+        <childnode refid="543" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="545">
+        <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
+      </node>
+      <node id="547">
+        <label>std::vector&lt; const Graphedge * &gt;</label>
+        <childnode refid="548" relation="usage">
+          <edgelabel>elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="546">
+        <label>Scarab::Graph::Graph</label>
+        <link refid="class_scarab_1_1_graph_1_1_graph"/>
+        <childnode refid="547" relation="usage">
+          <edgelabel>_edges</edgelabel>
+        </childnode>
+        <childnode refid="552" relation="usage">
+          <edgelabel>_nodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="555">
+        <label>std::vector&lt; int &gt;</label>
+      </node>
+      <node id="550">
+        <label>std::string</label>
+        <childnode refid="551" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" line="34" bodyfile="/home/srush/Projects/relax_decode/lattice/ForestLattice.h" bodystart="34" bodyend="179"/>
+    <listofallmembers>
+      <member refid="class_forest_lattice_1a885f3d2c7a5040022e92795fd8681051" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_edge_by_nodes</name></member>
+      <member refid="class_forest_lattice_1a80b60a05f3f81f4291b1989baf240cf8" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>_edge_label_by_nodes</name></member>
+      <member refid="class_forest_lattice_1ab517764d45352cc1667d9eadf7cd411d" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_first_words</name></member>
+      <member refid="class_forest_lattice_1a1c0cfdc7b74623edcadf6cbd728c3068" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_hyp_node_to_lat_word</name></member>
+      <member refid="class_forest_lattice_1a0d93c5fe5e267b9bf93845e2b9f40dad" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_is_word</name></member>
+      <member refid="class_forest_lattice_1a4a76b017a25479fec90611c445e91bf5" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_last_bigrams</name></member>
+      <member refid="class_forest_lattice_1a8fdd0c1e5b188140e9fd3d07e7b21443" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_last_same</name></member>
+      <member refid="class_forest_lattice_1adf857c9b4dc930da64a0a832cec66366" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_last_words</name></member>
+      <member refid="class_forest_lattice_1a73a47f67c1d70046601d8a0d10b6de19" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_lat_word_to_hyp_node</name></member>
+      <member refid="class_forest_lattice_1a032bb31ac2c963bbb8535eedb0a93a1a" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_original_id_to_edge</name></member>
+      <member refid="class_forest_lattice_1a3ddc7aaaa5a19287476cd2f16da244dc" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_proper_graph</name></member>
+      <member refid="class_forest_lattice_1ab053bac22f4786ab9b51b078f6517c23" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_words</name></member>
+      <member refid="class_forest_lattice_1aefd360c9d562d321b77a473044c03651" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>_words_lookup</name></member>
+      <member refid="class_forest_lattice_1ac38a1f457fae9f29fab0b922dd8b5b81" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>bigrams_at_node</name></member>
+      <member refid="class_forest_lattice_1a82c1ae83f29774968bcc7f9fdf5207a8" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>edge_node</name></member>
+      <member refid="class_forest_lattice_1af55e45f3503fafeb79ef53d25abfc78b" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>edges_original</name></member>
+      <member refid="class_forest_lattice_1ab0e2ec92e11ab7d77e33c109f2451d7d" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>final</name></member>
+      <member refid="class_forest_lattice_1a3b8e0f2d304ad0d9b10d9efb79d7905c" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>first_words</name></member>
+      <member refid="class_forest_lattice_1a9ecaabd3e59148b28b3fad096806f9e9" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>ForestLattice</name></member>
+      <member refid="class_forest_lattice_1a981af70e7207ece0e3454251b64fb6fa" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_edge</name></member>
+      <member refid="class_forest_lattice_1a92e37fd15cd36ae5c9d0e3fe309d876e" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_edge_label</name></member>
+      <member refid="class_forest_lattice_1a8303ce943210d4a62132f1e4054b7191" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_graph</name></member>
+      <member refid="class_forest_lattice_1a01fa72075f1de8421dd21e15540ce5c0" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_hypergraph_node_from_word</name></member>
+      <member refid="class_forest_lattice_1a2474198bedc98ef2e3c8a02ebae14f00" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_nodes_by_labels</name></member>
+      <member refid="class_forest_lattice_1a4da765944fa6d5892786ca592ef8c859" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_same</name></member>
+      <member refid="class_forest_lattice_1ad14bc799ac36b716c292f410e1609462" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_word</name></member>
+      <member refid="class_forest_lattice_1a226887bedd13a3f3dc5cbe91242bd17a" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>get_word_from_hypergraph_node</name></member>
+      <member refid="class_forest_lattice_1ad4cd9e803f63de8ff6314b809096436c" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>graph</name></member>
+      <member refid="class_forest_lattice_1afc023ff4666f929f698aaac521711df2" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>ignore_nodes</name></member>
+      <member refid="class_forest_lattice_1a8afba92a7fb437a93db30b2336ad3824" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>is_phrase_node</name></member>
+      <member refid="class_forest_lattice_1a9d82493dff97186334923b582999f63c" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>is_word</name></member>
+      <member refid="class_forest_lattice_1a3332ad66005be68e6ac38d7daa40bb9d" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>last_bigrams</name></member>
+      <member refid="class_forest_lattice_1a9af5d9ea84e0638599d13c5f78868d92" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>last_words</name></member>
+      <member refid="class_forest_lattice_1a3921d0378a94ef040246dc87e60df1c7" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>lookup_word</name></member>
+      <member refid="class_forest_lattice_1a8f474062475f4d272a8d8b676cdd0118" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>make_proper_graph</name></member>
+      <member refid="class_forest_lattice_1a744558d8489b4428c44275f0966d587e" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>node</name></member>
+      <member refid="class_forest_lattice_1a98716f121b996283b696507d70739d10" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>node_edges</name></member>
+      <member refid="class_forest_lattice_1a142184cf6e8d4275923774edbca97f5d" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_edges</name></member>
+      <member refid="class_forest_lattice_1a6fe3508e7fd7d62b44c423dcc113881b" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_first_words</name></member>
+      <member refid="class_forest_lattice_1a7fcb5b75caf3d4e17b782849fc847ec9" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_last_bigrams</name></member>
+      <member refid="class_forest_lattice_1ae6c29306adee71cca87bb2dc2c1047df" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_last_words</name></member>
+      <member refid="class_forest_lattice_1a3c194341d2a88457604e0042534358fc" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_nodes</name></member>
+      <member refid="class_forest_lattice_1af7ac8b02750f52523a49b5b810e36601" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>num_word_nodes</name></member>
+      <member refid="class_forest_lattice_1a2a0ccc16eaa3f83ae395c825c8bcf583" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>original_edges</name></member>
+      <member refid="class_forest_lattice_1a95785401e57ddbcc516116f59391a7cd" prot="public" virt="non-virtual"><scope>ForestLattice</scope><name>start</name></member>
+      <member refid="class_forest_lattice_1a3cfeb97f95e8ade9ba797d47395774c5" prot="private" virt="non-virtual"><scope>ForestLattice</scope><name>word_node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

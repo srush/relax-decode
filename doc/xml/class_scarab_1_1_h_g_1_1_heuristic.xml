@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
+  <compounddef id="class_scarab_1_1_h_g_1_1_heuristic" kind="class" prot="public">
+    <compoundname>Scarab::HG::Heuristic</compoundname>
+    <derivedcompoundref refid="class_split_heuristic" prot="public" virt="non-virtual">SplitHeuristic</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_heuristic_1afad5a99d38b6783521e4c670d3edcf0a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool Scarab::HG::Heuristic::has_value</definition>
+        <argsstring>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</argsstring>
+        <name>has_value</name>
+        <reimplementedby refid="class_split_heuristic_1a7117c99ce380835ed38aa02f82f8a04e">has_value</reimplementedby>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_location" kindref="compound">Location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scarab_1_1_h_g_1_1_heuristic_1aca6b5924257b35be9e65058062fdc0d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Scarab::HG::Heuristic::get_value</definition>
+        <argsstring>(const Location &amp;loc, const Hypothesis &amp;hyp) const =0</argsstring>
+        <name>get_value</name>
+        <reimplementedby refid="class_split_heuristic_1ab64ec7cde28b49828bcde1ad97862cc2">get_value</reimplementedby>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_location" kindref="compound">Location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_scarab_1_1_h_g_1_1_hypothesis" kindref="compound">Hypothesis</ref> &amp;</type>
+          <declname>hyp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="43"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="650">
+        <label>SplitHeuristic</label>
+        <link refid="class_split_heuristic"/>
+        <childnode refid="649" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="649">
+        <label>Scarab::HG::Heuristic</label>
+        <link refid="class_scarab_1_1_h_g_1_1_heuristic"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/srush/Projects/relax_decode/hypergraph/AStar.h" line="40" bodyfile="/home/srush/Projects/relax_decode/hypergraph/AStar.h" bodystart="40" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_scarab_1_1_h_g_1_1_heuristic_1aca6b5924257b35be9e65058062fdc0d5" prot="public" virt="pure-virtual"><scope>Scarab::HG::Heuristic</scope><name>get_value</name></member>
+      <member refid="class_scarab_1_1_h_g_1_1_heuristic_1afad5a99d38b6783521e4c670d3edcf0a" prot="public" virt="pure-virtual"><scope>Scarab::HG::Heuristic</scope><name>has_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
