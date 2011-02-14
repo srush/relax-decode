@@ -8,8 +8,9 @@
     <includes local="no">google/protobuf/repeated_field.h</includes>
     <includes local="no">google/protobuf/extension_set.h</includes>
     <includes local="no">google/protobuf/generated_message_reflection.h</includes>
-    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
+    <includes refid="gen__cpp_2dep_8pb_8h" local="yes">hypergraph.pb.h</includes>
     <includedby refid="ConvertFromFile_8cpp" local="yes">hypergraph/ConvertFromFile.cpp</includedby>
+    <includedby refid="gen__cpp_2dep_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/dep.pb.h</includedby>
     <includedby refid="DepParser_8cpp" local="yes">parse/DepParser.cpp</includedby>
     <includedby refid="DepParser_8h" local="yes">parse/DepParser.h</includedby>
     <includedby refid="EisnerToHypergraph_8cpp" local="yes">parse/EisnerToHypergraph.cpp</includedby>
@@ -17,129 +18,115 @@
     <includedby refid="Tagger_8cpp" local="yes">tagger/Tagger.cpp</includedby>
     <includedby refid="Tagger_8h" local="yes">tagger/Tagger.h</includedby>
     <incdepgraph>
-      <node id="1102">
+      <node id="785">
         <label>string</label>
       </node>
-      <node id="1108">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="1102" relation="include">
-        </childnode>
-        <childnode refid="1103" relation="include">
-        </childnode>
-        <childnode refid="1104" relation="include">
-        </childnode>
-        <childnode refid="1105" relation="include">
-        </childnode>
-        <childnode refid="1106" relation="include">
-        </childnode>
-        <childnode refid="1107" relation="include">
-        </childnode>
-      </node>
-      <node id="1104">
+      <node id="787">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="1103">
+      <node id="786">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="1106">
+      <node id="789">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="1105">
+      <node id="788">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="1101">
+      <node id="784">
         <label>interfaces/hypergraph/gen_cpp/dep.pb.h</label>
         <link refid="gen_cpp/dep.pb.h"/>
-        <childnode refid="1102" relation="include">
+        <childnode refid="785" relation="include">
         </childnode>
-        <childnode refid="1103" relation="include">
+        <childnode refid="786" relation="include">
         </childnode>
-        <childnode refid="1104" relation="include">
+        <childnode refid="787" relation="include">
         </childnode>
-        <childnode refid="1105" relation="include">
+        <childnode refid="788" relation="include">
         </childnode>
-        <childnode refid="1106" relation="include">
+        <childnode refid="789" relation="include">
         </childnode>
-        <childnode refid="1107" relation="include">
+        <childnode refid="790" relation="include">
         </childnode>
-        <childnode refid="1108" relation="include">
+        <childnode refid="784" relation="include">
         </childnode>
       </node>
-      <node id="1107">
+      <node id="790">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1115">
+      <node id="797">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="1115" relation="include">
+        <childnode refid="797" relation="include">
         </childnode>
       </node>
-      <node id="1114">
+      <node id="796">
         <label>tagger/Tagger.h</label>
         <link refid="Tagger_8h_source"/>
-        <childnode refid="1115" relation="include">
+        <childnode refid="797" relation="include">
         </childnode>
-        <childnode refid="1116" relation="include">
+        <childnode refid="798" relation="include">
         </childnode>
-        <childnode refid="1118" relation="include">
+        <childnode refid="800" relation="include">
         </childnode>
-        <childnode refid="1119" relation="include">
+        <childnode refid="801" relation="include">
         </childnode>
       </node>
-      <node id="1117">
+      <node id="799">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="1112">
+      <node id="794">
         <label>lp/HardConstraints.h</label>
         <link refid="HardConstraints_8h_source"/>
       </node>
-      <node id="1113">
+      <node id="795">
         <label>parse/EisnerToHypergraph.h</label>
         <link refid="EisnerToHypergraph_8h_source"/>
       </node>
-      <node id="1110">
+      <node id="792">
         <label>parse/DepParser.h</label>
         <link refid="DepParser_8h_source"/>
-        <childnode refid="1111" relation="include">
+        <childnode refid="793" relation="include">
         </childnode>
       </node>
-      <node id="1118">
+      <node id="800">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="1115" relation="include">
+        <childnode refid="797" relation="include">
         </childnode>
-        <childnode refid="1117" relation="include">
+        <childnode refid="799" relation="include">
         </childnode>
-        <childnode refid="1119" relation="include">
+        <childnode refid="801" relation="include">
         </childnode>
       </node>
-      <node id="1116">
+      <node id="798">
         <label>lp/TagLP.h</label>
         <link refid="TagLP_8h_source"/>
-        <childnode refid="1117" relation="include">
+        <childnode refid="799" relation="include">
         </childnode>
       </node>
-      <node id="1109">
+      <node id="791">
         <label>interfaces/hypergraph/gen_cpp/dep.pb.h</label>
         <link refid="gen_cpp/dep.pb.h"/>
-        <childnode refid="1110" relation="include">
+        <childnode refid="791" relation="include">
         </childnode>
-        <childnode refid="1113" relation="include">
+        <childnode refid="792" relation="include">
         </childnode>
-        <childnode refid="1114" relation="include">
+        <childnode refid="795" relation="include">
+        </childnode>
+        <childnode refid="796" relation="include">
         </childnode>
       </node>
-      <node id="1111">
+      <node id="793">
         <label>lp/DepParseLP.h</label>
         <link refid="DepParseLP_8h_source"/>
-        <childnode refid="1112" relation="include">
+        <childnode refid="794" relation="include">
         </childnode>
       </node>
-      <node id="1119">
+      <node id="801">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -242,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="30" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="70" bodyend="98"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="30"/>
       </memberdef>
       <memberdef kind="function" id="gen__cpp_2dep_8pb_8h_1ae60899dfa8b3c6020f8e19070804c43b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -255,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="31" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="25" bodyend="47"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="31"/>
       </memberdef>
       <memberdef kind="function" id="gen__cpp_2dep_8pb_8h_1aab3c3b65c9043a8a41dcb95f310b49e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -268,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="32" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="65" bodyend="68"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="32"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

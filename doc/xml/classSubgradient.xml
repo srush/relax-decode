@@ -82,7 +82,7 @@
         <location file="/home/srush/Projects/relax_decode/optimization/Subgradient.h" line="63" bodyfile="/home/srush/Projects/relax_decode/optimization/Subgradient.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSubgradient_1a2f16a5d5288a863713f829fb16b78c94" prot="private" static="no" mutable="no">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <type>wvector</type>
         <definition>wvector Subgradient::_weights</definition>
         <argsstring></argsstring>
         <name>_weights</name>
@@ -251,7 +251,7 @@
         <argsstring>(wvector &amp;subgrad, bool)</argsstring>
         <name>update_weights</name>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <declname>subgrad</declname>
         </param>
         <param>
@@ -272,34 +272,21 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="1515">
-        <label>std::map&lt; int, double &gt;</label>
-      </node>
-      <node id="1516">
+      <node id="1251">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="1512">
+      <node id="1249">
         <label>Subgradient</label>
         <link refid="classSubgradient"/>
-        <childnode refid="1513" relation="usage">
+        <childnode refid="1250" relation="usage">
           <edgelabel>_s</edgelabel>
         </childnode>
-        <childnode refid="1514" relation="usage">
-          <edgelabel>_weights</edgelabel>
-        </childnode>
-        <childnode refid="1516" relation="usage">
+        <childnode refid="1251" relation="usage">
           <edgelabel>_duals</edgelabel>
           <edgelabel>_primals</edgelabel>
         </childnode>
       </node>
-      <node id="1514">
-        <label>svector&lt; int, double &gt;</label>
-        <link refid="classsvector"/>
-        <childnode refid="1515" relation="usage">
-          <edgelabel>m</edgelabel>
-        </childnode>
-      </node>
-      <node id="1513">
+      <node id="1250">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>

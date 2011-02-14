@@ -19,7 +19,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -65,12 +64,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 <span class="preprocessor">#define GRAMSPLIT 100000</span>
 <a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#define GRAMSPLIT2 200000</span>
 <a name="l00018"></a>00018 <span class="preprocessor"></span>
-<a name="l00019"></a>00019 <span class="keyword">typedef</span> <a class="code" href="classsvector.html">svector&lt;int, double&gt;</a> <a class="code" href="classsvector.html">wvector</a>;
+<a name="l00019"></a>00019 <span class="keyword">typedef</span> svector&lt;int, double&gt; wvector;
 <a name="l00020"></a>00020 <span class="keyword">using namespace </span>Scarab::HG;
 <a name="l00021"></a>00021 
 <a name="l00022"></a><a class="code" href="classDecode.html">00022</a> <span class="keyword">class </span><a class="code" href="classDecode.html">Decode</a>: <span class="keyword">public</span> <a class="code" href="classSubgradientProducer.html">SubgradientProducer</a> {
 <a name="l00023"></a>00023  <span class="keyword">public</span>:
-<a name="l00024"></a>00024   <a class="code" href="classDecode.html">Decode</a>(<span class="keyword">const</span> <a class="code" href="classForest.html">Forest</a> &amp; forest, <span class="keyword">const</span> <a class="code" href="classForestLattice.html">ForestLattice</a> &amp; lattice, <span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; weight, <a class="code" href="classNgramCache.html">NgramCache</a> &amp; lm) 
+<a name="l00024"></a>00024   <a class="code" href="classDecode.html">Decode</a>(<span class="keyword">const</span> <a class="code" href="classForest.html">Forest</a> &amp; forest, <span class="keyword">const</span> <a class="code" href="classForestLattice.html">ForestLattice</a> &amp; lattice, <span class="keyword">const</span> wvector &amp; weight, <a class="code" href="classNgramCache.html">NgramCache</a> &amp; lm) 
 <a name="l00025"></a>00025     :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) <span class="comment">//, ecky(forest)</span>
 <a name="l00026"></a>00026   {
 <a name="l00027"></a>00027     _cached_weights = <a class="code" href="classScarab_1_1HG_1_1HypergraphAlgorithms.html">HypergraphAlgorithms</a>(forest).cache_edge_weights(weight);
@@ -79,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00030"></a>00030     <span class="comment">//cout&lt;&lt;&quot;done decomposing&quot; &lt;&lt; endl;</span>
 <a name="l00031"></a>00031     sync_lattice_lm();
 <a name="l00032"></a>00032     _subproblem = <span class="keyword">new</span> <a class="code" href="classSubproblem.html">Subproblem</a>(&amp;lattice, &amp; lm, &amp;_gd, *_cached_words);
-<a name="l00033"></a>00033     _lagrange_weights = <span class="keyword">new</span> <a class="code" href="classsvector.html">svector&lt;int, double&gt;</a>();
+<a name="l00033"></a>00033     _lagrange_weights = <span class="keyword">new</span> svector&lt;int, double&gt;();
 <a name="l00034"></a>00034     _maintain_constraints = <span class="keyword">false</span>;
 <a name="l00035"></a>00035     _is_stuck_round = 10000;
 <a name="l00036"></a>00036     <span class="comment">//cout&lt;&lt;&quot;ready to roll&quot; &lt;&lt; endl;</span>
@@ -93,20 +92,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00044"></a>00044       <span class="keyword">delete</span> _cached_words;
 <a name="l00045"></a>00045     }
 <a name="l00046"></a>00046    
-<a name="l00047"></a>00047     <span class="keywordtype">void</span> solve(<span class="keywordtype">double</span> &amp; primal, <span class="keywordtype">double</span> &amp; dual, <a class="code" href="classsvector.html">wvector</a> &amp;, <span class="keywordtype">int</span>, <span class="keywordtype">bool</span>, <span class="keywordtype">bool</span>&amp;);
-<a name="l00048"></a>00048   <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; updates,  <a class="code" href="classsvector.html">wvector</a> * weights );
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> solve(<span class="keywordtype">double</span> &amp; primal, <span class="keywordtype">double</span> &amp; dual, wvector &amp;, <span class="keywordtype">int</span>, <span class="keywordtype">bool</span>, <span class="keywordtype">bool</span>&amp;);
+<a name="l00048"></a>00048   <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> wvector &amp; updates,  wvector * weights );
 <a name="l00049"></a>00049   
 <a name="l00050"></a>00050  <span class="keyword">private</span>:
 <a name="l00051"></a>00051   <span class="keywordtype">void</span> debug(<span class="keywordtype">int</span> start_from, <span class="keywordtype">int</span> dual_mid, <span class="keywordtype">int</span> dual_end, <span class="keywordtype">int</span> primal_mid, <span class="keywordtype">int</span> primal_end);
 <a name="l00052"></a>00052   <span class="keywordtype">void</span> greedy_projection(<span class="keywordtype">int</span> dual_mid, <span class="keywordtype">int</span> dual_end, <span class="keywordtype">int</span> primal_mid, <span class="keywordtype">int</span> primal_end);
-<a name="l00053"></a>00053   <span class="keywordtype">void</span> add_subgrad( <a class="code" href="classsvector.html">wvector</a> &amp; subgrad, <span class="keywordtype">int</span> start_from, <span class="keywordtype">int</span> mid_at, <span class="keywordtype">int</span> end_at, <span class="keywordtype">bool</span> first);
+<a name="l00053"></a>00053   <span class="keywordtype">void</span> add_subgrad( wvector &amp; subgrad, <span class="keywordtype">int</span> start_from, <span class="keywordtype">int</span> mid_at, <span class="keywordtype">int</span> end_at, <span class="keywordtype">bool</span> first);
 <a name="l00054"></a>00054   <span class="keywordtype">double</span> compute_primal(HEdges used_edges, <span class="keyword">const</span> vector &lt;const ForestNode *&gt; used_nodes);
 <a name="l00055"></a>00055   <span class="keywordtype">int</span> lookup_string(<span class="keywordtype">string</span> word);
 <a name="l00056"></a>00056   <a class="code" href="classSubproblem.html">Subproblem</a> * _subproblem;
 <a name="l00057"></a>00057   <span class="keyword">const</span> <a class="code" href="classForest.html">Forest</a> &amp; _forest;
 <a name="l00058"></a>00058   <span class="keyword">const</span> <a class="code" href="classForestLattice.html">ForestLattice</a> &amp; _lattice;
-<a name="l00059"></a>00059   <span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; _weight;
-<a name="l00060"></a>00060   <a class="code" href="classsvector.html">wvector</a> * _lagrange_weights;
+<a name="l00059"></a>00059   <span class="keyword">const</span> wvector &amp; _weight;
+<a name="l00060"></a>00060   wvector * _lagrange_weights;
 <a name="l00061"></a>00061   <a class="code" href="classNgramCache.html">NgramCache</a> &amp; _lm; 
 <a name="l00062"></a>00062   <a class="code" href="classGraphDecompose.html">GraphDecompose</a> _gd;
 <a name="l00063"></a>00063   <a class="code" href="classCache.html">Cache &lt;Hyperedge, double&gt;</a> * _cached_weights;
@@ -114,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00065"></a>00065   vector &lt;int &gt; get_lat_edges(<span class="keywordtype">int</span> edge_id);
 <a name="l00066"></a>00066   vector &lt;int &gt; get_lex_lat_edges(<span class="keywordtype">int</span> edge_id);
 <a name="l00067"></a>00067   <span class="keywordtype">void</span> sync_lattice_lm();
-<a name="l00068"></a>00068   <span class="keywordtype">void</span> print_output(<span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; );
+<a name="l00068"></a>00068   <span class="keywordtype">void</span> print_output(<span class="keyword">const</span> wvector &amp; );
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070   vector &lt;int &gt; _projection;
 <a name="l00071"></a>00071   <span class="keywordtype">int</span> _proj_dim;
@@ -133,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -142,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:09:11 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

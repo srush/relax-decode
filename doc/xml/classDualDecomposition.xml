@@ -75,58 +75,45 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="601">
-        <label>std::map&lt; int, double &gt;</label>
-      </node>
-      <node id="602">
+      <node id="484">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="599">
+      <node id="483">
         <label>Subgradient</label>
         <link refid="classSubgradient"/>
-        <childnode refid="597" relation="usage">
+        <childnode refid="481" relation="usage">
           <edgelabel>_s</edgelabel>
         </childnode>
-        <childnode refid="600" relation="usage">
-          <edgelabel>_weights</edgelabel>
-        </childnode>
-        <childnode refid="602" relation="usage">
+        <childnode refid="484" relation="usage">
           <edgelabel>_duals</edgelabel>
           <edgelabel>_primals</edgelabel>
         </childnode>
       </node>
-      <node id="600">
-        <label>svector&lt; int, double &gt;</label>
-        <link refid="classsvector"/>
-        <childnode refid="601" relation="usage">
-          <edgelabel>m</edgelabel>
-        </childnode>
-      </node>
-      <node id="596">
+      <node id="480">
         <label>DualDecompositionRunner</label>
         <link refid="classDualDecompositionRunner"/>
-        <childnode refid="597" relation="public-inheritance">
+        <childnode refid="481" relation="public-inheritance">
         </childnode>
-        <childnode refid="598" relation="usage">
+        <childnode refid="482" relation="usage">
           <edgelabel>_sub_producer1</edgelabel>
           <edgelabel>_sub_producer2</edgelabel>
         </childnode>
       </node>
-      <node id="595">
+      <node id="479">
         <label>DualDecomposition</label>
         <link refid="classDualDecomposition"/>
-        <childnode refid="596" relation="usage">
+        <childnode refid="480" relation="usage">
           <edgelabel>_runner</edgelabel>
         </childnode>
-        <childnode refid="599" relation="usage">
+        <childnode refid="483" relation="usage">
           <edgelabel>_subgradsolver</edgelabel>
         </childnode>
       </node>
-      <node id="597">
+      <node id="481">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>
-      <node id="598">
+      <node id="482">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>

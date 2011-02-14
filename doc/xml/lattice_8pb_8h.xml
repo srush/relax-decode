@@ -12,90 +12,90 @@
     <includedby refid="ForestLattice_8h" local="yes">lattice/ForestLattice.h</includedby>
     <includedby refid="lattice_2Test_8cpp" local="yes">lattice/Test.cpp</includedby>
     <incdepgraph>
-      <node id="1462">
+      <node id="939">
         <label>string</label>
       </node>
-      <node id="1464">
+      <node id="941">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="1461">
+      <node id="938">
         <label>interfaces/lattice/gen-cpp/lattice.pb.h</label>
         <link refid="lattice.pb.h"/>
-        <childnode refid="1462" relation="include">
+        <childnode refid="939" relation="include">
         </childnode>
-        <childnode refid="1463" relation="include">
+        <childnode refid="940" relation="include">
         </childnode>
-        <childnode refid="1464" relation="include">
+        <childnode refid="941" relation="include">
         </childnode>
-        <childnode refid="1465" relation="include">
+        <childnode refid="942" relation="include">
         </childnode>
-        <childnode refid="1466" relation="include">
+        <childnode refid="943" relation="include">
         </childnode>
-        <childnode refid="1467" relation="include">
+        <childnode refid="944" relation="include">
         </childnode>
       </node>
-      <node id="1463">
+      <node id="940">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="1466">
+      <node id="943">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="1465">
+      <node id="942">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="1467">
+      <node id="944">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1473">
+      <node id="950">
         <label>lattice/GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="1470" relation="include">
+        <childnode refid="947" relation="include">
         </childnode>
-        <childnode refid="1474" relation="include">
+        <childnode refid="951" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="948" relation="include">
         </childnode>
       </node>
-      <node id="1474">
+      <node id="951">
         <label>lp/LPBuilder.h</label>
         <link refid="LPBuilder_8h_source"/>
       </node>
-      <node id="1468">
+      <node id="945">
         <label>interfaces/lattice/gen-cpp/lattice.pb.h</label>
         <link refid="lattice.pb.h"/>
-        <childnode refid="1469" relation="include">
+        <childnode refid="946" relation="include">
         </childnode>
       </node>
-      <node id="1472">
+      <node id="949">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="1470">
+      <node id="947">
         <label>lattice/BigramRescore.h</label>
         <link refid="BigramRescore_8h_source"/>
-        <childnode refid="1471" relation="include">
+        <childnode refid="948" relation="include">
         </childnode>
       </node>
-      <node id="1471">
+      <node id="948">
         <label>trans_decode/dual_subproblem.h</label>
         <link refid="dual__subproblem_8h_source"/>
-        <childnode refid="1472" relation="include">
+        <childnode refid="949" relation="include">
         </childnode>
       </node>
-      <node id="1469">
+      <node id="946">
         <label>lattice/ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="1470" relation="include">
+        <childnode refid="947" relation="include">
         </childnode>
-        <childnode refid="1473" relation="include">
+        <childnode refid="950" relation="include">
         </childnode>
-        <childnode refid="1474" relation="include">
+        <childnode refid="951" relation="include">
         </childnode>
-        <childnode refid="1472" relation="include">
+        <childnode refid="949" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="948" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

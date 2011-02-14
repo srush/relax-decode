@@ -7,143 +7,102 @@
     <includes local="no">iomanip</includes>
     <includes local="no">set</includes>
     <includes local="no">vector</includes>
-    <includes refid="cy__svector_8hpp" local="no">cy_svector.hpp</includes>
+    <includes local="no">cy_svector.hpp</includes>
     <includes local="yes">../common.h</includes>
     <incdepgraph>
-      <node id="640">
+      <node id="515">
         <label>iomanip</label>
       </node>
-      <node id="630">
+      <node id="507">
         <label>assert.h</label>
       </node>
-      <node id="626">
-        <label>cassert</label>
-      </node>
-      <node id="625">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="623">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="624" relation="include">
-        </childnode>
-        <childnode refid="625" relation="include">
-        </childnode>
-        <childnode refid="626" relation="include">
-        </childnode>
-      </node>
-      <node id="636">
+      <node id="514">
         <label>string</label>
       </node>
-      <node id="624">
-        <label>map</label>
-      </node>
-      <node id="627">
+      <node id="504">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="628" relation="include">
+        <childnode refid="505" relation="include">
         </childnode>
-        <childnode refid="629" relation="include">
+        <childnode refid="506" relation="include">
         </childnode>
-        <childnode refid="630" relation="include">
+        <childnode refid="507" relation="include">
         </childnode>
       </node>
-      <node id="631">
+      <node id="508">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="632" relation="include">
+        <childnode refid="509" relation="include">
         </childnode>
-        <childnode refid="628" relation="include">
+        <childnode refid="505" relation="include">
         </childnode>
-        <childnode refid="639" relation="include">
+        <childnode refid="513" relation="include">
         </childnode>
-        <childnode refid="636" relation="include">
+        <childnode refid="514" relation="include">
         </childnode>
       </node>
-      <node id="634">
+      <node id="511">
         <label>fstream</label>
       </node>
-      <node id="632">
+      <node id="503">
+        <label>svector.hpp</label>
+      </node>
+      <node id="509">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="633" relation="include">
+        <childnode refid="510" relation="include">
         </childnode>
-        <childnode refid="634" relation="include">
+        <childnode refid="511" relation="include">
         </childnode>
-        <childnode refid="635" relation="include">
+        <childnode refid="512" relation="include">
         </childnode>
-        <childnode refid="623" relation="include">
+        <childnode refid="503" relation="include">
         </childnode>
       </node>
-      <node id="641">
+      <node id="516">
         <label>../common.h</label>
       </node>
-      <node id="629">
+      <node id="506">
         <label>bitset</label>
       </node>
-      <node id="628">
+      <node id="505">
         <label>vector</label>
       </node>
-      <node id="622">
+      <node id="502">
         <label>HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms_8h_source"/>
-        <childnode refid="623" relation="include">
+        <childnode refid="503" relation="include">
         </childnode>
-        <childnode refid="627" relation="include">
+        <childnode refid="504" relation="include">
         </childnode>
-        <childnode refid="631" relation="include">
-        </childnode>
-      </node>
-      <node id="637">
-        <label>sstream</label>
-      </node>
-      <node id="638">
-        <label>cstdlib</label>
-      </node>
-      <node id="635">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="636" relation="include">
-        </childnode>
-        <childnode refid="637" relation="include">
-        </childnode>
-        <childnode refid="638" relation="include">
-        </childnode>
-        <childnode refid="635" relation="include">
-        </childnode>
-        <childnode refid="624" relation="include">
-        </childnode>
-        <childnode refid="625" relation="include">
-        </childnode>
-        <childnode refid="626" relation="include">
-        </childnode>
-        <childnode refid="628" relation="include">
-        </childnode>
-        <childnode refid="633" relation="include">
+        <childnode refid="508" relation="include">
         </childnode>
       </node>
-      <node id="633">
+      <node id="510">
         <label>iostream</label>
       </node>
-      <node id="621">
+      <node id="512">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="501">
         <label>hypergraph/HypergraphAlgorithms.cpp</label>
         <link refid="HypergraphAlgorithms.cpp"/>
-        <childnode refid="622" relation="include">
+        <childnode refid="502" relation="include">
         </childnode>
-        <childnode refid="633" relation="include">
+        <childnode refid="510" relation="include">
         </childnode>
-        <childnode refid="640" relation="include">
+        <childnode refid="515" relation="include">
         </childnode>
-        <childnode refid="639" relation="include">
+        <childnode refid="513" relation="include">
         </childnode>
-        <childnode refid="628" relation="include">
+        <childnode refid="505" relation="include">
         </childnode>
-        <childnode refid="635" relation="include">
+        <childnode refid="512" relation="include">
         </childnode>
-        <childnode refid="641" relation="include">
+        <childnode refid="516" relation="include">
         </childnode>
       </node>
-      <node id="639">
+      <node id="513">
         <label>set</label>
       </node>
     </incdepgraph>
@@ -172,7 +131,7 @@
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>best_path_helper(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>EdgeCache<sp/>&amp;<sp/>edge_weights,<sp/>NodeCache<sp/>&amp;<sp/>score_memo_table,<sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table);</highlight></codeline>
 <codeline lineno="17"><highlight class="normal">vector<sp/>&lt;const<sp/>Hypernode<sp/>*&gt;<sp/>construct_best_fringe_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table);</highlight></codeline>
 <codeline lineno="18"><highlight class="normal">HEdges<sp/>construct_best_edges_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table);</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><ref refid="classsvector" kindref="compound">wvector</ref><sp/>construct_best_fv_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">wvector<sp/>construct_best_fv_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table);</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>best_outside_path_helper(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>EdgeCache<sp/>&amp;<sp/>edge_weights,<sp/></highlight></codeline>
@@ -216,7 +175,7 @@
 <codeline lineno="60"><highlight class="normal">}<sp/></highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal">EdgeCache<sp/>*<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" kindref="member">HypergraphAlgorithms::cache_edge_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int, double&gt;</ref><sp/>&amp;<sp/>weight_vector<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">EdgeCache<sp/>*<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" kindref="member">HypergraphAlgorithms::cache_edge_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>svector&lt;int,<sp/>double&gt;<sp/>&amp;<sp/>weight_vector<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/>EdgeCache<sp/>*<sp/>weights<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>EdgeCache(_forest.num_edges());</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hyperedge<sp/>*edge,<sp/>_forest.edges())<sp/>{</highlight></codeline>
@@ -277,12 +236,12 @@
 <codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>best;</highlight></codeline>
 <codeline lineno="122"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><ref refid="classsvector" kindref="compound">wvector</ref><sp/>HypergraphAlgorithms::construct_best_feature_vector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">wvector<sp/>HypergraphAlgorithms::construct_best_feature_vector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>construct_best_fv_help(_forest.root(),<sp/>back_memo_table);</highlight></codeline>
 <codeline lineno="126"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><ref refid="classsvector" kindref="compound">wvector</ref><sp/>construct_best_fv_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table)<sp/>{</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>best;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">wvector<sp/>construct_best_fv_help(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>NodeBackCache<sp/>&amp;<sp/>back_memo_table)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>wvector<sp/>best;</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node.num_edges()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert<sp/>(node.is_word());</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>best;</highlight></codeline>

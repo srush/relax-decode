@@ -105,7 +105,6 @@
         <definition>static Dep * Dep::default_instance_</definition>
         <argsstring></argsstring>
         <name>default_instance_</name>
-        <initializer> NULL</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -127,11 +126,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="40" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="115" bodyend="118"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="40"/>
       </memberdef>
-      <memberdef kind="function" id="classDep_1a3038c76af15f81e66b652bf561bb862e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classDep_1a6a7046f0a7dc2469573068b43828822d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>Dep::~Dep</definition>
+        <definition>virtual Dep::~Dep</definition>
         <argsstring>()</argsstring>
         <name>~Dep</name>
         <briefdescription>
@@ -140,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="41" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="136" bodyend="138"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="41"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a80362e936565b55abb269a18fde4dc59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -157,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="43" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="123" bodyend="127"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="43"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a87fdb64571ed9949e3fa5acdb9b367f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classDep" kindref="compound">Dep</ref> &amp;</type>
@@ -217,11 +216,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="61" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="337" bodyend="345"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="61"/>
       </memberdef>
-      <memberdef kind="function" id="classDep_1a27a82cb1d879df26d1cc89f5e10eacc2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classDep_1add63de81fa6478b899aff7ae37b8dff1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classDep" kindref="compound">Dep</ref> *</type>
-        <definition>Dep * Dep::New</definition>
+        <definition>Dep* Dep::New</definition>
         <argsstring>() const </argsstring>
         <name>New</name>
         <briefdescription>
@@ -230,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="65" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="161" bodyend="163"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="65"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a26c81c96d8bc499af3e3190127ae4f14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -247,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="66" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="319" bodyend="323"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="66"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a8521cee2d2c20cc3374caee792879d24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -264,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="67" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="294" bodyend="304"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="67"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a9c5e702a5cafd5a8bdf72ef36d754d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -281,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="68" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="325" bodyend="329"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="68"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1ad104b852e4e4e46eaa50d376b19fe83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -298,7 +297,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="69" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="306" bodyend="317"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="69"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a1713906a00ff37953c363bdbc07cbd54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -311,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="70" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="165" bodyend="172"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="70"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1ae39f86aae19b958824fd94b0092e07c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -324,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="71" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="331" bodyend="335"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="71"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1af27fc8c7ab40a5ad63e3908db600fc5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -337,7 +336,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="73" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="264" bodyend="292"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="73"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a2080b72b2b01ff368d85506bfc311e28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -354,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="75" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="174" bodyend="225"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="75"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a1c5ffae565cd93485ba1b7de07678efc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -371,11 +370,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="77" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="227" bodyend="243"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="77"/>
       </memberdef>
-      <memberdef kind="function" id="classDep_1a7085fcc2588e12bc51d92f37682bba3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classDep_1a302a9df44af045d0f56ef4e14ee97816" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>::google::protobuf::uint8 *</type>
-        <definition>google::protobuf::uint8 * Dep::SerializeWithCachedSizesToArray</definition>
+        <definition>::google::protobuf::uint8* Dep::SerializeWithCachedSizesToArray</definition>
         <argsstring>(::google::protobuf::uint8 *output) const </argsstring>
         <name>SerializeWithCachedSizesToArray</name>
         <param>
@@ -388,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="78" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="245" bodyend="262"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="78"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a0574f835da4e18501475c30e0b38ba20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -403,9 +402,9 @@
         </inbodydescription>
         <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="79" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" bodystart="79" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="classDep_1a4385e73adda64a977bae6d3304cd2a66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classDep_1acadc4712c5930d210c03df3d288358a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>::google::protobuf::Metadata</type>
-        <definition>google::protobuf::Metadata Dep::GetMetadata</definition>
+        <definition>::google::protobuf::Metadata Dep::GetMetadata</definition>
         <argsstring>() const </argsstring>
         <name>GetMetadata</name>
         <briefdescription>
@@ -414,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="86" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="347" bodyend="353"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="86"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a7c31851d796bf8cb968b420fd07548cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -942,9 +941,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="classDep_1af6a909e7ccf42b8c3b81cd01755a6f89" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classDep_1a29bfc132af3268c281ed5b2bfb7e09b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const ::google::protobuf::Descriptor *</type>
-        <definition>const ::google::protobuf::Descriptor * Dep::descriptor</definition>
+        <definition>static const ::google::protobuf::Descriptor* Dep::descriptor</definition>
         <argsstring>()</argsstring>
         <name>descriptor</name>
         <briefdescription>
@@ -953,11 +952,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="58" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="150" bodyend="153"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="58"/>
       </memberdef>
-      <memberdef kind="function" id="classDep_1adb231b00d2868737d7eed4a97c085c7b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classDep_1a81ccd4891740b599546e7e52c04ca516" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="classDep" kindref="compound">Dep</ref> &amp;</type>
-        <definition>const Dep &amp; Dep::default_instance</definition>
+        <definition>static const Dep&amp; Dep::default_instance</definition>
         <argsstring>()</argsstring>
         <name>default_instance</name>
         <briefdescription>
@@ -966,7 +965,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="59" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="155" bodyend="157"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="59"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a29bfc132af3268c281ed5b2bfb7e09b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const ::google::protobuf::Descriptor *</type>
@@ -1007,7 +1006,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="81" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="129" bodyend="134"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="81"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1ab4ae7924ffb14325be3581a346eb42aa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1020,7 +1019,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="82" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="140" bodyend="143"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="82"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1aac17278c84353ad2cd99f4e271c5b9e2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1037,7 +1036,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="83" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="145" bodyend="149"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="83"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a5995def2a3ee314e9cdc2288d441b1ab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -1102,7 +1101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="125" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="120" bodyend="121"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="125"/>
       </memberdef>
       <memberdef kind="function" id="classDep_1a8332af2e94437b97aaaad75d9b789d59" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1225,7 +1224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="121" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="70" bodyend="98"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="121"/>
       </memberdef>
       <memberdef kind="friend" id="classDep_1ae60899dfa8b3c6020f8e19070804c43b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>friend void</type>
@@ -1238,7 +1237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="122" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="25" bodyend="47"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="122"/>
       </memberdef>
       <memberdef kind="friend" id="classDep_1aab3c3b65c9043a8a41dcb95f310b49e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>friend void</type>
@@ -1251,7 +1250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="123" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="65" bodyend="68"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.h" line="123"/>
       </memberdef>
       <memberdef kind="friend" id="classDep_1a2e2e426fb93c4aaa0e5b3d0a15899d92" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>friend void</type>
@@ -1264,7 +1263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="121" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="70" bodyend="98"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="121"/>
       </memberdef>
       <memberdef kind="friend" id="classDep_1ae60899dfa8b3c6020f8e19070804c43b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>friend void</type>
@@ -1277,7 +1276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="122" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="25" bodyend="47"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="122"/>
       </memberdef>
       <memberdef kind="friend" id="classDep_1aab3c3b65c9043a8a41dcb95f310b49e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>friend void</type>
@@ -1290,7 +1289,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="123" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/dep.pb.cc" bodystart="65" bodyend="68"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/dep.pb.h" line="123"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1298,10 +1297,10 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="474">
+      <node id="428">
         <label>Dep</label>
         <link refid="classDep"/>
-        <childnode refid="474" relation="usage">
+        <childnode refid="428" relation="usage">
           <edgelabel>default_instance_</edgelabel>
         </childnode>
       </node>
@@ -1327,18 +1326,18 @@
       <member refid="classDep_1a9c5e702a5cafd5a8bdf72ef36d754d27" prot="public" virt="non-virtual"><scope>Dep</scope><name>CopyFrom</name></member>
       <member refid="classDep_1a26c81c96d8bc499af3e3190127ae4f14" prot="public" virt="non-virtual"><scope>Dep</scope><name>CopyFrom</name></member>
       <member refid="classDep_1a9c5e702a5cafd5a8bdf72ef36d754d27" prot="public" virt="non-virtual"><scope>Dep</scope><name>CopyFrom</name></member>
-      <member refid="classDep_1adb231b00d2868737d7eed4a97c085c7b" prot="public" virt="non-virtual"><scope>Dep</scope><name>default_instance</name></member>
+      <member refid="classDep_1a81ccd4891740b599546e7e52c04ca516" prot="public" virt="non-virtual"><scope>Dep</scope><name>default_instance</name></member>
       <member refid="classDep_1a81ccd4891740b599546e7e52c04ca516" prot="public" virt="non-virtual"><scope>Dep</scope><name>default_instance</name></member>
       <member refid="classDep_1a8f5bd353b11af26a04d3fb0fa0faef5c" prot="private" virt="non-virtual"><scope>Dep</scope><name>default_instance_</name></member>
       <member refid="classDep_1a235740fef436f05bb0e0c89db5b8b555" prot="public" virt="non-virtual"><scope>Dep</scope><name>Dep</name></member>
       <member refid="classDep_1a80362e936565b55abb269a18fde4dc59" prot="public" virt="non-virtual"><scope>Dep</scope><name>Dep</name></member>
       <member refid="classDep_1a235740fef436f05bb0e0c89db5b8b555" prot="public" virt="non-virtual"><scope>Dep</scope><name>Dep</name></member>
       <member refid="classDep_1a80362e936565b55abb269a18fde4dc59" prot="public" virt="non-virtual"><scope>Dep</scope><name>Dep</name></member>
-      <member refid="classDep_1af6a909e7ccf42b8c3b81cd01755a6f89" prot="public" virt="non-virtual"><scope>Dep</scope><name>descriptor</name></member>
+      <member refid="classDep_1a29bfc132af3268c281ed5b2bfb7e09b5" prot="public" virt="non-virtual"><scope>Dep</scope><name>descriptor</name></member>
       <member refid="classDep_1a29bfc132af3268c281ed5b2bfb7e09b5" prot="public" virt="non-virtual"><scope>Dep</scope><name>descriptor</name></member>
       <member refid="classDep_1a0574f835da4e18501475c30e0b38ba20" prot="public" virt="non-virtual"><scope>Dep</scope><name>GetCachedSize</name></member>
       <member refid="classDep_1a0574f835da4e18501475c30e0b38ba20" prot="public" virt="non-virtual"><scope>Dep</scope><name>GetCachedSize</name></member>
-      <member refid="classDep_1a4385e73adda64a977bae6d3304cd2a66" prot="public" virt="non-virtual"><scope>Dep</scope><name>GetMetadata</name></member>
+      <member refid="classDep_1acadc4712c5930d210c03df3d288358a9" prot="public" virt="non-virtual"><scope>Dep</scope><name>GetMetadata</name></member>
       <member refid="classDep_1acadc4712c5930d210c03df3d288358a9" prot="public" virt="non-virtual"><scope>Dep</scope><name>GetMetadata</name></member>
       <member refid="classDep_1a7c31851d796bf8cb968b420fd07548cb" prot="public" virt="non-virtual"><scope>Dep</scope><name>has_head</name></member>
       <member refid="classDep_1a7c31851d796bf8cb968b420fd07548cb" prot="public" virt="non-virtual"><scope>Dep</scope><name>has_head</name></member>
@@ -1364,7 +1363,7 @@
       <member refid="classDep_1ac11aabe583e3b4f13a7d44652b391c58" prot="private" virt="non-virtual"><scope>Dep</scope><name>mod_</name></member>
       <member refid="classDep_1af6070821655e8abd2054d0248896ed71" prot="public" virt="non-virtual"><scope>Dep</scope><name>mutable_unknown_fields</name></member>
       <member refid="classDep_1af6070821655e8abd2054d0248896ed71" prot="public" virt="non-virtual"><scope>Dep</scope><name>mutable_unknown_fields</name></member>
-      <member refid="classDep_1a27a82cb1d879df26d1cc89f5e10eacc2" prot="public" virt="non-virtual"><scope>Dep</scope><name>New</name></member>
+      <member refid="classDep_1add63de81fa6478b899aff7ae37b8dff1" prot="public" virt="non-virtual"><scope>Dep</scope><name>New</name></member>
       <member refid="classDep_1add63de81fa6478b899aff7ae37b8dff1" prot="public" virt="non-virtual"><scope>Dep</scope><name>New</name></member>
       <member refid="classDep_1a87fdb64571ed9949e3fa5acdb9b367f9" prot="public" virt="non-virtual"><scope>Dep</scope><name>operator=</name></member>
       <member refid="classDep_1a87fdb64571ed9949e3fa5acdb9b367f9" prot="public" virt="non-virtual"><scope>Dep</scope><name>operator=</name></member>
@@ -1376,7 +1375,7 @@
       <member refid="classDep_1aab3c3b65c9043a8a41dcb95f310b49e8" prot="private" virt="non-virtual"><scope>Dep</scope><name>protobuf_ShutdownFile_dep_2eproto</name></member>
       <member refid="classDep_1a1c5ffae565cd93485ba1b7de07678efc" prot="public" virt="non-virtual"><scope>Dep</scope><name>SerializeWithCachedSizes</name></member>
       <member refid="classDep_1a1c5ffae565cd93485ba1b7de07678efc" prot="public" virt="non-virtual"><scope>Dep</scope><name>SerializeWithCachedSizes</name></member>
-      <member refid="classDep_1a7085fcc2588e12bc51d92f37682bba3b" prot="public" virt="non-virtual"><scope>Dep</scope><name>SerializeWithCachedSizesToArray</name></member>
+      <member refid="classDep_1a302a9df44af045d0f56ef4e14ee97816" prot="public" virt="non-virtual"><scope>Dep</scope><name>SerializeWithCachedSizesToArray</name></member>
       <member refid="classDep_1a302a9df44af045d0f56ef4e14ee97816" prot="public" virt="non-virtual"><scope>Dep</scope><name>SerializeWithCachedSizesToArray</name></member>
       <member refid="classDep_1a5995def2a3ee314e9cdc2288d441b1ab" prot="private" virt="non-virtual"><scope>Dep</scope><name>set_has_head</name></member>
       <member refid="classDep_1a5995def2a3ee314e9cdc2288d441b1ab" prot="private" virt="non-virtual"><scope>Dep</scope><name>set_has_head</name></member>
@@ -1396,7 +1395,7 @@
       <member refid="classDep_1a89fd3d7654cbf49a112ee30ebe30a8f4" prot="public" virt="non-virtual"><scope>Dep</scope><name>Swap</name></member>
       <member refid="classDep_1a03cf321c0a637f65d4775ee8b63e2438" prot="public" virt="non-virtual"><scope>Dep</scope><name>unknown_fields</name></member>
       <member refid="classDep_1a03cf321c0a637f65d4775ee8b63e2438" prot="public" virt="non-virtual"><scope>Dep</scope><name>unknown_fields</name></member>
-      <member refid="classDep_1a3038c76af15f81e66b652bf561bb862e" prot="public" virt="virtual"><scope>Dep</scope><name>~Dep</name></member>
+      <member refid="classDep_1a6a7046f0a7dc2469573068b43828822d" prot="public" virt="virtual"><scope>Dep</scope><name>~Dep</name></member>
       <member refid="classDep_1a6a7046f0a7dc2469573068b43828822d" prot="public" virt="virtual"><scope>Dep</scope><name>~Dep</name></member>
     </listofallmembers>
   </compounddef>

@@ -68,7 +68,7 @@
           <declname>dual</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <declname>subgrad</declname>
         </param>
         <param>
@@ -98,11 +98,11 @@
         <name>update_weights</name>
         <reimplements refid="classSubgradientProducer_1a5b471526b337913722f56221b2461d89">update_weights</reimplements>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>updates</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <type>wvector *</type>
           <declname>weights</declname>
         </param>
         <briefdescription>
@@ -119,33 +119,33 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="603">
+      <node id="485">
         <label>DualDecompositionRunner</label>
         <link refid="classDualDecompositionRunner"/>
-        <childnode refid="604" relation="public-inheritance">
+        <childnode refid="486" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="604">
+      <node id="486">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="605">
+      <node id="487">
         <label>DualDecompositionRunner</label>
         <link refid="classDualDecompositionRunner"/>
-        <childnode refid="606" relation="public-inheritance">
+        <childnode refid="488" relation="public-inheritance">
         </childnode>
-        <childnode refid="607" relation="usage">
+        <childnode refid="489" relation="usage">
           <edgelabel>_sub_producer1</edgelabel>
           <edgelabel>_sub_producer2</edgelabel>
         </childnode>
       </node>
-      <node id="606">
+      <node id="488">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>
-      <node id="607">
+      <node id="489">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>

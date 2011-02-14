@@ -19,7 +19,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -55,11 +54,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00006"></a>00006 
 <a name="l00007"></a><a class="code" href="classTaggerDual.html">00007</a> <span class="keyword">class </span><a class="code" href="classTaggerDual.html">TaggerDual</a>:<span class="keyword">public</span> <a class="code" href="classDualDecompositionSubproblem.html">DualDecompositionSubproblem</a> {
 <a name="l00008"></a>00008  <span class="keyword">public</span>:
-<a name="l00009"></a>00009  <a class="code" href="classTaggerDual.html">TaggerDual</a>(vector &lt;const Tagger*&gt; &amp; taggers, <span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; base_weights,  <span class="keyword">const</span> <a class="code" href="classTagConstraints.html">TagConstraints</a> &amp; cons): 
+<a name="l00009"></a>00009  <a class="code" href="classTaggerDual.html">TaggerDual</a>(vector &lt;const Tagger*&gt; &amp; taggers, <span class="keyword">const</span> wvector &amp; base_weights,  <span class="keyword">const</span> <a class="code" href="classTagConstraints.html">TagConstraints</a> &amp; cons): 
 <a name="l00010"></a>00010     _taggers(taggers), 
 <a name="l00011"></a>00011       _base_weights(base_weights),
 <a name="l00012"></a>00012       _tag_constraints(cons){
-<a name="l00013"></a>00013       _cur_weights = <span class="keyword">new</span> <a class="code" href="classsvector.html">wvector</a>();
+<a name="l00013"></a>00013       _cur_weights = <span class="keyword">new</span> wvector();
 <a name="l00014"></a>00014       _dirty_cache.resize(_taggers.size());
 <a name="l00015"></a>00015       _subgrad_cache.resize(_taggers.size());
 <a name="l00016"></a>00016       _dual_cache.resize(_taggers.size());
@@ -69,12 +68,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00020"></a>00020       }
 <a name="l00021"></a>00021     }
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023   <span class="keywordtype">void</span> solve(<span class="keywordtype">double</span> &amp; primal, <span class="keywordtype">double</span> &amp; dual, <a class="code" href="classsvector.html">wvector</a> &amp;, 
+<a name="l00023"></a>00023   <span class="keywordtype">void</span> solve(<span class="keywordtype">double</span> &amp; primal, <span class="keywordtype">double</span> &amp; dual, wvector &amp;, 
 <a name="l00024"></a>00024                       <span class="keywordtype">int</span>) ;
-<a name="l00025"></a>00025   <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; updates,  
-<a name="l00026"></a>00026                       <a class="code" href="classsvector.html">wvector</a> * weights, 
+<a name="l00025"></a>00025   <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> wvector &amp; updates,  
+<a name="l00026"></a>00026                       wvector * weights, 
 <a name="l00027"></a>00027                       <span class="keywordtype">double</span> mult) {
-<a name="l00028"></a>00028     _cur_weights = <span class="keyword">new</span> <a class="code" href="classsvector.html">wvector</a>();
+<a name="l00028"></a>00028     _cur_weights = <span class="keyword">new</span> wvector();
 <a name="l00029"></a>00029      <span class="keywordflow">for</span> (wvector::const_iterator it = weights-&gt;begin(); it != weights-&gt;end(); it++) {
 <a name="l00030"></a>00030        (*_cur_weights)[it-&gt;first] = mult * it-&gt;second; 
 <a name="l00031"></a>00031      }
@@ -90,9 +89,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00041"></a>00041   }
 <a name="l00042"></a>00042  <span class="keyword">protected</span>:
 <a name="l00043"></a>00043   <span class="keyword">const</span> vector &lt;const Tagger*&gt; &amp; _taggers;
-<a name="l00044"></a>00044   <span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; _base_weights;
+<a name="l00044"></a>00044   <span class="keyword">const</span> wvector &amp; _base_weights;
 <a name="l00045"></a>00045   <span class="keyword">const</span> <a class="code" href="classTagConstraints.html">TagConstraints</a> &amp; _tag_constraints;
-<a name="l00046"></a>00046   <a class="code" href="classsvector.html">wvector</a> * _cur_weights;
+<a name="l00046"></a>00046   wvector * _cur_weights;
 <a name="l00047"></a>00047   vector &lt;wvector&gt; _subgrad_cache;
 <a name="l00048"></a>00048   vector &lt;double&gt; _primal_cache;
 <a name="l00049"></a>00049   vector &lt;double&gt; _dual_cache;
@@ -103,23 +102,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00054"></a><a class="code" href="classConstrainerDual.html">00054</a> <span class="keyword">class </span><a class="code" href="classConstrainerDual.html">ConstrainerDual</a>:<span class="keyword">public</span> <a class="code" href="classDualDecompositionSubproblem.html">DualDecompositionSubproblem</a> {
 <a name="l00055"></a>00055  <span class="keyword">public</span>:
 <a name="l00056"></a>00056   <a class="code" href="classConstrainerDual.html">ConstrainerDual</a>(<span class="keyword">const</span> <a class="code" href="classTagConstraints.html">TagConstraints</a> &amp; cons): _tag_constraints(cons){
-<a name="l00057"></a>00057     _cur_weights = <span class="keyword">new</span> <a class="code" href="classsvector.html">wvector</a>();
+<a name="l00057"></a>00057     _cur_weights = <span class="keyword">new</span> wvector();
 <a name="l00058"></a>00058   };
 <a name="l00059"></a>00059   <span class="keywordtype">void</span> solve(<span class="keywordtype">double</span> &amp; primal, 
-<a name="l00060"></a>00060               <span class="keywordtype">double</span> &amp; dual, <a class="code" href="classsvector.html">wvector</a> &amp;, 
+<a name="l00060"></a>00060               <span class="keywordtype">double</span> &amp; dual, wvector &amp;, 
 <a name="l00061"></a>00061               <span class="keywordtype">int</span>) ;
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063    <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> <a class="code" href="classsvector.html">wvector</a> &amp; updates,  
-<a name="l00064"></a>00064                        <a class="code" href="classsvector.html">wvector</a> * weights, 
+<a name="l00063"></a>00063    <span class="keywordtype">void</span> update_weights(<span class="keyword">const</span> wvector &amp; updates,  
+<a name="l00064"></a>00064                        wvector * weights, 
 <a name="l00065"></a>00065                        <span class="keywordtype">double</span> mult) {
-<a name="l00066"></a>00066      _cur_weights = <span class="keyword">new</span> <a class="code" href="classsvector.html">wvector</a>();
+<a name="l00066"></a>00066      _cur_weights = <span class="keyword">new</span> wvector();
 <a name="l00067"></a>00067      <span class="keywordflow">for</span> (wvector::const_iterator it = weights-&gt;begin(); it != weights-&gt;end(); it++) {
 <a name="l00068"></a>00068        (*_cur_weights)[it-&gt;first] = mult*it-&gt;second; 
 <a name="l00069"></a>00069      }
 <a name="l00070"></a>00070    }
 <a name="l00071"></a>00071  <span class="keyword">protected</span>:
 <a name="l00072"></a>00072    <span class="keyword">const</span> <a class="code" href="classTagConstraints.html">TagConstraints</a> &amp; _tag_constraints;
-<a name="l00073"></a>00073    <a class="code" href="classsvector.html">wvector</a> * _cur_weights; 
+<a name="l00073"></a>00073    wvector * _cur_weights; 
 <a name="l00074"></a>00074 
 <a name="l00075"></a>00075 };
 <a name="l00076"></a>00076 
@@ -130,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -139,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:09:11 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

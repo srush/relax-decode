@@ -90,141 +90,141 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="1659">
+      <node id="1385">
         <label>T</label>
       </node>
-      <node id="1651">
+      <node id="1377">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
-        <childnode refid="1652" relation="usage">
+        <childnode refid="1378" relation="usage">
           <edgelabel>_graph</edgelabel>
         </childnode>
       </node>
-      <node id="1654">
+      <node id="1380">
         <label>Scarab::Graph::Graphedge</label>
         <link refid="classScarab_1_1Graph_1_1Graphedge"/>
-        <childnode refid="1655" relation="usage">
+        <childnode refid="1381" relation="usage">
           <edgelabel>_to_node</edgelabel>
           <edgelabel>_from_node</edgelabel>
         </childnode>
       </node>
-      <node id="1660">
+      <node id="1386">
         <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1661" relation="usage">
+        <childnode refid="1387" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1658">
+      <node id="1384">
         <label>std::vector&lt; T &gt;</label>
-        <childnode refid="1659" relation="usage">
+        <childnode refid="1385" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1666">
+      <node id="1392">
         <label>MrfIndex</label>
         <link refid="structMrfIndex"/>
       </node>
-      <node id="1662">
+      <node id="1388">
         <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1661" relation="usage">
+        <childnode refid="1387" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1665">
+      <node id="1391">
         <label>std::map&lt; TagIndex, MrfIndex &gt;</label>
-        <childnode refid="1666" relation="usage">
+        <childnode refid="1392" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
-        <childnode refid="1667" relation="usage">
+        <childnode refid="1393" relation="usage">
           <edgelabel>keys</edgelabel>
         </childnode>
       </node>
-      <node id="1663">
+      <node id="1389">
         <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1661" relation="usage">
+        <childnode refid="1387" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1655">
+      <node id="1381">
         <label>Scarab::Graph::Graphnode</label>
         <link refid="classScarab_1_1Graph_1_1Graphnode"/>
-        <childnode refid="1653" relation="usage">
+        <childnode refid="1379" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="1656" relation="usage">
+        <childnode refid="1382" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
       </node>
-      <node id="1657">
+      <node id="1383">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="1664">
+      <node id="1390">
         <label>std::vector&lt; vector&lt; TagIndex &gt; &gt;</label>
       </node>
-      <node id="1648">
+      <node id="1374">
         <label>TagMrfAligner</label>
         <link refid="classTagMrfAligner"/>
-        <childnode refid="1649" relation="usage">
+        <childnode refid="1375" relation="usage">
           <edgelabel>mrf_models</edgelabel>
         </childnode>
-        <childnode refid="1664" relation="usage">
+        <childnode refid="1390" relation="usage">
           <edgelabel>tag_constraints</edgelabel>
         </childnode>
-        <childnode refid="1665" relation="usage">
+        <childnode refid="1391" relation="usage">
           <edgelabel>alignment</edgelabel>
         </childnode>
       </node>
-      <node id="1649">
+      <node id="1375">
         <label>std::vector&lt; MRF * &gt;</label>
-        <childnode refid="1650" relation="usage">
+        <childnode refid="1376" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1667">
+      <node id="1393">
         <label>TagIndex</label>
         <link refid="structTagIndex"/>
       </node>
-      <node id="1661">
+      <node id="1387">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="1653">
+      <node id="1379">
         <label>std::vector&lt; const Graphedge * &gt;</label>
-        <childnode refid="1654" relation="usage">
+        <childnode refid="1380" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1652">
+      <node id="1378">
         <label>Scarab::Graph::Graph</label>
         <link refid="classScarab_1_1Graph_1_1Graph"/>
-        <childnode refid="1653" relation="usage">
+        <childnode refid="1379" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="1658" relation="usage">
+        <childnode refid="1384" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
       </node>
-      <node id="1650">
+      <node id="1376">
         <label>MRF</label>
         <link refid="classMRF"/>
-        <childnode refid="1651" relation="public-inheritance">
+        <childnode refid="1377" relation="public-inheritance">
         </childnode>
-        <childnode refid="1660" relation="usage">
+        <childnode refid="1386" relation="usage">
           <edgelabel>_node_states</edgelabel>
         </childnode>
-        <childnode refid="1662" relation="usage">
+        <childnode refid="1388" relation="usage">
           <edgelabel>_edge_potentials</edgelabel>
         </childnode>
-        <childnode refid="1663" relation="usage">
+        <childnode refid="1389" relation="usage">
           <edgelabel>_node_potentials</edgelabel>
         </childnode>
       </node>
-      <node id="1656">
+      <node id="1382">
         <label>std::string</label>
-        <childnode refid="1657" relation="public-inheritance">
+        <childnode refid="1383" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

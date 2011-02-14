@@ -9,65 +9,49 @@
     <includes local="no">time.h</includes>
     <includes local="yes">../common.h</includes>
     <incdepgraph>
-      <node id="2236">
+      <node id="1616">
         <label>Subgradient.h</label>
         <link refid="Subgradient_8h_source"/>
-        <childnode refid="2237" relation="include">
+        <childnode refid="1617" relation="include">
         </childnode>
-        <childnode refid="2241" relation="include">
+        <childnode refid="1618" relation="include">
         </childnode>
       </node>
-      <node id="2244">
+      <node id="1621">
         <label>iomanip</label>
       </node>
-      <node id="2235">
+      <node id="1615">
         <label>optimization/Subgradient.cpp</label>
         <link refid="Subgradient.cpp"/>
-        <childnode refid="2236" relation="include">
+        <childnode refid="1616" relation="include">
         </childnode>
-        <childnode refid="2242" relation="include">
+        <childnode refid="1619" relation="include">
         </childnode>
-        <childnode refid="2243" relation="include">
+        <childnode refid="1620" relation="include">
         </childnode>
-        <childnode refid="2244" relation="include">
+        <childnode refid="1621" relation="include">
         </childnode>
-        <childnode refid="2245" relation="include">
+        <childnode refid="1622" relation="include">
         </childnode>
-        <childnode refid="2246" relation="include">
+        <childnode refid="1623" relation="include">
         </childnode>
       </node>
-      <node id="2240">
-        <label>cassert</label>
-      </node>
-      <node id="2239">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="2237">
+      <node id="1617">
         <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="2238" relation="include">
-        </childnode>
-        <childnode refid="2239" relation="include">
-        </childnode>
-        <childnode refid="2240" relation="include">
-        </childnode>
       </node>
-      <node id="2238">
-        <label>map</label>
-      </node>
-      <node id="2246">
+      <node id="1623">
         <label>../common.h</label>
       </node>
-      <node id="2241">
+      <node id="1618">
         <label>vector</label>
       </node>
-      <node id="2245">
+      <node id="1622">
         <label>time.h</label>
       </node>
-      <node id="2242">
+      <node id="1619">
         <label>math.h</label>
       </node>
-      <node id="2243">
+      <node id="1620">
         <label>iostream</label>
       </node>
     </incdepgraph>
@@ -102,7 +86,7 @@
         <argsstring>(const wvector &amp;subgrad)</argsstring>
         <name>print_vec</name>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>subgrad</declname>
         </param>
         <briefdescription>
@@ -163,7 +147,7 @@
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Subgradient::run_one_round()<sp/>{</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>primal,<sp/>dual;<sp/></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>subgrad;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>wvector<sp/>subgrad;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/>clock_t<sp/>start=clock();</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bump<sp/>=</highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
@@ -206,7 +190,7 @@
 <codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="86"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print_vec(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print_vec(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>wvector<sp/>&amp;<sp/>subgrad)<sp/>{</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(wvector::const_iterator<sp/>it<sp/>=<sp/>subgrad.begin();<sp/>it<sp/>!=<sp/>subgrad.end();<sp/>it++)<sp/>{</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it-&gt;second<sp/>!=<sp/>0.0)<sp/>{</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>it-&gt;first<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>it-&gt;second<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
@@ -216,7 +200,7 @@
 <codeline lineno="95"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Subgradient::update_weights(<ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bump)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Subgradient::update_weights(wvector<sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bump)<sp/>{</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dualsize<sp/>=<sp/>_duals.size();</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(wvector::const_iterator<sp/>it<sp/>=<sp/>subgrad.begin();<sp/>it<sp/>!=<sp/>subgrad.end();<sp/>it++)<sp/>{</highlight></codeline>
@@ -249,7 +233,7 @@
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha<sp/>=<sp/>_base_weight;</highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//double<sp/>alpha<sp/>=<sp/>_base_weight<sp/>/<sp/>((float)_nround<sp/>/<sp/>10.0);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">svector&lt;int, double&gt;</ref><sp/>updates<sp/>=<sp/>alpha<sp/>*<sp/>subgrad;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>svector&lt;int,<sp/>double&gt;<sp/>updates<sp/>=<sp/>alpha<sp/>*<sp/>subgrad;</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(TIMING)<sp/>{</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;DUAL<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_duals[dualsize<sp/>-1]&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_duals[dualsize<sp/>-2]<sp/>&lt;&lt;<sp/><sp/>endl;</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PRIMAL<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_primals[dualsize<sp/>-1]&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>_primals[dualsize<sp/>-2]<sp/>&lt;&lt;<sp/><sp/>endl;</highlight></codeline>

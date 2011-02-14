@@ -18,7 +18,7 @@
         <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="43" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classTaggerDual_1a0073fa0f694790d365ca959ed8386e26" prot="protected" static="no" mutable="no">
-        <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+        <type>const wvector &amp;</type>
         <definition>const wvector&amp; TaggerDual::_base_weights</definition>
         <argsstring></argsstring>
         <name>_base_weights</name>
@@ -44,7 +44,7 @@
         <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="45" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classTaggerDual_1a9974a79ebf2547f3e80e9d68d06b49be" prot="protected" static="no" mutable="no">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+        <type>wvector *</type>
         <definition>wvector* TaggerDual::_cur_weights</definition>
         <argsstring></argsstring>
         <name>_cur_weights</name>
@@ -57,7 +57,7 @@
         <location file="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" line="46" bodyfile="/home/srush/Projects/relax_decode/tagger/TagSolvers.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classTaggerDual_1a57232f5a7702b7715f8517d408086dbe" prot="protected" static="no" mutable="no">
-        <type>vector&lt; <ref refid="classsvector" kindref="compound">wvector</ref> &gt;</type>
+        <type>vector&lt; wvector &gt;</type>
         <definition>vector&lt;wvector&gt; TaggerDual::_subgrad_cache</definition>
         <argsstring></argsstring>
         <name>_subgrad_cache</name>
@@ -120,7 +120,7 @@
           <declname>taggers</declname>
         </param>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>base_weights</declname>
         </param>
         <param>
@@ -150,7 +150,7 @@
           <declname>dual</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <defname>subgrad</defname>
         </param>
         <param>
@@ -172,11 +172,11 @@
         <name>update_weights</name>
         <reimplements refid="classDualDecompositionSubproblem_1a6d26fcb23023d5b03d54b3d191531b02">update_weights</reimplements>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>updates</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <type>wvector *</type>
           <declname>weights</declname>
         </param>
         <param>
@@ -197,223 +197,206 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1589">
+      <node id="1319">
         <label>TaggerDual</label>
         <link refid="classTaggerDual"/>
-        <childnode refid="1590" relation="public-inheritance">
+        <childnode refid="1320" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="1590">
+      <node id="1320">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="1617">
-        <label>std::map&lt; F, V &gt;</label>
-      </node>
-      <node id="1608">
+      <node id="1338">
         <label>std::set&lt; int &gt;</label>
       </node>
-      <node id="1619">
+      <node id="1347">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="1601">
+      <node id="1331">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="1602">
+      <node id="1332">
         <label>std::vector&lt; Tag &gt;</label>
-        <childnode refid="1603" relation="usage">
+        <childnode refid="1333" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1591">
+      <node id="1321">
         <label>TaggerDual</label>
         <link refid="classTaggerDual"/>
-        <childnode refid="1592" relation="public-inheritance">
+        <childnode refid="1322" relation="public-inheritance">
         </childnode>
-        <childnode refid="1593" relation="usage">
+        <childnode refid="1323" relation="usage">
           <edgelabel>_taggers</edgelabel>
         </childnode>
-        <childnode refid="1607" relation="usage">
+        <childnode refid="1337" relation="usage">
           <edgelabel>_tag_constraints</edgelabel>
         </childnode>
-        <childnode refid="1616" relation="usage">
-          <edgelabel>_base_weights</edgelabel>
-          <edgelabel>_cur_weights</edgelabel>
-        </childnode>
-        <childnode refid="1605" relation="usage">
+        <childnode refid="1335" relation="usage">
           <edgelabel>_dirty_cache</edgelabel>
         </childnode>
-        <childnode refid="1618" relation="usage">
+        <childnode refid="1346" relation="usage">
           <edgelabel>_subgrad_cache</edgelabel>
         </childnode>
-        <childnode refid="1619" relation="usage">
+        <childnode refid="1347" relation="usage">
           <edgelabel>_dual_cache</edgelabel>
           <edgelabel>_primal_cache</edgelabel>
         </childnode>
       </node>
-      <node id="1595">
+      <node id="1325">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="1596" relation="public-inheritance">
+        <childnode refid="1326" relation="public-inheritance">
         </childnode>
-        <childnode refid="1597" relation="usage">
+        <childnode refid="1327" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
-        <childnode refid="1599" relation="usage">
+        <childnode refid="1329" relation="usage">
           <edgelabel>hgraph</edgelabel>
         </childnode>
-        <childnode refid="1600" relation="usage">
+        <childnode refid="1330" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="1598" relation="usage">
+        <childnode refid="1328" relation="usage">
           <edgelabel>_root</edgelabel>
         </childnode>
       </node>
-      <node id="1606">
+      <node id="1336">
         <label>Cache&lt; Tag, vector&lt; const Hyperedge * &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1605" relation="usage">
+        <childnode refid="1335" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1598">
+      <node id="1328">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="1611">
+      <node id="1341">
         <label>PossibleTag</label>
         <link refid="structPossibleTag"/>
-        <childnode refid="1612" relation="usage">
+        <childnode refid="1342" relation="usage">
           <edgelabel>group_name</edgelabel>
         </childnode>
       </node>
-      <node id="1615">
+      <node id="1345">
         <label>ConstraintGroup</label>
         <link refid="classConstraintGroup"/>
-        <childnode refid="1610" relation="usage">
+        <childnode refid="1340" relation="usage">
           <edgelabel>group</edgelabel>
         </childnode>
       </node>
-      <node id="1604">
+      <node id="1334">
         <label>Cache&lt; Hyperedge, Tag &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1605" relation="usage">
+        <childnode refid="1335" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1597">
+      <node id="1327">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="1598" relation="usage">
+        <childnode refid="1328" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1610">
+      <node id="1340">
         <label>std::vector&lt; PossibleTag &gt;</label>
-        <childnode refid="1611" relation="usage">
+        <childnode refid="1341" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1613">
+      <node id="1343">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="1599">
+      <node id="1329">
         <label>Hypergraph</label>
         <link refid="classHypergraph"/>
-        <childnode refid="1599" relation="usage">
+        <childnode refid="1329" relation="usage">
           <edgelabel>default_instance_</edgelabel>
         </childnode>
       </node>
-      <node id="1618">
+      <node id="1346">
         <label>std::vector&lt; wvector &gt;</label>
-        <childnode refid="1616" relation="usage">
-          <edgelabel>elements</edgelabel>
-        </childnode>
       </node>
-      <node id="1593">
+      <node id="1323">
         <label>std::vector&lt; const Tagger * &gt;</label>
-        <childnode refid="1594" relation="usage">
+        <childnode refid="1324" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1596">
+      <node id="1326">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="1616">
-        <label>svector&lt; F, V &gt;</label>
-        <link refid="classsvector"/>
-        <childnode refid="1617" relation="usage">
-          <edgelabel>m</edgelabel>
-        </childnode>
-      </node>
-      <node id="1605">
+      <node id="1335">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="1609">
+      <node id="1339">
         <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
-        <childnode refid="1610" relation="usage">
+        <childnode refid="1340" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1607">
+      <node id="1337">
         <label>TagConstraints</label>
         <link refid="classTagConstraints"/>
-        <childnode refid="1608" relation="usage">
+        <childnode refid="1338" relation="usage">
           <edgelabel>groups</edgelabel>
         </childnode>
-        <childnode refid="1609" relation="usage">
+        <childnode refid="1339" relation="usage">
           <edgelabel>_constrained_words</edgelabel>
         </childnode>
-        <childnode refid="1614" relation="usage">
+        <childnode refid="1344" relation="usage">
           <edgelabel>_constraint_struct</edgelabel>
         </childnode>
-        <childnode refid="1610" relation="usage">
+        <childnode refid="1340" relation="usage">
           <edgelabel>_all_constraints</edgelabel>
         </childnode>
       </node>
-      <node id="1614">
+      <node id="1344">
         <label>std::vector&lt; ConstraintGroup &gt;</label>
-        <childnode refid="1615" relation="usage">
+        <childnode refid="1345" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1592">
+      <node id="1322">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>
-      <node id="1603">
+      <node id="1333">
         <label>Tag</label>
         <link refid="structTag"/>
       </node>
-      <node id="1612">
+      <node id="1342">
         <label>std::string</label>
-        <childnode refid="1613" relation="public-inheritance">
+        <childnode refid="1343" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="1594">
+      <node id="1324">
         <label>Tagger</label>
         <link refid="classTagger"/>
-        <childnode refid="1595" relation="public-inheritance">
+        <childnode refid="1325" relation="public-inheritance">
         </childnode>
-        <childnode refid="1602" relation="usage">
+        <childnode refid="1332" relation="usage">
           <edgelabel>_tags</edgelabel>
         </childnode>
-        <childnode refid="1599" relation="usage">
+        <childnode refid="1329" relation="usage">
           <edgelabel>_h</edgelabel>
         </childnode>
-        <childnode refid="1604" relation="usage">
+        <childnode refid="1334" relation="usage">
           <edgelabel>_tag_map</edgelabel>
         </childnode>
-        <childnode refid="1606" relation="usage">
+        <childnode refid="1336" relation="usage">
           <edgelabel>_edge_map</edgelabel>
         </childnode>
       </node>
-      <node id="1600">
+      <node id="1330">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="1601" relation="usage">
+        <childnode refid="1331" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

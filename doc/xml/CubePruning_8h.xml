@@ -6,140 +6,99 @@
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
     <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
     <includes local="no">queue</includes>
-    <includes refid="third-party_2svector_2svector_8hpp" local="yes">svector.hpp</includes>
+    <includes local="yes">svector.hpp</includes>
     <includedby refid="CubeLM_8cpp" local="yes">CubeLM.cpp</includedby>
     <includedby refid="CubeLM_8h" local="yes">CubeLM.h</includedby>
     <includedby refid="Decode_8cpp" local="yes">trans_decode/Decode.cpp</includedby>
     <incdepgraph>
-      <node id="493">
+      <node id="386">
         <label>queue</label>
       </node>
-      <node id="492">
+      <node id="385">
         <label>assert.h</label>
       </node>
-      <node id="487">
-        <label>cassert</label>
-      </node>
-      <node id="486">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="489">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="485" relation="include">
-        </childnode>
-        <childnode refid="486" relation="include">
-        </childnode>
-        <childnode refid="487" relation="include">
-        </childnode>
-      </node>
-      <node id="482">
+      <node id="382">
         <label>string</label>
       </node>
-      <node id="485">
-        <label>map</label>
-      </node>
-      <node id="490">
+      <node id="383">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="488" relation="include">
+        <childnode refid="381" relation="include">
         </childnode>
-        <childnode refid="491" relation="include">
+        <childnode refid="384" relation="include">
         </childnode>
-        <childnode refid="492" relation="include">
+        <childnode refid="385" relation="include">
         </childnode>
       </node>
-      <node id="477">
+      <node id="375">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="478" relation="include">
+        <childnode refid="376" relation="include">
         </childnode>
-        <childnode refid="488" relation="include">
+        <childnode refid="381" relation="include">
         </childnode>
-        <childnode refid="476" relation="include">
+        <childnode refid="374" relation="include">
         </childnode>
-        <childnode refid="482" relation="include">
+        <childnode refid="382" relation="include">
         </childnode>
       </node>
-      <node id="480">
+      <node id="378">
         <label>fstream</label>
       </node>
-      <node id="478">
+      <node id="380">
+        <label>svector.hpp</label>
+      </node>
+      <node id="376">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="479" relation="include">
+        <childnode refid="377" relation="include">
         </childnode>
-        <childnode refid="480" relation="include">
+        <childnode refid="378" relation="include">
         </childnode>
-        <childnode refid="481" relation="include">
+        <childnode refid="379" relation="include">
         </childnode>
-        <childnode refid="489" relation="include">
+        <childnode refid="380" relation="include">
         </childnode>
       </node>
-      <node id="475">
+      <node id="373">
         <label>hypergraph/CubePruning.h</label>
         <link refid="CubePruning.h"/>
-        <childnode refid="476" relation="include">
+        <childnode refid="374" relation="include">
         </childnode>
-        <childnode refid="477" relation="include">
+        <childnode refid="375" relation="include">
         </childnode>
-        <childnode refid="490" relation="include">
+        <childnode refid="383" relation="include">
         </childnode>
-        <childnode refid="493" relation="include">
+        <childnode refid="386" relation="include">
         </childnode>
-        <childnode refid="489" relation="include">
+        <childnode refid="380" relation="include">
         </childnode>
       </node>
-      <node id="491">
+      <node id="384">
         <label>bitset</label>
       </node>
-      <node id="488">
+      <node id="381">
         <label>vector</label>
       </node>
-      <node id="483">
-        <label>sstream</label>
-      </node>
-      <node id="484">
-        <label>cstdlib</label>
-      </node>
-      <node id="481">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="482" relation="include">
-        </childnode>
-        <childnode refid="483" relation="include">
-        </childnode>
-        <childnode refid="484" relation="include">
-        </childnode>
-        <childnode refid="481" relation="include">
-        </childnode>
-        <childnode refid="485" relation="include">
-        </childnode>
-        <childnode refid="486" relation="include">
-        </childnode>
-        <childnode refid="487" relation="include">
-        </childnode>
-        <childnode refid="488" relation="include">
-        </childnode>
-        <childnode refid="479" relation="include">
-        </childnode>
-      </node>
-      <node id="479">
+      <node id="377">
         <label>iostream</label>
       </node>
-      <node id="476">
+      <node id="379">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="374">
         <label>set</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="495">
+      <node id="388">
         <label>CubeLM.h</label>
         <link refid="CubeLM_8h_source"/>
       </node>
-      <node id="494">
+      <node id="387">
         <label>hypergraph/CubePruning.h</label>
         <link refid="CubePruning.h"/>
-        <childnode refid="495" relation="include">
+        <childnode refid="388" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

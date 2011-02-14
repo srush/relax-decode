@@ -19,12 +19,12 @@
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classConstraintGroup_1a4f37823a56e405c16148c0ba6ae7f114" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <type>wvector</type>
         <definition>wvector ConstraintGroup::solve_hard</definition>
         <argsstring>(wvector &amp;weights) const </argsstring>
         <name>solve_hard</name>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <declname>weights</declname>
         </param>
         <briefdescription>
@@ -41,32 +41,32 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="402">
+      <node id="368">
         <label>PossibleTag</label>
         <link refid="structPossibleTag"/>
-        <childnode refid="403" relation="usage">
+        <childnode refid="369" relation="usage">
           <edgelabel>group_name</edgelabel>
         </childnode>
       </node>
-      <node id="400">
+      <node id="366">
         <label>ConstraintGroup</label>
         <link refid="classConstraintGroup"/>
-        <childnode refid="401" relation="usage">
+        <childnode refid="367" relation="usage">
           <edgelabel>group</edgelabel>
         </childnode>
       </node>
-      <node id="401">
+      <node id="367">
         <label>std::vector&lt; PossibleTag &gt;</label>
-        <childnode refid="402" relation="usage">
+        <childnode refid="368" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="404">
+      <node id="370">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="403">
+      <node id="369">
         <label>std::string</label>
-        <childnode refid="404" relation="public-inheritance">
+        <childnode refid="370" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

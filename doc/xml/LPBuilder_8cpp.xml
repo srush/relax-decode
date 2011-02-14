@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
   <compounddef id="LPBuilder_8cpp" kind="file">
     <compoundname>LPBuilder.cpp</compoundname>
-    <includes refid="cy__svector_8hpp" local="no">cy_svector.hpp</includes>
-    <includes refid="third-party_2svector_2svector_8hpp" local="no">svector.hpp</includes>
+    <includes local="no">cy_svector.hpp</includes>
+    <includes local="no">svector.hpp</includes>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
     <includes refid="LPBuilder_8cpp" local="yes">LPBuilder.h</includes>
     <includes refid="ForestLattice_8h" local="yes">ForestLattice.h</includes>
@@ -17,216 +17,178 @@
     <includes local="yes">../common.h</includes>
     <includedby refid="LPBuilder_8cpp" local="yes">lp/LPBuilder.cpp</includedby>
     <incdepgraph>
-      <node id="1780">
+      <node id="1216">
         <label>assert.h</label>
       </node>
-      <node id="1777">
+      <node id="1213">
         <label>GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="1761" relation="include">
+        <childnode refid="1201" relation="include">
         </childnode>
-        <childnode refid="1778" relation="include">
+        <childnode refid="1214" relation="include">
         </childnode>
-        <childnode refid="1768" relation="include">
-        </childnode>
-      </node>
-      <node id="1760">
-        <label>cassert</label>
-      </node>
-      <node id="1759">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="1763">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="1758" relation="include">
-        </childnode>
-        <childnode refid="1759" relation="include">
-        </childnode>
-        <childnode refid="1760" relation="include">
+        <childnode refid="1204" relation="include">
         </childnode>
       </node>
-      <node id="1755">
+      <node id="1203">
         <label>string</label>
       </node>
-      <node id="1758">
-        <label>map</label>
-      </node>
-      <node id="1779">
+      <node id="1215">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="1761" relation="include">
+        <childnode refid="1201" relation="include">
         </childnode>
-        <childnode refid="1778" relation="include">
+        <childnode refid="1214" relation="include">
         </childnode>
-        <childnode refid="1780" relation="include">
+        <childnode refid="1216" relation="include">
         </childnode>
       </node>
-      <node id="1764">
+      <node id="1197">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="1765" relation="include">
+        <childnode refid="1198" relation="include">
         </childnode>
-        <childnode refid="1761" relation="include">
+        <childnode refid="1201" relation="include">
         </childnode>
-        <childnode refid="1767" relation="include">
+        <childnode refid="1202" relation="include">
         </childnode>
-        <childnode refid="1755" relation="include">
+        <childnode refid="1203" relation="include">
         </childnode>
       </node>
-      <node id="1766">
+      <node id="1200">
         <label>fstream</label>
       </node>
-      <node id="1775">
+      <node id="1211">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="1761" relation="include">
+        <childnode refid="1201" relation="include">
         </childnode>
-        <childnode refid="1755" relation="include">
+        <childnode refid="1203" relation="include">
         </childnode>
-        <childnode refid="1776" relation="include">
+        <childnode refid="1212" relation="include">
         </childnode>
       </node>
-      <node id="1765">
+      <node id="1196">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1198">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="1762" relation="include">
+        <childnode refid="1199" relation="include">
         </childnode>
-        <childnode refid="1766" relation="include">
+        <childnode refid="1200" relation="include">
         </childnode>
-        <childnode refid="1754" relation="include">
+        <childnode refid="1195" relation="include">
         </childnode>
-        <childnode refid="1763" relation="include">
+        <childnode refid="1196" relation="include">
         </childnode>
       </node>
-      <node id="1771">
+      <node id="1207">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="1782">
+      <node id="1218">
         <label>Ngram.h</label>
       </node>
-      <node id="1776">
+      <node id="1212">
         <label>../common.h</label>
       </node>
-      <node id="1778">
+      <node id="1214">
         <label>bitset</label>
       </node>
-      <node id="1769">
+      <node id="1205">
         <label>lattice.pb.h</label>
         <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="1755" relation="include">
+        <childnode refid="1203" relation="include">
         </childnode>
-        <childnode refid="1770" relation="include">
+        <childnode refid="1206" relation="include">
         </childnode>
-        <childnode refid="1771" relation="include">
+        <childnode refid="1207" relation="include">
         </childnode>
-        <childnode refid="1772" relation="include">
+        <childnode refid="1208" relation="include">
         </childnode>
-        <childnode refid="1773" relation="include">
+        <childnode refid="1209" relation="include">
         </childnode>
-        <childnode refid="1774" relation="include">
+        <childnode refid="1210" relation="include">
         </childnode>
       </node>
-      <node id="1770">
+      <node id="1206">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="1761">
+      <node id="1201">
         <label>vector</label>
       </node>
-      <node id="1783">
+      <node id="1219">
         <label>HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms_8h_source"/>
-        <childnode refid="1763" relation="include">
+        <childnode refid="1196" relation="include">
         </childnode>
-        <childnode refid="1779" relation="include">
+        <childnode refid="1215" relation="include">
         </childnode>
-        <childnode refid="1764" relation="include">
+        <childnode refid="1197" relation="include">
         </childnode>
       </node>
-      <node id="1768">
+      <node id="1204">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="1755" relation="include">
+        <childnode refid="1203" relation="include">
         </childnode>
-        <childnode refid="1769" relation="include">
+        <childnode refid="1205" relation="include">
         </childnode>
-        <childnode refid="1761" relation="include">
+        <childnode refid="1201" relation="include">
         </childnode>
-        <childnode refid="1775" relation="include">
+        <childnode refid="1211" relation="include">
         </childnode>
       </node>
-      <node id="1756">
+      <node id="1220">
         <label>sstream</label>
       </node>
-      <node id="1773">
+      <node id="1209">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="1772">
+      <node id="1208">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="1757">
-        <label>cstdlib</label>
-      </node>
-      <node id="1754">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="1755" relation="include">
-        </childnode>
-        <childnode refid="1756" relation="include">
-        </childnode>
-        <childnode refid="1757" relation="include">
-        </childnode>
-        <childnode refid="1754" relation="include">
-        </childnode>
-        <childnode refid="1758" relation="include">
-        </childnode>
-        <childnode refid="1759" relation="include">
-        </childnode>
-        <childnode refid="1760" relation="include">
-        </childnode>
-        <childnode refid="1761" relation="include">
-        </childnode>
-        <childnode refid="1762" relation="include">
-        </childnode>
-      </node>
-      <node id="1762">
+      <node id="1199">
         <label>iostream</label>
       </node>
-      <node id="1781">
+      <node id="1195">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1217">
         <label>gurobi_c++.h</label>
       </node>
-      <node id="1767">
+      <node id="1202">
         <label>set</label>
       </node>
-      <node id="1753">
+      <node id="1194">
         <label>lp/LPBuilder.cpp</label>
         <link refid="LPBuilder.cpp"/>
-        <childnode refid="1754" relation="include">
+        <childnode refid="1195" relation="include">
         </childnode>
-        <childnode refid="1763" relation="include">
+        <childnode refid="1196" relation="include">
         </childnode>
-        <childnode refid="1764" relation="include">
+        <childnode refid="1197" relation="include">
         </childnode>
-        <childnode refid="1768" relation="include">
+        <childnode refid="1204" relation="include">
         </childnode>
-        <childnode refid="1777" relation="include">
+        <childnode refid="1213" relation="include">
         </childnode>
-        <childnode refid="1779" relation="include">
+        <childnode refid="1215" relation="include">
         </childnode>
-        <childnode refid="1755" relation="include">
+        <childnode refid="1203" relation="include">
         </childnode>
-        <childnode refid="1781" relation="include">
+        <childnode refid="1217" relation="include">
         </childnode>
-        <childnode refid="1782" relation="include">
+        <childnode refid="1218" relation="include">
         </childnode>
-        <childnode refid="1783" relation="include">
+        <childnode refid="1219" relation="include">
         </childnode>
-        <childnode refid="1756" relation="include">
+        <childnode refid="1220" relation="include">
         </childnode>
-        <childnode refid="1776" relation="include">
+        <childnode refid="1212" relation="include">
         </childnode>
       </node>
-      <node id="1774">
+      <node id="1210">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>

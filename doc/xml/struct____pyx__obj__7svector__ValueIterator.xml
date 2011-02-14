@@ -4,7 +4,7 @@
     <compoundname>__pyx_obj_7svector_ValueIterator</compoundname>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="struct____pyx__obj__7svector__ValueIterator_1a84c4b6a57426d1026bc9fee500e1f0bc" prot="public" static="no" mutable="no">
-        <type>PyObject_HEAD <ref refid="structsvector__iterator" kindref="compound">svector_iterator</ref>&lt; int, double &gt; *</type>
+        <type>PyObject_HEAD svector_iterator&lt; int, double &gt; *</type>
         <definition>PyObject_HEAD svector_iterator&lt; int, double &gt; * __pyx_obj_7svector_ValueIterator::thisptr</definition>
         <argsstring></argsstring>
         <name>thisptr</name>
@@ -35,40 +35,16 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="16">
-        <label>std::map&lt; int, double &gt;</label>
-      </node>
-      <node id="13">
+      <node id="7">
         <label>__pyx_obj_7svector_ValueIterator</label>
         <link refid="struct____pyx__obj__7svector__ValueIterator"/>
-        <childnode refid="14" relation="usage">
+        <childnode refid="8" relation="usage">
           <edgelabel>v</edgelabel>
         </childnode>
-        <childnode refid="17" relation="usage">
-          <edgelabel>thisptr</edgelabel>
-        </childnode>
       </node>
-      <node id="15">
-        <label>svector&lt; int, double &gt;</label>
-        <link refid="classsvector"/>
-        <childnode refid="16" relation="usage">
-          <edgelabel>m</edgelabel>
-        </childnode>
-      </node>
-      <node id="17">
-        <label>svector_iterator&lt; int, double &gt;</label>
-        <link refid="structsvector__iterator"/>
-        <childnode refid="15" relation="usage">
-          <edgelabel>end</edgelabel>
-          <edgelabel>cur</edgelabel>
-        </childnode>
-      </node>
-      <node id="14">
+      <node id="8">
         <label>__pyx_obj_7svector_Vector</label>
         <link refid="struct____pyx__obj__7svector__Vector"/>
-        <childnode refid="15" relation="usage">
-          <edgelabel>thisptr</edgelabel>
-        </childnode>
       </node>
     </collaborationgraph>
     <location file="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" line="473" bodyfile="/home/srush/Projects/relax_decode/hypergraph/svector.cpp" bodystart="473" bodyend="477"/>

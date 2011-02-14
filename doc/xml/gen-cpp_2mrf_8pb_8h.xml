@@ -8,61 +8,54 @@
     <includes local="no">google/protobuf/repeated_field.h</includes>
     <includes local="no">google/protobuf/extension_set.h</includes>
     <includes local="no">google/protobuf/generated_message_reflection.h</includes>
-    <includes refid="gen-py_2graph_8pb_8h" local="yes">graph.pb.h</includes>
+    <includes refid="gen-cpp_2mrf_8pb_8h" local="yes">graph.pb.h</includes>
+    <includedby refid="gen-cpp_2mrf_8pb_8h" local="yes">interfaces/graph/gen-cpp/mrf.pb.h</includedby>
     <incdepgraph>
-      <node id="1025">
+      <node id="753">
         <label>interfaces/graph/gen-cpp/mrf.pb.h</label>
         <link refid="gen-cpp/mrf.pb.h"/>
-        <childnode refid="1026" relation="include">
+        <childnode refid="754" relation="include">
         </childnode>
-        <childnode refid="1027" relation="include">
+        <childnode refid="755" relation="include">
         </childnode>
-        <childnode refid="1028" relation="include">
+        <childnode refid="756" relation="include">
         </childnode>
-        <childnode refid="1029" relation="include">
+        <childnode refid="757" relation="include">
         </childnode>
-        <childnode refid="1030" relation="include">
+        <childnode refid="758" relation="include">
         </childnode>
-        <childnode refid="1031" relation="include">
+        <childnode refid="759" relation="include">
         </childnode>
-        <childnode refid="1032" relation="include">
+        <childnode refid="753" relation="include">
         </childnode>
       </node>
-      <node id="1026">
+      <node id="754">
         <label>string</label>
       </node>
-      <node id="1032">
-        <label>graph.pb.h</label>
-        <link refid="gen-py_2graph_8pb_8h_source"/>
-        <childnode refid="1026" relation="include">
-        </childnode>
-        <childnode refid="1027" relation="include">
-        </childnode>
-        <childnode refid="1028" relation="include">
-        </childnode>
-        <childnode refid="1029" relation="include">
-        </childnode>
-        <childnode refid="1030" relation="include">
-        </childnode>
-        <childnode refid="1031" relation="include">
-        </childnode>
-      </node>
-      <node id="1028">
+      <node id="756">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="1027">
+      <node id="755">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="1030">
+      <node id="758">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="1029">
+      <node id="757">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="1031">
+      <node id="759">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="760">
+        <label>interfaces/graph/gen-cpp/mrf.pb.h</label>
+        <link refid="gen-cpp/mrf.pb.h"/>
+        <childnode refid="760" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="classgraph_1_1State" prot="public">graph::State</innerclass>
     <innerclass refid="classgraph_1_1NodeStatePotential" prot="public">graph::NodeStatePotential</innerclass>
     <innerclass refid="classgraph_1_1EdgeStatePotential" prot="public">graph::EdgeStatePotential</innerclass>
@@ -117,9 +110,9 @@
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MRFNode;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MRFEdge;</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classgraph_1_1State" refkind="compound"><highlight class="normal"></highlight><highlight class="comment">//<sp/>===================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="classgraph_1_1State" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1State" kindref="compound">State</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1State" kindref="compound">State</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="classgraph_1_1State" kindref="compound">State</ref>();</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classgraph_1_1State" kindref="compound">State</ref>();</highlight></codeline>
@@ -213,9 +206,9 @@
 <codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitAsDefaultInstance();</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1State" kindref="compound">State</ref>*<sp/>default_instance_;</highlight></codeline>
 <codeline lineno="137"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="classgraph_1_1NodeStatePotential" refkind="compound"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140" refid="classgraph_1_1NodeStatePotential" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1NodeStatePotential" kindref="compound">NodeStatePotential</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1NodeStatePotential" kindref="compound">NodeStatePotential</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><ref refid="classgraph_1_1NodeStatePotential" kindref="compound">NodeStatePotential</ref>();</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classgraph_1_1NodeStatePotential" kindref="compound">NodeStatePotential</ref>();</highlight></codeline>
@@ -306,9 +299,9 @@
 <codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitAsDefaultInstance();</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1NodeStatePotential" kindref="compound">NodeStatePotential</ref>*<sp/>default_instance_;</highlight></codeline>
 <codeline lineno="230"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="classgraph_1_1EdgeStatePotential" refkind="compound"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233" refid="classgraph_1_1EdgeStatePotential" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">EdgeStatePotential</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">EdgeStatePotential</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">EdgeStatePotential</ref>();</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">EdgeStatePotential</ref>();</highlight></codeline>
@@ -408,9 +401,9 @@
 <codeline lineno="330"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitAsDefaultInstance();</highlight></codeline>
 <codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">EdgeStatePotential</ref>*<sp/>default_instance_;</highlight></codeline>
 <codeline lineno="332"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="333"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333" refid="classgraph_1_1MRFNode" refkind="compound"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="334"><highlight class="normal"></highlight></codeline>
-<codeline lineno="335" refid="classgraph_1_1MRFNode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1MRFNode" kindref="compound">MRFNode</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1MRFNode" kindref="compound">MRFNode</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
 <codeline lineno="336"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="337"><highlight class="normal"><sp/><sp/><ref refid="classgraph_1_1MRFNode" kindref="compound">MRFNode</ref>();</highlight></codeline>
 <codeline lineno="338"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classgraph_1_1MRFNode" kindref="compound">MRFNode</ref>();</highlight></codeline>
@@ -493,9 +486,9 @@
 <codeline lineno="415"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitAsDefaultInstance();</highlight></codeline>
 <codeline lineno="416"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1MRFNode" kindref="compound">MRFNode</ref>*<sp/>default_instance_;</highlight></codeline>
 <codeline lineno="417"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="418"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="418" refid="classgraph_1_1MRFEdge" refkind="compound"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="419"><highlight class="normal"></highlight></codeline>
-<codeline lineno="420" refid="classgraph_1_1MRFEdge" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1MRFEdge" kindref="compound">MRFEdge</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classgraph_1_1MRFEdge" kindref="compound">MRFEdge</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::google::protobuf::Message<sp/>{</highlight></codeline>
 <codeline lineno="421"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="422"><highlight class="normal"><sp/><sp/><ref refid="classgraph_1_1MRFEdge" kindref="compound">MRFEdge</ref>();</highlight></codeline>
 <codeline lineno="423"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classgraph_1_1MRFEdge" kindref="compound">MRFEdge</ref>();</highlight></codeline>

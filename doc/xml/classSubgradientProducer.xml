@@ -21,7 +21,7 @@
           <declname>dual</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
         </param>
         <param>
           <type>int</type>
@@ -48,11 +48,11 @@
         <reimplementedby refid="classDecode_1a9beca60221318f111b7f4d5acca8e329">update_weights</reimplementedby>
         <reimplementedby refid="classDualDecompositionRunner_1a3cdf7ce33f6454f9fee9fb9c3287c5ac">update_weights</reimplementedby>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>updates</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <type>wvector *</type>
           <declname>weights</declname>
         </param>
         <briefdescription>
@@ -69,20 +69,20 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1519">
+      <node id="1254">
         <label>DualDecompositionRunner</label>
         <link refid="classDualDecompositionRunner"/>
-        <childnode refid="1517" relation="public-inheritance">
+        <childnode refid="1252" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="1517">
+      <node id="1252">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>
-      <node id="1518">
+      <node id="1253">
         <label>Decode</label>
         <link refid="classDecode"/>
-        <childnode refid="1517" relation="public-inheritance">
+        <childnode refid="1252" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>

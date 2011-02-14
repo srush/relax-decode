@@ -395,60 +395,60 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="302">
+      <node id="289">
         <label>GraphDecompose</label>
         <link refid="classGraphDecompose"/>
-        <childnode refid="282" relation="usage">
+        <childnode refid="269" relation="usage">
           <edgelabel>backward_bigrams</edgelabel>
           <edgelabel>forward_bigrams</edgelabel>
         </childnode>
-        <childnode refid="303" relation="usage">
+        <childnode refid="290" relation="usage">
           <edgelabel>bigram_paths</edgelabel>
         </childnode>
-        <childnode refid="283" relation="usage">
+        <childnode refid="270" relation="usage">
           <edgelabel>g</edgelabel>
         </childnode>
-        <childnode refid="297" relation="usage">
+        <childnode refid="284" relation="usage">
           <edgelabel>all_pairs_path_exist</edgelabel>
         </childnode>
-        <childnode refid="298" relation="usage">
+        <childnode refid="285" relation="usage">
           <edgelabel>all_pairs_path</edgelabel>
         </childnode>
-        <childnode refid="285" relation="usage">
+        <childnode refid="272" relation="usage">
           <edgelabel>valid_bigrams</edgelabel>
         </childnode>
       </node>
-      <node id="294">
+      <node id="281">
         <label>T</label>
       </node>
-      <node id="289">
+      <node id="276">
         <label>Scarab::Graph::Graphedge</label>
         <link refid="classScarab_1_1Graph_1_1Graphedge"/>
-        <childnode refid="290" relation="usage">
+        <childnode refid="277" relation="usage">
           <edgelabel>_to_node</edgelabel>
           <edgelabel>_from_node</edgelabel>
         </childnode>
       </node>
-      <node id="285">
+      <node id="272">
         <label>std::vector&lt; Bigram &gt;</label>
-        <childnode refid="286" relation="usage">
+        <childnode refid="273" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="293">
+      <node id="280">
         <label>std::vector&lt; T &gt;</label>
-        <childnode refid="294" relation="usage">
+        <childnode refid="281" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="283">
+      <node id="270">
         <label>ForestLattice</label>
         <link refid="classForestLattice"/>
-        <childnode refid="284" relation="usage">
+        <childnode refid="271" relation="usage">
           <edgelabel>bigrams_at_node</edgelabel>
           <edgelabel>_last_bigrams</edgelabel>
         </childnode>
-        <childnode refid="282" relation="usage">
+        <childnode refid="269" relation="usage">
           <edgelabel>_last_words</edgelabel>
           <edgelabel>graph</edgelabel>
           <edgelabel>_first_words</edgelabel>
@@ -456,14 +456,14 @@
           <edgelabel>_edge_by_nodes</edgelabel>
           <edgelabel>original_edges</edgelabel>
         </childnode>
-        <childnode refid="287" relation="usage">
+        <childnode refid="274" relation="usage">
           <edgelabel>_proper_graph</edgelabel>
         </childnode>
-        <childnode refid="295" relation="usage">
+        <childnode refid="282" relation="usage">
           <edgelabel>_words</edgelabel>
           <edgelabel>_edge_label_by_nodes</edgelabel>
         </childnode>
-        <childnode refid="296" relation="usage">
+        <childnode refid="283" relation="usage">
           <edgelabel>_last_same</edgelabel>
           <edgelabel>_hyp_node_to_lat_word</edgelabel>
           <edgelabel>_words_lookup</edgelabel>
@@ -476,119 +476,119 @@
           <edgelabel>final</edgelabel>
           <edgelabel>...</edgelabel>
         </childnode>
-        <childnode refid="285" relation="usage">
+        <childnode refid="272" relation="usage">
           <edgelabel>_original_id_to_edge</edgelabel>
         </childnode>
       </node>
-      <node id="300">
+      <node id="287">
         <label>std::vector&lt; float &gt;</label>
       </node>
-      <node id="281">
+      <node id="268">
         <label>BigramRescore</label>
         <link refid="classBigramRescore"/>
-        <childnode refid="282" relation="usage">
+        <childnode refid="269" relation="usage">
           <edgelabel>forward_paths</edgelabel>
           <edgelabel>best_split</edgelabel>
           <edgelabel>backward_paths</edgelabel>
         </childnode>
-        <childnode refid="283" relation="usage">
+        <childnode refid="270" relation="usage">
           <edgelabel>graph</edgelabel>
         </childnode>
-        <childnode refid="297" relation="usage">
+        <childnode refid="284" relation="usage">
           <edgelabel>need_to_recompute</edgelabel>
         </childnode>
-        <childnode refid="298" relation="usage">
+        <childnode refid="285" relation="usage">
           <edgelabel>bigram_path</edgelabel>
         </childnode>
-        <childnode refid="299" relation="usage">
+        <childnode refid="286" relation="usage">
           <edgelabel>bigram_weights</edgelabel>
         </childnode>
-        <childnode refid="296" relation="usage">
+        <childnode refid="283" relation="usage">
           <edgelabel>update_position</edgelabel>
         </childnode>
-        <childnode refid="300" relation="usage">
+        <childnode refid="287" relation="usage">
           <edgelabel>current_weights</edgelabel>
         </childnode>
-        <childnode refid="301" relation="usage">
+        <childnode refid="288" relation="usage">
           <edgelabel>update_filter</edgelabel>
         </childnode>
-        <childnode refid="302" relation="usage">
+        <childnode refid="289" relation="usage">
           <edgelabel>gd</edgelabel>
         </childnode>
       </node>
-      <node id="295">
+      <node id="282">
         <label>std::vector&lt; string &gt;</label>
-        <childnode refid="291" relation="usage">
+        <childnode refid="278" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="286">
+      <node id="273">
         <label>Bigram</label>
         <link refid="structBigram"/>
       </node>
-      <node id="290">
+      <node id="277">
         <label>Scarab::Graph::Graphnode</label>
         <link refid="classScarab_1_1Graph_1_1Graphnode"/>
-        <childnode refid="288" relation="usage">
+        <childnode refid="275" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="291" relation="usage">
+        <childnode refid="278" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
       </node>
-      <node id="292">
+      <node id="279">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="284">
+      <node id="271">
         <label>std::vector&lt; vector&lt; Bigram &gt; &gt;</label>
-        <childnode refid="285" relation="usage">
+        <childnode refid="272" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="282">
+      <node id="269">
         <label>std::vector&lt; vector&lt; int &gt; &gt;</label>
       </node>
-      <node id="299">
+      <node id="286">
         <label>std::vector&lt; vector&lt; float &gt; &gt;</label>
-        <childnode refid="300" relation="usage">
+        <childnode refid="287" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
-      </node>
-      <node id="301">
-        <label>std::vector&lt; bool &gt;</label>
-      </node>
-      <node id="298">
-        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
-      </node>
-      <node id="303">
-        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
       </node>
       <node id="288">
+        <label>std::vector&lt; bool &gt;</label>
+      </node>
+      <node id="285">
+        <label>std::vector&lt; vector&lt; vector&lt; int &gt; * &gt; &gt;</label>
+      </node>
+      <node id="290">
+        <label>std::vector&lt; vector&lt; vector&lt; vector&lt; int &gt; &gt; &gt; &gt;</label>
+      </node>
+      <node id="275">
         <label>std::vector&lt; const Graphedge * &gt;</label>
-        <childnode refid="289" relation="usage">
+        <childnode refid="276" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="287">
+      <node id="274">
         <label>Scarab::Graph::Graph</label>
         <link refid="classScarab_1_1Graph_1_1Graph"/>
-        <childnode refid="288" relation="usage">
+        <childnode refid="275" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="293" relation="usage">
+        <childnode refid="280" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
       </node>
-      <node id="296">
+      <node id="283">
         <label>std::vector&lt; int &gt;</label>
       </node>
-      <node id="297">
+      <node id="284">
         <label>std::vector&lt; vector&lt; bool &gt; &gt;</label>
       </node>
-      <node id="291">
+      <node id="278">
         <label>std::string</label>
-        <childnode refid="292" relation="public-inheritance">
+        <childnode refid="279" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

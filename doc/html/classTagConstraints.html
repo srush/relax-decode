@@ -19,7 +19,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -53,13 +52,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58a2e5245400d411de24e36534d11945"></a><!-- doxytag: member="TagConstraints::TagConstraints" ref="a58a2e5245400d411de24e36534d11945" args="(int num_tags)" -->
 &nbsp;</td><td class="memItemRight" valign="bottom"><b>TagConstraints</b> (int num_tags)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCache.html">EdgeCache</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTagConstraints.html#adec1a1de8fb49e79b52c4c93517414a0">build_tagger_constraint_vector</a> (int sent_num, const <a class="el" href="classTagger.html">Tagger</a> &amp;tagger, <a class="el" href="classsvector.html">wvector</a> &amp;orig_weights) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCache.html">EdgeCache</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTagConstraints.html#adec1a1de8fb49e79b52c4c93517414a0">build_tagger_constraint_vector</a> (int sent_num, const <a class="el" href="classTagger.html">Tagger</a> &amp;tagger, wvector &amp;orig_weights) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec3818d7505e9147828ab7cb3863001"></a><!-- doxytag: member="TagConstraints::build_tagger_subgradient" ref="acec3818d7505e9147828ab7cb3863001" args="(int sent_num, const Tagger &amp;tagger, const vector&lt; const Hyperedge * &gt; used_edges) const " -->
-<a class="el" href="classsvector.html">wvector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><b>build_tagger_subgradient</b> (int sent_num, const <a class="el" href="classTagger.html">Tagger</a> &amp;tagger, const vector&lt; const <a class="el" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> * &gt; used_edges) const </td></tr>
+wvector&nbsp;</td><td class="memItemRight" valign="bottom"><b>build_tagger_subgradient</b> (int sent_num, const <a class="el" href="classTagger.html">Tagger</a> &amp;tagger, const vector&lt; const <a class="el" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> * &gt; used_edges) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b8df130795f2fbc1ce2aac375dfc00a"></a><!-- doxytag: member="TagConstraints::read_from_file" ref="a8b8df130795f2fbc1ce2aac375dfc00a" args="(string file_name)" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><b>read_from_file</b> (string file_name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e490a8d4d335ed4d04803fab0a82871"></a><!-- doxytag: member="TagConstraints::solve_hard" ref="a3e490a8d4d335ed4d04803fab0a82871" args="(wvector &amp;model) const " -->
-<a class="el" href="classsvector.html">wvector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><b>solve_hard</b> (<a class="el" href="classsvector.html">wvector</a> &amp;model) const </td></tr>
+wvector&nbsp;</td><td class="memItemRight" valign="bottom"><b>solve_hard</b> (wvector &amp;model) const </td></tr>
 <tr><td colspan="2"><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5aae083cb84eff2294ca7fbbd63cb67"></a><!-- doxytag: member="TagConstraints::_constraint_struct" ref="ad5aae083cb84eff2294ca7fbbd63cb67" args="" -->
 vector&lt; <a class="el" href="classConstraintGroup.html">ConstraintGroup</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>_constraint_struct</b></td></tr>
@@ -92,7 +91,7 @@ int&nbsp;</td><td class="memItemRight" valign="bottom"><b>_num_tags</b></td></tr
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsvector.html">wvector</a> &amp;&nbsp;</td>
+          <td class="paramtype">wvector &amp;&nbsp;</td>
           <td class="paramname"> <em>orig_weights</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -117,7 +116,7 @@ int&nbsp;</td><td class="memItemRight" valign="bottom"><b>_num_tags</b></td></tr
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,7 +125,7 @@ int&nbsp;</td><td class="memItemRight" valign="bottom"><b>_num_tags</b></td></tr
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:09:16 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:11 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

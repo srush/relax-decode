@@ -118,75 +118,75 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="794">
+      <node id="656">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
       </node>
-      <node id="795">
+      <node id="657">
         <label>MRF</label>
         <link refid="classMRF"/>
-        <childnode refid="794" relation="public-inheritance">
+        <childnode refid="656" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="804">
+      <node id="666">
         <label>T</label>
       </node>
-      <node id="796">
+      <node id="658">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
-        <childnode refid="797" relation="usage">
+        <childnode refid="659" relation="usage">
           <edgelabel>_graph</edgelabel>
         </childnode>
       </node>
-      <node id="799">
+      <node id="661">
         <label>Scarab::Graph::Graphedge</label>
         <link refid="classScarab_1_1Graph_1_1Graphedge"/>
-        <childnode refid="800" relation="usage">
+        <childnode refid="662" relation="usage">
           <edgelabel>_to_node</edgelabel>
           <edgelabel>_from_node</edgelabel>
         </childnode>
       </node>
-      <node id="803">
+      <node id="665">
         <label>std::vector&lt; T &gt;</label>
-        <childnode refid="804" relation="usage">
+        <childnode refid="666" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="800">
+      <node id="662">
         <label>Scarab::Graph::Graphnode</label>
         <link refid="classScarab_1_1Graph_1_1Graphnode"/>
-        <childnode refid="798" relation="usage">
+        <childnode refid="660" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="801" relation="usage">
+        <childnode refid="663" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
       </node>
-      <node id="802">
+      <node id="664">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="798">
+      <node id="660">
         <label>std::vector&lt; const Graphedge * &gt;</label>
-        <childnode refid="799" relation="usage">
+        <childnode refid="661" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="797">
+      <node id="659">
         <label>Scarab::Graph::Graph</label>
         <link refid="classScarab_1_1Graph_1_1Graph"/>
-        <childnode refid="798" relation="usage">
+        <childnode refid="660" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="803" relation="usage">
+        <childnode refid="665" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
       </node>
-      <node id="801">
+      <node id="663">
         <label>std::string</label>
-        <childnode refid="802" relation="public-inheritance">
+        <childnode refid="664" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

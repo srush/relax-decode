@@ -8,56 +8,40 @@
     <includedby refid="TagSolvers_8cpp" local="yes">tagger/TagSolvers.cpp</includedby>
     <includedby refid="TagSolvers_8h" local="yes">tagger/TagSolvers.h</includedby>
     <incdepgraph>
-      <node id="2091">
+      <node id="1490">
         <label>Subgradient.h</label>
         <link refid="Subgradient_8h_source"/>
-        <childnode refid="2092" relation="include">
+        <childnode refid="1491" relation="include">
         </childnode>
-        <childnode refid="2096" relation="include">
+        <childnode refid="1492" relation="include">
         </childnode>
       </node>
-      <node id="2095">
-        <label>cassert</label>
-      </node>
-      <node id="2094">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="2092">
+      <node id="1491">
         <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="2093" relation="include">
-        </childnode>
-        <childnode refid="2094" relation="include">
-        </childnode>
-        <childnode refid="2095" relation="include">
-        </childnode>
       </node>
-      <node id="2093">
-        <label>map</label>
-      </node>
-      <node id="2096">
+      <node id="1492">
         <label>vector</label>
       </node>
-      <node id="2089">
+      <node id="1488">
         <label>optimization/DualDecomposition.h</label>
         <link refid="DualDecomposition.h"/>
-        <childnode refid="2090" relation="include">
+        <childnode refid="1489" relation="include">
         </childnode>
-        <childnode refid="2091" relation="include">
+        <childnode refid="1490" relation="include">
         </childnode>
       </node>
-      <node id="2090">
+      <node id="1489">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2097">
+      <node id="1493">
         <label>optimization/DualDecomposition.h</label>
         <link refid="DualDecomposition.h"/>
-        <childnode refid="2098" relation="include">
+        <childnode refid="1494" relation="include">
         </childnode>
       </node>
-      <node id="2098">
+      <node id="1494">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -78,10 +62,10 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
 <codeline lineno="7" refid="classDualDecompositionSubproblem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classDualDecompositionSubproblem" kindref="compound">DualDecompositionSubproblem</ref><sp/>{</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;,<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/>wvector<sp/>&amp;,<sp/></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>=0;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>updates,<sp/><sp/></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>weights,<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>wvector<sp/>&amp;<sp/>updates,<sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wvector<sp/>*<sp/>weights,<sp/></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mult)=0;</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
@@ -93,11 +77,11 @@
 <codeline lineno="21"><highlight class="normal"><sp/><sp/>_sub_producer1(s1),<sp/>_sub_producer2(s2)<sp/>{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/>solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/>wvector<sp/>&amp;<sp/>subgrad,<sp/></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>round,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_stuck,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>bump_rate)<sp/>{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>primal1,<sp/>primal2,<sp/>dual1,<sp/>dual2;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>subgrad1,<sp/>subgrad2;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>wvector<sp/>subgrad1,<sp/>subgrad2;</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bump1,<sp/>bump2;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>_sub_producer1.solve(primal1,<sp/>dual1,<sp/>subgrad1,<sp/>round);</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>_sub_producer2.solve(primal2,<sp/>dual2,<sp/>subgrad2,<sp/>round);</highlight></codeline>
@@ -120,8 +104,8 @@
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>updates,<sp/><sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>weights)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>wvector<sp/>&amp;<sp/>updates,<sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wvector<sp/>*<sp/>weights)<sp/>{</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>_sub_producer1.update_weights(updates,<sp/>weights,<sp/>1.0);</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>_sub_producer2.update_weights(updates,<sp/>weights,<sp/>-1.0);</highlight></codeline>

@@ -4,162 +4,124 @@
     <compoundname>BestHyp.cpp</compoundname>
     <includes refid="BestHyp_8h" local="yes">BestHyp.h</includes>
     <incdepgraph>
-      <node id="370">
+      <node id="286">
         <label>assert.h</label>
       </node>
-      <node id="389">
+      <node id="301">
         <label>cmath</label>
       </node>
-      <node id="382">
-        <label>cassert</label>
-      </node>
-      <node id="381">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="383">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="371" relation="include">
-        </childnode>
-        <childnode refid="381" relation="include">
-        </childnode>
-        <childnode refid="382" relation="include">
-        </childnode>
-      </node>
-      <node id="378">
+      <node id="296">
         <label>string</label>
       </node>
-      <node id="371">
+      <node id="287">
         <label>map</label>
       </node>
-      <node id="386">
+      <node id="298">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="372" relation="include">
+        <childnode refid="288" relation="include">
         </childnode>
-        <childnode refid="387" relation="include">
+        <childnode refid="299" relation="include">
         </childnode>
-        <childnode refid="370" relation="include">
+        <childnode refid="286" relation="include">
         </childnode>
       </node>
-      <node id="373">
+      <node id="289">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="374" relation="include">
+        <childnode refid="290" relation="include">
         </childnode>
-        <childnode refid="372" relation="include">
+        <childnode refid="288" relation="include">
         </childnode>
-        <childnode refid="384" relation="include">
+        <childnode refid="295" relation="include">
         </childnode>
-        <childnode refid="378" relation="include">
+        <childnode refid="296" relation="include">
         </childnode>
       </node>
-      <node id="376">
+      <node id="292">
         <label>fstream</label>
       </node>
-      <node id="374">
+      <node id="294">
+        <label>svector.hpp</label>
+      </node>
+      <node id="290">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="375" relation="include">
+        <childnode refid="291" relation="include">
         </childnode>
-        <childnode refid="376" relation="include">
+        <childnode refid="292" relation="include">
         </childnode>
-        <childnode refid="377" relation="include">
+        <childnode refid="293" relation="include">
         </childnode>
-        <childnode refid="383" relation="include">
+        <childnode refid="294" relation="include">
         </childnode>
       </node>
-      <node id="368">
+      <node id="284">
         <label>hypergraph/BestHyp.cpp</label>
         <link refid="BestHyp.cpp"/>
-        <childnode refid="369" relation="include">
+        <childnode refid="285" relation="include">
         </childnode>
       </node>
-      <node id="388">
+      <node id="300">
         <label>../common.h</label>
       </node>
-      <node id="387">
+      <node id="299">
         <label>bitset</label>
       </node>
-      <node id="385">
+      <node id="297">
         <label>Hypothesis.h</label>
         <link refid="Hypothesis_8h_source"/>
-        <childnode refid="370" relation="include">
+        <childnode refid="286" relation="include">
         </childnode>
-        <childnode refid="371" relation="include">
+        <childnode refid="287" relation="include">
         </childnode>
-        <childnode refid="372" relation="include">
+        <childnode refid="288" relation="include">
         </childnode>
-        <childnode refid="373" relation="include">
+        <childnode refid="289" relation="include">
         </childnode>
-        <childnode refid="386" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
-        <childnode refid="388" relation="include">
+        <childnode refid="300" relation="include">
         </childnode>
-        <childnode refid="389" relation="include">
+        <childnode refid="301" relation="include">
         </childnode>
       </node>
-      <node id="372">
+      <node id="288">
         <label>vector</label>
       </node>
-      <node id="390">
+      <node id="302">
         <label>HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms_8h_source"/>
-        <childnode refid="383" relation="include">
+        <childnode refid="294" relation="include">
         </childnode>
-        <childnode refid="386" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
-        <childnode refid="373" relation="include">
-        </childnode>
-      </node>
-      <node id="379">
-        <label>sstream</label>
-      </node>
-      <node id="380">
-        <label>cstdlib</label>
-      </node>
-      <node id="377">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="378" relation="include">
-        </childnode>
-        <childnode refid="379" relation="include">
-        </childnode>
-        <childnode refid="380" relation="include">
-        </childnode>
-        <childnode refid="377" relation="include">
-        </childnode>
-        <childnode refid="371" relation="include">
-        </childnode>
-        <childnode refid="381" relation="include">
-        </childnode>
-        <childnode refid="382" relation="include">
-        </childnode>
-        <childnode refid="372" relation="include">
-        </childnode>
-        <childnode refid="375" relation="include">
+        <childnode refid="289" relation="include">
         </childnode>
       </node>
-      <node id="375">
+      <node id="291">
         <label>iostream</label>
       </node>
-      <node id="384">
+      <node id="293">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="295">
         <label>set</label>
       </node>
-      <node id="369">
+      <node id="285">
         <label>BestHyp.h</label>
         <link refid="BestHyp_8h_source"/>
-        <childnode refid="370" relation="include">
+        <childnode refid="286" relation="include">
         </childnode>
-        <childnode refid="371" relation="include">
+        <childnode refid="287" relation="include">
         </childnode>
-        <childnode refid="372" relation="include">
+        <childnode refid="288" relation="include">
         </childnode>
-        <childnode refid="373" relation="include">
+        <childnode refid="289" relation="include">
         </childnode>
-        <childnode refid="385" relation="include">
+        <childnode refid="297" relation="include">
         </childnode>
-        <childnode refid="390" relation="include">
+        <childnode refid="302" relation="include">
         </childnode>
       </node>
     </incdepgraph>

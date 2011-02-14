@@ -4,7 +4,7 @@
     <compoundname>Forest.cpp</compoundname>
     <includes refid="Forest_8cpp" local="yes">Forest.h</includes>
     <includes local="no">vector</includes>
-    <includes refid="third-party_2svector_2svector_8hpp" local="yes">svector.hpp</includes>
+    <includes local="yes">svector.hpp</includes>
     <includes local="no">string</includes>
     <includes local="yes">assert.h</includes>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
@@ -14,233 +14,192 @@
     <includes refid="gen__cpp_2translation_8pb_8h" local="yes">translation.pb.h</includes>
     <includes refid="gen__cpp_2lexical_8pb_8h" local="yes">lexical.pb.h</includes>
     <includes local="no">iomanip</includes>
-    <includes refid="cy__svector_8hpp" local="yes">cy_svector.hpp</includes>
+    <includes local="yes">cy_svector.hpp</includes>
     <includedby refid="Forest_8cpp" local="yes">transforest/Forest.cpp</includedby>
     <incdepgraph>
-      <node id="3190">
+      <node id="2339">
         <label>iomanip</label>
       </node>
-      <node id="3189">
+      <node id="2338">
         <label>lexical.pb.h</label>
         <link refid="gen__cpp_2lexical_8pb_8h_source"/>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
-        <childnode refid="3181" relation="include">
+        <childnode refid="2330" relation="include">
         </childnode>
-        <childnode refid="3182" relation="include">
+        <childnode refid="2331" relation="include">
         </childnode>
-        <childnode refid="3183" relation="include">
+        <childnode refid="2332" relation="include">
         </childnode>
-        <childnode refid="3184" relation="include">
+        <childnode refid="2333" relation="include">
         </childnode>
-        <childnode refid="3185" relation="include">
+        <childnode refid="2334" relation="include">
         </childnode>
-        <childnode refid="3180" relation="include">
+        <childnode refid="2329" relation="include">
         </childnode>
       </node>
-      <node id="3170">
+      <node id="2321">
         <label>assert.h</label>
       </node>
-      <node id="3168">
-        <label>cassert</label>
-      </node>
-      <node id="3167">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="3165">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="3166" relation="include">
-        </childnode>
-        <childnode refid="3167" relation="include">
-        </childnode>
-        <childnode refid="3168" relation="include">
-        </childnode>
-      </node>
-      <node id="3186">
+      <node id="2335">
         <label>features.pb.h</label>
         <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
-        <childnode refid="3181" relation="include">
+        <childnode refid="2330" relation="include">
         </childnode>
-        <childnode refid="3182" relation="include">
+        <childnode refid="2331" relation="include">
         </childnode>
-        <childnode refid="3183" relation="include">
+        <childnode refid="2332" relation="include">
         </childnode>
-        <childnode refid="3184" relation="include">
+        <childnode refid="2333" relation="include">
         </childnode>
-        <childnode refid="3185" relation="include">
+        <childnode refid="2334" relation="include">
         </childnode>
-        <childnode refid="3180" relation="include">
+        <childnode refid="2329" relation="include">
         </childnode>
       </node>
-      <node id="3169">
+      <node id="2320">
         <label>string</label>
       </node>
-      <node id="3166">
-        <label>map</label>
-      </node>
-      <node id="3179">
+      <node id="2328">
         <label>HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="3171" relation="include">
+        <childnode refid="2322" relation="include">
         </childnode>
-        <childnode refid="3180" relation="include">
+        <childnode refid="2329" relation="include">
         </childnode>
-        <childnode refid="3186" relation="include">
+        <childnode refid="2335" relation="include">
         </childnode>
-        <childnode refid="3172" relation="include">
+        <childnode refid="2323" relation="include">
         </childnode>
-        <childnode refid="3187" relation="include">
+        <childnode refid="2336" relation="include">
         </childnode>
-        <childnode refid="3164" relation="include">
+        <childnode refid="2318" relation="include">
         </childnode>
-        <childnode refid="3178" relation="include">
+        <childnode refid="2327" relation="include">
         </childnode>
       </node>
-      <node id="3171">
+      <node id="2322">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="3172" relation="include">
+        <childnode refid="2323" relation="include">
         </childnode>
-        <childnode refid="3164" relation="include">
+        <childnode refid="2318" relation="include">
         </childnode>
-        <childnode refid="3178" relation="include">
+        <childnode refid="2327" relation="include">
         </childnode>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
       </node>
-      <node id="3174">
+      <node id="2325">
         <label>fstream</label>
       </node>
-      <node id="3180">
+      <node id="2329">
         <label>hypergraph.pb.h</label>
         <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
-        <childnode refid="3181" relation="include">
+        <childnode refid="2330" relation="include">
         </childnode>
-        <childnode refid="3182" relation="include">
+        <childnode refid="2331" relation="include">
         </childnode>
-        <childnode refid="3183" relation="include">
+        <childnode refid="2332" relation="include">
         </childnode>
-        <childnode refid="3184" relation="include">
+        <childnode refid="2333" relation="include">
         </childnode>
-        <childnode refid="3185" relation="include">
+        <childnode refid="2334" relation="include">
         </childnode>
       </node>
-      <node id="3188">
+      <node id="2337">
         <label>translation.pb.h</label>
         <link refid="gen__cpp_2translation_8pb_8h_source"/>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
-        <childnode refid="3181" relation="include">
+        <childnode refid="2330" relation="include">
         </childnode>
-        <childnode refid="3182" relation="include">
+        <childnode refid="2331" relation="include">
         </childnode>
-        <childnode refid="3183" relation="include">
+        <childnode refid="2332" relation="include">
         </childnode>
-        <childnode refid="3184" relation="include">
+        <childnode refid="2333" relation="include">
         </childnode>
-        <childnode refid="3185" relation="include">
+        <childnode refid="2334" relation="include">
         </childnode>
-        <childnode refid="3180" relation="include">
+        <childnode refid="2329" relation="include">
         </childnode>
       </node>
-      <node id="3172">
+      <node id="2319">
+        <label>svector.hpp</label>
+      </node>
+      <node id="2323">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="3173" relation="include">
+        <childnode refid="2324" relation="include">
         </childnode>
-        <childnode refid="3174" relation="include">
+        <childnode refid="2325" relation="include">
         </childnode>
-        <childnode refid="3175" relation="include">
+        <childnode refid="2326" relation="include">
         </childnode>
-        <childnode refid="3165" relation="include">
+        <childnode refid="2319" relation="include">
         </childnode>
       </node>
-      <node id="3182">
+      <node id="2331">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="3187">
+      <node id="2336">
         <label>../common.h</label>
       </node>
-      <node id="3181">
+      <node id="2330">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="3164">
+      <node id="2318">
         <label>vector</label>
       </node>
-      <node id="3176">
-        <label>sstream</label>
-      </node>
-      <node id="3184">
+      <node id="2333">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="3183">
+      <node id="2332">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="3177">
-        <label>cstdlib</label>
-      </node>
-      <node id="3175">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="3169" relation="include">
-        </childnode>
-        <childnode refid="3176" relation="include">
-        </childnode>
-        <childnode refid="3177" relation="include">
-        </childnode>
-        <childnode refid="3175" relation="include">
-        </childnode>
-        <childnode refid="3166" relation="include">
-        </childnode>
-        <childnode refid="3167" relation="include">
-        </childnode>
-        <childnode refid="3168" relation="include">
-        </childnode>
-        <childnode refid="3164" relation="include">
-        </childnode>
-        <childnode refid="3173" relation="include">
-        </childnode>
-      </node>
-      <node id="3173">
+      <node id="2324">
         <label>iostream</label>
       </node>
-      <node id="3163">
+      <node id="2326">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="2317">
         <label>transforest/Forest.cpp</label>
         <link refid="Forest.cpp"/>
-        <childnode refid="3164" relation="include">
+        <childnode refid="2318" relation="include">
         </childnode>
-        <childnode refid="3165" relation="include">
+        <childnode refid="2319" relation="include">
         </childnode>
-        <childnode refid="3169" relation="include">
+        <childnode refid="2320" relation="include">
         </childnode>
-        <childnode refid="3170" relation="include">
+        <childnode refid="2321" relation="include">
         </childnode>
-        <childnode refid="3171" relation="include">
+        <childnode refid="2322" relation="include">
         </childnode>
-        <childnode refid="3179" relation="include">
+        <childnode refid="2328" relation="include">
         </childnode>
-        <childnode refid="3180" relation="include">
+        <childnode refid="2329" relation="include">
         </childnode>
-        <childnode refid="3186" relation="include">
+        <childnode refid="2335" relation="include">
         </childnode>
-        <childnode refid="3188" relation="include">
+        <childnode refid="2337" relation="include">
         </childnode>
-        <childnode refid="3189" relation="include">
+        <childnode refid="2338" relation="include">
         </childnode>
-        <childnode refid="3190" relation="include">
+        <childnode refid="2339" relation="include">
         </childnode>
-        <childnode refid="3175" relation="include">
+        <childnode refid="2326" relation="include">
         </childnode>
       </node>
-      <node id="3178">
+      <node id="2327">
         <label>set</label>
       </node>
-      <node id="3185">
+      <node id="2334">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
@@ -265,7 +224,7 @@
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="classForestNode" kindref="compound">ForestNode</ref><sp/>*<sp/>node<sp/>=<sp/>(<ref refid="classForestNode" kindref="compound">ForestNode</ref><sp/>*)_root;</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classScarab_1_1HG_1_1HyperedgeImpl" kindref="compound">Scarab::HG::HyperedgeImpl</ref><sp/>*<sp/>edge<sp/>=<sp/><sp/>(<ref refid="classScarab_1_1HG_1_1HyperedgeImpl" kindref="compound">Scarab::HG::HyperedgeImpl</ref><sp/>*<sp/>)<sp/>node-&gt;_edges[0];</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">str_vector</ref><sp/>*<sp/>features<sp/>=<sp/>svector_from_str&lt;int,<sp/>double&gt;(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>str_vector<sp/>*<sp/>features<sp/>=<sp/>svector_from_str&lt;int,<sp/>double&gt;(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classForestNode" kindref="compound">ForestNode</ref><sp/>*<sp/>s1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classForestNode" kindref="compound">ForestNode</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>num_nodes(),<sp/>features,<sp/></highlight><highlight class="stringliteral">&quot;&lt;s&gt;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/>s1-&gt;add_in_edge(edge);</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/>_nodes.push_back(s1);</highlight></codeline>
@@ -289,7 +248,7 @@
 <codeline lineno="38"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref>*<sp/>Forest::make_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>&amp;<sp/>node,<sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>features)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Scarab::HG::Hypernode</ref>*<sp/>Forest::make_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>&amp;<sp/>node,<sp/>wvector<sp/>*<sp/>features)<sp/>{</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="classForestNode" kindref="compound">ForestNode</ref><sp/>*<sp/>forest_node<sp/>=<sp/></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classForestNode" kindref="compound">ForestNode</ref>(node.label(),<sp/>node.id(),<sp/>features,<sp/>node.GetExtension(word),<sp/>node.GetExtension(is_word));<sp/></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//assert(((ForestNode*)_nodes[forest_node-&gt;id()])-&gt;is_word()<sp/>==<sp/>node.GetExtension(is_word));<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>

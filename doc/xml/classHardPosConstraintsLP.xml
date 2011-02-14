@@ -171,89 +171,89 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="810">
+      <node id="672">
         <label>HardPosConstraintsLP</label>
         <link refid="classHardPosConstraintsLP"/>
-        <childnode refid="811" relation="usage">
+        <childnode refid="673" relation="usage">
           <edgelabel>groups</edgelabel>
         </childnode>
-        <childnode refid="812" relation="usage">
+        <childnode refid="674" relation="usage">
           <edgelabel>_constraints</edgelabel>
         </childnode>
-        <childnode refid="820" relation="usage">
+        <childnode refid="682" relation="usage">
           <edgelabel>group_used</edgelabel>
         </childnode>
-        <childnode refid="821" relation="usage">
+        <childnode refid="683" relation="usage">
           <edgelabel>slacks_pos</edgelabel>
           <edgelabel>slacks_neg</edgelabel>
         </childnode>
       </node>
-      <node id="811">
+      <node id="673">
         <label>std::set&lt; int &gt;</label>
       </node>
-      <node id="821">
+      <node id="683">
         <label>std::vector&lt; vector&lt; vector&lt; GRBVar &gt; &gt; &gt;</label>
-        <childnode refid="820" relation="usage">
+        <childnode refid="682" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="815">
+      <node id="677">
         <label>PossibleTag</label>
         <link refid="structPossibleTag"/>
-        <childnode refid="816" relation="usage">
+        <childnode refid="678" relation="usage">
           <edgelabel>group_name</edgelabel>
         </childnode>
       </node>
-      <node id="819">
+      <node id="681">
         <label>ConstraintGroup</label>
         <link refid="classConstraintGroup"/>
-        <childnode refid="814" relation="usage">
+        <childnode refid="676" relation="usage">
           <edgelabel>group</edgelabel>
         </childnode>
       </node>
-      <node id="814">
+      <node id="676">
         <label>std::vector&lt; PossibleTag &gt;</label>
-        <childnode refid="815" relation="usage">
+        <childnode refid="677" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="817">
+      <node id="679">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="820">
+      <node id="682">
         <label>std::vector&lt; vector&lt; GRBVar &gt; &gt;</label>
       </node>
-      <node id="813">
+      <node id="675">
         <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
-        <childnode refid="814" relation="usage">
+        <childnode refid="676" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="812">
+      <node id="674">
         <label>TagConstraints</label>
         <link refid="classTagConstraints"/>
-        <childnode refid="811" relation="usage">
+        <childnode refid="673" relation="usage">
           <edgelabel>groups</edgelabel>
         </childnode>
-        <childnode refid="813" relation="usage">
+        <childnode refid="675" relation="usage">
           <edgelabel>_constrained_words</edgelabel>
         </childnode>
-        <childnode refid="818" relation="usage">
+        <childnode refid="680" relation="usage">
           <edgelabel>_constraint_struct</edgelabel>
         </childnode>
-        <childnode refid="814" relation="usage">
+        <childnode refid="676" relation="usage">
           <edgelabel>_all_constraints</edgelabel>
         </childnode>
       </node>
-      <node id="818">
+      <node id="680">
         <label>std::vector&lt; ConstraintGroup &gt;</label>
-        <childnode refid="819" relation="usage">
+        <childnode refid="681" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="816">
+      <node id="678">
         <label>std::string</label>
-        <childnode refid="817" relation="public-inheritance">
+        <childnode refid="679" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

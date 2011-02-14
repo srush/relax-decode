@@ -21,7 +21,7 @@
           <declname>dual</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
         </param>
         <param>
           <type>int</type>
@@ -42,11 +42,11 @@
         <reimplementedby refid="classConstrainerDual_1a622b99f704a3324133f08521eb4924f5">update_weights</reimplementedby>
         <reimplementedby refid="classTaggerDual_1a01f7705a69c7cc993268c6e66df57ae0">update_weights</reimplementedby>
         <param>
-          <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>const wvector &amp;</type>
           <declname>updates</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+          <type>wvector *</type>
           <declname>weights</declname>
         </param>
         <param>
@@ -67,19 +67,19 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="610">
+      <node id="492">
         <label>TaggerDual</label>
         <link refid="classTaggerDual"/>
-        <childnode refid="608" relation="public-inheritance">
+        <childnode refid="490" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="609">
+      <node id="491">
         <label>ConstrainerDual</label>
         <link refid="classConstrainerDual"/>
-        <childnode refid="608" relation="public-inheritance">
+        <childnode refid="490" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="608">
+      <node id="490">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>

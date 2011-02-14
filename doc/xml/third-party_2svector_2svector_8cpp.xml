@@ -6,116 +6,115 @@
     <includes local="yes">structmember.h</includes>
     <includes local="no">math.h</includes>
     <includes local="yes">string</includes>
-    <includes refid="numberizer_8hpp" local="yes">numberizer.hpp</includes>
+    <includes refid="third-party_2svector_2svector_8cpp" local="yes">numberizer.hpp</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">tr1/unordered_map</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">iostream</includes>
     <includes local="yes">cmath</includes>
-    <includes refid="third-party_2svector_2svector_8hpp" local="yes">svector.hpp</includes>
-    <includes refid="third-party_2svector_2svector_8cpp" local="yes">cy_svector.hpp</includes>
+    <includes local="no">map</includes>
     <includes local="no">sstream</includes>
     <includes local="no">cstdlib</includes>
+    <includes local="yes">svector.hpp</includes>
+    <includes local="yes">numberizer.hpp</includes>
     <includes local="yes">stdexcept</includes>
     <includes local="yes">compile.h</includes>
     <includes local="yes">frameobject.h</includes>
     <includes local="yes">traceback.h</includes>
     <includedby refid="third-party_2svector_2svector_8cpp" local="yes">third-party/svector/svector.cpp</includedby>
     <incdepgraph>
-      <node id="807">
+      <node id="652">
         <label>structmember.h</label>
       </node>
-      <node id="823">
+      <node id="668">
         <label>traceback.h</label>
       </node>
-      <node id="815">
+      <node id="659">
         <label>cmath</label>
       </node>
-      <node id="813">
+      <node id="657">
         <label>cassert</label>
       </node>
-      <node id="812">
+      <node id="656">
         <label>tr1/unordered_map</label>
       </node>
-      <node id="820">
+      <node id="665">
         <label>stdexcept</label>
       </node>
-      <node id="816">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="817" relation="include">
-        </childnode>
-        <childnode refid="812" relation="include">
-        </childnode>
-        <childnode refid="813" relation="include">
-        </childnode>
-      </node>
-      <node id="809">
+      <node id="654">
         <label>string</label>
       </node>
-      <node id="817">
+      <node id="660">
         <label>map</label>
       </node>
-      <node id="822">
+      <node id="663">
+        <label>svector.hpp</label>
+      </node>
+      <node id="667">
         <label>frameobject.h</label>
       </node>
-      <node id="806">
+      <node id="651">
         <label>Python.h</label>
       </node>
-      <node id="811">
+      <node id="655">
         <label>vector</label>
       </node>
-      <node id="818">
+      <node id="661">
         <label>sstream</label>
       </node>
-      <node id="821">
+      <node id="666">
         <label>compile.h</label>
       </node>
-      <node id="808">
+      <node id="653">
         <label>math.h</label>
       </node>
-      <node id="819">
+      <node id="662">
         <label>cstdlib</label>
       </node>
-      <node id="814">
+      <node id="658">
         <label>iostream</label>
       </node>
-      <node id="810">
+      <node id="664">
         <label>numberizer.hpp</label>
-        <link refid="numberizer_8hpp_source"/>
-        <childnode refid="811" relation="include">
-        </childnode>
-        <childnode refid="812" relation="include">
-        </childnode>
-        <childnode refid="813" relation="include">
-        </childnode>
-        <childnode refid="814" relation="include">
-        </childnode>
       </node>
-      <node id="805">
+      <node id="650">
         <label>third-party/svector/svector.cpp</label>
         <link refid="third-party/svector/svector.cpp"/>
-        <childnode refid="806" relation="include">
+        <childnode refid="651" relation="include">
         </childnode>
-        <childnode refid="807" relation="include">
+        <childnode refid="652" relation="include">
         </childnode>
-        <childnode refid="808" relation="include">
+        <childnode refid="653" relation="include">
         </childnode>
-        <childnode refid="809" relation="include">
+        <childnode refid="654" relation="include">
         </childnode>
-        <childnode refid="810" relation="include">
+        <childnode refid="655" relation="include">
         </childnode>
-        <childnode refid="815" relation="include">
+        <childnode refid="656" relation="include">
         </childnode>
-        <childnode refid="816" relation="include">
+        <childnode refid="657" relation="include">
         </childnode>
-        <childnode refid="818" relation="include">
+        <childnode refid="658" relation="include">
         </childnode>
-        <childnode refid="819" relation="include">
+        <childnode refid="659" relation="include">
         </childnode>
-        <childnode refid="820" relation="include">
+        <childnode refid="660" relation="include">
         </childnode>
-        <childnode refid="821" relation="include">
+        <childnode refid="661" relation="include">
         </childnode>
-        <childnode refid="822" relation="include">
+        <childnode refid="662" relation="include">
         </childnode>
-        <childnode refid="823" relation="include">
+        <childnode refid="663" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="666" relation="include">
+        </childnode>
+        <childnode refid="667" relation="include">
+        </childnode>
+        <childnode refid="668" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -5467,7 +5466,7 @@
 <codeline lineno="431"><highlight class="normal"></highlight></codeline>
 <codeline lineno="432"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>{</highlight></codeline>
 <codeline lineno="433"><highlight class="normal"><sp/><sp/>PyObject_HEAD</highlight></codeline>
-<codeline lineno="434"><highlight class="normal"><sp/><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref><sp/>*thisptr;</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/>svector&lt;int,double&gt;<sp/>*thisptr;</highlight></codeline>
 <codeline lineno="435"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="436"><highlight class="normal"></highlight></codeline>
 <codeline lineno="437"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>&quot;/auto/nlg-01/chiangd/svector/svector.pyx&quot;:54</highlight></codeline>
@@ -5480,7 +5479,7 @@
 <codeline lineno="444"><highlight class="normal"></highlight></codeline>
 <codeline lineno="445"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyIterator" kindref="compound">__pyx_obj_7svector_KeyIterator</ref><sp/>{</highlight></codeline>
 <codeline lineno="446"><highlight class="normal"><sp/><sp/>PyObject_HEAD</highlight></codeline>
-<codeline lineno="447"><highlight class="normal"><sp/><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref><sp/>*thisptr;</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/>svector_iterator&lt;int,double&gt;<sp/>*thisptr;</highlight></codeline>
 <codeline lineno="448"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*v;</highlight></codeline>
 <codeline lineno="449"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="450"><highlight class="normal"></highlight></codeline>
@@ -5494,7 +5493,7 @@
 <codeline lineno="458"><highlight class="normal"></highlight></codeline>
 <codeline lineno="459"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyValueIterator" kindref="compound">__pyx_obj_7svector_KeyValueIterator</ref><sp/>{</highlight></codeline>
 <codeline lineno="460"><highlight class="normal"><sp/><sp/>PyObject_HEAD</highlight></codeline>
-<codeline lineno="461"><highlight class="normal"><sp/><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref><sp/>*thisptr;</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/>svector_iterator&lt;int,double&gt;<sp/>*thisptr;</highlight></codeline>
 <codeline lineno="462"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*v;</highlight></codeline>
 <codeline lineno="463"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="464"><highlight class="normal"></highlight></codeline>
@@ -5508,7 +5507,7 @@
 <codeline lineno="472"><highlight class="normal"></highlight></codeline>
 <codeline lineno="473"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__ValueIterator" kindref="compound">__pyx_obj_7svector_ValueIterator</ref><sp/>{</highlight></codeline>
 <codeline lineno="474"><highlight class="normal"><sp/><sp/>PyObject_HEAD</highlight></codeline>
-<codeline lineno="475"><highlight class="normal"><sp/><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref><sp/>*thisptr;</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/>svector_iterator&lt;int,double&gt;<sp/>*thisptr;</highlight></codeline>
 <codeline lineno="476"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*v;</highlight></codeline>
 <codeline lineno="477"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="478"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Module<sp/>declarations<sp/>from<sp/>numberizer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
@@ -5690,7 +5689,7 @@
 <codeline lineno="654"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.v<sp/>=<sp/>v<sp/>#<sp/>keep<sp/>reference</highlight></codeline>
 <codeline lineno="655"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__dealloc__(self):</highlight></codeline>
 <codeline lineno="656"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="657"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyIterator" kindref="compound">__pyx_obj_7svector_KeyIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref>((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
+<codeline lineno="657"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyIterator" kindref="compound">__pyx_obj_7svector_KeyIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector_iterator&lt;int,double&gt;((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
 <codeline lineno="658"><highlight class="normal"></highlight></codeline>
 <codeline lineno="659"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;/auto/nlg-01/chiangd/svector/svector.pyx&quot;:60</highlight></codeline>
 <codeline lineno="660"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__cinit__(self,<sp/>Vector<sp/>v):</highlight></codeline>
@@ -5914,7 +5913,7 @@
 <codeline lineno="878"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.v<sp/>=<sp/>v<sp/>#<sp/>keep<sp/>reference</highlight></codeline>
 <codeline lineno="879"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__dealloc__(self):</highlight></codeline>
 <codeline lineno="880"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="881"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__ValueIterator" kindref="compound">__pyx_obj_7svector_ValueIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref>((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
+<codeline lineno="881"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__ValueIterator" kindref="compound">__pyx_obj_7svector_ValueIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector_iterator&lt;int,double&gt;((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
 <codeline lineno="882"><highlight class="normal"></highlight></codeline>
 <codeline lineno="883"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;/auto/nlg-01/chiangd/svector/svector.pyx&quot;:80</highlight></codeline>
 <codeline lineno="884"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__cinit__(self,<sp/>Vector<sp/>v):</highlight></codeline>
@@ -6136,7 +6135,7 @@
 <codeline lineno="1100"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.v<sp/>=<sp/>v<sp/>#<sp/>keep<sp/>reference</highlight></codeline>
 <codeline lineno="1101"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__dealloc__(self):</highlight></codeline>
 <codeline lineno="1102"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1103"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyValueIterator" kindref="compound">__pyx_obj_7svector_KeyValueIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structsvector__iterator" kindref="compound">svector_iterator&lt;int,double&gt;</ref>((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
+<codeline lineno="1103"><highlight class="normal"><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__KeyValueIterator" kindref="compound">__pyx_obj_7svector_KeyValueIterator</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector_iterator&lt;int,double&gt;((__pyx_v_v-&gt;thisptr[0]));</highlight></codeline>
 <codeline lineno="1104"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;/auto/nlg-01/chiangd/svector/svector.pyx&quot;:100</highlight></codeline>
 <codeline lineno="1106"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/>def<sp/>__cinit__(self,<sp/>Vector<sp/>v):</highlight></codeline>
@@ -6393,7 +6392,7 @@
 <codeline lineno="1357"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elif<sp/>len(args)<sp/>==<sp/>1:</highlight></codeline>
 <codeline lineno="1358"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/>=<sp/>args[0]</highlight></codeline>
 <codeline lineno="1359"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1360"><highlight class="normal"><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>();</highlight></codeline>
+<codeline lineno="1360"><highlight class="normal"><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;();</highlight></codeline>
 <codeline lineno="1361"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L5;</highlight></codeline>
 <codeline lineno="1362"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1363"><highlight class="normal"></highlight></codeline>
@@ -6481,7 +6480,7 @@
 <codeline lineno="1445"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elif<sp/>isinstance(x,<sp/>dict):</highlight></codeline>
 <codeline lineno="1446"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.thisptr<sp/>=<sp/>new_svector()</highlight></codeline>
 <codeline lineno="1447"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>((__pyx_v_vx-&gt;thisptr[0]));</highlight></codeline>
+<codeline lineno="1448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;((__pyx_v_vx-&gt;thisptr[0]));</highlight></codeline>
 <codeline lineno="1449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L6;</highlight></codeline>
 <codeline lineno="1450"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1451"><highlight class="normal"></highlight></codeline>
@@ -6502,7 +6501,7 @@
 <codeline lineno="1466"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>f,v<sp/>in<sp/>x.iteritems():</highlight></codeline>
 <codeline lineno="1467"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>svector_setitem(self.thisptr[0],<sp/>word_to_index(f),<sp/>v)</highlight></codeline>
 <codeline lineno="1468"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>();</highlight></codeline>
+<codeline lineno="1469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;();</highlight></codeline>
 <codeline lineno="1470"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;/auto/nlg-01/chiangd/svector/svector.pyx&quot;:137</highlight></codeline>
 <codeline lineno="1472"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elif<sp/>isinstance(x,<sp/>dict):</highlight></codeline>
@@ -6654,7 +6653,7 @@
 <codeline lineno="1618"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1619"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_t_3<sp/>=<sp/>__Pyx_PyBytes_AsString(__pyx_v_f);<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(unlikely((!__pyx_t_3)<sp/>&amp;&amp;<sp/>PyErr_Occurred()))<sp/>{__pyx_filename<sp/>=<sp/>__pyx_f[0];<sp/>__pyx_lineno<sp/>=<sp/>143;<sp/>__pyx_clineno<sp/>=<sp/>__LINE__;<sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L1_error;}</highlight></codeline>
 <codeline lineno="1620"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_t_6<sp/>=<sp/>__pyx_PyFloat_AsDouble(__pyx_v_x);<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(unlikely(PyErr_Occurred()))<sp/>{__pyx_filename<sp/>=<sp/>__pyx_f[0];<sp/>__pyx_lineno<sp/>=<sp/>143;<sp/>__pyx_clineno<sp/>=<sp/>__LINE__;<sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L1_error;}</highlight></codeline>
-<codeline lineno="1621"><highlight class="normal"><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>(__pyx_f_7svector_word_to_index(__pyx_t_3),<sp/>__pyx_t_6);</highlight></codeline>
+<codeline lineno="1621"><highlight class="normal"><sp/><sp/><sp/><sp/>((</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref><sp/>*)__pyx_v_self)-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;(__pyx_f_7svector_word_to_index(__pyx_t_3),<sp/>__pyx_t_6);</highlight></codeline>
 <codeline lineno="1622"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L5;</highlight></codeline>
 <codeline lineno="1623"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1624"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*else*/</highlight><highlight class="normal"><sp/>{</highlight></codeline>
@@ -7802,7 +7801,7 @@
 <codeline lineno="2766"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#x.thisptr.mul(y.thisptr[0]).swap(z.thisptr[0])</highlight></codeline>
 <codeline lineno="2767"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
 <codeline lineno="2768"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2769"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_v_z-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>(__pyx_v_x-&gt;thisptr-&gt;operator*((__pyx_v_y-&gt;thisptr[0])));</highlight></codeline>
+<codeline lineno="2769"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_v_z-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;(__pyx_v_x-&gt;thisptr-&gt;operator*((__pyx_v_y-&gt;thisptr[0])));</highlight></codeline>
 <codeline lineno="2770"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L5;</highlight></codeline>
 <codeline lineno="2771"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="2772"><highlight class="normal"></highlight></codeline>
@@ -8024,7 +8023,7 @@
 <codeline lineno="2988"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#x.thisptr.mul(y.thisptr[0]).swap(z.thisptr[0])</highlight></codeline>
 <codeline lineno="2989"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else:</highlight></codeline>
 <codeline lineno="2990"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2991"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_v_z-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector&lt;int,double&gt;</ref>(__pyx_v_x-&gt;thisptr-&gt;operator/((__pyx_v_y-&gt;thisptr[0])));</highlight></codeline>
+<codeline lineno="2991"><highlight class="normal"><sp/><sp/><sp/><sp/>__pyx_v_z-&gt;thisptr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>svector&lt;int,double&gt;(__pyx_v_x-&gt;thisptr-&gt;operator/((__pyx_v_y-&gt;thisptr[0])));</highlight></codeline>
 <codeline lineno="2992"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>__pyx_L5;</highlight></codeline>
 <codeline lineno="2993"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="2994"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*else*/</highlight><highlight class="normal"><sp/>{</highlight></codeline>
@@ -8468,7 +8467,7 @@
 <codeline lineno="3432"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3433"><highlight class="normal">PyTypeObject<sp/>__pyx_type_7svector_Vector<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="3434"><highlight class="normal"><sp/><sp/>PyVarObject_HEAD_INIT(0,<sp/>0)</highlight></codeline>
-<codeline lineno="3435"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;<ref refid="classsvector" kindref="compound">svector</ref>.Vector&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3435"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;svector.Vector&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3436"><highlight class="normal"><sp/><sp/>sizeof(struct<sp/><ref refid="struct____pyx__obj__7svector__Vector" kindref="compound">__pyx_obj_7svector_Vector</ref>),<sp/></highlight><highlight class="comment">/*tp_basicsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3437"><highlight class="normal"><sp/><sp/>0,<sp/></highlight><highlight class="comment">/*tp_itemsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3438"><highlight class="normal"><sp/><sp/>__pyx_tp_dealloc_7svector_Vector,<sp/></highlight><highlight class="comment">/*tp_dealloc*/</highlight><highlight class="normal"></highlight></codeline>
@@ -8665,7 +8664,7 @@
 <codeline lineno="3629"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3630"><highlight class="normal">PyTypeObject<sp/>__pyx_type_7svector_KeyIterator<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="3631"><highlight class="normal"><sp/><sp/>PyVarObject_HEAD_INIT(0,<sp/>0)</highlight></codeline>
-<codeline lineno="3632"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;<ref refid="classsvector" kindref="compound">svector</ref>.KeyIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3632"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;svector.KeyIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3633"><highlight class="normal"><sp/><sp/>sizeof(struct<sp/><ref refid="struct____pyx__obj__7svector__KeyIterator" kindref="compound">__pyx_obj_7svector_KeyIterator</ref>),<sp/></highlight><highlight class="comment">/*tp_basicsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3634"><highlight class="normal"><sp/><sp/>0,<sp/></highlight><highlight class="comment">/*tp_itemsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3635"><highlight class="normal"><sp/><sp/>__pyx_tp_dealloc_7svector_KeyIterator,<sp/></highlight><highlight class="comment">/*tp_dealloc*/</highlight><highlight class="normal"></highlight></codeline>
@@ -8862,7 +8861,7 @@
 <codeline lineno="3826"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3827"><highlight class="normal">PyTypeObject<sp/>__pyx_type_7svector_ValueIterator<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="3828"><highlight class="normal"><sp/><sp/>PyVarObject_HEAD_INIT(0,<sp/>0)</highlight></codeline>
-<codeline lineno="3829"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;<ref refid="classsvector" kindref="compound">svector</ref>.ValueIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3829"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;svector.ValueIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3830"><highlight class="normal"><sp/><sp/>sizeof(struct<sp/><ref refid="struct____pyx__obj__7svector__ValueIterator" kindref="compound">__pyx_obj_7svector_ValueIterator</ref>),<sp/></highlight><highlight class="comment">/*tp_basicsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3831"><highlight class="normal"><sp/><sp/>0,<sp/></highlight><highlight class="comment">/*tp_itemsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3832"><highlight class="normal"><sp/><sp/>__pyx_tp_dealloc_7svector_ValueIterator,<sp/></highlight><highlight class="comment">/*tp_dealloc*/</highlight><highlight class="normal"></highlight></codeline>
@@ -9059,7 +9058,7 @@
 <codeline lineno="4023"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4024"><highlight class="normal">PyTypeObject<sp/>__pyx_type_7svector_KeyValueIterator<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="4025"><highlight class="normal"><sp/><sp/>PyVarObject_HEAD_INIT(0,<sp/>0)</highlight></codeline>
-<codeline lineno="4026"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;<ref refid="classsvector" kindref="compound">svector</ref>.KeyValueIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4026"><highlight class="normal"><sp/><sp/>__Pyx_NAMESTR(&quot;svector.KeyValueIterator&quot;),<sp/></highlight><highlight class="comment">/*tp_name*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4027"><highlight class="normal"><sp/><sp/>sizeof(struct<sp/><ref refid="struct____pyx__obj__7svector__KeyValueIterator" kindref="compound">__pyx_obj_7svector_KeyValueIterator</ref>),<sp/></highlight><highlight class="comment">/*tp_basicsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4028"><highlight class="normal"><sp/><sp/>0,<sp/></highlight><highlight class="comment">/*tp_itemsize*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4029"><highlight class="normal"><sp/><sp/>__pyx_tp_dealloc_7svector_KeyValueIterator,<sp/></highlight><highlight class="comment">/*tp_dealloc*/</highlight><highlight class="normal"></highlight></codeline>

@@ -101,7 +101,7 @@
           <declname>tagger</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <declname>orig_weights</declname>
         </param>
         <briefdescription>
@@ -113,7 +113,7 @@
         <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="58" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="71" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="classTagConstraints_1acec3818d7505e9147828ab7cb3863001" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <type>wvector</type>
         <definition>wvector TagConstraints::build_tagger_subgradient</definition>
         <argsstring>(int sent_num, const Tagger &amp;tagger, const vector&lt; const Hyperedge * &gt; used_edges) const </argsstring>
         <name>build_tagger_subgradient</name>
@@ -155,12 +155,12 @@
         <location file="/home/srush/Projects/relax_decode/tagger/TagConstraints.h" line="63" bodyfile="/home/srush/Projects/relax_decode/tagger/TagConstraints.cpp" bodystart="46" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="classTagConstraints_1a3e490a8d4d335ed4d04803fab0a82871" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref></type>
+        <type>wvector</type>
         <definition>wvector TagConstraints::solve_hard</definition>
         <argsstring>(wvector &amp;model) const </argsstring>
         <name>solve_hard</name>
         <param>
-          <type><ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+          <type>wvector &amp;</type>
           <declname>model</declname>
         </param>
         <briefdescription>
@@ -177,63 +177,63 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="1565">
+      <node id="1295">
         <label>std::set&lt; int &gt;</label>
       </node>
-      <node id="1568">
+      <node id="1298">
         <label>PossibleTag</label>
         <link refid="structPossibleTag"/>
-        <childnode refid="1569" relation="usage">
+        <childnode refid="1299" relation="usage">
           <edgelabel>group_name</edgelabel>
         </childnode>
       </node>
-      <node id="1572">
+      <node id="1302">
         <label>ConstraintGroup</label>
         <link refid="classConstraintGroup"/>
-        <childnode refid="1567" relation="usage">
+        <childnode refid="1297" relation="usage">
           <edgelabel>group</edgelabel>
         </childnode>
       </node>
-      <node id="1567">
+      <node id="1297">
         <label>std::vector&lt; PossibleTag &gt;</label>
-        <childnode refid="1568" relation="usage">
+        <childnode refid="1298" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1570">
+      <node id="1300">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="1566">
+      <node id="1296">
         <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
-        <childnode refid="1567" relation="usage">
+        <childnode refid="1297" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1564">
+      <node id="1294">
         <label>TagConstraints</label>
         <link refid="classTagConstraints"/>
-        <childnode refid="1565" relation="usage">
+        <childnode refid="1295" relation="usage">
           <edgelabel>groups</edgelabel>
         </childnode>
-        <childnode refid="1566" relation="usage">
+        <childnode refid="1296" relation="usage">
           <edgelabel>_constrained_words</edgelabel>
         </childnode>
-        <childnode refid="1571" relation="usage">
+        <childnode refid="1301" relation="usage">
           <edgelabel>_constraint_struct</edgelabel>
         </childnode>
-        <childnode refid="1567" relation="usage">
+        <childnode refid="1297" relation="usage">
           <edgelabel>_all_constraints</edgelabel>
         </childnode>
       </node>
-      <node id="1571">
+      <node id="1301">
         <label>std::vector&lt; ConstraintGroup &gt;</label>
-        <childnode refid="1572" relation="usage">
+        <childnode refid="1302" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1569">
+      <node id="1299">
         <label>std::string</label>
-        <childnode refid="1570" relation="public-inheritance">
+        <childnode refid="1300" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

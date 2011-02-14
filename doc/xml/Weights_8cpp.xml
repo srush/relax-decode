@@ -4,87 +4,40 @@
     <compoundname>Weights.cpp</compoundname>
     <includes refid="Weights_8h" local="yes">Weights.h</includes>
     <incdepgraph>
-      <node id="894">
-        <label>cassert</label>
-      </node>
-      <node id="893">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="896">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="892" relation="include">
-        </childnode>
-        <childnode refid="893" relation="include">
-        </childnode>
-        <childnode refid="894" relation="include">
-        </childnode>
-      </node>
-      <node id="889">
-        <label>string</label>
-      </node>
-      <node id="884">
+      <node id="690">
         <label>hypergraph/Weights.cpp</label>
         <link refid="Weights.cpp"/>
-        <childnode refid="885" relation="include">
+        <childnode refid="691" relation="include">
         </childnode>
       </node>
-      <node id="892">
-        <label>map</label>
-      </node>
-      <node id="887">
+      <node id="693">
         <label>fstream</label>
       </node>
-      <node id="885">
+      <node id="695">
+        <label>svector.hpp</label>
+      </node>
+      <node id="691">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="886" relation="include">
+        <childnode refid="692" relation="include">
         </childnode>
-        <childnode refid="887" relation="include">
+        <childnode refid="693" relation="include">
         </childnode>
-        <childnode refid="888" relation="include">
+        <childnode refid="694" relation="include">
         </childnode>
-        <childnode refid="896" relation="include">
-        </childnode>
-      </node>
-      <node id="895">
-        <label>vector</label>
-      </node>
-      <node id="890">
-        <label>sstream</label>
-      </node>
-      <node id="891">
-        <label>cstdlib</label>
-      </node>
-      <node id="888">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="889" relation="include">
-        </childnode>
-        <childnode refid="890" relation="include">
-        </childnode>
-        <childnode refid="891" relation="include">
-        </childnode>
-        <childnode refid="888" relation="include">
-        </childnode>
-        <childnode refid="892" relation="include">
-        </childnode>
-        <childnode refid="893" relation="include">
-        </childnode>
-        <childnode refid="894" relation="include">
-        </childnode>
-        <childnode refid="895" relation="include">
-        </childnode>
-        <childnode refid="886" relation="include">
+        <childnode refid="695" relation="include">
         </childnode>
       </node>
-      <node id="886">
+      <node id="692">
         <label>iostream</label>
+      </node>
+      <node id="694">
+        <label>cy_svector.hpp</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
       <memberdef kind="function" id="Weights_8cpp_1a0095482a61a54f225558100535623397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classsvector" kindref="compound">wvector</ref> *</type>
+        <type>wvector *</type>
         <definition>wvector* load_weights_from_file</definition>
         <argsstring>(const char *file)</argsstring>
         <name>load_weights_from_file</name>
@@ -117,7 +70,7 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Weights.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>load_weights_from_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file)<sp/><sp/>{</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">wvector<sp/>*<sp/>load_weights_from_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file)<sp/><sp/>{</highlight></codeline>
 <codeline lineno="4"><highlight class="normal"><sp/><sp/>fstream<sp/>input(file,<sp/>ios::in<sp/>);</highlight></codeline>
 <codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[1000];</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"><sp/><sp/>input.getline(buf,<sp/>100000);</highlight></codeline>

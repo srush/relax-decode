@@ -11,258 +11,228 @@
     <includedby refid="ConvertFromFile_8cpp" local="yes">hypergraph/ConvertFromFile.cpp</includedby>
     <includedby refid="HypergraphImpl_8cpp" local="yes">hypergraph/HypergraphImpl.cpp</includedby>
     <includedby refid="HypergraphImpl_8h" local="yes">hypergraph/HypergraphImpl.h</includedby>
-    <includedby refid="gen-cpp_2dep_8pb_8h" local="yes">interfaces/hypergraph/gen-cpp/dep.pb.h</includedby>
-    <includedby refid="gen-cpp_2features_8pb_8cc" local="yes">interfaces/hypergraph/gen-cpp/features.pb.cc</includedby>
     <includedby refid="gen-cpp_2features_8pb_8h" local="yes">interfaces/hypergraph/gen-cpp/features.pb.h</includedby>
-    <includedby refid="gen-cpp_2hypergraph_8pb_8cc" local="yes">interfaces/hypergraph/gen-cpp/hypergraph.pb.cc</includedby>
-    <includedby refid="gen-cpp_2lexical_8pb_8cc" local="yes">interfaces/hypergraph/gen-cpp/lexical.pb.cc</includedby>
     <includedby refid="gen-cpp_2lexical_8pb_8h" local="yes">interfaces/hypergraph/gen-cpp/lexical.pb.h</includedby>
-    <includedby refid="gen-cpp_2tag_8pb_8cc" local="yes">interfaces/hypergraph/gen-cpp/tag.pb.cc</includedby>
     <includedby refid="gen-cpp_2tag_8pb_8h" local="yes">interfaces/hypergraph/gen-cpp/tag.pb.h</includedby>
-    <includedby refid="gen-cpp_2translation_8pb_8cc" local="yes">interfaces/hypergraph/gen-cpp/translation.pb.cc</includedby>
     <includedby refid="gen-cpp_2translation_8pb_8h" local="yes">interfaces/hypergraph/gen-cpp/translation.pb.h</includedby>
-    <includedby refid="gen__cpp_2dep_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/dep.pb.h</includedby>
-    <includedby refid="gen__cpp_2features_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/features.pb.cc</includedby>
     <includedby refid="gen__cpp_2features_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/features.pb.h</includedby>
-    <includedby refid="gen__cpp_2hypergraph_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/hypergraph.pb.cc</includedby>
-    <includedby refid="gen__cpp_2lexical_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/lexical.pb.cc</includedby>
     <includedby refid="gen__cpp_2lexical_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/lexical.pb.h</includedby>
-    <includedby refid="gen__cpp_2tag_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/tag.pb.cc</includedby>
     <includedby refid="gen__cpp_2tag_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/tag.pb.h</includedby>
-    <includedby refid="gen__cpp_2translation_8pb_8cc" local="yes">interfaces/hypergraph/gen_cpp/translation.pb.cc</includedby>
     <includedby refid="gen__cpp_2translation_8pb_8h" local="yes">interfaces/hypergraph/gen_cpp/translation.pb.h</includedby>
     <includedby refid="EisnerToHypergraph_8cpp" local="yes">parse/EisnerToHypergraph.cpp</includedby>
     <includedby refid="EisnerToHypergraph_8h" local="yes">parse/EisnerToHypergraph.h</includedby>
     <includedby refid="Forest_8cpp" local="yes">transforest/Forest.cpp</includedby>
     <includedby refid="Forest_8h" local="yes">transforest/Forest.h</includedby>
     <incdepgraph>
-      <node id="1228">
+      <node id="846">
         <label>string</label>
       </node>
-      <node id="1227">
+      <node id="845">
         <label>interfaces/hypergraph/gen_cpp/hypergraph.pb.h</label>
         <link refid="gen_cpp/hypergraph.pb.h"/>
-        <childnode refid="1228" relation="include">
+        <childnode refid="846" relation="include">
         </childnode>
-        <childnode refid="1229" relation="include">
+        <childnode refid="847" relation="include">
         </childnode>
-        <childnode refid="1230" relation="include">
+        <childnode refid="848" relation="include">
         </childnode>
-        <childnode refid="1231" relation="include">
+        <childnode refid="849" relation="include">
         </childnode>
-        <childnode refid="1232" relation="include">
+        <childnode refid="850" relation="include">
         </childnode>
-        <childnode refid="1233" relation="include">
+        <childnode refid="851" relation="include">
         </childnode>
       </node>
-      <node id="1230">
+      <node id="848">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="1229">
+      <node id="847">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="1232">
+      <node id="850">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="1231">
+      <node id="849">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="1233">
+      <node id="851">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1241">
+      <node id="859">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="1241" relation="include">
+        <childnode refid="859" relation="include">
         </childnode>
       </node>
-      <node id="1253">
+      <node id="870">
         <label>interfaces/hypergraph/gen-cpp/lexical.pb.h</label>
         <link refid="gen-cpp_2lexical_8pb_8h_source"/>
       </node>
-      <node id="1247">
+      <node id="865">
         <label>tagger/Tagger.h</label>
         <link refid="Tagger_8h_source"/>
-        <childnode refid="1241" relation="include">
+        <childnode refid="859" relation="include">
         </childnode>
-        <childnode refid="1248" relation="include">
+        <childnode refid="866" relation="include">
         </childnode>
-        <childnode refid="1240" relation="include">
+        <childnode refid="858" relation="include">
         </childnode>
-        <childnode refid="1242" relation="include">
+        <childnode refid="860" relation="include">
         </childnode>
       </node>
-      <node id="1259">
+      <node id="875">
         <label>interfaces/hypergraph/gen_cpp/lexical.pb.h</label>
         <link refid="gen__cpp_2lexical_8pb_8h_source"/>
       </node>
-      <node id="1239">
+      <node id="857">
         <label>optimization/MRFHypergraph.h</label>
         <link refid="MRFHypergraph_8h_source"/>
       </node>
-      <node id="1238">
+      <node id="856">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="1245">
+      <node id="863">
         <label>lp/HardConstraints.h</label>
         <link refid="HardConstraints_8h_source"/>
       </node>
-      <node id="1257">
+      <node id="874">
         <label>parse/EisnerToHypergraph.h</label>
         <link refid="EisnerToHypergraph_8h_source"/>
       </node>
-      <node id="1236">
+      <node id="854">
         <label>optimization/MRF.h</label>
         <link refid="MRF_8h_source"/>
-        <childnode refid="1237" relation="include">
+        <childnode refid="855" relation="include">
         </childnode>
-        <childnode refid="1239" relation="include">
+        <childnode refid="857" relation="include">
         </childnode>
-        <childnode refid="1240" relation="include">
+        <childnode refid="858" relation="include">
         </childnode>
       </node>
-      <node id="1258">
+      <node id="873">
         <label>interfaces/hypergraph/gen_cpp/features.pb.h</label>
         <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="1235" relation="include">
+        <childnode refid="853" relation="include">
         </childnode>
-        <childnode refid="1257" relation="include">
+        <childnode refid="874" relation="include">
         </childnode>
       </node>
-      <node id="1235">
+      <node id="853">
         <label>hypergraph/HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="1236" relation="include">
+        <childnode refid="854" relation="include">
         </childnode>
-        <childnode refid="1239" relation="include">
+        <childnode refid="857" relation="include">
         </childnode>
-        <childnode refid="1243" relation="include">
+        <childnode refid="861" relation="include">
         </childnode>
-        <childnode refid="1246" relation="include">
+        <childnode refid="864" relation="include">
         </childnode>
-        <childnode refid="1247" relation="include">
+        <childnode refid="865" relation="include">
         </childnode>
-        <childnode refid="1249" relation="include">
+        <childnode refid="867" relation="include">
         </childnode>
       </node>
-      <node id="1237">
+      <node id="855">
         <label>lp/MRFLP.h</label>
         <link refid="MRFLP_8h_source"/>
-        <childnode refid="1238" relation="include">
+        <childnode refid="856" relation="include">
         </childnode>
       </node>
-      <node id="1234">
+      <node id="852">
         <label>interfaces/hypergraph/gen_cpp/hypergraph.pb.h</label>
         <link refid="gen_cpp/hypergraph.pb.h"/>
-        <childnode refid="1235" relation="include">
+        <childnode refid="853" relation="include">
         </childnode>
-        <childnode refid="1251" relation="include">
+        <childnode refid="869" relation="include">
         </childnode>
-        <childnode refid="1252" relation="include">
+        <childnode refid="870" relation="include">
         </childnode>
-        <childnode refid="1253" relation="include">
+        <childnode refid="871" relation="include">
         </childnode>
-        <childnode refid="1254" relation="include">
+        <childnode refid="872" relation="include">
         </childnode>
-        <childnode refid="1255" relation="include">
+        <childnode refid="873" relation="include">
         </childnode>
-        <childnode refid="1256" relation="include">
+        <childnode refid="875" relation="include">
         </childnode>
-        <childnode refid="1258" relation="include">
+        <childnode refid="876" relation="include">
         </childnode>
-        <childnode refid="1259" relation="include">
+        <childnode refid="877" relation="include">
         </childnode>
-        <childnode refid="1260" relation="include">
+        <childnode refid="874" relation="include">
         </childnode>
-        <childnode refid="1261" relation="include">
-        </childnode>
-        <childnode refid="1257" relation="include">
-        </childnode>
-        <childnode refid="1249" relation="include">
+        <childnode refid="867" relation="include">
         </childnode>
       </node>
-      <node id="1261">
+      <node id="877">
         <label>interfaces/hypergraph/gen_cpp/translation.pb.h</label>
         <link refid="gen__cpp_2translation_8pb_8h_source"/>
       </node>
-      <node id="1243">
+      <node id="861">
         <label>parse/DepParser.h</label>
         <link refid="DepParser_8h_source"/>
-        <childnode refid="1244" relation="include">
+        <childnode refid="862" relation="include">
         </childnode>
       </node>
-      <node id="1252">
+      <node id="869">
         <label>interfaces/hypergraph/gen-cpp/features.pb.h</label>
         <link refid="gen-cpp_2features_8pb_8h_source"/>
       </node>
-      <node id="1254">
+      <node id="871">
         <label>interfaces/hypergraph/gen-cpp/tag.pb.h</label>
         <link refid="gen-cpp_2tag_8pb_8h_source"/>
       </node>
-      <node id="1240">
+      <node id="858">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="1241" relation="include">
+        <childnode refid="859" relation="include">
         </childnode>
-        <childnode refid="1238" relation="include">
+        <childnode refid="856" relation="include">
         </childnode>
-        <childnode refid="1242" relation="include">
+        <childnode refid="860" relation="include">
         </childnode>
       </node>
-      <node id="1250">
+      <node id="868">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="1249">
+      <node id="867">
         <label>transforest/Forest.h</label>
         <link refid="Forest_8h_source"/>
-        <childnode refid="1250" relation="include">
+        <childnode refid="868" relation="include">
         </childnode>
       </node>
-      <node id="1248">
+      <node id="866">
         <label>lp/TagLP.h</label>
         <link refid="TagLP_8h_source"/>
-        <childnode refid="1238" relation="include">
+        <childnode refid="856" relation="include">
         </childnode>
       </node>
-      <node id="1251">
-        <label>interfaces/hypergraph/gen-cpp/dep.pb.h</label>
-        <link refid="gen-cpp_2dep_8pb_8h_source"/>
-      </node>
-      <node id="1246">
+      <node id="864">
         <label>phrasebased/PhraseBased.h</label>
         <link refid="PhraseBased_8h_source"/>
       </node>
-      <node id="1255">
+      <node id="872">
         <label>interfaces/hypergraph/gen-cpp/translation.pb.h</label>
         <link refid="gen-cpp_2translation_8pb_8h_source"/>
       </node>
-      <node id="1256">
-        <label>interfaces/hypergraph/gen_cpp/dep.pb.h</label>
-        <link refid="gen__cpp_2dep_8pb_8h_source"/>
-        <childnode refid="1243" relation="include">
-        </childnode>
-        <childnode refid="1257" relation="include">
-        </childnode>
-        <childnode refid="1247" relation="include">
-        </childnode>
-      </node>
-      <node id="1260">
+      <node id="876">
         <label>interfaces/hypergraph/gen_cpp/tag.pb.h</label>
         <link refid="gen__cpp_2tag_8pb_8h_source"/>
-        <childnode refid="1247" relation="include">
+        <childnode refid="865" relation="include">
         </childnode>
       </node>
-      <node id="1244">
+      <node id="862">
         <label>lp/DepParseLP.h</label>
         <link refid="DepParseLP_8h_source"/>
-        <childnode refid="1245" relation="include">
+        <childnode refid="863" relation="include">
         </childnode>
       </node>
-      <node id="1242">
+      <node id="860">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -284,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="29" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="118" bodyend="140"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="29"/>
       </memberdef>
       <memberdef kind="function" id="gen__cpp_2hypergraph_8pb_8h_1a3cbaa41d7f7b73db437c4e7d1edcb4f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -297,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="30" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="31" bodyend="87"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="30"/>
       </memberdef>
       <memberdef kind="function" id="gen__cpp_2hypergraph_8pb_8h_1a424acd7e96228bbed0dba9436582d3c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -310,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="31" bodyfile="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen-cpp/hypergraph.pb.cc" bodystart="109" bodyend="116"/>
+        <location file="/home/srush/Projects/relax_decode/interfaces/hypergraph/gen_cpp/hypergraph.pb.h" line="31"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

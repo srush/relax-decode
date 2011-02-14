@@ -10,224 +10,183 @@
     <includedby refid="DepParseLP_8h" local="yes">lp/DepParseLP.h</includedby>
     <includedby refid="Parse_8cpp" local="yes">Parse.cpp</includedby>
     <incdepgraph>
-      <node id="2350">
+      <node id="1709">
         <label>assert.h</label>
       </node>
-      <node id="2341">
-        <label>cassert</label>
-      </node>
-      <node id="2340">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="2343">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="2339" relation="include">
-        </childnode>
-        <childnode refid="2340" relation="include">
-        </childnode>
-        <childnode refid="2341" relation="include">
-        </childnode>
-      </node>
-      <node id="2346">
+      <node id="1705">
         <label>features.pb.h</label>
         <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="2325" relation="include">
+        <childnode refid="1689" relation="include">
         </childnode>
-        <childnode refid="2326" relation="include">
+        <childnode refid="1690" relation="include">
         </childnode>
-        <childnode refid="2327" relation="include">
+        <childnode refid="1691" relation="include">
         </childnode>
-        <childnode refid="2328" relation="include">
+        <childnode refid="1692" relation="include">
         </childnode>
-        <childnode refid="2329" relation="include">
+        <childnode refid="1693" relation="include">
         </childnode>
-        <childnode refid="2330" relation="include">
+        <childnode refid="1694" relation="include">
         </childnode>
-        <childnode refid="2331" relation="include">
+        <childnode refid="1704" relation="include">
         </childnode>
       </node>
-      <node id="2325">
+      <node id="1689">
         <label>string</label>
       </node>
-      <node id="2339">
-        <label>map</label>
-      </node>
-      <node id="2348">
+      <node id="1707">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="2342" relation="include">
+        <childnode refid="1701" relation="include">
         </childnode>
-        <childnode refid="2349" relation="include">
+        <childnode refid="1708" relation="include">
         </childnode>
-        <childnode refid="2350" relation="include">
+        <childnode refid="1709" relation="include">
         </childnode>
       </node>
-      <node id="2345">
+      <node id="1703">
         <label>HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="2332" relation="include">
+        <childnode refid="1695" relation="include">
         </childnode>
-        <childnode refid="2331" relation="include">
+        <childnode refid="1704" relation="include">
         </childnode>
-        <childnode refid="2346" relation="include">
+        <childnode refid="1705" relation="include">
         </childnode>
-        <childnode refid="2333" relation="include">
+        <childnode refid="1696" relation="include">
         </childnode>
-        <childnode refid="2347" relation="include">
+        <childnode refid="1706" relation="include">
         </childnode>
-        <childnode refid="2342" relation="include">
+        <childnode refid="1701" relation="include">
         </childnode>
-        <childnode refid="2344" relation="include">
+        <childnode refid="1702" relation="include">
         </childnode>
       </node>
-      <node id="2332">
+      <node id="1695">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="2333" relation="include">
+        <childnode refid="1696" relation="include">
         </childnode>
-        <childnode refid="2342" relation="include">
+        <childnode refid="1701" relation="include">
         </childnode>
-        <childnode refid="2344" relation="include">
+        <childnode refid="1702" relation="include">
         </childnode>
-        <childnode refid="2325" relation="include">
+        <childnode refid="1689" relation="include">
         </childnode>
       </node>
-      <node id="2335">
+      <node id="1698">
         <label>fstream</label>
       </node>
-      <node id="2331">
+      <node id="1704">
         <label>hypergraph.pb.h</label>
         <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="2325" relation="include">
+        <childnode refid="1689" relation="include">
         </childnode>
-        <childnode refid="2326" relation="include">
+        <childnode refid="1690" relation="include">
         </childnode>
-        <childnode refid="2327" relation="include">
+        <childnode refid="1691" relation="include">
         </childnode>
-        <childnode refid="2328" relation="include">
+        <childnode refid="1692" relation="include">
         </childnode>
-        <childnode refid="2329" relation="include">
+        <childnode refid="1693" relation="include">
         </childnode>
-        <childnode refid="2330" relation="include">
+        <childnode refid="1694" relation="include">
         </childnode>
       </node>
-      <node id="2323">
+      <node id="1687">
         <label>parse/DepParser.h</label>
         <link refid="DepParser.h"/>
-        <childnode refid="2324" relation="include">
+        <childnode refid="1688" relation="include">
         </childnode>
-        <childnode refid="2332" relation="include">
+        <childnode refid="1695" relation="include">
         </childnode>
-        <childnode refid="2345" relation="include">
+        <childnode refid="1703" relation="include">
         </childnode>
-        <childnode refid="2348" relation="include">
+        <childnode refid="1707" relation="include">
         </childnode>
       </node>
-      <node id="2333">
+      <node id="1700">
+        <label>svector.hpp</label>
+      </node>
+      <node id="1696">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="2334" relation="include">
+        <childnode refid="1697" relation="include">
         </childnode>
-        <childnode refid="2335" relation="include">
+        <childnode refid="1698" relation="include">
         </childnode>
-        <childnode refid="2336" relation="include">
+        <childnode refid="1699" relation="include">
         </childnode>
-        <childnode refid="2343" relation="include">
+        <childnode refid="1700" relation="include">
         </childnode>
       </node>
-      <node id="2327">
+      <node id="1691">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="2347">
+      <node id="1706">
         <label>../common.h</label>
       </node>
-      <node id="2349">
+      <node id="1708">
         <label>bitset</label>
       </node>
-      <node id="2326">
+      <node id="1690">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="2342">
+      <node id="1701">
         <label>vector</label>
       </node>
-      <node id="2337">
-        <label>sstream</label>
-      </node>
-      <node id="2329">
+      <node id="1693">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="2328">
+      <node id="1692">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="2338">
-        <label>cstdlib</label>
-      </node>
-      <node id="2336">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="2325" relation="include">
-        </childnode>
-        <childnode refid="2337" relation="include">
-        </childnode>
-        <childnode refid="2338" relation="include">
-        </childnode>
-        <childnode refid="2336" relation="include">
-        </childnode>
-        <childnode refid="2339" relation="include">
-        </childnode>
-        <childnode refid="2340" relation="include">
-        </childnode>
-        <childnode refid="2341" relation="include">
-        </childnode>
-        <childnode refid="2342" relation="include">
-        </childnode>
-        <childnode refid="2334" relation="include">
-        </childnode>
-      </node>
-      <node id="2334">
+      <node id="1697">
         <label>iostream</label>
       </node>
-      <node id="2344">
+      <node id="1699">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="1702">
         <label>set</label>
       </node>
-      <node id="2324">
+      <node id="1688">
         <label>dep.pb.h</label>
         <link refid="gen__cpp_2dep_8pb_8h_source"/>
-        <childnode refid="2325" relation="include">
+        <childnode refid="1689" relation="include">
         </childnode>
-        <childnode refid="2326" relation="include">
+        <childnode refid="1690" relation="include">
         </childnode>
-        <childnode refid="2327" relation="include">
+        <childnode refid="1691" relation="include">
         </childnode>
-        <childnode refid="2328" relation="include">
+        <childnode refid="1692" relation="include">
         </childnode>
-        <childnode refid="2329" relation="include">
+        <childnode refid="1693" relation="include">
         </childnode>
-        <childnode refid="2330" relation="include">
+        <childnode refid="1694" relation="include">
         </childnode>
-        <childnode refid="2331" relation="include">
+        <childnode refid="1688" relation="include">
         </childnode>
       </node>
-      <node id="2330">
+      <node id="1694">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2353">
+      <node id="1712">
         <label>lp/HardConstraints.h</label>
         <link refid="HardConstraints_8h_source"/>
       </node>
-      <node id="2351">
+      <node id="1710">
         <label>parse/DepParser.h</label>
         <link refid="DepParser.h"/>
-        <childnode refid="2352" relation="include">
+        <childnode refid="1711" relation="include">
         </childnode>
       </node>
-      <node id="2352">
+      <node id="1711">
         <label>lp/DepParseLP.h</label>
         <link refid="DepParseLP_8h_source"/>
-        <childnode refid="2353" relation="include">
+        <childnode refid="1712" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

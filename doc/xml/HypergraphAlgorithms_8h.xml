@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
   <compounddef id="HypergraphAlgorithms_8h" kind="file">
     <compoundname>HypergraphAlgorithms.h</compoundname>
-    <includes refid="third-party_2svector_2svector_8hpp" local="yes">svector.hpp</includes>
+    <includes local="yes">svector.hpp</includes>
     <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
     <includedby refid="CubeLM_8cpp" local="yes">CubeLM.cpp</includedby>
@@ -27,173 +27,132 @@
     <includedby refid="Decode_8cpp" local="no">trans_decode/Decode.cpp</includedby>
     <includedby refid="Decode_8h" local="no">trans_decode/Decode.h</includedby>
     <incdepgraph>
-      <node id="651">
+      <node id="523">
         <label>assert.h</label>
       </node>
-      <node id="647">
-        <label>cassert</label>
-      </node>
-      <node id="646">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="644">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="645" relation="include">
-        </childnode>
-        <childnode refid="646" relation="include">
-        </childnode>
-        <childnode refid="647" relation="include">
-        </childnode>
-      </node>
-      <node id="657">
+      <node id="530">
         <label>string</label>
       </node>
-      <node id="645">
-        <label>map</label>
-      </node>
-      <node id="648">
+      <node id="520">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="649" relation="include">
+        <childnode refid="521" relation="include">
         </childnode>
-        <childnode refid="650" relation="include">
+        <childnode refid="522" relation="include">
         </childnode>
-        <childnode refid="651" relation="include">
+        <childnode refid="523" relation="include">
         </childnode>
       </node>
-      <node id="652">
+      <node id="524">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="653" relation="include">
+        <childnode refid="525" relation="include">
         </childnode>
-        <childnode refid="649" relation="include">
+        <childnode refid="521" relation="include">
         </childnode>
-        <childnode refid="660" relation="include">
+        <childnode refid="529" relation="include">
         </childnode>
-        <childnode refid="657" relation="include">
+        <childnode refid="530" relation="include">
         </childnode>
       </node>
-      <node id="655">
+      <node id="527">
         <label>fstream</label>
       </node>
-      <node id="653">
+      <node id="519">
+        <label>svector.hpp</label>
+      </node>
+      <node id="525">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="654" relation="include">
+        <childnode refid="526" relation="include">
         </childnode>
-        <childnode refid="655" relation="include">
+        <childnode refid="527" relation="include">
         </childnode>
-        <childnode refid="656" relation="include">
+        <childnode refid="528" relation="include">
         </childnode>
-        <childnode refid="644" relation="include">
+        <childnode refid="519" relation="include">
         </childnode>
       </node>
-      <node id="650">
+      <node id="522">
         <label>bitset</label>
       </node>
-      <node id="649">
+      <node id="521">
         <label>vector</label>
       </node>
-      <node id="643">
+      <node id="518">
         <label>hypergraph/HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms.h"/>
-        <childnode refid="644" relation="include">
+        <childnode refid="519" relation="include">
         </childnode>
-        <childnode refid="648" relation="include">
+        <childnode refid="520" relation="include">
         </childnode>
-        <childnode refid="652" relation="include">
-        </childnode>
-      </node>
-      <node id="658">
-        <label>sstream</label>
-      </node>
-      <node id="659">
-        <label>cstdlib</label>
-      </node>
-      <node id="656">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="657" relation="include">
-        </childnode>
-        <childnode refid="658" relation="include">
-        </childnode>
-        <childnode refid="659" relation="include">
-        </childnode>
-        <childnode refid="656" relation="include">
-        </childnode>
-        <childnode refid="645" relation="include">
-        </childnode>
-        <childnode refid="646" relation="include">
-        </childnode>
-        <childnode refid="647" relation="include">
-        </childnode>
-        <childnode refid="649" relation="include">
-        </childnode>
-        <childnode refid="654" relation="include">
+        <childnode refid="524" relation="include">
         </childnode>
       </node>
-      <node id="654">
+      <node id="526">
         <label>iostream</label>
       </node>
-      <node id="660">
+      <node id="528">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="529">
         <label>set</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="667">
+      <node id="537">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="667" relation="include">
+        <childnode refid="537" relation="include">
         </childnode>
       </node>
-      <node id="668">
+      <node id="538">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="664">
+      <node id="534">
         <label>hypergraph/ExtendCKY.h</label>
         <link refid="ExtendCKY_8h_source"/>
-        <childnode refid="665" relation="include">
+        <childnode refid="535" relation="include">
         </childnode>
       </node>
-      <node id="663">
+      <node id="533">
         <label>hypergraph/AStar.h</label>
         <link refid="AStar_8h_source"/>
       </node>
-      <node id="666">
+      <node id="536">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="667" relation="include">
+        <childnode refid="537" relation="include">
         </childnode>
-        <childnode refid="668" relation="include">
+        <childnode refid="538" relation="include">
         </childnode>
-        <childnode refid="669" relation="include">
+        <childnode refid="539" relation="include">
         </childnode>
       </node>
-      <node id="665">
+      <node id="535">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="661">
+      <node id="531">
         <label>hypergraph/HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms.h"/>
-        <childnode refid="662" relation="include">
+        <childnode refid="532" relation="include">
         </childnode>
-        <childnode refid="666" relation="include">
+        <childnode refid="536" relation="include">
         </childnode>
-        <childnode refid="665" relation="include">
+        <childnode refid="535" relation="include">
         </childnode>
       </node>
-      <node id="662">
+      <node id="532">
         <label>hypergraph/BestHyp.h</label>
         <link refid="BestHyp_8h_source"/>
-        <childnode refid="663" relation="include">
+        <childnode refid="533" relation="include">
         </childnode>
-        <childnode refid="664" relation="include">
+        <childnode refid="534" relation="include">
         </childnode>
       </node>
-      <node id="669">
+      <node id="539">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -227,7 +186,7 @@
 <codeline lineno="19"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms" kindref="compound">HypergraphAlgorithms</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HGraph" kindref="compound">HGraph</ref><sp/>&amp;<sp/>hypergraph):<sp/>_forest(hypergraph)<sp/>{}</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><ref refid="classCache" kindref="compound">EdgeCache</ref><sp/>*<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" kindref="member">cache_edge_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">svector &lt;int, double&gt;</ref><sp/>&amp;<sp/>weight_vector<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classCache" kindref="compound">EdgeCache</ref><sp/>*<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1a28f83d7616f6153ca7c909fe82c5b0fa" kindref="member">cache_edge_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>svector<sp/>&lt;int,<sp/>double&gt;<sp/>&amp;<sp/>weight_vector<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><ref refid="classCache" kindref="compound">EdgeCache</ref>*<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1ae815dc19968e9ab557d19dd2563fca38" kindref="member">combine_edge_weights</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">EdgeCache</ref><sp/>&amp;<sp/>w1,<sp/></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">EdgeCache</ref><sp/>&amp;<sp/>w2<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
@@ -240,7 +199,7 @@
 <codeline lineno="53"><highlight class="normal">HNodes<sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1acf3eea6f89752404f12c0a3dd45d397d" kindref="member">construct_best_node_order</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">NodeBackCache</ref><sp/>&amp;<sp/>back_memo_table)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>construct_best_feature_vector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">NodeBackCache</ref><sp/>&amp;<sp/>back_memo_table)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/>wvector<sp/>construct_best_feature_vector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">NodeBackCache</ref><sp/>&amp;<sp/>back_memo_table)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="64"><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HypergraphAlgorithms_1aa9a28bf42d17a166ec5e780067e33259" kindref="member">best_path</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">EdgeCache</ref><sp/>&amp;<sp/>edge_weights,<sp/></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCache" kindref="compound">NodeCache</ref><sp/>&amp;<sp/>score_memo_table,<sp/></highlight></codeline>

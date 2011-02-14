@@ -10,118 +10,100 @@
     <includes local="no">google/protobuf/generated_message_reflection.h</includes>
     <includedby refid="GraphProtoInterface_8cpp" local="yes">graph/GraphProtoInterface.cpp</includedby>
     <includedby refid="GraphProtoInterface_8h" local="yes">graph/GraphProtoInterface.h</includedby>
-    <includedby refid="gen-cpp_2mrf_8pb_8cc" local="yes">interfaces/graph/gen-cpp/mrf.pb.cc</includedby>
-    <includedby refid="gen-cpp_2mrf_8pb_8h" local="yes">interfaces/graph/gen-cpp/mrf.pb.h</includedby>
-    <includedby refid="gen-py_2mrf_8pb_8cc" local="yes">interfaces/graph/gen-py/mrf.pb.cc</includedby>
-    <includedby refid="gen-py_2mrf_8pb_8h" local="yes">interfaces/graph/gen-py/mrf.pb.h</includedby>
     <includedby refid="MRF_8cpp" local="no">optimization/MRF.cpp</includedby>
     <includedby refid="MRF_8h" local="no">optimization/MRF.h</includedby>
     <incdepgraph>
-      <node id="976">
+      <node id="738">
         <label>string</label>
       </node>
-      <node id="975">
+      <node id="737">
         <label>interfaces/graph/gen-py/graph.pb.h</label>
         <link refid="gen-py/graph.pb.h"/>
-        <childnode refid="976" relation="include">
+        <childnode refid="738" relation="include">
         </childnode>
-        <childnode refid="977" relation="include">
+        <childnode refid="739" relation="include">
         </childnode>
-        <childnode refid="978" relation="include">
+        <childnode refid="740" relation="include">
         </childnode>
-        <childnode refid="979" relation="include">
+        <childnode refid="741" relation="include">
         </childnode>
-        <childnode refid="980" relation="include">
+        <childnode refid="742" relation="include">
         </childnode>
-        <childnode refid="981" relation="include">
+        <childnode refid="743" relation="include">
         </childnode>
       </node>
-      <node id="978">
+      <node id="740">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="977">
+      <node id="739">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="980">
+      <node id="742">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="979">
+      <node id="741">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="981">
+      <node id="743">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="989">
+      <node id="751">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="989" relation="include">
+        <childnode refid="751" relation="include">
         </childnode>
       </node>
-      <node id="987">
+      <node id="749">
         <label>optimization/MRFHypergraph.h</label>
         <link refid="MRFHypergraph_8h_source"/>
       </node>
-      <node id="986">
+      <node id="748">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="992">
-        <label>interfaces/graph/gen-py/mrf.pb.h</label>
-        <link refid="gen-py_2mrf_8pb_8h_source"/>
-        <childnode refid="984" relation="include">
-        </childnode>
-      </node>
-      <node id="984">
+      <node id="746">
         <label>optimization/MRF.h</label>
         <link refid="MRF_8h_source"/>
-        <childnode refid="985" relation="include">
+        <childnode refid="747" relation="include">
         </childnode>
-        <childnode refid="987" relation="include">
+        <childnode refid="749" relation="include">
         </childnode>
-        <childnode refid="988" relation="include">
+        <childnode refid="750" relation="include">
         </childnode>
       </node>
-      <node id="991">
-        <label>interfaces/graph/gen-cpp/mrf.pb.h</label>
-        <link refid="gen-cpp_2mrf_8pb_8h_source"/>
-      </node>
-      <node id="985">
+      <node id="747">
         <label>lp/MRFLP.h</label>
         <link refid="MRFLP_8h_source"/>
-        <childnode refid="986" relation="include">
+        <childnode refid="748" relation="include">
         </childnode>
       </node>
-      <node id="982">
+      <node id="744">
         <label>interfaces/graph/gen-py/graph.pb.h</label>
         <link refid="gen-py/graph.pb.h"/>
-        <childnode refid="983" relation="include">
+        <childnode refid="745" relation="include">
         </childnode>
-        <childnode refid="991" relation="include">
-        </childnode>
-        <childnode refid="992" relation="include">
-        </childnode>
-        <childnode refid="984" relation="include">
+        <childnode refid="746" relation="include">
         </childnode>
       </node>
-      <node id="988">
+      <node id="750">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="989" relation="include">
+        <childnode refid="751" relation="include">
         </childnode>
-        <childnode refid="986" relation="include">
+        <childnode refid="748" relation="include">
         </childnode>
-        <childnode refid="990" relation="include">
+        <childnode refid="752" relation="include">
         </childnode>
       </node>
-      <node id="983">
+      <node id="745">
         <label>graph/GraphProtoInterface.h</label>
         <link refid="GraphProtoInterface_8h_source"/>
-        <childnode refid="984" relation="include">
+        <childnode refid="746" relation="include">
         </childnode>
       </node>
-      <node id="990">
+      <node id="752">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>

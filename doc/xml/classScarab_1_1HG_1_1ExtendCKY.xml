@@ -345,131 +345,131 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="654">
+      <node id="530">
         <label>Scarab::HG::ExtendCKY</label>
         <link refid="classScarab_1_1HG_1_1ExtendCKY"/>
-        <childnode refid="655" relation="usage">
+        <childnode refid="531" relation="usage">
           <edgelabel>_memo_edge_back_table</edgelabel>
           <edgelabel>_outside_edge_memo_table</edgelabel>
           <edgelabel>_memo_edge_table</edgelabel>
         </childnode>
-        <childnode refid="656" relation="usage">
+        <childnode refid="532" relation="usage">
           <edgelabel>_out_queue</edgelabel>
         </childnode>
-        <childnode refid="657" relation="usage">
+        <childnode refid="533" relation="usage">
           <edgelabel>_out_done</edgelabel>
         </childnode>
-        <childnode refid="658" relation="usage">
+        <childnode refid="534" relation="usage">
           <edgelabel>_forest</edgelabel>
         </childnode>
-        <childnode refid="659" relation="usage">
+        <childnode refid="535" relation="usage">
           <edgelabel>_old_edge_weights</edgelabel>
           <edgelabel>_edge_weights</edgelabel>
         </childnode>
-        <childnode refid="660" relation="usage">
+        <childnode refid="536" relation="usage">
           <edgelabel>_memo_table</edgelabel>
           <edgelabel>_outside_memo_table</edgelabel>
         </childnode>
-        <childnode refid="661" relation="usage">
+        <childnode refid="537" relation="usage">
           <edgelabel>_controller</edgelabel>
         </childnode>
-        <childnode refid="662" relation="usage">
+        <childnode refid="538" relation="usage">
           <edgelabel>_to_delete</edgelabel>
         </childnode>
       </node>
-      <node id="657">
+      <node id="533">
         <label>std::set&lt; int &gt;</label>
       </node>
-      <node id="666">
+      <node id="542">
         <label>Scarab::HG::Hypothesis</label>
         <link refid="structScarab_1_1HG_1_1Hypothesis"/>
-        <childnode refid="667" relation="usage">
+        <childnode refid="543" relation="usage">
           <edgelabel>back_edge</edgelabel>
         </childnode>
-        <childnode refid="668" relation="usage">
+        <childnode refid="544" relation="usage">
           <edgelabel>right_side</edgelabel>
           <edgelabel>hook</edgelabel>
         </childnode>
-        <childnode refid="669" relation="usage">
+        <childnode refid="545" relation="usage">
           <edgelabel>prev_hyp</edgelabel>
         </childnode>
       </node>
-      <node id="671">
+      <node id="547">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="667">
+      <node id="543">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="659">
+      <node id="535">
         <label>Cache&lt; Hyperedge, double &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="668">
+      <node id="544">
         <label>Scarab::HG::State</label>
         <link refid="structScarab_1_1HG_1_1State"/>
-        <childnode refid="669" relation="usage">
+        <childnode refid="545" relation="usage">
           <edgelabel>_state</edgelabel>
         </childnode>
       </node>
-      <node id="664">
+      <node id="540">
         <label>std::map&lt; int, int &gt;</label>
       </node>
-      <node id="661">
+      <node id="537">
         <label>Scarab::HG::Controller</label>
         <link refid="classScarab_1_1HG_1_1Controller"/>
       </node>
-      <node id="665">
+      <node id="541">
         <label>std::vector&lt; Hypothesis * &gt;</label>
-        <childnode refid="666" relation="usage">
+        <childnode refid="542" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="655">
+      <node id="531">
         <label>Cache&lt; Hyperedge, vector&lt; BestHyp &gt; &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="656">
+      <node id="532">
         <label>std::queue&lt; int &gt;</label>
       </node>
-      <node id="662">
+      <node id="538">
         <label>std::vector&lt; BestHyp * &gt;</label>
-        <childnode refid="663" relation="usage">
+        <childnode refid="539" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="658">
+      <node id="534">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="670">
+      <node id="546">
         <label>std::map&lt; int, vector&lt; int &gt; &gt;</label>
-        <childnode refid="669" relation="usage">
+        <childnode refid="545" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="660">
+      <node id="536">
         <label>Cache&lt; Hypernode, BestHyp &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="663">
+      <node id="539">
         <label>Scarab::HG::BestHyp</label>
         <link refid="classScarab_1_1HG_1_1BestHyp"/>
-        <childnode refid="664" relation="usage">
+        <childnode refid="540" relation="usage">
           <edgelabel>index_by_id</edgelabel>
         </childnode>
-        <childnode refid="665" relation="usage">
+        <childnode refid="541" relation="usage">
           <edgelabel>hyps</edgelabel>
         </childnode>
-        <childnode refid="670" relation="usage">
+        <childnode refid="546" relation="usage">
           <edgelabel>index_by_left</edgelabel>
           <edgelabel>index_by_right</edgelabel>
         </childnode>
-        <childnode refid="671" relation="usage">
+        <childnode refid="547" relation="usage">
           <edgelabel>scores</edgelabel>
         </childnode>
       </node>
-      <node id="669">
+      <node id="545">
         <label>std::vector&lt; int &gt;</label>
       </node>
     </collaborationgraph>

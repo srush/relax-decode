@@ -10,10 +10,10 @@
 \label{classTagConstraints_a58a2e5245400d411de24e36534d11945}
 
 \item 
-\hyperlink{classCache}{EdgeCache} \hyperlink{classTagConstraints_adec1a1de8fb49e79b52c4c93517414a0}{build\_\-tagger\_\-constraint\_\-vector} (int sent\_\-num, const \hyperlink{classTagger}{Tagger} \&tagger, \hyperlink{classsvector}{wvector} \&orig\_\-weights) const 
+\hyperlink{classCache}{EdgeCache} \hyperlink{classTagConstraints_adec1a1de8fb49e79b52c4c93517414a0}{build\_\-tagger\_\-constraint\_\-vector} (int sent\_\-num, const \hyperlink{classTagger}{Tagger} \&tagger, wvector \&orig\_\-weights) const 
 \item 
 \hypertarget{classTagConstraints_acec3818d7505e9147828ab7cb3863001}{
-\hyperlink{classsvector}{wvector} {\bfseries build\_\-tagger\_\-subgradient} (int sent\_\-num, const \hyperlink{classTagger}{Tagger} \&tagger, const vector$<$ const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ used\_\-edges) const }
+wvector {\bfseries build\_\-tagger\_\-subgradient} (int sent\_\-num, const \hyperlink{classTagger}{Tagger} \&tagger, const vector$<$ const \hyperlink{classScarab_1_1HG_1_1Hyperedge}{Hyperedge} $\ast$ $>$ used\_\-edges) const }
 \label{classTagConstraints_acec3818d7505e9147828ab7cb3863001}
 
 \item 
@@ -23,7 +23,7 @@ void {\bfseries read\_\-from\_\-file} (string file\_\-name)}
 
 \item 
 \hypertarget{classTagConstraints_a3e490a8d4d335ed4d04803fab0a82871}{
-\hyperlink{classsvector}{wvector} {\bfseries solve\_\-hard} (\hyperlink{classsvector}{wvector} \&model) const }
+wvector {\bfseries solve\_\-hard} (wvector \&model) const }
 \label{classTagConstraints_a3e490a8d4d335ed4d04803fab0a82871}
 
 \end{DoxyCompactItemize}
@@ -61,7 +61,7 @@ int {\bfseries \_\-num\_\-tags}}
 \hypertarget{classTagConstraints_adec1a1de8fb49e79b52c4c93517414a0}{
 \index{TagConstraints@{TagConstraints}!build\_\-tagger\_\-constraint\_\-vector@{build\_\-tagger\_\-constraint\_\-vector}}
 \index{build\_\-tagger\_\-constraint\_\-vector@{build\_\-tagger\_\-constraint\_\-vector}!TagConstraints@{TagConstraints}}
-\subsubsection[{build\_\-tagger\_\-constraint\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EdgeCache} TagConstraints::build\_\-tagger\_\-constraint\_\-vector (int {\em sent\_\-num}, \/  const {\bf Tagger} \& {\em tagger}, \/  {\bf wvector} \& {\em orig\_\-weights}) const}}
+\subsubsection[{build\_\-tagger\_\-constraint\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EdgeCache} TagConstraints::build\_\-tagger\_\-constraint\_\-vector (int {\em sent\_\-num}, \/  const {\bf Tagger} \& {\em tagger}, \/  wvector \& {\em orig\_\-weights}) const}}
 \label{classTagConstraints_adec1a1de8fb49e79b52c4c93517414a0}
 Given an sent\_\-num, the tagger, and a weight vector (indexed on constrained words) produce a weight vector indexed on edges. 
 

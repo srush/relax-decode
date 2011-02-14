@@ -59,7 +59,7 @@
         <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphImpl.h" line="71" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphImpl.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classScarab_1_1HG_1_1HyperedgeImpl_1a5c1b6203ba130968e7e8ba856a508369" prot="private" static="no" mutable="no">
-        <type><ref refid="classsvector" kindref="compound">str_vector</ref> *</type>
+        <type>str_vector *</type>
         <definition>str_vector* Scarab::HG::HyperedgeImpl::_features</definition>
         <argsstring></argsstring>
         <name>_features</name>
@@ -96,7 +96,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="classsvector" kindref="compound">str_vector</ref> *</type>
+          <type>str_vector *</type>
           <declname>features</declname>
         </param>
         <param>
@@ -162,7 +162,7 @@
         <location file="/home/srush/Projects/relax_decode/hypergraph/HypergraphImpl.h" line="35" bodyfile="/home/srush/Projects/relax_decode/hypergraph/HypergraphImpl.h" bodystart="35" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="classScarab_1_1HG_1_1HyperedgeImpl_1a359446c285164a93995bb87e6ea74882" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
-        <type>const <ref refid="classsvector" kindref="compound">wvector</ref> &amp;</type>
+        <type>const wvector &amp;</type>
         <definition>const wvector&amp; Scarab::HG::HyperedgeImpl::fvector</definition>
         <argsstring>() const </argsstring>
         <name>fvector</name>
@@ -258,66 +258,53 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="840">
+      <node id="702">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="839">
+      <node id="701">
         <label>Scarab::HG::HyperedgeImpl</label>
         <link refid="classScarab_1_1HG_1_1HyperedgeImpl"/>
-        <childnode refid="840" relation="public-inheritance">
+        <childnode refid="702" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="848">
-        <label>std::map&lt; int, double &gt;</label>
-      </node>
-      <node id="842">
+      <node id="704">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="844">
+      <node id="706">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="843">
+      <node id="705">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="844" relation="usage">
+        <childnode refid="706" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="847">
-        <label>svector&lt; int, double &gt;</label>
-        <link refid="classsvector"/>
-        <childnode refid="848" relation="usage">
-          <edgelabel>m</edgelabel>
-        </childnode>
-      </node>
-      <node id="846">
+      <node id="708">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="841">
+      <node id="703">
         <label>Scarab::HG::HyperedgeImpl</label>
         <link refid="classScarab_1_1HG_1_1HyperedgeImpl"/>
-        <childnode refid="842" relation="public-inheritance">
+        <childnode refid="704" relation="public-inheritance">
         </childnode>
-        <childnode refid="843" relation="usage">
+        <childnode refid="705" relation="usage">
           <edgelabel>_tail_nodes</edgelabel>
         </childnode>
-        <childnode refid="845" relation="usage">
+        <childnode refid="707" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
-        <childnode refid="847" relation="usage">
-          <edgelabel>_features</edgelabel>
-        </childnode>
-        <childnode refid="844" relation="usage">
+        <childnode refid="706" relation="usage">
           <edgelabel>_head_node</edgelabel>
         </childnode>
       </node>
-      <node id="845">
+      <node id="707">
         <label>std::string</label>
-        <childnode refid="846" relation="public-inheritance">
+        <childnode refid="708" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

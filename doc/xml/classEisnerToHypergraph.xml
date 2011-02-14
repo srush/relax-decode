@@ -242,95 +242,95 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="626">
+      <node id="506">
         <label>std::map&lt; int, Hypergraph_Node * &gt;</label>
-        <childnode refid="627" relation="usage">
+        <childnode refid="507" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="627">
+      <node id="507">
         <label>Hypergraph_Node</label>
         <link refid="classHypergraph__Node"/>
-        <childnode refid="627" relation="usage">
+        <childnode refid="507" relation="usage">
           <edgelabel>default_instance_</edgelabel>
         </childnode>
-        <childnode refid="623" relation="usage">
+        <childnode refid="503" relation="usage">
           <edgelabel>label_</edgelabel>
         </childnode>
       </node>
-      <node id="631">
+      <node id="511">
         <label>std::vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt;</label>
       </node>
-      <node id="620">
+      <node id="500">
         <label>EisnerToHypergraph</label>
         <link refid="classEisnerToHypergraph"/>
-        <childnode refid="621" relation="usage">
+        <childnode refid="501" relation="usage">
           <edgelabel>hyperedges</edgelabel>
         </childnode>
-        <childnode refid="626" relation="usage">
+        <childnode refid="506" relation="usage">
           <edgelabel>_id_to_proto</edgelabel>
         </childnode>
-        <childnode refid="628" relation="usage">
+        <childnode refid="508" relation="usage">
           <edgelabel>_node_to_id</edgelabel>
         </childnode>
-        <childnode refid="631" relation="usage">
+        <childnode refid="511" relation="usage">
           <edgelabel>_weights</edgelabel>
         </childnode>
-        <childnode refid="632" relation="usage">
+        <childnode refid="512" relation="usage">
           <edgelabel>hgraph</edgelabel>
         </childnode>
-        <childnode refid="625" relation="usage">
+        <childnode refid="505" relation="usage">
           <edgelabel>_sent</edgelabel>
         </childnode>
       </node>
-      <node id="624">
+      <node id="504">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="621">
+      <node id="501">
         <label>std::vector&lt; LocalHyperedge &gt;</label>
-        <childnode refid="622" relation="usage">
+        <childnode refid="502" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="632">
+      <node id="512">
         <label>Hypergraph</label>
         <link refid="classHypergraph"/>
-        <childnode refid="632" relation="usage">
+        <childnode refid="512" relation="usage">
           <edgelabel>default_instance_</edgelabel>
         </childnode>
       </node>
-      <node id="629">
+      <node id="509">
         <label>EisnerNode</label>
         <link refid="structEisnerNode"/>
-        <childnode refid="630" relation="usage">
+        <childnode refid="510" relation="usage">
           <edgelabel>node_span</edgelabel>
         </childnode>
       </node>
-      <node id="628">
+      <node id="508">
         <label>std::map&lt; EisnerNode, int &gt;</label>
-        <childnode refid="629" relation="usage">
+        <childnode refid="509" relation="usage">
           <edgelabel>keys</edgelabel>
         </childnode>
       </node>
-      <node id="622">
+      <node id="502">
         <label>LocalHyperedge</label>
         <link refid="structLocalHyperedge"/>
-        <childnode refid="623" relation="usage">
+        <childnode refid="503" relation="usage">
           <edgelabel>label</edgelabel>
         </childnode>
-        <childnode refid="625" relation="usage">
+        <childnode refid="505" relation="usage">
           <edgelabel>tail_node_ids</edgelabel>
         </childnode>
       </node>
-      <node id="625">
+      <node id="505">
         <label>std::vector&lt; int &gt;</label>
       </node>
-      <node id="623">
+      <node id="503">
         <label>std::string</label>
-        <childnode refid="624" relation="public-inheritance">
+        <childnode refid="504" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="630">
+      <node id="510">
         <label>Span</label>
         <link refid="structSpan"/>
       </node>

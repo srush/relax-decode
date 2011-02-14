@@ -128,52 +128,52 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1071">
+      <node id="906">
         <label>NonLocal</label>
         <link refid="classNonLocal"/>
       </node>
-      <node id="1070">
+      <node id="905">
         <label>LMNonLocal</label>
         <link refid="classLMNonLocal"/>
-        <childnode refid="1071" relation="public-inheritance">
+        <childnode refid="906" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="1073">
+      <node id="908">
         <label>NonLocal</label>
         <link refid="classNonLocal"/>
       </node>
-      <node id="1074">
+      <node id="909">
         <label>Cache&lt; Hypernode, int &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1075" relation="usage">
+        <childnode refid="910" relation="usage">
           <edgelabel>store</edgelabel>
         </childnode>
-        <childnode refid="1076" relation="usage">
+        <childnode refid="911" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1077">
+      <node id="912">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="1072">
+      <node id="907">
         <label>LMNonLocal</label>
         <link refid="classLMNonLocal"/>
-        <childnode refid="1073" relation="public-inheritance">
+        <childnode refid="908" relation="public-inheritance">
         </childnode>
-        <childnode refid="1074" relation="usage">
+        <childnode refid="909" relation="usage">
           <edgelabel>_word_cache</edgelabel>
         </childnode>
-        <childnode refid="1077" relation="usage">
+        <childnode refid="912" relation="usage">
           <edgelabel>_forest</edgelabel>
         </childnode>
       </node>
-      <node id="1076">
+      <node id="911">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="1075">
+      <node id="910">
         <label>std::vector&lt; int &gt;</label>
       </node>
     </collaborationgraph>

@@ -10,7 +10,7 @@
     <includes refid="ForestLattice_8h" local="no">ForestLattice.h</includes>
     <includes refid="HypergraphAlgorithms_8h" local="no">HypergraphAlgorithms.h</includes>
     <includes local="no">vector</includes>
-    <includes refid="third-party_2svector_2svector_8hpp" local="yes">svector.hpp</includes>
+    <includes local="yes">svector.hpp</includes>
     <includes local="no">Ngram.h</includes>
     <includes refid="GraphDecompose_8h" local="yes">GraphDecompose.h</includes>
     <includes refid="BigramRescore_8h" local="yes">BigramRescore.h</includes>
@@ -24,431 +24,393 @@
     <includes refid="AStar_8h" local="yes">AStar.h</includes>
     <includedby refid="Decode_8cpp" local="yes">trans_decode/Decode.cpp</includedby>
     <incdepgraph>
-      <node id="3038">
+      <node id="2195">
         <label>Subgradient.h</label>
         <link refid="Subgradient_8h_source"/>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
       </node>
-      <node id="3052">
+      <node id="2210">
         <label>iomanip</label>
       </node>
-      <node id="3027">
+      <node id="2184">
         <label>queue</label>
       </node>
-      <node id="3054">
+      <node id="2212">
         <label>limits</label>
       </node>
-      <node id="3026">
+      <node id="2183">
         <label>assert.h</label>
       </node>
-      <node id="3044">
+      <node id="2201">
         <label>GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3025" relation="include">
+        <childnode refid="2182" relation="include">
         </childnode>
-        <childnode refid="3039" relation="include">
+        <childnode refid="2196" relation="include">
         </childnode>
       </node>
-      <node id="3049">
+      <node id="2207">
         <label>cmath</label>
       </node>
-      <node id="3021">
-        <label>cassert</label>
-      </node>
-      <node id="3020">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="3023">
-        <label>svector.hpp</label>
-        <link refid="third-party_2svector_2svector_8hpp_source"/>
-        <childnode refid="3019" relation="include">
-        </childnode>
-        <childnode refid="3020" relation="include">
-        </childnode>
-        <childnode refid="3021" relation="include">
-        </childnode>
-      </node>
-      <node id="3036">
+      <node id="2193">
         <label>features.pb.h</label>
         <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3031" relation="include">
+        <childnode refid="2188" relation="include">
         </childnode>
-        <childnode refid="3032" relation="include">
+        <childnode refid="2189" relation="include">
         </childnode>
-        <childnode refid="3033" relation="include">
+        <childnode refid="2190" relation="include">
         </childnode>
-        <childnode refid="3034" relation="include">
+        <childnode refid="2191" relation="include">
         </childnode>
-        <childnode refid="3035" relation="include">
+        <childnode refid="2192" relation="include">
         </childnode>
-        <childnode refid="3030" relation="include">
+        <childnode refid="2187" relation="include">
         </childnode>
       </node>
-      <node id="3016">
+      <node id="2180">
         <label>string</label>
       </node>
-      <node id="3019">
+      <node id="2206">
         <label>map</label>
       </node>
-      <node id="3024">
+      <node id="2181">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3025" relation="include">
+        <childnode refid="2182" relation="include">
         </childnode>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
       </node>
-      <node id="3029">
+      <node id="2186">
         <label>HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3030" relation="include">
+        <childnode refid="2187" relation="include">
         </childnode>
-        <childnode refid="3036" relation="include">
+        <childnode refid="2193" relation="include">
         </childnode>
-        <childnode refid="3012" relation="include">
+        <childnode refid="2174" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3010" relation="include">
+        <childnode refid="2172" relation="include">
         </childnode>
       </node>
-      <node id="3011">
+      <node id="2173">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="3012" relation="include">
+        <childnode refid="2174" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3010" relation="include">
+        <childnode refid="2172" relation="include">
         </childnode>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
       </node>
-      <node id="3014">
+      <node id="2176">
         <label>fstream</label>
       </node>
-      <node id="3041">
+      <node id="2198">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
       </node>
-      <node id="3047">
+      <node id="2204">
         <label>ExtendCKY.h</label>
         <link refid="ExtendCKY_8h_source"/>
-        <childnode refid="3024" relation="include">
+        <childnode refid="2181" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3048" relation="include">
+        <childnode refid="2205" relation="include">
         </childnode>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
-        <childnode refid="3019" relation="include">
+        <childnode refid="2206" relation="include">
         </childnode>
-        <childnode refid="3027" relation="include">
+        <childnode refid="2184" relation="include">
         </childnode>
-        <childnode refid="3010" relation="include">
+        <childnode refid="2172" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3050" relation="include">
+        <childnode refid="2208" relation="include">
         </childnode>
       </node>
-      <node id="3030">
+      <node id="2187">
         <label>hypergraph.pb.h</label>
         <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3031" relation="include">
+        <childnode refid="2188" relation="include">
         </childnode>
-        <childnode refid="3032" relation="include">
+        <childnode refid="2189" relation="include">
         </childnode>
-        <childnode refid="3033" relation="include">
+        <childnode refid="2190" relation="include">
         </childnode>
-        <childnode refid="3034" relation="include">
+        <childnode refid="2191" relation="include">
         </childnode>
-        <childnode refid="3035" relation="include">
+        <childnode refid="2192" relation="include">
         </childnode>
       </node>
-      <node id="3012">
+      <node id="2178">
+        <label>svector.hpp</label>
+      </node>
+      <node id="2174">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="3013" relation="include">
+        <childnode refid="2175" relation="include">
         </childnode>
-        <childnode refid="3014" relation="include">
+        <childnode refid="2176" relation="include">
         </childnode>
-        <childnode refid="3015" relation="include">
+        <childnode refid="2177" relation="include">
         </childnode>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
       </node>
-      <node id="3032">
+      <node id="2189">
         <label>google/protobuf/generated_message_util.h</label>
       </node>
-      <node id="3053">
+      <node id="2211">
         <label>AStar.h</label>
         <link refid="AStar_8h_source"/>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
-        <childnode refid="3019" relation="include">
+        <childnode refid="2206" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3027" relation="include">
+        <childnode refid="2184" relation="include">
         </childnode>
-        <childnode refid="3048" relation="include">
+        <childnode refid="2205" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3050" relation="include">
+        <childnode refid="2208" relation="include">
         </childnode>
-        <childnode refid="3013" relation="include">
+        <childnode refid="2175" relation="include">
         </childnode>
-        <childnode refid="3054" relation="include">
+        <childnode refid="2212" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
       </node>
-      <node id="3009">
+      <node id="2171">
         <label>CubePruning.h</label>
         <link refid="CubePruning_8h_source"/>
-        <childnode refid="3010" relation="include">
+        <childnode refid="2172" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3024" relation="include">
+        <childnode refid="2181" relation="include">
         </childnode>
-        <childnode refid="3027" relation="include">
+        <childnode refid="2184" relation="include">
         </childnode>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
       </node>
-      <node id="3043">
+      <node id="2200">
         <label>Ngram.h</label>
       </node>
-      <node id="3037">
+      <node id="2194">
         <label>../common.h</label>
       </node>
-      <node id="3025">
+      <node id="2182">
         <label>bitset</label>
       </node>
-      <node id="3040">
+      <node id="2197">
         <label>lattice.pb.h</label>
         <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3031" relation="include">
+        <childnode refid="2188" relation="include">
         </childnode>
-        <childnode refid="3032" relation="include">
+        <childnode refid="2189" relation="include">
         </childnode>
-        <childnode refid="3033" relation="include">
+        <childnode refid="2190" relation="include">
         </childnode>
-        <childnode refid="3034" relation="include">
+        <childnode refid="2191" relation="include">
         </childnode>
-        <childnode refid="3035" relation="include">
+        <childnode refid="2192" relation="include">
         </childnode>
       </node>
-      <node id="3031">
+      <node id="2188">
         <label>google/protobuf/stubs/common.h</label>
       </node>
-      <node id="3048">
+      <node id="2205">
         <label>Hypothesis.h</label>
         <link refid="Hypothesis_8h_source"/>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
-        <childnode refid="3019" relation="include">
+        <childnode refid="2206" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3024" relation="include">
+        <childnode refid="2181" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
-        <childnode refid="3049" relation="include">
+        <childnode refid="2207" relation="include">
         </childnode>
       </node>
-      <node id="3022">
+      <node id="2179">
         <label>vector</label>
       </node>
-      <node id="3046">
+      <node id="2203">
         <label>Prob.h</label>
       </node>
-      <node id="3045">
+      <node id="2202">
         <label>BigramRescore.h</label>
         <link refid="BigramRescore_8h_source"/>
-        <childnode refid="3039" relation="include">
+        <childnode refid="2196" relation="include">
         </childnode>
-        <childnode refid="3044" relation="include">
+        <childnode refid="2201" relation="include">
         </childnode>
-        <childnode refid="3013" relation="include">
+        <childnode refid="2175" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
       </node>
-      <node id="3042">
+      <node id="2199">
         <label>HypergraphAlgorithms.h</label>
         <link refid="HypergraphAlgorithms_8h_source"/>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
-        <childnode refid="3024" relation="include">
+        <childnode refid="2181" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
       </node>
-      <node id="3028">
+      <node id="2185">
         <label>Forest.h</label>
         <link refid="Forest_8h_source"/>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3029" relation="include">
+        <childnode refid="2186" relation="include">
         </childnode>
-        <childnode refid="3030" relation="include">
+        <childnode refid="2187" relation="include">
         </childnode>
       </node>
-      <node id="3039">
+      <node id="2196">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="3016" relation="include">
+        <childnode refid="2180" relation="include">
         </childnode>
-        <childnode refid="3040" relation="include">
+        <childnode refid="2197" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3041" relation="include">
+        <childnode refid="2198" relation="include">
         </childnode>
       </node>
-      <node id="3017">
-        <label>sstream</label>
-      </node>
-      <node id="3034">
+      <node id="2191">
         <label>google/protobuf/extension_set.h</label>
       </node>
-      <node id="3008">
+      <node id="2170">
         <label>trans_decode/Decode.cpp</label>
         <link refid="Decode.cpp"/>
-        <childnode refid="3009" relation="include">
+        <childnode refid="2171" relation="include">
         </childnode>
-        <childnode refid="3024" relation="include">
+        <childnode refid="2181" relation="include">
         </childnode>
-        <childnode refid="3028" relation="include">
+        <childnode refid="2185" relation="include">
         </childnode>
-        <childnode refid="3038" relation="include">
+        <childnode refid="2195" relation="include">
         </childnode>
-        <childnode refid="3039" relation="include">
+        <childnode refid="2196" relation="include">
         </childnode>
-        <childnode refid="3042" relation="include">
+        <childnode refid="2199" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3023" relation="include">
+        <childnode refid="2178" relation="include">
         </childnode>
-        <childnode refid="3043" relation="include">
+        <childnode refid="2200" relation="include">
         </childnode>
-        <childnode refid="3044" relation="include">
+        <childnode refid="2201" relation="include">
         </childnode>
-        <childnode refid="3045" relation="include">
+        <childnode refid="2202" relation="include">
         </childnode>
-        <childnode refid="3046" relation="include">
+        <childnode refid="2203" relation="include">
         </childnode>
-        <childnode refid="3037" relation="include">
+        <childnode refid="2194" relation="include">
         </childnode>
-        <childnode refid="3014" relation="include">
+        <childnode refid="2176" relation="include">
         </childnode>
-        <childnode refid="3010" relation="include">
+        <childnode refid="2172" relation="include">
         </childnode>
-        <childnode refid="3047" relation="include">
+        <childnode refid="2204" relation="include">
         </childnode>
-        <childnode refid="3051" relation="include">
+        <childnode refid="2209" relation="include">
         </childnode>
-        <childnode refid="3052" relation="include">
+        <childnode refid="2210" relation="include">
         </childnode>
-        <childnode refid="3053" relation="include">
+        <childnode refid="2211" relation="include">
         </childnode>
       </node>
-      <node id="3033">
+      <node id="2190">
         <label>google/protobuf/repeated_field.h</label>
       </node>
-      <node id="3051">
+      <node id="2209">
         <label>time.h</label>
       </node>
-      <node id="3018">
-        <label>cstdlib</label>
-      </node>
-      <node id="3015">
-        <label>cy_svector.hpp</label>
-        <link refid="cy__svector_8hpp_source"/>
-        <childnode refid="3016" relation="include">
-        </childnode>
-        <childnode refid="3017" relation="include">
-        </childnode>
-        <childnode refid="3018" relation="include">
-        </childnode>
-        <childnode refid="3015" relation="include">
-        </childnode>
-        <childnode refid="3019" relation="include">
-        </childnode>
-        <childnode refid="3020" relation="include">
-        </childnode>
-        <childnode refid="3021" relation="include">
-        </childnode>
-        <childnode refid="3022" relation="include">
-        </childnode>
-        <childnode refid="3013" relation="include">
-        </childnode>
-      </node>
-      <node id="3013">
+      <node id="2175">
         <label>iostream</label>
       </node>
-      <node id="3010">
+      <node id="2177">
+        <label>cy_svector.hpp</label>
+      </node>
+      <node id="2172">
         <label>set</label>
       </node>
-      <node id="3050">
+      <node id="2208">
         <label>BestHyp.h</label>
         <link refid="BestHyp_8h_source"/>
-        <childnode refid="3026" relation="include">
+        <childnode refid="2183" relation="include">
         </childnode>
-        <childnode refid="3019" relation="include">
+        <childnode refid="2206" relation="include">
         </childnode>
-        <childnode refid="3022" relation="include">
+        <childnode refid="2179" relation="include">
         </childnode>
-        <childnode refid="3011" relation="include">
+        <childnode refid="2173" relation="include">
         </childnode>
-        <childnode refid="3048" relation="include">
+        <childnode refid="2205" relation="include">
         </childnode>
-        <childnode refid="3042" relation="include">
+        <childnode refid="2199" relation="include">
         </childnode>
       </node>
-      <node id="3035">
+      <node id="2192">
         <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
@@ -795,7 +757,7 @@
 <codeline lineno="266"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="267"><highlight class="normal"></highlight></codeline>
 <codeline lineno="268"><highlight class="normal"></highlight></codeline>
-<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>update,<sp/><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>*<sp/>weights<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::update_weights(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>wvector<sp/>&amp;<sp/>update,<sp/><sp/>wvector<sp/>*<sp/>weights<sp/>)<sp/>{</highlight></codeline>
 <codeline lineno="270"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;int&gt;<sp/>u_pos1,<sp/>u_pos2;</highlight></codeline>
 <codeline lineno="271"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;float&gt;<sp/>u_val1,<sp/>u_val2;</highlight></codeline>
 <codeline lineno="272"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(wvector::const_iterator<sp/>it<sp/>=<sp/>update.begin();<sp/>it<sp/>!=<sp/>update.end();<sp/>it++)<sp/>{</highlight></codeline>
@@ -944,7 +906,7 @@
 <codeline lineno="415"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="416"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="417"><highlight class="normal"></highlight></codeline>
-<codeline lineno="418"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::add_subgrad(<ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start_from,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mid_at,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end_at,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first)<sp/>{</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::add_subgrad(wvector<sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start_from,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mid_at,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end_at,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first)<sp/>{</highlight></codeline>
 <codeline lineno="419"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>_lattice.get_word(end_at)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;&lt;&lt;_lattice.get_word(mid_at)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>_lattice.get_word(start_from)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;endl;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="420"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<sp/>first)<sp/>{</highlight></codeline>
 <codeline lineno="421"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;int<sp/>&gt;<sp/>between1<sp/>=<sp/>_subproblem-&gt;get_best_nodes_between(start_from,mid_at,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
@@ -1022,7 +984,7 @@
 <codeline lineno="493"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>&quot;SCORE<sp/>&quot;<sp/>&lt;&lt;<sp/>_subproblem-&gt;cur_best_score[start_from]<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>_lattice.get_word(start_from)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>start_from<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/><sp/>_lattice.lookup_word(start_from)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>mid_at<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>_lattice.get_word(mid_at)&lt;&lt;<sp/>&quot;<sp/>&quot;&lt;&lt;<sp/>_lattice.lookup_word(mid_at)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>end_at<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>_lattice.get_word(end_at)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>_lattice.lookup_word(end_at)&lt;&lt;<sp/>&quot;<sp/>&quot;&lt;&lt;endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="494"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="495"><highlight class="normal"></highlight></codeline>
-<codeline lineno="496"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::print_output(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad)<sp/>{</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::print_output(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>wvector<sp/>&amp;<sp/>subgrad)<sp/>{</highlight></codeline>
 <codeline lineno="497"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bis<sp/>=0;</highlight></codeline>
 <codeline lineno="498"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tris<sp/>=0;</highlight></codeline>
 <codeline lineno="499"><highlight class="normal"><sp/><sp/></highlight></codeline>
@@ -1056,7 +1018,7 @@
 <codeline lineno="527"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="528"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="529"><highlight class="normal"></highlight></codeline>
-<codeline lineno="530"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal<sp/>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/><ref refid="classsvector" kindref="compound">wvector</ref><sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>round,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_stuck,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>bump_rate)<sp/>{</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Decode::solve(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>primal<sp/>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>dual,<sp/>wvector<sp/>&amp;<sp/>subgrad,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>round,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_stuck,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;<sp/>bump_rate)<sp/>{</highlight></codeline>
 <codeline lineno="531"><highlight class="normal"><sp/><sp/>clock_t<sp/>begin,<sp/>end;</highlight></codeline>
 <codeline lineno="532"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(TIMING)<sp/>{</highlight></codeline>
 <codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Solving&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>

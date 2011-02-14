@@ -19,7 +19,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -88,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039  <span class="keyword">public</span>:
 <a name="l00040"></a>00040   vector &lt;PossibleTag&gt; group;
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042   <a class="code" href="classsvector.html">wvector</a> solve_hard(<a class="code" href="classsvector.html">wvector</a> &amp; weights) <span class="keyword">const</span>;
+<a name="l00042"></a>00042   wvector solve_hard(wvector &amp; weights) <span class="keyword">const</span>;
 <a name="l00043"></a>00043 };
 <a name="l00044"></a>00044 
 <a name="l00045"></a><a class="code" href="classTagConstraints.html">00045</a> <span class="keyword">class </span><a class="code" href="classTagConstraints.html">TagConstraints</a> {
@@ -100,15 +99,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00051"></a>00051   vector &lt;PossibleTag &gt; _all_constraints;
 <a name="l00052"></a>00052   <a class="code" href="classTagConstraints.html">TagConstraints</a>(<span class="keywordtype">int</span> num_tags) : _num_tags(num_tags) {}
 <a name="l00053"></a>00053 
-<a name="l00058"></a>00058   <a class="code" href="classCache.html">EdgeCache</a> <a class="code" href="classTagConstraints.html#adec1a1de8fb49e79b52c4c93517414a0">build_tagger_constraint_vector</a>(<span class="keywordtype">int</span> sent_num, <span class="keyword">const</span> <a class="code" href="classTagger.html">Tagger</a> &amp; tagger,  <a class="code" href="classsvector.html">wvector</a> &amp; orig_weights ) <span class="keyword">const</span>;
+<a name="l00058"></a>00058   <a class="code" href="classCache.html">EdgeCache</a> <a class="code" href="classTagConstraints.html#adec1a1de8fb49e79b52c4c93517414a0">build_tagger_constraint_vector</a>(<span class="keywordtype">int</span> sent_num, <span class="keyword">const</span> <a class="code" href="classTagger.html">Tagger</a> &amp; tagger,  wvector &amp; orig_weights ) <span class="keyword">const</span>;
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060   <a class="code" href="classsvector.html">wvector</a> build_tagger_subgradient(<span class="keywordtype">int</span> sent_num, <span class="keyword">const</span> <a class="code" href="classTagger.html">Tagger</a> &amp; tagger, <span class="keyword">const</span> vector&lt;const Hyperedge *&gt; used_edges) <span class="keyword">const</span> ;
+<a name="l00060"></a>00060   wvector build_tagger_subgradient(<span class="keywordtype">int</span> sent_num, <span class="keyword">const</span> <a class="code" href="classTagger.html">Tagger</a> &amp; tagger, <span class="keyword">const</span> vector&lt;const Hyperedge *&gt; used_edges) <span class="keyword">const</span> ;
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063   <span class="keywordtype">void</span> read_from_file(<span class="keywordtype">string</span> file_name) ;
 <a name="l00064"></a>00064   <span class="keywordtype">int</span> _num_tags;
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066   <a class="code" href="classsvector.html">wvector</a> solve_hard( <a class="code" href="classsvector.html">wvector</a> &amp; model) <span class="keyword">const</span>; 
+<a name="l00066"></a>00066   wvector solve_hard( wvector &amp; model) <span class="keyword">const</span>; 
 <a name="l00067"></a>00067  <span class="keyword">private</span>:
 <a name="l00068"></a>00068 };
 <a name="l00069"></a>00069 
@@ -173,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -182,7 +181,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:09:11 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
