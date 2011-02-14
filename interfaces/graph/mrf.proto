@@ -1,0 +1,39 @@
+package graph;
+
+import "graph.proto";
+
+message State {
+  required int32 id = 1;
+  optional string label = 2;
+}
+
+
+message NodeStatePotential {
+  required State state = 1;
+  required float node_potential = 2;
+  
+}
+
+message EdgeStatePotential {
+  required int32 from_state_id = 1;
+  required int32 to_state_id = 2;
+  required float edge_potential = 3;
+  
+}
+
+message MRFNode {
+  repeated NodeStatePotential node_potentials = 1;
+}
+
+message MRFEdge {
+  repeated EdgeStatePotential edge_potentials = 1;
+}
+
+extend Graph.Node {
+  optional MRFNode mrf_node = 150;
+  
+}
+
+extend Graph.Edge {
+    optional MRFEdge mrf_edge = 150;
+}

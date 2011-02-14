@@ -1,0 +1,22 @@
+Import('env')
+
+proto = ["hypergraph.proto", 'lexical.proto', 'tag.proto', 'dep.proto', 'features.proto', 'translation.proto']
+
+py_dir = Dir('.').abspath+'/gen-py/'
+cpp_dir = Dir('.').abspath+'/gen-cpp/'
+
+
+py_dir_c = env.Command(py_dir, [],
+                   [Mkdir(py_dir)])
+
+cpp_dir_c = env.Command(cpp_dir, [],
+                   [Mkdir(cpp_dir)])
+
+
+proto_files = env.Protoc(
+    [],
+    proto,
+    PROTOCPYTHONOUTDIR=py_dir, # set to None to not generate python
+    PROTOCCPPOUTFLAGS = cpp_dir, #Dir('.').abspath+'/gen-cpp/',
+    PROTOCOUTDIR = '' # defaults to same directory as .proto
+)

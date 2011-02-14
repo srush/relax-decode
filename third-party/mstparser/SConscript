@@ -1,0 +1,8 @@
+from subprocess import call
+
+Import('env')
+print "calling"
+command = env.subst("bash make.sh" )
+print command
+call(command, shell=True)
+print "done"

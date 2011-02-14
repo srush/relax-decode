@@ -1,0 +1,10 @@
+Import('env')
+
+
+
+dirs = ["mstparser", 'CRFTagger']
+
+
+third_parties = SConscript(dirs=dirs,exports=['env']) 
+
+

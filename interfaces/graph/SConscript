@@ -1,0 +1,19 @@
+Import('env')
+
+proto = ["graph.proto", 'mrf.proto']
+
+py_dir = Dir('.').abspath+'/gen-py/'
+cpp_dir = Dir('.').abspath+'/gen-cpp/'
+
+Mkdir(py_dir)
+Mkdir(cpp_dir)
+
+proto_files = env.Protoc(
+    [],
+    proto,
+    PROTOCPYTHONOUTDIR=py_dir, # set to None to not generate python
+    PROTOCCPPOUTFLAGS = cpp_dir, #Dir('.').abspath+'/gen-cpp/',
+    PROTOCOUTDIR = '' # defaults to same directory as .proto
+)
+
+
