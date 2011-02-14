@@ -116,56 +116,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00068"></a>00068   <span class="comment">//return *_weights;</span>
 <a name="l00069"></a>00069   <span class="comment">//}</span>
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071   vector &lt;Tag &gt; tags()<span class="keyword"> const </span>{
-<a name="l00072"></a>00072     <span class="keywordflow">return</span> _tags;
-<a name="l00073"></a>00073   }
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075   uint num_tags()<span class="keyword"> const </span>{
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> _tag_length;
-<a name="l00077"></a>00077   }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079   uint sent_length()<span class="keyword"> const </span>{
-<a name="l00080"></a>00080     <span class="keywordflow">return</span> _sent_length;
-<a name="l00081"></a>00081   } 
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083   <a class="code" href="structTag.html">Tag</a> make_tag(<span class="keywordtype">int</span> ind, <span class="keywordtype">int</span> tag)<span class="keyword"> const </span>{
-<a name="l00084"></a>00084     <span class="keywordflow">return</span> <a class="code" href="structTag.html">Tag</a>(ind, tag, _sent_length);
-<a name="l00085"></a>00085   }
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087   <span class="keyword">const</span> vector&lt;const Hyperedge*&gt; &amp; tag_to_edge(<span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; tag)<span class="keyword"> const </span>{
-<a name="l00088"></a>00088     <span class="keywordflow">return</span> _edge_map-&gt;get(tag);
-<a name="l00089"></a>00089   }
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091   <span class="keywordtype">bool</span> tag_has_edge(<span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; tag)<span class="keyword"> const </span>{
-<a name="l00092"></a>00092     <span class="keywordflow">return</span> _edge_map-&gt;has_key(tag);
-<a name="l00093"></a>00093   }
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095   <span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; edge_to_tag(<span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> &amp; edge)<span class="keyword"> const </span>{
-<a name="l00096"></a>00096     <span class="keywordflow">return</span> _tag_map-&gt;get(edge);
-<a name="l00097"></a>00097   }
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099   <span class="keywordtype">bool</span> edge_has_tag(<span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> &amp; edge)<span class="keyword"> const </span>{
-<a name="l00100"></a>00100     <span class="keywordflow">return</span> _tag_map-&gt;has_key(edge);
-<a name="l00101"></a>00101   }
-<a name="l00102"></a>00102   
-<a name="l00103"></a>00103  <span class="keyword">protected</span>:
-<a name="l00104"></a>00104   <span class="keywordtype">void</span> make_edge(<span class="keyword">const</span> Hypergraph_Edge &amp; edge, 
-<a name="l00105"></a>00105                          <span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Scarab::HG::Hyperedge</a> * our_edge);
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107  <span class="keyword">private</span>:
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109   <span class="comment">// The parse forest in hypergraph form</span>
-<a name="l00110"></a>00110   <span class="keywordtype">int</span> _sent_length;
-<a name="l00111"></a>00111   <span class="keywordtype">int</span> _tag_length;
-<a name="l00112"></a>00112   Hypergraph * _h;
-<a name="l00113"></a>00113   <a class="code" href="classCache.html">Cache &lt;Tag, vector &lt;const Hyperedge *&gt;</a> &gt; *  _edge_map;
-<a name="l00114"></a>00114   <a class="code" href="classCache.html">Cache &lt;Hyperedge, Tag&gt;</a> * _tag_map;
-<a name="l00115"></a>00115   <span class="comment">//Cache &lt;Hyperedge, double&gt; _weights;</span>
-<a name="l00116"></a>00116   vector &lt;Tag&gt; _tags; 
-<a name="l00117"></a>00117 };
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120 <span class="preprocessor">#endif</span>
+<a name="l00071"></a>00071   
+<a name="l00077"></a><a class="code" href="classTagger.html#ae1e3802fb545c3430ca4d52ea5fd95db">00077</a>   vector &lt;Tag &gt; <a class="code" href="classTagger.html#ae1e3802fb545c3430ca4d52ea5fd95db">tags</a>()<span class="keyword"> const </span>{
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> _tags;
+<a name="l00079"></a>00079   }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081   uint num_tags()<span class="keyword"> const </span>{
+<a name="l00082"></a>00082     <span class="keywordflow">return</span> _tag_length;
+<a name="l00083"></a>00083   }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085   uint sent_length()<span class="keyword"> const </span>{
+<a name="l00086"></a>00086     <span class="keywordflow">return</span> _sent_length;
+<a name="l00087"></a>00087   } 
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089   <a class="code" href="structTag.html">Tag</a> make_tag(<span class="keywordtype">int</span> ind, <span class="keywordtype">int</span> tag)<span class="keyword"> const </span>{
+<a name="l00090"></a>00090     <span class="keywordflow">return</span> <a class="code" href="structTag.html">Tag</a>(ind, tag, _sent_length);
+<a name="l00091"></a>00091   }
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093   <span class="keyword">const</span> vector&lt;const Hyperedge*&gt; &amp; tag_to_edge(<span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; tag)<span class="keyword"> const </span>{
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> _edge_map-&gt;get(tag);
+<a name="l00095"></a>00095   }
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097   <span class="keywordtype">bool</span> tag_has_edge(<span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; tag)<span class="keyword"> const </span>{
+<a name="l00098"></a>00098     <span class="keywordflow">return</span> _edge_map-&gt;has_key(tag);
+<a name="l00099"></a>00099   }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101   <span class="keyword">const</span> <a class="code" href="structTag.html">Tag</a> &amp; edge_to_tag(<span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> &amp; edge)<span class="keyword"> const </span>{
+<a name="l00102"></a>00102     <span class="keywordflow">return</span> _tag_map-&gt;get(edge);
+<a name="l00103"></a>00103   }
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105   <span class="keywordtype">bool</span> edge_has_tag(<span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Hyperedge</a> &amp; edge)<span class="keyword"> const </span>{
+<a name="l00106"></a>00106     <span class="keywordflow">return</span> _tag_map-&gt;has_key(edge);
+<a name="l00107"></a>00107   }
+<a name="l00108"></a>00108   
+<a name="l00109"></a>00109  <span class="keyword">protected</span>:
+<a name="l00110"></a>00110   <span class="keywordtype">void</span> make_edge(<span class="keyword">const</span> Hypergraph_Edge &amp; edge, 
+<a name="l00111"></a>00111                          <span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Scarab::HG::Hyperedge</a> * our_edge);
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113  <span class="keyword">private</span>:
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115   <span class="comment">// The parse forest in hypergraph form</span>
+<a name="l00116"></a>00116   <span class="keywordtype">int</span> _sent_length;
+<a name="l00117"></a>00117   <span class="keywordtype">int</span> _tag_length;
+<a name="l00118"></a>00118   Hypergraph * _h;
+<a name="l00119"></a>00119   <a class="code" href="classCache.html">Cache &lt;Tag, vector &lt;const Hyperedge *&gt;</a> &gt; *  _edge_map;
+<a name="l00120"></a>00120   <a class="code" href="classCache.html">Cache &lt;Hyperedge, Tag&gt;</a> * _tag_map;
+<a name="l00121"></a>00121   <span class="comment">//Cache &lt;Hyperedge, double&gt; _weights;</span>
+<a name="l00122"></a>00122   vector &lt;Tag&gt; _tags; 
+<a name="l00123"></a>00123 };
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 <span class="preprocessor">#endif</span>
 </pre></div></div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -181,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:53:02 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 18:31:54 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

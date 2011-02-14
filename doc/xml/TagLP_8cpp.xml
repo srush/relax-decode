@@ -162,7 +162,7 @@
 <codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//h_lp.edge_vars.get(edge)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//HypergraphLPBuilder::show_hypergraph(lp_vars.h_lp);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>lp_vars.p.tags())<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>lp_vars.p.<ref refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" kindref="member">tags</ref>())<sp/>{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lp_vars.p.tag_has_edge(d))<sp/>{<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GRBVar<sp/>var<sp/>=<sp/>lp_vars.tag_vars.get(d);</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -172,7 +172,7 @@
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>lp_vars.p.tags())<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>lp_vars.p.<ref refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" kindref="member">tags</ref>())<sp/>{</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lp_vars.p.tag_has_edge(d))<sp/>{<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GRBVar<sp/>var<sp/>=<sp/>lp_vars.tag_vars.get(d);</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -195,7 +195,7 @@
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prefix,<sp/>model,<sp/>var_type);</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref><sp/>*<sp/>p_lp<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1TagLP" kindref="compound">TagLP</ref>(parser,<sp/>*h_lp);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>parser.tags())<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>parser.<ref refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" kindref="member">tags</ref>())<sp/>{</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser.tag_has_edge(d))<sp/>{</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stringstream<sp/>buf;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf<sp/>&lt;&lt;<sp/>prefix<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;_tag_&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>d;</highlight></codeline>
@@ -207,7 +207,7 @@
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>model.update();</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>parser.tags())<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(<ref refid="structTag" kindref="compound">Tag</ref><sp/>d,<sp/>parser.<ref refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" kindref="member">tags</ref>())<sp/>{</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>constrain<sp/>it<sp/>to<sp/>be<sp/>equal<sp/>to<sp/>the<sp/>hypergraph<sp/>edge</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parser.tag_has_edge(d))<sp/>{<sp/></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector&lt;const<sp/>Hyperedge<sp/>*&gt;<sp/>&amp;<sp/>edges<sp/>=<sp/>parser.tag_to_edge(d);</highlight></codeline>

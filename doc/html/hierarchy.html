@@ -46,116 +46,171 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="contents">
-<h1>Class Hierarchy</h1>This inheritance list is sorted roughly, but not completely, alphabetically:<ul>
-<li><a class="el" href="classScarab_1_1HG_1_1AStar.html">Scarab::HG::AStar</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1BestHyp.html">Scarab::HG::BestHyp</a></li>
-<li><a class="el" href="structBigram.html">Bigram</a></li>
-<li><a class="el" href="classBigramRescore.html">BigramRescore</a></li>
-<li><a class="el" href="classCache.html">Cache&lt; C, V &gt;</a></li>
-<li><a class="el" href="structCandidate.html">Candidate</a></li>
-<li><a class="el" href="structcandidate__compare.html">candidate_compare</a></li>
-<li><a class="el" href="classClock.html">Clock</a></li>
-<li><a class="el" href="classConstraintGroup.html">ConstraintGroup</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1Controller.html">Scarab::HG::Controller</a><ul>
-<li><a class="el" href="classSplitController.html">SplitController</a></li>
-</ul>
-</li>
-<li><a class="el" href="classCubePruning.html">CubePruning</a></li>
-<li><a class="el" href="structDependency.html">Dependency</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1DepParserLP.html">Scarab::HG::DepParserLP</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1DepParserLPBuilder.html">Scarab::HG::DepParserLPBuilder</a></li>
-<li><a class="el" href="classDualDecomposition.html">DualDecomposition</a></li>
-<li><a class="el" href="classDualDecompositionSubproblem.html">DualDecompositionSubproblem</a><ul>
-<li><a class="el" href="classConstrainerDual.html">ConstrainerDual</a></li>
-<li><a class="el" href="classTaggerDual.html">TaggerDual</a></li>
-</ul>
-</li>
-<li><a class="el" href="structEisnerNode.html">EisnerNode</a></li>
-<li><a class="el" href="classEisnerToHypergraph.html">EisnerToHypergraph</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1ExtendCKY.html">Scarab::HG::ExtendCKY</a></li>
-<li><a class="el" href="classForestLattice.html">ForestLattice</a></li>
-<li><a class="el" href="classScarab_1_1Graph_1_1Graph.html">Scarab::Graph::Graph</a></li>
-<li><a class="el" href="classGraphDecompose.html">GraphDecompose</a></li>
-<li><a class="el" href="classScarab_1_1Graph_1_1Graphedge.html">Scarab::Graph::Graphedge</a></li>
-<li><a class="el" href="classScarab_1_1Graph_1_1Graphnode.html">Scarab::Graph::Graphnode</a></li>
-<li><a class="el" href="classGraphProtoInterface.html">GraphProtoInterface</a><ul>
-<li><a class="el" href="classMRF.html">MRF</a></li>
-</ul>
-</li>
-<li><a class="el" href="classHardConstraints.html">HardConstraints</a></li>
-<li><a class="el" href="classHardPosConstraintsLP.html">HardPosConstraintsLP</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1Heuristic.html">Scarab::HG::Heuristic</a><ul>
-<li><a class="el" href="classSplitHeuristic.html">SplitHeuristic</a></li>
-</ul>
-</li>
-<li><a class="el" href="classScarab_1_1HG_1_1HGraph.html">Scarab::HG::HGraph</a><ul>
-<li><a class="el" href="classScarab_1_1HG_1_1HypergraphImpl.html">Scarab::HG::HypergraphImpl</a><ul>
-<li><a class="el" href="classDepParser.html">DepParser</a></li>
-<li><a class="el" href="classForest.html">Forest</a></li>
-<li><a class="el" href="classMRFHypergraph.html">MRFHypergraph</a></li>
-<li><a class="el" href="classPhraseBased.html">PhraseBased</a></li>
-<li><a class="el" href="classTagger.html">Tagger</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="el" href="structHyp.html">Hyp</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1Hyperedge.html">Scarab::HG::Hyperedge</a><ul>
-<li><a class="el" href="classScarab_1_1HG_1_1HyperedgeImpl.html">Scarab::HG::HyperedgeImpl</a></li>
-</ul>
-</li>
-<li><a class="el" href="classScarab_1_1HG_1_1HypergraphAlgorithms.html">Scarab::HG::HypergraphAlgorithms</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1HypergraphLP.html">Scarab::HG::HypergraphLP</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1HypergraphLPBuilder.html">Scarab::HG::HypergraphLPBuilder</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1HypergraphPrune.html">Scarab::HG::HypergraphPrune</a></li>
-<li><a class="el" href="classHypergraphTools.html">HypergraphTools</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1Hypernode.html">Scarab::HG::Hypernode</a><ul>
-<li><a class="el" href="classScarab_1_1HG_1_1HypernodeImpl.html">Scarab::HG::HypernodeImpl</a><ul>
-<li><a class="el" href="classForestNode.html">ForestNode</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="el" href="structScarab_1_1HG_1_1Hypothesis.html">Scarab::HG::Hypothesis</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1LatticeVars.html">Scarab::HG::LatticeVars</a></li>
-<li><a class="el" href="structLocalHyperedge.html">LocalHyperedge</a></li>
-<li><a class="el" href="classLocalTestSuite.html">LocalTestSuite</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1Location.html">Scarab::HG::Location</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1LPBuilder.html">Scarab::HG::LPBuilder</a></li>
-<li><a class="el" href="classMRFBuilderLP.html">MRFBuilderLP</a></li>
-<li><a class="el" href="structMrfIndex.html">MrfIndex</a></li>
-<li><a class="el" href="structMRFLP.html">MRFLP</a></li>
-<li><a class="el" href="classNgramCache.html">NgramCache</a></li>
-<li><a class="el" href="structNodeAssignment.html">NodeAssignment</a></li>
-<li><a class="el" href="classNonLocal.html">NonLocal</a><ul>
-<li><a class="el" href="classBlankNonLocal.html">BlankNonLocal</a></li>
-<li><a class="el" href="classLMNonLocal.html">LMNonLocal</a></li>
-</ul>
-</li>
-<li><a class="el" href="structPossibleDep.html">PossibleDep</a></li>
-<li><a class="el" href="structPossibleTag.html">PossibleTag</a></li>
-<li><a class="el" href="classPottsModelBuilderLP.html">PottsModelBuilderLP</a></li>
-<li><a class="el" href="structPottsModelLP.html">PottsModelLP</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1QueueHyp.html">Scarab::HG::QueueHyp</a></li>
-<li><a class="el" href="structSpan.html">Span</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1State.html">Scarab::HG::State</a></li>
-<li><a class="el" href="structState.html">State</a></li>
-<li><a class="el" href="classStoreCache.html">StoreCache&lt; C, V &gt;</a></li>
-<li><a class="el" href="classSubgradient.html">Subgradient</a></li>
-<li><a class="el" href="classSubgradientProducer.html">SubgradientProducer</a><ul>
-<li><a class="el" href="classDecode.html">Decode</a></li>
-<li><a class="el" href="classDualDecompositionRunner.html">DualDecompositionRunner</a></li>
-</ul>
-</li>
-<li><a class="el" href="classSubproblem.html">Subproblem</a></li>
-<li><a class="el" href="structTag.html">Tag</a></li>
-<li><a class="el" href="classTagConstraints.html">TagConstraints</a></li>
-<li><a class="el" href="structTagIndex.html">TagIndex</a></li>
-<li><a class="el" href="structScarab_1_1HG_1_1TagLP.html">Scarab::HG::TagLP</a></li>
-<li><a class="el" href="classScarab_1_1HG_1_1TagLPBuilder.html">Scarab::HG::TagLPBuilder</a></li>
-<li><a class="el" href="classTagMrfAligner.html">TagMrfAligner</a></li>
-<li><a class="el" href="classTagMrfLP.html">TagMrfLP</a></li>
-</ul>
+<h1>Class Hierarchy</h1>This inheritance list is sorted roughly, but not completely, alphabetically:    <script type="text/javascript">
+    <!-- // Hide script from old browsers
+    
+    function toggleFolder(id, imageNode) 
+    {
+      var folder = document.getElementById(id);
+      var l = imageNode.src.length;
+      if (imageNode.src.substring(l-20,l)=="ftv2folderclosed.png" || 
+          imageNode.src.substring(l-18,l)=="ftv2folderopen.png")
+      {
+        imageNode = imageNode.previousSibling;
+        l = imageNode.src.length;
+      }
+      if (folder == null) 
+      {
+      } 
+      else if (folder.style.display == "block") 
+      {
+        if (imageNode != null) 
+        {
+          imageNode.nextSibling.src = "ftv2folderclosed.png";
+          if (imageNode.src.substring(l-13,l) == "ftv2mnode.png")
+          {
+            imageNode.src = "ftv2pnode.png";
+          }
+          else if (imageNode.src.substring(l-17,l) == "ftv2mlastnode.png")
+          {
+            imageNode.src = "ftv2plastnode.png";
+          }
+        }
+        folder.style.display = "none";
+      } 
+      else 
+      {
+        if (imageNode != null) 
+        {
+          imageNode.nextSibling.src = "ftv2folderopen.png";
+          if (imageNode.src.substring(l-13,l) == "ftv2pnode.png")
+          {
+            imageNode.src = "ftv2mnode.png";
+          }
+          else if (imageNode.src.substring(l-17,l) == "ftv2plastnode.png")
+          {
+            imageNode.src = "ftv2mlastnode.png";
+          }
+        }
+        folder.style.display = "block";
+      }
+    }
+
+    // End script hiding -->        
+    </script>
+    <div class="directory-alt">
+      <br/>
+      <div style="display: block;">
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1AStar.html" target="_self">Scarab::HG::AStar</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1BestHyp.html" target="_self">Scarab::HG::BestHyp</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structBigram.html" target="_self">Bigram</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classBigramRescore.html" target="_self">BigramRescore</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classCache.html" target="_self">Cache&lt; C, V &gt;</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structCandidate.html" target="_self">Candidate</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structcandidate__compare.html" target="_self">candidate_compare</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classClock.html" target="_self">Clock</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classConstraintGroup.html" target="_self">ConstraintGroup</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder1', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder1', this)"/><a class="el" href="classScarab_1_1HG_1_1Controller.html" target="_self">Scarab::HG::Controller</a></p>
+        <div id="folder1">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classSplitController.html" target="_self">SplitController</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classCubePruning.html" target="_self">CubePruning</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structDependency.html" target="_self">Dependency</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1DepParserLP.html" target="_self">Scarab::HG::DepParserLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1DepParserLPBuilder.html" target="_self">Scarab::HG::DepParserLPBuilder</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classDualDecomposition.html" target="_self">DualDecomposition</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder2', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder2', this)"/><a class="el" href="classDualDecompositionSubproblem.html" target="_self">DualDecompositionSubproblem</a></p>
+        <div id="folder2">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classConstrainerDual.html" target="_self">ConstrainerDual</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classTaggerDual.html" target="_self">TaggerDual</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structEisnerNode.html" target="_self">EisnerNode</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classEisnerToHypergraph.html" target="_self">EisnerToHypergraph</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1ExtendCKY.html" target="_self">Scarab::HG::ExtendCKY</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classForestLattice.html" target="_self">ForestLattice</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1Graph_1_1Graph.html" target="_self">Scarab::Graph::Graph</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classGraphDecompose.html" target="_self">GraphDecompose</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1Graph_1_1Graphedge.html" target="_self">Scarab::Graph::Graphedge</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1Graph_1_1Graphnode.html" target="_self">Scarab::Graph::Graphnode</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder3', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder3', this)"/><a class="el" href="classGraphProtoInterface.html" target="_self">GraphProtoInterface</a></p>
+        <div id="folder3">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classMRF.html" target="_self">MRF</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classHardConstraints.html" target="_self">HardConstraints</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classHardPosConstraintsLP.html" target="_self">HardPosConstraintsLP</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="classScarab_1_1HG_1_1Heuristic.html" target="_self">Scarab::HG::Heuristic</a></p>
+        <div id="folder4">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classSplitHeuristic.html" target="_self">SplitHeuristic</a></p>
+        </div>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder5', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder5', this)"/><a class="el" href="classScarab_1_1HG_1_1HGraph.html" target="_self">Scarab::HG::HGraph</a></p>
+        <div id="folder5">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder6', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder6', this)"/><a class="el" href="classScarab_1_1HG_1_1HypergraphImpl.html" target="_self">Scarab::HG::HypergraphImpl</a></p>
+          <div id="folder6">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classDepParser.html" target="_self">DepParser</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classForest.html" target="_self">Forest</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classMRFHypergraph.html" target="_self">MRFHypergraph</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classPhraseBased.html" target="_self">PhraseBased</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classTagger.html" target="_self">Tagger</a></p>
+          </div>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structHyp.html" target="_self">Hyp</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder7', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder7', this)"/><a class="el" href="classScarab_1_1HG_1_1Hyperedge.html" target="_self">Scarab::HG::Hyperedge</a></p>
+        <div id="folder7">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1HyperedgeImpl.html" target="_self">Scarab::HG::HyperedgeImpl</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1HypergraphAlgorithms.html" target="_self">Scarab::HG::HypergraphAlgorithms</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1HypergraphLP.html" target="_self">Scarab::HG::HypergraphLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1HypergraphLPBuilder.html" target="_self">Scarab::HG::HypergraphLPBuilder</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1HypergraphPrune.html" target="_self">Scarab::HG::HypergraphPrune</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classHypergraphTools.html" target="_self">HypergraphTools</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder8', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder8', this)"/><a class="el" href="classScarab_1_1HG_1_1Hypernode.html" target="_self">Scarab::HG::Hypernode</a></p>
+        <div id="folder8">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2plastnode.png" alt="\" width="16" height="22" onclick="toggleFolder('folder9', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder9', this)"/><a class="el" href="classScarab_1_1HG_1_1HypernodeImpl.html" target="_self">Scarab::HG::HypernodeImpl</a></p>
+          <div id="folder9">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2blank.png" alt="&#160;" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classForestNode.html" target="_self">ForestNode</a></p>
+          </div>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1Hypothesis.html" target="_self">Scarab::HG::Hypothesis</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1LatticeVars.html" target="_self">Scarab::HG::LatticeVars</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structLocalHyperedge.html" target="_self">LocalHyperedge</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classLocalTestSuite.html" target="_self">LocalTestSuite</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1Location.html" target="_self">Scarab::HG::Location</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1LPBuilder.html" target="_self">Scarab::HG::LPBuilder</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classMRFBuilderLP.html" target="_self">MRFBuilderLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structMrfIndex.html" target="_self">MrfIndex</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structMRFLP.html" target="_self">MRFLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classNgramCache.html" target="_self">NgramCache</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structNodeAssignment.html" target="_self">NodeAssignment</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder10', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder10', this)"/><a class="el" href="classNonLocal.html" target="_self">NonLocal</a></p>
+        <div id="folder10">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classBlankNonLocal.html" target="_self">BlankNonLocal</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classLMNonLocal.html" target="_self">LMNonLocal</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structPossibleDep.html" target="_self">PossibleDep</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structPossibleTag.html" target="_self">PossibleTag</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classPottsModelBuilderLP.html" target="_self">PottsModelBuilderLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structPottsModelLP.html" target="_self">PottsModelLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1QueueHyp.html" target="_self">Scarab::HG::QueueHyp</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structSpan.html" target="_self">Span</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1State.html" target="_self">Scarab::HG::State</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structState.html" target="_self">State</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classStoreCache.html" target="_self">StoreCache&lt; C, V &gt;</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classSubgradient.html" target="_self">Subgradient</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder11', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder11', this)"/><a class="el" href="classSubgradientProducer.html" target="_self">SubgradientProducer</a></p>
+        <div id="folder11">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classDecode.html" target="_self">Decode</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classDualDecompositionRunner.html" target="_self">DualDecompositionRunner</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classSubproblem.html" target="_self">Subproblem</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structTag.html" target="_self">Tag</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classTagConstraints.html" target="_self">TagConstraints</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structTagIndex.html" target="_self">TagIndex</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structScarab_1_1HG_1_1TagLP.html" target="_self">Scarab::HG::TagLP</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classScarab_1_1HG_1_1TagLPBuilder.html" target="_self">Scarab::HG::TagLPBuilder</a></p>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classTagMrfAligner.html" target="_self">TagMrfAligner</a></p>
+        <p><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classTagMrfLP.html" target="_self">TagMrfLP</a></p>
+      </div>
+    </div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -171,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:53:02 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 18:31:54 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

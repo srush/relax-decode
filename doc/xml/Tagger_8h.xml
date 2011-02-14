@@ -287,56 +287,57 @@
 <codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//return<sp/>*_weights;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Tag<sp/>&gt;<sp/>tags()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tags;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/>uint<sp/>num_tags()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_length;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>uint<sp/>sent_length()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_sent_length;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>make_tag(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref>(ind,<sp/>tag,<sp/>_sent_length);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector&lt;const<sp/>Hyperedge*&gt;<sp/>&amp;<sp/>tag_to_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edge_map-&gt;get(tag);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>tag_has_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edge_map-&gt;has_key(tag);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>edge_to_tag(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref><sp/>&amp;<sp/>edge)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_map-&gt;get(edge);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>edge_has_tag(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref><sp/>&amp;<sp/>edge)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_map-&gt;has_key(edge);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>make_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Edge<sp/>&amp;<sp/>edge,<sp/></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Scarab::HG::Hyperedge</ref><sp/>*<sp/>our_edge);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>parse<sp/>forest<sp/>in<sp/>hypergraph<sp/>form</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_sent_length;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_tag_length;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>Hypergraph<sp/>*<sp/>_h;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Tag, vector &lt;const Hyperedge *&gt;</ref><sp/>&gt;<sp/>*<sp/><sp/>_edge_map;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Hyperedge, Tag&gt;</ref><sp/>*<sp/>_tag_map;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Cache<sp/>&lt;Hyperedge,<sp/>double&gt;<sp/>_weights;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Tag&gt;<sp/>_tags;<sp/></highlight></codeline>
-<codeline lineno="117"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="77" refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" refkind="member"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Tag<sp/>&gt;<sp/><ref refid="classTagger_1ae1e3802fb545c3430ca4d52ea5fd95db" kindref="member">tags</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tags;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>uint<sp/>num_tags()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_length;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>uint<sp/>sent_length()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_sent_length;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>make_tag(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref>(ind,<sp/>tag,<sp/>_sent_length);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector&lt;const<sp/>Hyperedge*&gt;<sp/>&amp;<sp/>tag_to_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edge_map-&gt;get(tag);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>tag_has_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edge_map-&gt;has_key(tag);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structTag" kindref="compound">Tag</ref><sp/>&amp;<sp/>edge_to_tag(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref><sp/>&amp;<sp/>edge)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_map-&gt;get(edge);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>edge_has_tag(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Hyperedge</ref><sp/>&amp;<sp/>edge)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tag_map-&gt;has_key(edge);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>make_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Edge<sp/>&amp;<sp/>edge,<sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hyperedge" kindref="compound">Scarab::HG::Hyperedge</ref><sp/>*<sp/>our_edge);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>parse<sp/>forest<sp/>in<sp/>hypergraph<sp/>form</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_sent_length;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_tag_length;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>Hypergraph<sp/>*<sp/>_h;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Tag, vector &lt;const Hyperedge *&gt;</ref><sp/>&gt;<sp/>*<sp/><sp/>_edge_map;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;Hyperedge, Tag&gt;</ref><sp/>*<sp/>_tag_map;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Cache<sp/>&lt;Hyperedge,<sp/>double&gt;<sp/>_weights;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Tag&gt;<sp/>_tags;<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/srush/Projects/relax_decode/tagger/Tagger.h"/>
   </compounddef>
