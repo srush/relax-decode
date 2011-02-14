@@ -224,67 +224,68 @@
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/></highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>These<sp/>should<sp/>be<sp/>(lazy)<sp/>iterators,<sp/>figure<sp/>that<sp/>part<sp/>out</highlight></codeline>
-<codeline lineno="88" refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>in_edges()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_in_edges;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_edges(Edges<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref><sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_edges<sp/>=<sp/>edges;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_edge(Edge<sp/>edge)<sp/>{</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_edges.push_back(edge);</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_in_edge(Edge<sp/>edge)<sp/>{</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_in_edges.push_back(edge);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_label(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>lab)<sp/>{</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_label<sp/>=<sp/>lab;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/>uint<sp/>_id;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/>Edges<sp/>_edges;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/>Edges<sp/>_in_edges;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_label;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118" refid="classScarab_1_1Graph_1_1Graph" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classScarab_1_1Graph_1_1Graph" kindref="compound">Graph</ref><sp/>{</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graph" kindref="compound">Graph</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>&amp;<sp/>nodes,<sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>edges):_nodes(nodes),<sp/>_edges(edges)<sp/>{}</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//virtual<sp/>void<sp/>print()<sp/>const<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>these<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128" refid="classScarab_1_1Graph_1_1Graph_1afdfbdd8e5427a646707ceb22ca15d2e2" refkind="member"><highlight class="normal"><sp/><sp/>uint<sp/><ref refid="classScarab_1_1Graph_1_1Graph_1afdfbdd8e5427a646707ceb22ca15d2e2" kindref="member">num_edges</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges.size();}</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/>uint<sp/>num_nodes()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_nodes.size();}</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>&amp;<sp/>nodes()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_nodes;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>edges()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges;</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Graphnode<sp/>&amp;<sp/>node(uint<sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*_nodes[i];</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>_nodes;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>_edges;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="90" refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>in_edges()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_in_edges;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_edges(Edges<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode_1a4ffd990052c812242cbdeeae7b0e1104" kindref="member">edges</ref><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_edges<sp/>=<sp/>edges;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_edge(Edge<sp/>edge)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_edges.push_back(edge);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_in_edge(Edge<sp/>edge)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_in_edges.push_back(edge);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_label(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>lab)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>_label<sp/>=<sp/>lab;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/>uint<sp/>_id;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/>Edges<sp/>_edges;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/>Edges<sp/>_in_edges;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_label;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classScarab_1_1Graph_1_1Graph" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classScarab_1_1Graph_1_1Graph" kindref="compound">Graph</ref><sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><ref refid="classScarab_1_1Graph_1_1Graph" kindref="compound">Graph</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>&amp;<sp/>nodes,<sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>edges):_nodes(nodes),<sp/>_edges(edges)<sp/>{}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//virtual<sp/>void<sp/>print()<sp/>const<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>remove<sp/>these<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="classScarab_1_1Graph_1_1Graph_1afdfbdd8e5427a646707ceb22ca15d2e2" refkind="member"><highlight class="normal"><sp/><sp/>uint<sp/><ref refid="classScarab_1_1Graph_1_1Graph_1afdfbdd8e5427a646707ceb22ca15d2e2" kindref="member">num_edges</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges.size();}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>uint<sp/>num_nodes()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_nodes.size();}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>&amp;<sp/>nodes()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_nodes;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>&amp;<sp/>edges()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_edges;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Graphnode<sp/>&amp;<sp/>node(uint<sp/>i)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*_nodes[i];</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Nodes<sp/>_nodes;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Edges<sp/>_edges;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/home/srush/Projects/relax_decode/graph/Graph.h"/>
   </compounddef>
