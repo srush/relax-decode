@@ -97,65 +97,65 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="581">
+      <node id="558">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="580">
+      <node id="557">
         <label>Scarab::HG::HypernodeImpl</label>
         <link refid="classScarab_1_1HG_1_1HypernodeImpl"/>
-        <childnode refid="581" relation="public-inheritance">
+        <childnode refid="558" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="579">
+      <node id="556">
         <label>ForestNode</label>
         <link refid="classForestNode"/>
-        <childnode refid="580" relation="public-inheritance">
+        <childnode refid="557" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="588">
+      <node id="565">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="584">
+      <node id="561">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="586">
+      <node id="563">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="583">
+      <node id="560">
         <label>Scarab::HG::HypernodeImpl</label>
         <link refid="classScarab_1_1HG_1_1HypernodeImpl"/>
-        <childnode refid="584" relation="public-inheritance">
+        <childnode refid="561" relation="public-inheritance">
         </childnode>
-        <childnode refid="585" relation="usage">
+        <childnode refid="562" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
-        <childnode refid="587" relation="usage">
+        <childnode refid="564" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
       </node>
-      <node id="582">
+      <node id="559">
         <label>ForestNode</label>
         <link refid="classForestNode"/>
-        <childnode refid="583" relation="public-inheritance">
+        <childnode refid="560" relation="public-inheritance">
         </childnode>
-        <childnode refid="585" relation="usage">
+        <childnode refid="562" relation="usage">
           <edgelabel>_word</edgelabel>
         </childnode>
       </node>
-      <node id="585">
+      <node id="562">
         <label>std::string</label>
-        <childnode refid="586" relation="public-inheritance">
+        <childnode refid="563" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="587">
+      <node id="564">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="588" relation="usage">
+        <childnode refid="565" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

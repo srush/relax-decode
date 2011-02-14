@@ -6,218 +6,147 @@
     <includes local="no">cassert</includes>
     <includes local="no">string</includes>
     <includes refid="Graph_8h" local="no">Graph.h</includes>
-    <includes refid="gen-py_2graph_8pb_8h" local="no">graph.pb.h</includes>
-    <includes refid="gen-py_2mrf_8pb_8h" local="no">mrf.pb.h</includes>
+    <includes local="no">graph.pb.h</includes>
+    <includes local="no">mrf.pb.h</includes>
     <includes refid="HypergraphImpl_8h" local="yes">HypergraphImpl.h</includes>
     <includes refid="GraphProtoInterface_8h" local="no">GraphProtoInterface.h</includes>
     <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
     <includedby refid="MRF_8cpp" local="yes">optimization/MRF.cpp</includedby>
     <incdepgraph>
-      <node id="1521">
+      <node id="1113">
         <label>assert.h</label>
       </node>
-      <node id="1507">
-        <label>mrf.pb.h</label>
-        <link refid="gen-py_2mrf_8pb_8h_source"/>
-        <childnode refid="1497" relation="include">
-        </childnode>
-        <childnode refid="1502" relation="include">
-        </childnode>
-        <childnode refid="1503" relation="include">
-        </childnode>
-        <childnode refid="1504" relation="include">
-        </childnode>
-        <childnode refid="1505" relation="include">
-        </childnode>
-        <childnode refid="1506" relation="include">
-        </childnode>
-        <childnode refid="1507" relation="include">
-        </childnode>
-      </node>
-      <node id="1496">
+      <node id="1093">
         <label>cassert</label>
       </node>
-      <node id="1517">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="1497" relation="include">
-        </childnode>
-        <childnode refid="1502" relation="include">
-        </childnode>
-        <childnode refid="1503" relation="include">
-        </childnode>
-        <childnode refid="1504" relation="include">
-        </childnode>
-        <childnode refid="1505" relation="include">
-        </childnode>
-        <childnode refid="1506" relation="include">
-        </childnode>
-        <childnode refid="1516" relation="include">
-        </childnode>
-      </node>
-      <node id="1497">
+      <node id="1094">
         <label>string</label>
       </node>
-      <node id="1519">
+      <node id="1108">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1111">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="1499" relation="include">
+        <childnode refid="1096" relation="include">
         </childnode>
-        <childnode refid="1520" relation="include">
+        <childnode refid="1112" relation="include">
         </childnode>
-        <childnode refid="1521" relation="include">
+        <childnode refid="1113" relation="include">
         </childnode>
       </node>
-      <node id="1508">
+      <node id="1100">
         <label>HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="1509" relation="include">
+        <childnode refid="1101" relation="include">
         </childnode>
-        <childnode refid="1516" relation="include">
+        <childnode refid="1108" relation="include">
         </childnode>
-        <childnode refid="1517" relation="include">
+        <childnode refid="1109" relation="include">
         </childnode>
-        <childnode refid="1510" relation="include">
+        <childnode refid="1102" relation="include">
         </childnode>
-        <childnode refid="1500" relation="include">
+        <childnode refid="1097" relation="include">
         </childnode>
-        <childnode refid="1499" relation="include">
+        <childnode refid="1096" relation="include">
         </childnode>
-        <childnode refid="1515" relation="include">
+        <childnode refid="1107" relation="include">
         </childnode>
       </node>
-      <node id="1509">
+      <node id="1101">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="1510" relation="include">
+        <childnode refid="1102" relation="include">
         </childnode>
-        <childnode refid="1499" relation="include">
+        <childnode refid="1096" relation="include">
         </childnode>
-        <childnode refid="1515" relation="include">
+        <childnode refid="1107" relation="include">
         </childnode>
-        <childnode refid="1497" relation="include">
+        <childnode refid="1094" relation="include">
         </childnode>
       </node>
-      <node id="1512">
+      <node id="1104">
         <label>fstream</label>
       </node>
-      <node id="1498">
+      <node id="1095">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="1499" relation="include">
+        <childnode refid="1096" relation="include">
         </childnode>
-        <childnode refid="1497" relation="include">
+        <childnode refid="1094" relation="include">
         </childnode>
-        <childnode refid="1500" relation="include">
-        </childnode>
-      </node>
-      <node id="1501">
-        <label>graph.pb.h</label>
-        <link refid="gen-py_2graph_8pb_8h_source"/>
-        <childnode refid="1497" relation="include">
-        </childnode>
-        <childnode refid="1502" relation="include">
-        </childnode>
-        <childnode refid="1503" relation="include">
-        </childnode>
-        <childnode refid="1504" relation="include">
-        </childnode>
-        <childnode refid="1505" relation="include">
-        </childnode>
-        <childnode refid="1506" relation="include">
+        <childnode refid="1097" relation="include">
         </childnode>
       </node>
-      <node id="1516">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="1497" relation="include">
-        </childnode>
-        <childnode refid="1502" relation="include">
-        </childnode>
-        <childnode refid="1503" relation="include">
-        </childnode>
-        <childnode refid="1504" relation="include">
-        </childnode>
-        <childnode refid="1505" relation="include">
-        </childnode>
-        <childnode refid="1506" relation="include">
-        </childnode>
-      </node>
-      <node id="1514">
+      <node id="1106">
         <label>svector.hpp</label>
       </node>
-      <node id="1510">
+      <node id="1102">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="1511" relation="include">
+        <childnode refid="1103" relation="include">
         </childnode>
-        <childnode refid="1512" relation="include">
+        <childnode refid="1104" relation="include">
         </childnode>
-        <childnode refid="1513" relation="include">
+        <childnode refid="1105" relation="include">
         </childnode>
-        <childnode refid="1514" relation="include">
+        <childnode refid="1106" relation="include">
         </childnode>
       </node>
-      <node id="1503">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="1500">
+      <node id="1097">
         <label>../common.h</label>
       </node>
-      <node id="1520">
+      <node id="1112">
         <label>bitset</label>
       </node>
-      <node id="1502">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="1499">
+      <node id="1096">
         <label>vector</label>
       </node>
-      <node id="1518">
+      <node id="1110">
         <label>GraphProtoInterface.h</label>
         <link refid="GraphProtoInterface_8h_source"/>
-        <childnode refid="1501" relation="include">
+        <childnode refid="1098" relation="include">
         </childnode>
-        <childnode refid="1498" relation="include">
+        <childnode refid="1095" relation="include">
         </childnode>
       </node>
-      <node id="1505">
-        <label>google/protobuf/extension_set.h</label>
+      <node id="1099">
+        <label>mrf.pb.h</label>
       </node>
-      <node id="1504">
-        <label>google/protobuf/repeated_field.h</label>
+      <node id="1098">
+        <label>graph.pb.h</label>
       </node>
-      <node id="1511">
+      <node id="1103">
         <label>iostream</label>
       </node>
-      <node id="1513">
+      <node id="1105">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="1495">
+      <node id="1092">
         <label>optimization/MRF.cpp</label>
         <link refid="MRF.cpp"/>
-        <childnode refid="1496" relation="include">
+        <childnode refid="1093" relation="include">
         </childnode>
-        <childnode refid="1497" relation="include">
+        <childnode refid="1094" relation="include">
         </childnode>
-        <childnode refid="1498" relation="include">
+        <childnode refid="1095" relation="include">
         </childnode>
-        <childnode refid="1501" relation="include">
+        <childnode refid="1098" relation="include">
         </childnode>
-        <childnode refid="1507" relation="include">
+        <childnode refid="1099" relation="include">
         </childnode>
-        <childnode refid="1508" relation="include">
+        <childnode refid="1100" relation="include">
         </childnode>
-        <childnode refid="1518" relation="include">
+        <childnode refid="1110" relation="include">
         </childnode>
-        <childnode refid="1519" relation="include">
+        <childnode refid="1111" relation="include">
         </childnode>
       </node>
-      <node id="1515">
+      <node id="1107">
         <label>set</label>
       </node>
-      <node id="1506">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="1109">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
     <briefdescription>
@@ -229,15 +158,15 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HypergraphImpl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MRF::process_node(<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref><sp/>proto_node,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*<sp/>internal_node)<sp/>{</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1MRFNode" kindref="compound">graph::MRFNode</ref><sp/>&amp;<sp/>mrfnode<sp/>=<sp/>proto_node.GetExtension(graph::mrf_node);<sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MRF::process_node(graph::Graph_Node<sp/>proto_node,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*<sp/>internal_node)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>graph::MRFNode<sp/>&amp;<sp/>mrfnode<sp/>=<sp/>proto_node.GetExtension(graph::mrf_node);<sp/></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_states<sp/>=<sp/>mrfnode.node_potentials_size();</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><ref refid="classCache" kindref="compound">Cache &lt;State, double&gt;</ref><sp/>*<sp/>node_potentials<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache &lt;State, double&gt;</ref><sp/>(num_states);</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/>_node_potentials-&gt;set_value(*internal_node,<sp/>node_potentials);</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i<sp/>&lt;<sp/>mrfnode.node_potentials_size();<sp/>i++<sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1NodeStatePotential" kindref="compound">graph::NodeStatePotential</ref><sp/>&amp;<sp/>node_poten<sp/>=<sp/>mrfnode.node_potentials(i);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1State" kindref="compound">graph::State</ref><sp/>&amp;<sp/>state<sp/>=<sp/>node_poten.state();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>graph::NodeStatePotential<sp/>&amp;<sp/>node_poten<sp/>=<sp/>mrfnode.node_potentials(i);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>graph::State<sp/>&amp;<sp/>state<sp/>=<sp/>node_poten.state();</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>weight<sp/>=<sp/>node_poten.node_potential();</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structState" kindref="compound">State</ref><sp/>s(state.id(),<sp/>state.label());</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>_node_states-&gt;get_no_check(*internal_node).push_back(s);</highlight></codeline>
@@ -247,8 +176,8 @@
 <codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="21"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MRF::process_edge(<ref refid="classgraph_1_1Graph__Edge" kindref="compound">graph::Graph_Edge</ref><sp/>proto_edge,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*<sp/>internal_edge)<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1MRFEdge" kindref="compound">graph::MRFEdge</ref><sp/>&amp;<sp/>mrf_edge<sp/>=<sp/>proto_edge.GetExtension(graph::mrf_edge);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MRF::process_edge(graph::Graph_Edge<sp/>proto_edge,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*<sp/>internal_edge)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>graph::MRFEdge<sp/>&amp;<sp/>mrf_edge<sp/>=<sp/>proto_edge.GetExtension(graph::mrf_edge);</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/>map<sp/>&lt;pair&lt;int,int&gt;,<sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&gt;<sp/>&amp;<sp/>edge_weights<sp/>=<sp/>_edge_potentials-&gt;get_no_check(*internal_edge);</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_from_states<sp/>=<sp/>states(*internal_edge-&gt;from_node()).size();</highlight></codeline>
@@ -264,7 +193,7 @@
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i<sp/>&lt;<sp/>mrf_edge.edge_potentials_size();<sp/>i++<sp/>)<sp/>{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classgraph_1_1EdgeStatePotential" kindref="compound">graph::EdgeStatePotential</ref><sp/>&amp;<sp/>edge_poten<sp/>=<sp/>mrf_edge.edge_potentials(i);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>graph::EdgeStatePotential<sp/>&amp;<sp/>edge_poten<sp/>=<sp/>mrf_edge.edge_potentials(i);</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>from<sp/>=<sp/>edge_poten.from_state_id();</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>to<sp/>=<sp/>edge_poten.to_state_id();</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -273,7 +202,7 @@
 <codeline lineno="46"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMRF_1a928f19f948fa97796462fd9542a985fd" kindref="member">MRF::set_up</ref>(<ref refid="classgraph_1_1Graph" kindref="compound">graph::Graph</ref><sp/>graph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodes<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>edges)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMRF_1a928f19f948fa97796462fd9542a985fd" kindref="member">MRF::set_up</ref>(graph::Graph<sp/>graph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodes<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>edges)<sp/>{</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/>_node_states<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphnode, vector &lt;State&gt;</ref><sp/>&gt;(nodes);</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/>_node_potentials<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphnode, Cache &lt;State, double&gt;</ref><sp/>*<sp/>&gt;(nodes);</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/>_edge_potentials<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCache" kindref="compound">Cache &lt;Graphedge, map&lt;pair&lt;int,int&gt;</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;<sp/>&gt;(edges);</highlight></codeline>

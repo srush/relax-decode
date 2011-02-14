@@ -93,131 +93,131 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="1020">
+      <node id="961">
         <label>Cache&lt; Graphedge, Cache&lt; State, GRBVar &gt; * &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="1015">
+      <node id="956">
         <label>T</label>
       </node>
-      <node id="1007">
+      <node id="948">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
-        <childnode refid="1008" relation="usage">
+        <childnode refid="949" relation="usage">
           <edgelabel>_graph</edgelabel>
         </childnode>
       </node>
-      <node id="1010">
+      <node id="951">
         <label>Scarab::Graph::Graphedge</label>
         <link refid="classScarab_1_1Graph_1_1Graphedge"/>
-        <childnode refid="1011" relation="usage">
+        <childnode refid="952" relation="usage">
           <edgelabel>_to_node</edgelabel>
           <edgelabel>_from_node</edgelabel>
         </childnode>
       </node>
-      <node id="1016">
+      <node id="957">
         <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1017" relation="usage">
+        <childnode refid="958" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1014">
+      <node id="955">
         <label>std::vector&lt; T &gt;</label>
-        <childnode refid="1015" relation="usage">
+        <childnode refid="956" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1003">
+      <node id="944">
         <label>MRFLP</label>
         <link refid="structMRFLP"/>
-        <childnode refid="1004" relation="usage">
+        <childnode refid="945" relation="usage">
           <edgelabel>node_vars</edgelabel>
         </childnode>
-        <childnode refid="1005" relation="usage">
+        <childnode refid="946" relation="usage">
           <edgelabel>edge_vars</edgelabel>
         </childnode>
-        <childnode refid="1006" relation="usage">
+        <childnode refid="947" relation="usage">
           <edgelabel>mrf</edgelabel>
         </childnode>
-        <childnode refid="1020" relation="usage">
+        <childnode refid="961" relation="usage">
           <edgelabel>from_state_blank_vars</edgelabel>
           <edgelabel>to_state_blank_vars</edgelabel>
         </childnode>
       </node>
-      <node id="1018">
+      <node id="959">
         <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1017" relation="usage">
+        <childnode refid="958" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1019">
+      <node id="960">
         <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="1017" relation="usage">
+        <childnode refid="958" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="1011">
+      <node id="952">
         <label>Scarab::Graph::Graphnode</label>
         <link refid="classScarab_1_1Graph_1_1Graphnode"/>
-        <childnode refid="1009" relation="usage">
+        <childnode refid="950" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="1012" relation="usage">
+        <childnode refid="953" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
       </node>
-      <node id="1013">
+      <node id="954">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="1004">
+      <node id="945">
         <label>Cache&lt; Graphnode, Cache&lt; State, GRBVar &gt; * &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="1017">
+      <node id="958">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="1005">
+      <node id="946">
         <label>Cache&lt; Graphedge, Cache&lt; State, Cache&lt; State, GRBVar &gt; * &gt; * &gt;</label>
         <link refid="classCache"/>
       </node>
-      <node id="1009">
+      <node id="950">
         <label>std::vector&lt; const Graphedge * &gt;</label>
-        <childnode refid="1010" relation="usage">
+        <childnode refid="951" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="1008">
+      <node id="949">
         <label>Scarab::Graph::Graph</label>
         <link refid="classScarab_1_1Graph_1_1Graph"/>
-        <childnode refid="1009" relation="usage">
+        <childnode refid="950" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="1014" relation="usage">
+        <childnode refid="955" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
       </node>
-      <node id="1006">
+      <node id="947">
         <label>MRF</label>
         <link refid="classMRF"/>
-        <childnode refid="1007" relation="public-inheritance">
+        <childnode refid="948" relation="public-inheritance">
         </childnode>
-        <childnode refid="1016" relation="usage">
+        <childnode refid="957" relation="usage">
           <edgelabel>_node_states</edgelabel>
         </childnode>
-        <childnode refid="1018" relation="usage">
+        <childnode refid="959" relation="usage">
           <edgelabel>_edge_potentials</edgelabel>
         </childnode>
-        <childnode refid="1019" relation="usage">
+        <childnode refid="960" relation="usage">
           <edgelabel>_node_potentials</edgelabel>
         </childnode>
       </node>
-      <node id="1012">
+      <node id="953">
         <label>std::string</label>
-        <childnode refid="1013" relation="public-inheritance">
+        <childnode refid="954" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

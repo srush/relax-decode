@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00035"></a>00035   <span class="comment">// DepParser(int length, Hypernode)</span>
 <a name="l00036"></a><a class="code" href="classDepParser.html#a9aebbbde821bad423b6c01cc12f02a2c">00036</a>   <span class="keywordtype">void</span> <a class="code" href="classDepParser.html#a9aebbbde821bad423b6c01cc12f02a2c">print</a>()<span class="keyword"> const </span>{}
 <a name="l00037"></a>00037   
-<a name="l00038"></a>00038   <span class="keywordtype">void</span> set_up(<span class="keyword">const</span> <a class="code" href="classHypergraph.html">Hypergraph</a> &amp; hgraph) {
+<a name="l00038"></a>00038   <span class="keywordtype">void</span> set_up(<span class="keyword">const</span> Hypergraph &amp; hgraph) {
 <a name="l00039"></a>00039     _sent_length = hgraph.GetExtension(len) + 1; 
 <a name="l00040"></a>00040     <span class="comment">//cout &lt;&lt; &quot;len &quot; &lt;&lt;   _sent_length &lt;&lt; endl;</span>
 <a name="l00041"></a>00041 
@@ -102,9 +102,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055     <span class="keywordtype">int</span> edge_count = 0;
 <a name="l00056"></a>00056     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; hgraph.node_size(); i++) {
-<a name="l00057"></a>00057       <span class="keyword">const</span> <a class="code" href="classHypergraph__Node.html">Hypergraph_Node</a> &amp; node = hgraph.node(i);
+<a name="l00057"></a>00057       <span class="keyword">const</span> Hypergraph_Node &amp; node = hgraph.node(i);
 <a name="l00058"></a>00058       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; node.edge_size(); j++) {
-<a name="l00059"></a>00059         <span class="keyword">const</span> <a class="code" href="classHypergraph__Edge.html">Hypergraph_Edge</a>&amp; edge = node.edge(j);
+<a name="l00059"></a>00059         <span class="keyword">const</span> Hypergraph_Edge&amp; edge = node.edge(j);
 <a name="l00060"></a>00060         edge_count++;
 <a name="l00061"></a>00061       }
 <a name="l00062"></a>00062     }
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00065"></a>00065     _edge_map = <span class="keyword">new</span> <a class="code" href="classCache.html">Cache &lt;Dependency, vector&lt;const Hyperedge *&gt;</a> &gt;(_dep_length);
 <a name="l00066"></a>00066   }
 <a name="l00067"></a>00067 
-<a name="l00068"></a>00068   <span class="keyword">const</span> <a class="code" href="classHypergraph.html">Hypergraph</a> &amp; hypergraph()<span class="keyword"> const </span>{
+<a name="l00068"></a>00068   <span class="keyword">const</span> Hypergraph &amp; hypergraph()<span class="keyword"> const </span>{
 <a name="l00069"></a>00069     <span class="keywordflow">return</span> *_h;
 <a name="l00070"></a>00070   }
 <a name="l00071"></a>00071   
@@ -150,10 +150,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00102"></a>00102   }
 <a name="l00103"></a>00103   
 <a name="l00104"></a>00104  <span class="keyword">protected</span>:
-<a name="l00105"></a>00105   <span class="keywordtype">void</span> make_edge(<span class="keyword">const</span> <a class="code" href="classHypergraph__Edge.html">Hypergraph_Edge</a> &amp; edge, <span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Scarab::HG::Hyperedge</a> * our_edge) {
+<a name="l00105"></a>00105   <span class="keywordtype">void</span> make_edge(<span class="keyword">const</span> Hypergraph_Edge &amp; edge, <span class="keyword">const</span> <a class="code" href="classScarab_1_1HG_1_1Hyperedge.html">Scarab::HG::Hyperedge</a> * our_edge) {
 <a name="l00106"></a>00106     <span class="comment">//cout &lt;&lt; &quot;Make Edge&quot; &lt;&lt; edge.HasExtension(has_dep) &lt;&lt; endl;</span>
 <a name="l00107"></a>00107     <span class="keywordflow">if</span> ( edge.GetExtension(has_dep)) { 
-<a name="l00108"></a>00108       <span class="keyword">const</span> <a class="code" href="classDep.html">Dep</a> &amp; ret_dep = edge.GetExtension(dep);
+<a name="l00108"></a>00108       <span class="keyword">const</span> Dep &amp; ret_dep = edge.GetExtension(dep);
 <a name="l00109"></a>00109       <a class="code" href="structDependency.html">Dependency</a> our_dep = make_dep(ret_dep.head(), ret_dep.mod());
 <a name="l00110"></a>00110       _dep_map-&gt;set_value(*our_edge, our_dep);
 <a name="l00111"></a>00111       _edge_map-&gt;get_no_check(our_dep).push_back(our_edge);
@@ -164,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00116"></a>00116   <span class="comment">// The parse forest in hypergraph form</span>
 <a name="l00117"></a>00117   <span class="keywordtype">int</span> _sent_length;
 <a name="l00118"></a>00118   <span class="keywordtype">int</span> _dep_length;
-<a name="l00119"></a>00119   <a class="code" href="classHypergraph.html">Hypergraph</a> * _h;
+<a name="l00119"></a>00119   Hypergraph * _h;
 <a name="l00120"></a>00120   <a class="code" href="classCache.html">Cache &lt;Dependency, vector &lt;const Hyperedge *&gt;</a> &gt; *  _edge_map;
 <a name="l00121"></a>00121   <a class="code" href="classCache.html">Cache &lt;Hyperedge, Dependency&gt;</a> * _dep_map;
 <a name="l00122"></a>00122   <span class="comment">//Cache &lt;Hyperedge, double&gt; _weights;</span>
@@ -188,7 +188,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:24:34 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

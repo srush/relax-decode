@@ -95,14 +95,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00047"></a>00047 
 <a name="l00048"></a><a class="code" href="classMRF.html">00048</a> <span class="keyword">class </span><a class="code" href="classMRF.html">MRF</a> : <span class="keyword">public</span> <a class="code" href="classGraphProtoInterface.html">GraphProtoInterface</a> {
 <a name="l00049"></a>00049  <span class="keyword">public</span>:
-<a name="l00050"></a>00050   <span class="keywordtype">void</span> process_node(<a class="code" href="classgraph_1_1Graph__Node.html">graph::Graph_Node</a>, <a class="code" href="classScarab_1_1Graph_1_1Graphnode.html">Graphnode</a> *) ;
-<a name="l00051"></a>00051   <span class="keywordtype">void</span> process_edge(<a class="code" href="classgraph_1_1Graph__Edge.html">graph::Graph_Edge</a>, <a class="code" href="classScarab_1_1Graph_1_1Graphedge.html">Graphedge</a> *) ;
+<a name="l00050"></a>00050   <span class="keywordtype">void</span> process_node(graph::Graph_Node, <a class="code" href="classScarab_1_1Graph_1_1Graphnode.html">Graphnode</a> *) ;
+<a name="l00051"></a>00051   <span class="keywordtype">void</span> process_edge(graph::Graph_Edge, <a class="code" href="classScarab_1_1Graph_1_1Graphedge.html">Graphedge</a> *) ;
 <a name="l00052"></a>00052   
-<a name="l00053"></a>00053   <a class="code" href="classHypergraph.html">Hypergraph</a>* build_hypergraph();
+<a name="l00053"></a>00053   Hypergraph* build_hypergraph();
 <a name="l00054"></a>00054   
 <a name="l00060"></a>00060   <span class="comment">//void solve(vector &lt;double&gt; extra_node_potentials) const;</span>
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="keywordtype">void</span> <a class="code" href="classMRF.html#a928f19f948fa97796462fd9542a985fd">set_up</a>(<a class="code" href="classgraph_1_1Graph.html">graph::Graph</a> graph, <span class="keywordtype">int</span> nodes , <span class="keywordtype">int</span> edges);
+<a name="l00062"></a>00062   <span class="keywordtype">void</span> <a class="code" href="classMRF.html#a928f19f948fa97796462fd9542a985fd">set_up</a>(graph::Graph graph, <span class="keywordtype">int</span> nodes , <span class="keywordtype">int</span> edges);
 <a name="l00063"></a>00063   <span class="keyword">const</span> <span class="keywordtype">double</span> node_pot(<span class="keyword">const</span> <a class="code" href="classScarab_1_1Graph_1_1Graphnode.html">Graphnode</a> &amp; node, <span class="keyword">const</span> <a class="code" href="structState.html">State</a> &amp; s1)<span class="keyword"> const </span>{
 <a name="l00064"></a>00064     <span class="keywordflow">return</span> _node_potentials-&gt;get(node)-&gt;get(s1);
 <a name="l00065"></a>00065   }
@@ -182,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:24:34 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

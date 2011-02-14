@@ -18,152 +18,140 @@
     <includes local="no">cmath</includes>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
     <includes refid="Hypothesis_8h" local="yes">Hypothesis.h</includes>
-    <includes local="no">tr1/unordered_map</includes>
-    <includes local="no">cassert</includes>
     <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
     <includes local="no">limits</includes>
     <includedby refid="AStar_8cpp" local="yes">hypergraph/AStar.cpp</includedby>
     <incdepgraph>
-      <node id="244">
+      <node id="215">
         <label>queue</label>
       </node>
-      <node id="260">
+      <node id="229">
         <label>limits</label>
       </node>
-      <node id="241">
+      <node id="212">
         <label>assert.h</label>
       </node>
-      <node id="253">
+      <node id="224">
         <label>cmath</label>
       </node>
-      <node id="259">
-        <label>cassert</label>
-      </node>
-      <node id="258">
-        <label>tr1/unordered_map</label>
-      </node>
-      <node id="250">
+      <node id="221">
         <label>string</label>
       </node>
-      <node id="242">
+      <node id="213">
         <label>map</label>
       </node>
-      <node id="257">
+      <node id="228">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="243" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="251" relation="include">
+        <childnode refid="222" relation="include">
         </childnode>
-        <childnode refid="241" relation="include">
+        <childnode refid="212" relation="include">
         </childnode>
       </node>
-      <node id="254">
+      <node id="225">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="255" relation="include">
+        <childnode refid="226" relation="include">
         </childnode>
-        <childnode refid="243" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="249" relation="include">
+        <childnode refid="220" relation="include">
         </childnode>
-        <childnode refid="250" relation="include">
+        <childnode refid="221" relation="include">
         </childnode>
       </node>
-      <node id="246">
+      <node id="217">
         <label>fstream</label>
       </node>
-      <node id="240">
+      <node id="211">
         <label>hypergraph/AStar.cpp</label>
         <link refid="AStar.cpp"/>
-        <childnode refid="241" relation="include">
+        <childnode refid="212" relation="include">
         </childnode>
-        <childnode refid="242" relation="include">
+        <childnode refid="213" relation="include">
         </childnode>
-        <childnode refid="243" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="244" relation="include">
+        <childnode refid="215" relation="include">
         </childnode>
-        <childnode refid="245" relation="include">
+        <childnode refid="216" relation="include">
         </childnode>
-        <childnode refid="246" relation="include">
+        <childnode refid="217" relation="include">
         </childnode>
-        <childnode refid="247" relation="include">
+        <childnode refid="218" relation="include">
         </childnode>
-        <childnode refid="248" relation="include">
+        <childnode refid="219" relation="include">
         </childnode>
-        <childnode refid="249" relation="include">
+        <childnode refid="220" relation="include">
         </childnode>
-        <childnode refid="250" relation="include">
+        <childnode refid="221" relation="include">
         </childnode>
-        <childnode refid="251" relation="include">
+        <childnode refid="222" relation="include">
         </childnode>
-        <childnode refid="252" relation="include">
+        <childnode refid="223" relation="include">
         </childnode>
-        <childnode refid="253" relation="include">
+        <childnode refid="224" relation="include">
         </childnode>
-        <childnode refid="254" relation="include">
+        <childnode refid="225" relation="include">
         </childnode>
-        <childnode refid="256" relation="include">
+        <childnode refid="227" relation="include">
         </childnode>
-        <childnode refid="258" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
-        <childnode refid="259" relation="include">
-        </childnode>
-        <childnode refid="257" relation="include">
-        </childnode>
-        <childnode refid="260" relation="include">
+        <childnode refid="229" relation="include">
         </childnode>
       </node>
-      <node id="248">
+      <node id="219">
         <label>svector.hpp</label>
       </node>
-      <node id="255">
+      <node id="226">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="245" relation="include">
+        <childnode refid="216" relation="include">
         </childnode>
-        <childnode refid="246" relation="include">
+        <childnode refid="217" relation="include">
         </childnode>
-        <childnode refid="247" relation="include">
+        <childnode refid="218" relation="include">
         </childnode>
-        <childnode refid="248" relation="include">
+        <childnode refid="219" relation="include">
         </childnode>
       </node>
-      <node id="252">
+      <node id="223">
         <label>../common.h</label>
       </node>
-      <node id="251">
+      <node id="222">
         <label>bitset</label>
       </node>
-      <node id="256">
+      <node id="227">
         <label>Hypothesis.h</label>
         <link refid="Hypothesis_8h_source"/>
-        <childnode refid="241" relation="include">
+        <childnode refid="212" relation="include">
         </childnode>
-        <childnode refid="242" relation="include">
+        <childnode refid="213" relation="include">
         </childnode>
-        <childnode refid="243" relation="include">
+        <childnode refid="214" relation="include">
         </childnode>
-        <childnode refid="254" relation="include">
+        <childnode refid="225" relation="include">
         </childnode>
-        <childnode refid="257" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
-        <childnode refid="252" relation="include">
+        <childnode refid="223" relation="include">
         </childnode>
-        <childnode refid="253" relation="include">
+        <childnode refid="224" relation="include">
         </childnode>
       </node>
-      <node id="243">
+      <node id="214">
         <label>vector</label>
       </node>
-      <node id="245">
+      <node id="216">
         <label>iostream</label>
       </node>
-      <node id="247">
+      <node id="218">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="249">
+      <node id="220">
         <label>set</label>
       </node>
     </incdepgraph>

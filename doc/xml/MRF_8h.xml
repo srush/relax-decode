@@ -5,8 +5,8 @@
     <includes local="no">cassert</includes>
     <includes local="no">string</includes>
     <includes refid="Graph_8h" local="no">Graph.h</includes>
-    <includes refid="gen-py_2graph_8pb_8h" local="no">graph.pb.h</includes>
-    <includes refid="gen-py_2mrf_8pb_8h" local="no">mrf.pb.h</includes>
+    <includes local="no">graph.pb.h</includes>
+    <includes local="no">mrf.pb.h</includes>
     <includes refid="HypergraphImpl_8h" local="yes">HypergraphImpl.h</includes>
     <includes refid="GraphProtoInterface_8h" local="no">GraphProtoInterface.h</includes>
     <includes refid="EdgeCache_8h" local="yes">EdgeCache.h</includes>
@@ -18,255 +18,184 @@
     <includedby refid="TagConstraints_8cpp" local="yes">tagger/TagConstraints.cpp</includedby>
     <includedby refid="TagConstraints_8h" local="yes">tagger/TagConstraints.h</includedby>
     <incdepgraph>
-      <node id="1549">
+      <node id="1136">
         <label>assert.h</label>
       </node>
-      <node id="1535">
-        <label>mrf.pb.h</label>
-        <link refid="gen-py_2mrf_8pb_8h_source"/>
-        <childnode refid="1525" relation="include">
-        </childnode>
-        <childnode refid="1530" relation="include">
-        </childnode>
-        <childnode refid="1531" relation="include">
-        </childnode>
-        <childnode refid="1532" relation="include">
-        </childnode>
-        <childnode refid="1533" relation="include">
-        </childnode>
-        <childnode refid="1534" relation="include">
-        </childnode>
-        <childnode refid="1535" relation="include">
-        </childnode>
-      </node>
-      <node id="1523">
+      <node id="1115">
         <label>optimization/MRF.h</label>
         <link refid="MRF.h"/>
-        <childnode refid="1524" relation="include">
+        <childnode refid="1116" relation="include">
         </childnode>
-        <childnode refid="1525" relation="include">
+        <childnode refid="1117" relation="include">
         </childnode>
-        <childnode refid="1526" relation="include">
+        <childnode refid="1118" relation="include">
         </childnode>
-        <childnode refid="1529" relation="include">
+        <childnode refid="1121" relation="include">
         </childnode>
-        <childnode refid="1535" relation="include">
+        <childnode refid="1122" relation="include">
         </childnode>
-        <childnode refid="1536" relation="include">
+        <childnode refid="1123" relation="include">
         </childnode>
-        <childnode refid="1546" relation="include">
+        <childnode refid="1133" relation="include">
         </childnode>
-        <childnode refid="1547" relation="include">
+        <childnode refid="1134" relation="include">
         </childnode>
       </node>
-      <node id="1524">
+      <node id="1116">
         <label>cassert</label>
       </node>
-      <node id="1545">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="1525" relation="include">
-        </childnode>
-        <childnode refid="1530" relation="include">
-        </childnode>
-        <childnode refid="1531" relation="include">
-        </childnode>
-        <childnode refid="1532" relation="include">
-        </childnode>
-        <childnode refid="1533" relation="include">
-        </childnode>
-        <childnode refid="1534" relation="include">
-        </childnode>
-        <childnode refid="1544" relation="include">
-        </childnode>
-      </node>
-      <node id="1525">
+      <node id="1117">
         <label>string</label>
       </node>
-      <node id="1547">
+      <node id="1131">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="1134">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="1527" relation="include">
+        <childnode refid="1119" relation="include">
         </childnode>
-        <childnode refid="1548" relation="include">
+        <childnode refid="1135" relation="include">
         </childnode>
-        <childnode refid="1549" relation="include">
+        <childnode refid="1136" relation="include">
         </childnode>
       </node>
-      <node id="1536">
+      <node id="1123">
         <label>HypergraphImpl.h</label>
         <link refid="HypergraphImpl_8h_source"/>
-        <childnode refid="1537" relation="include">
+        <childnode refid="1124" relation="include">
         </childnode>
-        <childnode refid="1544" relation="include">
+        <childnode refid="1131" relation="include">
         </childnode>
-        <childnode refid="1545" relation="include">
+        <childnode refid="1132" relation="include">
         </childnode>
-        <childnode refid="1538" relation="include">
+        <childnode refid="1125" relation="include">
         </childnode>
-        <childnode refid="1528" relation="include">
+        <childnode refid="1120" relation="include">
         </childnode>
-        <childnode refid="1527" relation="include">
+        <childnode refid="1119" relation="include">
         </childnode>
-        <childnode refid="1543" relation="include">
+        <childnode refid="1130" relation="include">
         </childnode>
       </node>
-      <node id="1537">
+      <node id="1124">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="1538" relation="include">
+        <childnode refid="1125" relation="include">
         </childnode>
-        <childnode refid="1527" relation="include">
+        <childnode refid="1119" relation="include">
         </childnode>
-        <childnode refid="1543" relation="include">
+        <childnode refid="1130" relation="include">
         </childnode>
-        <childnode refid="1525" relation="include">
+        <childnode refid="1117" relation="include">
         </childnode>
       </node>
-      <node id="1540">
+      <node id="1127">
         <label>fstream</label>
       </node>
-      <node id="1526">
+      <node id="1118">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="1527" relation="include">
+        <childnode refid="1119" relation="include">
         </childnode>
-        <childnode refid="1525" relation="include">
+        <childnode refid="1117" relation="include">
         </childnode>
-        <childnode refid="1528" relation="include">
-        </childnode>
-      </node>
-      <node id="1529">
-        <label>graph.pb.h</label>
-        <link refid="gen-py_2graph_8pb_8h_source"/>
-        <childnode refid="1525" relation="include">
-        </childnode>
-        <childnode refid="1530" relation="include">
-        </childnode>
-        <childnode refid="1531" relation="include">
-        </childnode>
-        <childnode refid="1532" relation="include">
-        </childnode>
-        <childnode refid="1533" relation="include">
-        </childnode>
-        <childnode refid="1534" relation="include">
+        <childnode refid="1120" relation="include">
         </childnode>
       </node>
-      <node id="1544">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="1525" relation="include">
-        </childnode>
-        <childnode refid="1530" relation="include">
-        </childnode>
-        <childnode refid="1531" relation="include">
-        </childnode>
-        <childnode refid="1532" relation="include">
-        </childnode>
-        <childnode refid="1533" relation="include">
-        </childnode>
-        <childnode refid="1534" relation="include">
-        </childnode>
-      </node>
-      <node id="1542">
+      <node id="1129">
         <label>svector.hpp</label>
       </node>
-      <node id="1538">
+      <node id="1125">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="1539" relation="include">
+        <childnode refid="1126" relation="include">
         </childnode>
-        <childnode refid="1540" relation="include">
+        <childnode refid="1127" relation="include">
         </childnode>
-        <childnode refid="1541" relation="include">
+        <childnode refid="1128" relation="include">
         </childnode>
-        <childnode refid="1542" relation="include">
+        <childnode refid="1129" relation="include">
         </childnode>
       </node>
-      <node id="1531">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="1528">
+      <node id="1120">
         <label>../common.h</label>
       </node>
-      <node id="1548">
+      <node id="1135">
         <label>bitset</label>
       </node>
-      <node id="1530">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="1527">
+      <node id="1119">
         <label>vector</label>
       </node>
-      <node id="1546">
+      <node id="1133">
         <label>GraphProtoInterface.h</label>
         <link refid="GraphProtoInterface_8h_source"/>
-        <childnode refid="1529" relation="include">
+        <childnode refid="1121" relation="include">
         </childnode>
-        <childnode refid="1526" relation="include">
+        <childnode refid="1118" relation="include">
         </childnode>
       </node>
-      <node id="1533">
-        <label>google/protobuf/extension_set.h</label>
+      <node id="1122">
+        <label>mrf.pb.h</label>
       </node>
-      <node id="1532">
-        <label>google/protobuf/repeated_field.h</label>
+      <node id="1121">
+        <label>graph.pb.h</label>
       </node>
-      <node id="1539">
+      <node id="1126">
         <label>iostream</label>
       </node>
-      <node id="1541">
+      <node id="1128">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="1543">
+      <node id="1130">
         <label>set</label>
       </node>
-      <node id="1534">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="1132">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1555">
+      <node id="1142">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="1555" relation="include">
+        <childnode refid="1142" relation="include">
         </childnode>
       </node>
-      <node id="1553">
+      <node id="1140">
         <label>optimization/MRFHypergraph.h</label>
         <link refid="MRFHypergraph_8h_source"/>
       </node>
-      <node id="1552">
+      <node id="1139">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="1550">
+      <node id="1137">
         <label>optimization/MRF.h</label>
         <link refid="MRF.h"/>
-        <childnode refid="1551" relation="include">
+        <childnode refid="1138" relation="include">
         </childnode>
-        <childnode refid="1553" relation="include">
+        <childnode refid="1140" relation="include">
         </childnode>
-        <childnode refid="1554" relation="include">
+        <childnode refid="1141" relation="include">
         </childnode>
       </node>
-      <node id="1551">
+      <node id="1138">
         <label>lp/MRFLP.h</label>
         <link refid="MRFLP_8h_source"/>
-        <childnode refid="1552" relation="include">
+        <childnode refid="1139" relation="include">
         </childnode>
       </node>
-      <node id="1554">
+      <node id="1141">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="1555" relation="include">
+        <childnode refid="1142" relation="include">
         </childnode>
-        <childnode refid="1552" relation="include">
+        <childnode refid="1139" relation="include">
         </childnode>
-        <childnode refid="1556" relation="include">
+        <childnode refid="1143" relation="include">
         </childnode>
       </node>
-      <node id="1556">
+      <node id="1143">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -328,14 +257,14 @@
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48" refid="classMRF" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMRF" kindref="compound">MRF</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classGraphProtoInterface" kindref="compound">GraphProtoInterface</ref><sp/>{</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_node(<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref>,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*)<sp/>;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_edge(<ref refid="classgraph_1_1Graph__Edge" kindref="compound">graph::Graph_Edge</ref>,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*)<sp/>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_node(graph::Graph_Node,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*)<sp/>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_edge(graph::Graph_Edge,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*)<sp/>;</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="classHypergraph" kindref="compound">Hypergraph</ref>*<sp/>build_hypergraph();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>Hypergraph*<sp/>build_hypergraph();</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//void<sp/>solve(vector<sp/>&lt;double&gt;<sp/>extra_node_potentials)<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMRF_1a928f19f948fa97796462fd9542a985fd" kindref="member">set_up</ref>(<ref refid="classgraph_1_1Graph" kindref="compound">graph::Graph</ref><sp/>graph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodes<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>edges);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMRF_1a928f19f948fa97796462fd9542a985fd" kindref="member">set_up</ref>(graph::Graph<sp/>graph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodes<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>edges);</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>node_pot(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structState" kindref="compound">State</ref><sp/>&amp;<sp/>s1)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_node_potentials-&gt;get(node)-&gt;get(s1);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>

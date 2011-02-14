@@ -5,118 +5,57 @@
     <includes refid="EisnerToHypergraph_8cpp" local="yes">EisnerToHypergraph.h</includes>
     <includes local="no">sstream</includes>
     <includes local="no">vector</includes>
-    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
-    <includes refid="gen__cpp_2dep_8pb_8h" local="yes">dep.pb.h</includes>
-    <includes refid="gen__cpp_2features_8pb_8h" local="yes">features.pb.h</includes>
+    <includes local="yes">hypergraph.pb.h</includes>
+    <includes local="yes">dep.pb.h</includes>
+    <includes local="yes">features.pb.h</includes>
     <includes local="no">iostream</includes>
     <includes local="no">fstream</includes>
     <includes local="no">strstream</includes>
     <includedby refid="EisnerToHypergraph_8cpp" local="yes">parse/EisnerToHypergraph.cpp</includedby>
     <incdepgraph>
-      <node id="1727">
+      <node id="1283">
         <label>strstream</label>
       </node>
-      <node id="1724">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="1717" relation="include">
-        </childnode>
-        <childnode refid="1718" relation="include">
-        </childnode>
-        <childnode refid="1719" relation="include">
-        </childnode>
-        <childnode refid="1720" relation="include">
-        </childnode>
-        <childnode refid="1721" relation="include">
-        </childnode>
-        <childnode refid="1722" relation="include">
-        </childnode>
-        <childnode refid="1716" relation="include">
-        </childnode>
+      <node id="1278">
+        <label>hypergraph.pb.h</label>
       </node>
-      <node id="1717">
-        <label>string</label>
-      </node>
-      <node id="1726">
+      <node id="1282">
         <label>fstream</label>
       </node>
-      <node id="1716">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="1717" relation="include">
-        </childnode>
-        <childnode refid="1718" relation="include">
-        </childnode>
-        <childnode refid="1719" relation="include">
-        </childnode>
-        <childnode refid="1720" relation="include">
-        </childnode>
-        <childnode refid="1721" relation="include">
-        </childnode>
-        <childnode refid="1722" relation="include">
-        </childnode>
-      </node>
-      <node id="1719">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="1713">
+      <node id="1275">
         <label>parse/EisnerToHypergraph.cpp</label>
         <link refid="EisnerToHypergraph.cpp"/>
-        <childnode refid="1714" relation="include">
+        <childnode refid="1276" relation="include">
         </childnode>
-        <childnode refid="1715" relation="include">
+        <childnode refid="1277" relation="include">
         </childnode>
-        <childnode refid="1716" relation="include">
+        <childnode refid="1278" relation="include">
         </childnode>
-        <childnode refid="1723" relation="include">
+        <childnode refid="1279" relation="include">
         </childnode>
-        <childnode refid="1724" relation="include">
+        <childnode refid="1280" relation="include">
         </childnode>
-        <childnode refid="1725" relation="include">
+        <childnode refid="1281" relation="include">
         </childnode>
-        <childnode refid="1726" relation="include">
+        <childnode refid="1282" relation="include">
         </childnode>
-        <childnode refid="1727" relation="include">
+        <childnode refid="1283" relation="include">
         </childnode>
       </node>
-      <node id="1718">
-        <label>google/protobuf/stubs/common.h</label>
+      <node id="1279">
+        <label>dep.pb.h</label>
       </node>
-      <node id="1715">
+      <node id="1277">
         <label>vector</label>
       </node>
-      <node id="1714">
+      <node id="1276">
         <label>sstream</label>
       </node>
-      <node id="1721">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="1720">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="1725">
+      <node id="1281">
         <label>iostream</label>
       </node>
-      <node id="1723">
-        <label>dep.pb.h</label>
-        <link refid="gen__cpp_2dep_8pb_8h_source"/>
-        <childnode refid="1717" relation="include">
-        </childnode>
-        <childnode refid="1718" relation="include">
-        </childnode>
-        <childnode refid="1719" relation="include">
-        </childnode>
-        <childnode refid="1720" relation="include">
-        </childnode>
-        <childnode refid="1721" relation="include">
-        </childnode>
-        <childnode refid="1722" relation="include">
-        </childnode>
-        <childnode refid="1723" relation="include">
-        </childnode>
-      </node>
-      <node id="1722">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="1280">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="var">
@@ -171,7 +110,7 @@
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal">Direction<sp/>num_dir<sp/>=<sp/>(Direction)2;</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EisnerToHypergraph::convert(<ref refid="classHypergraph" kindref="compound">Hypergraph</ref><sp/>&amp;<sp/>_forest)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EisnerToHypergraph::convert(Hypergraph<sp/>&amp;<sp/>_forest)<sp/>{</highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i<sp/>&lt;<sp/>length();<sp/>i++)<sp/>{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(Direction<sp/>d<sp/>=0;<sp/>d<sp/>&lt;<sp/>num_dir;<sp/>d++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//_node_to_id[n]<sp/>=<sp/>get_id();<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
@@ -209,7 +148,7 @@
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>n(<ref refid="structSpan" kindref="compound">Span</ref>(i,k),<sp/><sp/>RIGHT,<sp/>TRAP);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>lchild(<ref refid="structSpan" kindref="compound">Span</ref>(i,j),<sp/>RIGHT,<sp/>TRI);</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>rchild(<ref refid="structSpan" kindref="compound">Span</ref>(j+1,k),<sp/>LEFT,<sp/>TRI);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
@@ -224,9 +163,9 @@
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edge.tail_node_ids.push_back(<sp/>_node_to_id[rchild]);</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edge.weight<sp/>=<sp/>get_weight(i,<sp/>k);</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref><sp/>&amp;<sp/>pedge<sp/>=finalize_edge(node,<sp/>edge);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Edge<sp/>&amp;<sp/>pedge<sp/>=finalize_edge(node,<sp/>edge);</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classDep" kindref="compound">Dep</ref><sp/>*<sp/>my_dep<sp/>=<sp/><sp/>pedge.MutableExtension(dep);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Dep<sp/>*<sp/>my_dep<sp/>=<sp/><sp/>pedge.MutableExtension(dep);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>my_dep-&gt;set_head(i);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>my_dep-&gt;set_mod(k);</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pedge.SetExtension(has_dep,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -239,7 +178,7 @@
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(j+1<sp/>&gt;<sp/>k)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;<sp/></highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>n(<ref refid="structSpan" kindref="compound">Span</ref>(i,k),<sp/><sp/>LEFT,<sp/>TRAP);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>lchild(<ref refid="structSpan" kindref="compound">Span</ref>(i,j),<sp/>RIGHT,<sp/>TRI);</highlight></codeline>
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>rchild(<ref refid="structSpan" kindref="compound">Span</ref>(j+1,k),<sp/>LEFT,<sp/>TRI);</highlight></codeline>
@@ -255,8 +194,8 @@
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edge.tail_node_ids.push_back(<sp/>_node_to_id[rchild]);</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edge.weight<sp/>=<sp/>get_weight(k,<sp/>i);</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref><sp/>&amp;<sp/>pedge<sp/>=<sp/>finalize_edge(node,<sp/>edge);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classDep" kindref="compound">Dep</ref><sp/>*<sp/>my_dep<sp/>=<sp/><sp/>pedge.MutableExtension(dep);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Edge<sp/>&amp;<sp/>pedge<sp/>=<sp/>finalize_edge(node,<sp/>edge);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Dep<sp/>*<sp/>my_dep<sp/>=<sp/><sp/>pedge.MutableExtension(dep);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>my_dep-&gt;set_head(k);</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>my_dep-&gt;set_mod(i);</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pedge.SetExtension(has_dep,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
@@ -270,7 +209,7 @@
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>RIGHT<sp/>TRI</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="106"><highlight class="normal"></highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>n(<ref refid="structSpan" kindref="compound">Span</ref>(i,k),<sp/>RIGHT,<sp/>TRI);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>=<sp/>finalize_node(n);</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>lchild(<ref refid="structSpan" kindref="compound">Span</ref>(i,j),<sp/>RIGHT,<sp/>TRAP);</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>rchild(<ref refid="structSpan" kindref="compound">Span</ref>(j,k),<sp/>RIGHT,<sp/>TRI);</highlight></codeline>
@@ -292,7 +231,7 @@
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>LEFT<sp/>TRI</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>n(<ref refid="structSpan" kindref="compound">Span</ref>(i,k),<sp/>LEFT,<sp/>TRI);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>=finalize_node(n);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>=finalize_node(n);</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>lchild(<ref refid="structSpan" kindref="compound">Span</ref>(i,j),<sp/>LEFT,<sp/>TRI);</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structEisnerNode" kindref="compound">EisnerNode</ref><sp/>rchild(<ref refid="structSpan" kindref="compound">Span</ref>(j,k),<sp/>LEFT,<sp/>TRAP);</highlight></codeline>
@@ -354,7 +293,7 @@
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//WeightVec<sp/>blank;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classHypergraph" kindref="compound">Hypergraph</ref><sp/>tmp;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>Hypergraph<sp/>tmp;</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classEisnerToHypergraph" kindref="compound">EisnerToHypergraph</ref><sp/>runner(sent,<sp/>weights);</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>runner.convert(tmp);</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"></highlight></codeline>

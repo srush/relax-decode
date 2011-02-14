@@ -9,104 +9,76 @@
     <includes local="no">sstream</includes>
     <includes local="no">iostream</includes>
     <includes local="no">fstream</includes>
-    <includes refid="lattice_8pb_8h" local="yes">lattice.pb.h</includes>
+    <includes local="yes">lattice.pb.h</includes>
     <incdepgraph>
-      <node id="674">
+      <node id="594">
         <label>string</label>
       </node>
-      <node id="688">
+      <node id="603">
         <label>fstream</label>
       </node>
-      <node id="684">
+      <node id="599">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="683" relation="include">
+        <childnode refid="598" relation="include">
         </childnode>
-        <childnode refid="674" relation="include">
+        <childnode refid="594" relation="include">
         </childnode>
-        <childnode refid="685" relation="include">
+        <childnode refid="600" relation="include">
         </childnode>
       </node>
-      <node id="679">
-        <label>google/protobuf/generated_message_util.h</label>
+      <node id="597">
+        <label>lattice.pb.h</label>
       </node>
-      <node id="675">
+      <node id="595">
         <label>cpptest-suite.h</label>
       </node>
-      <node id="685">
+      <node id="600">
         <label>../common.h</label>
       </node>
-      <node id="677">
-        <label>lattice.pb.h</label>
-        <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="674" relation="include">
-        </childnode>
-        <childnode refid="678" relation="include">
-        </childnode>
-        <childnode refid="679" relation="include">
-        </childnode>
-        <childnode refid="680" relation="include">
-        </childnode>
-        <childnode refid="681" relation="include">
-        </childnode>
-        <childnode refid="682" relation="include">
-        </childnode>
-      </node>
-      <node id="678">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="683">
+      <node id="598">
         <label>vector</label>
       </node>
-      <node id="676">
+      <node id="596">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="674" relation="include">
+        <childnode refid="594" relation="include">
         </childnode>
-        <childnode refid="677" relation="include">
+        <childnode refid="597" relation="include">
         </childnode>
-        <childnode refid="683" relation="include">
+        <childnode refid="598" relation="include">
         </childnode>
-        <childnode refid="684" relation="include">
+        <childnode refid="599" relation="include">
         </childnode>
       </node>
-      <node id="686">
+      <node id="601">
         <label>sstream</label>
       </node>
-      <node id="681">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="673">
+      <node id="593">
         <label>cpptest.h</label>
       </node>
-      <node id="680">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="672">
+      <node id="592">
         <label>lattice/Test.cpp</label>
         <link refid="lattice/Test.cpp"/>
-        <childnode refid="673" relation="include">
+        <childnode refid="593" relation="include">
         </childnode>
-        <childnode refid="674" relation="include">
+        <childnode refid="594" relation="include">
         </childnode>
-        <childnode refid="675" relation="include">
+        <childnode refid="595" relation="include">
         </childnode>
-        <childnode refid="676" relation="include">
+        <childnode refid="596" relation="include">
         </childnode>
-        <childnode refid="686" relation="include">
+        <childnode refid="601" relation="include">
         </childnode>
-        <childnode refid="687" relation="include">
+        <childnode refid="602" relation="include">
         </childnode>
-        <childnode refid="688" relation="include">
+        <childnode refid="603" relation="include">
         </childnode>
-        <childnode refid="677" relation="include">
+        <childnode refid="597" relation="include">
         </childnode>
       </node>
-      <node id="687">
+      <node id="602">
         <label>iostream</label>
-      </node>
-      <node id="682">
-        <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classLocalTestSuite" prot="public">LocalTestSuite</innerclass>
@@ -163,7 +135,7 @@
 <codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>load_test()<sp/>{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>GOOGLE_PROTOBUF_VERIFY_VERSION;</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classlattice_1_1Lattice" kindref="compound">Lattice</ref><sp/>lat;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>Lattice<sp/>lat;</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>forest_file<sp/>=<sp/><sp/></highlight><highlight class="stringliteral">&quot;test_data/rev.lattice&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>

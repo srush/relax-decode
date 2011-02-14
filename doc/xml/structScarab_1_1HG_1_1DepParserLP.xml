@@ -71,150 +71,137 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="462">
+      <node id="444">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="453">
+      <node id="436">
         <label>Cache&lt; Hyperedge, GRBVar &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="451" relation="usage">
+        <childnode refid="434" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="457">
+      <node id="440">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="452" relation="public-inheritance">
+        <childnode refid="435" relation="public-inheritance">
         </childnode>
-        <childnode refid="458" relation="usage">
+        <childnode refid="441" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
-        <childnode refid="460" relation="usage">
-          <edgelabel>hgraph</edgelabel>
-        </childnode>
-        <childnode refid="461" relation="usage">
+        <childnode refid="443" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="459" relation="usage">
+        <childnode refid="442" relation="usage">
           <edgelabel>_root</edgelabel>
         </childnode>
       </node>
-      <node id="449">
+      <node id="432">
         <label>Scarab::HG::HypergraphLP</label>
         <link refid="structScarab_1_1HG_1_1HypergraphLP"/>
-        <childnode refid="450" relation="usage">
+        <childnode refid="433" relation="usage">
           <edgelabel>node_vars</edgelabel>
         </childnode>
-        <childnode refid="452" relation="usage">
+        <childnode refid="435" relation="usage">
           <edgelabel>_h</edgelabel>
         </childnode>
-        <childnode refid="453" relation="usage">
+        <childnode refid="436" relation="usage">
           <edgelabel>edge_vars</edgelabel>
         </childnode>
       </node>
-      <node id="459">
+      <node id="442">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="466">
+      <node id="448">
         <label>Cache&lt; Dependency, vector&lt; const Hyperedge * &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="451" relation="usage">
+        <childnode refid="434" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="463">
+      <node id="445">
         <label>Cache&lt; Hyperedge, Dependency &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="451" relation="usage">
+        <childnode refid="434" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="456">
+      <node id="439">
         <label>DepParser</label>
         <link refid="classDepParser"/>
-        <childnode refid="457" relation="public-inheritance">
+        <childnode refid="440" relation="public-inheritance">
         </childnode>
-        <childnode refid="463" relation="usage">
+        <childnode refid="445" relation="usage">
           <edgelabel>_dep_map</edgelabel>
         </childnode>
-        <childnode refid="460" relation="usage">
-          <edgelabel>_h</edgelabel>
-        </childnode>
-        <childnode refid="464" relation="usage">
+        <childnode refid="446" relation="usage">
           <edgelabel>_dependencies</edgelabel>
         </childnode>
-        <childnode refid="466" relation="usage">
+        <childnode refid="448" relation="usage">
           <edgelabel>_edge_map</edgelabel>
         </childnode>
       </node>
-      <node id="454">
+      <node id="437">
         <label>Cache&lt; Dependency, GRBVar &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="455" relation="usage">
+        <childnode refid="438" relation="usage">
           <edgelabel>store</edgelabel>
         </childnode>
-        <childnode refid="451" relation="usage">
+        <childnode refid="434" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="465">
+      <node id="447">
         <label>Dependency</label>
         <link refid="structDependency"/>
       </node>
-      <node id="450">
+      <node id="433">
         <label>Cache&lt; Hypernode, GRBVar &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="451" relation="usage">
+        <childnode refid="434" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="458">
+      <node id="441">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="459" relation="usage">
+        <childnode refid="442" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="460">
-        <label>Hypergraph</label>
-        <link refid="classHypergraph"/>
-        <childnode refid="460" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-      </node>
-      <node id="452">
+      <node id="435">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="455">
+      <node id="438">
         <label>std::vector&lt; GRBVar &gt;</label>
       </node>
-      <node id="464">
+      <node id="446">
         <label>std::vector&lt; Dependency &gt;</label>
-        <childnode refid="465" relation="usage">
+        <childnode refid="447" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="451">
+      <node id="434">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="448">
+      <node id="431">
         <label>Scarab::HG::DepParserLP</label>
         <link refid="structScarab_1_1HG_1_1DepParserLP"/>
-        <childnode refid="449" relation="usage">
+        <childnode refid="432" relation="usage">
           <edgelabel>h_lp</edgelabel>
         </childnode>
-        <childnode refid="454" relation="usage">
+        <childnode refid="437" relation="usage">
           <edgelabel>dep_vars</edgelabel>
         </childnode>
-        <childnode refid="456" relation="usage">
+        <childnode refid="439" relation="usage">
           <edgelabel>p</edgelabel>
         </childnode>
       </node>
-      <node id="461">
+      <node id="443">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="462" relation="usage">
+        <childnode refid="444" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

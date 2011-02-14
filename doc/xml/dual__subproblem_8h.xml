@@ -13,161 +13,133 @@
     <includedby refid="Decode_8h" local="yes">trans_decode/Decode.h</includedby>
     <includedby refid="dual__subproblem_8cpp" local="yes">trans_decode/dual_subproblem.cpp</includedby>
     <incdepgraph>
-      <node id="2295">
+      <node id="1760">
         <label>assert.h</label>
       </node>
-      <node id="2296">
+      <node id="1761">
         <label>GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="2290" relation="include">
+        <childnode refid="1755" relation="include">
         </childnode>
-        <childnode refid="2294" relation="include">
+        <childnode refid="1759" relation="include">
         </childnode>
-        <childnode refid="2282" relation="include">
+        <childnode refid="1752" relation="include">
         </childnode>
       </node>
-      <node id="2283">
+      <node id="1753">
         <label>string</label>
       </node>
-      <node id="2293">
+      <node id="1758">
         <label>EdgeCache.h</label>
         <link refid="EdgeCache_8h_source"/>
-        <childnode refid="2290" relation="include">
+        <childnode refid="1755" relation="include">
         </childnode>
-        <childnode refid="2294" relation="include">
+        <childnode refid="1759" relation="include">
         </childnode>
-        <childnode refid="2295" relation="include">
+        <childnode refid="1760" relation="include">
         </childnode>
       </node>
-      <node id="2302">
+      <node id="1767">
         <label>fstream</label>
       </node>
-      <node id="2291">
+      <node id="1756">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="2290" relation="include">
+        <childnode refid="1755" relation="include">
         </childnode>
-        <childnode refid="2283" relation="include">
+        <childnode refid="1753" relation="include">
         </childnode>
-        <childnode refid="2292" relation="include">
+        <childnode refid="1757" relation="include">
         </childnode>
       </node>
-      <node id="2299">
+      <node id="1764">
         <label>NGramCache.h</label>
         <link refid="NGramCache_8h_source"/>
-        <childnode refid="2300" relation="include">
+        <childnode refid="1765" relation="include">
         </childnode>
-        <childnode refid="2301" relation="include">
+        <childnode refid="1766" relation="include">
         </childnode>
       </node>
-      <node id="2286">
-        <label>google/protobuf/generated_message_util.h</label>
+      <node id="1754">
+        <label>lattice.pb.h</label>
       </node>
-      <node id="2300">
+      <node id="1765">
         <label>Ngram.h</label>
       </node>
-      <node id="2292">
+      <node id="1757">
         <label>../common.h</label>
       </node>
-      <node id="2294">
+      <node id="1759">
         <label>bitset</label>
       </node>
-      <node id="2284">
-        <label>lattice.pb.h</label>
-        <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="2283" relation="include">
-        </childnode>
-        <childnode refid="2285" relation="include">
-        </childnode>
-        <childnode refid="2286" relation="include">
-        </childnode>
-        <childnode refid="2287" relation="include">
-        </childnode>
-        <childnode refid="2288" relation="include">
-        </childnode>
-        <childnode refid="2289" relation="include">
-        </childnode>
-      </node>
-      <node id="2285">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="2290">
+      <node id="1755">
         <label>vector</label>
       </node>
-      <node id="2301">
+      <node id="1766">
         <label>Prob.h</label>
       </node>
-      <node id="2297">
+      <node id="1762">
         <label>BigramRescore.h</label>
         <link refid="BigramRescore_8h_source"/>
-        <childnode refid="2282" relation="include">
+        <childnode refid="1752" relation="include">
         </childnode>
-        <childnode refid="2296" relation="include">
+        <childnode refid="1761" relation="include">
         </childnode>
-        <childnode refid="2298" relation="include">
+        <childnode refid="1763" relation="include">
         </childnode>
-        <childnode refid="2292" relation="include">
+        <childnode refid="1757" relation="include">
         </childnode>
-        <childnode refid="2290" relation="include">
+        <childnode refid="1755" relation="include">
         </childnode>
       </node>
-      <node id="2281">
+      <node id="1751">
         <label>trans_decode/dual_subproblem.h</label>
         <link refid="dual_subproblem.h"/>
-        <childnode refid="2282" relation="include">
+        <childnode refid="1752" relation="include">
         </childnode>
-        <childnode refid="2293" relation="include">
+        <childnode refid="1758" relation="include">
         </childnode>
-        <childnode refid="2296" relation="include">
+        <childnode refid="1761" relation="include">
         </childnode>
-        <childnode refid="2297" relation="include">
+        <childnode refid="1762" relation="include">
         </childnode>
-        <childnode refid="2299" relation="include">
+        <childnode refid="1764" relation="include">
         </childnode>
-        <childnode refid="2292" relation="include">
+        <childnode refid="1757" relation="include">
         </childnode>
-        <childnode refid="2302" relation="include">
+        <childnode refid="1767" relation="include">
         </childnode>
-        <childnode refid="2303" relation="include">
+        <childnode refid="1768" relation="include">
         </childnode>
       </node>
-      <node id="2282">
+      <node id="1752">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="2283" relation="include">
+        <childnode refid="1753" relation="include">
         </childnode>
-        <childnode refid="2284" relation="include">
+        <childnode refid="1754" relation="include">
         </childnode>
-        <childnode refid="2290" relation="include">
+        <childnode refid="1755" relation="include">
         </childnode>
-        <childnode refid="2291" relation="include">
+        <childnode refid="1756" relation="include">
         </childnode>
       </node>
-      <node id="2288">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="2287">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="2298">
+      <node id="1763">
         <label>iostream</label>
       </node>
-      <node id="2303">
+      <node id="1768">
         <label>set</label>
-      </node>
-      <node id="2289">
-        <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2305">
+      <node id="1770">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="2304">
+      <node id="1769">
         <label>trans_decode/dual_subproblem.h</label>
         <link refid="dual_subproblem.h"/>
-        <childnode refid="2305" relation="include">
+        <childnode refid="1770" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -65,7 +65,7 @@
         <name>process_node</name>
         <reimplements refid="classGraphProtoInterface_1a0dbd0905dbab167b9293d0ef32409af3">process_node</reimplements>
         <param>
-          <type><ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref></type>
+          <type>graph::Graph_Node</type>
           <defname>proto_node</defname>
         </param>
         <param>
@@ -87,7 +87,7 @@
         <name>process_edge</name>
         <reimplements refid="classGraphProtoInterface_1a3178c5f1eff8ed61d2512af8522cc550">process_edge</reimplements>
         <param>
-          <type><ref refid="classgraph_1_1Graph__Edge" kindref="compound">graph::Graph_Edge</ref></type>
+          <type>graph::Graph_Edge</type>
           <defname>proto_edge</defname>
         </param>
         <param>
@@ -103,7 +103,7 @@
         <location file="/home/srush/Projects/relax_decode/optimization/MRF.h" line="51" bodyfile="/home/srush/Projects/relax_decode/optimization/MRF.cpp" bodystart="23" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="classMRF_1a34f0d586337501d668a62726eb0046d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <type>Hypergraph *</type>
         <definition>Hypergraph* MRF::build_hypergraph</definition>
         <argsstring>()</argsstring>
         <name>build_hypergraph</name>
@@ -122,7 +122,7 @@
         <name>set_up</name>
         <reimplements refid="classGraphProtoInterface_1a8b3125379c7b2bbf832b6b955496b76e">set_up</reimplements>
         <param>
-          <type><ref refid="classgraph_1_1Graph" kindref="compound">graph::Graph</ref></type>
+          <type>graph::Graph</type>
           <declname>graph</declname>
         </param>
         <param>
@@ -277,114 +277,114 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="953">
+      <node id="897">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
       </node>
-      <node id="952">
+      <node id="896">
         <label>MRF</label>
         <link refid="classMRF"/>
-        <childnode refid="953" relation="public-inheritance">
+        <childnode refid="897" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="963">
+      <node id="907">
         <label>T</label>
       </node>
-      <node id="955">
+      <node id="899">
         <label>GraphProtoInterface</label>
         <link refid="classGraphProtoInterface"/>
-        <childnode refid="956" relation="usage">
+        <childnode refid="900" relation="usage">
           <edgelabel>_graph</edgelabel>
         </childnode>
       </node>
-      <node id="958">
+      <node id="902">
         <label>Scarab::Graph::Graphedge</label>
         <link refid="classScarab_1_1Graph_1_1Graphedge"/>
-        <childnode refid="959" relation="usage">
+        <childnode refid="903" relation="usage">
           <edgelabel>_to_node</edgelabel>
           <edgelabel>_from_node</edgelabel>
         </childnode>
       </node>
-      <node id="964">
+      <node id="908">
         <label>Cache&lt; Graphnode, vector&lt; State &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="965" relation="usage">
+        <childnode refid="909" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="962">
+      <node id="906">
         <label>std::vector&lt; T &gt;</label>
-        <childnode refid="963" relation="usage">
+        <childnode refid="907" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="966">
+      <node id="910">
         <label>Cache&lt; Graphedge, map&lt; pair&lt; int, int &gt;, double &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="965" relation="usage">
+        <childnode refid="909" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="967">
+      <node id="911">
         <label>Cache&lt; Graphnode, Cache&lt; State, double &gt; * &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="965" relation="usage">
+        <childnode refid="909" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="959">
+      <node id="903">
         <label>Scarab::Graph::Graphnode</label>
         <link refid="classScarab_1_1Graph_1_1Graphnode"/>
-        <childnode refid="957" relation="usage">
+        <childnode refid="901" relation="usage">
           <edgelabel>_in_edges</edgelabel>
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="960" relation="usage">
+        <childnode refid="904" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
       </node>
-      <node id="961">
+      <node id="905">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="965">
+      <node id="909">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="957">
+      <node id="901">
         <label>std::vector&lt; const Graphedge * &gt;</label>
-        <childnode refid="958" relation="usage">
+        <childnode refid="902" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="956">
+      <node id="900">
         <label>Scarab::Graph::Graph</label>
         <link refid="classScarab_1_1Graph_1_1Graph"/>
-        <childnode refid="957" relation="usage">
+        <childnode refid="901" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="962" relation="usage">
+        <childnode refid="906" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
       </node>
-      <node id="954">
+      <node id="898">
         <label>MRF</label>
         <link refid="classMRF"/>
-        <childnode refid="955" relation="public-inheritance">
+        <childnode refid="899" relation="public-inheritance">
         </childnode>
-        <childnode refid="964" relation="usage">
+        <childnode refid="908" relation="usage">
           <edgelabel>_node_states</edgelabel>
         </childnode>
-        <childnode refid="966" relation="usage">
+        <childnode refid="910" relation="usage">
           <edgelabel>_edge_potentials</edgelabel>
         </childnode>
-        <childnode refid="967" relation="usage">
+        <childnode refid="911" relation="usage">
           <edgelabel>_node_potentials</edgelabel>
         </childnode>
       </node>
-      <node id="960">
+      <node id="904">
         <label>std::string</label>
-        <childnode refid="961" relation="public-inheritance">
+        <childnode refid="905" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

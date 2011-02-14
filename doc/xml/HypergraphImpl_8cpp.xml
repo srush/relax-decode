@@ -4,8 +4,8 @@
     <compoundname>HypergraphImpl.cpp</compoundname>
     <includes refid="HypergraphImpl_8cpp" local="yes">HypergraphImpl.h</includes>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
-    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
-    <includes refid="gen__cpp_2features_8pb_8h" local="yes">features.pb.h</includes>
+    <includes local="yes">hypergraph.pb.h</includes>
+    <includes local="yes">features.pb.h</includes>
     <includes refid="Weights_8h" local="yes">Weights.h</includes>
     <includes local="yes">../common.h</includes>
     <includes local="no">vector</includes>
@@ -14,130 +14,87 @@
     <includes local="no">google/protobuf/io/coded_stream.h</includes>
     <includedby refid="HypergraphImpl_8cpp" local="yes">hypergraph/HypergraphImpl.cpp</includedby>
     <incdepgraph>
-      <node id="540">
+      <node id="504">
         <label>hypergraph/HypergraphImpl.cpp</label>
         <link refid="HypergraphImpl.cpp"/>
-        <childnode refid="541" relation="include">
+        <childnode refid="505" relation="include">
         </childnode>
-        <childnode refid="550" relation="include">
+        <childnode refid="514" relation="include">
         </childnode>
-        <childnode refid="556" relation="include">
+        <childnode refid="515" relation="include">
         </childnode>
-        <childnode refid="542" relation="include">
+        <childnode refid="506" relation="include">
         </childnode>
-        <childnode refid="557" relation="include">
+        <childnode refid="516" relation="include">
         </childnode>
-        <childnode refid="547" relation="include">
+        <childnode refid="511" relation="include">
         </childnode>
-        <childnode refid="548" relation="include">
+        <childnode refid="512" relation="include">
         </childnode>
-        <childnode refid="558" relation="include">
+        <childnode refid="517" relation="include">
         </childnode>
-        <childnode refid="559" relation="include">
-        </childnode>
-      </node>
-      <node id="556">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="549" relation="include">
-        </childnode>
-        <childnode refid="551" relation="include">
-        </childnode>
-        <childnode refid="552" relation="include">
-        </childnode>
-        <childnode refid="553" relation="include">
-        </childnode>
-        <childnode refid="554" relation="include">
-        </childnode>
-        <childnode refid="555" relation="include">
-        </childnode>
-        <childnode refid="550" relation="include">
+        <childnode refid="518" relation="include">
         </childnode>
       </node>
-      <node id="549">
+      <node id="513">
         <label>string</label>
       </node>
-      <node id="559">
+      <node id="518">
         <label>google/protobuf/io/coded_stream.h</label>
       </node>
-      <node id="541">
+      <node id="514">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="505">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="542" relation="include">
+        <childnode refid="506" relation="include">
         </childnode>
-        <childnode refid="547" relation="include">
+        <childnode refid="511" relation="include">
         </childnode>
-        <childnode refid="548" relation="include">
+        <childnode refid="512" relation="include">
         </childnode>
-        <childnode refid="549" relation="include">
+        <childnode refid="513" relation="include">
         </childnode>
       </node>
-      <node id="544">
+      <node id="508">
         <label>fstream</label>
       </node>
-      <node id="550">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="549" relation="include">
-        </childnode>
-        <childnode refid="551" relation="include">
-        </childnode>
-        <childnode refid="552" relation="include">
-        </childnode>
-        <childnode refid="553" relation="include">
-        </childnode>
-        <childnode refid="554" relation="include">
-        </childnode>
-        <childnode refid="555" relation="include">
-        </childnode>
-      </node>
-      <node id="546">
+      <node id="510">
         <label>svector.hpp</label>
       </node>
-      <node id="542">
+      <node id="506">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="543" relation="include">
+        <childnode refid="507" relation="include">
         </childnode>
-        <childnode refid="544" relation="include">
+        <childnode refid="508" relation="include">
         </childnode>
-        <childnode refid="545" relation="include">
+        <childnode refid="509" relation="include">
         </childnode>
-        <childnode refid="546" relation="include">
+        <childnode refid="510" relation="include">
         </childnode>
       </node>
-      <node id="552">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="557">
+      <node id="516">
         <label>../common.h</label>
       </node>
-      <node id="551">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="558">
+      <node id="517">
         <label>google/protobuf/io/zero_copy_stream_impl.h</label>
       </node>
-      <node id="547">
+      <node id="511">
         <label>vector</label>
       </node>
-      <node id="554">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="553">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="543">
+      <node id="507">
         <label>iostream</label>
       </node>
-      <node id="545">
+      <node id="509">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="548">
+      <node id="512">
         <label>set</label>
       </node>
-      <node id="555">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="515">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceScarab">Scarab</innernamespace>
@@ -190,11 +147,11 @@
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HypergraphImpl::write_to_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file_name)<sp/>{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="classHypergraph" kindref="compound">Hypergraph</ref><sp/>hgraph;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>Hypergraph<sp/>hgraph;</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(HNode<sp/>my_node,<sp/><ref refid="classScarab_1_1HG_1_1HypergraphImpl_1a9aef2881b489c86d4d83e996a70f8141" kindref="member">nodes</ref>())<sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>=<sp/>hgraph.add_node();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>=<sp/>hgraph.add_node();</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//string<sp/>feat_str<sp/>=<sp/>svector_str&lt;int,<sp/>double&gt;(my_node-&gt;fvector());<sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//node-&gt;SetExtension(node_fv,<sp/>feat_str);</highlight><highlight class="normal"></highlight></codeline>
@@ -208,7 +165,7 @@
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//assert<sp/>(forest_node-&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(HEdge<sp/>my_edge,<sp/>my_node-&gt;edges())<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref><sp/>*edge<sp/>=<sp/>node-&gt;add_edge();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Hypergraph_Edge<sp/>*edge<sp/>=<sp/>node-&gt;add_edge();</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>str_vector<sp/>*<sp/>features;</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>feat_str<sp/>=<sp/>svector_str&lt;int,<sp/>double&gt;(my_edge-&gt;fvector());<sp/></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>edge-&gt;SetExtension(edge_fv,<sp/>feat_str);</highlight></codeline>
@@ -252,7 +209,7 @@
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
 <codeline lineno="104"><highlight class="normal"><sp/><sp/>assert<sp/>(hgraph-&gt;node_size()<sp/>&gt;<sp/>0);</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>hgraph-&gt;node_size();<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>&amp;<sp/>node<sp/>=<sp/>hgraph-&gt;node(i);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Node<sp/>&amp;<sp/>node<sp/>=<sp/>hgraph-&gt;node(i);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>feat_str<sp/>=<sp/>node.GetExtension(node_fv);</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>str_vector<sp/>*<sp/>features<sp/>=<sp/>svector_from_str&lt;int,<sp/>double&gt;(feat_str);</highlight></codeline>
@@ -268,11 +225,11 @@
 <codeline lineno="119"><highlight class="normal"></highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>edge_id<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>hgraph-&gt;node_size();<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref>&amp;<sp/>node<sp/>=<sp/>hgraph-&gt;node(i);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Node&amp;<sp/>node<sp/>=<sp/>hgraph-&gt;node(i);</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>assert<sp/>(node.id()<sp/><sp/>==<sp/>i);</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j<sp/>&lt;<sp/>node.edge_size();<sp/>j++)<sp/>{</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref>&amp;<sp/>edge<sp/>=<sp/>node.edge(j);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Edge&amp;<sp/>edge<sp/>=<sp/>node.edge(j);</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>str_vector<sp/>*<sp/>features;</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(edge.HasExtension(edge_fv))<sp/>{<sp/></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>&amp;<sp/>feat_str<sp/>=<sp/>edge.GetExtension(edge_fv);<sp/><sp/></highlight></codeline>

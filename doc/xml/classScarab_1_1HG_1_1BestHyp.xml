@@ -270,67 +270,67 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="259">
+      <node id="246">
         <label>Scarab::HG::Hypothesis</label>
         <link refid="structScarab_1_1HG_1_1Hypothesis"/>
-        <childnode refid="260" relation="usage">
+        <childnode refid="247" relation="usage">
           <edgelabel>back_edge</edgelabel>
         </childnode>
-        <childnode refid="261" relation="usage">
+        <childnode refid="248" relation="usage">
           <edgelabel>right_side</edgelabel>
           <edgelabel>hook</edgelabel>
         </childnode>
-        <childnode refid="262" relation="usage">
+        <childnode refid="249" relation="usage">
           <edgelabel>prev_hyp</edgelabel>
         </childnode>
       </node>
-      <node id="264">
+      <node id="251">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="260">
+      <node id="247">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="261">
+      <node id="248">
         <label>Scarab::HG::State</label>
         <link refid="structScarab_1_1HG_1_1State"/>
-        <childnode refid="262" relation="usage">
+        <childnode refid="249" relation="usage">
           <edgelabel>_state</edgelabel>
         </childnode>
       </node>
-      <node id="257">
+      <node id="244">
         <label>std::map&lt; int, int &gt;</label>
       </node>
-      <node id="258">
+      <node id="245">
         <label>std::vector&lt; Hypothesis * &gt;</label>
-        <childnode refid="259" relation="usage">
+        <childnode refid="246" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="263">
+      <node id="250">
         <label>std::map&lt; int, vector&lt; int &gt; &gt;</label>
-        <childnode refid="262" relation="usage">
+        <childnode refid="249" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="256">
+      <node id="243">
         <label>Scarab::HG::BestHyp</label>
         <link refid="classScarab_1_1HG_1_1BestHyp"/>
-        <childnode refid="257" relation="usage">
+        <childnode refid="244" relation="usage">
           <edgelabel>index_by_id</edgelabel>
         </childnode>
-        <childnode refid="258" relation="usage">
+        <childnode refid="245" relation="usage">
           <edgelabel>hyps</edgelabel>
         </childnode>
-        <childnode refid="263" relation="usage">
+        <childnode refid="250" relation="usage">
           <edgelabel>index_by_left</edgelabel>
           <edgelabel>index_by_right</edgelabel>
         </childnode>
-        <childnode refid="264" relation="usage">
+        <childnode refid="251" relation="usage">
           <edgelabel>scores</edgelabel>
         </childnode>
       </node>
-      <node id="262">
+      <node id="249">
         <label>std::vector&lt; int &gt;</label>
       </node>
     </collaborationgraph>

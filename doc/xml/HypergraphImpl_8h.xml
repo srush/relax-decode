@@ -3,8 +3,8 @@
   <compounddef id="HypergraphImpl_8h" kind="file">
     <compoundname>HypergraphImpl.h</compoundname>
     <includes refid="Hypergraph_8h" local="yes">Hypergraph.h</includes>
-    <includes refid="gen__cpp_2hypergraph_8pb_8h" local="yes">hypergraph.pb.h</includes>
-    <includes refid="gen__cpp_2features_8pb_8h" local="yes">features.pb.h</includes>
+    <includes local="yes">hypergraph.pb.h</includes>
+    <includes local="yes">features.pb.h</includes>
     <includes refid="Weights_8h" local="yes">Weights.h</includes>
     <includes local="yes">../common.h</includes>
     <includes local="no">vector</includes>
@@ -22,228 +22,185 @@
     <includedby refid="Forest_8cpp" local="yes">transforest/Forest.cpp</includedby>
     <includedby refid="Forest_8h" local="yes">transforest/Forest.h</includedby>
     <incdepgraph>
-      <node id="577">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="570" relation="include">
-        </childnode>
-        <childnode refid="572" relation="include">
-        </childnode>
-        <childnode refid="573" relation="include">
-        </childnode>
-        <childnode refid="574" relation="include">
-        </childnode>
-        <childnode refid="575" relation="include">
-        </childnode>
-        <childnode refid="576" relation="include">
-        </childnode>
-        <childnode refid="571" relation="include">
-        </childnode>
-      </node>
-      <node id="570">
+      <node id="529">
         <label>string</label>
       </node>
-      <node id="561">
+      <node id="530">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="520">
         <label>hypergraph/HypergraphImpl.h</label>
         <link refid="HypergraphImpl.h"/>
-        <childnode refid="562" relation="include">
+        <childnode refid="521" relation="include">
         </childnode>
-        <childnode refid="571" relation="include">
+        <childnode refid="530" relation="include">
         </childnode>
-        <childnode refid="577" relation="include">
+        <childnode refid="531" relation="include">
         </childnode>
-        <childnode refid="563" relation="include">
+        <childnode refid="522" relation="include">
         </childnode>
-        <childnode refid="578" relation="include">
+        <childnode refid="532" relation="include">
         </childnode>
-        <childnode refid="568" relation="include">
+        <childnode refid="527" relation="include">
         </childnode>
-        <childnode refid="569" relation="include">
+        <childnode refid="528" relation="include">
         </childnode>
       </node>
-      <node id="562">
+      <node id="521">
         <label>Hypergraph.h</label>
         <link refid="Hypergraph_8h_source"/>
-        <childnode refid="563" relation="include">
+        <childnode refid="522" relation="include">
         </childnode>
-        <childnode refid="568" relation="include">
+        <childnode refid="527" relation="include">
         </childnode>
-        <childnode refid="569" relation="include">
+        <childnode refid="528" relation="include">
         </childnode>
-        <childnode refid="570" relation="include">
+        <childnode refid="529" relation="include">
         </childnode>
       </node>
-      <node id="565">
+      <node id="524">
         <label>fstream</label>
       </node>
-      <node id="571">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="570" relation="include">
-        </childnode>
-        <childnode refid="572" relation="include">
-        </childnode>
-        <childnode refid="573" relation="include">
-        </childnode>
-        <childnode refid="574" relation="include">
-        </childnode>
-        <childnode refid="575" relation="include">
-        </childnode>
-        <childnode refid="576" relation="include">
-        </childnode>
-      </node>
-      <node id="567">
+      <node id="526">
         <label>svector.hpp</label>
       </node>
-      <node id="563">
+      <node id="522">
         <label>Weights.h</label>
         <link refid="Weights_8h_source"/>
-        <childnode refid="564" relation="include">
+        <childnode refid="523" relation="include">
         </childnode>
-        <childnode refid="565" relation="include">
+        <childnode refid="524" relation="include">
         </childnode>
-        <childnode refid="566" relation="include">
+        <childnode refid="525" relation="include">
         </childnode>
-        <childnode refid="567" relation="include">
+        <childnode refid="526" relation="include">
         </childnode>
       </node>
-      <node id="573">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="578">
+      <node id="532">
         <label>../common.h</label>
       </node>
-      <node id="572">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="568">
+      <node id="527">
         <label>vector</label>
       </node>
-      <node id="575">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="574">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="564">
+      <node id="523">
         <label>iostream</label>
       </node>
-      <node id="566">
+      <node id="525">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="569">
+      <node id="528">
         <label>set</label>
       </node>
-      <node id="576">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="531">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="585">
+      <node id="539">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="585" relation="include">
+        <childnode refid="539" relation="include">
         </childnode>
       </node>
-      <node id="591">
+      <node id="545">
         <label>tagger/Tagger.h</label>
         <link refid="Tagger_8h_source"/>
-        <childnode refid="585" relation="include">
+        <childnode refid="539" relation="include">
         </childnode>
-        <childnode refid="592" relation="include">
+        <childnode refid="546" relation="include">
         </childnode>
-        <childnode refid="584" relation="include">
+        <childnode refid="538" relation="include">
         </childnode>
-        <childnode refid="586" relation="include">
+        <childnode refid="540" relation="include">
         </childnode>
       </node>
-      <node id="583">
+      <node id="537">
         <label>optimization/MRFHypergraph.h</label>
         <link refid="MRFHypergraph_8h_source"/>
       </node>
-      <node id="582">
+      <node id="536">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="589">
+      <node id="543">
         <label>lp/HardConstraints.h</label>
         <link refid="HardConstraints_8h_source"/>
       </node>
-      <node id="580">
+      <node id="534">
         <label>optimization/MRF.h</label>
         <link refid="MRF_8h_source"/>
-        <childnode refid="581" relation="include">
+        <childnode refid="535" relation="include">
         </childnode>
-        <childnode refid="583" relation="include">
+        <childnode refid="537" relation="include">
         </childnode>
-        <childnode refid="584" relation="include">
+        <childnode refid="538" relation="include">
         </childnode>
       </node>
-      <node id="579">
+      <node id="533">
         <label>hypergraph/HypergraphImpl.h</label>
         <link refid="HypergraphImpl.h"/>
-        <childnode refid="580" relation="include">
+        <childnode refid="534" relation="include">
         </childnode>
-        <childnode refid="583" relation="include">
+        <childnode refid="537" relation="include">
         </childnode>
-        <childnode refid="587" relation="include">
+        <childnode refid="541" relation="include">
         </childnode>
-        <childnode refid="590" relation="include">
+        <childnode refid="544" relation="include">
         </childnode>
-        <childnode refid="591" relation="include">
+        <childnode refid="545" relation="include">
         </childnode>
-        <childnode refid="593" relation="include">
+        <childnode refid="547" relation="include">
         </childnode>
       </node>
-      <node id="581">
+      <node id="535">
         <label>lp/MRFLP.h</label>
         <link refid="MRFLP_8h_source"/>
-        <childnode refid="582" relation="include">
+        <childnode refid="536" relation="include">
         </childnode>
       </node>
-      <node id="587">
+      <node id="541">
         <label>parse/DepParser.h</label>
         <link refid="DepParser_8h_source"/>
-        <childnode refid="588" relation="include">
+        <childnode refid="542" relation="include">
         </childnode>
       </node>
-      <node id="584">
+      <node id="538">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="585" relation="include">
+        <childnode refid="539" relation="include">
         </childnode>
-        <childnode refid="582" relation="include">
+        <childnode refid="536" relation="include">
         </childnode>
-        <childnode refid="586" relation="include">
+        <childnode refid="540" relation="include">
         </childnode>
       </node>
-      <node id="594">
+      <node id="548">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="593">
+      <node id="547">
         <label>transforest/Forest.h</label>
         <link refid="Forest_8h_source"/>
-        <childnode refid="594" relation="include">
+        <childnode refid="548" relation="include">
         </childnode>
       </node>
-      <node id="592">
+      <node id="546">
         <label>lp/TagLP.h</label>
         <link refid="TagLP_8h_source"/>
-        <childnode refid="582" relation="include">
+        <childnode refid="536" relation="include">
         </childnode>
       </node>
-      <node id="590">
+      <node id="544">
         <label>phrasebased/PhraseBased.h</label>
         <link refid="PhraseBased_8h_source"/>
       </node>
-      <node id="588">
+      <node id="542">
         <label>lp/DepParseLP.h</label>
         <link refid="DepParseLP_8h_source"/>
-        <childnode refid="589" relation="include">
+        <childnode refid="543" relation="include">
         </childnode>
       </node>
-      <node id="586">
+      <node id="540">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -461,21 +418,21 @@
 <codeline lineno="201"><highlight class="normal"></highlight></codeline>
 <codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>prune(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structScarab_1_1HG_1_1HypergraphPrune" kindref="compound">HypergraphPrune</ref><sp/>&amp;<sp/>prune<sp/>);</highlight></codeline>
 <codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>write_to_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file_name);</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:<ref refid="classHypergraph" kindref="compound"></ref></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><ref refid="classHypergraph" kindref="compound">  ::Hypergraph</ref><sp/>*<sp/>hgraph;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>::Hypergraph<sp/>*<sp/>hgraph;</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref><sp/>*<sp/>_root;</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Hypernode<sp/>*&gt;<sp/>_nodes;</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"><sp/><sp/>vector<sp/>&lt;Hyperedge<sp/>*&gt;<sp/>_edges;<sp/></highlight></codeline>
 <codeline lineno="209"><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref><sp/>*<sp/>make_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>&amp;<sp/>node,<sp/><sp/>wvector<sp/>*<sp/>features)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1Hypernode" kindref="compound">Hypernode</ref><sp/>*<sp/>make_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Node<sp/>&amp;<sp/>node,<sp/><sp/>wvector<sp/>*<sp/>features)<sp/>{</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;bad<sp/>make<sp/>node<sp/>called!&quot;<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1HG_1_1HypernodeImpl" kindref="compound">HypernodeImpl</ref>(node.label(),<sp/>node.id(),<sp/>features);<sp/></highlight></codeline>
 <codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>make_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref><sp/>&amp;<sp/>edge,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hyperedge<sp/>*<sp/>our_edge)<sp/>{}</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>convert_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hyperedge<sp/>*<sp/>our_edge,<sp/><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref><sp/>*<sp/>edge<sp/>)<sp/>{}</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>convert_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>*<sp/>our_node,<sp/><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref><sp/>*<sp/>node<sp/>)<sp/>{}</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classHypergraph" kindref="compound">Hypergraph</ref><sp/>&amp;<sp/>hgraph)<sp/>{}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>make_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph_Edge<sp/>&amp;<sp/>edge,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hyperedge<sp/>*<sp/>our_edge)<sp/>{}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>convert_edge(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hyperedge<sp/>*<sp/>our_edge,<sp/>Hypergraph_Edge<sp/>*<sp/>edge<sp/>)<sp/>{}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>convert_node(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypernode<sp/>*<sp/>our_node,<sp/>Hypergraph_Node<sp/>*<sp/>node<sp/>)<sp/>{}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Hypergraph<sp/>&amp;<sp/>hgraph)<sp/>{}</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight></codeline>
 <codeline lineno="220"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"></highlight></codeline>

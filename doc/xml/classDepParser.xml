@@ -31,7 +31,7 @@
         <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="118" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classDepParser_1ab0cdf62ac8ce3d63d5a9531f01919fe2" prot="private" static="no" mutable="no">
-        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> *</type>
+        <type>Hypergraph *</type>
         <definition>Hypergraph* DepParser::_h</definition>
         <argsstring></argsstring>
         <name>_h</name>
@@ -118,7 +118,7 @@
         <name>set_up</name>
         <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1ae91de73e633e450b01664e3ec964019c">set_up</reimplements>
         <param>
-          <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <type>const Hypergraph &amp;</type>
           <declname>hgraph</declname>
         </param>
         <briefdescription>
@@ -130,7 +130,7 @@
         <location file="/home/srush/Projects/relax_decode/parse/DepParser.h" line="38" bodyfile="/home/srush/Projects/relax_decode/parse/DepParser.h" bodystart="38" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="classDepParser_1aaec31758432c2d3336d2164996571688" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const <ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+        <type>const Hypergraph &amp;</type>
         <definition>const Hypergraph&amp; DepParser::hypergraph</definition>
         <argsstring>() const </argsstring>
         <name>hypergraph</name>
@@ -262,7 +262,7 @@
         <name>make_edge</name>
         <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1a238a7ce3b578c8126eccbc7803570638">make_edge</reimplements>
         <param>
-          <type>const <ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref> &amp;</type>
+          <type>const Hypergraph_Edge &amp;</type>
           <declname>edge</declname>
         </param>
         <param>
@@ -283,115 +283,102 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="432">
+      <node id="416">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="433" relation="public-inheritance">
+        <childnode refid="417" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="431">
+      <node id="415">
         <label>DepParser</label>
         <link refid="classDepParser"/>
-        <childnode refid="432" relation="public-inheritance">
+        <childnode refid="416" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="433">
+      <node id="417">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="441">
+      <node id="424">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="435">
+      <node id="419">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="436" relation="public-inheritance">
+        <childnode refid="420" relation="public-inheritance">
         </childnode>
-        <childnode refid="437" relation="usage">
+        <childnode refid="421" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
-        <childnode refid="439" relation="usage">
-          <edgelabel>hgraph</edgelabel>
-        </childnode>
-        <childnode refid="440" relation="usage">
+        <childnode refid="423" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="438" relation="usage">
+        <childnode refid="422" relation="usage">
           <edgelabel>_root</edgelabel>
         </childnode>
       </node>
-      <node id="438">
+      <node id="422">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="446">
+      <node id="429">
         <label>Cache&lt; Dependency, vector&lt; const Hyperedge * &gt; &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="443" relation="usage">
+        <childnode refid="426" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="442">
+      <node id="425">
         <label>Cache&lt; Hyperedge, Dependency &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="443" relation="usage">
+        <childnode refid="426" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="434">
+      <node id="418">
         <label>DepParser</label>
         <link refid="classDepParser"/>
-        <childnode refid="435" relation="public-inheritance">
+        <childnode refid="419" relation="public-inheritance">
         </childnode>
-        <childnode refid="442" relation="usage">
+        <childnode refid="425" relation="usage">
           <edgelabel>_dep_map</edgelabel>
         </childnode>
-        <childnode refid="439" relation="usage">
-          <edgelabel>_h</edgelabel>
-        </childnode>
-        <childnode refid="444" relation="usage">
+        <childnode refid="427" relation="usage">
           <edgelabel>_dependencies</edgelabel>
         </childnode>
-        <childnode refid="446" relation="usage">
+        <childnode refid="429" relation="usage">
           <edgelabel>_edge_map</edgelabel>
         </childnode>
       </node>
-      <node id="445">
+      <node id="428">
         <label>Dependency</label>
         <link refid="structDependency"/>
       </node>
-      <node id="437">
+      <node id="421">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="438" relation="usage">
+        <childnode refid="422" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="439">
-        <label>Hypergraph</label>
-        <link refid="classHypergraph"/>
-        <childnode refid="439" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-      </node>
-      <node id="436">
+      <node id="420">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="444">
+      <node id="427">
         <label>std::vector&lt; Dependency &gt;</label>
-        <childnode refid="445" relation="usage">
+        <childnode refid="428" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="443">
+      <node id="426">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="440">
+      <node id="423">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="441" relation="usage">
+        <childnode refid="424" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

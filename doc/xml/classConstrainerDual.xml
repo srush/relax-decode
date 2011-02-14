@@ -111,88 +111,88 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="352">
+      <node id="339">
         <label>ConstrainerDual</label>
         <link refid="classConstrainerDual"/>
-        <childnode refid="353" relation="public-inheritance">
+        <childnode refid="340" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="353">
+      <node id="340">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="357">
+      <node id="344">
         <label>std::set&lt; int &gt;</label>
       </node>
-      <node id="360">
+      <node id="347">
         <label>PossibleTag</label>
         <link refid="structPossibleTag"/>
-        <childnode refid="361" relation="usage">
+        <childnode refid="348" relation="usage">
           <edgelabel>group_name</edgelabel>
         </childnode>
       </node>
-      <node id="364">
+      <node id="351">
         <label>ConstraintGroup</label>
         <link refid="classConstraintGroup"/>
-        <childnode refid="359" relation="usage">
+        <childnode refid="346" relation="usage">
           <edgelabel>group</edgelabel>
         </childnode>
       </node>
-      <node id="354">
+      <node id="341">
         <label>ConstrainerDual</label>
         <link refid="classConstrainerDual"/>
-        <childnode refid="355" relation="public-inheritance">
+        <childnode refid="342" relation="public-inheritance">
         </childnode>
-        <childnode refid="356" relation="usage">
+        <childnode refid="343" relation="usage">
           <edgelabel>_tag_constraints</edgelabel>
         </childnode>
       </node>
-      <node id="359">
+      <node id="346">
         <label>std::vector&lt; PossibleTag &gt;</label>
-        <childnode refid="360" relation="usage">
+        <childnode refid="347" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="362">
+      <node id="349">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="358">
+      <node id="345">
         <label>std::vector&lt; vector&lt; PossibleTag &gt; &gt;</label>
-        <childnode refid="359" relation="usage">
+        <childnode refid="346" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="356">
+      <node id="343">
         <label>TagConstraints</label>
         <link refid="classTagConstraints"/>
-        <childnode refid="357" relation="usage">
+        <childnode refid="344" relation="usage">
           <edgelabel>groups</edgelabel>
         </childnode>
-        <childnode refid="358" relation="usage">
+        <childnode refid="345" relation="usage">
           <edgelabel>_constrained_words</edgelabel>
         </childnode>
-        <childnode refid="363" relation="usage">
+        <childnode refid="350" relation="usage">
           <edgelabel>_constraint_struct</edgelabel>
         </childnode>
-        <childnode refid="359" relation="usage">
+        <childnode refid="346" relation="usage">
           <edgelabel>_all_constraints</edgelabel>
         </childnode>
       </node>
-      <node id="363">
+      <node id="350">
         <label>std::vector&lt; ConstraintGroup &gt;</label>
-        <childnode refid="364" relation="usage">
+        <childnode refid="351" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="355">
+      <node id="342">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>
-      <node id="361">
+      <node id="348">
         <label>std::string</label>
-        <childnode refid="362" relation="public-inheritance">
+        <childnode refid="349" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

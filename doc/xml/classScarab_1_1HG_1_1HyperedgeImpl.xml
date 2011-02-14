@@ -258,53 +258,53 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="702">
+      <node id="667">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="701">
+      <node id="666">
         <label>Scarab::HG::HyperedgeImpl</label>
         <link refid="classScarab_1_1HG_1_1HyperedgeImpl"/>
-        <childnode refid="702" relation="public-inheritance">
+        <childnode refid="667" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="704">
+      <node id="669">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="706">
+      <node id="671">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="705">
+      <node id="670">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="706" relation="usage">
+        <childnode refid="671" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="708">
+      <node id="673">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="703">
+      <node id="668">
         <label>Scarab::HG::HyperedgeImpl</label>
         <link refid="classScarab_1_1HG_1_1HyperedgeImpl"/>
-        <childnode refid="704" relation="public-inheritance">
+        <childnode refid="669" relation="public-inheritance">
         </childnode>
-        <childnode refid="705" relation="usage">
+        <childnode refid="670" relation="usage">
           <edgelabel>_tail_nodes</edgelabel>
         </childnode>
-        <childnode refid="707" relation="usage">
+        <childnode refid="672" relation="usage">
           <edgelabel>_label</edgelabel>
         </childnode>
-        <childnode refid="706" relation="usage">
+        <childnode refid="671" relation="usage">
           <edgelabel>_head_node</edgelabel>
         </childnode>
       </node>
-      <node id="707">
+      <node id="672">
         <label>std::string</label>
-        <childnode refid="708" relation="public-inheritance">
+        <childnode refid="673" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

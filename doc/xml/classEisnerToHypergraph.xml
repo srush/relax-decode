@@ -4,7 +4,7 @@
     <compoundname>EisnerToHypergraph</compoundname>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classEisnerToHypergraph_1a47df02a8804876cc0e33b55681b9a2f0" prot="public" static="no" mutable="no">
-        <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref></type>
+        <type>Hypergraph</type>
         <definition>Hypergraph EisnerToHypergraph::hgraph</definition>
         <argsstring></argsstring>
         <name>hgraph</name>
@@ -84,7 +84,7 @@
         <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="203" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="203" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEisnerToHypergraph_1a2aa057dabf5c8cf05fd33339aa1f0af9" prot="private" static="no" mutable="no">
-        <type>map&lt; int, <ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> * &gt;</type>
+        <type>map&lt; int, Hypergraph_Node * &gt;</type>
         <definition>map&lt; int, Hypergraph_Node * &gt; EisnerToHypergraph::_id_to_proto</definition>
         <argsstring></argsstring>
         <name>_id_to_proto</name>
@@ -138,7 +138,7 @@
         <argsstring>(Hypergraph &amp;_forest)</argsstring>
         <name>convert</name>
         <param>
-          <type><ref refid="classHypergraph" kindref="compound">Hypergraph</ref> &amp;</type>
+          <type>Hypergraph &amp;</type>
           <declname>_forest</declname>
         </param>
         <briefdescription>
@@ -165,7 +165,7 @@
         <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="124" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="124" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="classEisnerToHypergraph_1a7dbc885a4bbe2088e25eaaf35d20912d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> *</type>
+        <type>Hypergraph_Node *</type>
         <definition>Hypergraph_Node* EisnerToHypergraph::finalize_node</definition>
         <argsstring>(EisnerNode &amp;enode)</argsstring>
         <name>finalize_node</name>
@@ -195,12 +195,12 @@
         <location file="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" line="152" bodyfile="/home/srush/Projects/relax_decode/parse/EisnerToHypergraph.h" bodystart="152" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classEisnerToHypergraph_1a4ff2050caf0f128e717ed00616cbb9ee" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classHypergraph__Edge" kindref="compound">Hypergraph_Edge</ref> &amp;</type>
+        <type>Hypergraph_Edge &amp;</type>
         <definition>Hypergraph_Edge&amp; EisnerToHypergraph::finalize_edge</definition>
         <argsstring>(Hypergraph_Node *hnode, LocalHyperedge ledge)</argsstring>
         <name>finalize_edge</name>
         <param>
-          <type><ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> *</type>
+          <type>Hypergraph_Node *</type>
           <declname>hnode</declname>
         </param>
         <param>
@@ -242,95 +242,72 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="506">
+      <node id="486">
         <label>std::map&lt; int, Hypergraph_Node * &gt;</label>
-        <childnode refid="507" relation="usage">
-          <edgelabel>elements</edgelabel>
-        </childnode>
       </node>
-      <node id="507">
-        <label>Hypergraph_Node</label>
-        <link refid="classHypergraph__Node"/>
-        <childnode refid="507" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-        <childnode refid="503" relation="usage">
-          <edgelabel>label_</edgelabel>
-        </childnode>
-      </node>
-      <node id="511">
+      <node id="490">
         <label>std::vector&lt; vector&lt; vector&lt; double &gt; &gt; &gt;</label>
       </node>
-      <node id="500">
+      <node id="480">
         <label>EisnerToHypergraph</label>
         <link refid="classEisnerToHypergraph"/>
-        <childnode refid="501" relation="usage">
+        <childnode refid="481" relation="usage">
           <edgelabel>hyperedges</edgelabel>
         </childnode>
-        <childnode refid="506" relation="usage">
+        <childnode refid="486" relation="usage">
           <edgelabel>_id_to_proto</edgelabel>
         </childnode>
-        <childnode refid="508" relation="usage">
+        <childnode refid="487" relation="usage">
           <edgelabel>_node_to_id</edgelabel>
         </childnode>
-        <childnode refid="511" relation="usage">
+        <childnode refid="490" relation="usage">
           <edgelabel>_weights</edgelabel>
         </childnode>
-        <childnode refid="512" relation="usage">
-          <edgelabel>hgraph</edgelabel>
-        </childnode>
-        <childnode refid="505" relation="usage">
+        <childnode refid="485" relation="usage">
           <edgelabel>_sent</edgelabel>
         </childnode>
       </node>
-      <node id="504">
+      <node id="484">
         <label>std::basic_string&lt; char &gt;</label>
       </node>
-      <node id="501">
+      <node id="481">
         <label>std::vector&lt; LocalHyperedge &gt;</label>
-        <childnode refid="502" relation="usage">
+        <childnode refid="482" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="512">
-        <label>Hypergraph</label>
-        <link refid="classHypergraph"/>
-        <childnode refid="512" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-      </node>
-      <node id="509">
+      <node id="488">
         <label>EisnerNode</label>
         <link refid="structEisnerNode"/>
-        <childnode refid="510" relation="usage">
+        <childnode refid="489" relation="usage">
           <edgelabel>node_span</edgelabel>
         </childnode>
       </node>
-      <node id="508">
+      <node id="487">
         <label>std::map&lt; EisnerNode, int &gt;</label>
-        <childnode refid="509" relation="usage">
+        <childnode refid="488" relation="usage">
           <edgelabel>keys</edgelabel>
         </childnode>
       </node>
-      <node id="502">
+      <node id="482">
         <label>LocalHyperedge</label>
         <link refid="structLocalHyperedge"/>
-        <childnode refid="503" relation="usage">
+        <childnode refid="483" relation="usage">
           <edgelabel>label</edgelabel>
         </childnode>
-        <childnode refid="505" relation="usage">
+        <childnode refid="485" relation="usage">
           <edgelabel>tail_node_ids</edgelabel>
         </childnode>
       </node>
-      <node id="505">
+      <node id="485">
         <label>std::vector&lt; int &gt;</label>
       </node>
-      <node id="503">
+      <node id="483">
         <label>std::string</label>
-        <childnode refid="504" relation="public-inheritance">
+        <childnode refid="484" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="510">
+      <node id="489">
         <label>Span</label>
         <link refid="structSpan"/>
       </node>

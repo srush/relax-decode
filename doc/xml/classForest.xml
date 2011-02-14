@@ -72,7 +72,7 @@
         <name>make_node</name>
         <reimplements refid="classScarab_1_1HG_1_1HypergraphImpl_1af14198ba5fccb5d4118188fa42feb8ff">make_node</reimplements>
         <param>
-          <type>const <ref refid="classHypergraph__Node" kindref="compound">Hypergraph_Node</ref> &amp;</type>
+          <type>const Hypergraph_Node &amp;</type>
           <declname>node</declname>
         </param>
         <param>
@@ -93,76 +93,66 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="553">
+      <node id="531">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="554" relation="public-inheritance">
+        <childnode refid="532" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="552">
+      <node id="530">
         <label>Forest</label>
         <link refid="classForest"/>
-        <childnode refid="553" relation="public-inheritance">
+        <childnode refid="531" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="554">
+      <node id="532">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="562">
+      <node id="539">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="556">
+      <node id="534">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="557" relation="public-inheritance">
+        <childnode refid="535" relation="public-inheritance">
         </childnode>
-        <childnode refid="558" relation="usage">
+        <childnode refid="536" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
-        <childnode refid="560" relation="usage">
-          <edgelabel>hgraph</edgelabel>
-        </childnode>
-        <childnode refid="561" relation="usage">
+        <childnode refid="538" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="559" relation="usage">
+        <childnode refid="537" relation="usage">
           <edgelabel>_root</edgelabel>
         </childnode>
       </node>
-      <node id="559">
+      <node id="537">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="558">
+      <node id="536">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="559" relation="usage">
+        <childnode refid="537" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="555">
+      <node id="533">
         <label>Forest</label>
         <link refid="classForest"/>
-        <childnode refid="556" relation="public-inheritance">
+        <childnode refid="534" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="560">
-        <label>Hypergraph</label>
-        <link refid="classHypergraph"/>
-        <childnode refid="560" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-      </node>
-      <node id="557">
+      <node id="535">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="561">
+      <node id="538">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="562" relation="usage">
+        <childnode refid="539" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

@@ -75,45 +75,45 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="484">
+      <node id="466">
         <label>std::vector&lt; double &gt;</label>
       </node>
-      <node id="483">
+      <node id="465">
         <label>Subgradient</label>
         <link refid="classSubgradient"/>
-        <childnode refid="481" relation="usage">
+        <childnode refid="463" relation="usage">
           <edgelabel>_s</edgelabel>
         </childnode>
-        <childnode refid="484" relation="usage">
+        <childnode refid="466" relation="usage">
           <edgelabel>_duals</edgelabel>
           <edgelabel>_primals</edgelabel>
         </childnode>
       </node>
-      <node id="480">
+      <node id="462">
         <label>DualDecompositionRunner</label>
         <link refid="classDualDecompositionRunner"/>
-        <childnode refid="481" relation="public-inheritance">
+        <childnode refid="463" relation="public-inheritance">
         </childnode>
-        <childnode refid="482" relation="usage">
+        <childnode refid="464" relation="usage">
           <edgelabel>_sub_producer1</edgelabel>
           <edgelabel>_sub_producer2</edgelabel>
         </childnode>
       </node>
-      <node id="479">
+      <node id="461">
         <label>DualDecomposition</label>
         <link refid="classDualDecomposition"/>
-        <childnode refid="480" relation="usage">
+        <childnode refid="462" relation="usage">
           <edgelabel>_runner</edgelabel>
         </childnode>
-        <childnode refid="483" relation="usage">
+        <childnode refid="465" relation="usage">
           <edgelabel>_subgradsolver</edgelabel>
         </childnode>
       </node>
-      <node id="481">
+      <node id="463">
         <label>SubgradientProducer</label>
         <link refid="classSubgradientProducer"/>
       </node>
-      <node id="482">
+      <node id="464">
         <label>DualDecompositionSubproblem</label>
         <link refid="classDualDecompositionSubproblem"/>
       </node>

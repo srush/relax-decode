@@ -9,293 +9,220 @@
     <includes local="no">iomanip</includes>
     <includes refid="common_8h" local="yes">common.h</includes>
     <includes local="no">boost/program_options.hpp</includes>
-    <includes refid="gen__cpp_2lexical_8pb_8h" local="yes">lexical.pb.h</includes>
+    <includes local="yes">lexical.pb.h</includes>
     <includes refid="HypergraphLP_8h" local="yes">HypergraphLP.h</includes>
     <includes refid="HardConstraints_8h" local="yes">HardConstraints.h</includes>
     <includes refid="DepParseLP_8h" local="yes">DepParseLP.h</includes>
     <incdepgraph>
-      <node id="131">
+      <node id="117">
         <label>HypergraphLP.h</label>
         <link refid="HypergraphLP_8h_source"/>
-        <childnode refid="112" relation="include">
-        </childnode>
-        <childnode refid="132" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-      </node>
-      <node id="126">
-        <label>iomanip</label>
-      </node>
-      <node id="130">
-        <label>lexical.pb.h</label>
-        <link refid="gen__cpp_2lexical_8pb_8h_source"/>
-        <childnode refid="110" relation="include">
-        </childnode>
-        <childnode refid="116" relation="include">
-        </childnode>
-        <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="118" relation="include">
-        </childnode>
-        <childnode refid="119" relation="include">
-        </childnode>
-        <childnode refid="120" relation="include">
-        </childnode>
-        <childnode refid="115" relation="include">
-        </childnode>
-      </node>
-      <node id="111">
-        <label>assert.h</label>
-      </node>
-      <node id="127">
-        <label>common.h</label>
-        <link refid="common_8h_source"/>
-        <childnode refid="128" relation="include">
-        </childnode>
-      </node>
-      <node id="128">
-        <label>boost/foreach.hpp</label>
-      </node>
-      <node id="133">
-        <label>HardConstraints.h</label>
-        <link refid="HardConstraints_8h_source"/>
-        <childnode refid="105" relation="include">
-        </childnode>
-        <childnode refid="134" relation="include">
-        </childnode>
-      </node>
-      <node id="121">
-        <label>features.pb.h</label>
-        <link refid="gen__cpp_2features_8pb_8h_source"/>
-        <childnode refid="110" relation="include">
-        </childnode>
-        <childnode refid="116" relation="include">
-        </childnode>
-        <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="118" relation="include">
-        </childnode>
-        <childnode refid="119" relation="include">
-        </childnode>
-        <childnode refid="120" relation="include">
-        </childnode>
-        <childnode refid="115" relation="include">
-        </childnode>
-      </node>
-      <node id="110">
-        <label>string</label>
-      </node>
-      <node id="102">
-        <label>FullParser.cpp</label>
-        <link refid="FullParser.cpp"/>
         <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
         </childnode>
         <childnode refid="108" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
-        </childnode>
-        <childnode refid="104" relation="include">
-        </childnode>
-        <childnode refid="126" relation="include">
-        </childnode>
-        <childnode refid="127" relation="include">
-        </childnode>
-        <childnode refid="129" relation="include">
-        </childnode>
-        <childnode refid="130" relation="include">
-        </childnode>
-        <childnode refid="131" relation="include">
-        </childnode>
-        <childnode refid="133" relation="include">
-        </childnode>
-        <childnode refid="134" relation="include">
-        </childnode>
       </node>
-      <node id="124">
-        <label>EdgeCache.h</label>
-        <link refid="EdgeCache_8h_source"/>
-        <childnode refid="109" relation="include">
-        </childnode>
-        <childnode refid="125" relation="include">
-        </childnode>
-        <childnode refid="111" relation="include">
+      <node id="112">
+        <label>iomanip</label>
+      </node>
+      <node id="102">
+        <label>assert.h</label>
+      </node>
+      <node id="113">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+        <childnode refid="114" relation="include">
         </childnode>
       </node>
       <node id="114">
-        <label>HypergraphImpl.h</label>
-        <link refid="HypergraphImpl_8h_source"/>
+        <label>boost/foreach.hpp</label>
+      </node>
+      <node id="119">
+        <label>HardConstraints.h</label>
+        <link refid="HardConstraints_8h_source"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>lexical.pb.h</label>
+      </node>
+      <node id="101">
+        <label>string</label>
+      </node>
+      <node id="93">
+        <label>FullParser.cpp</label>
+        <link refid="FullParser.cpp"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
         <childnode refid="112" relation="include">
         </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
         <childnode refid="115" relation="include">
-        </childnode>
-        <childnode refid="121" relation="include">
-        </childnode>
-        <childnode refid="103" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="109" relation="include">
-        </childnode>
-        <childnode refid="113" relation="include">
-        </childnode>
-      </node>
-      <node id="112">
-        <label>Hypergraph.h</label>
-        <link refid="Hypergraph_8h_source"/>
-        <childnode refid="103" relation="include">
-        </childnode>
-        <childnode refid="109" relation="include">
-        </childnode>
-        <childnode refid="113" relation="include">
-        </childnode>
-        <childnode refid="110" relation="include">
-        </childnode>
-      </node>
-      <node id="105">
-        <label>fstream</label>
-      </node>
-      <node id="129">
-        <label>boost/program_options.hpp</label>
-      </node>
-      <node id="115">
-        <label>hypergraph.pb.h</label>
-        <link refid="gen__cpp_2hypergraph_8pb_8h_source"/>
-        <childnode refid="110" relation="include">
         </childnode>
         <childnode refid="116" relation="include">
         </childnode>
         <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="118" relation="include">
         </childnode>
         <childnode refid="119" relation="include">
         </childnode>
         <childnode refid="120" relation="include">
         </childnode>
       </node>
-      <node id="135">
-        <label>DepParser.h</label>
-        <link refid="DepParser_8h_source"/>
-        <childnode refid="136" relation="include">
+      <node id="106">
+        <label>hypergraph.pb.h</label>
+      </node>
+      <node id="110">
+        <label>EdgeCache.h</label>
+        <link refid="EdgeCache_8h_source"/>
+        <childnode refid="100" relation="include">
         </childnode>
-        <childnode refid="112" relation="include">
+        <childnode refid="111" relation="include">
         </childnode>
-        <childnode refid="114" relation="include">
-        </childnode>
-        <childnode refid="124" relation="include">
+        <childnode refid="102" relation="include">
         </childnode>
       </node>
-      <node id="107">
-        <label>svector.hpp</label>
-      </node>
-      <node id="103">
-        <label>Weights.h</label>
-        <link refid="Weights_8h_source"/>
-        <childnode refid="104" relation="include">
-        </childnode>
-        <childnode refid="105" relation="include">
+      <node id="105">
+        <label>HypergraphImpl.h</label>
+        <link refid="HypergraphImpl_8h_source"/>
+        <childnode refid="103" relation="include">
         </childnode>
         <childnode refid="106" relation="include">
         </childnode>
         <childnode refid="107" relation="include">
         </childnode>
-      </node>
-      <node id="117">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="122">
-        <label>../common.h</label>
-      </node>
-      <node id="125">
-        <label>bitset</label>
-      </node>
-      <node id="116">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="109">
-        <label>vector</label>
-      </node>
-      <node id="123">
-        <label>HypergraphAlgorithms.h</label>
-        <link refid="HypergraphAlgorithms_8h_source"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="94" relation="include">
         </childnode>
-        <childnode refid="124" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
-        <childnode refid="112" relation="include">
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>Hypergraph.h</label>
+        <link refid="Hypergraph_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>fstream</label>
+      </node>
+      <node id="115">
+        <label>boost/program_options.hpp</label>
+      </node>
+      <node id="121">
+        <label>DepParser.h</label>
+        <link refid="DepParser_8h_source"/>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>svector.hpp</label>
+      </node>
+      <node id="94">
+        <label>Weights.h</label>
+        <link refid="Weights_8h_source"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
         </childnode>
       </node>
       <node id="108">
+        <label>../common.h</label>
+      </node>
+      <node id="111">
+        <label>bitset</label>
+      </node>
+      <node id="122">
+        <label>dep.pb.h</label>
+      </node>
+      <node id="100">
+        <label>vector</label>
+      </node>
+      <node id="109">
+        <label>HypergraphAlgorithms.h</label>
+        <link refid="HypergraphAlgorithms_8h_source"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
         <label>Forest.h</label>
         <link refid="Forest_8h_source"/>
-        <childnode refid="109" relation="include">
+        <childnode refid="100" relation="include">
         </childnode>
-        <childnode refid="107" relation="include">
+        <childnode refid="98" relation="include">
         </childnode>
-        <childnode refid="110" relation="include">
+        <childnode refid="101" relation="include">
         </childnode>
-        <childnode refid="111" relation="include">
+        <childnode refid="102" relation="include">
         </childnode>
-        <childnode refid="112" relation="include">
+        <childnode refid="103" relation="include">
         </childnode>
-        <childnode refid="114" relation="include">
+        <childnode refid="105" relation="include">
         </childnode>
-        <childnode refid="115" relation="include">
+        <childnode refid="106" relation="include">
         </childnode>
       </node>
-      <node id="119">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="118">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="104">
+      <node id="95">
         <label>iostream</label>
       </node>
-      <node id="106">
+      <node id="97">
         <label>cy_svector.hpp</label>
       </node>
-      <node id="132">
+      <node id="118">
         <label>gurobi_c++.h</label>
       </node>
-      <node id="113">
+      <node id="104">
         <label>set</label>
       </node>
-      <node id="136">
-        <label>dep.pb.h</label>
-        <link refid="gen__cpp_2dep_8pb_8h_source"/>
-        <childnode refid="110" relation="include">
-        </childnode>
-        <childnode refid="116" relation="include">
-        </childnode>
-        <childnode refid="117" relation="include">
+      <node id="120">
+        <label>DepParseLP.h</label>
+        <link refid="DepParseLP_8h_source"/>
+        <childnode refid="103" relation="include">
         </childnode>
         <childnode refid="118" relation="include">
         </childnode>
-        <childnode refid="119" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
-        <childnode refid="120" relation="include">
+        <childnode refid="117" relation="include">
         </childnode>
-        <childnode refid="136" relation="include">
-        </childnode>
-      </node>
-      <node id="134">
-        <label>DepParseLP.h</label>
-        <link refid="DepParseLP_8h_source"/>
-        <childnode refid="112" relation="include">
-        </childnode>
-        <childnode refid="132" relation="include">
-        </childnode>
-        <childnode refid="135" relation="include">
-        </childnode>
-        <childnode refid="131" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
-      <node id="120">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="107">
+        <label>features.pb.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

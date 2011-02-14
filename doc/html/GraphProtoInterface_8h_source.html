@@ -56,9 +56,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00008"></a>00008   <span class="keywordtype">void</span> build_from_file(<span class="keyword">const</span> <span class="keywordtype">char</span> * file_name) ;
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010   
-<a name="l00011"></a>00011   <span class="keyword">virtual</span> <span class="keywordtype">void</span> process_node(<a class="code" href="classgraph_1_1Graph__Node.html">graph::Graph_Node</a>, <a class="code" href="classScarab_1_1Graph_1_1Graphnode.html">Graphnode</a> *) = 0;
-<a name="l00012"></a>00012   <span class="keyword">virtual</span> <span class="keywordtype">void</span> process_edge(<a class="code" href="classgraph_1_1Graph__Edge.html">graph::Graph_Edge</a>, <a class="code" href="classScarab_1_1Graph_1_1Graphedge.html">Graphedge</a> *) = 0;
-<a name="l00013"></a>00013   <span class="keyword">virtual</span> <span class="keywordtype">void</span> set_up(<a class="code" href="classgraph_1_1Graph.html">graph::Graph</a>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>) { }     
+<a name="l00011"></a>00011   <span class="keyword">virtual</span> <span class="keywordtype">void</span> process_node(graph::Graph_Node, <a class="code" href="classScarab_1_1Graph_1_1Graphnode.html">Graphnode</a> *) = 0;
+<a name="l00012"></a>00012   <span class="keyword">virtual</span> <span class="keywordtype">void</span> process_edge(graph::Graph_Edge, <a class="code" href="classScarab_1_1Graph_1_1Graphedge.html">Graphedge</a> *) = 0;
+<a name="l00013"></a>00013   <span class="keyword">virtual</span> <span class="keywordtype">void</span> set_up(graph::Graph, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>) { }     
 <a name="l00014"></a>00014   <span class="keyword">const</span> <a class="code" href="classScarab_1_1Graph_1_1Graph.html">Graph</a> &amp; graph()<span class="keyword"> const  </span>{
 <a name="l00015"></a>00015     <span class="keywordflow">return</span> *_graph;
 <a name="l00016"></a>00016   } 
@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:16:08 2011 for Scarab by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Feb 14 16:24:34 2011 for Scarab by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

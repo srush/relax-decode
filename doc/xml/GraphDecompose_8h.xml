@@ -14,111 +14,83 @@
     <includedby refid="dual__subproblem_8cpp" local="yes">trans_decode/dual_subproblem.cpp</includedby>
     <includedby refid="dual__subproblem_8h" local="yes">trans_decode/dual_subproblem.h</includedby>
     <incdepgraph>
-      <node id="1040">
+      <node id="707">
         <label>lattice/GraphDecompose.h</label>
         <link refid="GraphDecompose.h"/>
-        <childnode refid="1041" relation="include">
+        <childnode refid="708" relation="include">
         </childnode>
-        <childnode refid="1042" relation="include">
+        <childnode refid="709" relation="include">
         </childnode>
-        <childnode refid="1043" relation="include">
+        <childnode refid="710" relation="include">
         </childnode>
       </node>
-      <node id="1044">
+      <node id="711">
         <label>string</label>
       </node>
-      <node id="1051">
+      <node id="713">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="1041" relation="include">
+        <childnode refid="708" relation="include">
         </childnode>
-        <childnode refid="1044" relation="include">
+        <childnode refid="711" relation="include">
         </childnode>
-        <childnode refid="1052" relation="include">
+        <childnode refid="714" relation="include">
         </childnode>
       </node>
-      <node id="1047">
-        <label>google/protobuf/generated_message_util.h</label>
+      <node id="712">
+        <label>lattice.pb.h</label>
       </node>
-      <node id="1052">
+      <node id="714">
         <label>../common.h</label>
       </node>
-      <node id="1042">
+      <node id="709">
         <label>bitset</label>
       </node>
-      <node id="1045">
-        <label>lattice.pb.h</label>
-        <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="1044" relation="include">
-        </childnode>
-        <childnode refid="1046" relation="include">
-        </childnode>
-        <childnode refid="1047" relation="include">
-        </childnode>
-        <childnode refid="1048" relation="include">
-        </childnode>
-        <childnode refid="1049" relation="include">
-        </childnode>
-        <childnode refid="1050" relation="include">
-        </childnode>
-      </node>
-      <node id="1046">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="1041">
+      <node id="708">
         <label>vector</label>
       </node>
-      <node id="1043">
+      <node id="710">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="1044" relation="include">
+        <childnode refid="711" relation="include">
         </childnode>
-        <childnode refid="1045" relation="include">
+        <childnode refid="712" relation="include">
         </childnode>
-        <childnode refid="1041" relation="include">
+        <childnode refid="708" relation="include">
         </childnode>
-        <childnode refid="1051" relation="include">
+        <childnode refid="713" relation="include">
         </childnode>
-      </node>
-      <node id="1049">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="1048">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="1050">
-        <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1053">
+      <node id="715">
         <label>lattice/GraphDecompose.h</label>
         <link refid="GraphDecompose.h"/>
-        <childnode refid="1054" relation="include">
+        <childnode refid="716" relation="include">
         </childnode>
-        <childnode refid="1057" relation="include">
+        <childnode refid="719" relation="include">
         </childnode>
-        <childnode refid="1055" relation="include">
+        <childnode refid="717" relation="include">
         </childnode>
       </node>
-      <node id="1057">
+      <node id="719">
         <label>lp/LPBuilder.h</label>
         <link refid="LPBuilder_8h_source"/>
       </node>
-      <node id="1056">
+      <node id="718">
         <label>trans_decode/Decode.h</label>
         <link refid="Decode_8h_source"/>
       </node>
-      <node id="1054">
+      <node id="716">
         <label>lattice/BigramRescore.h</label>
         <link refid="BigramRescore_8h_source"/>
-        <childnode refid="1055" relation="include">
+        <childnode refid="717" relation="include">
         </childnode>
       </node>
-      <node id="1055">
+      <node id="717">
         <label>trans_decode/dual_subproblem.h</label>
         <link refid="dual__subproblem_8h_source"/>
-        <childnode refid="1056" relation="include">
+        <childnode refid="718" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

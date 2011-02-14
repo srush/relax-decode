@@ -105,102 +105,92 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="987">
+      <node id="929">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="988" relation="public-inheritance">
+        <childnode refid="930" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="986">
+      <node id="928">
         <label>MRFHypergraph</label>
         <link refid="classMRFHypergraph"/>
-        <childnode refid="987" relation="public-inheritance">
+        <childnode refid="929" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="988">
+      <node id="930">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="999">
+      <node id="940">
         <label>Cache&lt; NodeAssignment, Hypernode * &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="992" relation="usage">
+        <childnode refid="934" relation="usage">
           <edgelabel>store</edgelabel>
         </childnode>
-        <childnode refid="998" relation="usage">
+        <childnode refid="939" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="996">
+      <node id="937">
         <label>Scarab::HG::Hyperedge</label>
         <link refid="classScarab_1_1HG_1_1Hyperedge"/>
       </node>
-      <node id="990">
+      <node id="932">
         <label>Scarab::HG::HypergraphImpl</label>
         <link refid="classScarab_1_1HG_1_1HypergraphImpl"/>
-        <childnode refid="991" relation="public-inheritance">
+        <childnode refid="933" relation="public-inheritance">
         </childnode>
-        <childnode refid="992" relation="usage">
+        <childnode refid="934" relation="usage">
           <edgelabel>_nodes</edgelabel>
         </childnode>
-        <childnode refid="994" relation="usage">
-          <edgelabel>hgraph</edgelabel>
-        </childnode>
-        <childnode refid="995" relation="usage">
+        <childnode refid="936" relation="usage">
           <edgelabel>_edges</edgelabel>
         </childnode>
-        <childnode refid="993" relation="usage">
+        <childnode refid="935" relation="usage">
           <edgelabel>_root</edgelabel>
         </childnode>
       </node>
-      <node id="993">
+      <node id="935">
         <label>Scarab::HG::Hypernode</label>
         <link refid="classScarab_1_1HG_1_1Hypernode"/>
       </node>
-      <node id="992">
+      <node id="934">
         <label>std::vector&lt; Hypernode * &gt;</label>
-        <childnode refid="993" relation="usage">
+        <childnode refid="935" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>
-      <node id="989">
+      <node id="931">
         <label>MRFHypergraph</label>
         <link refid="classMRFHypergraph"/>
-        <childnode refid="990" relation="public-inheritance">
+        <childnode refid="932" relation="public-inheritance">
         </childnode>
-        <childnode refid="997" relation="usage">
+        <childnode refid="938" relation="usage">
           <edgelabel>_canonical_assignment</edgelabel>
         </childnode>
-        <childnode refid="999" relation="usage">
+        <childnode refid="940" relation="usage">
           <edgelabel>_canonical_hnode</edgelabel>
         </childnode>
       </node>
-      <node id="994">
-        <label>Hypergraph</label>
-        <link refid="classHypergraph"/>
-        <childnode refid="994" relation="usage">
-          <edgelabel>default_instance_</edgelabel>
-        </childnode>
-      </node>
-      <node id="997">
+      <node id="938">
         <label>Cache&lt; Hypernode, NodeAssignment &gt;</label>
         <link refid="classCache"/>
-        <childnode refid="998" relation="usage">
+        <childnode refid="939" relation="usage">
           <edgelabel>has_value</edgelabel>
         </childnode>
       </node>
-      <node id="991">
+      <node id="933">
         <label>Scarab::HG::HGraph</label>
         <link refid="classScarab_1_1HG_1_1HGraph"/>
       </node>
-      <node id="998">
+      <node id="939">
         <label>std::vector&lt; bool &gt;</label>
       </node>
-      <node id="995">
+      <node id="936">
         <label>std::vector&lt; Hyperedge * &gt;</label>
-        <childnode refid="996" relation="usage">
+        <childnode refid="937" relation="usage">
           <edgelabel>elements</edgelabel>
         </childnode>
       </node>

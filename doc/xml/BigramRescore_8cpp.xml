@@ -4,7 +4,7 @@
     <compoundname>BigramRescore.cpp</compoundname>
     <includes refid="BigramRescore_8cpp" local="yes">BigramRescore.h</includes>
     <includes local="no">string</includes>
-    <includes refid="lattice_8pb_8h" local="yes">lattice.pb.h</includes>
+    <includes local="yes">lattice.pb.h</includes>
     <includes local="no">vector</includes>
     <includes refid="Graph_8h" local="yes">Graph.h</includes>
     <includes local="no">bitset</includes>
@@ -16,115 +16,87 @@
     <includes local="no">assert.h</includes>
     <includedby refid="BigramRescore_8cpp" local="yes">lattice/BigramRescore.cpp</includedby>
     <incdepgraph>
-      <node id="968">
+      <node id="655">
         <label>assert.h</label>
       </node>
-      <node id="966">
+      <node id="653">
         <label>GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="960" relation="include">
+        <childnode refid="647" relation="include">
         </childnode>
-        <childnode refid="963" relation="include">
+        <childnode refid="650" relation="include">
         </childnode>
-        <childnode refid="964" relation="include">
+        <childnode refid="651" relation="include">
         </childnode>
       </node>
-      <node id="953">
+      <node id="645">
         <label>string</label>
       </node>
-      <node id="961">
+      <node id="648">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="960" relation="include">
+        <childnode refid="647" relation="include">
         </childnode>
-        <childnode refid="953" relation="include">
+        <childnode refid="645" relation="include">
         </childnode>
-        <childnode refid="962" relation="include">
+        <childnode refid="649" relation="include">
         </childnode>
       </node>
-      <node id="956">
-        <label>google/protobuf/generated_message_util.h</label>
+      <node id="646">
+        <label>lattice.pb.h</label>
       </node>
-      <node id="952">
+      <node id="644">
         <label>lattice/BigramRescore.cpp</label>
         <link refid="BigramRescore.cpp"/>
-        <childnode refid="953" relation="include">
+        <childnode refid="645" relation="include">
         </childnode>
-        <childnode refid="954" relation="include">
+        <childnode refid="646" relation="include">
         </childnode>
-        <childnode refid="960" relation="include">
+        <childnode refid="647" relation="include">
         </childnode>
-        <childnode refid="961" relation="include">
+        <childnode refid="648" relation="include">
         </childnode>
-        <childnode refid="963" relation="include">
+        <childnode refid="650" relation="include">
         </childnode>
-        <childnode refid="964" relation="include">
+        <childnode refid="651" relation="include">
         </childnode>
-        <childnode refid="965" relation="include">
+        <childnode refid="652" relation="include">
         </childnode>
-        <childnode refid="962" relation="include">
+        <childnode refid="649" relation="include">
         </childnode>
-        <childnode refid="966" relation="include">
+        <childnode refid="653" relation="include">
         </childnode>
-        <childnode refid="967" relation="include">
+        <childnode refid="654" relation="include">
         </childnode>
-        <childnode refid="968" relation="include">
+        <childnode refid="655" relation="include">
         </childnode>
       </node>
-      <node id="962">
+      <node id="649">
         <label>../common.h</label>
       </node>
-      <node id="963">
+      <node id="650">
         <label>bitset</label>
       </node>
-      <node id="954">
-        <label>lattice.pb.h</label>
-        <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="953" relation="include">
-        </childnode>
-        <childnode refid="955" relation="include">
-        </childnode>
-        <childnode refid="956" relation="include">
-        </childnode>
-        <childnode refid="957" relation="include">
-        </childnode>
-        <childnode refid="958" relation="include">
-        </childnode>
-        <childnode refid="959" relation="include">
-        </childnode>
-      </node>
-      <node id="955">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="960">
+      <node id="647">
         <label>vector</label>
       </node>
-      <node id="964">
+      <node id="651">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="953" relation="include">
+        <childnode refid="645" relation="include">
         </childnode>
-        <childnode refid="954" relation="include">
+        <childnode refid="646" relation="include">
         </childnode>
-        <childnode refid="960" relation="include">
+        <childnode refid="647" relation="include">
         </childnode>
-        <childnode refid="961" relation="include">
+        <childnode refid="648" relation="include">
         </childnode>
       </node>
-      <node id="958">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="957">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="967">
+      <node id="654">
         <label>time.h</label>
       </node>
-      <node id="965">
+      <node id="652">
         <label>iostream</label>
-      </node>
-      <node id="959">
-        <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="define">

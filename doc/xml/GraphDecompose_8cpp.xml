@@ -9,102 +9,74 @@
     <includes local="no">assert.h</includes>
     <includes refid="GraphDecompose_8h" local="yes">GraphDecompose.h</includes>
     <incdepgraph>
-      <node id="1037">
+      <node id="704">
         <label>assert.h</label>
       </node>
-      <node id="1038">
+      <node id="705">
         <label>GraphDecompose.h</label>
         <link refid="GraphDecompose_8h_source"/>
-        <childnode refid="1032" relation="include">
+        <childnode refid="699" relation="include">
         </childnode>
-        <childnode refid="1035" relation="include">
+        <childnode refid="702" relation="include">
         </childnode>
-        <childnode refid="1024" relation="include">
+        <childnode refid="696" relation="include">
         </childnode>
       </node>
-      <node id="1025">
+      <node id="697">
         <label>string</label>
       </node>
-      <node id="1023">
+      <node id="695">
         <label>lattice/GraphDecompose.cpp</label>
         <link refid="GraphDecompose.cpp"/>
-        <childnode refid="1024" relation="include">
+        <childnode refid="696" relation="include">
         </childnode>
-        <childnode refid="1032" relation="include">
+        <childnode refid="699" relation="include">
         </childnode>
-        <childnode refid="1035" relation="include">
+        <childnode refid="702" relation="include">
         </childnode>
-        <childnode refid="1036" relation="include">
+        <childnode refid="703" relation="include">
         </childnode>
-        <childnode refid="1037" relation="include">
+        <childnode refid="704" relation="include">
         </childnode>
-        <childnode refid="1038" relation="include">
+        <childnode refid="705" relation="include">
         </childnode>
       </node>
-      <node id="1033">
+      <node id="700">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="1032" relation="include">
+        <childnode refid="699" relation="include">
         </childnode>
-        <childnode refid="1025" relation="include">
+        <childnode refid="697" relation="include">
         </childnode>
-        <childnode refid="1034" relation="include">
+        <childnode refid="701" relation="include">
         </childnode>
       </node>
-      <node id="1028">
-        <label>google/protobuf/generated_message_util.h</label>
+      <node id="698">
+        <label>lattice.pb.h</label>
       </node>
-      <node id="1034">
+      <node id="701">
         <label>../common.h</label>
       </node>
-      <node id="1035">
+      <node id="702">
         <label>bitset</label>
       </node>
-      <node id="1026">
-        <label>lattice.pb.h</label>
-        <link refid="lattice_8pb_8h_source"/>
-        <childnode refid="1025" relation="include">
-        </childnode>
-        <childnode refid="1027" relation="include">
-        </childnode>
-        <childnode refid="1028" relation="include">
-        </childnode>
-        <childnode refid="1029" relation="include">
-        </childnode>
-        <childnode refid="1030" relation="include">
-        </childnode>
-        <childnode refid="1031" relation="include">
-        </childnode>
-      </node>
-      <node id="1027">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="1032">
+      <node id="699">
         <label>vector</label>
       </node>
-      <node id="1024">
+      <node id="696">
         <label>ForestLattice.h</label>
         <link refid="ForestLattice_8h_source"/>
-        <childnode refid="1025" relation="include">
+        <childnode refid="697" relation="include">
         </childnode>
-        <childnode refid="1026" relation="include">
+        <childnode refid="698" relation="include">
         </childnode>
-        <childnode refid="1032" relation="include">
+        <childnode refid="699" relation="include">
         </childnode>
-        <childnode refid="1033" relation="include">
+        <childnode refid="700" relation="include">
         </childnode>
       </node>
-      <node id="1030">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="1029">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="1036">
+      <node id="703">
         <label>iostream</label>
-      </node>
-      <node id="1031">
-        <label>google/protobuf/generated_message_reflection.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="define">

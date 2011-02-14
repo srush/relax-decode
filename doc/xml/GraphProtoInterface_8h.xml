@@ -2,118 +2,90 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.6.3">
   <compounddef id="GraphProtoInterface_8h" kind="file">
     <compoundname>GraphProtoInterface.h</compoundname>
-    <includes refid="gen-py_2graph_8pb_8h" local="yes">graph.pb.h</includes>
+    <includes local="yes">graph.pb.h</includes>
     <includes refid="Graph_8h" local="yes">Graph.h</includes>
     <includedby refid="MRF_8cpp" local="no">optimization/MRF.cpp</includedby>
     <includedby refid="MRF_8h" local="no">optimization/MRF.h</includedby>
     <incdepgraph>
-      <node id="223">
+      <node id="201">
         <label>string</label>
       </node>
-      <node id="229">
+      <node id="199">
         <label>Graph.h</label>
         <link refid="Graph_8h_source"/>
-        <childnode refid="230" relation="include">
+        <childnode refid="200" relation="include">
         </childnode>
-        <childnode refid="223" relation="include">
+        <childnode refid="201" relation="include">
         </childnode>
-        <childnode refid="231" relation="include">
-        </childnode>
-      </node>
-      <node id="222">
-        <label>graph.pb.h</label>
-        <link refid="gen-py_2graph_8pb_8h_source"/>
-        <childnode refid="223" relation="include">
-        </childnode>
-        <childnode refid="224" relation="include">
-        </childnode>
-        <childnode refid="225" relation="include">
-        </childnode>
-        <childnode refid="226" relation="include">
-        </childnode>
-        <childnode refid="227" relation="include">
-        </childnode>
-        <childnode refid="228" relation="include">
+        <childnode refid="202" relation="include">
         </childnode>
       </node>
-      <node id="225">
-        <label>google/protobuf/generated_message_util.h</label>
-      </node>
-      <node id="231">
+      <node id="202">
         <label>../common.h</label>
       </node>
-      <node id="224">
-        <label>google/protobuf/stubs/common.h</label>
-      </node>
-      <node id="230">
+      <node id="200">
         <label>vector</label>
       </node>
-      <node id="221">
+      <node id="197">
         <label>graph/GraphProtoInterface.h</label>
         <link refid="GraphProtoInterface.h"/>
-        <childnode refid="222" relation="include">
+        <childnode refid="198" relation="include">
         </childnode>
-        <childnode refid="229" relation="include">
+        <childnode refid="199" relation="include">
         </childnode>
       </node>
-      <node id="227">
-        <label>google/protobuf/extension_set.h</label>
-      </node>
-      <node id="226">
-        <label>google/protobuf/repeated_field.h</label>
-      </node>
-      <node id="228">
-        <label>google/protobuf/generated_message_reflection.h</label>
+      <node id="198">
+        <label>graph.pb.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="238">
+      <node id="209">
         <label>lp/HardPosConstraints.h</label>
         <link refid="HardPosConstraints_8h_source"/>
-        <childnode refid="238" relation="include">
+        <childnode refid="209" relation="include">
         </childnode>
       </node>
-      <node id="236">
+      <node id="207">
         <label>optimization/MRFHypergraph.h</label>
         <link refid="MRFHypergraph_8h_source"/>
       </node>
-      <node id="235">
+      <node id="206">
         <label>lp/TagMrfLP.h</label>
         <link refid="TagMrfLP_8h_source"/>
       </node>
-      <node id="233">
+      <node id="204">
         <label>optimization/MRF.h</label>
         <link refid="MRF_8h_source"/>
-        <childnode refid="234" relation="include">
+        <childnode refid="205" relation="include">
         </childnode>
-        <childnode refid="236" relation="include">
+        <childnode refid="207" relation="include">
         </childnode>
-        <childnode refid="237" relation="include">
+        <childnode refid="208" relation="include">
         </childnode>
       </node>
-      <node id="234">
+      <node id="205">
         <label>lp/MRFLP.h</label>
         <link refid="MRFLP_8h_source"/>
-        <childnode refid="235" relation="include">
+        <childnode refid="206" relation="include">
         </childnode>
       </node>
-      <node id="237">
+      <node id="208">
         <label>tagger/TagConstraints.h</label>
         <link refid="TagConstraints_8h_source"/>
-        <childnode refid="238" relation="include">
+        <childnode refid="209" relation="include">
         </childnode>
-        <childnode refid="235" relation="include">
+        <childnode refid="206" relation="include">
         </childnode>
-        <childnode refid="239" relation="include">
+        <childnode refid="210" relation="include">
         </childnode>
       </node>
-      <node id="232">
+      <node id="203">
         <label>graph/GraphProtoInterface.h</label>
         <link refid="GraphProtoInterface.h"/>
-        <childnode refid="233" relation="include">
+        <childnode refid="204" relation="include">
         </childnode>
       </node>
-      <node id="239">
+      <node id="210">
         <label>tagger/TagSolvers.h</label>
         <link refid="TagSolvers_8h_source"/>
       </node>
@@ -134,9 +106,9 @@
 <codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>build_from_file(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>file_name)<sp/>;</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_node(<ref refid="classgraph_1_1Graph__Node" kindref="compound">graph::Graph_Node</ref>,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_edge(<ref refid="classgraph_1_1Graph__Edge" kindref="compound">graph::Graph_Edge</ref>,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(<ref refid="classgraph_1_1Graph" kindref="compound">graph::Graph</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>{<sp/>}<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_node(graph::Graph_Node,<sp/><ref refid="classScarab_1_1Graph_1_1Graphnode" kindref="compound">Graphnode</ref><sp/>*)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>process_edge(graph::Graph_Edge,<sp/><ref refid="classScarab_1_1Graph_1_1Graphedge" kindref="compound">Graphedge</ref><sp/>*)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_up(graph::Graph,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>{<sp/>}<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classScarab_1_1Graph_1_1Graph" kindref="compound">Graph</ref><sp/>&amp;<sp/>graph()</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*_graph;</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
