@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,18 +10,20 @@
     <title>Welcome to Scarab’s documentation! &mdash; Scarab v0.1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/breathe.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
+        URL_ROOT:    '',
         VERSION:     '0.1',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="/usr/share/jsmath/"></script>
+    <script type="text/javascript" src="/usr/share/jsmath/easy/load.js"></script>
     <link rel="top" title="Scarab v0.1 documentation" href="#" /> 
   </head>
   <body>
@@ -41,15 +45,165 @@
   <div class="section" id="welcome-to-scarab-s-documentation">
 <h1>Welcome to Scarab&#8217;s documentation!<a class="headerlink" href="#welcome-to-scarab-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Contents:</p>
+<div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
+<p>Hello</p>
+<p id="scarabclass_decode"><em>class</em> <strong>Decode</strong></p>
+<blockquote>
+<div><p>
+    </p>
+<p>
+    </p>
+<em>Public Functions</em><blockquote>
+<div><dl class="docutils">
+<dt id="Decode::Decode__ForestCR.ForestLatticeCR.wvectorCR.NgramCacheR"><span id="scarabclass_decode_1a57bd53ddaf49e2fe4b86a7aad782110f"></span> <strong>Decode</strong>(const  Forest  &amp; forest, const  ForestLattice  &amp; lattice, const wvector &amp; weight, NgramCache  &amp; lm)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Decode::~Decode"><span id="scarabclass_decode_1a44f43126a6daa82c3a701625025877da"></span> <strong>~Decode</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Decode::solve__doubleR.doubleR.wvectorR.i.b.bR"><span id="scarabclass_decode_1a6d86f91ee2c591c54ce2bb97c1dd6888"></span>void  <strong>solve</strong>(double &amp; primal, double &amp; dual, wvector &amp; subgrad, int round, bool is_stuck, bool &amp; bump_rate)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Decode::update_weights__wvectorCR.wvectorP"><span id="scarabclass_decode_1a9beca60221318f111b7f4d5acca8e329"></span>void  <strong>update_weights</strong>(const wvector &amp; updates, wvector * weights)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="tagger">
+<h1>Tagger<a class="headerlink" href="#tagger" title="Permalink to this headline">¶</a></h1>
+<p id="scarabclass_tagger"><em>class</em> <strong>Tagger</strong></p>
+<blockquote>
+<div><p>
+    </p>
+<p>
+    </p>
+<em>Public Functions</em><blockquote>
+<div><dl class="docutils">
+<dt id="Tagger::Tagger__i"><span id="scarabclass_tagger_1a6e812fd7e339a21155f7b30f04292be1"></span> <strong>Tagger</strong>(int num_tags_)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::~Tagger"><span id="scarabclass_tagger_1a6d4836101f4e024ecd44a041f60499c2"></span> <strong>~Tagger</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::printC"><span id="scarabclass_tagger_1a4ebe0aebd7c0392970b401a5a6c6cd72"></span>void  <strong>print</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+<p>Display the hypergraph for debugging. </p>
+        </p>
+</dd>
+<dt id="Tagger::set_up__HypergraphCR"><span id="scarabclass_tagger_1afafa6e435d17467db344ca615f24746f"></span>void  <strong>set_up</strong>(const Hypergraph &amp; hgraph)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::hypergraphC"><span id="scarabclass_tagger_1ad694ed218149b86c4ef5253328a41c49"></span>const Hypergraph &amp;  <strong>hypergraph</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::tagsC"><span id="scarabclass_tagger_1ae1e3802fb545c3430ca4d52ea5fd95db"></span>vector&lt;  Tag  &gt;  <strong>tags</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+<p>Enumerate all the possible tags for this sentence</p>
+<p>
+<dl class="docutils">
+<dt><em>Return</em></dt>
+<dd>An enumerator to all the tags in the sentence </dd>
+</dl>
+</p>
+        </p>
+</dd>
+<dt id="Tagger::num_tagsC"><span id="scarabclass_tagger_1a5da221998377bf36c84013ba0d471b36"></span>uint  <strong>num_tags</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::sent_lengthC"><span id="scarabclass_tagger_1ae762dd21f446b9ec618b0b83204bdc2e"></span>uint  <strong>sent_length</strong>()</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::make_tag__i.iC"><span id="scarabclass_tagger_1af01daf511528271a118a281b8595e0df"></span>Tag  <strong>make_tag</strong>(int ind, int tag)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::tag_to_edge__TagCRC"><span id="scarabclass_tagger_1a26472c386e7f5eebcb05c9d1843c1975"></span>const vector&lt; const  Hyperedge  * &gt; &amp;  <strong>tag_to_edge</strong>(const  Tag  &amp; tag)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::tag_has_edge__TagCRC"><span id="scarabclass_tagger_1ae270a5be64b93945c180996aedcf6372"></span>bool  <strong>tag_has_edge</strong>(const  Tag  &amp; tag)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::edge_to_tag__HyperedgeCRC"><span id="scarabclass_tagger_1ad615c8356f380baab01ae6675a25c409"></span>const  Tag  &amp;  <strong>edge_to_tag</strong>(const  Hyperedge  &amp; edge)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+<dt id="Tagger::edge_has_tag__HyperedgeCRC"><span id="scarabclass_tagger_1ad7f1dda6082e71cd113a3d77e9c33275"></span>bool  <strong>edge_has_tag</strong>(const  Hyperedge  &amp; edge)</dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+</dl>
+</div></blockquote>
+<em>Public Members</em><blockquote>
+<div><dl class="docutils">
+<dt id=""><span id="scarabclass_tagger_1a4bf3332c608c078cbb2d5692c4f13b43"></span>int  <strong>num_tag</strong></dt>
+<dd><p class="first">
+        </p>
+<p class="last">
+        </p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<div class="math">
+a+b+c^2 b</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference external" href="modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference external" href="search.html"><em>Search Page</em></a></li>
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
 </ul>
 </div>
 
@@ -59,32 +213,33 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="#">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Welcome to Scarab&#8217;s documentation!</a><ul>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Scarab&#8217;s documentation!</a><ul>
 </ul>
 </li>
-<li><a class="reference external" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#tagger">Tagger</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/index.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -99,8 +254,8 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2011, Alexander Rush.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2011, Alexander Rush.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

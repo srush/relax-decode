@@ -11,7 +11,24 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   hypergraph
+
+Hello
+
+.. doxygenclass:: Decode
+   :project: scarab
+   :members:
+
+Tagger
+=================
+
+.. doxygenclass:: Tagger
+   :project: scarab
+   :members:
+
+
+.. math::
+
+   a+b+c^2 b
 
 Indices and tables
 ==================
