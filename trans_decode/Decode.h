@@ -25,9 +25,9 @@ class Decode: public SubgradientProducer {
     :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) //, ecky(forest)
   {
     _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
-    //cout<<"decomposing" << endl;
+
     _gd.decompose(&lattice);
-    //cout<<"done decomposing" << endl;
+
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, &_gd, *_cached_words);
     _lagrange_weights = new svector<int, double>();
@@ -45,7 +45,8 @@ class Decode: public SubgradientProducer {
     }
    
     void solve(double & primal, double & dual, wvector &, int, bool, bool&);
-  void update_weights(const wvector & updates,  wvector * weights );
+    
+    void update_weights(const wvector & updates,  wvector * weights );
   
  private:
   void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
@@ -75,6 +76,11 @@ class Decode: public SubgradientProducer {
   bool _maintain_constraints; 
   int _is_stuck_round;
   //ExtendCKY ecky;
+
+  bool solve_ngrams(int round, bool is_stuck);
+  EdgeCache compute_edge_penalty_cache();
+  double best_modified_derivation(const EdgeCache& penalty_cache, const HypergraphAlgorithms & ha, NodeBackCache & back_pointers);
+  wvector construct_parse_subgrad(const HEdges used_edges);
 };
 
 #endif

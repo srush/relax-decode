@@ -68,6 +68,12 @@ class Tagger : public Scarab::HG::HypergraphImpl {
   //return *_weights;
   //}
 
+  
+  /** 
+   * Enumerate all the possible tags for this sentence
+   * 
+   * @return An enumerator to all the tags in the sentence
+   */
   vector <Tag > tags() const {
     return _tags;
   }

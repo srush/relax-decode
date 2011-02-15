@@ -27,7 +27,7 @@ class Graphedge {
   /** 
    * Get edge id
    * 
-   * @return The id of this edge in a fixed hypergraph
+   * @return The id of this edge in a fixed graph
    */
  uint id() const {
    return _id;
@@ -56,7 +56,7 @@ class Graphnode {
  Graphnode(uint id) : _id(id){}
    virtual ~Graphnode() {}
   /** 
-   * The unique identifier of the Hypernode 
+   * The unique identifier of the Graphnode 
    * @deprecated
    * 
    * @return The number 
@@ -81,11 +81,14 @@ class Graphnode {
  
   // TODO: These should be (lazy) iterators, figure that part out
   /** 
-   * Get all hyperedges with this hypernode as head.
-   * WARNING: Treat this as a const iterator.
+   * Get all edges with this node as head.
+   *
+   *Treat this as a const iterator.
    * @return Const iterator to edges.
    */
+
    const Edges & edges() const {
+     
      return _edges;
    } 
 

@@ -115,8 +115,8 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     if (_aggressive && _nround > 2) {
       _base_weight *= 0.7;
       _nround = 0;
-    } //else if (!_is_stuck && _nround >= 10) {
-    else if (_nround >= 3) {// 10) {
+    } else if (!_is_stuck && _nround >= 10) {
+    //else if (_nround >= 3) {// 10) {
       _base_weight *= 0.7;
       _nround =0;
     }

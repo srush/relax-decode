@@ -4,7 +4,7 @@ import os
 debug = ARGUMENTS.get('debug', 1)
 profile = ARGUMENTS.get('profile', 0)
 
-env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc'], toolpath = '.')
+env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxygen'], toolpath = '.')
 
 if int(debug):
    env.Append(CCFLAGS = '-g -Wall')
@@ -56,9 +56,9 @@ local_libs = SConscript(dirs=sub_dirs,
 
 SConscript(dirs=["interfaces"], exports=['env'])
 
-env.Program('trans', ("Run.cpp",) + local_libs, LIBS = libs)
+trans =env.Program('trans', ("Run.cpp",) + local_libs, LIBS = libs)
 
-env.Program('cube', ("CubeLM.cpp", )+ local_libs, LIBS = libs)
+cube = env.Program('cube', ("CubeLM.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
 
@@ -80,6 +80,16 @@ env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
 if build_config['has_gurobi']:
    env.Program('fullparser', ("FullParser.cpp", )+ local_libs)
    env.Program('scarab', ("Main.cpp", ) + local_libs)
+
+
+docs = env.Doxygen('Doxyfile')
+env.Alias('document', docs)
+
+
+regress = env.Command('regress', [trans, cube], 'python scripts/acl_regression.py')
+env.Alias('regression', regress)
+
+env.Command('cscope.out', [trans, cube], 'cscope-indexer')
 
 
 

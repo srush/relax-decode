@@ -1,6 +1,6 @@
 Import('env')
 
-sources = ("dual_subproblem.cpp", "Decode.cpp", "NGramCache.cpp")
+sources = ("dual_subproblem.cpp", "SplitDecoder.cpp", "Decode.cpp", "NGramCache.cpp")
 decode = env.Library('trans_decode', sources)
 
 Return('decode')
