@@ -195,7 +195,7 @@ latex_documents = [
 # If false, no module index is generated.
 #latex_use_modindex = True
 
-jsmath_path="/usr/share/jsmath/easy/load.js"
+jsmath_path="jsmath/easy/load.js"
 
 
 
