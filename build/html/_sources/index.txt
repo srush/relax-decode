@@ -25,9 +25,9 @@ Tagger
    :project: scarab
    :members:
 
+Hello :math:`a^2`
 
 .. math::
-
    a+b+c^2 b
 
 Indices and tables
