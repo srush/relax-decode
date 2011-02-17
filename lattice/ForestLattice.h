@@ -11,12 +11,26 @@
 using namespace std;
 using namespace lattice;
 using namespace Scarab::Graph;
+struct Word{
+  const int id() const {
+    return _id;
+  }
+Word(int id) :_id(id){
+    
+  }
+private:
+  int _id;
+};
+
+
 struct Bigram{ 
   int w1;
   int w2;
   Bigram(int word1,int word2): w1(word1), w2(word2) {}
   Bigram(){}
 };
+
+
 
 /*class LatNode : public Graphnode {
  public:
@@ -50,8 +64,17 @@ class ForestLattice {
     return _proper_graph->node(i);//*_nodes[i];
   };
 
+  // Deprecated
   bool is_phrase_node(int n) const {
     return word_node[n] != -1;
+  }
+  
+  bool is_phrase_node(const Graphnode & node) const {
+    return word_node[node.id()] != -1;
+  }
+
+  const Nodes & phrase_nodes() const {
+    return _phrase_nodes;
   }
 
   bool is_word(int w) const {
@@ -117,12 +140,23 @@ class ForestLattice {
 
   inline int first_words(int n, int i) const {
     assert (is_phrase_node(n));
-    return _first_words[n][i];
+    return _first_words[n][i].id();
   }
 
+  inline const vector <Word> & first_words(const Graphnode & n) const {
+    assert (is_phrase_node(n));
+    return _first_words[n.id()];
+  }
+
+  inline const vector <Word> & last_words(const Graphnode & n) const {
+    assert (is_phrase_node(n));
+    return _last_words[n.id()];
+  }
+
+  // Deprecated
   inline int last_words(int n, int i) const {
     assert (is_phrase_node(n));
-    return _last_words[n][i];
+    return _last_words[n][i].id();
   }
 
   inline Bigram last_bigrams(int n, int i) const {
@@ -145,6 +179,10 @@ class ForestLattice {
   }
   void make_proper_graph(const Lattice & lat);
   
+  const vector <Bigram> & get_bigrams_at_node(const Graphnode & node) const {
+    return bigrams_at_node[node.id()];
+  }
+
   vector<vector<Bigram> > bigrams_at_node;
   vector <string>  _edge_label_by_nodes; 
  private:
@@ -161,9 +199,13 @@ class ForestLattice {
   vector<vector<int> > graph;
   vector<vector<int> > _edge_by_nodes;
 
-  vector<vector<int> > _first_words;
-  vector<vector<int> > _last_words;
+  vector<vector<Word> > _first_words;
+  vector<vector<Word> > _last_words;
+
+
   vector<vector<Bigram> > _last_bigrams;
+
+  vector <const Graphnode * > _phrase_nodes;
 
   vector<int> _last_same;
 

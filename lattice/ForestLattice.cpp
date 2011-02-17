@@ -10,6 +10,7 @@ void ForestLattice::make_proper_graph(const Lattice & lat) {
   Edges all_edges;
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
+    assert(node.id() == nodes.size());
     nodes.push_back(new Graphnode(node.id()));
   }
   
@@ -65,6 +66,8 @@ ForestLattice::ForestLattice(const Lattice & lat) {
 
   _lat_word_to_hyp_node.resize(num_word_nodes);
   _hyp_node_to_lat_word.resize(num_word_nodes);
+
+  make_proper_graph(lat);
 
   for (int i =0; i< num_word_nodes; i++) {
   
@@ -125,18 +128,18 @@ ForestLattice::ForestLattice(const Lattice & lat) {
         //assert(plet.word(last).subword_original_id() != 0 );
         //cout << "First " << node.id() << " " << plet.word(0).subword_original_id() << endl;
         //cout << "Last " << node.id() << " " << plet.word(last).subword_original_id() << endl;
-        _first_words[node.id()].push_back(plet.word(0).subword_original_id());
+        _first_words[node.id()].push_back(Word(plet.word(0).subword_original_id()));
 
 
         for (uint i =0 ; i < _last_words[node.id()].size(); i++) {
-          if (plet.word(last).word() == _words[_last_words[node.id()][i]]) {
+          if (plet.word(last).word() == _words[_last_words[node.id()][i].id()]) {
             // this position is the same as some previous
-            _last_same[plet.word(last).subword_original_id()] = _last_words[node.id()][i];
+            _last_same[plet.word(last).subword_original_id()] = _last_words[node.id()][i].id();
             break;
           }
         }
 
-        _last_words[node.id()].push_back(plet.word(last).subword_original_id());
+        _last_words[node.id()].push_back(Word(plet.word(last).subword_original_id()));
         
         if (plet.word_size() >= 2) {
           Bigram b(plet.word(last-1).subword_original_id(), 
@@ -192,6 +195,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
       //cout << node.GetExtension(word) << endl;
       //cout <<node.id() << endl;
       //_words[node.id()]= node.GetExtension(word);
+      _phrase_nodes.push_back(&_proper_graph->node(node.id()));
     } else {
       word_node[node.id()] = -1;
       edge_node[node.id()] = 1;
@@ -215,7 +219,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
     final[lat.final(i)] = 1;
   }  
 
-  make_proper_graph(lat);
+
   //cout << "Same " << same << endl;
   //cout << "Words " << num_word_nodes << endl;
 } 

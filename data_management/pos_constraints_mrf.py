@@ -116,7 +116,7 @@ if __name__=="__main__":
     test_seen = len(group1[1])
     #print training_seen, test_seen 
     
-    bonus = 2* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
+    bonus = 5* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
     print >>sys.stderr, bonus
     if t == "nbayes":
       posmrf.add_naive_bayes_edges(bonus)

@@ -29,6 +29,11 @@ int main(int argc, char ** argv) {
     fname << argv[1] << i;
     Forest f = Forest::from_file(fname.str().c_str());
 
+    // transition to having <s> border words
+    if (FULLBUILT) {
+      //f.append_end_nodes();
+    }
+
     Lattice lat;
   
     {

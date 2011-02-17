@@ -7,7 +7,7 @@ profile = ARGUMENTS.get('profile', 0)
 env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxygen'], toolpath = '.')
 
 if int(debug):
-   env.Append(CCFLAGS = '-g -Wall')
+   env.Append(CCFLAGS = '-g -ggdb -Wall')
 elif int(profile):
    env.Append(CCFLAGS = '-O2 -pg',
                      LINKFLAGS = '-O2 -pg')
@@ -56,9 +56,9 @@ local_libs = SConscript(dirs=sub_dirs,
 
 SConscript(dirs=["interfaces"], exports=['env'])
 
-trans =env.Program('trans', ("Run.cpp",) + local_libs, LIBS = libs)
+trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
 
-cube = env.Program('cube', ("CubeLM.cpp", )+ local_libs, LIBS = libs)
+cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
 
 env.Program('parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
 

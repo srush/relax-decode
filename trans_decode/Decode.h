@@ -81,6 +81,8 @@ class Decode: public SubgradientProducer {
   EdgeCache compute_edge_penalty_cache();
   double best_modified_derivation(const EdgeCache& penalty_cache, const HypergraphAlgorithms & ha, NodeBackCache & back_pointers);
   wvector construct_parse_subgrad(const HEdges used_edges);
+  wvector construct_lm_subgrad(const vector <const ForestNode*> &used_words, const vector <int> & used_lats,const vector <string> & used_strings, double & dual, double & cost_total);
+  void remove_lm(int feat, wvector & subgrad, double & dual, double &cost_total  );
 };
 
 #endif

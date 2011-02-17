@@ -34,7 +34,7 @@ class ExtendCKY {
     _outside_edge_memo_table(forest.num_edges())
 
       {
-        _is_first = true;
+        
       }
     
     double best_path(NodeBackCache & back_pointers);
@@ -73,7 +73,7 @@ class ExtendCKY {
   //                                      NodeBackCache & back_pointers);
 
   vector <BestHyp *> _to_delete;
-  bool _is_first;
+  
 };
 
 

@@ -135,6 +135,18 @@ small_brown_200 = Experiment({
     "penalty" : 2.0
     })
 
+small_brown_extra_200 = Experiment({
+    "prefix": "brown_extra", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 91,
+    "num_constraints" : 157,
+    "unk_thres" : 200,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
+
 small_brown_200_potts = Experiment({
     "prefix": "brown_simple_1", 
     "model_type": "potts",

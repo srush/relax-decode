@@ -52,7 +52,6 @@ public:
     return _id;
   }
 
-
   string label() const {
     return _label;
   }
@@ -140,6 +139,10 @@ public:
   
   void reid(int new_id) {
     _id = new_id;
+  }
+
+  const string & label() const {
+    return _label; 
   }
 
 private:  

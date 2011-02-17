@@ -3,8 +3,8 @@ from itertools import *
 
 r = os.system
 
-r("./trans ../example/output ../example/rev_lat_out ../example/config.ini ../example/big.lm  1 9 | grep END | tee /tmp/regress")
-r("./cube ../example/output ../example/config.ini ../example/big.lm  100 1 9 | grep END | tee /tmp/cube_regress")
+r("./trans ../example/buildfull/output ../example/buildfull/rev_lat_out ../example/config.ini ../example/big.lm  1 9 | grep END | tee /tmp/regress")
+r("./cube ../example/buildfull/output ../example/config.ini ../example/big.lm  100 1 9 | grep END | tee /tmp/cube_regress")
 
 new = open("/tmp/regress") 
 old = open("regression/simple")

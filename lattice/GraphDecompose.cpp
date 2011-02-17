@@ -20,13 +20,12 @@ GraphDecompose::GraphDecompose() {
 void GraphDecompose::compute_bigrams() {
   
 
-  for (int n=0; n < g->num_nodes; n++ ) {
-    if (!g->is_phrase_node(n)) continue; 
+  //for (int n=0; n < g->get_graph().nodes()num_nodes; n++ ) {
+  foreach (Node n, g->phrase_nodes() ) {
     // first add bigrams within n
-    //TODO
-    for (uint i =0; i < g->bigrams_at_node[n].size(); i++) {
+    foreach (const Bigram & b, g->get_bigrams_at_node(*n)) {
       //int w1 = g->words(n, i);
-      Bigram b = g->bigrams_at_node[n][i];
+      //Bigram b = g->bigrams_at_node[n][i];
       assert(g->is_word(b.w1));
       assert(g->is_word(b.w2));
       valid_bigrams.push_back(b);
@@ -39,29 +38,19 @@ void GraphDecompose::compute_bigrams() {
 
     // 
 
-    for (int n2=0; n2 < g->num_nodes; n2++ ) {
-      if (!g->is_phrase_node(n2)) continue;
-      if (n == n2) continue;
-      if (all_pairs_path_exist[n][n2]) { 
+    foreach (Node n2, g->phrase_nodes()) {
+      if (n->id() == n2->id()) continue;
+      if (all_pairs_path_exist[n->id()][n2->id()]) { 
         //cout << "NODE " << n << " " << n2 << endl;
-        for (int i =0; i < g->num_last_words(n); i++) {
-          int w1 = g->last_words(n, i);
-          for (int j=0; j < g->num_first_words(n2); j++ ) { 
-            int w2 = g->first_words(n2, j);
+        foreach (const Word & w1, g->last_words(*n)) {
+          foreach (const Word & w2, g->first_words(*n2)) {
             //cout << "WORD " << g->get_word(w1)<< " "<< w1 << " " << n << " "<< i << " " <<  g->get_word(w2)<< " " << w2 << " " << n2 << " " << j << endl;
-            valid_bigrams.push_back(Bigram(w1,w2));
-            assert(g->is_word(w1));
-            assert(g->is_word(w2));
-            forward_bigrams[w1].push_back(w2);        
-            backward_bigrams[w2].push_back(w1);        
-            //cout << w2 << " " << w1 << endl;
+            valid_bigrams.push_back(Bigram(w1.id(), w2.id()));
+            assert(g->is_word(w1.id()));
+            assert(g->is_word(w2.id()));
+            forward_bigrams[w1.id()].push_back(w2.id());        
+            backward_bigrams[w2.id()].push_back(w1.id());        
           }
-        //bigram_bitset[n][n2].resize(bigram_pairs[n][n2].size());
-        //for (unsigned int i=0; i < bigram_pairs[n][n2].size() ; i ++) {
-        //for (int j=0; j < bigram_pairs[n][n2][i].size(); j++) {
-        //  bigram_bitset[n][n2][i][bigram_pairs[n][n2][i][j]] = 1;
-        //}
-        //}
         }
       }   
     }

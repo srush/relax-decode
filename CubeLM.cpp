@@ -69,7 +69,7 @@ int main(int argc, char ** argv) {
     //google::protobuf::ShutdownProtobufLibrary();
     
 
-    f.append_end_nodes();
+    //f.append_end_nodes();
     HypergraphAlgorithms ha(f);
     Cache<Hyperedge, double> * w = ha.cache_edge_weights( *weight);
     Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);

@@ -6,6 +6,8 @@ from lattice_pb2 import *
 from hypergraph_pb2 import *
 from lexical_pb2 import *
 
+new_style = True
+
 import  lattice_pb2 as lattice
 DOWN = "D"
 UP = "U"
@@ -184,38 +186,45 @@ class NodeExtractor(object):
     self.memo = {}
     self.graph = Graph()
     self.forest = forest
-    first_state = LexNode(self.graph, "<s>", -1)
-    first_state.proto.Extensions[has_phrases] = True
-    proto_plet = first_state.proto.Extensions[phraselets].phraselet.add()
-    proto_plet.phraselet_hypergraph_edge = -1
-    for w in ['<s>', '<s>']:  
-      subword = proto_plet.word.add()
-      subword.word = w
-      subword.subword_original_id = self.original_id
-      # beginning not in graph
-      subword.subword_hypergraph_node_id = -1
-      #print self.original_id, subword.word
-      self.original_id += 1
+    
+    if not new_style:
 
-    (first, last) = self.extract_fsa(self.forest.node[forest.root])
-    
-    first_state.add_edge(first, "")
+      first_state = LexNode(self.graph, "<s>", -1)
+      first_state.proto.Extensions[has_phrases] = True
+      proto_plet = first_state.proto.Extensions[phraselets].phraselet.add()
+      proto_plet.phraselet_hypergraph_edge = -1
+      for w in ['<s>', '<s>']:  
+        subword = proto_plet.word.add()
+        subword.word = w
+        subword.subword_original_id = self.original_id
+        # beginning not in graph
+        subword.subword_hypergraph_node_id = -1
+        #print self.original_id, subword.word
+        self.original_id += 1
 
-    last_state = LexNode(self.graph, "</s>", -1)
-    last_state.proto.Extensions[has_phrases] = True
-    last.add_edge(last_state, "")
+    (first, last) = self.extract_fsa(self.forest.node[forest.root], True)
+    
+    if not new_style:
+      first_state.add_edge(first, "")
+
+      last_state = LexNode(self.graph, "</s>", -1)
+      last_state.proto.Extensions[has_phrases] = True
+      last.add_edge(last_state, "")
     
     
-    proto_plet = last_state.proto.Extensions[phraselets].phraselet.add()
-    proto_plet.phraselet_hypergraph_edge = -1
-    for w in ['</s>', '</s>']:  
-      subword = proto_plet.word.add()
-      subword.word = w
-      subword.subword_original_id = self.original_id
-      # end not in hypergraph yet
-      subword.subword_hypergraph_node_id = -1
-      #print self.original_id, subword.word
-      self.original_id += 1
+      proto_plet = last_state.proto.Extensions[phraselets].phraselet.add()
+      proto_plet.phraselet_hypergraph_edge = -1
+      for w in ['</s>', '</s>']:  
+        subword = proto_plet.word.add()
+        subword.word = w
+        subword.subword_original_id = self.original_id
+        # end not in hypergraph yet
+        subword.subword_hypergraph_node_id = -1
+        #print self.original_id, subword.word
+        self.original_id += 1
+    else:
+      first_state = first
+      last_state = last
 
     self.graph.set_start(first_state)
     self.graph.set_final(last_state)
@@ -229,7 +238,7 @@ class NodeExtractor(object):
 
     return self.graph
 
-  def extract_fsa(self, node):
+  def extract_fsa(self, node, is_root = False):
     "Constructs the segment of the fsa associated with a node in the forest"
     
 
@@ -294,18 +303,18 @@ class NodeExtractor(object):
         protoedge = previous_node.add_edge(new_state, "")                
 
         assert(to_node != -1 or my_has_phrases);
+        if not is_root:
+          protoedge.label = "%s I %s"%((node.id, DOWN), (to_node, DOWN))
+          original = protoedge.Extensions[origin]
+          original.has_origin = True
+          if my_has_phrases:
+            protoedge.label = "%s I w"%((node.id, DOWN),)
 
-        protoedge.label = "%s I %s"%((node.id, DOWN), (to_node, DOWN))
-        original = protoedge.Extensions[origin]
-        original.has_origin = True
-        if my_has_phrases:
-          protoedge.label = "%s I w"%((node.id, DOWN),)
-
-        original.original_id = self.get_label((node.id, DOWN), (to_node, DOWN), True or my_has_phrases)
+          original.original_id = self.get_label((node.id, DOWN), (to_node, DOWN), True or my_has_phrases)
 
 
-        for edge_dot, _ in my_phraselets:
-          original.hypergraph_edge.append(edge_dot.id)
+          for edge_dot, _ in my_phraselets:
+            original.hypergraph_edge.append(edge_dot.id)
 
       else:
         _, previous_node = self.extract_fsa(self.forest.node[from_node])
@@ -338,15 +347,16 @@ class NodeExtractor(object):
       if to_node == -1:
         next_node = up_state
         protoedge = new_state.add_edge(next_node, "")#(edge.label.encode('UTF-8') + " UP").decode('UTF-8') )
+        if not is_root:
 
-        if my_has_phrases:
-          protoedge.label = "w E %s"%((node.id, UP),)
-          original = protoedge.Extensions[origin]
-          original.has_origin = True
-          original.original_id = self.get_label((from_node, UP), (node.id, UP), my_has_phrases)
+          if my_has_phrases:
+            protoedge.label = "w E %s"%((node.id, UP),)
+            original = protoedge.Extensions[origin]
+            original.has_origin = True
+            original.original_id = self.get_label((from_node, UP), (node.id, UP), my_has_phrases)
         
-          for edge_dot, _ in my_phraselets:
-            original.hypergraph_edge.append(edge_dot.id)
+            for edge_dot, _ in my_phraselets:
+              original.hypergraph_edge.append(edge_dot.id)
 
       else:
         next_node, _ = self.extract_fsa(self.forest.node[to_node])

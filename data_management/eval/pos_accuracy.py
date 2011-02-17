@@ -10,7 +10,7 @@ def eval_pos(test_simple, gold_simple):
   correct = 0
   for test_sent, gold_sent in izip(test_simple, gold_simple):
     for test_word, gold_word in izip(test_sent, gold_sent):
-      #print test_word
+      print test_word.word, gold_word.word
       assert test_word.word == gold_word.word
       assert test_word.pos 
       assert gold_word.pos

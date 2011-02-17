@@ -170,6 +170,8 @@ class Hypernode {
    * @return Const iterator to edges.
    */
   virtual const vector <Hyperedge*> & in_edges() const =0; 
+
+  virtual const string  & label() const {return "";}; 
   
 };
 
