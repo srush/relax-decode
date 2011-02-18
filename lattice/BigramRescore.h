@@ -23,8 +23,11 @@ class BigramRescore {
     assert(w1 >= 0);
     assert(w2 >= 0);
 
-    int n1 = graph->lookup_word(w1);
-    int n2 = graph->lookup_word(w2);
+    Node no1 = graph->lookup_word(w1);
+    Node no2 = graph->lookup_word(w2);
+
+    int n1 = no1->id();
+    int n2 = no2->id();
 
     assert(gd->path_exists(n1, n2));     
     if (bigram_path[n1][n2] == NULL) {
@@ -48,12 +51,12 @@ class BigramRescore {
 
   inline float get_bigram_weight(int w1, int w2) {
     // w1 and w2 are word ids
-    int n1 = graph->lookup_word(w1);
-    int n2 = graph->lookup_word(w2);
+    Node n1 = graph->lookup_word(w1);
+    Node n2 = graph->lookup_word(w2);
     //assert (gd->path_exists(n1, n2)); 
     //assert(bigram_weights[n1][n2] != INF);
     //cout << "Bigram weights "<<  bigram_weights[n1][n2] << " " <<  current_weights[w2] << endl;
-    return bigram_weights[n1][n2] + current_weights[w2];
+    return bigram_weights[n1->id()][n2->id()] + current_weights[w2];
   }
 
 
@@ -62,6 +65,7 @@ class BigramRescore {
 
   vector <float > current_weights;
   vector <int > update_position;
+  //vector <bool > update_filter;
   vector <bool > update_filter;
   int update_len;
 
@@ -84,8 +88,8 @@ class BigramRescore {
   vector< vector<int> > backward_paths;
   
   void setup_problems();
-
-  void find_shortest(int n1, int n2);
+  void find_shortest(const Graphnode & n1, const Graphnode & n2);
+  
   const GraphDecompose * gd;  
   const ForestLattice * graph;  
   //vector <vector <bitset <NUMSTATES> > > bigram_cache;

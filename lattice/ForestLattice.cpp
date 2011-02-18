@@ -5,6 +5,16 @@
 #include "../common.h"
 using namespace std;
 
+ostream& operator<<(ostream& os, const Word& w){ 
+   os << w.id() << endl;
+  return os;
+}
+
+ostream& operator<<(ostream& os, const WordBigram& w){
+  os << w.w1 << " " << w.w2 << endl;
+  return os;
+}
+
 void ForestLattice::make_proper_graph(const Lattice & lat) {
   vector <Graphnode*> nodes;
   Edges all_edges;
@@ -39,11 +49,17 @@ void ForestLattice::make_proper_graph(const Lattice & lat) {
 }
 
 
-ForestLattice::ForestLattice(const Lattice & lat) {
-  num_nodes = lat.node_size();
-  num_word_nodes = lat.GetExtension(num_original_ids);
+ForestLattice::ForestLattice(const Lattice & lat):
+  num_word_nodes(lat.GetExtension(num_original_ids)),
+  _first_words(lat.node_size()), 
+  _last_words(lat.node_size()),
+  bigrams_at_node(lat.node_size()),
+  _words(num_word_nodes),
+  _lat_word_to_hyp_node(num_word_nodes),
+  _words_lookup(num_word_nodes)
+ {
+  int num_nodes = lat.node_size();
   int num_hyper_edges = lat.GetExtension(num_hypergraph_edges);
-  _words.resize(num_word_nodes);
   _is_word.resize(num_word_nodes);
   original_edges.resize(num_hyper_edges);
   edges_original.resize(num_word_nodes);
@@ -53,18 +69,15 @@ ForestLattice::ForestLattice(const Lattice & lat) {
   ignore_nodes.resize(num_nodes);
   final.resize(num_nodes);
   node_edges.resize(num_nodes);
-  graph.resize(num_nodes);
+  //graph.resize(num_nodes);
   _edge_by_nodes.resize(num_nodes);
   _edge_label_by_nodes.resize(num_word_nodes);
-  _words_lookup.resize(lat.GetExtension(num_original_ids));
+  //_words_lookup.resize(lat.GetExtension(num_original_ids));
   
-  _first_words.resize(num_nodes);
-  _last_words.resize(num_nodes);
   _last_bigrams.resize(num_nodes);
-  bigrams_at_node.resize(num_nodes);
   _last_same.resize(num_word_nodes);
 
-  _lat_word_to_hyp_node.resize(num_word_nodes);
+  //_lat_word_to_hyp_node.resize(num_word_nodes);
   _hyp_node_to_lat_word.resize(num_word_nodes);
 
   make_proper_graph(lat);
@@ -78,14 +91,14 @@ ForestLattice::ForestLattice(const Lattice & lat) {
  //int same =0;
   for (int i = 0; i < lat.node_size(); i++) {
     const Lattice_Node & node =  lat.node(i);
-
+    const Graphnode & gnode = _proper_graph->node(node.id());
 
     //cout << node.id()<<endl;
     //assert ((int)_nodes.size() == node.id());
     
     
     node_edges[node.id()] = node.edge_size();
-    graph[node.id()].resize(node.edge_size());
+    //graph[node.id()].resize(node.edge_size());
     _edge_by_nodes[node.id()].resize(num_nodes);
     //_edge_label_by_nodes[node.id()].resize(num_nodes);
 
@@ -97,49 +110,47 @@ ForestLattice::ForestLattice(const Lattice & lat) {
     if (node.GetExtension(has_phrases)) {
       const Phraselets & plets  = node.GetExtension(phraselets);
       int size = plets.phraselet_size();
-      //_first_words[node.id()];
-      //_last_words[node.id()]
 
       for (int i =0; i < size; i ++) {
         const Phraselet & plet= plets.phraselet(i);
         for (int j=0; j < plet.word_size(); j++) {
           const Subword & word = plet.word(j);
           int hyper_edge =plet.phraselet_hypergraph_edge();
+          Word our_word = Word(word.subword_original_id());
 
           if (word.subword_hypergraph_node_id()!= -1) {
-            _lat_word_to_hyp_node[word.subword_original_id()] = word.subword_hypergraph_node_id();
+            _lat_word_to_hyp_node.set_value(our_word,  word.subword_hypergraph_node_id());
             _hyp_node_to_lat_word[word.subword_hypergraph_node_id()] = word.subword_original_id();
-            //cout << word.subword_hypergraph_node_id() << " " << word.subword_original_id() << endl;
           }
-          _words_lookup[word.subword_original_id()] = node.id();
-          _words[word.subword_original_id()] = word.word();
+          _words_lookup.set_value(our_word, &gnode);
+          _words.set_value(our_word, word.word());
+
           _is_word[word.subword_original_id()] = 1;
           if (hyper_edge != -1)
             original_edges[hyper_edge].push_back(word.subword_original_id());
           if (j < plet.word_size() -1) {
-            bigrams_at_node[node.id()].push_back(Bigram(word.subword_original_id(),
-                                                         plet.word(j+1).subword_original_id()));
+            bigrams_at_node.get_no_check(gnode).push_back(WordBigram(our_word,
+                                                                     Word(plet.word(j+1).subword_original_id())));
           }
           
         }
         assert(plet.word_size() > 0); 
         int last = plet.word_size()-1;
         assert(plet.word(0).subword_original_id() != 0);
-        //assert(plet.word(last).subword_original_id() != 0 );
-        //cout << "First " << node.id() << " " << plet.word(0).subword_original_id() << endl;
-        //cout << "Last " << node.id() << " " << plet.word(last).subword_original_id() << endl;
-        _first_words[node.id()].push_back(Word(plet.word(0).subword_original_id()));
+        
+        _first_words.get_no_check(gnode).push_back(Word(plet.word(0).subword_original_id()));
 
 
-        for (uint i =0 ; i < _last_words[node.id()].size(); i++) {
-          if (plet.word(last).word() == _words[_last_words[node.id()][i].id()]) {
+        //for (uint i =0 ; i < _last_words.get(node).size(); i++) {
+        foreach (const Word & w, _last_words.get_default(gnode, vector<Word>())) { 
+          if (plet.word(last).word() == _words.get(w)) {
             // this position is the same as some previous
-            _last_same[plet.word(last).subword_original_id()] = _last_words[node.id()][i].id();
+            _last_same[plet.word(last).subword_original_id()] = w.id();
             break;
           }
         }
 
-        _last_words[node.id()].push_back(Word(plet.word(last).subword_original_id()));
+        _last_words.get_no_check(gnode).push_back(Word(plet.word(last).subword_original_id()));
         
         if (plet.word_size() >= 2) {
           Bigram b(plet.word(last-1).subword_original_id(), 
@@ -147,15 +158,6 @@ ForestLattice::ForestLattice(const Lattice & lat) {
           
           _last_bigrams[node.id()].push_back(b);
         }
-
-        // DEBUG
-        /*for (int i =0 ; i < _first_words.size(); i++) {
-          if (plet.word(0).word() == _words[_first_words[node.id()][i]]) {
-            cout << "SAME WORD";
-          }
-          }*/
-
-        
       }
     }
     
@@ -163,7 +165,7 @@ ForestLattice::ForestLattice(const Lattice & lat) {
     for (int j =0; j < node.edge_size(); j++) {
       const Lattice_Edge & edge = node.edge(j);
       
-      graph[node.id()][j] = edge.to_id();
+      //graph[node.id()][j] = edge.to_id();
       
       string label = edge.label();
 
@@ -200,28 +202,12 @@ ForestLattice::ForestLattice(const Lattice & lat) {
       word_node[node.id()] = -1;
       edge_node[node.id()] = 1;
     }
-    //int orig_node =node.GetExtension(original_node);
-    //bool ignore = node.GetExtension(ignore_node);
-    //if (ignore) {
-      //cout << "IGNORING " << node.id() <<endl;
-      //assert (orig_node == -1);
-    //}
-    //if (orig_node != -1) {
-    //assert (orig_node >= 0 && orig_node < num_nodes);
-    //original_nodes[orig_node].push_back(node.id());
-    //}
-    
-    //ignore_nodes[node.id()] = node.GetExtension(ignore_node);    
   }
 
   start = lat.start();
   for (int i=0; i < lat.final_size(); i++) {
     final[lat.final(i)] = 1;
   }  
-
-
-  //cout << "Same " << same << endl;
-  //cout << "Words " << num_word_nodes << endl;
 } 
 
 

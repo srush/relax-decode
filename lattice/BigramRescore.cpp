@@ -11,16 +11,14 @@ using namespace std;
 
 
 BigramRescore::BigramRescore(const ForestLattice * graph_in, const GraphDecompose * gd_in):
-  gd(gd_in), graph(graph_in){
+  gd(gd_in), graph(graph_in)  {
   // huge hack
-  int num_nodes = max(graph_in->num_nodes, graph_in->num_word_nodes);
+  int num_nodes = max((int)graph_in->get_graph().num_nodes(), graph_in->num_word_nodes);
   current_weights.resize(num_nodes);
   update_position.resize(num_nodes);
   update_filter.resize(num_nodes);
 
-
-
-  int num_actual_nodes = graph_in->num_nodes;
+  int num_actual_nodes = graph_in->get_graph().num_nodes();
   
   forward_paths.resize(num_actual_nodes);
   backward_paths.resize(num_actual_nodes);
@@ -51,8 +49,8 @@ void BigramRescore::update_weights(vector <int>  u_pos, vector <float> u_values,
   clock_t begin=clock();
 
 
-  for (int i=0; i< graph->num_nodes; i++) {
-    update_filter[i] = 0;
+  for (int i=0; i< graph->get_graph().num_nodes(); i++) {  
+    update_filter[i] =  0;
   }
 
   update_len = len;
@@ -73,48 +71,23 @@ void BigramRescore::update_weights(vector <int>  u_pos, vector <float> u_values,
 }
 
 
-
-/*void BigramRescore::cache_paths(int n1, int n2) {  
-  //assert(!bigram_cache[n1][n2].any());
-  vector <int> * path = gd->get_path(n1,n2);
-  int s = path->size();
-  for (int split=0; split < s; split++) {
-    int k = (*path)[split];
-
-    if (k == n2) {
-      bigram_cache[n1][n2][n2] = true;
-    } else {
-
-      if (!bigram_cache[n1][k].any()) {
-        cache_paths(n1, k);
-      } 
-
-      if (!bigram_cache[k][n2].any()) {
-        cache_paths(k, n2);
-      } 
-      bigram_cache[n1][n2] = bigram_cache[n1][k] | bigram_cache[k][n2]; 
-    }
-  }
-  assert(bigram_cache[n1][n2].any());
-  }*/
-
-
 void BigramRescore::cache_forward() {  
-  //assert(!bigram_cache[n1][n2].any());
 
-  for (int n1 =0; n1 < graph->num_nodes; n1++) {   
-    for (int i = 0; i< graph->num_nodes; i++) {
-      if (!graph->is_phrase_node(n1)) {
-        if (gd->path_exists(n1,i) || i == n1) {
-          forward_paths[n1].push_back(i);
+  foreach (Node n1, graph->get_graph().nodes()) {
+    foreach (Node i, graph->get_graph().nodes()) {
+
+      if (!graph->is_phrase_node(*n1)) {
+        if (gd->path_exists(*n1, *i) || i->id() == n1->id()) {
+          forward_paths[n1->id()].push_back(i->id());
         }
       } 
-      if (gd->path_exists(i,n1)) {
-        backward_paths[n1].push_back(i);
+      if (gd->path_exists(*i, *n1)) {
+        backward_paths[n1->id()].push_back(i->id());
       }
     }
-    if (graph->is_phrase_node(n1)) {
-      forward_paths[n1].push_back(n1);
+
+    if (graph->is_phrase_node(*n1)) {
+      forward_paths[n1->id()].push_back(n1->id());
     }
   }
 }
@@ -138,41 +111,30 @@ void BigramRescore::reconstruct_path(int n1, int n2, const vector<vector <int> >
   }
 }
 
-void BigramRescore::find_shortest(int n1, int n2) {
+void BigramRescore::find_shortest(const Graphnode & no1, const Graphnode & no2) {
+  int n1 = no1.id();
+  int n2 = no2.id();
   
   assert (need_to_recompute[n1][n2]);
-  recomputed ++;
-  /*bool has_update = false;
-  for (int i=0; i < update_len; i++) {
-    
-    if (bigram_cache[n1][n2][update_position[i]]) {
-      has_update = true;
-      break;
-    }
-    }*/
+  recomputed++;
   
   need_to_recompute[n1][n2] =0;
 
-  //if (update_len != 0 && !has_update ) {    
-    //cout << "skip" << endl;
-    //return;
-  //}
-
-  //assert(best_split_score[n1][n2] == 0 || update_len != 0);
-  //double old_score = bigram_weights[n1][n2]; 
   int old_split = best_split[n1][n2];
+
   if (n1 != n2) 
     bigram_weights[n1][n2] = INF;
 
-  assert(gd->path_exists(n1, n2));
-  vector <int> * path = gd->get_path(n1,n2);
+  assert(gd->path_exists(no1, no2));
+
+  const vector <Node> * path = gd->get_path(no1,no2);
   int s = path->size();
   for (int split=0; split < s; split++) {
-    int k = (*path)[split];
+    Node k = (*path)[split];
     
-    if (k == n2) {
+    if (k->id() == n2) {
       //base case
-      int edge_id = graph->get_edge_label(n1, n2);
+      int edge_id = graph->get_edge_label(no1, no2);
       
       float val;
       if (edge_id != -1) 
@@ -183,27 +145,24 @@ void BigramRescore::find_shortest(int n1, int n2) {
       //cout << "Update" << k << endl;
       //assert (update_filter[k]);
       if (val < bigram_weights[n1][n2]) {
-        best_split[n1][n2] = k;
+        best_split[n1][n2] = k->id();
         bigram_weights[n1][n2] = val;
       }
     } else {
       float a, b;
-      if (need_to_recompute[n1][k]) {
-        find_shortest(n1, k);      
+      if (need_to_recompute[n1][k->id()]) {
+        find_shortest(no1, *k);      
       } 
-      a = bigram_weights[n1][k];
+      a = bigram_weights[n1][k->id()];
       
-      if (need_to_recompute[k][n2]) {
-        find_shortest(k, n2);      
+      if (need_to_recompute[k->id()][n2]) {
+        find_shortest(k->id(), no2);      
       } 
-      b = bigram_weights[k][n2];
+      b = bigram_weights[k->id()][n2];
       
       if (a + b < bigram_weights[n1][n2]) {
-        best_split[n1][n2] = k;
+        best_split[n1][n2] = k->id();
         bigram_weights[n1][n2] = a+b;
-        //array.clear();
-        //array.insert(array.end(), one.begin(), one.end());
-        //array.insert(array.end(), two.begin(), two.end());
       }
     }
   }
@@ -222,9 +181,9 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
 
   if (initialize || !OPTIMIZE) {
     
-    for (int i=0; i < graph->num_nodes; i++) {
+    for (int i=0; i < graph->get_graph().num_nodes(); i++) {
       update_filter[i] = 1;
-      for (int j=0;j < graph->num_nodes; j++) {
+      for (int j=0;j < graph->get_graph().num_nodes(); j++) {
         if (i!= j)
           need_to_recompute[i][j] = 1;
       }
@@ -267,22 +226,20 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
   
     begin = clock();
   }
-  for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
-        
-    Bigram b = gd->valid_bigrams[i];
-    int w1 = b.w1;
-    int w2 = b.w2;
+  //for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
+  foreach (const WordBigram & b, gd->valid_bigrams()) {
+    int w1 = b.w1.id();
+    int w2 = b.w2.id();
 
-    int n1 = graph->lookup_word(w1);
-    int n2 = graph->lookup_word(w2);
+    Node n1 = graph->lookup_word(b.w1);
+    Node n2 = graph->lookup_word(b.w2);
      
     // first do it with recursion
-    if (need_to_recompute[n1][n2] && gd->path_exists(n1, n2)) {
-      find_shortest(n1, n2); 
-      if (bigram_path[n1][n2] != NULL) {
-        bigram_path[n1][n2]->clear();
+    if (need_to_recompute[n1->id()][n2->id()] && gd->path_exists(*n1, *n2)) {
+      find_shortest(n1->id(), n2->id()); 
+      if (bigram_path[n1->id()][n2->id()] != NULL) {
+        bigram_path[n1->id()][n2->id()]->clear();
       }
-       //reconstruct_path(w1, w2, best_split, bigram_path[w1][w2]); 
     }
   }
   if (TIMING) {
@@ -293,112 +250,3 @@ void BigramRescore::recompute_bigram_weights(bool initialize) {
 }
 
 
-  //cout << "Percent moved: " << moved/ float(total) << endl;
-  /*for (int i=0; i < graph->num_nodes; i++) {
-    update_filter[i] = 1;
-    for (int j=0;j<graph->num_nodes; j++) {
-      need_to_recompute[i][j] = 1;
-    }
-  }
-
-
-  for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
-    Bigram b = gd->valid_bigrams[i];
-    int w1 = b.w1;
-    int w2 = b.w2;
-    
-    // Basically we need to find the best path between w1 and w2
-    // using only gd->all_pairs_path
-        
-    // first do it with recursion
-    if (need_to_recompute[w1][w2]) {
-       find_shortest(w1, w2, best_split, best_split_score2); 
-       if (best_split_score[w1][w2] != best_split_score2[w1][w2]) {
-         cout << "ERROR " << w1 << " " <<w2 << " " <<best_split_score[w1][w2] << " "<<best_split_score2[w1][w2] << endl;
-         assert(false);
-       }
-    }
-
-    }*/
-
-
-  //clock_t end=clock();
-  //cout << "Weight Update: " << double(diffclock(end,begin)) << " ms"<< endl;
-/*
-void BigramRescore::recompute_bigram_weights_old() {
-  
-  clock_t begin=clock();
-
-  for (int i=0;i < graph->num_nodes; i++) {
-    for (int j=0;j<graph->num_nodes; j++) {
-      //best_split_score[i][j] =0;
-      need_to_recompute[i][j] = 1;
-    }
-  }
-
-
-
-  for (unsigned int i=0; i< gd->valid_bigrams.size() ;i++) {
-    Bigram b = gd->valid_bigrams[i];
-    int w1 = b.w1;
-    int w2 = b.w2;
-    
-    // Basically we need to find the best path between w1 and w2
-    // using only gd->all_pairs_path
-        
-    // first do it with recursion
-    find_shortest(w1, w2, best_split, best_split_score);
-    bigram_weights[w1][w2] = best_split_score[w1][w2]; 
-    bigram_path[w1][w2].clear();
-    reconstruct_path(w1, w2, best_split, bigram_path[w1][w2]);
-  }
-
-  clock_t end=clock();
-  //cout << "Weight Update: " << double(diffclock(end,begin)) << " ms"<< endl;
-  
-}
-*/
-// try it as a loop
-  /*
-  for (int n=0;n < graph->num_nodes;n++) {
-    for (int n2=0;n2 < graph->num_nodes;n2++) {
-      if (need_to_recompute[n][n2]) {
-        bigram_weights[n][n2] = INF;
-      }
-    }
-    
-    // If path exists set it to 1
-    for (int j=0;j < graph->node_edges[n]; j++) {
-      int n2 = graph->graph[n][j];
-      float val =  current_weights[n2];
-      // should only get to base case on update
-      
-      if (val < bigram_weights[n][n2]) {
-        best_split[n][n2] = n2;
-        bigram_weights[n][n2] = val;
-      }
-    }
-  }
-
-
-  for (int k=0;k < graph->num_nodes; k++) {
-    
-    // lex nodes can't be in the middle of a path
-    if (graph->word_node[k]!= -1) continue;
-    
-    for (int n=0; n < graph->num_nodes; n++) {
-      if (!gd->all_pairs_path_exist[n][k]) continue;
-      
-      for (int n2=0; n2 < graph->num_nodes; n2++) {
-        if (need_to_recompute[n][n2] && gd->all_pairs_path_exist[n][k] &&  gd->all_pairs_path_exist[k][n2] ) {
-          //for_updates[k].push_back( Bigram(n, n2));
-          double score = bigram_weights[n][k] + bigram_weights[k][n2];
-          if (score < bigram_weights[n][n2]) {
-            best_split[n][n2] = k;
-            bigram_weights[n][n2] = score;
-          }
-        }
-      }
-    }
-  }
-  */

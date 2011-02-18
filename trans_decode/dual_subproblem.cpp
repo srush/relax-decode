@@ -307,12 +307,10 @@ int Subproblem::fixed_last_bigram(int w1) {
 
 void Subproblem::initialize_caches() {
 
-  foreach (Bigram b, gd->valid_bigrams) { 
-    //int i=0; i < gd->valid_bigrams.size(); i++) {
-    //Bigram b = gd->valid_bigrams[i];
-    int w1 = b.w1;
-    int w2 = b.w2;
-    bigram_in_lm[b.w1][b.w2] =  word_bow_bigram_reverse(b.w1, b.w2);
+  foreach (const WordBigram & b, gd->valid_bigrams()) { 
+    int w1 = b.w1.id();
+    int w2 = b.w2.id();
+    bigram_in_lm[w1][w2] =  word_bow_bigram_reverse(w1, w2);
     forward_trigrams[w1][w2] = new vector<int>();
     forward_trigrams_score[w1][w2] = new vector<double>();
     bigram_score_cache[w1][w2] = (LMWEIGHT) *  word_prob_bigram_reverse(w1, w2);
@@ -418,34 +416,33 @@ void Subproblem::solve_proj(int d2, int d3,
       best_bigram_with_backoff_forward[i] = -1;
     }
     
-    foreach (Bigram b, gd->valid_bigrams) { 
-      //for (int i=0; i < gd->valid_bigrams.size(); i++) {
-      //Bigram b = gd->valid_bigrams[i];
-      
+    foreach (const WordBigram & b, gd->valid_bigrams()) { 
+      int w1 = b.w1.id();
+      int w2 = b.w2.id();
       for (int ord=0; ord < ORDER-1; ord++) {
-        bigram_weight_cache[ord][b.w1][b.w2] = bi_rescore[ord]->get_bigram_weight(b.w1, b.w2);
+        bigram_weight_cache[ord][w1][w2] = bi_rescore[ord]->get_bigram_weight(w1, w2);
       }
     
     
-      if (TRIPROJECT && project_word(b.w2) != d3) {
+      if (TRIPROJECT && project_word(w2) != d3) {
         
       } else {
     
-        float score = bigram_weight_cache[1][b.w1][b.w2];
+        float score = bigram_weight_cache[1][w1][w2];
       
     
-        if (score < best_bigram[b.w1]) {
-          best_bigram[b.w1] = score;
+        if (score < best_bigram[w1]) {
+          best_bigram[w1] = score;
         }
       
       
-        double backoff = backoff_score_cache[b.w1][b.w2];
+        double backoff = backoff_score_cache[w1][w2];
         float score_with_backoff =  backoff + score;
-        if (score_with_backoff < best_bigram_with_backoff[b.w1]) {
-          best_bigram_with_backoff[b.w1] = score_with_backoff;
-          best_backoff[b.w1] = backoff;
-          assert(!TRIPROJECT || project_word(b.w2) == d3);
-          best_bigram_with_backoff_forward[b.w1] = b.w2;
+        if (score_with_backoff < best_bigram_with_backoff[w1]) {
+          best_bigram_with_backoff[w1] = score_with_backoff;
+          best_backoff[w1] = backoff;
+          assert(!TRIPROJECT || project_word(w2) == d3);
+          best_bigram_with_backoff_forward[w1] = w2;
         }
       }
     }
@@ -517,7 +514,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
   // counters
   int zeros =0;
-  assert(gd->valid_bigrams.size() > 0);
+  assert(gd->valid_bigrams().size() > 0);
   int lookups = 0;
   
   // words that are bounded by a later word

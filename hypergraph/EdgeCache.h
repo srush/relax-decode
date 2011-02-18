@@ -39,6 +39,15 @@ class Cache {
     return store[id];
   }
 
+  const V & get_default(const C & edge, V def ) const { 
+    int id = edge.id();
+    if ( has_value[id]) {
+      return store[id];
+    } else {
+      return def;
+    }
+  }
+
   V get_value(const C & edge) const {
     int id = edge.id();
     assert (has_value[id]);

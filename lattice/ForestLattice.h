@@ -8,16 +8,18 @@
 #include <string>
 #include <vector>
 #include "Graph.h"
+
+#include "EdgeCache.h"
+
 using namespace std;
 using namespace lattice;
 using namespace Scarab::Graph;
 struct Word{
+public:
   const int id() const {
     return _id;
   }
-Word(int id) :_id(id){
-    
-  }
+Word(int id) :_id(id){}
 private:
   int _id;
 };
@@ -31,28 +33,27 @@ struct Bigram{
 };
 
 
+struct WordBigram{ 
+  Word w1;
+  Word w2;
+  WordBigram(Word word1, Word word2): w1(word1), w2(word2) {}
+  //WordBigram(){}
+};
 
-/*class LatNode : public Graphnode {
- public:
- LatNode(int id, vector <const Graphedge *> edges):_id(id), _edges(edges){}
-    
-  uint id() const  {return _id;}
+ostream& operator<<(ostream& os, const Word& w); 
+ostream& operator<<(ostream& os, const WordBigram& w); 
 
-  unsigned int num_edges() const {return _edges.size();}
-  const Edges & edges() const  {return _edges;}
- private:
-  int _id;
-  const Edges & _edges;
-  };*/
+
 
 class ForestLattice {
  public:
-  //bool is_node_word(int node_num) const {
-  //return word_node[node_num] != -1;
-  //}
   string get_word(int word_num) const {
     assert(is_word(word_num));
-    return _words[word_num];
+    return _words.store[word_num];
+  }
+
+  string get_word(const Word & word) const {
+    return _words.get(word);
   }
 
   const Graph & get_graph() const {
@@ -77,16 +78,12 @@ class ForestLattice {
     return _phrase_nodes;
   }
 
+  int num_word_nodes;
+
   bool is_word(int w) const {
     assert(w >= 0 && w < num_word_nodes);
     return _is_word[w];
   }
-
-  // Graph interface
-  int num_nodes;
-  int num_word_nodes;
-
-  
   
   vector<int> final;
   int start;
@@ -95,41 +92,36 @@ class ForestLattice {
   vector <vector <int> > original_edges;
   vector <vector <int> > edges_original;
 
-
-  inline int get_edge(int n1, int edge_num) const {
-    assert (edge_num < node_edges[n1]);
-    assert (n1 < num_nodes);
-    return graph[n1][edge_num];
+  inline Node lookup_word(int w) const {
+    return _words_lookup.store[w];
   }
 
-  inline int num_edges(int n) const {
-    //assert (n < num_nodes);
-    return node_edges[n];
+  inline Node lookup_word(const Word &  w) const {
+    return _words_lookup.get(w);
   }
 
-  inline int lookup_word(int w) const {
-    //assert (n < num_nodes);
-    return _words_lookup[w];
-  }
   
   inline  int get_edge_label(int n1, int n2) const {
     return _edge_by_nodes[n1][n2];
   }
 
-  inline  Bigram get_nodes_by_labels(int orig_id) const {
-    
+  inline  int get_edge_label(const Graphnode & n1, const Graphnode n2) const {
+    return _edge_by_nodes[n1.id()][n2.id()];
+  }
+
+  inline  Bigram get_nodes_by_labels(int orig_id) const {    
     return _original_id_to_edge[orig_id];
   }
 
 
   inline int num_first_words(int n) const {
     assert (is_phrase_node(n));
-    return _first_words[n].size();
+    return _first_words.store[n].size();
   }
 
   inline int num_last_words(int n) const {
     assert (is_phrase_node(n));
-    return _last_words[n].size();
+    return _last_words.store[n].size();
   }
 
   inline int num_last_bigrams(int n) const {
@@ -140,23 +132,23 @@ class ForestLattice {
 
   inline int first_words(int n, int i) const {
     assert (is_phrase_node(n));
-    return _first_words[n][i].id();
+    return _first_words.store[n][i].id();
   }
 
   inline const vector <Word> & first_words(const Graphnode & n) const {
     assert (is_phrase_node(n));
-    return _first_words[n.id()];
+    return _first_words.get_default(n, vector<Word>());
   }
 
   inline const vector <Word> & last_words(const Graphnode & n) const {
     assert (is_phrase_node(n));
-    return _last_words[n.id()];
+    return _last_words.get_default(n, vector<Word>());
   }
 
   // Deprecated
   inline int last_words(int n, int i) const {
     assert (is_phrase_node(n));
-    return _last_words[n][i].id();
+    return _last_words.store[n][i].id();
   }
 
   inline Bigram last_bigrams(int n, int i) const {
@@ -169,38 +161,47 @@ class ForestLattice {
     return _last_same[w];
   }
 
+  // to remove
   inline int get_hypergraph_node_from_word(int w) const {
     assert(is_word(w));
-    return _lat_word_to_hyp_node[w];
+    return _lat_word_to_hyp_node.store[w];
+  }
+
+  inline int get_hypergraph_node_from_word(const Word & w) const {
+    return _lat_word_to_hyp_node.get(w);
   }
 
   inline int get_word_from_hypergraph_node(int n) const { 
     return _hyp_node_to_lat_word[n];
   }
+
+
   void make_proper_graph(const Lattice & lat);
   
-  const vector <Bigram> & get_bigrams_at_node(const Graphnode & node) const {
-    return bigrams_at_node[node.id()];
+  const vector <WordBigram> & get_bigrams_at_node(const Graphnode & node) const {
+    return bigrams_at_node.get_default(node, vector<WordBigram>());
   }
 
-  vector<vector<Bigram> > bigrams_at_node;
   vector <string>  _edge_label_by_nodes; 
  private:
+  Cache < Graphnode, vector<WordBigram> > bigrams_at_node;
   Graph * _proper_graph;
 
 
   vector<int> word_node;
-
   vector<int> node_edges;
-  vector<string> _words;  
+
+  Cache <Word, string> _words;  
+  Cache<Word, Node> _words_lookup;  
+
   vector<int> _is_word;  
-  vector<int> _words_lookup;  
+
   //vector <LatNode *> _nodes; 
-  vector<vector<int> > graph;
+  //vector<vector<int> > graph;
   vector<vector<int> > _edge_by_nodes;
 
-  vector<vector<Word> > _first_words;
-  vector<vector<Word> > _last_words;
+  Cache <Graphnode, vector<Word> > _first_words;
+  Cache <Graphnode, vector<Word> > _last_words;
 
 
   vector<vector<Bigram> > _last_bigrams;
@@ -214,7 +215,7 @@ class ForestLattice {
 
   vector <Bigram>  _original_id_to_edge;
 
-  vector <int>  _lat_word_to_hyp_node;
+  Cache <Word, int>  _lat_word_to_hyp_node;
   vector <int>  _hyp_node_to_lat_word;
 
 

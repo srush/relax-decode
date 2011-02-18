@@ -37,35 +37,38 @@ void  LatticeVars::initialize_all_pairs(const GraphDecompose & gd,
                                         const ForestLattice & _lattice,
                                         GRBModel * model) {
 
-  all_pairs_exist_vars.resize(_lattice.num_nodes); 
-  all_pairs_vars.resize(_lattice.num_nodes); 
-  has_all_pairs_var.resize(_lattice.num_nodes);  
+  int num_nodes = _lattice.get_graph().num_nodes();
+  all_pairs_exist_vars.resize(num_nodes); 
+  all_pairs_vars.resize(num_nodes); 
+  has_all_pairs_var.resize(num_nodes);  
 
-  for (int i = 0; i < _lattice.num_nodes; i++) {
-    all_pairs_vars[i].resize(_lattice.num_nodes);
-    all_pairs_exist_vars[i].resize(_lattice.num_nodes);
-    has_all_pairs_var[i].resize(_lattice.num_nodes);
-    for (int j = 0; j < _lattice.num_nodes; j++) {
+  for (int i = 0; i < num_nodes; i++) {
+    all_pairs_vars[i].resize(num_nodes);
+    all_pairs_exist_vars[i].resize(num_nodes);
+    has_all_pairs_var[i].resize(num_nodes);
+    for (int j = 0; j < num_nodes; j++) {
       
-        has_all_pairs_var[i][j].resize(_lattice.num_nodes);        
-        for (int k =0; k < _lattice.num_nodes ; k++) {
+        has_all_pairs_var[i][j].resize(num_nodes);        
+        for (int k =0; k < num_nodes ; k++) {
           has_all_pairs_var[i][j][k] = false;
         }
         if (!gd.path_exists(i,j)) continue;
         
-        all_pairs_vars[i][j].resize(_lattice.num_nodes);
+        all_pairs_vars[i][j].resize(num_nodes);
 
 
-        vector <int> * path = gd.get_path(i, j);
+        const vector <Node> * path = gd.get_path(i, j);
         
         assert (path->size() != 0 || i == j);
 
-        for (int k = 0; k < path->size(); k++) {
+        //for (int k = 0; k < path->size(); k++) {
+        foreach (Node k , *path) {
+          int kid = k->id();
           stringstream buf;
-          buf << name <<" SHORTEST " << i << " " << j << " " << (*path)[k];
-          double obj= 0.0; // (j == (*path)[k])? 1.0: 0.0; 
-          all_pairs_vars[i][j][(*path)[k]] = model->addVar(0.0, 1.0, obj, VAR_TYPE ,  buf.str());
-          has_all_pairs_var[i][j][(*path)[k]] = true;
+          buf << name <<" SHORTEST " << i << " " << j << " " << kid;
+          double obj= 0.0; 
+          all_pairs_vars[i][j][kid] = model->addVar(0.0, 1.0, obj, VAR_TYPE ,  buf.str());
+          has_all_pairs_var[i][j][kid] = true;
           
         }
         stringstream buf;
@@ -81,19 +84,17 @@ void  LatticeVars::initialize_all_pairs(const GraphDecompose & gd,
 void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
                                             const ForestLattice & _lattice,
                                             GRBModel * model) {
-  for (int i = 0; i < _lattice.num_nodes; i++) { 
-    for (int j = 0; j < _lattice.num_nodes; j++) {
+  int num_nodes = _lattice.get_graph().num_nodes();
+  for (int i = 0; i < num_nodes; i++) { 
+    for (int j = 0; j < num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue;
       if (i == j) continue; 
       {
         GRBLinExpr sum;
-        vector <int> * path = gd.get_path(i, j);
+        const vector <Node> * path = gd.get_path(i, j);
         bool has = false;
-        for (int k = 0; k < path->size(); k++) {
-          int last = (*path)[k];
-          //if (_lattice.is_phrase_node(last)) {
-          //model->addConstr(all_pairs_vars[i][j][last] == 0.0);
-          //}
+        foreach (Node k, *path) {
+          int last = k->id();
           
           assert(has_all_pairs_var[i][j][last]);
           sum += all_pairs_vars[i][j][last];
@@ -111,15 +112,15 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
 
   // Node constraints (INNER)
   
-  for (int i = 0; i < _lattice.num_nodes; i++) { 
-    for (int j = 0; j < _lattice.num_nodes; j++) {
+  for (int i = 0; i < num_nodes; i++) { 
+    for (int j = 0; j < num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue;
       
       GRBLinExpr sum;
       bool has = false;
       
       if (!_lattice.is_phrase_node(j)) {
-        for (int k = 0; k < _lattice.num_nodes; k++) {
+        for (int k = 0; k < num_nodes; k++) {
           if (!has_all_pairs_var[i][k][j]) continue;
           if (k == j) continue;
           
@@ -129,7 +130,7 @@ void LatticeVars::add_all_pairs_constraints(const GraphDecompose & gd,
         }
       }
       if (!_lattice.is_phrase_node(i)) {
-        for (int k = 0; k < _lattice.num_nodes; k++) {
+        for (int k = 0; k < num_nodes; k++) {
           if (!has_all_pairs_var[k][j][i]) continue;        
           if (i == j) continue;
           
@@ -170,13 +171,14 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
     word_used_vars[i] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);      
   }
   
-  for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
-    Bigram b = gd.valid_bigrams[i];
+  //for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
+  foreach (const WordBigram & b, gd.valid_bigrams()) {
+    //Bigram b = gd.valid_bigrams[i];
     
     //has_pair_var[i].resize(_lattice.num_word_nodes);
     //word_tri_vars[i].resize(_lattice.num_word_nodes);
     stringstream buf;
-    buf << "BI " << b.w1 << " " << b.w2;
+    buf << "BI " << b;
     //has_pair_var[i][j] = true;
     
     //VocabIndex context [] = {word_cache.store[b.w2], Vocab_None};
@@ -184,17 +186,17 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
     //if (b.w1 == 1 && b.w2==0) prob = 0.0;
     //if (isinf(prob)) prob = -1000000.0;
     
-    word_pair_vars[b.w1][b.w2] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
-    word_tri_vars[b.w1][b.w2].resize(_lattice.num_word_nodes);
-    for (int m =0; m < gd.forward_bigrams[b.w2].size(); m++) {
-      int k = gd.forward_bigrams[b.w2][m];
+    word_pair_vars[b.w1.id()][b.w2.id()] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+    word_tri_vars[b.w1.id()][b.w2.id()].resize(_lattice.num_word_nodes);
+    for (int m =0; m < gd.forward_bigrams[b.w2.id()].size(); m++) {
+      int k = gd.forward_bigrams[b.w2.id()][m];
       stringstream buf;
-      buf << "TRI " << b.w1 << " " << b.w2 << " " << k;
-      VocabIndex context [] = {word_cache.store[b.w2], word_cache.store[k], Vocab_None};
-      double prob = LMWEIGHT * lm.wordProb(word_cache.store[b.w1], context);
+      buf << "TRI " << b << " " << k;
+      VocabIndex context [] = {word_cache.store[b.w2.id()], word_cache.store[k], Vocab_None};
+      double prob = LMWEIGHT * lm.wordProb(word_cache.store[b.w1.id()], context);
       if (isinf(prob)) prob = 1000000.0;
       
-      word_tri_vars[b.w1][b.w2][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+      word_tri_vars[b.w1.id()][b.w2.id()][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
     }
   }
   model->update();
@@ -222,9 +224,9 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
     // Node constraints (Outer)
   
     lv.add_all_pairs_constraints(gd, _lattice, model);
-
-    for (int i = 0; i < _lattice.num_nodes; i++) { 
-      for (int j = 0; j < _lattice.num_nodes; j++) {
+    int num_nodes = _lattice.get_graph().num_nodes();
+    for (int i = 0; i < num_nodes; i++) { 
+      for (int j = 0; j < num_nodes; j++) {
         if (!gd.path_exists(i,j)) continue;
         if (i == j) continue; 
         if (_lattice.is_phrase_node(i) && _lattice.is_phrase_node(j)) {
@@ -326,8 +328,13 @@ void LPBuilder::build_all_pairs_lp(Ngram &lm,
     }
 
     
-    for (int i = 0; i < gd.valid_bigrams.size(); i++) {
-      Bigram b = gd.valid_bigrams[i];
+    //for (int i = 0; i < gd.valid_bigrams.size(); i++) {
+    foreach (WordBigram wb, gd.valid_bigrams()) {
+      
+      Bigram b; // = gd.valid_bigrams[i];
+      b.w1 = wb.w1.id();
+      b.w2 = wb.w2.id();
+      
       {
         GRBLinExpr sumFor, sumBack;
         for (int j = 0; j < gd.forward_bigrams[b.w2].size(); j++) {
@@ -467,36 +474,39 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
         }
       }
     }
-
-    vector <vector <GRBLinExpr> >  sums1(_lattice.num_nodes), sums2(_lattice.num_nodes);
-    vector <vector <bool> >  has_sums1(_lattice.num_nodes), has_sums2(_lattice.num_nodes);
+    int num_nodes = _lattice.get_graph().num_nodes();
+    vector <vector <GRBLinExpr> >  sums1(num_nodes), sums2(num_nodes);
+    vector <vector <bool> >  has_sums1(num_nodes), has_sums2(num_nodes);
     
 
-    for (int i = 0; i < _lattice.num_nodes; i++) {
-      sums1[i].resize(_lattice.num_nodes);
-      sums2[i].resize(_lattice.num_nodes);
-      has_sums1[i].resize(_lattice.num_nodes);
-      has_sums2[i].resize(_lattice.num_nodes);
-      for (int j = 0; j < _lattice.num_nodes; j++) {
+    for (int i = 0; i < num_nodes; i++) {
+      sums1[i].resize(num_nodes);
+      sums2[i].resize(num_nodes);
+      has_sums1[i].resize(num_nodes);
+      has_sums2[i].resize(num_nodes);
+      for (int j = 0; j < num_nodes; j++) {
         has_sums1[i][j] = false;
         has_sums2[i][j] = false;
       }
     }
 
-    for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
-      Bigram b = gd.valid_bigrams[i];
-      int w1 = b.w1;
-      int w2 = b.w2;
-      int phrase_node1 = _lattice.lookup_word(w1);
-      int phrase_node2 = _lattice.lookup_word(w2);
+    //for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
+    foreach (const WordBigram & b, gd.valid_bigrams()) {
+      //Bigram b = gd.valid_bigrams[i];
+      int w1 = b.w1.id();
+      int w2 = b.w2.id();
+      
+      Node phrase_node1 = _lattice.lookup_word(w1);
+      Node phrase_node2 = _lattice.lookup_word(w2);
+      
       for (int m =0; m < gd.forward_bigrams[w2].size(); m++) {
         int w3 = gd.forward_bigrams[w2][m];
-        int phrase_node3 = _lattice.lookup_word(w3);
+        Node phrase_node3 = _lattice.lookup_word(w3);
         
-        sums1[phrase_node1][phrase_node2] += word_tri_vars[w1][w2][w3];
-        sums2[phrase_node2][phrase_node3] += word_tri_vars[w1][w2][w3];
-        has_sums1[phrase_node1][phrase_node2] = true;
-        has_sums2[phrase_node2][phrase_node3] = true;
+        sums1[phrase_node1->id()][phrase_node2->id()] += word_tri_vars[w1][w2][w3];
+        sums2[phrase_node2->id()][phrase_node3->id()] += word_tri_vars[w1][w2][w3];
+        has_sums1[phrase_node1->id()][phrase_node2->id()] = true;
+        has_sums2[phrase_node2->id()][phrase_node3->id()] = true;
         
         
         //model->addConstr(word_tri_vars[w1][w2][w3] == );
@@ -506,8 +516,8 @@ void LPBuilder::build_all_tri_pairs_lp(Ngram &lm,
     }
 
 
-    for (int i = 0; i < _lattice.num_nodes; i++) {
-      for (int j = 0; j < _lattice.num_nodes; j++) {
+    for (int i = 0; i < num_nodes; i++) {
+      for (int j = 0; j < num_nodes; j++) {
         if (!gd.path_exists(i,j)) continue;
         if ( i==j) continue;
         
@@ -718,10 +728,10 @@ void LPBuilder::solve_hypergraph(const Cache<Hyperedge, double> & _weights) {
 void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weights, 
                            Ngram &lm, 
                            const Cache <Graphnode, int> & word_cache) {  
-  GraphDecompose gd;
+  GraphDecompose gd(_lattice);
   LatticeVars lv("Bi"),lv2("Tri");
 
-  gd.decompose(&_lattice);
+  gd.decompose();
 
   GRBEnv env = GRBEnv();
   env.set(GRB_StringParam_LogFile, "/tmp/log");
@@ -763,18 +773,20 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
     model->addConstr(lv2.all_pairs_exist_vars[b.w1][b.w2] == sum);
   }
 
+  int num_nodes = _lattice.get_graph().num_nodes();
   // extra trick constraint
-  for (int i =0; i < _lattice.num_nodes; i++) {
+  for (int i =0; i < num_nodes; i++) {
+  //for (int i =0; i < num_nodes; i++) {
     if (!_lattice.is_phrase_node(i)) continue;
     for (int j=0; j < _lattice.num_last_bigrams(i); j++) {
       Bigram b = _lattice.last_bigrams(i,j);
       
       for (int w3 = 0; w3 < _lattice.num_word_nodes; w3++) {
         if (!_lattice.is_word(w3)) continue;
-        int n1 = _lattice.lookup_word(b.w2);
-        int n2 = _lattice.lookup_word(w3);
-        if (gd.path_exists(n1, n2)) {
-          model->addConstr(lv.all_pairs_exist_vars[n1][n2] == lv2.all_pairs_exist_vars[n1][n2]);
+        Node n1 = _lattice.lookup_word(b.w2);
+        Node n2 = _lattice.lookup_word(w3);
+        if (gd.path_exists(*n1, *n2)) {
+          model->addConstr(lv.all_pairs_exist_vars[n1->id()][n2->id()] == lv2.all_pairs_exist_vars[n1->id()][n2->id()]);
         }
 
       }
@@ -802,12 +814,11 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
     }
   }
 
-  for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
-    Bigram b = gd.valid_bigrams[i];
-    //if (word_pair_vars[b.w1][b.w2].get(GRB_DoubleAttr_X)) {
-    
-      
-    //}
+  //for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
+  foreach (const WordBigram & wb, gd.valid_bigrams()) {
+    Bigram b;
+    b.w1 = wb.w1.id();
+    b.w2 = wb.w2.id();
 
     for (int j =0; j < gd.forward_bigrams[b.w2].size(); j++) {
       int w3 = gd.forward_bigrams[b.w2][j];
@@ -829,8 +840,8 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
   }
 
 
-  for (int i = 0; i < _lattice.num_nodes; i++) {
-    for (int j = 0; j < _lattice.num_nodes; j++) {
+  for (int i = 0; i < num_nodes; i++) {
+    for (int j = 0; j < num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue; 
       
       double x1 =  lv.all_pairs_exist_vars[i][j].get(GRB_DoubleAttr_X);
@@ -850,8 +861,8 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
   }
 
   /*
-  for (int i = 0; i < _lattice.num_nodes; i++) {
-    for (int j = 0; j < _lattice.num_nodes; j++) {
+  for (int i = 0; i < num_nodes; i++) {
+    for (int j = 0; j < num_nodes; j++) {
       if (!gd.path_exists(i,j)) continue; 
       //cout << i << " " << j << endl;
       if (lv2.all_pairs_exist_vars[i][j].get(GRB_DoubleAttr_X)) {

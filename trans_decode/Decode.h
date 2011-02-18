@@ -22,11 +22,11 @@ using namespace Scarab::HG;
 class Decode: public SubgradientProducer {
  public:
   Decode(const Forest & forest, const ForestLattice & lattice, const wvector & weight, NgramCache & lm) 
-    :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm) //, ecky(forest)
+    :_forest(forest), _lattice(lattice), _weight(weight), _lm(lm),_gd(lattice) //, ecky(forest)
   {
     _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
 
-    _gd.decompose(&lattice);
+    _gd.decompose();
 
     sync_lattice_lm();
     _subproblem = new Subproblem(&lattice, & lm, &_gd, *_cached_words);
