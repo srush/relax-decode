@@ -22,5 +22,5 @@ class SimpleSentConverter(Converter):
 
 class SimpleToFlat(SimpleSentConverter):
   def sent_convert(self, sent):
-    return "\n".join(word.word + " " + word.pos for word in sent)
+    return "\n".join(word.word + " " + word.pos for word in sent)+"\n"
       

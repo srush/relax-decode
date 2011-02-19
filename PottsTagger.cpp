@@ -1,3 +1,4 @@
+
 #include "Weights.h"
 #include "Forest.h"
 #include <HypergraphAlgorithms.h>
@@ -59,7 +60,7 @@ int main(int argc, char ** argv) {
     stringstream fname;
     fname << argv[2] << i;
   
-    Tagger * f = new Tagger(100);
+    Tagger * f = new Tagger(200);
     cout << fname.str() << endl;
     f->build_from_file(fname.str().c_str());
   

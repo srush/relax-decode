@@ -1,4 +1,4 @@
-
+import random
 import sys
 sys.path.append('.')
 sys.path.append('../interfaces/graph/gen-py/')
@@ -11,7 +11,8 @@ from StringIO import StringIO
 from unknown_words import *
 from pickle import *
 from pos_constraints import * 
-
+import math
+from marginals import *
 states = range(45)
 
 class PosNode:
@@ -23,7 +24,6 @@ class PosNode:
 
   def add_blank_potentials(self):
     self.potentials = [(state, 0.0) for state in states]
-    
     
   def convert_to_protobuf(self, proto_node):
     proto_node.id = self.id
@@ -103,31 +103,46 @@ if __name__=="__main__":
     manager.inc_sent(s)
     
   t = sys.argv[4]
-
+  
+  marginals = Marginals.from_handle(open(sys.argv[5]))
+  
   s, total = manager.stats()
   groups = manager.groups()
   for i in range(len(groups)):
+    
     group1 = groups[i]
     posmrf = PosMrf(group1[0], group1[1])
     
-    for j in range(len(group1[1])):
-      print i, j, group1[1][j][0], group1[1][j][1]
+
     training_seen = group1[1][0][2]
     test_seen = len(group1[1])
     #print training_seen, test_seen 
     
-    bonus = 5* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
+    bonus = 5 * -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
     print >>sys.stderr, bonus
+    #posmrf.add_node_potentials(marginals)
     if t == "nbayes":
       posmrf.add_naive_bayes_edges(bonus)
     elif t == "potts":
+
       # at best potts is the same as naive bayes
       posmrf.add_potts_edges(bonus/float(test_seen))
     else:
       assert False, t
 
+    for j in range(len(group1[1])):
+      print i, j, group1[1][j][0], group1[1][j][1]
+
+      sent_num = group1[1][j][0]
+      word_ind = group1[1][j][1]
+      posmrf.nodes[j].potentials = [(s, 0.0 ) for s in states] #if marginals.data[sent_num, word_ind, s] > 0.05 else 100.0
+      #print >>sys.stderr, sent_num, word_ind, posmrf.nodes[j].potentials
+
+
     proto_graph = posmrf.convert_to_protobuf()
 
+    f = open(sys.argv[3] , "wb")
+    print >>f, random.random()
     f = open(sys.argv[3] + str(i), "wb")      
     f.write(proto_graph.SerializeToString())
     f.close()

@@ -29,10 +29,12 @@ public class CRFTagger {
 	    isInputFile = false;
 	}
 
-        boolean genTrain = false;
-	//if (args[3].compareToIgnoreCase("-train") != 0) {
-        //genTrain = true;
-	//}
+        boolean genTrain = true;
+	if (args[4].compareToIgnoreCase("-train") != 0) {
+            genTrain = false;
+	} else {
+            System.out.println("GENERATING TRAINING");
+        }
 
         String unknownWordsFile = "";
         if (args[4].compareToIgnoreCase("-unknownwords") == 0) {
@@ -69,7 +71,10 @@ public class CRFTagger {
         if (genTrain) {
             //taggerData.readData(inputFile);
 	    //taggerData.cpGen(taggerMaps.cpStr2Int);
-            taggerData.writeTaggedData(taggerMaps.cpStr2Int, taggerMaps.lbInt2Str,inputFile, inputFile + ".tagged");
+            taggerData.writeTaggedData(taggerMaps.cpStr2Int, 
+                                       taggerMaps.lbInt2Str,
+                                       inputFile, 
+                                       inputFile + ".tagged");
             return;
         }
 	

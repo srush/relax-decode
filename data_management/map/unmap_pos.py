@@ -4,6 +4,17 @@ sys.path.append(root)
 from format.simple import *
 from itertools import *
 
+class Unmapper:
+  def __init__(self):
+    self.pos_map = {}
+    self.other_map = {}
+    for l in open(root + 'map/POS.map'):
+      word, num=  l.strip().split()
+      self.pos_map[int(num)] = word  
+      self.other_map[word] = int(num)  
+      
+  def string_to_ind(self,word):
+    return self.other_map[word]
 
 if __name__ == "__main__":
 

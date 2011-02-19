@@ -6,7 +6,8 @@ message Tagging {
 }
 
 
-extend Hypergraph.Edge {
+extend Hypergraph.Node {
+
   optional Tagging tagging = 120;
   optional bool has_tagging = 121;
 }

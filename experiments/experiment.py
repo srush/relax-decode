@@ -47,6 +47,10 @@ class Experiment:
 
   def temporary_tags(self):
     return "$SCARAB_TMP/%s_tag"%(self.unk_exp_prefix)
+
+
+  def temporary_margs(self):
+    return "$SCARAB_TMP/%s_marginals"%(self.unk_exp_prefix)
   
   def num_sent(self):
     return self.num_sentences
@@ -146,6 +150,17 @@ small_brown_extra_200 = Experiment({
     "penalty" : 2.0
     })
 
+small_brown_extra20_200 = Experiment({
+    "prefix": "brown_extra20", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 185,
+    "num_constraints" : 449,
+    "unk_thres" : 200,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
 
 small_brown_200_potts = Experiment({
     "prefix": "brown_simple_1", 
@@ -178,3 +193,14 @@ small_brown_500 = Experiment({
     })
 
 
+test_expermient = Experiment({
+    "prefix": "brown_extra20", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 382,
+    "num_constraints" : 157,
+    
+    "unk_thres" : 200,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })

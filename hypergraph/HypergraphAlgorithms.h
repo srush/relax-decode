@@ -13,6 +13,11 @@ typedef Cache <Hyperedge, double> EdgeCache;
 typedef Cache <Hypernode, double> NodeCache;
 typedef Cache <Hypernode, const Hyperedge *> NodeBackCache;
 
+ /* struct HypergraphWeights { */
+ /* HypergraphWeights():_edge_weights() */
+ /* const EdgeWeights(); */
+ /* } */
+
 
 
 class HypergraphAlgorithms {
@@ -81,8 +86,31 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
                                     const NodeCache & outside_memo_table,
                                     double cutoff);
 
+  // Marginals
+ double inside_scores(const EdgeCache & edge_weights,  
+                      NodeCache & inside_memo_table) const;
+
+ double outside_scores(const EdgeCache & edge_weights,  
+                       const NodeCache & inside_memo_table, 
+                       NodeCache & outside_memo_table) const;
+
+ 
+ void collect_marginals(const NodeCache & inside_memo_table, 
+                        const NodeCache & outside_memo_table,
+                        NodeCache & marginals) const;
+
+
  private:
  const HGraph & _forest;
+
+ double outside_score_helper(const Hypernode & node, 
+                             const EdgeCache & edge_weights, 
+                             const NodeCache & inside_memo_table, 
+                             NodeCache & outside_memo_table) const;
+
+ double inside_score_helper(const Hypernode & node, 
+                            const EdgeCache & edge_weights, 
+                            NodeCache & inside_memo_table) const;
 
 };
 

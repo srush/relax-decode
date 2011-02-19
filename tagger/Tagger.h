@@ -90,25 +90,27 @@ class Tagger : public Scarab::HG::HypergraphImpl {
     return Tag(ind, tag, _sent_length);
   }
 
-  const vector<const Hyperedge*> & tag_to_edge(const Tag & tag) const {
-    return _edge_map->get(tag);
+  const Hypernode & tag_to_node(const Tag & tag) const {
+    return *_node_map->get(tag);
   }
 
-  bool tag_has_edge(const Tag & tag) const {
-    return _edge_map->has_key(tag);
+  bool tag_has_node(const Tag & tag) const {
+    return _node_map->has_key(tag);
   }
 
-  const Tag & edge_to_tag(const Hyperedge & edge) const {
+  const Tag & node_to_tag(const Hypernode & edge) const {
     return _tag_map->get(edge);
   }
 
-  bool edge_has_tag(const Hyperedge & edge) const {
-    return _tag_map->has_key(edge);
+  bool node_has_tag(const Hypernode & node) const {
+    return _tag_map->has_key(node);
   }
   
  protected:
-  void make_edge(const Hypergraph_Edge & edge, 
-                         const Scarab::HG::Hyperedge * our_edge);
+  Hypernode * make_node(const Hypergraph_Node & node, wvector * features);
+  //void make_node(const Hypergraph_Node & node, const Scarab::HG::Hypernode * our_node);
+  /* void make_edge(const Hypergraph_Edge & edge,  */
+  /*                        const Scarab::HG::Hyperedge * our_edge); */
 
  private:
 
@@ -116,9 +118,8 @@ class Tagger : public Scarab::HG::HypergraphImpl {
   int _sent_length;
   int _tag_length;
   Hypergraph * _h;
-  Cache <Tag, vector <const Hyperedge *> > *  _edge_map;
-  Cache <Hyperedge, Tag> * _tag_map;
-  //Cache <Hyperedge, double> _weights;
+  Cache <Tag, HNode > *  _node_map;
+  Cache <Hypernode, Tag> * _tag_map;
   vector <Tag> _tags; 
 };
 

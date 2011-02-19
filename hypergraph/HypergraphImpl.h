@@ -219,6 +219,7 @@ class HypergraphImpl : public HGraph {
   virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge ) {}
   virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node ) {}
   virtual void set_up(const Hypergraph & hgraph) {}
+  virtual void print() const {}
   
 };
 

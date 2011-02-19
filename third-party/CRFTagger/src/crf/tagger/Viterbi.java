@@ -12,6 +12,7 @@
 package crf.tagger;
 
 import java.io.*;
+
 import java.util.*;
 import java.util.Arrays;
 
@@ -159,7 +160,7 @@ public class Viterbi {
         }
         Arrays.sort(cols2, new SortBeam());
 	
-	for (int i = 0; i < beam_size; i++) {
+	for (int i = 0; i < Math.min(beam_size, cols2.length); i++) {
 	    best.add(cols2[i].second); 
 	}
 
@@ -171,7 +172,7 @@ public class Viterbi {
 
         // add in beam search
         
-        int beam_size  = 5;
+        int beam_size  = 50;
         
         Set full_beam = new HashSet();
         

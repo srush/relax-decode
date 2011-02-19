@@ -2,7 +2,8 @@ import sys
 from unknown_words import *
 from itertools import *
 import  pickle
-
+from marginals import *
+from map.unmap_pos import *
 def doubles(handle):
   d = {}
   for l in handle:
@@ -14,45 +15,64 @@ def doubles(handle):
 
 double_map = doubles(open(sys.argv[1]))
 wc = pickle.load(open(sys.argv[2]))
+marginals = Marginals.from_handle(open(sys.argv[3]))
+unmapper = Unmapper()
 
-files = map(open,sys.argv[3:])
+files = map(open,sys.argv[4:])
 right = []
 good = []
 bad = []
 very_bad = []
 weird = []
-for res in izip(*files):
-  a,b,c = map(lambda a: a.replace("_", " ").strip(), res)
 
+class Pairing:
+  def __init__(self,words, sent_num, word_num):
+    self.words = words
+    self.sent_num = sent_num
+    self.word_num = word_num
+    self.pos = [w.split()[1] for w in self.words]
+    self.pos_ind = [unmapper.string_to_ind(p) for p in self.pos ]
+    self.marginals = [marginals.data.get((self.sent_num, self.word_num, p_ind), 0.0) for p_ind in self.pos_ind]
+
+
+sent_num = 0
+word_num = -1
+for res in izip(*files):
+  
+  a,b,c = map(lambda a: a.replace("_", " ").strip(), res)
+  word_num +=1 
   if c and c.split()[0] in ["-LRB-", "-RRB-"]: continue
   
   #var = "|cc"
   if not c:
+    sent_num +=1 
+    word_num =-1
     continue 
 
+  pairing = Pairing((a,b,c), sent_num, word_num)
   if c == a and c == b:
-    right.append((a,b,c))
+    right.append(pairing)
   elif c == a and c <> b:
-    bad.append((a,b,c))
+    bad.append(pairing)
   elif c <> a and c == b: 
-    good.append( (a,b,c))
+    good.append(pairing)
   elif c <> a and c <> b and a == b: 
     #var = "|xx"
-    very_bad.append((a,b,c))
+    very_bad.append(pairing)#(a,b,c))
   elif c <> a and c <> b and a <> b: 
     #var = "|xxd"
-    weird.append((a,b,c)) 
+    weird.append(pairing) 
   
 def mcat(w):
   return (
          double_map[w] > 1, not wc.is_unknown(w))
 
-def bcat((_,q,c)):
-  return mcat(c.split()[0])
+def bcat(pairing):
+  return mcat(pairing.words[2].split()[0])
 
 def analysis(sents):
   cats = {}
-  words = [c.split()[0] for _,_,c in sents]
+  words = [pairing.words[2].split()[0] for pairing in sents]
   for w in words:
     cat = mcat(w)
     cats.setdefault(cat, 0)
@@ -78,54 +98,22 @@ analysis(weird)
 print "RIGHT %s", len(right)
 analysis(right)
 
-for a,b,c in sorted(good, key =bcat): 
-  var = "|xc"
-  w = c.split()[0]
-  cat = mcat(w)
+def display(ls, var):
+  for pairing in sorted(ls, key =bcat):
+    a,b,c = pairing.words
+    am,bm,cm = pairing.marginals
+    w = c.split()[0]
+    cat = mcat(w)
 
-  print "%-30s %-25s %-5s (%-1s,%-1s,%4s, %4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), c)
-#  print "%-30s %-25s %-5s (-1%s,-1%s,-4%s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
- # print "%-30s %-25s %-5s %-30s"%(a,b,var, c)
+    print "%2d %2d %0.3f %-25s %0.3f %-25s %-5s (%-1s,%-1s,%4s, %4s) %0.3f %-25s"%(pairing.sent_num,pairing.word_num, am,  a,bm,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), cm, c)
+  print "################"
 
-print "################"
 
-for a,b,c in sorted(bad, key=bcat): 
-  var = "|cx"
-  w = c.split()[0]
-  cat = mcat(w)
-  print "%-30s %-25s %-5s (%-1s,%-1s,%4s, %4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), c)
-#  print "%-30s %-25s %-5s (%-1s,%-1s,%4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-#  print "%-30s %-25s %-5s (-1%s,-1%s,-4%s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-#  print "%-30s %-25s %-5s %-30s"%(a,b,var, c)
 
-print "################"
+display(good, "|xc")
+display(bad, "|cx")
+display(very_bad, "|xx")
+display(weird, "|xxd")
+display(right, "|cc")
 
-for a,b,c in sorted(very_bad, key=bcat): 
-  var = "|xx"
-  w = c.split()[0]
-  cat = mcat(w)
-  print "%-30s %-25s %-5s (%-1s,%-1s,%4s, %4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), c)
- # print "%-30s %-25s %-5s (%-1s,%-1s,%4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-#  print "%-30s %-25s %-5s (-1%s,-1%s,-4%s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-#  print "%-30s %-25s %-5s %-30s"%(a,b,var, c)
 
-print "################"
-
-for a,b,c in sorted(weird, key=bcat) : 
-  var = "|xxd"
-  w = c.split()[0]
-  cat = mcat(w)
-  #print "%-30s %-25s %-5s (%-1s,%-1s,%4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-  print "%-30s %-25s %-5s (%-1s,%-1s,%4s, %4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), c)
-
-print "################"
-
-print right
-for a,b,c in sorted(right, key=bcat) : 
-  var = "|cc"
-  w = c.split()[0]
-  cat = mcat(w)
-  #print "%-30s %-25s %-5s (%-1s,%-1s,%4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], c)
-  print "%-30s %-25s %-5s (%-1s,%-1s,%4s, %4s) %-30s"%(a,b,var, int(cat[0]), int(cat[1]),double_map[w], wc.word_counts.get(w,0), c)
-
-print "################"

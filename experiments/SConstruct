@@ -4,6 +4,14 @@ from experiment import *
 
 root = os.environ["SCARAB_ROOT"]
 
+# Arguments are unkmap, test, outmapping, bigdata
+def build_experiment(source, target, env, for_signature=False):
+     return "python $SCARAB_PY/build_experiment.py %s %s %s %s > %s" %(source[:4]) + (target[0],)
+
+def build_experiment_emit(source, target, env, for_signature=False):
+     source.append('$SCARAB_PY/build_experiment.py')
+     return target, source
+
 def unknown_list(source, target, env, for_signature=False):
      return "awk '{print $2}' %s | grep -v '^$' > %s " %(source[0], target[0])
 
@@ -37,7 +45,7 @@ def crf_run_emit(source, target, env):
 
 
 def hypergraph_run(source, target, env, for_signature=False):
-     return 'grep LATTICE %s | python $SCARAB_PY/convert_pos.py %s' % ( source[0], target[0])
+     return 'grep LATTICE %s > /tmp/lat; cat /tmp/lat | python $SCARAB_PY/convert_pos.py %s' % ( source[0], target[0])
 
 def hypergraph_run_emit(source, target, env):
      source.append('$SCARAB_PY/convert_pos.py')
@@ -60,6 +68,14 @@ def full_lp_emit(source, target, env):
      return target, source
 
 
+def marginals(source, target, env, for_signature=False):
+     return '$SCARAB_ROOT/marginals $SCARAB_ROOT/parse/config.neg.ini %s 0 $END_INDEX > %s' % (source[0], target[0]) 
+
+def marginals_emit(source, target, env):
+     source.append('$SCARAB_ROOT/marginals')
+     return target, source
+
+
 def decomp(source, target, env, for_signature=False):
      return '$SCARAB_ROOT/run_dual_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
 
@@ -77,8 +93,8 @@ def pos_cons_old_emit(source, target, env):
 
 
 def pos_cons_build(source, target, env, for_signature=False):
-     
-     return 'python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE  > %s' % (source[0], source[1], target[0], target[1]) 
+     return 'python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE %s > %s' \
+         % (source[0], source[1], target[0], source[2], target[1]) 
 
 def pos_cons_emit(source, target, env):
      source.append('$SCARAB_PY/pos_constraints_mrf.py')
@@ -89,7 +105,7 @@ def full_diff(source, target, env, for_signature=False):
      return 'python triple_diff.py %s %s %s > %s' % (source[0], source[1], source[2], target[0]) 
 
 def error_analysis(source, target, env, for_signature=False):
-     return 'python $SCARAB_PY/error_analysis.py %s %s %s %s %s | tee %s' % tuple(source[:5] + [target[0]]) 
+     return 'python $SCARAB_PY/error_analysis.py %s %s %s %s %s %s | tee %s' % tuple(source[:6] + [target[0]]) 
 
 def error_analysis_emit(source, target, env):
      source.append('$SCARAB_PY/error_analysis.py')
@@ -105,6 +121,9 @@ builders = {
      "FullLP": Builder(generator =full_lp, 
                       suffix= '.ctagging',
                        emit = full_lp_emit),
+
+     "Marginals": Builder(generator =marginals, 
+                       emit = marginals_emit),
 
      "DecompTag": Builder(generator =decomp, 
                       suffix= '.ctagging',
@@ -160,10 +179,6 @@ def register_experiment(env, exp):
 
      unk_map = env.TrainUnknown(exp.unknown_words(), exp.train_file(), UNK_THRES = exp.unk_thres)
           
-     constraints_mrf, mrf_link = env.BuildConstraint( (exp.constraint_mrf_prefix(), 
-                                                         exp.mrf_link_prefix()),
-                          (unk_map,                      
-                           exp.original_simple_file()), CONST_TYPE=exp.constraint_type())
 
      constraints = env.BuildConstraintOld(exp.constraint_old_prefix(),
                           (unk_map,                      
@@ -178,8 +193,22 @@ def register_experiment(env, exp):
                     (exp.original_simple_file(), 
                      unk_list))
 
+
+
      lattice_hypergraphs = env.CreateHypergraph(exp.lattice_prefix(),
                                                 temp_tags)
+
+
+     marginals = env.Marginals( exp.temporary_margs(),
+                                (lattice_hypergraphs,), 
+                                END_INDEX=exp.num_sent())
+
+
+     constraints_mrf, mrf_link = \
+         env.BuildConstraint( (exp.constraint_mrf_prefix(), 
+                               exp.mrf_link_prefix()),
+                              (unk_map, exp.original_simple_file(), marginals), 
+                              CONST_TYPE=exp.constraint_type())
 
      decoders = {}
      decoders['viterbi'] =env.Viterbi( exp.result_prefix()+"_viterbi", 
@@ -221,7 +250,7 @@ def register_experiment(env, exp):
                   )
 
      env.ErrorAnalysis(exp.result_prefix(), 
-                       ( flats["gold"], unk_map, flats["viterbi"], flats['lp'], flats["gold"])
+                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
                        )
 
 
@@ -315,3 +344,4 @@ register_experiment(env, small_brown_500_potts)
 register_experiment(env, small_brown_200)
 register_experiment(env, small_brown_200_potts)
 register_experiment(env, small_brown_extra_200)
+register_experiment(env, small_brown_extra20_200)

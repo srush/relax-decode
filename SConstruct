@@ -40,7 +40,7 @@ if build_config['has_sri']:
 env.Append(LIBPATH =('.',) + tuple(sub_dirs) + lib_path)
 
 env.Append( CPPPATH=  ('.', '#/third-party/svector/',
-                       '#/interfaces/hypergraph/gen_cpp',
+                       '#/interfaces/hypergraph/gen-cpp',
                        '#/interfaces/lattice/gen-cpp',
                        '#/interfaces/graph/gen-cpp') + 
             include_path + tuple(sub_dirs) )
@@ -51,22 +51,25 @@ env.Append(HYP_PROTO="#interfaces/hypergraph/gen-cpp/")
 env.Append(LAT_PROTO="#interfaces/lattice/gen-cpp/")
 env.Append(GRAPH_PROTO="#interfaces/graph/gen-cpp/")
 
+interfaces = SConscript(dirs=["interfaces"], exports=['env'])
+
 local_libs = SConscript(dirs=sub_dirs,
                         exports=['env', 'build_config']) 
 
-SConscript(dirs=["interfaces"], exports=['env'])
 
 trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
 
 cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
 
+env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
+
 env.Program('parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('run_tagger', ("Tag.cpp", )+ local_libs, LIBS = libs)
 
-env.Program('run_full_tagger', ("FullTagger.cpp", )+ local_libs, LIBS = libs)
+#env.Program('run_full_tagger', ("FullTagger.cpp", )+ local_libs, LIBS = libs)
 
-env.Program('run_dual_tagger', ("DualDecompTagger.cpp", )+ local_libs, LIBS = libs)
+#env.Program('run_dual_tagger', ("DualDecompTagger.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('run_phrase_based_lp', ("PhraseLP.cpp", )+ local_libs, LIBS = libs)
 
@@ -93,7 +96,7 @@ env.Command('cscope.out', [trans, cube], 'cscope-indexer')
 
 
 
-#third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
+third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
 
 
 

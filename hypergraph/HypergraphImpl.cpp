@@ -4,10 +4,10 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/io/coded_stream.h>
 using namespace google::protobuf::io;
+using namespace Scarab::HG;
 
 namespace Scarab {
 namespace HG {
-
 
 void HypergraphImpl::prune(const HypergraphPrune & prune) {
   vector <Hypernode *> new_nodes;

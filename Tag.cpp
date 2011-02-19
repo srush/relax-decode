@@ -25,7 +25,7 @@ int main(int argc, char ** argv) {
 
     stringstream fname;
     fname << argv[2] << i;
-    Tagger f(150);// = new DepParser();
+    Tagger f(200);// = new DepParser();
     f.build_from_file(fname.str().c_str());
     
     //bool lp = (int)atoi(argv[3]);
@@ -44,14 +44,13 @@ int main(int argc, char ** argv) {
     
     HNodes best_nodes = ha.construct_best_node_order(back_memo_table);
     
-    
     HEdges best_edges = ha.construct_best_edges(back_memo_table);
     
     cout << endl;
     vector <Tag> res;
-    foreach (HEdge edge, best_edges) {
-      if (f.edge_has_tag(*edge)) {
-        Tag d = f.edge_to_tag(*edge);
+    foreach (HNode node, best_nodes) {
+      if (f.node_has_tag(*node)) {
+        Tag d = f.node_to_tag(*node);
         res.push_back(d);
       }
     }

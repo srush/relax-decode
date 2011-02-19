@@ -1,14 +1,17 @@
 import sys
 root = "/home/srush/Projects/relax_decode/data_management/"
-sys.path.append("../../hypergraph/gen_py/")
+sys.path.append("../interfaces/hypergraph/gen-py/")
 from hypergraph_pb2 import *
 from features_pb2 import *
 from tag_pb2 import *
 from dep_pb2 import *
+import random
 sent = -1
 last_node = -1
 name = sys.argv[1]
-open( name , "w").close()
+q = open( name , "w")
+print >>q, random.random()
+q.close()
 for l in sys.stdin:
 
   t = l.strip().split()
@@ -32,12 +35,6 @@ for l in sys.stdin:
     edge.Extensions[edge_fv] = "value="+t[5]
     edge.tail_node_ids.append( int(t[3]))
     edge.label = t[2]
-    if edge.label <> "last":
-      ta = edge.Extensions[tagging]
-      ta.ind = int(edge.label.split(':')[0])
-      ta.tag_id = int(edge.label.split(':')[-2])
-
-      edge.Extensions[has_tagging] = True
 
     
     edge.id = cur_edge_id
@@ -52,3 +49,10 @@ for l in sys.stdin:
     nodes[node.id] = node
     last_node = node.id
     #print "NODE", node.id
+
+    if node.label <> "final" and node.label <> "START":
+      ta = node.Extensions[tagging]
+      ta.ind = int(node.label.split(':')[0])
+      ta.tag_id = int(node.label.split(':')[-1])
+      
+      node.Extensions[has_tagging] = True

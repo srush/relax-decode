@@ -31,21 +31,23 @@ ostream& operator<<(ostream& output, const Tag& h) {
       }
     }
     _tag_length = id_size + 1;
-    _tag_map =  new Cache <Hyperedge, Tag>(edge_count);
-    _edge_map = new Cache <Tag, vector<const Hyperedge *> >(_tag_length);
+    _tag_map =  new Cache <Hypernode, Tag>(hgraph.node_size());
+    _node_map = new Cache <Tag, HNode  >(_tag_length);
   }
 
-void Tagger::make_edge(const Hypergraph_Edge & edge, const Scarab::HG::Hyperedge * our_edge) {
-  //cout << "Make Edge" << edge.HasExtension(has_dep) << endl;
-  if ( edge.GetExtension(has_tagging)) { 
+
+Hypernode * Tagger::make_node(const Hypergraph_Node & node, wvector * features) {
+  Hypernode * our_node = new HypernodeImpl(node.label(), node.id(), features); 
+  if ( node.GetExtension(has_tagging)) { 
     const Tagging & ret_tag = 
-      edge.GetExtension(tagging);
+      node.GetExtension(tagging);
     
     Tag our_tag = make_tag(ret_tag.ind(), 
                            ret_tag.tag_id());
     //cout << our_tag << endl;
-    _tag_map->set_value(*our_edge, our_tag);
+    _tag_map->set_value(*our_node, our_tag);
     
-    _edge_map->get_no_check(our_tag).push_back(our_edge);
+    _node_map->set_value(our_tag, our_node);
   }
+  return our_node;
 }
