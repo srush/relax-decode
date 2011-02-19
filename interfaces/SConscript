@@ -1,6 +1,9 @@
 Import('env')
 dirs = ["graph", 'lattice', 'hypergraph']
 
-SConscript(dirs=dirs, exports=['env']) 
+files = SConscript(dirs=dirs, exports=['env'])
+
+#for f in files:
+Return('files')
 
 

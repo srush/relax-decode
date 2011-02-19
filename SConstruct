@@ -4,16 +4,16 @@ import os
 debug = ARGUMENTS.get('debug', 1)
 profile = ARGUMENTS.get('profile', 0)
 
-env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxygen'], toolpath = '.')
+env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxygen'], toolpath = ['.'])
 
 if int(debug):
-   env.Append(CCFLAGS = '-g -ggdb -Wall')
+   env.Prepend(CCFLAGS =('-g',))
 elif int(profile):
-   env.Append(CCFLAGS = '-O2 -pg',
-                     LINKFLAGS = '-O2 -pg')
+   env.Append(CCFLAGS = ('-O2', '-pg'),
+              LINKFLAGS = ('-O2', '-pg'))
 else:
-   env.Append(CCFLAGS = '-O3  -DNDEBUG',
-              LINKFLAGS = '-O3  -DNDEBUG')
+   env.Append(CCFLAGS = ('-O3',  '-DNDEBUG'),
+              LINKFLAGS = ('-O3',  '-DNDEBUG'))
 
 env.Append(ROOT=build_config['scarab_root'])
 
@@ -39,11 +39,13 @@ if build_config['has_sri']:
 
 env.Append(LIBPATH =('.',) + tuple(sub_dirs) + lib_path)
 
-env.Append( CPPPATH=  ('.', '#/third-party/svector/',
+cpppath  = ('.', '#/third-party/svector/',
                        '#/interfaces/hypergraph/gen-cpp',
                        '#/interfaces/lattice/gen-cpp',
-                       '#/interfaces/graph/gen-cpp') + 
-            include_path + tuple(sub_dirs) )
+                       '#/interfaces/graph/gen-cpp') + \
+            include_path + tuple(sub_dirs)
+print cpppath
+env.Append( CPPPATH=  [cpppath] )
 
 env.Append(LIBS=  libs)
 
@@ -52,15 +54,22 @@ env.Append(LAT_PROTO="#interfaces/lattice/gen-cpp/")
 env.Append(GRAPH_PROTO="#interfaces/graph/gen-cpp/")
 
 interfaces = SConscript(dirs=["interfaces"], exports=['env'])
+print map(str,interfaces)
 
 local_libs = SConscript(dirs=sub_dirs,
-                        exports=['env', 'build_config']) 
+                        exports=['env', 'build_config'])  + (interfaces,)
 
+if build_config['has_sri']:
+   trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
 
-trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
+   cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
 
-cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
+   regress = env.Command('regress', [trans, cube], 'python scripts/acl_regression.py')
 
+   env.Alias('regression', regress)
+
+   env.Command('cscope.out', [trans, cube], 'cscope-indexer')
+   
 env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
 
 env.Program('parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
@@ -89,10 +98,10 @@ docs = env.Doxygen('Doxyfile')
 env.Alias('document', docs)
 
 
-regress = env.Command('regress', [trans, cube], 'python scripts/acl_regression.py')
-env.Alias('regression', regress)
 
-env.Command('cscope.out', [trans, cube], 'cscope-indexer')
+
+
+
 
 
 
