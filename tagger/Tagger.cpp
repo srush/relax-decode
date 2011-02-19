@@ -32,7 +32,7 @@ ostream& operator<<(ostream& output, const Tag& h) {
     }
     _tag_length = id_size + 1;
     _tag_map =  new Cache <Hypernode, Tag>(hgraph.node_size());
-    _node_map = new Cache <Tag, HNode  >(_tag_length);
+    _node_map = new Cache <Tag, HNodes  >(_tag_length);
   }
 
 
@@ -47,7 +47,7 @@ Hypernode * Tagger::make_node(const Hypergraph_Node & node, wvector * features) 
     //cout << our_tag << endl;
     _tag_map->set_value(*our_node, our_tag);
     
-    _node_map->set_value(our_tag, our_node);
+    _node_map->get_no_check(our_tag).push_back( our_node);
   }
   return our_node;
 }

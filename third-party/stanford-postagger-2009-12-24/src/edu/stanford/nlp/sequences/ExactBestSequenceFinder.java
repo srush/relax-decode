@@ -100,6 +100,8 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
   }
 
   private int[] bestSequenceNew(SequenceModel ts) {
+
+
     // Set up tag options
     // Sequence length (sentence length)
     int length = ts.length();
@@ -198,15 +200,22 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     // Set up score and backtrace arrays
     double[][] score = new double[padLength][];
     int[][] trace = new int[padLength][];
+    int[][] node_index = new int[padLength][];
     for (int pos = 0; pos < padLength; pos++) {
       score[pos] = new double[productSizes[pos]];
       trace[pos] = new int[productSizes[pos]];
+      node_index[pos] = new int[productSizes[pos]];
     }
 
     // Do forward Viterbi algorithm
+    System.out.println("");
+    System.out.println("LATTICE: START");
+    int node_count = 0;
 
     // loop over the classification spot
     //System.err.println();
+    System.out.println("LATTICE: NODE "+node_count+" START");
+    node_count++;
     for (int pos = leftWindow; pos < length + leftWindow; pos++) {
         // if (pos != leftWindow) {
         //     for (int newTagNum = 0; newTagNum < tagNum[pos - leftWindow - 1]; newTagNum++) {
@@ -216,12 +225,17 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
 
       // all the states at the current point
       for (int product = 0; product < productSizes[pos]; product++) {
-          System.err.println("NODE " + pos + ":" + product);  
+          int tag = tags[pos][product % tagNum[pos]];//tags[pos - leftWindow - 1][newTagNum];
+          System.out.println("LATTICE: NODE "+node_count+" " + (pos-2) + ":" + product + ":" + tag);  
+          node_index[pos][product] = node_count;
+          node_count++;
+          //+ " " + tags[pos - leftWindow - 1][newTagNum]
         // check for initial spot
         if (pos == leftWindow) {
           // no predecessor type
           score[pos][product] = windowScore[pos][product];
           trace[pos][product] = -1;
+          System.out.println("LATTICE: EDGE " + (pos-3) + ":0:" + (pos-2) + ":" + product +" 0 "+ node_index[pos][product]+" " + windowScore[pos][product]);  
         } else {
           // loop over possible predecessor types
           score[pos][product] = Double.NEGATIVE_INFINITY;
@@ -238,7 +252,7 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
             double edge_score = windowScore[pos][product];
             // new score
             double predScore = score[pos - 1][predProduct] + edge_score;
-            System.err.println("EDGE " + (pos-1) + ":" + predProduct + " " + pos + ":" + product +" "+ predScore + " " + tags[pos - leftWindow - 1][newTagNum]);  
+            System.out.println("LATTICE: EDGE " + (pos-3) + ":" + predProduct + ":" + (pos-2) + ":" + product +" "+node_index[pos-1][predProduct]+ " "+ node_index[pos][product]+" " + edge_score);  
             if (predScore > score[pos][product]) {
               score[pos][product] = predScore;
               trace[pos][product] = predProduct;
@@ -252,10 +266,11 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     double bestFinalScore = Double.NEGATIVE_INFINITY;
     int bestCurrentProduct = -1;
     
-    System.err.println("NODE final");
+    System.out.println("LATTICE: NODE "+ node_count +" final");
+    node_count++;
     for (int product = 0; product < productSizes[leftWindow + length - 1]; product++) {
         int lastpos = leftWindow + length - 1;
-        System.err.println("EDGE " + lastpos + ":" + product + " final 0.0 ");  
+        System.out.println("LATTICE: EDGE last " + node_index[lastpos][product] + " " +  (node_count -1) + " 0.0");  
       if (score[leftWindow + length - 1][product] > bestFinalScore) {
         bestCurrentProduct = product;
         bestFinalScore = score[leftWindow + length - 1][product];
@@ -272,6 +287,8 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
       bestCurrentProduct = trace[pos + 1][bestNextProduct];
       tempTags[pos - leftWindow] = tags[pos - leftWindow][bestCurrentProduct / (productSizes[pos] / tagNum[pos - leftWindow])];
     }
+    System.out.println("LATTICE: END");  
+    System.out.println("best final score " + bestFinalScore);  
     return tempTags;
   }
 

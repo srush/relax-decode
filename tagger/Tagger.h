@@ -90,8 +90,8 @@ class Tagger : public Scarab::HG::HypergraphImpl {
     return Tag(ind, tag, _sent_length);
   }
 
-  const Hypernode & tag_to_node(const Tag & tag) const {
-    return *_node_map->get(tag);
+  const HNodes tag_to_node(const Tag & tag) const {
+    return _node_map->get(tag);
   }
 
   bool tag_has_node(const Tag & tag) const {
@@ -118,7 +118,7 @@ class Tagger : public Scarab::HG::HypergraphImpl {
   int _sent_length;
   int _tag_length;
   Hypergraph * _h;
-  Cache <Tag, HNode > *  _node_map;
+  Cache <Tag, vector < HNode >  > *  _node_map;
   Cache <Hypernode, Tag> * _tag_map;
   vector <Tag> _tags; 
 };

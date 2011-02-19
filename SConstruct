@@ -96,7 +96,7 @@ env.Command('cscope.out', [trans, cube], 'cscope-indexer')
 
 
 
-third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
+#third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
 
 
 

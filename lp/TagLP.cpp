@@ -55,18 +55,18 @@ TagLP * TagLPBuilder::add_tagging(const Tagger & parser, const Cache<Hyperedge, 
     foreach (Tag d, parser.tags()) {
       // constrain it to be equal to the hypergraph edge
       if (parser.tag_has_node(d)) { 
-        const Hypernode & node = parser.tag_to_node(d);
+        HNodes nodes = parser.tag_to_node(d);
       
-        //GRBLinExpr sum;
-        //assert edge.size() == 1;
-        // foreach(HEdge edge, edges) {
-        //   sum += h_lp->edge_vars.get(*edge);
-        // } 
+        GRBLinExpr sum;
+        //assert(node.size() == 1;
+        foreach(HNode node, nodes) {
+          sum += h_lp->node_vars.get(*node);
+        } 
       
         stringstream buf;
         buf << prefix << "_tag_is_node" << d;
 
-        model.addConstr(h_lp->node_vars.get(node) == p_lp->tag_vars.get(d), buf.str());
+        model.addConstr(sum == p_lp->tag_vars.get(d), buf.str());
       }
     }
         

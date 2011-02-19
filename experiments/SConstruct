@@ -43,6 +43,14 @@ def crf_run_emit(source, target, env):
      source.append('$SCARAB_ROOT/third-party/CRFTagger/crftagger.jar')
      return target, source
 
+def stanford_tagger_run(source, target, env, for_signature=False):
+     return 'cd $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/; ./stanford-postagger.sh $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/models/left3words-wsj-0-18.tagger %s > %s'%(source[0],  target[0])
+
+#return 'java -Xmx1g -cp $SCARAB_ROOT/third-party/CRFTagger/crftagger.jar crf.tagger.CRFTagger -modeldir ../../CRFTagger/model -inputfile %s  -unknownwords %s > %s' % (source[0], source[1], target[0])
+
+
+
+
 
 def hypergraph_run(source, target, env, for_signature=False):
      return 'grep LATTICE %s > /tmp/lat; cat /tmp/lat | python $SCARAB_PY/convert_pos.py %s' % ( source[0], target[0])
@@ -139,6 +147,9 @@ builders = {
                           suffix='.crf',
                           emit = crf_run_emit),
 
+     "StanfordTagger": Builder(generator = stanford_tagger_run,
+                          suffix='.crf'),
+
      "CreateHypergraph": Builder(generator = hypergraph_run,
                                  emit = hypergraph_run_emit),
 
@@ -189,9 +200,12 @@ def register_experiment(env, exp):
           exp.unknown_prefix(), 
           constraints)
 
-     temp_tags = env.CRFTagger( exp.temporary_tags(), 
-                    (exp.original_simple_file(), 
-                     unk_list))
+     # temp_tags = env.CRFTagger( exp.temporary_tags(), 
+     #                (exp.original_simple_file(), 
+     #                 unk_list))
+
+     temp_tags = env.StanfordTagger(exp.temporary_tags(), 
+                                    (exp.original_simple_file()))
 
 
 
@@ -343,5 +357,7 @@ register_experiment(env, small_brown_500)
 register_experiment(env, small_brown_500_potts)
 register_experiment(env, small_brown_200)
 register_experiment(env, small_brown_200_potts)
-register_experiment(env, small_brown_extra_200)
+register_experiment(env, small_brown_extra_5)
+register_experiment(env, small_brown_extra20_5)
 register_experiment(env, small_brown_extra20_200)
+register_experiment(env, small_brown_extra10_5)

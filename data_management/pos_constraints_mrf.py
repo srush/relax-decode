@@ -147,17 +147,17 @@ if __name__=="__main__":
     f.write(proto_graph.SerializeToString())
     f.close()
 
-  zerozero = manager.zerozero()
-  data = [ b[0] for a,b in zerozero]
-  print >>sys.stderr, data
-  posmrf = PosMrf("unknown", data)
-  posmrf.add_naive_bayes_edges(-1.0)
-  proto_graph = posmrf.convert_to_protobuf()
-  for j in range(len(data)):
-    print i+1, j, data[j][0], data[j][1]
-  f = open(sys.argv[3] + str(i+1), "wb")      
-  f.write(proto_graph.SerializeToString())
-  f.close()
+  # zerozero = manager.zerozero()
+  # data = [ b[0] for a,b in zerozero]
+  # print >>sys.stderr, data
+  # posmrf = PosMrf("unknown", data)
+  # posmrf.add_naive_bayes_edges(-1.0)
+  # proto_graph = posmrf.convert_to_protobuf()
+  # for j in range(len(data)):
+  #   print i+1, j, data[j][0], data[j][1]
+  # f = open(sys.argv[3] + str(i+1), "wb")      
+  # f.write(proto_graph.SerializeToString())
+  # f.close()
 
   #print manager
   #print s / float(total)

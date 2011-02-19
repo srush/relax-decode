@@ -19,8 +19,15 @@ class TagMrfLP {
         TagIndex tag_ind(i, t.ind, t.tag);
         bool is_aligned = aligner.align(tag_ind, mrf_ind);
         if (!is_aligned) continue;
+        
         assert(mrf_ind.group < mrflp.size());
-        GRBVar tag_var = taglp[i]->tag_vars.get(t);
+        
+        GRBLinExpr tag_var;
+        if (taglp[i]->p.tag_has_node(t)) {
+          tag_var = taglp[i]->tag_vars.get(t);
+        } else {
+          tag_var = 0.0;
+        }
         GRBVar mrf_node_state_var = mrflp[mrf_ind.group]->node_vars.store[mrf_ind.node]->
           store[mrf_ind.state];
         

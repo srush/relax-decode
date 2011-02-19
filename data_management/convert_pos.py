@@ -12,13 +12,16 @@ name = sys.argv[1]
 q = open( name , "w")
 print >>q, random.random()
 q.close()
-for l in sys.stdin:
+
+for i, l in enumerate(sys.stdin):
 
   t = l.strip().split()
   if t[1] == "START":
+
     h = Hypergraph()
     nodes = {}
     cur_edge_id = 0 
+    cur_node_id = 0
     sent +=1
 
   elif t[1] == "END":
@@ -48,6 +51,10 @@ for l in sys.stdin:
     node.label = t[3]
     nodes[node.id] = node
     last_node = node.id
+    if cur_node_id <> node.id:
+      print "Failed on ", i, cur_node_id, node.id
+      assert False;
+    cur_node_id +=1 
     #print "NODE", node.id
 
     if node.label <> "final" and node.label <> "START":

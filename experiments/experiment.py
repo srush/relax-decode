@@ -150,6 +150,19 @@ small_brown_extra_200 = Experiment({
     "penalty" : 2.0
     })
 
+
+small_brown_extra_5 = Experiment({
+    "prefix": "brown_extra", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 91,
+    "num_constraints" : 157,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
+
 small_brown_extra20_200 = Experiment({
     "prefix": "brown_extra20", 
     #"exp_prefix": "brown_simple_1_100", 
@@ -157,6 +170,28 @@ small_brown_extra20_200 = Experiment({
     "num_sentences" : 185,
     "num_constraints" : 449,
     "unk_thres" : 200,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
+small_brown_extra20_5 = Experiment({
+    "prefix": "brown_extra20", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 215,
+    "num_constraints" : 42,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
+small_brown_extra10_5 = Experiment({
+    "prefix": "brown_extra10", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 464,
+    "num_constraints" : 124,
+    "unk_thres" : 5,
     "train" : "wsj_gold_dependency",
     "penalty" : 2.0
     })
