@@ -101,7 +101,7 @@ def pos_cons_old_emit(source, target, env):
 
 
 def pos_cons_build(source, target, env, for_signature=False):
-     return 'python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE %s > %s' \
+     return 'python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE %s $PENALTY > %s' \
          % (source[0], source[1], target[0], source[2], target[1]) 
 
 def pos_cons_emit(source, target, env):
@@ -222,7 +222,9 @@ def register_experiment(env, exp):
          env.BuildConstraint( (exp.constraint_mrf_prefix(), 
                                exp.mrf_link_prefix()),
                               (unk_map, exp.original_simple_file(), marginals), 
-                              CONST_TYPE=exp.constraint_type())
+                              CONST_TYPE=exp.constraint_type(),
+                              PENALTY = exp.penalty()
+                              )
 
      decoders = {}
      decoders['viterbi'] =env.Viterbi( exp.result_prefix()+"_viterbi", 
@@ -357,7 +359,14 @@ register_experiment(env, small_brown_500)
 register_experiment(env, small_brown_500_potts)
 register_experiment(env, small_brown_200)
 register_experiment(env, small_brown_200_potts)
-register_experiment(env, small_brown_extra_5)
+#register_experiment(env, small_brown_extra_5)
 register_experiment(env, small_brown_extra20_5)
 register_experiment(env, small_brown_extra20_200)
-register_experiment(env, small_brown_extra10_5)
+
+register_experiment(env, small_brown_extra10_5_05)
+register_experiment(env, small_brown_extra10_5_2)
+register_experiment(env, small_brown_extra10_5_5)
+
+register_experiment(env, small_brown_5_05)
+register_experiment(env, small_brown_5_2)
+register_experiment(env, small_brown_5_5)

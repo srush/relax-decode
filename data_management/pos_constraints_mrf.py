@@ -106,6 +106,8 @@ if __name__=="__main__":
   
   marginals = Marginals.from_handle(open(sys.argv[5]))
   
+  pen = float(sys.argv[6])
+  
   s, total = manager.stats()
   groups = manager.groups()
   for i in range(len(groups)):
@@ -118,7 +120,7 @@ if __name__=="__main__":
     test_seen = len(group1[1])
     #print training_seen, test_seen 
     
-    bonus = 5 * -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
+    bonus = -pen #* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
     print >>sys.stderr, bonus
     #posmrf.add_node_potentials(marginals)
     if t == "nbayes":

@@ -11,6 +11,7 @@ Mkdir(cpp_dir)
 proto_files = env.Protoc(
     [],
     proto,
+    #PROTOCPYTHONOUTDIR=None,
     PROTOCPYTHONOUTDIR=py_dir, # set to None to not generate python
     #PROTOCCPPOUTFLAGS = cpp_dir, #Dir('.').abspath+'/gen-cpp/',
     PROTOCOUTDIR = cpp_dir # defaults to same directory as .proto

@@ -18,7 +18,9 @@ else:
 env.Append(ROOT=build_config['scarab_root'])
 
 sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest', 
-            '#/parse', '#/tagger', '#/optimization', '#/phrasebased', '#/trans_decode']
+            '#/parse', '#/tagger', '#/optimization', '#/phrasebased']
+
+
 
 libs = ('hypergraph', 'lattice', "protobuf", "pthread", "boost_program_options")
 
@@ -36,7 +38,8 @@ if build_config['has_sri']:
    libs+= ("oolm", "misc", "dstruct")
    lib_path += (build_config['sri_lib'],) 
    include_path += (build_config['sri_path'],)
-
+   sub_dirs += ['#/trans_decode']
+   
 env.Append(LIBPATH =('.',) + tuple(sub_dirs) + lib_path)
 
 cpppath  = ('.', '#/third-party/svector/',
@@ -57,7 +60,7 @@ interfaces = SConscript(dirs=["interfaces"], exports=['env'])
 print map(str,interfaces)
 
 local_libs = SConscript(dirs=sub_dirs,
-                        exports=['env', 'build_config'])  + (interfaces,)
+                        exports=['env', 'build_config'])  #+ (interfaces,)
 
 if build_config['has_sri']:
    trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)

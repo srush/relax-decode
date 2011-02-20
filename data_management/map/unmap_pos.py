@@ -1,5 +1,5 @@
-import sys
-root = "/home/srush/Projects/relax_decode/data_management/"
+import sys, os
+root = os.getenv("SCARAB_ROOT") + "/data_management/"
 sys.path.append(root)
 from format.simple import *
 from itertools import *

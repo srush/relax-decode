@@ -4,7 +4,7 @@ class Experiment:
     self.model_type = desc.get("model_type",'nbayes')
     self.prefix = desc["prefix"]
     self.unk_exp_prefix =  desc["prefix"] + "_" + str(desc['unk_thres']) 
-    self.full_exp_prefix = self.unk_exp_prefix +  "_" + str(int(desc['penalty'])) + "_" + self.model_type
+    self.full_exp_prefix = self.unk_exp_prefix +  "_" + str(int(10*desc['penalty'])) + "_" + self.model_type
     self.train = desc["train"]
     self.unk_thres = desc['unk_thres']
     self.num_sentences = desc["num_sentences"]
@@ -75,10 +75,45 @@ small_brown_3 = Experiment({
   "prefix": "brown_simple_1", 
   #"exp_prefix": "brown_simple_1_3", 
   "num_sentences" : 62,
+  
   "unk_thres" : 3,
   "train" : "wsj_gold_dependency" ,
   "penalty" : 10.0
 })
+
+small_brown_5_05 = Experiment({
+    "prefix": "brown_simple_1", 
+    #"exp_prefix": "brown_simple_1_10", 
+    "model_type": "nbayes",
+    "num_sentences" : 62,
+    "num_constraints" : 39,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 0.5
+    })
+
+
+small_brown_5_2 = Experiment({
+    "prefix": "brown_simple_1", 
+    #"exp_prefix": "brown_simple_1_10", 
+    "model_type": "nbayes",
+    "num_sentences" : 62,
+    "num_constraints" : 39,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 2.0
+    })
+
+small_brown_5_5 = Experiment({
+    "prefix": "brown_simple_1", 
+    #"exp_prefix": "brown_simple_1_10", 
+    "num_sentences" : 62,
+    "unk_thres" : 5,
+    "num_constraints" : 39,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 5.0
+    })
+
 
 
 small_brown_10 = Experiment({
@@ -151,7 +186,7 @@ small_brown_extra_200 = Experiment({
     })
 
 
-small_brown_extra_5 = Experiment({
+small_brown_extra_5_2 = Experiment({
     "prefix": "brown_extra", 
     #"exp_prefix": "brown_simple_1_100", 
     "model_type": "nbayes",
@@ -160,6 +195,18 @@ small_brown_extra_5 = Experiment({
     "unk_thres" : 5,
     "train" : "wsj_gold_dependency",
     "penalty" : 2.0
+    })
+
+
+small_brown_extra_5_5 = Experiment({
+    "prefix": "brown_extra", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 91,
+    "num_constraints" : 157,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 5.0
     })
 
 
@@ -185,7 +232,19 @@ small_brown_extra20_5 = Experiment({
     "penalty" : 2.0
     })
 
-small_brown_extra10_5 = Experiment({
+
+small_brown_extra10_5_05 = Experiment({
+    "prefix": "brown_extra10", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 464,
+    "num_constraints" : 124,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 0.5
+    })
+
+small_brown_extra10_5_2 = Experiment({
     "prefix": "brown_extra10", 
     #"exp_prefix": "brown_simple_1_100", 
     "model_type": "nbayes",
@@ -195,6 +254,18 @@ small_brown_extra10_5 = Experiment({
     "train" : "wsj_gold_dependency",
     "penalty" : 2.0
     })
+
+small_brown_extra10_5_5 = Experiment({
+    "prefix": "brown_extra10", 
+    #"exp_prefix": "brown_simple_1_100", 
+    "model_type": "nbayes",
+    "num_sentences" : 464,
+    "num_constraints" : 124,
+    "unk_thres" : 5,
+    "train" : "wsj_gold_dependency",
+    "penalty" : 5.0
+    })
+
 
 
 small_brown_200_potts = Experiment({
