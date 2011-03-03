@@ -1,6 +1,6 @@
 Import('env build_config')
 
-sources = [ "MRFLP.cpp", "TagLP.cpp", "DepParseLP.cpp"]
+sources = [ "HypergraphLP.cpp", "MRFLP.cpp", "TagLP.cpp", "DepParseLP.cpp"]
 
 if build_config['has_sri']:
   sources += ["LPBuilder.cpp"]

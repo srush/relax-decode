@@ -7,18 +7,27 @@ class Experiment:
     self.full_exp_prefix = self.unk_exp_prefix +  "_" + str(int(10*desc['penalty'])) + "_" + self.model_type
     self.train = desc["train"]
     self.unk_thres = desc['unk_thres']
-    self.num_sentences = desc["num_sentences"]
-    self.num_cons = desc.get("num_constraints", 0)
+    #self.num_sentences = desc["num_sentences"]
+    #self.num_cons = desc.get("num_constraints", 0)
     self._penalty = desc["penalty"]
+    self.original_test = desc["original_test"]
+    self._gold_file = desc["gold_file"]
+    self._tagger = desc["tagger"]
 
   def constraint_type(self):
     return self.model_type
 
-  def original_simple_file(self):
+  def original_test_file(self):
+    return "$SCARAB_DATA/" + self.original_test
+
+  def full_test_file(self):
     return "$SCARAB_DATA/" + self.prefix
 
+  def full_test_file_desc(self):
+    return "$SCARAB_DATA/" + self.prefix + "_desc"
+
   def gold_file(self):
-    return "$SCARAB_DATA/" + self.prefix + "_gold"
+    return "$SCARAB_DATA/" + self._gold_file
 
   def train_file(self):
     return "$SCARAB_DATA/" + self.train 
@@ -30,11 +39,21 @@ class Experiment:
     return "$SCARAB_DATA/" + self.unk_exp_prefix
 
 
+  def tagger_model(self):
+    return "$SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/models/" + self._tagger
+
   def constraint_old_prefix(self):
     return "$SCARAB_DATA/" + self.unk_exp_prefix
 
   def mrf_link_prefix(self):
     return "$SCARAB_DATA/" + self.full_exp_prefix + "_link"
+
+  def mrf_link_prefix_desc(self):
+    return "$SCARAB_DATA/" + self.full_exp_prefix + "_link_desc"
+
+  def brown_clusters(self):
+    return "$SCARAB_DATA/paths"
+
 
   def constraint_mrf_prefix(self):
     return "$SCARAB_TMP/%s_mrf"%(self.full_exp_prefix)
@@ -61,252 +80,27 @@ class Experiment:
   def penalty(self):
     return self._penalty
 
-# class Experiment:
-#   def __init__(self):
-#     pass
 
-#   def 
-
-
-
-
-
-small_brown_3 = Experiment({
-  "prefix": "brown_simple_1", 
-  #"exp_prefix": "brown_simple_1_3", 
-  "num_sentences" : 62,
-  
-  "unk_thres" : 3,
-  "train" : "wsj_gold_dependency" ,
-  "penalty" : 10.0
-})
-
-small_brown_5_05 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_10", 
-    "model_type": "nbayes",
-    "num_sentences" : 62,
-    "num_constraints" : 39,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 0.5
-    })
-
-
-small_brown_5_2 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_10", 
-    "model_type": "nbayes",
-    "num_sentences" : 62,
-    "num_constraints" : 39,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_5_5 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_10", 
-    "num_sentences" : 62,
-    "unk_thres" : 5,
-    "num_constraints" : 39,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 5.0
-    })
+small_experiment = Experiment({
+  "original_test": "brown_simple_1",
+  "prefix": "brown_small_extra",
+  "gold_file": "brown_small_extra_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0
+  })
 
 
 
-small_brown_10 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_10", 
-    "num_sentences" : 62,
-    "unk_thres" : 10,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 1.0
-    })
-
-small_brown_10_hard = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_10", 
-    "num_sentences" : 62,
-    "unk_thres" : 10,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 1000.0
-    })
-
-small_brown_50 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_50", 
-    "num_sentences" : 62,
-    "unk_thres" : 50,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 10.0 
-    })
-
-
-small_brown_100 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "num_sentences" : 62,
-    "unk_thres" : 100,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 1.0
-    })
-
-small_brown_100_hard = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "num_sentences" : 62,
-    "unk_thres" : 100,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 1000.0
-    })
-
-
-small_brown_200 = Experiment({
-    "prefix": "brown_simple_1", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 62,
-    "num_constraints" : 140,
-    "unk_thres" : 200,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_extra_200 = Experiment({
-    "prefix": "brown_extra", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 91,
-    "num_constraints" : 157,
-    "unk_thres" : 200,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-
-small_brown_extra_5_2 = Experiment({
-    "prefix": "brown_extra", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 91,
-    "num_constraints" : 157,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-
-small_brown_extra_5_5 = Experiment({
-    "prefix": "brown_extra", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 91,
-    "num_constraints" : 157,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 5.0
-    })
-
-
-small_brown_extra20_200 = Experiment({
-    "prefix": "brown_extra20", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 185,
-    "num_constraints" : 449,
-    "unk_thres" : 200,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_extra20_5 = Experiment({
-    "prefix": "brown_extra20", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 215,
-    "num_constraints" : 42,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-
-small_brown_extra10_5_05 = Experiment({
-    "prefix": "brown_extra10", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 464,
-    "num_constraints" : 124,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 0.5
-    })
-
-small_brown_extra10_5_2 = Experiment({
-    "prefix": "brown_extra10", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 464,
-    "num_constraints" : 124,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_extra10_5_5 = Experiment({
-    "prefix": "brown_extra10", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 464,
-    "num_constraints" : 124,
-    "unk_thres" : 5,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 5.0
-    })
-
-
-
-small_brown_200_potts = Experiment({
-    "prefix": "brown_simple_1", 
-    "model_type": "potts",
-    #"exp_prefix": "brown_simple_1_100", 
-    "num_sentences" : 62,
-    "num_constraints" : 140,
-    "unk_thres" : 200,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_500_potts = Experiment({
-    "prefix": "brown_simple_1", 
-    "model_type": "potts",
-    "num_sentences" : 62,
-    "num_constraints" : 184,
-    "unk_thres" : 500,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-small_brown_500 = Experiment({
-    "prefix": "brown_simple_1", 
-    "num_sentences" : 62,
-    "num_constraints" : 184,
-    "unk_thres" : 500,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
-
-
-test_expermient = Experiment({
-    "prefix": "brown_extra20", 
-    #"exp_prefix": "brown_simple_1_100", 
-    "model_type": "nbayes",
-    "num_sentences" : 382,
-    "num_constraints" : 157,
+# test_expermient = Experiment({
+#     "prefix": "brown_extra20", 
+#     #"exp_prefix": "brown_simple_1_100", 
+#     "model_type": "nbayes",
+#     "num_sentences" : 382,
+#     "num_constraints" : 157,
     
-    "unk_thres" : 200,
-    "train" : "wsj_gold_dependency",
-    "penalty" : 2.0
-    })
+#     "unk_thres" : 200,
+#     "train" : "wsj_gold_dependency",
+#     "penalty" : 2.0
+#     })

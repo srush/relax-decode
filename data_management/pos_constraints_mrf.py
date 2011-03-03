@@ -13,17 +13,18 @@ from pickle import *
 from pos_constraints import * 
 import math
 from marginals import *
+from beam_map import *
 states = range(45)
 
 class PosNode:
-  def __init__(self, id, label):
+  def __init__(self, id, label, states):
     self.id = id
     self.label = label
     self.edges = []
-    self.potentials = []
-
-  def add_blank_potentials(self):
     self.potentials = [(state, 0.0) for state in states]
+    self.states = states
+#   def add_blank_potentials(self):
+#     self.potentials = [(state, 0.0) for state in states]
     
   def convert_to_protobuf(self, proto_node):
     proto_node.id = self.id
@@ -42,19 +43,20 @@ class PosNode:
 
 
 class PosEdge:
-  def __init__(self, to_node):
+  def __init__(self, from_node, to_node):
+    self.from_node = from_node
     self.to_node = to_node
     #self.label = label
     self.potentials = []
 
   def add_same_potentials(self, bonus):
     self.potentials =[]
-    for s1 in states:
-      for s2 in states:
+    for s1 in self.from_node.states:
+      for s2 in self.to_node.states:
         self.potentials.append((s1,s2, bonus if s1 == s2 else 0.0))
 
   def convert_to_protobuf(self, proto_edge):
-    proto_edge.to_node = self.to_node
+    proto_edge.to_node = self.to_node.id
     proto_mrf_edge = proto_edge.Extensions[mrf_edge]
     for s1, s2, bonus in self.potentials:
       if bonus == 0.0 : continue
@@ -65,25 +67,31 @@ class PosEdge:
 
 
 class PosMrf:
-  def __init__(self, label, data):
+  def __init__(self, label, data, beam_map):
     self.label = label
-    self.nodes = [PosNode(i, "%s:%s"%(sent_num, ind)) for i, (sent_num, ind, _) in enumerate(data)]
+    self.nodes = [PosNode(i, "%s:%s"%(sent_num, ind), beam_map.lookup(sent_num, ind))
+                  for i, (sent_num, ind, _) in enumerate(data)]
     #self.edges = {}
-
+    self.beam_map = beam_map
+    
   def add_potts_edges(self, bonus):
     for i, node in enumerate(self.nodes):
-      node.add_blank_potentials()
+      #node.add_blank_potentials()
       for j in range(i+1, len(self.nodes)):
-        self.nodes[i].edges.append(PosEdge(j))
+        self.nodes[i].edges.append(PosEdge(node, self.nodes[j]))
         self.nodes[i].edges[-1].add_same_potentials(bonus)
 
   def add_naive_bayes_edges(self, bonus):
-    self.nodes.append(PosNode(len(self.nodes), "mu"))
+    total_states = []
     for node in self.nodes:
-      node.add_blank_potentials()
+      total_states.extend(node.states)
+      
+    self.nodes.append(PosNode(len(self.nodes), "mu", total_states))
+    #for node in self.nodes:
+    #  node.add_blank_potentials(beam_map)
 
     for node in self.nodes[:-1]:
-      node.edges.append(PosEdge(self.nodes[-1].id))
+      node.edges.append(PosEdge(node, self.nodes[-1]))
       node.edges[-1].add_same_potentials(bonus)
     
 
@@ -104,16 +112,18 @@ if __name__=="__main__":
     
   t = sys.argv[4]
   
-  marginals = Marginals.from_handle(open(sys.argv[5]))
+  #marginals = Marginals.from_handle(open(sys.argv[5]))
   
   pen = float(sys.argv[6])
+  link_desc = open(sys.argv[7], 'w')
+  beam_map = BeamMap.from_handle(open(sys.argv[8], 'r'))
   
   s, total = manager.stats()
   groups = manager.groups()
   for i in range(len(groups)):
     
     group1 = groups[i]
-    posmrf = PosMrf(group1[0], group1[1])
+    posmrf = PosMrf(group1[0], group1[1], beam_map)
     
 
     training_seen = group1[1][0][2]
@@ -137,7 +147,8 @@ if __name__=="__main__":
 
       sent_num = group1[1][j][0]
       word_ind = group1[1][j][1]
-      posmrf.nodes[j].potentials = [(s, 0.0 ) for s in states] #if marginals.data[sent_num, word_ind, s] > 0.05 else 100.0
+      posmrf.nodes[j].potentials = [(s, 0.0 ) for s in states]
+      #if marginals.data[sent_num, word_ind, s] > 0.05 else 100.0
       #print >>sys.stderr, sent_num, word_ind, posmrf.nodes[j].potentials
 
 
@@ -149,6 +160,8 @@ if __name__=="__main__":
     f.write(proto_graph.SerializeToString())
     f.close()
 
+
+  print >>link_desc, len(groups) 
   # zerozero = manager.zerozero()
   # data = [ b[0] for a,b in zerozero]
   # print >>sys.stderr, data

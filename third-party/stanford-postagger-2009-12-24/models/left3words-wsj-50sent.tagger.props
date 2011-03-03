@@ -1,13 +1,13 @@
 ## tagger training invoked at Mon Dec 21 23:25:07 PST 2009 with arguments:
-                   model = left3words-wsj-0-22.nounk.tagger
-                    arch = left3words
-               trainFile = /data/nlp4/srush/Projects/relax-decode/parse/data/wsj_gold_dependency.pos
+                   model = left3words-wsj-50sent.tagger
+                    arch = left3words,naacl2003unknowns,wordshapes(-1,1)
+               trainFile = /data/nlp4/srush/Projects/relax-decode/parse/data/wsj_gold_50.pos
          closedClassTags = 
  closedClassTagThreshold = 40
  curWordMinFeatureThresh = 2
                    debug = false
              debugPrefix = 
-            tagSeparator = ~
+            tagSeparator = _
                 encoding = UTF-8
            initFromTrees = false
               iterations = 100

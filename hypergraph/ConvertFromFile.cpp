@@ -57,7 +57,7 @@ int main(int argc, char ** argv) {
       double cost;
       string label;
 
-      in >> label >> from_id >> to_id >> cost;
+      in >> label >> to_id >> from_id  >> cost;
       //cout << "edge " <<label << " "  << from_id << " " << to_id << endl;      
       edge = nodes[from_id]->add_edge();
       stringstream fv;
@@ -85,14 +85,15 @@ int main(int argc, char ** argv) {
       
 
       if (t3 != "final" and t3 != "START") {
-        Tagging * ta = node.MutableExtension(tagging);
+        Tagging * ta = node->MutableExtension(tagging);
 
         std::vector<std::string> strs;
         boost::split(strs, t3, boost::is_any_of(":"));
+        
         ta->set_ind(atoi(strs[0].c_str()));
-        ta->set_tag_id(atoi(strs[1].c_str()));
-                
-        node.SetExtension(has_tagging, true);
+        ta->set_tag_id(atoi(strs[strs.size()-1].c_str()));
+        //cout << t3 << " " << strs[0]<< " " << strs[1] <<" " <<ta->ind() << " " << ta->tag_id() << endl;        
+        node->SetExtension(has_tagging, true);
       }
               
 

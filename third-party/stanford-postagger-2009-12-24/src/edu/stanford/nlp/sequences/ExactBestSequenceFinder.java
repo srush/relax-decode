@@ -1,6 +1,10 @@
 package edu.stanford.nlp.sequences;
 
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 
 /**
@@ -14,6 +18,8 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
 
   private static final boolean useOld = false;
   private static final boolean DEBUG = false;
+
+    private static final double BEAM = 5.0;
 
   /**
    * A class for testing.
@@ -113,12 +119,19 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     int padLength = length + leftWindow + rightWindow;
     // tags[ind][tag] (all the possible tags
     int[][] tags = new int[padLength][];
+
+    // tags that are actually seen in the beam
+    ArrayList<HashSet<Integer>> beam_tags = new ArrayList<HashSet<Integer>>();
+    //beam_tags.ensureCapacity(padLength);
+    //int[][] beam_tags = new int[padLength][];
+
     // the number of available tags at each position
     int[] tagNum = new int[padLength];
     if (DEBUG) { System.err.println("Doing bestSequence length " + length + "; leftWin " + leftWindow + "; rightWin " + rightWindow + "; padLength " + padLength); }
     
     // Fill in the possible tags at each position
     for (int pos = 0; pos < padLength; pos++) {
+      beam_tags.add( new HashSet<Integer>());
       tags[pos] = ts.getPossibleValues(pos);
       tagNum[pos] = tags[pos].length;
       if (DEBUG) { System.err.println("There are " + tagNum[pos] + " values at position " + pos + ": " + Arrays.toString(tags[pos])); }
@@ -201,10 +214,13 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     double[][] score = new double[padLength][];
     int[][] trace = new int[padLength][];
     int[][] node_index = new int[padLength][];
+    Boolean[][] in_beam = new Boolean[padLength][];
     for (int pos = 0; pos < padLength; pos++) {
       score[pos] = new double[productSizes[pos]];
       trace[pos] = new int[productSizes[pos]];
       node_index[pos] = new int[productSizes[pos]];
+      in_beam[pos] = new Boolean[productSizes[pos]];
+      
     }
 
     // Do forward Viterbi algorithm
@@ -212,30 +228,51 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     System.out.println("LATTICE: START");
     int node_count = 0;
 
+
     // loop over the classification spot
     //System.err.println();
     System.out.println("LATTICE: NODE "+node_count+" START");
     node_count++;
     for (int pos = leftWindow; pos < length + leftWindow; pos++) {
+
+        double max_at_pos = Double.NEGATIVE_INFINITY;;      
         // if (pos != leftWindow) {
         //     for (int newTagNum = 0; newTagNum < tagNum[pos - leftWindow - 1]; newTagNum++) {
         //         System.err.println("NODE " + pos + " " + newTagNum);        
         //     }
         // }
 
+      for (int product = 0; product < productSizes[pos]; product++) {
+          //in_beam[pos][product] = (max_at_pos - score[pos][product]) < BEAM; 
+          in_beam[pos][product] = false;
+          score[pos][product] = Double.NEGATIVE_INFINITY;
+          
+
+      }
+
+
       // all the states at the current point
       for (int product = 0; product < productSizes[pos]; product++) {
-          int tag = tags[pos][product % tagNum[pos]];//tags[pos - leftWindow - 1][newTagNum];
-          System.out.println("LATTICE: NODE "+node_count+" " + (pos-2) + ":" + product + ":" + tag);  
-          node_index[pos][product] = node_count;
-          node_count++;
+        int tag = tags[pos][product % tagNum[pos]];//tags[pos - leftWindow - 1][newTagNum];
+
+        boolean has_seen = false;
           //+ " " + tags[pos - leftWindow - 1][newTagNum]
         // check for initial spot
         if (pos == leftWindow) {
           // no predecessor type
           score[pos][product] = windowScore[pos][product];
           trace[pos][product] = -1;
-          System.out.println("LATTICE: EDGE " + (pos-3) + ":0:" + (pos-2) + ":" + product +" 0 "+ node_index[pos][product]+" " + windowScore[pos][product]);  
+          
+          if (!has_seen) {
+              System.out.println("LATTICE: NODE "+node_count+" " + (pos-2) + ":" + product + ":" + tag); 
+              node_index[pos][product] = node_count;
+              node_count++;
+              beam_tags.get(pos).add(tag);
+          }
+          has_seen = true;
+
+          System.out.println("LATTICE: EDGE " + (pos-3) + ":0:" + (pos-2) + ":" + product +" 0 "+node_index[pos][product]+" " + windowScore[pos][product]);  
+          
         } else {
           // loop over possible predecessor types
           score[pos][product] = Double.NEGATIVE_INFINITY;
@@ -248,19 +285,54 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
             
             // last node
             int predProduct = newTagNum * factor + sharedProduct;
+            
+
             // edge score
             double edge_score = windowScore[pos][product];
             // new score
             double predScore = score[pos - 1][predProduct] + edge_score;
+
+            // is prev node pruned or this node is pruned
+            if (!in_beam[pos-1][predProduct]) {
+                //System.out.println("DEBUG: was beamed " + (pos-1) + " " + predProduct);
+                continue;
+            }
+            if ((max_at_pos - predScore) > BEAM) { 
+                //System.out.println("DEBUG: will be beamed " + (max_at_pos) + " " + predScore);
+                continue;
+            }
+            //if (!in_beam[pos-1][predProduct]) continue;
+            
+            if (!has_seen) {
+               System.out.println("LATTICE: NODE "+node_count+" " + (pos-2) + ":" + product + ":" + tag);                node_index[pos][product] = node_count;
+              node_count++;
+              beam_tags.get(pos).add(tag);
+            }
+            has_seen = true;
+
             System.out.println("LATTICE: EDGE " + (pos-3) + ":" + predProduct + ":" + (pos-2) + ":" + product +" "+node_index[pos-1][predProduct]+ " "+ node_index[pos][product]+" " + edge_score);  
             if (predScore > score[pos][product]) {
               score[pos][product] = predScore;
               trace[pos][product] = predProduct;
+              max_at_pos = Math.max(score[pos][product], max_at_pos);
             }
           }
         }
       }
+
+              
+      // delta beam
+      for (int product = 0; product < productSizes[pos]; product++) {
+          Boolean should_keep = (max_at_pos - score[pos][product]) < BEAM; 
+          in_beam[pos][product] = should_keep;
+          if (!should_keep) {
+              //System.out.println("DEBUG: Is beamed " + max_at_pos + " " + score[pos][product] + " " + product);
+          }
+      }
+
     }
+
+
 
     // Project the actual tag sequence
     double bestFinalScore = Double.NEGATIVE_INFINITY;
@@ -270,6 +342,7 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
     node_count++;
     for (int product = 0; product < productSizes[leftWindow + length - 1]; product++) {
         int lastpos = leftWindow + length - 1;
+        if (!in_beam[lastpos][product]) continue;
         System.out.println("LATTICE: EDGE last " + node_index[lastpos][product] + " " +  (node_count -1) + " 0.0");  
       if (score[leftWindow + length - 1][product] > bestFinalScore) {
         bestCurrentProduct = product;
@@ -287,7 +360,18 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
       bestCurrentProduct = trace[pos + 1][bestNextProduct];
       tempTags[pos - leftWindow] = tags[pos - leftWindow][bestCurrentProduct / (productSizes[pos] / tagNum[pos - leftWindow])];
     }
+    
+
     System.out.println("LATTICE: END");  
+    System.out.println("BEAM: START" );
+    for (int pos = leftWindow; pos < length + leftWindow -1; pos++) {
+        System.out.print("BEAM: " + (pos-2) + " " );
+        for (Integer tag: beam_tags.get(pos)) {
+            System.out.print( tag + " " );
+        }
+        System.out.println();
+    }
+    System.out.println("BEAM: END" );
     System.out.println("best final score " + bestFinalScore);  
     return tempTags;
   }

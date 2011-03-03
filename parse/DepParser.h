@@ -5,6 +5,7 @@
 #include "Hypergraph.h"
 #include "HypergraphImpl.h"
 #include "EdgeCache.h"
+#include <algorithm>
 using namespace Scarab::HG;
 
 struct Dependency {
@@ -16,6 +17,13 @@ struct Dependency {
     _id= head * l + mod;
   }
   
+  const bool operator<(const Dependency & other) const {
+    if (mod != other.mod) 
+      return mod < other.mod;
+    else 
+      return head < other.head;
+  }
+
   int id() const {return _id;}
 private:
   int _id;
@@ -40,8 +48,8 @@ class DepParser : public Scarab::HG::HypergraphImpl {
     //cout << "len " <<   _sent_length << endl;
 
     int id_size = 0;
-    for (int h=0; h < _sent_length; h++) {
-      for (int m=0;m < _sent_length; m++) {
+    for (int m=0;m < _sent_length; m++) {
+      for (int h=0; h < _sent_length; h++) {
         if (h == m) continue;
         if (m == 0) continue;
         Dependency dep = make_dep(h,m);
@@ -60,7 +68,7 @@ class DepParser : public Scarab::HG::HypergraphImpl {
         edge_count++;
       }
     }
-    _dep_length = id_size + 1;
+    _dep_length = id_size + 5;
     _dep_map =  new Cache <Hyperedge, Dependency>(edge_count);
     _edge_map = new Cache <Dependency, vector<const Hyperedge *> >(_dep_length);
   }
@@ -93,12 +101,32 @@ class DepParser : public Scarab::HG::HypergraphImpl {
     return _edge_map->get(dep);
   }
 
+  bool dep_has_edge(const Dependency & dep) const {
+    return _edge_map->has_key(dep);
+  }
+
   const Dependency & edge_to_dep(const Hyperedge & edge) const {
     return _dep_map->get(edge);
   }
 
   bool edge_has_dep(const Hyperedge & edge) const {
     return _dep_map->has_key(edge);
+  }
+
+  void show_derivation(HEdges best_edges) {
+    vector <Dependency> res;
+
+    foreach (HEdge edge, best_edges) {
+      if (edge_has_dep(*edge)) {
+        Dependency d = edge_to_dep(*edge);
+        res.push_back(d);
+      }
+    }
+    sort(res.begin(), res.end());
+    foreach(Dependency d, res) {
+      cout << d << " ";
+    }
+    cout << endl;
   }
   
  protected:

@@ -75,7 +75,9 @@ if build_config['has_sri']:
    
 env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
 
-env.Program('parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
+env.Program('run_parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
+
+env.Program('run_decomp_parser', ("DecompParser.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('run_tagger', ("Tag.cpp", )+ local_libs, LIBS = libs)
 
@@ -93,7 +95,7 @@ env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
 
 
 if build_config['has_gurobi']:
-   env.Program('fullparser', ("FullParser.cpp", )+ local_libs)
+   env.Program('run_full_parser', ("FullParser.cpp", )+ local_libs)
    env.Program('scarab', ("Main.cpp", ) + local_libs)
 
 

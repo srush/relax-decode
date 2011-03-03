@@ -1,6 +1,6 @@
 #ifndef EISNERTOHYPERGRAPH_H_
 #define EISNERTOHYPERGRAPH_H_
-#define MAX_LEN 50
+#define MAX_LEN 200
 
 
 #include <sstream>

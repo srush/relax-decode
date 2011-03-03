@@ -14,6 +14,10 @@ using namespace Scarab::Graph;
 using namespace std;
 struct State {
   State() {}
+  State(const State & s) {
+    _id = s._id;
+    _label = s._label;
+  }
 State(int id_, string label_):_id(id_), _label(label_) {} 
 
   int id() const {
@@ -28,6 +32,10 @@ State(int id_, string label_):_id(id_), _label(label_) {}
     return _id == other._id; 
   }
 
+  bool operator<(const State & other) const {
+    return _id < other._id; 
+  }
+
   int _id;
   string _label;
 };
@@ -35,18 +43,32 @@ State(int id_, string label_):_id(id_), _label(label_) {}
 
 struct NodeAssignment {
   NodeAssignment(){}
-NodeAssignment(int node_id_, const State state_,  int length_): node_id(node_id_), s(state_) , length(length_) {}
+NodeAssignment(int node_id_, const State &  state_,  int length_): node_id(node_id_), s(state_) , length(length_) {}
   int node_id;
   State s;
   int length;
   
   int id() const {
-    return s.id()* length + node_id; 
+    return s._id* (length+1) + node_id; 
+  }
+
+  bool operator<(const NodeAssignment & other) const {
+    if (node_id != other.node_id) {
+      return node_id < other.node_id;
+    }
+    if (!(s == other.s)) {
+      return s < other.s;
+    }
+    return false;
   }
 };
 
+ostream& operator<<(ostream& output, const NodeAssignment& assign);
+
 class MRF : public GraphProtoInterface {
  public:
+ MRF():_num_assignments(0), _num_nodes(0) {}
+
   void process_node(graph::Graph_Node, Graphnode *) ;
   void process_edge(graph::Graph_Edge, Graphedge *) ;
   
@@ -94,17 +116,38 @@ class MRF : public GraphProtoInterface {
     return _node_states->get(node);
   } 
 
+  int state_max(const Graphnode & node) const {
+    return _max_node->get(node);
+  } 
+
   const int assignments() const{
-    return _num_assignments;
+    return _num_assignments + 1;
+  }
+
+  void show_derivation(const vector <NodeAssignment> & derivation) {
+
+    cout << "CONSTRAINT: NEW " << label() << endl;    
+    foreach (const NodeAssignment & assign, derivation) {
+      cout << "CONSTRAINT: " << assign.node_id << " " << _graph->node(assign.node_id).label()
+           << " " << assign.s.id() << " " << assign.s.label() << endl; 
+    } 
+
   }
 
   NodeAssignment make_assignment(const Graphnode & n, const State & my_s) const {
-    return NodeAssignment(n.id(), my_s, graph().num_nodes());
+    assert(_num_nodes != 0);
+    return NodeAssignment(n.id(), my_s, _num_nodes);
+  }
+  
+  string label() const {
+    return _label;
   }
 
  private:
-
+  int _num_nodes;
   Cache <Graphnode, vector <State> > * _node_states; 
+  Cache <Graphnode, int > * _max_node; 
+
   Cache <Graphnode, Cache <State, double> * > * _node_potentials; 
 
   // This will be zero on any edge with no potential (makes things way faster)
@@ -112,6 +155,7 @@ class MRF : public GraphProtoInterface {
 
   int _num_assignments;
 
+  string _label;
   /* vector <Graphnode *> nodes; */
   /* vector <Graphedge *> edges; */
 

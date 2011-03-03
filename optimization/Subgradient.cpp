@@ -109,24 +109,27 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     _aggressive = true;
     //_base_weight *=0.1;
   }
+  
+  double alpha = rate->get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
+//   if  (dualsize > 2 && _duals[dualsize -1] <= _duals[dualsize -2]) { 
+//     _nround += 1;
+//     if (_aggressive && _nround > 2) {
+//       _base_weight *= 0.7;
+//       _nround = 0;
+//     } else if (!_is_stuck && _nround >= 10) {
+//     //else if (_nround >= 3) {// 10) {
+//       _base_weight *= 0.7;
+//       _nround =0;
+//     }
+//   } else if ( dualsize == 1) {
+//     _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
+//   }
 
-  if  (dualsize > 2 && _duals[dualsize -1] <= _duals[dualsize -2]) { 
-    _nround += 1;
-    if (_aggressive && _nround > 2) {
-      _base_weight *= 0.7;
-      _nround = 0;
-    } else if (!_is_stuck && _nround >= 10) {
-    //else if (_nround >= 3) {// 10) {
-      _base_weight *= 0.7;
-      _nround =0;
-    }
-  } else if ( dualsize == 1) {
-    _base_weight = (_primals[_primals.size()-1] - _duals[_duals.size()-1]) / max((double)size,1.0);  
-  }
-
-  //double alpha = _base_weight * pow(0.99, (double)_nround);
+//   //double alpha = _base_weight * pow(0.99, (double)_nround);
    
-  double alpha = _base_weight;
+//   double alpha = _base_weight;
+
+
   //double alpha = _base_weight / ((float)_nround / 10.0);
   svector<int, double> updates = alpha * subgrad;
   if (TIMING) {
@@ -168,3 +171,6 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
   }
 }
+
+
+

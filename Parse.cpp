@@ -44,18 +44,10 @@ int main(int argc, char ** argv) {
     
     HNodes best_nodes = ha.construct_best_node_order(back_memo_table);
     
-    
     HEdges best_edges = ha.construct_best_edges(back_memo_table);
     
-    cout << endl;
-    foreach (HEdge edge, best_edges) {
-      if (f.edge_has_dep(*edge)) {
-        Dependency d = f.edge_to_dep(*edge);
-        cout << d << " ";
-      }
-    }
-    cout << endl;
-
+    cout << endl << "SENTENCE: ";
+    f.show_derivation(best_edges);
     
     //foreach (HNode node, best_nodes) { 
     //cout << ((ForestNode *)node)->_label << endl;

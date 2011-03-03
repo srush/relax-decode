@@ -65,7 +65,7 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           my_dep->set_head(i);
           my_dep->set_mod(k);
           pedge.SetExtension(has_dep, true);                  
-          cout << "RL:" << i << " " << k << " " << pedge.id() << endl;
+          //cout << "RL:" << i << " " << k << " " << pedge.id() << endl;
         }
         // right triangle + left triangle [Creates dep]
         if (j+1 <= k)
@@ -95,7 +95,7 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
           my_dep->set_head(k);
           my_dep->set_mod(i);
           pedge.SetExtension(has_dep, true);
-          cout << "LR:" <<  k << " " << i << " " << pedge.id() << endl;
+          //cout << "LR:" <<  k << " " << i << " " << pedge.id() << endl;
           
         }
 
@@ -153,8 +153,10 @@ int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   stringstream buf;
   //fstream in(argv[1], ios::in);
-  for (int sent_num=1; sent_num <= 10 ;sent_num++ ) {
- 
+  //for (int sent_num=1; sent_num <= 10 ;sent_num++ ) {
+  int sent_num = -1;
+  while(cin) {
+    sent_num++;
     vector <int> sent;  
     
     vector<vector <vector<double > > > weights(MAX_LEN);
@@ -177,13 +179,13 @@ int main(int argc, char ** argv) {
       if (ignore == "DONE:") break; 
       cin >> snum >> pos1 >> pos2 >> head >> prob; 
       //cout << sent_num << " " << snum;
-      assert(sent_num == snum);
+      //assert(sent_num+1 == snum);
       //cout << pos1 << " " << pos2 << " " << head << " " << prob<< endl;
       weights[pos1][pos2][head] = prob; 
       max_pos = max(max_pos, pos1); 
     }
     
-    cout << "Sent " << sent_num << " is " << max_pos << endl;
+    //cout << "Sent " << sent_num << " is " << max_pos << endl;
     for (int i=0; i<= max_pos+1; i++ ) {
       sent.push_back(i);
     }
@@ -193,14 +195,14 @@ int main(int argc, char ** argv) {
     EisnerToHypergraph runner(sent, weights);
     runner.convert(tmp);
 
-    cout << "extension set " << max_pos << endl;
+    //cout << "extension set " << max_pos << endl;
     runner.hgraph.SetExtension(len, max_pos+1);
-    cout << "extension get " << tmp.GetExtension(len) << endl;
+    //cout << "extension get " << tmp.GetExtension(len) << endl;
    
 
     {
       stringstream buf;
-      buf << "/tmp/eisner" << sent_num;
+      buf << argv[1] << sent_num;
       fstream output(buf.str().c_str() , ios::out | ios::trunc | ios::binary);
       if (!runner.hgraph.SerializeToOstream(&output)) {
         cerr << "Failed to ." << endl;
@@ -208,11 +210,8 @@ int main(int argc, char ** argv) {
       }
     }
   }
-
-  // Optional:  Delete all global objects allocated by libprotobuf.
+  cout << (sent_num -1 ) << endl;
   google::protobuf::ShutdownProtobufLibrary();
-
-
 
   return 0;
 }

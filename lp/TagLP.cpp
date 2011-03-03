@@ -3,13 +3,13 @@
 namespace Scarab {
   namespace HG {
 
-void TagLPBuilder::show_results(const TagLP & lp_vars) {
+void TagLP::show() const {
   //h_lp.edge_vars.get(edge)
   //HypergraphLPBuilder::show_hypergraph(lp_vars.h_lp);
 
-  foreach (Tag d, lp_vars.p.tags()) {
-    if (lp_vars.p.tag_has_node(d)) {     
-      GRBVar var = lp_vars.tag_vars.get(d);
+  foreach (Tag d, p.tags()) {
+    if (p.tag_has_node(d)) {     
+      GRBVar var = tag_vars.get(d);
       
       if (var.get(GRB_DoubleAttr_X) != 0.0) {
         cout << d << " ";
@@ -17,9 +17,9 @@ void TagLPBuilder::show_results(const TagLP & lp_vars) {
     }
   }
   cout << endl;
-  foreach (Tag d, lp_vars.p.tags()) {
-    if (lp_vars.p.tag_has_node(d)) {     
-      GRBVar var = lp_vars.tag_vars.get(d);
+  foreach (Tag d, p.tags()) {
+    if (p.tag_has_node(d)) {     
+      GRBVar var = tag_vars.get(d);
       
       if (var.get(GRB_DoubleAttr_X) != 0.0) {
         cout << d << " " << var.get(GRB_DoubleAttr_X) << " " ;
@@ -30,49 +30,83 @@ void TagLPBuilder::show_results(const TagLP & lp_vars) {
   cout << endl;
 }
 
-TagLP * TagLPBuilder::add_tagging(const Tagger & parser, const Cache<Hyperedge, double> & weights,
-                                 string prefix, GRBModel & model, int var_type) {
 
-    
-    // First build the hypergraph for the parser 
-    HypergraphLP * h_lp = HypergraphLPBuilder::add_hypergraph(parser,
-                                                              weights, 
-                                                              prefix, model, var_type);
+void TagLP::add_vars( ) {
+  h_lp.add_vars();
+  //TagLP * p_lp = new TagLP(parser, *h_lp);
+  foreach (Tag d, p.tags()) {
+    if (p.tag_has_node(d)) {
+      stringstream buf;
+      buf << "tag_" << d;
       
-    TagLP * p_lp = new TagLP(parser, *h_lp);
-    foreach (Tag d, parser.tags()) {
-      if (parser.tag_has_node(d)) {
-        stringstream buf;
-        buf << prefix << "_tag_" << d;
-        
-        // add a variable for each dependency
-        p_lp->tag_vars.set_value(d, model.addVar(0.0, 1.0, 
-                                                 0.0, var_type, buf.str()));
-      }
+      // add a variable for each dependency
+      tag_vars.set_value(d, lp_conf->addSimpleVar(0.0, buf));
     }
-    model.update();
-
-    foreach (Tag d, parser.tags()) {
-      // constrain it to be equal to the hypergraph edge
-      if (parser.tag_has_node(d)) { 
-        HNodes nodes = parser.tag_to_node(d);
-      
-        GRBLinExpr sum;
-        //assert(node.size() == 1;
-        foreach(HNode node, nodes) {
-          sum += h_lp->node_vars.get(*node);
-        } 
-      
-        stringstream buf;
-        buf << prefix << "_tag_is_node" << d;
-
-        model.addConstr(sum == p_lp->tag_vars.get(d), buf.str());
-      }
-    }
-        
-    model.update();
-      
-    return p_lp;
-  }
   }
 }
+
+void TagLP::add_constraints() {
+  h_lp.add_constraints();
+  foreach (Tag d, p.tags()) {
+    // constrain it to be equal to the hypergraph edge
+    if (p.tag_has_node(d)) { 
+      HNodes nodes = p.tag_to_node(d);
+      
+      GRBLinExpr sum;
+      //assert(node.size() == 1;
+      foreach(HNode node, nodes) {
+        sum += h_lp.node_vars.get(*node);
+      } 
+      
+      stringstream buf;
+      buf << "tag_is_node" << d;
+
+      lp_conf->addSimpleConstr(sum == tag_vars.get(d), buf);
+    }
+  }
+}
+  }
+} 
+
+
+
+
+
+
+
+// TagLP * TagLPBuilder::add_tagging(const Tagger & parser, const Cache<Hyperedge, double> & weights,
+//                                  string prefix, GRBModel & model, int var_type) {
+
+    
+//     // First build the hypergraph for the parser 
+//     HypergraphLP * h_lp = HypergraphLPBuilder::add_hypergraph(parser,
+//                                                               weights, 
+//                                                               prefix, model, var_type);
+      
+   
+//     model.update();
+
+//     foreach (Tag d, parser.tags()) {
+//       // constrain it to be equal to the hypergraph edge
+//       if (parser.tag_has_node(d)) { 
+//         HNodes nodes = parser.tag_to_node(d);
+      
+//         GRBLinExpr sum;
+//         //assert(node.size() == 1;
+//         foreach(HNode node, nodes) {
+//           sum += h_lp->node_vars.get(*node);
+//         } 
+      
+//         stringstream buf;
+//         buf << prefix << "_tag_is_node" << d;
+
+//         model.addConstr(sum == p_lp->tag_vars.get(d), buf.str());
+//       }
+//     }
+        
+//     model.update();
+      
+//     return p_lp;
+//   }
+//   }
+// }

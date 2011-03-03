@@ -177,9 +177,9 @@ vector <const Hypernode *> construct_best_node_order_help(const Hypernode & node
 
   if (node.num_edges() == 0) {
     //assert (node.is_word());
-    cout << "w ";
+    //cout << "w ";
   } else {
-    cout << node.id() << "D ";
+    //cout << node.id() << "D ";
     const Hyperedge * edge = back_memo_table.get_value(node);  
     //for (int i =0; i < edge->num_nodes(); i++)  {
     foreach (const Hypernode * bnode, edge->tail_nodes() ) {
@@ -189,7 +189,7 @@ vector <const Hypernode *> construct_best_node_order_help(const Hypernode & node
         best.push_back(in_b);
       }
     }
-    cout << node.id() << "U ";
+    //cout << node.id() << "U ";
   }
   
   return best;

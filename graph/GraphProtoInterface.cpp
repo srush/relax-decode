@@ -37,6 +37,7 @@ void GraphProtoInterface::build_from_file(const char * file_name) {
     const graph::Graph_Node & node = graph->node(i);
 
     Graphnode * my_node = new Graphnode(node.id());
+    my_node->set_label(node.label());
     process_node(node, my_node);
     nodes.push_back(my_node);
   }
