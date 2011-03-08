@@ -79,7 +79,7 @@ class Corpus:
     return Corpus((" ".join(w for w in l.strip().split() if w <> "0") for l in handle))
   
   def __init__(self, sentences):
-    self.sentences = sentences
+    self.sentences = list(sentences)
 
   def get_sentence(self, i):
     return (i, self.sentences[i])
@@ -104,7 +104,7 @@ class WordMap:
       indices = map(int, fields[3:])
       words.append(Word(word, indices, context))
       #print word, context, indices, hash((word, context))
-    print "building"
+    #print "building"
     return WordMap(words)
 
   def __init__(self, words):

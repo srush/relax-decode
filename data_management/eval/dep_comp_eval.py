@@ -5,10 +5,11 @@ from map.unmap_pos import *
 from format.conll import *
 unmap = Unmapper()
 class ConstraintOut:
-  def __init__(self, label, deps, pos ):
+  def __init__(self, label, deps, pos, trains ):
     self.label = label
     self.deps = deps
     self.pos = pos
+    self.trains = trains
 
   def show_results(self, lab_num, test_sents, example_sents, gold_sents, verbose):
     print 
@@ -22,7 +23,7 @@ class ConstraintOut:
         us +=1
       elif v == "cx":
         them +=1
-    print "| Fixed %s Broke %s " %(us, them)
+    print "| Fixed %s Broke %s Trains %s " %(us, them, len(self.trains))
 
     for (sent, ind), pos in zip(self.deps, self.pos):      
       v = eval_word(test_sents[sent], example_sents[sent], gold_sents[sent], ind-1)
@@ -51,16 +52,25 @@ class ConstraintOut:
         label = " ".join(l[2:])
         deps = []
         pos = []
+        trains = []
       elif l[1] == "DONE":
         
-        yield ConstraintOut(label, deps, pos)
+        yield ConstraintOut(label, deps, pos, trains)
       else:
         if l[2] == "Dep":
-          deps.append(map(int, l[3].split(":")))
+          index = map(int, l[3].split(":"))
+          if index[0] >=0:
+            deps.append(index)
+          else:
+            trains.append(index)
         if l[2] == "Pos":
-          pos.append(unmap.pos_map.get(int(l[4]),""))
+          index = map(int, l[3].split(":"))
+          if index[0] >=0:
+            pos.append(unmap.pos_map.get(int(l[4]),""))
+            #pos.append(int(l[4]))
         if l[2] == "mu":
           label += ' ' +" ".join(l[3:])
+          
 def display_sent(test_sent, extra_sent, gold_sent):
    for test_word, extra_word, gold_word in izip(test_sent, extra_sent, islice(gold_sent, 1, None)):
       #print test_word, gold_word.num

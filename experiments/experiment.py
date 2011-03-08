@@ -91,6 +91,16 @@ small_experiment = Experiment({
   "penalty" : 5.0
   })
 
+small_experiment2 = Experiment({
+  "original_test": "brown_simple_1",
+  "prefix": "brown_base",
+  "gold_file": "brown_small_extra_test",
+  "tagger": "left3words-wsj-0-18.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_dependency",
+  "penalty" : 5.0
+  })
+
 
 
 # test_expermient = Experiment({

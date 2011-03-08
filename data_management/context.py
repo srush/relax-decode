@@ -75,28 +75,37 @@ class Context:
 # constraints_11110000               data_tokenized_context/       
 class GeneralContext:
   SIZE = 4
-  MASKS = [[0,0,1,1,1,1,0,0],
-           [0,1,1,1,1,0,0,0], 
-           [0,0,0,1,1,1,1,0],
-           [1,1,1,1,0,0,0,0],
-           [0,0,0,0,1,1,1,1],
-           
+  MASKS = [
+#     [0,0,1,1,1,1,0,0],
+#     [0,1,1,1,1,0,0,0], 
+#     [0,0,0,1,1,1,1,0],
+#     [1,1,1,1,0,0,0,0],
+#     [0,0,0,0,1,1,1,1],
+    
+    
+#     [0,0,1,1,1,0,0,0],
+    
+#     [0,0,0,0,1,1,1,0],
+#     [0,1,1,1,0,0,0,0],
+#    [0,0,0,0,1,1,1,1],
+#    [0,0,0,1,1,1,1,0],
+#    [0,0,0,1,1,1,0,0],
+    [0,0,0,1,1,0,0,0],
+    [0,0,0,0,1,1,0,0],
+    [0,0,1,1,0,0,0,0],
+    [0,0,0,1,0,0,0,0],
+    [0,0,0,0,1,0,0,0],
+    [0,0,0,0,0,0,0,0]
+    
 
-           [0,0,1,1,1,0,0,0],
-           [0,0,0,1,1,1,0,0],           
-           [0,0,0,0,1,1,1,0],
-           [0,1,1,1,0,0,0,0],
-
-           [0,0,0,1,1,0,0,0],
-           [0,0,0,0,1,1,0,0],
-           [0,0,1,1,0,0,0,0],
-           ]
+    ]
 
   
-  def __init__(self, word, boundaries):
+  def __init__(self, word, boundaries, mask= None):
     self.word = word
     assert len(boundaries) == GeneralContext.SIZE *2
-    self.boundaries = boundaries 
+    self.boundaries = boundaries
+    self._mask = mask
 
   def to_tuple(self):
     return tuple( [w.pos for w in self.boundaries] + [self.word.pos]) #(self.left.pos, self.word.pos, self.right.pos)
@@ -117,7 +126,7 @@ class GeneralContext:
         new_boundaries.append(word)
       else:
         new_boundaries.append(SimpleWord(None, "*"))
-    return GeneralContext(self.word, new_boundaries)
+    return GeneralContext(self.word, new_boundaries, mask)
 
   @staticmethod
   def from_string(s):
