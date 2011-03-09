@@ -6,28 +6,30 @@
 #include "DepParser.h"
 #include "HypergraphLP.h"
 #include "../common.h"
-
+#include "LPCommon.h"
 namespace Scarab {
   namespace HG {
 
-
-struct DepParserLP {
-
-DepParserLP(const DepParser &parser, const HypergraphLP &hyper_lp) : 
-  p(parser), dep_vars(parser.num_deps()), h_lp(hyper_lp) {}
+class DepParserLP:public LPBuilder {
+ public:
+DepParserLP(const DepParser &parser, const Cache <Hyperedge, double> & weights) : 
+  p(parser), dep_vars(parser.num_deps()), h_lp(parser, weights) {}
   Cache<Dependency, GRBVar>  dep_vars;
   const DepParser & p; 
-  const HypergraphLP & h_lp;
+   HypergraphLP h_lp;
+
+  void set_lp_conf(LPConfig * configuration) {
+    lp_conf = configuration;
+    h_lp.set_lp_conf(configuration);
+  }
+
+
+  void add_vars();
+  void add_constraints();
+  void show() const; 
 };
 
 
-class DepParserLPBuilder {  
- public:
-  static void show_results(const DepParserLP & lp_vars);
-
-  static DepParserLP * add_parse(const DepParser & parser, const Cache<Hyperedge, double> & weights,
-                                 string prefix, GRBModel & model, int var_type);
-};
   }
 }
 #endif

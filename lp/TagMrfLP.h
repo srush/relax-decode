@@ -5,6 +5,7 @@
 #include "MRFLP.h"
 #include "TagConstraints.h"
 
+using namespace Scarab::HG;
 
 class TagMrfLP {
  public:

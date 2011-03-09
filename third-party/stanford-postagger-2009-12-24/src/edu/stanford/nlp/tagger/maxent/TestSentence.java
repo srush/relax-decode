@@ -361,8 +361,10 @@ public class TestSentence implements SequenceModel {
 
   // This precomputes scores of local features (localScores).
   protected double[] getHistories(String[] tags, History h) {
-    boolean rare = GlobalHolder.isRare(ExtractorFrames.cWord.extract(h));
+      boolean rare = GlobalHolder.isRare(ExtractorFrames.cWord.extract(h));
+      //boolean rare = false;//GlobalHolder.isRare(ExtractorFrames.cWord.extract(h));
     Extractors ex = GlobalHolder.extractors, exR = GlobalHolder.extractorsRare;
+    //Extractors ex = GlobalHolder.extractors, exR = GlobalHolder.extractors;
     String w = pairs.getWord(h.current);
     double[] lS, lcS;
     if((lS = localScores.get(w)) == null) {
@@ -403,6 +405,7 @@ public class TestSentence implements SequenceModel {
       }
     }
     if(extractorsRare != null) {
+        //System.out.println("USING THE RARE EXTRACTOR");
       for(Map.Entry<Integer,Extractor> e : extractorsRare.entrySet()) {
         int kf = e.getKey();
         Extractor ex = e.getValue();
@@ -415,6 +418,8 @@ public class TestSentence implements SequenceModel {
           } // end for
         }
       }
+    } else{
+        //System.out.println("NOT USING THE RARE EXTRACTOR");
     }
     return scores;
   }
@@ -439,6 +444,7 @@ public class TestSentence implements SequenceModel {
       }
     }
     if(extractorsRare != null) {
+        //System.out.println("USING THE RARE EXTRACTOR");
       for(Map.Entry<Integer,Extractor> e : extractorsRare.entrySet()) {
         int kf = e.getKey();
         Extractor ex = e.getValue();
@@ -451,6 +457,8 @@ public class TestSentence implements SequenceModel {
           } // end for
         }
       }
+    } else {
+        //System.out.println("NOT USING THE RARE EXTRACTOR");
     }
     return scores;
   }
@@ -650,7 +658,7 @@ public class TestSentence implements SequenceModel {
       arr1[0] = naTag;
       return arr1;
     }
-    if (GlobalHolder.dict.isUnknown(sent.get(pos - leftWindow()))) {
+    if (GlobalHolder.isRare(sent.get(pos - leftWindow()))) {
       arr1 = GlobalHolder.tags.getOpenTags().toArray(new String[GlobalHolder.tags.getOpenTags().size()]);
     } else {
       arr1 = GlobalHolder.dict.getTags(sent.get(pos - leftWindow()));

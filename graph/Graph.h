@@ -111,6 +111,11 @@ class Graphnode {
    void set_label(string lab) {
      _label = lab;
    }
+   
+   string label() const {
+     return _label;
+   }
+
  private:
    uint _id;
    Edges _edges;

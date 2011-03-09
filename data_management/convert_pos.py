@@ -1,6 +1,7 @@
-import sys
-root = "/home/srush/Projects/relax_decode/data_management/"
-sys.path.append("../interfaces/hypergraph/gen-py/")
+import sys,os
+root = os.getenv("SCARAB_ROOT") + "/data_management/"
+print >>sys.stderr, root
+sys.path.append(os.getenv("SCARAB_ROOT") + "interfaces/hypergraph/gen-py/")
 from hypergraph_pb2 import *
 from features_pb2 import *
 from tag_pb2 import *

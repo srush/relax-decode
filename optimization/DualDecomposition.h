@@ -17,9 +17,11 @@ class DualDecompositionSubproblem {
 
 class DualDecompositionRunner : public SubgradientProducer{
  public:
+  bool _is_first;
  DualDecompositionRunner(DualDecompositionSubproblem & s1, DualDecompositionSubproblem & s2 ):
   _sub_producer1(s1), _sub_producer2(s2) {
-  }
+    _is_first = true;
+ }
 
   void  solve(double & primal, double & dual, wvector & subgrad, 
               int round, bool is_stuck, bool & bump_rate) {
@@ -27,7 +29,21 @@ class DualDecompositionRunner : public SubgradientProducer{
     double primal1, primal2, dual1, dual2;
     wvector subgrad1, subgrad2;
     bool bump1, bump2;
+    
     _sub_producer1.solve(primal1, dual1, subgrad1, round);
+
+    if (_is_first) {
+      cout << "Bump" << endl;
+      wvector wv = 0.00001 * subgrad1;
+      _sub_producer1.update_weights(wv, &wv, 1.0);
+      _sub_producer2.update_weights(wv, &wv, -1.0);
+      _is_first = false;
+      subgrad = wv;
+      dual = 0.0;
+      primal =0.0;
+      return;
+    }
+
     _sub_producer2.solve(primal2, dual2, subgrad2, round);
     
     subgrad = subgrad1 - subgrad2;
@@ -41,7 +57,7 @@ class DualDecompositionRunner : public SubgradientProducer{
     cout << "SIZE is : "  << count;
 
     dual = dual1 + dual2;
-    primal = dual +10000;//primal1 + primal2;
+    primal = primal1 + primal2;
     cout << "DECOMP PRIMALS : "  << primal1 << " " << primal2 << endl;
     cout << "DECOMP DUALS : "  << dual1 << " " << dual2 << endl;
     bump_rate = false;
@@ -72,11 +88,11 @@ class DualDecomposition {
     _subgradsolver.solve(example);
 
   }
-
+  Subgradient _subgradsolver;
  private:
   
   DualDecompositionRunner _runner;
-  Subgradient _subgradsolver;
+
 
 
 };

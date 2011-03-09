@@ -46,6 +46,7 @@ int main(int argc, char ** argv) {
   ConstrainerDual constrainer(tag_cons);
 
   DualDecomposition d(tagger, constrainer);
+
   d.solve(0);
 
 

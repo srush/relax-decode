@@ -1,5 +1,5 @@
-import sys
-root = "/home/srush/Projects/relax_decode/data_management/"
+import sys, os
+root = os.getenv("SCARAB_ROOT") + "/data_management/"
 sys.path.append(root)
 from format.simple import *
 from itertools import *
@@ -8,8 +8,8 @@ class Unmapper:
   def __init__(self):
     self.pos_map = {}
     self.other_map = {}
-    for l in open(root + 'map/POS.map'):
-      word, num=  l.strip().split()
+    for l in open(root + 'map/STANFORD.map'):
+      num, word=  l.strip().split()
       self.pos_map[int(num)] = word  
       self.other_map[word] = int(num)  
       

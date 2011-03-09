@@ -1,9 +1,9 @@
 #include "TagConstraints.h"
 
-ostream& operator<<(ostream& output, const PossibleTag& ptag) {
-  output << ptag.id << " " <<ptag.sent_num << " " <<ptag.ind << " " << ptag.group_name;
-  return output;
-}
+// ostream& operator<<(ostream& output, const PossibleTag& ptag) {
+//   output << ptag.id << " " <<ptag.sent_num << " " <<ptag.ind << " " << ptag.group_name;
+//   return output;
+// }
 
 // wvector TagConstraints::solve_hard( wvector & weights) const {
 //   wvector ret;
@@ -116,6 +116,7 @@ ostream& operator<<(ostream& output, const PossibleTag& ptag) {
 void TagMrfAligner::build_from_constraints(string file_name) {
   int positions;
   fstream input(file_name.c_str(), ios::in );
+  int consistency_id = 0;
   while (input) {
     //PossibleTag tag;
     int constraint_group; 
@@ -127,7 +128,14 @@ void TagMrfAligner::build_from_constraints(string file_name) {
     //tag_constraints[constraint_group].push_back(tag_index);    
     for (int s=0; s < Tag::MAX_TAG; s++) {
       tag_index.tag = s;
-      alignment[tag_index] = MrfIndex(constraint_group, constraint_node, s);
+      MrfIndex mrf_index(constraint_group, constraint_node, s);
+      alignment[tag_index] = mrf_index;
+      other_id_map[tag_index] = consistency_id;
+      cons_id_map[mrf_index] = consistency_id;
+      id_other_map[consistency_id] = tag_index;
+      id_cons_map[consistency_id] = mrf_index;
+
+      consistency_id++;
     }
   }
   input.close();
