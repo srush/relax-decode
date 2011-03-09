@@ -47,19 +47,21 @@ int main(int argc, char ** argv) {
     HEdges best_edges = ha.construct_best_edges(back_memo_table);
     
     cout << endl;
-    vector <Tag> res;
-    foreach (HNode node, best_nodes) {
-      if (f.node_has_tag(*node)) {
-        Tag d = f.node_to_tag(*node);
-        res.push_back(d);
-      }
-    }
-    sort(res.begin(), res.end());
     cout << "SENT: "; 
-    foreach (Tag d, res) {
-      cout << d << " ";
-    }
-    cout << endl;
+    f.show_derivation(best_nodes);
+//     vector <Tag> res;
+//     foreach (HNode node, best_nodes) {
+//       if (f.node_has_tag(*node)) {
+//         Tag d = f.node_to_tag(*node);
+//         res.push_back(d);
+//       }
+//     }
+//     sort(res.begin(), res.end());
+//     cout << "SENT: "; 
+//     foreach (Tag d, res) {
+//       cout << d << " ";
+//     }
+//     cout << endl;
 
     
     //foreach (HNode node, best_nodes) { 

@@ -96,11 +96,15 @@ def marginals_emit(source, target, env):
 
 
 def decomp(source, target, env, for_signature=False):
-     return '$SCARAB_ROOT/run_dual_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
+     return '$SCARAB_ROOT/run_decomp_tagger $SCARAB_ROOT/parse/config.ini %s  0 `cat %s` %s 0 `awk \'{print $1-1}\' %s` %s | tee %s' \
+            % (source[0],  source[1], source[2], source[4], source[3], target[0])
+
+# def decomp(source, target, env, for_signature=False):
+#      return '$SCARAB_ROOT/run_decomp_tagger $SCARAB_ROOT/parse/config.ini %s 0 $END_INDEX %s $PENALTY | tee %s' % (source[0], source[1], target[0]) 
 
 
 def decomp_emit(source, target, env):
-     source.append('$SCARAB_ROOT/run_dual_tagger')
+     source.append('$SCARAB_ROOT/run_decomp_tagger')
      return target, source
 
 def pos_cons_old_build(source, target, env, for_signature=False):
@@ -244,6 +248,9 @@ def register_experiment(env, exp):
                                  (lattice_hypergraphs, corpus_desc, constraints_mrf, mrf_link, mrf_link_desc),                                 
                                  PENALTY = exp.penalty())
 
+     decoders['decomp']= env.DecompTag( exp.result_prefix() + "_decomp", 
+                                      (lattice_hypergraphs, corpus_desc, constraints_mrf, mrf_link, mrf_link_desc),                                 
+                                      PENALTY = exp.penalty())
 
 
      flats = {}
@@ -272,6 +279,9 @@ def register_experiment(env, exp):
                        ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
                        )
 
+     env.ErrorAnalysis(exp.result_prefix()+"_d", 
+                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['decomp'], flats["gold"])
+                       )
 
 
 def parser_run(source, target, env, for_signature=False):
@@ -448,7 +458,7 @@ def register_parse_experiment(env, exp):
                          )
 
      env.ParseComparison(exp.result_prefix()+ "_d", 
-          (flats["viterbi"], flats['decomp'], exp.test_file())
+                         (flats["viterbi"], flats['decomp'], exp.test_file())
                          )
 
      env.PrettyComparison(exp.result_prefix()+ "_d.pretty", 

@@ -10,7 +10,7 @@ bool TaggerDual::tag_to_lag(int sent_num, const Tag & t, int & lag ) {
   return true;
 }
 
-int TaggerDual::lag_to_sent_num(int  lag ) const {
+int TaggerDual::lag_to_sent_num(int lag) {
   return _tag_consistency.id_other(lag).sent_num;
 }
 
@@ -36,6 +36,7 @@ EdgeCache TaggerDual::build_tagger_constraint_vector(int sent_num, const Tagger 
   foreach (const Tag & t, tagger.tags()) {
     int lag;
     if (!tag_to_lag(sent_num, t, lag)) continue;
+    if (!tagger.tag_has_node(t)) continue;
 
     HNodes nodes = tagger.tag_to_node(t);
 
@@ -65,15 +66,18 @@ void TaggerDual::solve_one(int sent_num, double & primal, double & dual, wvector
   NodeCache score_memo_table(tagger.num_nodes()); 
       
   NodeBackCache  back_memo_table(tagger.num_nodes());
+
+  dual = ha.best_path(*final_weights, score_memo_table, back_memo_table);
       
   wvector feature_vec = ha.construct_best_feature_vector(back_memo_table);
     
   HNodes best_nodes = ha.construct_best_node_order(back_memo_table);
 
-  dual = ha.best_path(*final_weights, score_memo_table, back_memo_table);
+
   primal = feature_vec.dot(_base_weights);
   subgrad = build_tagger_subgradient(sent_num, tagger, best_nodes);
-  
+
+  best_derivations[sent_num] = best_nodes;  
 }
 
 

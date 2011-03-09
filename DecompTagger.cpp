@@ -8,8 +8,8 @@
 #include "common.h"
 #include <boost/program_options.hpp>
 #include "lexical.pb.h"
-#include "parse/ParseConstraints.h"
-#include "parse/ParseSolvers.h"
+#include "tagger/TagConstraints.h"
+#include "tagger/TagSolvers.h"
 #include "DualDecomposition.h"
 #include "Subgradient.h"
 #include "MRF.h"
@@ -24,11 +24,11 @@ int main(int argc, char ** argv) {
   wvector * weight = load_weights_from_file( argv[1]); //vm["weights"].as< string >().c_str());
   
 
-  vector <DepParser * > parsers;
+  vector <Tagger * > taggers;
   vector <MRF *> mrfs; 
 
-  ParseMrfAligner parse_align;
-  parse_align.build_from_constraints(argv[8]);
+  TagMrfAligner tag_align;
+  tag_align.build_from_constraints(argv[8]);
 
   for (int i=atoi(argv[6]); i <= atoi(argv[7]); i++) {  
     stringstream fname;
@@ -44,16 +44,16 @@ int main(int argc, char ** argv) {
     stringstream fname;
     fname << argv[2] << i;
   
-    DepParser * f = new DepParser();
+    Tagger * f = new Tagger(200);
     f->build_from_file(fname.str().c_str());  
     cout << fname.str() << endl ;
-    parsers.push_back(f);
+    taggers.push_back(f);
   }
 
-  ParserDual p_dual(parsers, *weight, parse_align);
+  TaggerDual p_dual(taggers, *weight, tag_align);
   
   wvector * simple = svector_from_str<int, double>("value=-1");
-  ConstrainerDual<ParseIndex> mrf_dual(mrfs, *simple, parse_align);
+  ConstrainerDual<TagIndex> mrf_dual(mrfs, *simple, tag_align);
   
   DualDecomposition d(p_dual, mrf_dual);
   d._subgradsolver.rate = new ParseRate();
@@ -61,8 +61,8 @@ int main(int argc, char ** argv) {
   
   for (int i =0; i < p_dual.best_derivations.size(); i++) {
     //foreach (HEdges derivations, p_dual.best_derivations) {
-    cout << "SENTENCE: ";    
-    parsers[i]->show_derivation(p_dual.best_derivations[i]);
+    cout << "SENT: ";    
+    taggers[i]->show_derivation(p_dual.best_derivations[i]);
   }
 
   for (int i =0; i < mrf_dual.best_derivations.size(); i++) {

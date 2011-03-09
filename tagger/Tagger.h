@@ -6,6 +6,7 @@
 #include "Hypergraph.h"
 #include "HypergraphImpl.h"
 #include "EdgeCache.h"
+#include <algorithm>
 using namespace Scarab::HG;
 
 typedef uint POS;
@@ -105,6 +106,22 @@ class Tagger : public Scarab::HG::HypergraphImpl {
   bool node_has_tag(const Hypernode & node) const {
     return _tag_map->has_key(node);
   }
+
+  void show_derivation(HNodes best_nodes) {
+    vector <Tag> res;
+    foreach (HNode node, best_nodes) {
+      if (node_has_tag(*node)) {
+        Tag d = node_to_tag(*node);
+        res.push_back(d);
+      }
+    }
+    sort(res.begin(), res.end());
+    foreach (Tag d, res) {
+      cout << d << " ";
+    }
+    cout << endl;
+  }
+
   
  protected:
   Hypernode * make_node(const Hypergraph_Node & node, wvector * features);
