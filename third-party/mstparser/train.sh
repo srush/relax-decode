@@ -1,0 +1,1 @@
+java -classpath ".:lib/trove.jar" -Xmx1800m mstparser.DependencyParser   train  model-name:small500.model   train-file:data/wsj_gold_500_ulab
