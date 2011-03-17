@@ -505,6 +505,10 @@ public class GlobalHolder {
     return dict.sum(word) < rareWordThresh;
   }
 
+  protected static boolean isSeen(String word) {
+    return dict.sum(word) >= 1;
+  }
+
   public static TTags getTags() {
     return tags;
   }

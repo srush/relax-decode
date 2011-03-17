@@ -51,7 +51,7 @@ class DualDecompositionRunner : public SubgradientProducer{
     for (wvector::const_iterator it = subgrad.begin(); it != subgrad.end(); it++) {
       if (it->second != 0.0) {
         count++;
-        cout << "SUBGRAD: " << it->first << " " << it->second << " " << it->first / 45<< endl;
+        //cout << "SUBGRAD: " << it->first << " " << it->second << " " << it->first / 45<< endl;
       }
     }
     cout << "SIZE is : "  << count;

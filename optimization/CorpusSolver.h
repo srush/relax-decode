@@ -31,6 +31,7 @@ class CorpusSolver:public DualDecompositionSubproblem {
      for (wvector::const_iterator it = updates.begin(); it != updates.end(); it++) {
        if (it->second != 0.0) {
          int sent =  lag_to_sent_num(it->first); //_tag_consistency._all_constraints[it->first / Tag::MAX_TAG].sent_num;
+         //cout << "Update " << sent <<endl;
          //assert(false);
          if (!_dirty_cache[sent]) {
            dirtied ++;

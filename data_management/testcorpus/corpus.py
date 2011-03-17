@@ -98,7 +98,8 @@ class WordMap:
     for l in handle:
       fields = l.strip().split()
       word = fields[0]
-      context = context_map.lookup(int(fields[1]))
+      
+      context = Context.from_string("1 "+ " ".join(fields[1].split('8')))#context_map.lookup(int(fields[1]))
 
       _ = fields[2]
       indices = map(int, fields[3:])
@@ -129,25 +130,34 @@ class WordMap:
 
   
   def get_sentences(self, word, (lword,rword), corpus):
-    key1 = (word, Context(lword, rword, 4, 4))
-    w = self.d_both.get(key1, None)
+    key3 = (word, Context(lword, rword, 0, 0))
+    w = self.d_none.get(key3, None)
     if w:
       return [corpus.get_sentence(i) for rs in w
               for i in rs.indices]
     else:
-      key2 = (word, Context(lword, rword, 4, 0))
-      w = self.d_left.get(key2, None)
-      if w:
-        return [corpus.get_sentence(i) for rs in w
-                for i in rs.indices]
-      else:
-        key3 = (word, Context(lword, rword, 0, 0))
-        w = self.d_none.get(key3, None)
-        if w:
-          return [corpus.get_sentence(i) for rs in w
-                  for i in rs.indices]
-        else:
-          return []
+      return []
+
+    #key1 = (word, Context(lword, rword, 4, 4))
+#     w = self.d_both.get(key1, None)
+#     if w:
+#       return [corpus.get_sentence(i) for rs in w
+#               for i in rs.indices]
+#     else:
+#       key2 = (word, Context(lword, rword, 4, 0))
+#       w = self.d_left.get(key2, None)
+#       if w:
+#         return [corpus.get_sentence(i) for rs in w
+#                 for i in rs.indices]
+#       else:
+#         key3 = (word, Context(lword, rword, 0, 0))
+#         w = self.d_none.get(key3, None)
+#         if w:
+#           return [corpus.get_sentence(i) for rs in w
+#                   for i in rs.indices]
+#         else:
+#           return []
+
 
 
 if __name__=="__main__":

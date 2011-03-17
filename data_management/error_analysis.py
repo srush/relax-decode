@@ -8,12 +8,13 @@ def doubles(handle):
   d = {}
   for l in handle:
     if not l.strip():  continue
-    ls = l.split('_')[0].strip()
+    ls = l.split()[0].strip()
     d.setdefault(ls, 0)
     d[ls] += 1
   return d
 
 double_map = doubles(open(sys.argv[1]))
+print double_map
 wc = pickle.load(open(sys.argv[2]))
 marginals = Marginals.from_handle(open(sys.argv[3]))
 unmapper = Unmapper()
@@ -28,6 +29,7 @@ weird = []
 class Pairing:
   def __init__(self,words, sent_num, word_num):
     self.words = words
+    
     self.sent_num = sent_num
     self.word_num = word_num
     self.pos = [w.split()[1] for w in self.words]
@@ -40,6 +42,7 @@ word_num = -1
 for res in izip(*files):
   
   a,b,c = map(lambda a: a.replace("_", " ").strip(), res)
+  c = str(c.strip())
   word_num +=1 
   if c and c.split()[0] in ["-LRB-", "-RRB-"]: continue
   
@@ -50,6 +53,11 @@ for res in izip(*files):
     continue 
 
   pairing = Pairing((a,b,c), sent_num, word_num)
+
+  a = a.split()[1]
+  b = b.split()[1]
+  c = c.split()[1]
+  
   if c == a and c == b:
     right.append(pairing)
   elif c == a and c <> b:
@@ -58,6 +66,7 @@ for res in izip(*files):
     good.append(pairing)
   elif c <> a and c <> b and a == b: 
     #var = "|xx"
+  
     very_bad.append(pairing)#(a,b,c))
   elif c <> a and c <> b and a <> b: 
     #var = "|xxd"

@@ -14,6 +14,7 @@ from pos_constraints import *
 import math
 from marginals import *
 from beam_map import *
+
 states = range(45)
 
 class PosNode:
@@ -113,6 +114,7 @@ if __name__=="__main__":
   t = sys.argv[4]
   
   #marginals = Marginals.from_handle(open(sys.argv[5]))
+  training = = list(parse_simple_file(open(sys.argv[5]), '/'))
   
   pen = float(sys.argv[6])
   link_desc = open(sys.argv[7], 'w')
@@ -133,15 +135,8 @@ if __name__=="__main__":
     bonus = -pen #* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
     print >>sys.stderr, bonus
     #posmrf.add_node_potentials(marginals)
-    if t == "nbayes":
-      posmrf.add_naive_bayes_edges(bonus)
-    elif t == "potts":
-
-      # at best potts is the same as naive bayes
-      posmrf.add_potts_edges(bonus/float(test_seen))
-    else:
-      assert False, t
-
+    posmrf.add_naive_bayes_edges(bonus)
+    
     for j in range(len(group1[1])):
       print i, j, group1[1][j][0], group1[1][j][1]
 
@@ -162,17 +157,3 @@ if __name__=="__main__":
 
 
   print >>link_desc, len(groups) 
-  # zerozero = manager.zerozero()
-  # data = [ b[0] for a,b in zerozero]
-  # print >>sys.stderr, data
-  # posmrf = PosMrf("unknown", data)
-  # posmrf.add_naive_bayes_edges(-1.0)
-  # proto_graph = posmrf.convert_to_protobuf()
-  # for j in range(len(data)):
-  #   print i+1, j, data[j][0], data[j][1]
-  # f = open(sys.argv[3] + str(i+1), "wb")      
-  # f.write(proto_graph.SerializeToString())
-  # f.close()
-
-  #print manager
-  #print s / float(total)

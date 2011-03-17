@@ -8,10 +8,21 @@ root = os.environ["SCARAB_ROOT"]
 def build_experiment(source, target, env, for_signature=False):
      """ 1) .unkmap for corpus
          2) original test file
+         3) constraint description file
          out -> new test file (with extra sentences)
      """
-     return "python $SCARAB_PY/build_experiment.py %s %s %s > %s;wc -l %s | awk '{print $1-1}' > %s" %(source[0], source[1], source[2],
-                                                                               target[0],target[0],  target[1])
+     command = ""
+     if env["ADD_SENTENCES"]:
+          command = "python $SCARAB_PY/build_experiment.py %s %s %s $NUM_SENT %s > %s;"%(source[0],
+                                                                                      source[1],
+                                                                                      source[2],
+                                                                                      target[2],
+                                                                                      target[0])
+     else:
+          command = "cp %s %s;" % (source[1],
+                                   target[0])
+          
+     return command + "wc -l %s | awk '{print $1-1}' > %s" %(target[0],  target[1])
 
 def build_experiment_emit(source, target, env, for_signature=False):
      source.append('$SCARAB_PY/build_experiment.py')
@@ -40,6 +51,8 @@ def viterbi_emit(source, target, env):
      source.append('$SCARAB_PY/run_tagger')
      return target, source
 
+def MakeGold(source, target, env, for_signature=False):
+     return "head -n $NUM_SENT %s > %s"%(source[0], target[0])
      
 def ctag_convert(source, target, env, for_signature=False):
      return 'grep SENT %s | python $SCARAB_PY/map/unmap_pos.py %s $SCARAB_PY/map/POS.map > %s' % (source[0], source[1],  target[0])
@@ -96,7 +109,7 @@ def marginals_emit(source, target, env):
 
 
 def decomp(source, target, env, for_signature=False):
-     return '$SCARAB_ROOT/run_decomp_tagger $SCARAB_ROOT/parse/config.ini %s  0 `cat %s` %s 0 `awk \'{print $1-1}\' %s` %s | tee %s' \
+     return '$SCARAB_ROOT/run_decomp_tagger $SCARAB_ROOT/parse/config.ini %s  0 `cat %s` %s 0 `cat %s` %s | tee %s' \
             % (source[0],  source[1], source[2], source[4], source[3], target[0])
 
 # def decomp(source, target, env, for_signature=False):
@@ -116,11 +129,11 @@ def pos_cons_old_emit(source, target, env):
 
 
 def pos_cons_build(source, target, env, for_signature=False):
-     return 'grep BEAM %s > /tmp/beam;python $SCARAB_PY/pos_constraints_mrf.py %s %s %s $CONST_TYPE a $PENALTY %s /tmp/beam > %s' \
-         % (source[2], source[0], source[1], target[0], target[2],  target[1]) 
+     return 'grep BEAM %s > /tmp/beam;python $SCARAB_PY/pos_constraints_mrf2.py %s %s %s $CONST_TYPE %s $PENALTY %s /tmp/beam $NUM_SENT %s > %s' \
+         % (source[2], source[0], source[1], target[0], source[3], target[2],  source[4], target[1]) 
 
 def pos_cons_emit(source, target, env):
-     source.append('$SCARAB_PY/pos_constraints_mrf.py')
+     source.append('$SCARAB_PY/pos_constraints_mrf2.py')
      #target.append(target[1] + "_desc")
      return target, source
 
@@ -135,6 +148,8 @@ def error_analysis_emit(source, target, env):
      source.append('$SCARAB_PY/error_analysis.py')
      return target, source
      
+def PrettyPosComp(source, target, env, for_signature=False):
+     return "grep CONSTRAINT %s > /tmp/constraints;python $SCARAB_PY/eval/pos_comp_eval.py %s %s %s /tmp/constraints > %s"%(source[0], source[1], source[2], source[3], target[0])
 
 builders = {
      "BuildExperiment":
@@ -192,7 +207,10 @@ builders = {
 
      "FullDiff": Builder(generator = full_diff, suffix='.tagdiff'),
      
-     "ErrorAnalysis": Builder(generator = error_analysis, suffix='.taganal', emitter=error_analysis_emit)
+     "ErrorAnalysis": Builder(generator = error_analysis, suffix='.taganal', emitter=error_analysis_emit),
+
+     "MakeGold": Builder(generator = MakeGold, src_suffix='.gold', suffix='.tagging'),
+     "PrettyPosComp": Builder(generator = PrettyPosComp)
      }
 
 
@@ -212,9 +230,12 @@ def register_experiment(env, exp):
      unk_map = env.TrainUnknown(exp.unknown_words(), exp.train_file(),
                                 UNK_THRES = exp.unk_thres)
 
-     test_sents, corpus_desc = env.BuildExperiment((exp.full_test_file(), exp.full_test_file_desc()
-                                                    ),
-                                 (unk_map,  exp.original_test_file(), exp.brown_clusters()))
+     test_sents, corpus_desc, build_constraint_file = \
+                 env.BuildExperiment((exp.full_test_file(), exp.full_test_file_desc(), exp.build_constraint_file()),
+                                     (unk_map,  exp.original_test_file(), exp.brown_clusters()),
+                      
+                                     NUM_SENT = exp.num_sent(),
+                                     ADD_SENTENCES = exp.add_sent())
 
      constraints = env.BuildConstraintOld(exp.constraint_old_prefix(),
                                           (unk_map, test_sents))
@@ -229,14 +250,16 @@ def register_experiment(env, exp):
      lattice_hypergraphs = env.CreateHypergraph(exp.lattice_prefix(),
                                                 temp_tags)
 
-     marginals =exp.temporary_margs()
+     marginals = exp.temporary_margs()
+     marginals = env.Command(exp.temporary_margs(), (), "touch %s"%(marginals))
 
      constraints_mrf, mrf_link, mrf_link_desc = \
          env.BuildConstraint( (exp.constraint_mrf_prefix(), 
                                exp.mrf_link_prefix(), exp.mrf_link_prefix_desc()),
-                              (unk_map, test_sents, temp_tags), 
+                              (unk_map, test_sents, temp_tags, exp.train_file()+".pos", build_constraint_file), 
                               CONST_TYPE=exp.constraint_type(),
-                              PENALTY = exp.penalty()
+                              PENALTY = exp.penalty(),
+                              NUM_SENT = exp.num_sent()
                               )
 
      decoders = {}
@@ -251,7 +274,7 @@ def register_experiment(env, exp):
      decoders['decomp']= env.DecompTag( exp.result_prefix() + "_decomp", 
                                       (lattice_hypergraphs, corpus_desc, constraints_mrf, mrf_link, mrf_link_desc),                                 
                                       PENALTY = exp.penalty())
-
+     gold = env.MakeGold(exp.gold_file(), exp.gold_file(), NUM_SENT = exp.num_sent())
 
      flats = {}
      for dec_type,result in decoders.iteritems():
@@ -263,14 +286,14 @@ def register_experiment(env, exp):
 
           env.Eval( tagging_name, 
                     (tagging,
-                     exp.gold_file()))
+                     gold))
 
           flats[dec_type] = env.Flatten( tagging_name, tagging)
 
      flats['gold'] = env.Flatten( "%s_%s"%(exp.result_prefix(), "gold"), 
-                                  exp.gold_file())
+                                  gold)
        
-          
+     
      env.FullDiff(exp.result_prefix(), 
           (flats["viterbi"], flats['lp'], flats["gold"])
                   )
@@ -279,11 +302,13 @@ def register_experiment(env, exp):
                        ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
                        )
 
-     env.ErrorAnalysis(exp.result_prefix()+"_d", 
+     a= env.ErrorAnalysis(exp.result_prefix()+"_d", 
                        ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['decomp'], flats["gold"])
                        )
 
-
+     b = env.PrettyPosComp(exp.result_prefix()+ "_d.pretty", 
+                       (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.gold_file() +".gold"))
+     return (a,b)
 def parser_run(source, target, env, for_signature=False):
      """
      0 - the model
@@ -457,18 +482,18 @@ def register_parse_experiment(env, exp):
           (flats["viterbi"], flats['lp'], exp.test_file())
                          )
 
-     env.ParseComparison(exp.result_prefix()+ "_d", 
+     a = env.ParseComparison(exp.result_prefix()+ "_d", 
                          (flats["viterbi"], flats['decomp'], exp.test_file())
                          )
 
-     env.PrettyComparison(exp.result_prefix()+ "_d.pretty", 
+     b = env.PrettyComparison(exp.result_prefix()+ "_d.pretty", 
           (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.test_file()))
 
      #env.ErrorAnalysis(exp.result_prefix(), 
      #                  ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
      #                  )
 
-
+     return (a,b)
 # register_experiment(env, small_brown_3)
 # register_experiment(env, small_brown_10)
 # register_experiment(env, small_brown_10_hard)
@@ -497,8 +522,53 @@ def register_parse_experiment(env, exp):
 # register_experiment(env, big_clust_05)
 register_experiment(env, small_experiment)
 register_experiment(env, small_experiment2)
+register_experiment(env, physics_experiment)
+register_experiment(env, religious_experiment)
+register_experiment(env, bigger_experiment)
+register_experiment(env, bigger_experiment2)
+register_experiment(env, little_experiment)
+register_experiment(env, little_experiment_add)
+register_experiment(env, little_experiment_add2)
+register_experiment(env, little_experiment_add2_small)
+register_experiment(env, little_experiment_add2_mid)
 
-#register_parse_experiment(env, small_parse_experiment)
+register_experiment(env, bigger_experiment_add)
+register_experiment(env, small_experiment_add2_mid)
+register_experiment(env, small_experiment_add2_heavy)
+#register_experiment(env, dev_experiment_add)
+
+all = ()
+for i in range(100):
+     all += register_experiment(env, dev_experiment(i))
+env.Alias( "dev_experiment", all)
+
+# for i in range(30, 50):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment2", all)
+
+# for i in range(50, 75):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment3", all)
+
+
+# all = ()
+# for i in range(75, 100):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment4", all)
+
+
+# all = ()
+# for i in range(75, 125):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment3", all)
+
+# all = ()
+# for i in range(125, 200):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment4", all)
+
+
+#registe_parse_experiment(env, small_parse_experiment)
 register_parse_experiment(env, parse_experiment)
 register_parse_experiment(env, parse_experiment2)
 register_parse_experiment(env, parse_experiment_big)
@@ -507,6 +577,7 @@ register_parse_experiment(env, parse_experiment_gentle2)
 register_parse_experiment(env, parse_experiment_wide)
 register_parse_experiment(env, parse_experiment_gentle_full)
 register_parse_experiment(env, parse_experiment_gentle_size)
+
 
 register_parse_experiment(env, parse_experiment_gentle_mi_full)
 register_parse_experiment(env, parse_experiment_gentle_mi_bigger)
@@ -530,3 +601,9 @@ register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_500)
 register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_100)
 register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny)
 register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny2)
+
+# all = ()
+# for i in range(12):
+#      all += register_parse_experiment(env, parse_dev_experiment(i))
+# env.Alias( "parse_dev_experiment", all)
+

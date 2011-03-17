@@ -15,10 +15,24 @@ class ConstrainerDual:public DualDecompositionSubproblem {
  public:
    ConstrainerDual(const vector <MRF*> & constraints, 
                    const wvector & base_weights,
-                   const MrfAligner<Other> & cons): constraints(constraints), best_derivations(constraints.size()), _consistency(cons), _base_weights(base_weights)
+                   const MrfAligner<Other> & cons): 
+  constraints(constraints), 
+    best_derivations(constraints.size()), 
+    _consistency(cons), 
+    _base_weights(base_weights)
     {
     _cur_weights = new wvector();
     _hypergraphs.resize(constraints.size());
+
+    // cache
+    _dirty_cache.resize(constraints.size());
+    _subgrad_cache.resize(constraints.size());
+    _dual_cache.resize(constraints.size());
+    _primal_cache.resize(constraints.size());
+    for (int i = 0; i < constraints.size(); i++) {
+      _dirty_cache[i] = true;
+    }
+
     _is_first = true;
   };
 
@@ -32,9 +46,29 @@ class ConstrainerDual:public DualDecompositionSubproblem {
                       wvector * weights, 
                       double mult) {
     _cur_weights = new wvector();
+
     for (wvector::const_iterator it = weights->begin(); it != weights->end(); it++) {
       (*_cur_weights)[it->first] = mult*it->second; 
     }
+
+    int dirtied = 0;
+    for (wvector::const_iterator it = updates.begin(); it != updates.end(); it++) {
+      if (it->second != 0.0) {
+        MrfIndex index =  lag_to_assign(it->first); 
+        int group = index.group;
+        if (!_dirty_cache[group]) {
+          dirtied ++;
+        }
+        _dirty_cache[group] = true;
+        //cout << "Update " << index.group <<endl;
+      }
+    }
+    cout << "dirtied: " << dirtied << endl;
+
+/*     for (int i = 0; i < constraints.size(); i++) { */
+/*       _dirty_cache[i] = true; */
+/*     } */
+
   }
 
   vector < vector< NodeAssignment> > best_derivations;
@@ -54,6 +88,12 @@ class ConstrainerDual:public DualDecompositionSubproblem {
   EdgeCache build_mrf_constraint_vector(int group_num, 
                                         const MRFHypergraph & mrf);
   
+  // cache
+  vector <wvector> _subgrad_cache;
+  vector <double> _primal_cache;
+  vector <double> _dual_cache;
+  vector <bool> _dirty_cache;  
+
   
 };
 
@@ -130,31 +170,37 @@ void ConstrainerDual<Other>::solve(double & primal, double & dual,
     const MRF & mrf = *pmrf;
 
     if (_is_first) {
-      cout << " Build hypergraph " << endl;
+      //cout << " Build hypergraph " << endl;
       _hypergraphs[group] = MRFHypergraph::from_mrf(mrf);
     }
-    MRFHypergraph * hypergraph = _hypergraphs[group];
+    if (_dirty_cache[group]) {
+      MRFHypergraph * hypergraph = _hypergraphs[group];
 
-    HypergraphAlgorithms ha(*hypergraph);   
-    NodeCache  score_memo_table(hypergraph->num_nodes()); 
+      HypergraphAlgorithms ha(*hypergraph);   
+      NodeCache  score_memo_table(hypergraph->num_nodes()); 
     
-    NodeBackCache  back_memo_table(hypergraph->num_nodes());
-    EdgeCache * edge_weights = ha.cache_edge_weights(_base_weights);
-    EdgeCache added = build_mrf_constraint_vector(group, *hypergraph) ;
-    EdgeCache * final_weights = ha.combine_edge_weights(*edge_weights, added);
+      NodeBackCache  back_memo_table(hypergraph->num_nodes());
+      EdgeCache * edge_weights = ha.cache_edge_weights(_base_weights);
+      EdgeCache added = build_mrf_constraint_vector(group, *hypergraph) ;
+      EdgeCache * final_weights = ha.combine_edge_weights(*edge_weights, added);
 
-    dual += ha.best_path(*final_weights, score_memo_table, back_memo_table);
+      _dual_cache[group] = ha.best_path(*final_weights, score_memo_table, back_memo_table);
 
-    //wvector feature_vec = ha.construct_best_feature_vector(back_memo_table);
-    HNodes best_nodes = ha.construct_best_node_order(back_memo_table);
-    best_derivations[group] = hypergraph->derivation_to_assignments(best_nodes);
-    HEdges best_edges = ha.construct_best_edges(back_memo_table);
-    wvector feature_vec = ha.construct_best_feature_vector(back_memo_table);
-    primal += feature_vec.dot(_base_weights);
-    wvector local_subgrad = build_mrf_subgradient(group, *hypergraph, best_nodes);
+      //wvector feature_vec = ha.construct_best_feature_vector(back_memo_table);
+      HNodes best_nodes = ha.construct_best_node_order(back_memo_table);
+      best_derivations[group] = hypergraph->derivation_to_assignments(best_nodes);
+      HEdges best_edges = ha.construct_best_edges(back_memo_table);
+      wvector feature_vec = ha.construct_best_feature_vector(back_memo_table);
+      _primal_cache[group] = feature_vec.dot(_base_weights);
+      wvector local_subgrad = build_mrf_subgradient(group, *hypergraph, best_nodes);
+    
+      _subgrad_cache[group] = local_subgrad;
+      _dirty_cache[group] = false;
+    }
 
-
-    subgrad += local_subgrad;
+    dual += _dual_cache[group];
+    primal += _primal_cache[group];
+    subgrad += _subgrad_cache[group];
     group++;
   }
 

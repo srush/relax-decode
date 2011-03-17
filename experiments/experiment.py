@@ -13,10 +13,14 @@ class Experiment:
     self.original_test = desc["original_test"]
     self._gold_file = desc["gold_file"]
     self._tagger = desc["tagger"]
-
+    self._num_sentences = desc.get("num_sentences", 10)
+    self._add_sent = desc.get("add_sents", False)  
   def constraint_type(self):
     return self.model_type
 
+  def add_sent(self):
+    return self._add_sent
+  
   def original_test_file(self):
     return "$SCARAB_DATA/" + self.original_test
 
@@ -25,6 +29,9 @@ class Experiment:
 
   def full_test_file_desc(self):
     return "$SCARAB_DATA/" + self.prefix + "_desc"
+
+  def build_constraint_file(self):
+    return "$SCARAB_DATA/" + self.prefix + "_build_desc"
 
   def gold_file(self):
     return "$SCARAB_DATA/" + self._gold_file
@@ -72,14 +79,160 @@ class Experiment:
     return "$SCARAB_TMP/%s_marginals"%(self.unk_exp_prefix)
   
   def num_sent(self):
-    return self.num_sentences
+    return self._num_sentences
 
   def num_constraints(self):
     return self.num_cons
 
   def penalty(self):
     return self._penalty
+little_experiment = Experiment({
+  "original_test": "english_test_pos",
+  "prefix": "eng_little",
+  "gold_file": "english_test_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": False,
+  "num_sentences": 16
+  })
 
+little_experiment_add = Experiment({
+  "original_test": "english_test_pos",
+  "prefix": "eng_little_add",
+  "gold_file": "english_test_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": True,
+  "num_sentences": 16
+  })
+
+little_experiment_add2 = Experiment({
+  "original_test": "english_test_pos",
+  "prefix": "eng_little_add2",
+  "gold_file": "english_test_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": True,
+  "num_sentences": 16
+  })
+
+
+little_experiment_add2_small = Experiment({
+  "original_test": "english_test_pos",
+  "prefix": "eng_little_add2",
+  "gold_file": "english_test_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 1.0,
+  "add_sents": True,
+  "num_sentences": 16
+  })
+
+little_experiment_add2_mid = Experiment({
+  "original_test": "english_test_pos",
+  "prefix": "eng_little_add2",
+  "gold_file": "english_test_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 16
+  })
+
+
+small_experiment_add2_mid = Experiment({
+  "original_test": "english_test_bigger_pos",
+  "prefix": "eng_small_add",
+  "gold_file": "english_test_small2_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 10
+  })
+
+small_experiment_add2_heavy = Experiment({
+  "original_test": "english_test_bigger_pos",
+  "prefix": "eng_small_add",
+  "gold_file": "english_test_small2_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": True,
+  "num_sentences": 10
+  })
+
+
+bigger_experiment = Experiment({
+  "original_test": "english_test_bigger_pos",
+  "prefix": "eng_bigger",
+  "gold_file": "english_test_bigger_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": False,
+  "num_sentences": 180
+  })
+
+bigger_experiment2 = Experiment({
+  "original_test": "english_test_bigger_pos",
+  "prefix": "eng_bigger2",
+  "gold_file": "english_test_bigger_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": False,
+  "num_sentences": 180
+  })
+
+bigger_experiment_add = Experiment({
+  "original_test": "english_test_bigger_pos",
+  "prefix": "eng_bigger_add",
+  "gold_file": "english_test_bigger_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": True,
+  "num_sentences": 180
+  })
+
+dev_experiment_add = Experiment({
+  "original_test": "sec22_pos",
+  "prefix": "eng_dev",
+  "gold_file": "sec22_pos_gold",
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 5.0,
+  "add_sents": True,
+  "num_sentences": 1376
+  })
+
+def dev_experiment(num):
+  return Experiment({
+  "original_test": "dev_data/sec22_pos_%s"%num,
+  "prefix": "eng_dev_%s"%num,
+  "gold_file": "dev_data/sec22_pos_gold_%s"%num,
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 5
+  })
 
 small_experiment = Experiment({
   "original_test": "brown_simple_1",
@@ -95,6 +248,28 @@ small_experiment2 = Experiment({
   "original_test": "brown_simple_1",
   "prefix": "brown_base",
   "gold_file": "brown_small_extra_test",
+  "tagger": "left3words-wsj-0-18.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_dependency",
+  "penalty" : 5.0
+  })
+
+physics_experiment = Experiment({
+  "original_test": "physics_corpus/physics_sentences_tokenized",
+  "num_sentences": 25,
+  "prefix": "physics_exper",
+  "gold_file": "physics_corpus/physics_sent",
+  "tagger": "left3words-wsj-0-18.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_dependency",
+  "penalty" : 5.0
+  })
+
+religious_experiment = Experiment({
+  "original_test": "religious/brown_religious_texts_stripped",
+  "num_sentences": 25,
+  "prefix": "religious_exper",
+  "gold_file": "religious/brown_religious_texts_gold",
   "tagger": "left3words-wsj-0-18.tagger", 
   "unk_thres" : 5,
   "train" : "wsj_gold_dependency",
