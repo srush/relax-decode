@@ -2,6 +2,7 @@ import os
 from formatting import *
 from experiment import *
 from parse_experiments import *
+import random
 root = os.environ["SCARAB_ROOT"]
 
 # Arguments are unkmap, test, outmapping, bigdata
@@ -76,7 +77,11 @@ def stanford_tagger_run(source, target, env, for_signature=False):
 
 
 def hypergraph_run(source, target, env, for_signature=False):
-     return 'grep LATTICE %s > /tmp/lat;  $SCARAB_ROOT/hypergraph/convert %s /tmp/lat; touch %s' % ( source[0], target[0], target[0])
+     tmp = "/tmp/lattice.%s"%hash(source[0])
+     return ['grep LATTICE %s > %s'%(source[0], tmp), 
+             "$SCARAB_ROOT/hypergraph/convert %s %s"%(target[0], tmp),
+             "touch %s"%(target[0]),
+             "rm %s" %tmp]
 
 def hypergraph_run_emit(source, target, env):
      source.append('$SCARAB_ROOT/hypergraph/convert')
@@ -129,8 +134,12 @@ def pos_cons_old_emit(source, target, env):
 
 
 def pos_cons_build(source, target, env, for_signature=False):
-     return 'grep BEAM %s > /tmp/beam;python $SCARAB_PY/pos_constraints_mrf2.py %s %s %s $CONST_TYPE %s $PENALTY %s /tmp/beam $NUM_SENT %s > %s' \
-         % (source[2], source[0], source[1], target[0], source[3], target[2],  source[4], target[1]) 
+     tmp = "/tmp/beam.%s"%(hash(source[2]))
+     return ['grep BEAM %s > %s'%(source[2], tmp),
+             'python $SCARAB_PY/pos_constraints_mrf2.py %s %s %s $CONST_TYPE %s $PENALTY %s %s $NUM_SENT %s > %s'
+               % (source[0], source[1], target[0], source[3], target[2], tmp, source[4], target[1]) ,
+             "rm %s"%tmp]
+             
 
 def pos_cons_emit(source, target, env):
      source.append('$SCARAB_PY/pos_constraints_mrf2.py')
@@ -149,7 +158,10 @@ def error_analysis_emit(source, target, env):
      return target, source
      
 def PrettyPosComp(source, target, env, for_signature=False):
-     return "grep CONSTRAINT %s > /tmp/constraints;python $SCARAB_PY/eval/pos_comp_eval.py %s %s %s /tmp/constraints > %s"%(source[0], source[1], source[2], source[3], target[0])
+     tmp = "/tmp/constraints.%s"%hash(source[0])
+     return ["grep CONSTRAINT %s > %s"%(source[0], tmp),
+             "python $SCARAB_PY/eval/pos_comp_eval.py %s %s %s %s > %s"%(source[1], source[2], source[3], tmp,target[0]),
+             "rm %s"%tmp]
 
 builders = {
      "BuildExperiment":
@@ -321,13 +333,41 @@ def parser_run_emit(source, target, env, for_signature=False):
      #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
      return target, source
 
+def parser_run_so(source, target, env, for_signature=False):
+     """
+     0 - the model
+     1 - the test file
+     target - parses
+     """
+     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s > %s"%(source[0], source[1], target[0])
+
+def parser_run_emit_so(source, target, env, for_signature=False):
+     #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
+     return target, source
+
 
 def parser_to_hypergraph(source, target, env, for_signature=False):
-     return "cat %s | grep \"\\(PROB\\|DONE\\)\" > /tmp/parse; cat /tmp/parse | $SCARAB_ROOT/parse/convert %s | tee %s;touch %s"%(source[0], target[0], target[1], target[0])
+     tmp = "/tmp/parse.%s"%hash(source[0])
+     return ";".join(["cat %s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], tmp),
+                      "cat %s | $SCARAB_ROOT/parse/convert %s | tee %s"%(tmp, target[0], target[1]),
+                      "touch %s"%(target[0]),
+                      "rm %s"%tmp])
 
 def parser_to_hypergraph_emit(source, target, env, for_signature=False):
      source.append('$SCARAB_ROOT/parse/convert')
      return target, source
+
+def parser_to_hypergraph_so(source, target, env, for_signature=False):
+     tmp = "/tmp/parse.%s"%hash(source[0])
+     return ";".join(["cat %s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], tmp),
+                 "cat %s | $SCARAB_ROOT/parse/convert_SO %s | tee %s"%(tmp,target[0], target[1]),
+                 "touch %s"%(target[0]),
+                 "rm %s"%tmp])
+
+def parser_to_hypergraph_emit_so(source, target, env, for_signature=False):
+     source.append('$SCARAB_ROOT/parse/convert_SO')
+     return target, source
+
 
 
 def viterbi_parse(source, target, env, for_signature=False):
@@ -383,13 +423,19 @@ def build_parse_constraints_emit(source, target, env):
 
 
 def ParseComparison(source, target, env, for_signature=False):
-     return "sdiff -w 20 %s %s > /tmp/parse_diff; paste /tmp/parse_diff %s > %s"%(source[0], source[1], source[2], target[0])
+     tmp = "/tmp/parse_diff.%s"%(abs(hash((source[0], source[1]))))
+     return ";".join(["sdiff -w 20 %s %s > %s"%(source[0],source[1], tmp),
+             "paste %s %s > %s"%(tmp, source[2], target[0]),
+             "rm %s"%(tmp)])
 
 def ParseComparison_emit(source, target, env, for_signature=False):
      return target, source
 
 def PrettyComp(source, target, env, for_signature=False):
-     return "grep CONSTRAINT %s > /tmp/constraints;python $SCARAB_PY/eval/dep_comp_eval.py %s %s %s /tmp/constraints > %s"%(source[0], source[1], source[2], source[3], target[0])
+     tmp = "/tmp/constraints.%s"%hash((source[0]))
+     return ["grep CONSTRAINT %s > %s"%(source[0], tmp),
+             "python $SCARAB_PY/eval/dep_comp_eval.py %s %s %s %s > %s"%(source[1], source[2], source[3], tmp, target[0]),
+             "rm %s"%(tmp)]
 
 def PrettyComp_emit(source, target, env, for_signature=False):
      return target, source
@@ -402,6 +448,13 @@ builders = {
      "ParseToHypergraph":
      Builder(generator = parser_to_hypergraph,
              emit = parser_to_hypergraph_emit),
+     "ParseSO":
+     Builder(generator = parser_run_so,
+             emit = parser_run_emit_so),
+     "ParseToHypergraphSO":
+     Builder(generator = parser_to_hypergraph_so,
+             emit = parser_to_hypergraph_emit_so),
+
      "ViterbiParse":
      Builder(generator = viterbi_parse,
              emit = viterbi_parse_emit),
@@ -431,9 +484,9 @@ builders = {
 env.Append(BUILDERS= builders)
 
 def register_parse_experiment(env, exp):
-     parse_out = env.Parse(exp.parse_out(), (exp.model(), exp.test_file()))
+     parse_out = env.ParseSO(exp.parse_out(), (exp.model(), exp.test_file()))
 
-     hypergraphs, hypergraphs_desc = env.ParseToHypergraph(
+     hypergraphs, hypergraphs_desc = env.ParseToHypergraphSO(
           (exp.hypergraph_prefix(), exp.hypergraph_prefix()+"_desc"),
           parse_out)
      decoders = {}
@@ -493,7 +546,7 @@ def register_parse_experiment(env, exp):
      #                  ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
      #                  )
 
-     return (a,b)
+     return (b,)
 # register_experiment(env, small_brown_3)
 # register_experiment(env, small_brown_10)
 # register_experiment(env, small_brown_10_hard)
@@ -520,25 +573,25 @@ def register_parse_experiment(env, exp):
 # register_experiment(env, big_clust_4)
 # register_experiment(env, big_clust_1)
 # register_experiment(env, big_clust_05)
-register_experiment(env, small_experiment)
-register_experiment(env, small_experiment2)
-register_experiment(env, physics_experiment)
-register_experiment(env, religious_experiment)
-register_experiment(env, bigger_experiment)
-register_experiment(env, bigger_experiment2)
-register_experiment(env, little_experiment)
-register_experiment(env, little_experiment_add)
-register_experiment(env, little_experiment_add2)
-register_experiment(env, little_experiment_add2_small)
-register_experiment(env, little_experiment_add2_mid)
+#register_experiment(env, small_experiment)
+# register_experiment(env, small_experiment2)
+# register_experiment(env, physics_experiment)
+# register_experiment(env, religious_experiment)
+# register_experiment(env, bigger_experiment)
+# register_experiment(env, bigger_experiment2)
+# register_experiment(env, little_experiment)
+# register_experiment(env, little_experiment_add)
+# register_experiment(env, little_experiment_add2)
+# register_experiment(env, little_experiment_add2_small)
+# register_experiment(env, little_experiment_add2_mid)
 
-register_experiment(env, bigger_experiment_add)
-register_experiment(env, small_experiment_add2_mid)
-register_experiment(env, small_experiment_add2_heavy)
+# register_experiment(env, bigger_experiment_add)
+# register_experiment(env, small_experiment_add2_mid)
+# register_experiment(env, small_experiment_add2_heavy)
 #register_experiment(env, dev_experiment_add)
 
 all = ()
-for i in range(100):
+for i in range(200):
      all += register_experiment(env, dev_experiment(i))
 env.Alias( "dev_experiment", all)
 
@@ -569,41 +622,42 @@ env.Alias( "dev_experiment", all)
 
 
 #registe_parse_experiment(env, small_parse_experiment)
-register_parse_experiment(env, parse_experiment)
-register_parse_experiment(env, parse_experiment2)
-register_parse_experiment(env, parse_experiment_big)
-register_parse_experiment(env, parse_experiment_gentle)
-register_parse_experiment(env, parse_experiment_gentle2)
-register_parse_experiment(env, parse_experiment_wide)
-register_parse_experiment(env, parse_experiment_gentle_full)
-register_parse_experiment(env, parse_experiment_gentle_size)
+# register_parse_experiment(env, parse_experiment)
+# register_parse_experiment(env, parse_experiment2)
+# register_parse_experiment(env, parse_experiment_big)
+# register_parse_experiment(env, parse_experiment_gentle)
+# register_parse_experiment(env, parse_experiment_gentle2)
+# register_parse_experiment(env, parse_experiment_wide)
+# register_parse_experiment(env, parse_experiment_gentle_full)
+# register_parse_experiment(env, parse_experiment_gentle_size)
 
 
-register_parse_experiment(env, parse_experiment_gentle_mi_full)
-register_parse_experiment(env, parse_experiment_gentle_mi_bigger)
-register_parse_experiment(env, parse_experiment_gentle_mi_bigger2)
-register_parse_experiment(env, parse_experiment_gentle_mi_small)
-register_parse_experiment(env, parse_experiment_gentle_mihard_bigger)
-register_parse_experiment(env, parse_experiment_gentle_mi_asym_bigger)
-register_parse_experiment(env, parse_experiment_gentle_mi_asym_full)
-register_parse_experiment(env, parse_experiment_gentle_mi_asym2_full)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymroi_full)
+# register_parse_experiment(env, parse_experiment_gentle_mi_full)
+# register_parse_experiment(env, parse_experiment_gentle_mi_bigger)
+# register_parse_experiment(env, parse_experiment_gentle_mi_bigger2)
+# register_parse_experiment(env, parse_experiment_gentle_mi_small)
+# register_parse_experiment(env, parse_experiment_gentle_mihard_bigger)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asym_bigger)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asym_full)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asym2_full)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymroi_full)
 
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_full)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger2)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger4)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger5)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger6)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger7)
-register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger8)
-register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_500)
-register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_100)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_full)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger2)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger4)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger5)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger6)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger7)
+# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger8)
+# register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_500)
+# register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_100)
+
 register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny)
-register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny2)
+# register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny2)
 
-# all = ()
-# for i in range(12):
-#      all += register_parse_experiment(env, parse_dev_experiment(i))
-# env.Alias( "parse_dev_experiment", all)
+all = ()
+for i in range(12):
+     all += register_parse_experiment(env, parse_dev_experiment(i))
+env.Alias( "parse_dev_experiment", all)
 

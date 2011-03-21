@@ -2,6 +2,7 @@ import random
 import sys
 sys.path.append('.')
 sys.path.append('../interfaces/graph/gen-py/')
+from collections import *
 from graph_pb2 import *
 from mrf_pb2 import * 
 from itertools import *
@@ -34,7 +35,7 @@ def is_order_dependent(pos):
   
 
 punc = set(["-RRB-", "-LRB-", "#", "``", "''", ":", ""])
-bigpunc = set([",",".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "START"])
+bigpunc = set([".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "START"])
 
 def are_close(t1, t2):
   b1 = False
@@ -165,20 +166,22 @@ class ParseMrf:
       node.convert_to_protobuf(proto_graph.node.add())
     return proto_graph    
 
-      
+def diff_to_mask_pos(n):
+  if n < 0: return n + 4
+  elif n>0: return n+4-1
+  
 if __name__=="__main__":
-
-
   #wc = load(open(sys.argv[1], 'rb'))
   #print len(wc.word_counts)
   #manager = PosConstraint(wc)
   pen = float(sys.argv[2])
-  is_hot = set([GeneralContext.from_string(l) for l in open(sys.argv[3], 'r')])
+  #is_hot = set([GeneralContext.from_string(l) for l in open(sys.argv[3], 'r')])
   training = list(parse_conll_file(open(sys.argv[4])))  #is_hot = set([GeneralContext.from_string(l) for l in open(sys.argv[3], 'r')])
   link_desc = open(sys.argv[5], 'w')
 
   training_data = training
   states = {}
+  incontexts = {}
   ctxt_map = {}
   for sn, s in enumerate(training, 1):
     head_map = sent_to_head_map(s)
@@ -186,14 +189,20 @@ if __name__=="__main__":
     for i, ctxt in enumerate(contexts):
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
-  
+        
         #if mask_context in is_hot:
         key = mask_context
         ctxt_map.setdefault(key, [])
         ctxt_map[key].append((-sn,i))
         #print -sn, i, s.words[i].head, s.words[s.words[i].head].pos
+        head_pos = s.words[i].head
+        diff  = head_pos -(i)
+        mask_pos = diff_to_mask_pos(diff)
+        in_context = mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1
+        print >>sys.stderr, sn, head_pos, (i), mask_pos, m, mask_context, in_context
+        incontexts[((-sn,i),mask_context)] = in_context
         states[(-sn,i)] = [(i, get_tag_ind(s.words[s.words[i].head].pos), [s.words[i].head] ) ]
-
+        
           #only one mask per context
           #break
   test_data = list(parse_conll_file(open(sys.argv[1])))
@@ -201,17 +210,37 @@ if __name__=="__main__":
     head_map = sent_to_head_map(s)
     contexts = GeneralContext.contexts_from_sent(s)
     for i, ctxt in enumerate(contexts):
+      best = 0
+      best_mask = None
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
-  
-        if mask_context in is_hot and mask_context in ctxt_map :
-          key = mask_context
-          ctxt_map.setdefault(key, [])
-          ctxt_map[key].append((sn,i))
-          #states[(sn,i)] = [(i, get_tag_ind(s.words[i].pos), [s.words[i].head] ) ]
-          states[(sn,i)] = [(i, get_tag_ind(tag), [ind for ind in inds if ind <> i] ) for tag, inds in head_map.iteritems()]
-          #only one mask per context
-          break 
+        if not mask_context.punc_check():  continue
+        #if mask_context in is_hot and mask_context in ctxt_map :
+        if mask_context in ctxt_map:
+          
+          total_seen = len([1 for key in ctxt_map[mask_context] if len(states[key]) ==1])
+          possible_best = [states[key][0][1] for key in ctxt_map[mask_context]
+                            if len(states[key]) ==1]
+          if not possible_best: continue
+          agreed = Counter(possible_best).most_common(1)[0]
+          score = (agreed[1] / (float(total_seen) + 1))
+          #if num_map[agreed[0]] in [w.pos for w in mask_context.boundaries]: score +=1 
+          if all([incontexts[key,mask_context] for key in ctxt_map[mask_context] if len(states[key]) ==1]): score += 2
+          #if total_seen > 5: score -=1 
+          print >> sys.stderr, score, mask_context, best_mask, mask_context.punc_check()
+          if total_seen < 5 and score > best :
+            best_mask = mask_context
+            best = score
+          
+
+      if best  > 0.0:
+        key = best_mask
+        ctxt_map.setdefault(key, [])
+        ctxt_map[key].append((sn,i))
+        #states[(sn,i)] = [(i, get_tag_ind(s.words[i].pos), [s.words[i].head] ) ]
+        states[(sn,i)] = [(i, get_tag_ind(tag), [ind for ind in inds if ind <> i] ) for tag, inds in head_map.iteritems()]
+        #only one mask per context
+        
   #t = sys.argv[4]
   t = "nbayes"
   #marginals = Marginals.from_handle(open(sys.argv[5]))

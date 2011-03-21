@@ -2,7 +2,9 @@ from itertools import *
 from format.conll import *
 from format.simple import *
 from StringIO import StringIO
-
+import sys
+punc = set(["CD", "$", ",", "#", ":", ""])
+bigpunc = set(["CD", ",", ".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "**", "*ROOT*", "ROOT"])
 
 class Context:
   def __init__(self, left, word, right):
@@ -15,6 +17,8 @@ class Context:
 
   def to_tuple(self):
     return (self.left.pos, self.word.pos, self.right.pos)
+
+
 
   def __hash__(self):
     return hash(self.to_tuple())
@@ -79,25 +83,29 @@ class GeneralContext:
 #     [0,0,1,1,1,1,0,0],
 #     [0,1,1,1,1,0,0,0], 
 #     [0,0,0,1,1,1,1,0],
+#     
+#     [0,0,0,0,1,1,1,1],
+#     [0,0,0,1,1,1,1,0],
+#     [0,0,0,0,1,1,1,1],
 #     [1,1,1,1,0,0,0,0],
 #     [0,0,0,0,1,1,1,1],
-    
-    
-#     [0,0,1,1,1,0,0,0],
-    
-#     [0,0,0,0,1,1,1,0],
-#     [0,1,1,1,0,0,0,0],
-#    [0,0,0,0,1,1,1,1],
-#    [0,0,0,1,1,1,1,0],
-#    [0,0,0,1,1,1,0,0],
+    [0,0,0,0,1,1,1,0],
+    [0,1,1,1,0,0,0,0],
+    [0,0,1,1,1,0,0,0],
+    [0,0,0,1,1,1,0,0],
     [0,0,0,1,1,0,0,0],
     [0,0,0,0,1,1,0,0],
     [0,0,1,1,0,0,0,0],
     [0,0,0,1,0,0,0,0],
-    [0,0,0,0,1,0,0,0],
-    [0,0,0,0,0,0,0,0]
-    
+    #[0,0,0,0,1,0,0,0],
+    [0,0,0,0,0,0,0,0],
 
+    # weird 
+#     [0,1,0,1,0,0,0,0],
+#     [0,0,1,0,1,0,0,0],
+#     [0,0,0,1,0,1,0,0],
+#     [0,0,0,0,1,0,1,0],
+ 
     ]
 
   
@@ -107,8 +115,22 @@ class GeneralContext:
     self.boundaries = boundaries
     self._mask = mask
 
+  def punc_check(self):
+    if self.word.pos in bigpunc:
+      return False
+    if any([w.pos in punc for w in self.boundaries]):
+      return False
+    return True
+    
+    
   def to_tuple(self):
-    return tuple( [w.pos for w in self.boundaries] + [self.word.pos]) #(self.left.pos, self.word.pos, self.right.pos)
+    def get_pos(w):
+      #print >>sys.stderr, w.pos, w.word
+      #if w.pos == "IN" or w.pos == "TO":
+      #  return w.pos + "(" + w.word.lower() +")"
+      return w.pos
+    
+    return tuple( [get_pos(w) for w in self.boundaries] + [get_pos(self.word)]) #(self.left.pos, self.word.pos, self.right.pos)
 
   def __hash__(self):
     return hash(self.to_tuple())
@@ -139,20 +161,23 @@ class GeneralContext:
   def make_context(sent, i):
     word = sent.words[i]
     boundaries = []
+    #print >>sys.stderr, "Make Contexts"
     for offset in range(-GeneralContext.SIZE, GeneralContext.SIZE+1):
       if offset == 0: continue
       pos = i + offset
       if pos <= 0:
         boundaries.append(SimpleWord(None, "START"))
-      elif pos >= len(sent.words)-1:
-  
+      elif pos >= len(sent.words)-1:  
         boundaries.append(SimpleWord(None, "END"))
       else:
+        #print >>sys.stderr, sent.words[pos].pos, sent.words[pos].word 
         boundaries.append(sent.words[pos])
+        
     return GeneralContext(word,boundaries)
 
   @staticmethod
   def contexts_from_sent(sent):
+    #print >>sys.stderr, "Contexts"
     for i, words in sent.enum_words():
       local_context = GeneralContext.make_context(sent, i)
       yield local_context

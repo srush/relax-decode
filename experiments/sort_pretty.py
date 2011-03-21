@@ -10,7 +10,7 @@ for l in sys.stdin:
   out.append((train,broke, fixed, l))
   
 out = list(set(out))
-out.sort(key= lambda a: a[1] )
+out.sort(key= lambda a: a[2] )
 out.reverse()
 
 train_count = {}

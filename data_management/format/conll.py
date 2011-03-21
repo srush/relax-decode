@@ -26,6 +26,10 @@ class ConllSent:
   def enum_words(self):
     return enumerate(self.words)
 
+  def blank(self):
+    for w in self.words:
+      w.head = None
+
   def __iter__(self):
     return self.words.__iter__()
 

@@ -93,7 +93,7 @@ little_experiment = Experiment({
   "tagger": "left3words-wsj-50sent.tagger", 
   "unk_thres" : 5,
   "train" : "wsj_gold_50",
-  "penalty" : 5.0,
+  "penalty" : 3.0,
   "add_sents": False,
   "num_sentences": 16
   })

@@ -203,10 +203,10 @@ parse_experiment_gentle_mi_asymlow_full = ParseExperiment(
 def parse_dev_experiment(num):
   return ParseExperiment(
   original_test= "parse_dev_data/sec22_%s"%num,
-  prefix= "parse_dev_%s"%num,
+  prefix= "parse_dev6_%s"%num,
   gold_file= "parse_dev_data/sec22_%s"%num,
   mrf_spec= "parse_constraints_asym_punc",
-  model = "small.model",
+  model = "small_SO.model",
   training = "wsj_gold_50",
   penalty = 0.7)
 
@@ -299,7 +299,7 @@ parse_experiment_strong_mi_asymlow_tiny = ParseExperiment(
   prefix= "parse_strong_mi_asymlow_tiny",
   gold_file= "english_test.conll",
   mrf_spec= "parse_constraints_asym_low",
-  model = "small.model",
+  model = "small_SO.model",
   training = "wsj_gold_50",
   penalty = 0.7)
 
