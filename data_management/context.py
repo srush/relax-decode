@@ -3,7 +3,7 @@ from format.conll import *
 from format.simple import *
 from StringIO import StringIO
 import sys
-punc = set(["CD", "$", ",", "#", ":", ""])
+punc = set(["CD", "$", "#", ":", ""])
 bigpunc = set(["CD", ",", ".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "**", "*ROOT*", "ROOT"])
 
 class Context:
@@ -77,6 +77,11 @@ class Context:
 # constraints_00110000               constraints_00111000
 # constraints_00111100               constraints_01111000
 # constraints_11110000               data_tokenized_context/       
+def coarsen(pos):
+  if pos[:2] == "NN":
+    return pos[:2]
+  return pos
+
 class GeneralContext:
   SIZE = 4
   MASKS = [
@@ -84,11 +89,13 @@ class GeneralContext:
 #     [0,1,1,1,1,0,0,0], 
 #     [0,0,0,1,1,1,1,0],
 #     
-#     [0,0,0,0,1,1,1,1],
+
 #     [0,0,0,1,1,1,1,0],
 #     [0,0,0,0,1,1,1,1],
-#     [1,1,1,1,0,0,0,0],
+
 #     [0,0,0,0,1,1,1,1],
+    #[0,0,0,0,1,1,1,1],
+    #[1,1,1,1,0,0,0,0],
     [0,0,0,0,1,1,1,0],
     [0,1,1,1,0,0,0,0],
     [0,0,1,1,1,0,0,0],
@@ -128,7 +135,7 @@ class GeneralContext:
       #print >>sys.stderr, w.pos, w.word
       #if w.pos == "IN" or w.pos == "TO":
       #  return w.pos + "(" + w.word.lower() +")"
-      return w.pos
+      return coarsen(w.pos)
     
     return tuple( [get_pos(w) for w in self.boundaries] + [get_pos(self.word)]) #(self.left.pos, self.word.pos, self.right.pos)
 

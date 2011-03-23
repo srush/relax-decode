@@ -13,6 +13,7 @@ def eval_dep(test_simple, gold_simple):
       #print test_word, gold_word.num
       t = test_word.split("_")
       assert int(t[0]) == gold_word.num
+      if gold_word.word in [ "."]: continue
       if int(t[1]) == gold_word.head:
         correct +=1
       total += 1

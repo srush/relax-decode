@@ -661,3 +661,9 @@ for i in range(12):
      all += register_parse_experiment(env, parse_dev_experiment(i))
 env.Alias( "parse_dev_experiment", all)
 
+
+all = ()
+for i in range(23):
+     all += register_parse_experiment(env, parse_test_experiment(i))
+env.Alias( "parse_test_experiment", all)
+

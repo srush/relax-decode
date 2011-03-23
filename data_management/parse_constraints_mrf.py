@@ -46,6 +46,8 @@ def are_close(t1, t2):
   if t2 >= num_pos_states:
     t2 = t2 - num_pos_states
     b2 = True
+  if b1==b2 and num_map[t1][0:2] == num_map[t2][0:2] and num_map[t2][0:2] == "NN":
+    return 1.0
     
   if b1==b2 and num_map[t1][0:2] == num_map[t2][0:2]:
     return 0.7
@@ -169,6 +171,8 @@ class ParseMrf:
 def diff_to_mask_pos(n):
   if n < 0: return n + 4
   elif n>0: return n+4-1
+
+
   
 if __name__=="__main__":
   #wc = load(open(sys.argv[1], 'rb'))
@@ -196,9 +200,11 @@ if __name__=="__main__":
         ctxt_map[key].append((-sn,i))
         #print -sn, i, s.words[i].head, s.words[s.words[i].head].pos
         head_pos = s.words[i].head
+        head_tag = s.words[s.words[i].head].pos
+        
         diff  = head_pos -(i)
         mask_pos = diff_to_mask_pos(diff)
-        in_context = mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1
+        in_context = coarsen(head_tag) in [coarsen(w.pos) for w in mask_context.boundaries] #mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1
         print >>sys.stderr, sn, head_pos, (i), mask_pos, m, mask_context, in_context
         incontexts[((-sn,i),mask_context)] = in_context
         states[(-sn,i)] = [(i, get_tag_ind(s.words[s.words[i].head].pos), [s.words[i].head] ) ]
@@ -210,30 +216,70 @@ if __name__=="__main__":
     head_map = sent_to_head_map(s)
     contexts = GeneralContext.contexts_from_sent(s)
     for i, ctxt in enumerate(contexts):
-      best = 0
+      best = (0,0)
       best_mask = None
+      near_cc = False
+      near_prep = False
+      
+      if coarsen(ctxt.boundaries[3].pos) == "CC" or coarsen(ctxt.boundaries[2].pos) == "CC":
+        near_cc = True
+
+      if coarsen(ctxt.boundaries[3].pos) == "IN" or coarsen(ctxt.boundaries[2].pos) == "IN":
+        near_prep = True
+
+
+      right_nn = False
+      max_nn = 0
+      if coarsen(ctxt.boundaries[4].pos) in ["NN","POS"]:
+        right_nn = True
+        max_nn = 4
+        for j in range(4,8):
+          if coarsen(ctxt.boundaries[j].pos) in ["NN", "POS"]:
+            max_nn = j
+          else:
+            break
+
+
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
+        num_on = sum(m)
         if not mask_context.punc_check():  continue
         #if mask_context in is_hot and mask_context in ctxt_map :
         if mask_context in ctxt_map:
           
           total_seen = len([1 for key in ctxt_map[mask_context] if len(states[key]) ==1])
-          possible_best = [states[key][0][1] for key in ctxt_map[mask_context]
-                            if len(states[key]) ==1]
+          possible_best = [coarsen(num_map[states[key][0][1]])
+                           for key in ctxt_map[mask_context]
+                           if len(states[key]) ==1]
           if not possible_best: continue
           agreed = Counter(possible_best).most_common(1)[0]
-          score = (agreed[1] / (float(total_seen) + 1))
-          #if num_map[agreed[0]] in [w.pos for w in mask_context.boundaries]: score +=1 
-          if all([incontexts[key,mask_context] for key in ctxt_map[mask_context] if len(states[key]) ==1]): score += 2
+          
+          #if agreed[0][:2] == "VB" : continue
+          con_pos = [coarsen(w.pos) for w in mask_context.boundaries]
+          coarsened = "NN" in [coarsen(w.pos) for w in mask_context.boundaries]
+          score = ((agreed[1] / (float(total_seen) )), 1 if total_seen < 5 or coarsened else 0, num_on, min(agreed[1],4))
+
+          if all([incontexts[key,mask_context] for key in ctxt_map[mask_context] if len(states[key]) ==1]): score = (score[0]+1,score[1], score[2], score[3])
           #if total_seen > 5: score -=1 
-          print >> sys.stderr, score, mask_context, best_mask, mask_context.punc_check()
-          if total_seen < 5 and score > best :
-            best_mask = mask_context
-            best = score
           
 
-      if best  > 0.0:
+          nn_constraint = (not right_nn) or m[max_nn] == 1  
+          cc_constraint = (not near_cc or "CC" in con_pos )
+          in_constraint = (not near_prep or "IN" in con_pos )
+
+          if right_nn:
+            fits_constraints = nn_constraint
+          else:
+            fits_constraints =  cc_constraint and in_constraint
+          
+
+          print >> sys.stderr, agreed[1],total_seen, score, mask_context, max_nn, right_nn, near_cc, near_prep, nn_constraint, cc_constraint, in_constraint, best_mask, mask_context.punc_check()
+          if score > best and fits_constraints:
+            best_mask = mask_context
+            best = score
+      
+      if best[0] >= 1.0:
+        print >>sys.stderr,  "Choose ", best_mask
         key = best_mask
         ctxt_map.setdefault(key, [])
         ctxt_map[key].append((sn,i))
