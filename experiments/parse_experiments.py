@@ -194,9 +194,32 @@ parse_experiment_gentle_mi_asymlow_full = ParseExperiment(
   original_test= "sec22_gold_ulab.conll",
   prefix= "parse_gentle_mi_asymlow_full",
   gold_file= "sec22_gold_ulab.conll",
-  mrf_spec= "parse_constraints_asym_low",
+  mrf_spec= "parse_constraints_asym_punc",
+  training = "wsj_gold_50",
   model = "small.model",
   penalty = 0.7)
+
+
+def parse_dev_experiment(num):
+  return ParseExperiment(
+  original_test= "parse_dev_data/sec22_%s"%num,
+  prefix= "parse_dev_%s"%num,
+  gold_file= "parse_dev_data/sec22_%s"%num,
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+
+parse_dev = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger6",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
 
 parse_experiment_gentle_mi_asymlow_bigger = ParseExperiment(
   original_test= "english_test_bigger.conll",
@@ -204,18 +227,91 @@ parse_experiment_gentle_mi_asymlow_bigger = ParseExperiment(
   gold_file= "english_test_bigger.conll",
   mrf_spec= "parse_constraints_asym_low",
   model = "small.model",
-  training = "wsj_gold_100",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger2 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger2",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_low",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger3 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger3",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_low",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger4 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger4",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger5 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger5",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger6 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger6",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+parse_experiment_gentle_mi_asymlow_bigger7 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger7",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
   penalty = 0.7)
 
 
+parse_experiment_gentle_mi_asymlow_bigger8 = ParseExperiment(
+  original_test= "english_test_bigger.conll",
+  prefix= "parse_gentle_mi_asymlow_bigger8",
+  gold_file= "english_test_bigger.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 1.0)
+
 parse_experiment_strong_mi_asymlow_tiny = ParseExperiment(
   original_test= "english_test.conll",
-  prefix= "parse_gentle_mi_asymlow_tiny",
+  prefix= "parse_strong_mi_asymlow_tiny",
   gold_file= "english_test.conll",
   mrf_spec= "parse_constraints_asym_low",
   model = "small.model",
   training = "wsj_gold_50",
   penalty = 0.7)
+
+parse_experiment_strong_mi_asymlow_tiny2 = ParseExperiment(
+  original_test= "english_test.conll",
+  prefix= "parse_strong_mi_asymlow_tiny2",
+  gold_file= "english_test.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
 
 parse_experiment_strong_mi_asymlow_bigger_100 = ParseExperiment(
   original_test= "english_test_bigger.conll",

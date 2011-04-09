@@ -91,6 +91,8 @@ env.Program('run_phrase_based_viterbi', ("PhraseViterbi.cpp", )+ local_libs, LIB
 
 env.Program('run_potts_tagger', ("PottsTagger.cpp", )+ local_libs, LIBS = libs)
 
+env.Program('run_decomp_tagger', ("DecompTagger.cpp", )+ local_libs, LIBS = libs)
+
 env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
 
 

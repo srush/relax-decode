@@ -15,7 +15,7 @@ from marginals import *
 from beam_map import *
 from context import *
 from map.unmap_pos import *
-
+TRY = False
 pos_map = {}
 num_map = {}
 m = -1
@@ -27,14 +27,29 @@ for l in open(root + 'map/STANFORD.map'):
 pos_map["*R"] = m + 1
 pos_map["*ROOT*"] = m + 1
 num_map[m+1] = "**"
+num_pos_states = m+2
+ordered = set(["$", "RP", "MD", "POS",  "CC",  "VBP",  "VB", "TO",  "VBD",  "IN", "DT", "JJ", "WDT", "JJR", "RBR", "PRP$", "WP", "EX",  "WRB"])
+def is_order_dependent(pos):
+  return pos in ordered
+  
 
-punc = set([",",".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "START"])
+punc = set(["-RRB-", "-LRB-", "#", "``", "''", ":", ""])
+bigpunc = set([",",".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "START"])
 
 def are_close(t1, t2):
-  if num_map[t1][0:2] == num_map[t2][0:2]:
-    return 0.9
-  if num_map[t1][0:1] == num_map[t2][0:1]:
+  b1 = False
+  b2 = False
+  if t1 >= num_pos_states:
+    t1 = t1 - num_pos_states
+    b1 = True
+  if t2 >= num_pos_states:
+    t2 = t2 - num_pos_states
+    b2 = True
+    
+  if b1==b2 and num_map[t1][0:2] == num_map[t2][0:2]:
     return 0.7
+  if b1==b2 and num_map[t1][0:1] == num_map[t2][0:1]:
+    return 0.5
   return 0.0
 
 def get_tag_ind(tag):
@@ -88,6 +103,7 @@ class PosEdge:
       for s2 in self.to_node.states:
         if s1 == s2:
           self.potentials.append((s1,s2, bonus if s1 == s2 else 0.0))
+        # TODO!!! Back on
         else:
           closeness = are_close(s1[0], s2[0])
           if closeness <> 0.0:
@@ -161,25 +177,26 @@ if __name__=="__main__":
   training = list(parse_conll_file(open(sys.argv[4])))  #is_hot = set([GeneralContext.from_string(l) for l in open(sys.argv[3], 'r')])
   link_desc = open(sys.argv[5], 'w')
 
-
+  training_data = training
   states = {}
   ctxt_map = {}
-  for sn, s in enumerate(training):
+  for sn, s in enumerate(training, 1):
     head_map = sent_to_head_map(s)
     contexts = GeneralContext.contexts_from_sent(s)
     for i, ctxt in enumerate(contexts):
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
   
-        if mask_context in is_hot:
-          key = mask_context
-          ctxt_map.setdefault(key, [])
-          ctxt_map[key].append((-sn,i))
-          states[(-sn,i)] = [(i, get_tag_ind(tag), [ind for ind in inds if ind <> i] ) for tag, inds in head_map.iteritems()]
+        #if mask_context in is_hot:
+        key = mask_context
+        ctxt_map.setdefault(key, [])
+        ctxt_map[key].append((-sn,i))
+        #print -sn, i, s.words[i].head, s.words[s.words[i].head].pos
+        states[(-sn,i)] = [(i, get_tag_ind(s.words[s.words[i].head].pos), [s.words[i].head] ) ]
 
           #only one mask per context
-          break
-
+          #break
+  test_data = list(parse_conll_file(open(sys.argv[1])))
   for sn, s in enumerate(parse_conll_file(open(sys.argv[1]))):
     head_map = sent_to_head_map(s)
     contexts = GeneralContext.contexts_from_sent(s)
@@ -187,12 +204,12 @@ if __name__=="__main__":
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
   
-        if mask_context in is_hot:
+        if mask_context in is_hot and mask_context in ctxt_map :
           key = mask_context
           ctxt_map.setdefault(key, [])
           ctxt_map[key].append((sn,i))
-          states[(sn,i)] = [(i, get_tag_ind(s.words[i].pos), [s.words[i].head] ) ]
-
+          #states[(sn,i)] = [(i, get_tag_ind(s.words[i].pos), [s.words[i].head] ) ]
+          states[(sn,i)] = [(i, get_tag_ind(tag), [ind for ind in inds if ind <> i] ) for tag, inds in head_map.iteritems()]
           #only one mask per context
           break 
   #t = sys.argv[4]
@@ -210,42 +227,113 @@ if __name__=="__main__":
     bonus = -pen #* -min((20*test_seen  / float(20* test_seen + training_seen + 1)), 1.0);
     #print >>sys.stderr, bonus    
 
-    dep_nodes = [PosNode(pos, "Dep %s:%s"%(sent_num, ind), sorted(sum([ [(e,"dep "+ str(e))for e in d[2]]  for d in states[sent_num, ind]],[])))
+    dep_nodes = [PosNode(pos, "Dep %s:%s"%(sent_num, ind),
+                         sorted(sum([ [(e,"dep "+ str(e))for e in d[2]]  for d in states[sent_num, ind]],[])))
                  for pos,(sent_num, ind) in enumerate(positions)]
     
     num_dep_nodes = len(dep_nodes)
-    if num_dep_nodes == 1: continue
+    num_non_training = len([() for sent_num, ind in positions if sent_num >=0])
+    num_training_nodes = num_dep_nodes - num_non_training
+    if num_non_training == 0 or num_dep_nodes == 1: continue
     else: i += 1
-    pos_nodes = [PosNode(pos+num_dep_nodes, "Pos %s:%s"%(sent_num, ind), [ (d[1], "pos "+str(num_map[d[1]])) for d in states[sent_num, ind]])
+
+    pos_nodes = []
+    all_edge = []
+    if TRY:
+      mask = ctxt._mask
+      ls = []
+      offset = 4
+      for j, ind in enumerate(mask):
+        if mask[j]:
+          if j < 4:
+            ls.append(j)
+          else:
+            ls.append(j+1)
+      #print ls
+      pos_nodes = [PosNode(pos+num_dep_nodes, "Pos %s:%s"%(sent_num, ind),
+                           [ (d, "pos "+str(d)) for d in ls] + [(10, "pos out")] )
+                   for  pos, (sent_num, ind) in enumerate(positions)]
+      for p_node in pos_nodes:
+        p_node._potentials = [(state, 0.0) for state in p_node.states] 
+        #if num_map[state[0]] not in punc else 1000
+
+      for q, (d_node, p_node) in enumerate(zip(dep_nodes, pos_nodes)):
+        edge = PosEdge(d_node, p_node)
+        key = positions[q]
+        sent_num, ind = key
+        for (_, pos, heads) in states[key]:
+          for h in heads:
+            if h - ind + offset in ls:
+              edge.potentials.append(((h,""), (h-ind + offset,""), -10000))
+  #             edge.potentials.append(((h,""), (10,""), -10000 - 0.05 * bonus))
+            else:
+              edge.potentials.append(((h,""), (10,""), -10000))
+
+
+#         for context_ind in (0,2):
+#           edge.potentials.extend([((ind + (context_ind - 1),""), (context_ind,""), -10000) for h in heads])
+        d_node.edges.append(edge)
+
+    else: 
+      
+      pos_nodes = [PosNode(pos+num_dep_nodes, "Pos %s:%s"%(sent_num, ind),
+                         [ (d[1], "pos "+str(num_map[d[1]])) for d in states[sent_num, ind]] +
+                         [ (d[1] + num_pos_states, "pos_after "+str(num_map[d[1]])) for d in states[sent_num, ind]]
+                           )
                  for  pos, (sent_num, ind) in enumerate(positions)]
 
-    for p_node in pos_nodes:
-      p_node._potentials = [(state, 0.0 if num_map[state[0]] not in punc else 1000) for state in p_node.states] 
+  
+#       pos_nodes.extend([PosNode(pos+num_dep_nodes, "Pos %s:%s"%(sent_num, ind),
+#                                  [ (d[1] + num_pos_nodes, "pos "+str(num_map[d[1]])) for d in states[sent_num, ind]])
+#                          for  pos, (sent_num, ind) in enumerate(positions)])
+
+      for p_node in pos_nodes:
+        p_node._potentials = [(state, 0.0 if num_map.get(state[0], num_map.get(state[0]-num_pos_states,"")) not in bigpunc else 1000) for state in p_node.states] 
       
     
-    all_edge = []
-    for q, (d_node, p_node) in enumerate(zip(dep_nodes, pos_nodes)):
-      edge = PosEdge(d_node, p_node)
-      key = positions[q]
+
+      for q, (d_node, p_node) in enumerate(zip(dep_nodes, pos_nodes)):
+        edge = PosEdge(d_node, p_node)
+        key = positions[q]
+        sent, ind = key
+        if sent >= 0:
+          mod_pos = test_data[sent].words[ind].pos
+        else:
+          mod_pos = training_data[(-sent) -1].words[ind].pos
       
-      for (_, pos, heads) in states[key]:
-        edge.potentials.extend([((h,""), (pos,""), -10000) for h in heads])
-      d_node.edges.append(edge)
+        for (_, pos, heads) in states[key]:
+          for h in heads:
+
+            if not is_order_dependent(mod_pos) or h < ind:
+              edge.potentials.append(((h,""), (pos,""), -10000) )
+            else:
+              edge.potentials.append(((h,""), (pos + num_pos_states,""), -10000))
+        d_node.edges.append(edge)
       
     all_nodes = dep_nodes + pos_nodes
     total_states = set()
     for node in pos_nodes:
-      total_states.update(node.states)
+      if TRY:
+        total_states.update([s for s in node.states if s[0]<> 10])
+      else:
+        total_states.update(node.states )
       
     # constraint off!
     #total_states.add(1000)
+
     mu_node = PosNode(len(all_nodes), "mu", list(total_states))
-    mu_node._potentials.append( ((100,"off"), len(dep_nodes) * (3.0/4.0) *bonus))
+
+    #total_bonus = (float(num_non_training) * bonus) * (3.0 / 2.0)
+    #training_node_bonus = (total_bonus * (1.0/3.0) ) / float(num_training_nodes)
+    training_node_bonus = bonus
+    total_bonus = len(pos_nodes) * bonus #num_non_training * bonus + num_training_nodes * training_node_bonus 
+    #non_training_total_bonus = num_non_training * bonus
+    mu_node._potentials.append( ((100,"off"), (3.0/4.0) *float(total_bonus)))
     for p_node in pos_nodes:
       edge = PosEdge(p_node, mu_node)
       # hack for training nodes
       if len(p_node.states) == 1:
-        edge.add_same_potentials(10.0 * bonus)
+        edge.add_same_potentials(bonus)
       else:
         edge.add_same_potentials(bonus)
       p_node.edges.append(edge)
@@ -274,5 +362,5 @@ if __name__=="__main__":
     f.write(proto_graph.SerializeToString())
     f.close()
 
-    print >>sys.stderr, str(posmrf)
+    #print >>sys.stderr, str(posmrf)
   print >>link_desc, i 

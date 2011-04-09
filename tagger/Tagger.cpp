@@ -46,7 +46,8 @@ Hypernode * Tagger::make_node(const Hypergraph_Node & node, wvector * features) 
                            ret_tag.tag_id());
     //cout << our_tag << endl;
     _tag_map->set_value(*our_node, our_tag);
-    
+
+    //cout << our_tag << endl;
     _node_map->get_no_check(our_tag).push_back( our_node);
   }
   return our_node;

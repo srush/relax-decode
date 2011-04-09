@@ -1,4 +1,5 @@
-import sys
+import sys,os
+sys.path.append(os.getenv("SCARAB_ROOT")+"/data_management/")
 root = "/home/srush/Projects/relax_decode/data_management/"
 sys.path.append(root)
 
@@ -24,7 +25,7 @@ if __name__ == "__main__":
   test_file = sys.argv[1]
   gold_file = sys.argv[2]
   test_sents = parse_simple_file(open(test_file), '/')
-  gold_sents = parse_simple_file(open(gold_file), '_')
+  gold_sents = parse_simple_file(open(gold_file), '/')
   correct, total = eval_pos(test_sents, gold_sents)
   print "Out of", float(total)
   print "Accuracy is:", correct / float(total)

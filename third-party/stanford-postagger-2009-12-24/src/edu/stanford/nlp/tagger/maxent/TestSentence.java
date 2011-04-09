@@ -658,8 +658,11 @@ public class TestSentence implements SequenceModel {
       arr1[0] = naTag;
       return arr1;
     }
-    if (GlobalHolder.isRare(sent.get(pos - leftWindow()))) {
-      arr1 = GlobalHolder.tags.getOpenTags().toArray(new String[GlobalHolder.tags.getOpenTags().size()]);
+    //if (GlobalHolder.isRare(sent.get(pos - leftWindow()))) {
+        //arr1 = GlobalHolder.tags.getOpenTags().toArray(new String[GlobalHolder.tags.getOpenTags().size()]);
+    
+    if (!GlobalHolder.isSeen(sent.get(pos-leftWindow()))) {
+      arr1 = GlobalHolder.tags.index.toArray(new String[GlobalHolder.tags.index.size()]);
     } else {
       arr1 = GlobalHolder.dict.getTags(sent.get(pos - leftWindow()));
     }
