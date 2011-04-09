@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<!-- Build file for Joshua. Last changed: $LastChangedDate: 2009-12-03 13:30:23 -0600 (Thu, 03 Dec 2009) $ -->
+<project name="Joshua Machine Translation Toolkit" default="compile" basedir=".">
+	
+<!-- ~~~~~ Properties, Paths, etc ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<property environment="env" />
+	
+	<property name="src"    value="./src" />
+	<property name="test"   value="./test" />
+	<property name="build"  value="./bin" />
+	<property name="lib"    value="./lib" />
+	<property name="doc"    value="./javadoc" />
+	<property name="pmd"    value="./pmd" />
+	<property name="pmdOUT" value="${pmd}-output" />
+	
+	<!-- TODO: should these be made into 'path's instead of 'property's? -->
+	<property name="testng" value="${lib}/testng-5.8-jdk15.jar"/>
+	<!-- <property name="bdb"    value="${lib}/je-3.2.23.jar"/> -->
+	<property name="cli"    value="commons-cli-2.0-SNAPSHOT.jar"/>
+	
+	<path id="compile.all.classpath">
+		<fileset dir="${lib}">
+			<include name="${cli}"/>
+			<!-- Jung uses a BSD-like license,
+				see ./lib/LICENSES/LICENSE-jung.txt -->
+			<include name="jung-api-2.0.jar"/>
+			<include name="jung-graph-impl-2.0.jar"/>
+			<include name="jung-algorithms-2.0.jar"/>
+			<include name="jung-visualization-2.0.jar"/>
+			<include name="collections-generic-4.01.jar"/>
+		</fileset>
+	</path>
+		
+	
+	<path id="pmd.classpath">
+		<fileset dir="${lib}">
+			<!-- PMD uses a BSD-like license,
+				see ./lib/LICENSES/LICENSE-pmd.txt -->
+			<include name="pmd-4.2.5.jar"/>
+			<include name="jaxen-1.1.1.jar"/>
+			<include name="asm-3.1.jar "/>
+		</fileset>
+	</path>
+	
+	
+<!-- ~~~~~ Init build task ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- Create the build directory for compiled class files -->
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${lib}"/>
+	</target>
+	
+	
+<!-- ~~~~~ SRILM build tasks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Check for environment variables -->
+	<target name="set-srilm" unless="env.SRILM">
+		<fail message="Please set the $SRILM environmant variable to the directory where srilm is installed." />
+	</target>
+	
+	
+	<!-- Check for environment variables -->
+	<target name="set-java-home" unless="env.JAVA_HOME">
+		<fail message="Please set the $JAVA_HOME environmant variable." />
+		<!-- TODO: add suggestion to use /System/Library/Frameworks/JavaVM.framework/Home/ iff on OSX --> 
+	</target>
+	
+	
+	<!-- Compile and install SRILM wrapper -->
+	<target name="srilm" depends="init, set-srilm, set-java-home">
+		<!-- BUG: this is run twice for `ant compile test`, since the Makefile will clean before building (thus it must rebuild everything) -->
+		<exec executable="make">
+			<arg value="-C" />
+			<arg value="${src}/joshua/decoder/ff/lm/srilm" />
+			<arg value="install" />
+		</exec>
+	</target>
+	
+	
+<!-- ~~~~~ Java build tasks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Compile the Java code. -->
+	<target name="compile" depends="init,srilm">
+		<javac compiler="javac1.5" srcdir="${src}" destdir="${build}" 
+			classpathref="compile.all.classpath" debug="on" encoding="utf8"
+			sourcepath="">
+			<!-- We nullify the sourcepath in order to disable Ant's usual resolution mechanism. This makes it an error for our basic code to call into code that has external dependencies, rather than auto-including those files and then having a classpath error. -->
+			<include name="**/*.java"/>
+			
+			<!-- This should be on, so people see it.
+				But it can be quite verbose...
+			<compilerarg value="-deprecation"/>
+			-->
+		</javac>
+	</target>
+	<!-- Create a JAR file -->
+	<target name="jar" depends="compile">
+		<jar destfile="${build}/joshua.jar">
+			<fileset dir="${build}">
+				<include name="**/*.class"/>
+			</fileset>
+		</jar>
+	</target>
+	
+	
+	<!-- Create a JAR file of the source code -->
+	<target name="source-jar">
+		<jar destfile="${build}/joshua-src.jar">
+			<fileset dir="${build}">
+				<include name="**/*.java"/>
+			</fileset>
+		</jar>
+	</target>
+	
+	
+<!-- ~~~~~ Cleaning tasks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Delete the compiled files -->
+	<target name="clean">
+		<exec executable="make">
+			<arg value="-C" />
+			<arg value="${src}/joshua/decoder/ff/lm/srilm" />
+			<arg value="clean" />
+		</exec>
+		<delete verbose="true" quiet="true">
+			<fileset dir="${build}">
+				<include name="**/*.class"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	
+	<!-- EXPERIMENTAL: Delete *all* generated files -->
+	<target name="distclean" depends="clean">
+		<!-- TODO: call the srilm Makefile's distclean (once it exists) -->
+		
+		<!-- BUG: this doesn't delete empty folders (neither ${build} itself, nor the class dirs (the latter makes sense since we don't traverse them)) -->
+		<delete verbose="true" quiet="true" includeEmptyDirs="true">
+			<fileset dir="${build}">
+				<include name="joshua.jar"/>
+				<include name="joshua-ui.jar"/>
+			</fileset>
+		</delete>
+		
+		<!-- BUG: this doesn't delete ${pmdOUT} when it's empty. But I'm wary of doing what I do for ${test}-output and ${doc} in case someone resets ${pmdOUT} to somewhere else (e.g. the same as ${pmd}) -->
+		<delete verbose="true" quiet="true" includeEmptyDirs="true">
+			<fileset dir="${pmdOUT}">
+				<include name="report.html"/>
+			</fileset>
+		</delete>
+		
+		<!-- HACK: these two work perfectly, but maybe problematic if people reset ${test} or ${doc} -->
+		<delete verbose="true" quiet="true" includeEmptyDirs="true">
+			<fileset dir="${test}-output" />
+		</delete>
+		<delete verbose="true" quiet="true" includeEmptyDirs="true">
+			<fileset dir="${doc}" />
+		</delete>
+		
+		<delete verbose="true" quiet="true" file="joshua-fb.xml" />
+	</target>
+	
+	
+<!-- ~~~~~ Javadoc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Compile the Javadocs into web pages -->
+	<target name="javadoc">
+		<mkdir dir="${doc}"/>
+		<javadoc packagenames="joshua.*"
+			classpath="${cli}"
+        	sourcepath="${src}"
+			destdir="${doc}"
+			author="true"
+			version="true"
+			charset="utf-8"
+			overview="src/overview.html"
+		>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api" />
+			<link href="http://commons.apache.org/cli/api-release" />
+		</javadoc>
+	</target>
+	
+	
+<!-- ~~~~~ TestNG ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Define the unit testing task -->
+	<taskdef resource="testngtasks" classpath="${testng}"/>
+	
+	
+	<!-- Compile the unit test code -->
+	<!-- FIXME: why is this broken out from the 'test' target? -->
+	<target name="compile-tests" depends="init"> 
+		<javac compiler="javac1.5" srcdir="${test}" destdir="${build}" 
+			classpath="${testng}" debug="on" encoding="utf8"/> 
+	</target>
+	
+	
+	<!-- Run the unit tests -->
+	<target name="test" depends="compile,compile-tests">
+		<testng classpath="${build}" sourcedir="${test}">
+			<jvmarg value="-Dfile.encoding=UTF8"/>
+			<jvmarg value="-Djava.util.logging.config.file=logging.tests.properties"/>
+			<jvmarg value="-Xms256m" />
+			<jvmarg value="-Xmx256m" />
+			<xmlfileset dir="." includes="testng.xml"/>
+		</testng>
+	</target>
+	
+	
+<!-- ~~~~~ PMD ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!-- Run the PMD tool for linting the source code.
+		http://pmd.sourceforge.net/ant-task.html
+	-->
+	<target name="pmd">
+		<taskdef
+			name="pmd"
+			classname="net.sourceforge.pmd.ant.PMDTask"
+			classpathref="pmd.classpath"
+			/>
+		
+		
+		<mkdir dir="${pmdOUT}"/>
+		
+		<echo message="Starting analysis, this will take a few seconds..."/>
+		
+		<!-- TODO: define a set of XSLT filters for searching and grepping through the output (which can be verbose) in type=xml format. -->
+		<!-- N.B. PMD is run in the same process as Ant and therefore produces no visible output by default. -->
+		<pmd shortFilenames="true" rulesetfiles="${pmd}/default-ruleset.xml">
+			<!-- BUG: the links to class files also go to pmd.sourceforge.net -->
+			<formatter
+				type="summaryhtml"
+				toFile="${pmdOUT}/report.html"
+				toConsole="false"
+				linkPrefix="http://pmd.sourceforge.net/xref/"
+				/>
+			<fileset dir="${src}">
+				<include name="**/*.java"/>
+			</fileset>
+		</pmd>
+		
+		<!-- Here's how to post-edit with XSLT
+		<xslt
+			in="${pmdOUT}/report.xml"
+			style="${pmd}/report.xslt"
+			out="${pmdOUT}/report.html"
+			/>
+		-->
+		
+		<!-- TODO: this should use a property to avoid duplication -->
+		<echo message="Report created at ${pmdOUT}/report.html"/>
+	</target>
+	
+	
+<!-- ~~~~~ FindBugs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- Check for environment variables -->
+	<target name="set-findbugs" unless="env.FINDBUGS_HOME">
+	<!-- Note the use of spaces instead of hard tabs, to get it to display nice -->
+		<fail>.
+    Please set the $FINDBUGS_HOME environment variable to
+    point to the directory where you have FindBugs installed.
+    
+    You can download the tool from http://findbugs.sourceforge.net/</fail>
+	</target>
+	
+	
+	<!-- Run the FindBugs tool for linting bytecode.
+		http://findbugs.sourceforge.net/manual/anttask.html
+		N.B. This task can take a *lot* of memory. 0.5Gb is the bare minimum for effort=default.
+		
+		We try to automatically find the Ant task within $FINDBUGS_HOME in order to ensure that things will work right. This path is correct for version 1.3.8 (and hopefully other versions as well).
+	-->
+	<target name="findbugs" depends="set-findbugs,jar">
+		<taskdef
+			name="findbugs"
+			classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+			classpath="${env.FINDBUGS_HOME}/lib/findbugs-ant.jar"
+			/>
+		
+		<!-- reportLevel = low,medium(default),high -->
+		<!-- effort = min,default,max; try using min to lower memory usage -->
+		<findbugs
+			home="${env.FINDBUGS_HOME}"
+			output="xml"
+			outputFile="joshua-fb.xml"
+			jvmargs="-Xmx1024m -Xms512m -XX:MinHeapFreeRatio=10"
+		>
+			<class location="${build}/joshua.jar" />
+			<sourcePath path="${src}" />
+			<auxClasspath path="${testng}" />
+			<auxClasspath path="${cli}" />
+		</findbugs>
+	</target>
+	
+</project>
