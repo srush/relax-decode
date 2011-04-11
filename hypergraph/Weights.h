@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cy_svector.hpp>
 #include <svector.hpp>
+#include "../CommandLine.h"
 using namespace std;
 
 // Weight vector
@@ -18,6 +19,5 @@ typedef svector<int, double> str_vector;
  */ 
 wvector * load_weights_from_file(const char * file);
 
-
-
+wvector * cmd_weights();
 #endif

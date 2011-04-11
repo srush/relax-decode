@@ -147,6 +147,8 @@ class Subproblem {
   // PROBLEMS
   
 
+  const double _lm_weight;
+
   // BIG
   vector < vector<float > >  best_lm_score;
   // BIG

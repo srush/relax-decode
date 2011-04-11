@@ -115,7 +115,7 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
   }
 
   if (DEBUG) {
-    double lm_score = (LMWEIGHT) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
+    double lm_score = (lm_weight()) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
     //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
 
     cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
@@ -222,7 +222,6 @@ EdgeCache Decode::compute_edge_penalty_cache() {
       total_score += (*_lagrange_weights)[lat_id];
       total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
     }
-        
     ret.set_value(*edge, total_score); 
 
   }
@@ -677,6 +676,20 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   dual = best_modified_derivation(*total, ha, back_pointers);
   
   HEdges used_edges = ha.construct_best_edges(back_pointers); 
+
+  if (SIMPLE_DEBUG) {
+
+    foreach ( HEdge edge, _forest.edges()) {  
+      cout << edge->head_node().label() << " " << edge->label() << " " << total->get_value(*edge) << endl;
+    }
+
+    cout << "EDGES!";
+    foreach (HEdge edge, used_edges) {
+      cout << edge->head_node().label() <<  " " << edge->label() << " " << total->get_value(*edge) << endl;
+    }
+  }
+
+
   vector <const ForestNode *> used_words;
   {
     vector <const Hypernode *> tmp_words = ha.construct_best_fringe(back_pointers); 
@@ -827,18 +840,18 @@ double Decode::compute_primal(const HEdges used_edges, const vector <const Fores
   for (uint i =0; i < used_strings.size()-2; i++) {
     VocabIndex context [] = {lookup_string(used_strings[i+1]), lookup_string(used_strings[i]), Vocab_None};
     if (DEBUG) {
-      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (LMWEIGHT) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (lm_weight()) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
       
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
   }
   if (DEBUG) {
-    cout << "PRIMAL LMWEIGHT: " << (LMWEIGHT) *lm_score << endl;
+    cout << "PRIMAL LMWEIGHT: " << (lm_weight()) *lm_score << endl;
     cout << endl;
   }
   //cout << "total " << total << endl;
   
-  return total + (LMWEIGHT) *  lm_score;
+  return total + (lm_weight()) *  lm_score;
 }
 
 int Decode::lookup_string(string word) {

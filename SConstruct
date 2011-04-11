@@ -22,7 +22,7 @@ sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest',
 
 
 
-libs = ('hypergraph', 'lattice', "protobuf", "pthread", "boost_program_options")
+libs = ('hypergraph', 'lattice', "protobuf", "pthread", "gflags")
 
 lib_path = build_config['lib_extra']
 
@@ -67,12 +67,16 @@ if build_config['has_sri']:
 
    cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
 
+   env.Program('exact', ("Exact.cpp",) +local_libs, LIBS = libs)
+
+
    regress = env.Command('regress', [trans, cube], 'python scripts/acl_regression.py')
 
    env.Alias('regression', regress)
 
-   env.Command('cscope.out', [trans, cube], 'cscope-indexer')
+   env.Command('cscope.out', [trans, cube], 'cscope-indexer -r')
    
+env.Program('viterbi', ("SimpleViterbi.cpp",) +local_libs, LIBS = libs)
 env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
 
 env.Program('run_parser', ("Parse.cpp", )+ local_libs, LIBS = libs)

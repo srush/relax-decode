@@ -1,0 +1,35 @@
+Special Lines
+
+Sent 
+#SENT [sent num] [words] [nodes] [edges] 
+
+Hypernodes 
+#I [node num] [leftspan] [right span] [non-terminal sym]
+
+Hyperedges - Two lines (below hypernode)
+[viterbi best prob?] [non-term nodes below]  [hnode for rule] ... [rule num] [headsym] [rule] ...
+[LM] [other features...] 
+
+In example2, features are 
+
+0 - LM
+1 - 1st rule feat
+2 - 2nd rule feat
+3 - 3rd rule feat
+4 - Length penalty
+
+Length penalty
+ double OMEGA = - Math.log10(Math.E);//-0.435
+ return OMEGA * (rule.getEnglish().length - rule.getArity());
+
+
+Weights -
+
+lm 1.000000
+phrasemodel pt 0 1.066893
+phrasemodel pt 1 0.752247
+phrasemodel pt 2 0.589793
+wordpenalty -2.844814
+
+
+-2.844814 * -0.435 = 1.23749409

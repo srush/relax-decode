@@ -10,10 +10,11 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <boost/foreach.hpp>
-#define LMWEIGHT -0.141221
+#include <boost/foreach.hpp> 
+//#define LMWEIGHT -0.141221
 #define foreach BOOST_FOREACH
 #define INF 1e8
+
 
 typedef unsigned int uint;
 class Clock {

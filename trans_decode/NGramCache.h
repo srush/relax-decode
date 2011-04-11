@@ -32,5 +32,6 @@ class NgramCache : public Ngram {
 // helper functions
 
 NgramCache * load_ngram_cache(const char * filename);
-
+NgramCache * cmd_lm();
+double lm_weight();
 #endif 

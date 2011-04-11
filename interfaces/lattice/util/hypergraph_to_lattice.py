@@ -35,8 +35,8 @@ class Graph(object):
     n = self.lattice.node.add()
     n.id = self.id
     #print node
-    s = str(node)
-    n.label = unicode(s, errors="ignore")
+    s = unicode(node)
+    n.label = s # unicode(s, errors="ignore")
     node.proto = n
     self.id += 1 
     return self.id - 1
@@ -96,7 +96,7 @@ class NonTermNode(LatNode):
     #self.proto.Extensions[ignore_node] = True
 
   def __str__(self):
-    return "%s %s %s %s"%(str(self.forest_node.label), self.dir, self.forest_node.id, self.id)
+    return "%s %s %s %s"%(unicode(self.forest_node.label), self.dir, self.forest_node.id, self.id)
 
   def color(self):
     return "red"
@@ -145,7 +145,7 @@ class InternalNode(LatNode):
     return ("%s %s %s %s"%(self.rule, None , self.dir, self.id)) # self.rule.edge.id
 
   def label(self):
-    lhs = unicode(str(self.rule.lhs), errors='ignore')
+    lhs = unicode(self.rule.lhs, errors='ignore')
     return "%s %s"%(lhs, str(self))
 
   def color(self):
@@ -168,7 +168,7 @@ class NodeExtractor(object):
     self.inner_node_labels = {}
 
   def get_label(self, from_node, to_node, has_phrases):
-    if  has_phrases:
+    if has_phrases:
       tmp = self.original_id
       self.original_id += 1
       return tmp
@@ -186,7 +186,8 @@ class NodeExtractor(object):
     self.memo = {}
     self.graph = Graph()
     self.forest = forest
-    
+    self.ordered_nodes = list(forest.node)
+    self.ordered_nodes.sort( key = lambda x: x.id )
     if not new_style:
 
       first_state = LexNode(self.graph, "<s>", -1)
@@ -202,7 +203,7 @@ class NodeExtractor(object):
         #print self.original_id, subword.word
         self.original_id += 1
 
-    (first, last) = self.extract_fsa(self.forest.node[forest.root], True)
+    (first, last) = self.extract_fsa(self.ordered_nodes[forest.root], True)
     
     if not new_style:
       first_state.add_edge(first, "")
@@ -262,7 +263,7 @@ class NodeExtractor(object):
 
       edge_dot = {}
       for i,node_id in enumerate(rhs):
-        to_node = self.forest.node[node_id]
+        to_node = self.ordered_nodes[node_id]
         if to_node.Extensions[is_word]:
           # it's a word, phraselet it and stick it in the list 
           phraselet.append(to_node)
@@ -317,7 +318,7 @@ class NodeExtractor(object):
             original.hypergraph_edge.append(edge_dot.id)
 
       else:
-        _, previous_node = self.extract_fsa(self.forest.node[from_node])
+        _, previous_node = self.extract_fsa(self.ordered_nodes[from_node])
         protoedge = previous_node.add_edge(new_state, ( " UP").decode('UTF-8'))
         #for edge_dot, phraselet in phraselets:
 
@@ -359,7 +360,7 @@ class NodeExtractor(object):
               original.hypergraph_edge.append(edge_dot.id)
 
       else:
-        next_node, _ = self.extract_fsa(self.forest.node[to_node])
+        next_node, _ = self.extract_fsa(self.ordered_nodes[to_node])
         protoedge = new_state.add_edge(next_node, ( " DOWN").decode('UTF-8') )
         
         #for edge_dot, phraselet in phraselets:

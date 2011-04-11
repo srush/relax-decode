@@ -1,5 +1,11 @@
 #include "NGramCache.h"
+#include "../CommandLine.h"
 
+DEFINE_string(lm_file, "", "file with the sri language model");
+static const bool lm_dummy =  RegisterFlagValidator(&FLAGS_lm_file, &ValidateFile);
+
+DEFINE_double(lm_weight, 0.0, "lm weight value"); // was 4
+static const bool lm_weight_dummy = RegisterFlagValidator(&FLAGS_lm_weight, &ValidateNum);
 
 
 // assume we are at a point in the trie, just look one step more
@@ -84,4 +90,12 @@ NgramCache * load_ngram_cache(const char * filename) {
     assert(false);
   }
   return lm;
+}
+
+NgramCache * cmd_lm()  {
+  return load_ngram_cache(FLAGS_lm_file.c_str());
+}
+
+double lm_weight() {
+  return FLAGS_lm_weight;
 }
