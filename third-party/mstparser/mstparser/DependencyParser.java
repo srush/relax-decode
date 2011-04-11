@@ -178,40 +178,61 @@ public class DependencyParser {
 	    double[][][] probs_trips = new double[length][length][length];
 	    FeatureVector[][][] fvs_sibs = new FeatureVector[length][length][2];
 	    double[][][] probs_sibs = new double[length][length][2];
-	    if(options.secondOrder)
+	    if(options.secondOrder) {
 		((DependencyPipe2O)pipe).fillFeatureVectors(instance,fvs,probs,
 							    fvs_trips,probs_trips,
 							    fvs_sibs,probs_sibs,
 							    nt_fvs,nt_probs,params);
-	    else
-		pipe.fillFeatureVectors(instance,fvs,probs,nt_fvs,nt_probs,params);
 
-            System.out.println("");
-            //System.out.println("START:");
+                System.out.println("");
+                //System.out.println("START:");
             
-            
-            // for(int i = 0; i < nt_probs.length; i++) {
-            //     for(int j = 0; j < nt_probs[i].length; j++) {
-            //         for(int k = 0; k < 2; k++) {
-            //             for(int m = 0; m < 2; m++) {
-            //                 System.out.println("OTHER: "+cnt +" " +i + " " + j + " " + k + " " +m +" "+nt_probs[i][j][k][m]);                        
-            //             }
-            //         }
-            //     }
-            // }
-
-            for(int i = 0; i < probs.length; i++) {
-                for(int j = 0; j < probs[i].length; j++) {
-                    if (i == j) continue;
-                    for (int k =0; k <= 1; k++) {
-                        if (probs[i][j][k] != 0.0)
-                            System.out.println("PROB: "+cnt +" " +i + " " + j + " " + k + " " +probs[i][j][k]);
-             
+                for(int i = 0; i < probs_trips.length; i++) {
+                    for(int j = 0; j < probs_trips[i].length; j++) {
+                        for (int k =0; k < probs_trips[i][j].length; k++) {
+                            double bc = probs_trips[i][j][k];
+                            if (i==j) {
+                                bc += probs_sibs[j][k][0];
+                            } else {
+                                bc += probs_sibs[j][k][1];
+                            }
+                            if (i <= k) {
+                                bc += probs[i][k][0];
+                            } else if (i > k) {
+                                bc += probs[k][i][1];
+                            } 
+// else if (i ==j) {
+//                                 if (j < k) {
+//                                     bc += probs[j][k][0];
+//                                 } else {
+//                                     bc += probs[k][j][1];
+//                                 }
+//                             }
+                            if (bc != 0.0)
+                                System.out.println("PROB: "+cnt +" " +i + " " + j + " " + k + " " + bc);
+                            
+                        }
                     }
                 }
-            }
-            System.out.println("DONE:");
+                System.out.println("DONE:");            
+	    } else {
+		pipe.fillFeatureVectors(instance,fvs,probs,nt_fvs,nt_probs,params);
 
+                System.out.println("");
+                //System.out.println("START:");
+            
+                for(int i = 0; i < probs.length; i++) {
+                    for(int j = 0; j < probs[i].length; j++) {
+                        if (i == j) continue;
+                        for (int k =0; k <= 1; k++) {
+                            if (probs[i][j][k] != 0.0)
+                                System.out.println("PROB: "+cnt +" " +i + " " + j + " " + k + " " +probs[i][j][k]);
+                            
+                        }
+                    }
+                }
+                System.out.println("DONE:");
+            }
 	    int K = options.testK;
 	    Object[][] d = null;
 	    if(options.decodeType.equals("proj")) {

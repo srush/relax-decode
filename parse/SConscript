@@ -4,6 +4,7 @@ Import('env')
 sources = ["DepParser.cpp", "$HYP_PROTO/dep.pb.cc", "ParseConstraints.cpp", "ParseSolvers.cpp"]
 
 env.Program('convert', [ "$HYP_PROTO/hypergraph.pb.cc", "$HYP_PROTO/dep.pb.cc", "EisnerToHypergraph.cpp"])
+env.Program('convert_SO', [ "$HYP_PROTO/hypergraph.pb.cc", "$HYP_PROTO/dep.pb.cc", "SOEisnerToHypergraph.cpp"])
 
 
 hyp_lib = env.Library('parse', sources)

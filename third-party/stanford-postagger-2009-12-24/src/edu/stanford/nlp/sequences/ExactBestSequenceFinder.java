@@ -19,7 +19,7 @@ public class ExactBestSequenceFinder implements BestSequenceFinder {
   private static final boolean useOld = false;
   private static final boolean DEBUG = false;
 
-    private static final double BEAM = 5.0;
+    private static final double BEAM = 6.0;
 
   /**
    * A class for testing.

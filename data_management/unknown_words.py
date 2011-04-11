@@ -25,8 +25,8 @@ class WordCounter:
     return self.word_counts.get(w,0)
 
 
-  def trim(self):
-    self.word_counts = dict([ (k,w)   for k,w in self.word_counts.iteritems() if w > 2])
+#   def trim(self):
+#     self.word_counts = dict([ (k,w)   for k,w in self.word_counts.iteritems() if w > 2])
 
 
 if __name__ == "__main__":
@@ -36,5 +36,5 @@ if __name__ == "__main__":
     
     if i % 1000  == 0 : print >>sys.stderr, i
     wc.inc_sent(sent)
-  wc.trim()
+  #wc.trim()
   dump( wc, open(sys.argv[2], 'wb'))

@@ -10,7 +10,7 @@ conn = MySQLdb.connect (host = "mysql.csail.mit.edu",
 
 direct = "/data/nlp4/srush/mikedata/roi/feb_27_2011_context/"
 direct2 = "/data/nlp4/srush/mikedata/roi/feb_27_2011_context/"
-files = ["nyt_9_sentences_%s_%s"%(i,b) for b in (1,2) for i in range(1,11)]
+files = ["nyt_%s_sentences_%s.gz"%(b,i) for b in (4,5) for i in range(2,11)]
 
 
 
@@ -29,10 +29,10 @@ if __name__ == "__main__":
   wordmap = []
   for f in files:
     #context_map = ContextMap.from_handle(open(direct + "out2_context_"+ f))
-    wordmap = WordMap.from_handle(open(direct + "out1_"+f), None)
-    corpus = Corpus.from_handle(open(direct2 + f))
+    wordmap = WordMap.from_handle(gzip.open(direct + "out1_"+f), None)
+    corpus = Corpus.from_handle(gzip.open(direct2 + f))
 
-
+    print >>sys.stderr, "Done reading files"
     # add file to file table
     cursor = conn.cursor ()
     cursor.execute ("INSERT INTO file(original_name) VALUES ('%s')"%f)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
 
     
-
+    print >>sys.stderr, "File added"
     # add sentences to sentence table    
     cursor = conn.cursor ()
     q= "INSERT INTO sentence(file_id, id , sentence) VALUES (%s, %s,%s)"
@@ -55,6 +55,7 @@ if __name__ == "__main__":
       #print file_id, sent_num, sentence
     cursor.close()
 
+    print >>sys.stderr, "Done adding sentences"
 #     # add words to word table
     cursor = conn.cursor ()
     q = "INSERT INTO word_token(type,sent_id, file_id, left_context, right_context) VALUES (%s, %s, %s, %s, %s)"
@@ -64,5 +65,5 @@ if __name__ == "__main__":
                for ind in w.indices)
     cursor.executemany(q, inserts)
     cursor.close()
-  
+    print >>sys.stderr, "Done adding words"
 conn.close ()

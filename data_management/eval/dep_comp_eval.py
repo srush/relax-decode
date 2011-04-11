@@ -24,9 +24,10 @@ class ConstraintOut:
       elif v == "cx":
         them +=1
     print "| Fixed %s Broke %s Trains %s " %(us, them, len(self.trains))
-
+    
     for (sent, ind), pos in zip(self.deps, self.pos):      
       v = eval_word(test_sents[sent], example_sents[sent], gold_sents[sent], ind-1)
+      #vpos = test_sents[sent][ind]
       print "%s\t%s\t%s\t%s" %(sent, ind, pos, v)
 
 
@@ -151,3 +152,4 @@ if __name__ == "__main__":
     c.show_results(i, viterbi_sents, extra_sents, gold_sents, True)
 
   print >>sys.stderr, us, them
+  print us, them
