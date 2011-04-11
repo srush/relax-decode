@@ -26,7 +26,7 @@ def make_graph(hgraph):
       G.add_edge("n" + str(n.id), "e" + str(e.id))
       edge = G.get_node("e" + str(e.id))
       edge.attr["color"] = "Blue"
-      edge.attr["label"] = str(e.id) + str(unicode(e.label.encode("UTF-8"), errors="ignore"))
+      edge.attr["label"] = str(e.id) + str(unicode(e.label.encode("UTF-8"), errors="replace"))
 
       for t in e.tail_node_ids:
         G.add_edge("e" + str(e.id), "n" + str(t))

@@ -9,8 +9,8 @@
 class LMNonLocal: public NonLocal {
  public:
   //~LMNonLocal(){}
- LMNonLocal(const HGraph & forest,  Ngram & lm, const Cache <Hypernode, int> & word_cache) 
-   : _forest(forest), _lm(lm), _word_cache(word_cache) {}
+ LMNonLocal(const HGraph & forest,  Ngram & lm, double lm_weight, const Cache <Hypernode, int> & word_cache) 
+   : _forest(forest), _lm(lm), _lm_weight(lm_weight), _word_cache(word_cache) {}
   
   void compute(const Hyperedge & edge,
                const vector <vector <int> > & subder,
@@ -33,7 +33,7 @@ class LMNonLocal: public NonLocal {
                                  _word_cache.store[full_derivation[size-2]], 
                                  Vocab_None};
         score += _lm.wordProb(w, context);
-        
+        //cout << _lm.wordProb(w, context) << " " << _lm.vocab.getWord(w) << " " << _lm.vocab.getWord(context[1]) << " " << _lm.vocab.getWord(context[0]) << endl;
         // subtract out uni
         if (w!=1 && w!=2) {
           const VocabIndex context2 [] = {Vocab_None};
@@ -77,7 +77,7 @@ class LMNonLocal: public NonLocal {
       }
     }
     //cout << endl;
-    score *= LMWEIGHT;
+    score *= _lm_weight;
     //cout << score <<endl;
     //cout << full_derivation.size() << endl;;
     int size = full_derivation.size();
@@ -99,7 +99,7 @@ class LMNonLocal: public NonLocal {
     VocabIndex context [] = {Vocab_None};
     if (w!=1 && w!=2) {
       score += _lm.wordProb(w, context);
-      score *= LMWEIGHT;
+      score *= _lm_weight;
     }
     //cout << "WORD " << _word_cache.get_value(node) << " "<< _lm.vocab.getWord(w)<<  endl;
     vector <int> sig;
@@ -112,6 +112,7 @@ class LMNonLocal: public NonLocal {
  private:
   const HGraph  & _forest;  
   Ngram & _lm;
+  const double _lm_weight;
   const Cache <Hypernode, int> & _word_cache;  
 
 };

@@ -3,8 +3,6 @@
 #include "CubePruning.h"
 #include "CubeLM.h"
 #include "HypergraphAlgorithms.h"
-//#include "ForestAlgorithms.h"
-//#include <cy_svector.hpp>
 #include <svector.hpp>
 #include "Forest.h"
 #include "Hypergraph.h"
@@ -44,25 +42,34 @@ Cache <Hypernode, int > * cache_word_nodes(Ngram lm, const Forest & forest) {
 }
 
 
+DEFINE_string(forest_prefix, "", "prefix of the forest files"); 
+DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')"); 
+DEFINE_int64(cube_size, 100, "size of the beam cube"); 
+
+static const bool forest_dummy = RegisterFlagValidator(&FLAGS_forest_prefix, &ValidateReq);
+static const bool range_dummy = RegisterFlagValidator(&FLAGS_forest_range, &ValidateRange);
+
+
 int main(int argc, char ** argv) {
   //cout << argc << endl;
-
+  google::ParseCommandLineFlags(&argc, &argv, true);
   
 
-  wvector * weight = load_weights_from_file(argv[2]);
-  Ngram * lm = load_ngram_cache(argv[3]);
+  wvector * weight = cmd_weights();
+  Ngram * lm = cmd_lm();
    
 
   //cout << "START!!!!" << endl;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-  for (int i=atoi(argv[5]); i <=atoi(argv[6]); i++) {
-    
+  istringstream range(FLAGS_forest_range);
+  int start_range, end_range;
+  range >> start_range >> end_range;
+  for (int i = start_range; i <= end_range; i++) {     
 
     
     //Hypergraph hgraph;
     stringstream fname;
-    fname << argv[1] << i;
-
+    fname << FLAGS_forest_prefix << i;
     Forest f = Forest::from_file(fname.str().c_str());
     
     // Optional:  Delete all global objects allocated by libprotobuf.
@@ -75,8 +82,8 @@ int main(int argc, char ** argv) {
     Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);
     
     clock_t begin=clock();    
-    int cube = atoi(argv[4]);
-    CubePruning p(f, *w, LMNonLocal(f, *lm, *words), cube, 3);
+    int cube = FLAGS_cube_size;
+    CubePruning p(f, *w, LMNonLocal(f, *lm, lm_weight(), *words), cube, 3);
     double v =p.parse();    
     clock_t end=clock();
     cout << "*TRANS* " << i << " ";

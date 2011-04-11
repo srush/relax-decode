@@ -36,7 +36,7 @@ public class HyperGraphPruning extends TrivialInsideOutside {
 	HashMap<HGNode,Boolean> processedNodesTbl = new HashMap<HGNode,Boolean>();
 	double bestLogProb;//viterbi unnormalized log prob in the hypergraph
 	
-	boolean ViterbiPruning = false;//Viterbi or Posterior pruning
+	boolean ViterbiPruning = true;//Viterbi or Posterior pruning
 	
 	boolean fixThresholdPruning = true;
 	double THRESHOLD_GENERAL = 10;//if the merit is worse than the best_log_prob by this number, then prune
@@ -68,7 +68,7 @@ public class HyperGraphPruning extends TrivialInsideOutside {
 //	######################### pruning here ##############
 	public void pruningHG(HyperGraph hg) {
 		
-		runInsideOutside(hg, 2, 1, 1.0);//viterbi-max, log-semiring
+		runInsideOutside(hg, 0, 1, 1.0);//sum-max, log-semiring
 		
 		if (fixThresholdPruning) {
 			pruningHGHelper(hg);
@@ -149,6 +149,7 @@ public class HyperGraphPruning extends TrivialInsideOutside {
 		
 		//### if get to here, then survive; remember: if I survive, then my upper-item must survive
 		numSurvivedEdges++;
+                //System.err.println("survived");
 		return true; // survive
 	}
 	
@@ -157,14 +158,17 @@ public class HyperGraphPruning extends TrivialInsideOutside {
 		//### get merit
 		double postLogProb = getEdgeUnormalizedPosteriorLogProb(dt, parent);
 		
-		
+                //System.err.println(dt.toString());
 		if (dt.getRule() != null
 		&& dt.getRule().getOwner() == glueGrammarOwner
 		&& dt.getRule().getArity() == 2) { // specicial rule: S->S X
 			//TODO
-			return (postLogProb - this.bestLogProb < THRESHOLD_GLUE);
+                    //System.err.println((postLogProb + " " +  this.bestLogProb + " " + THRESHOLD_GLUE));
+			return (this.bestLogProb - postLogProb > THRESHOLD_GLUE);
+
 		} else {
-			return (postLogProb - this.bestLogProb < THRESHOLD_GENERAL);
+                    //System.err.println((postLogProb + " " +  this.bestLogProb + " " + THRESHOLD_GENERAL));
+			return (this.bestLogProb - postLogProb  > THRESHOLD_GENERAL);
 		}
 	}
 	

@@ -3,6 +3,7 @@
 #include "Hypergraph.h"
 #include "LPBuilder.h"
 
+
 #include "HypergraphAlgorithms.h"
 #include <sstream>
 #include "../common.h"
@@ -193,7 +194,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
       stringstream buf;
       buf << "TRI " << b << " " << k;
       VocabIndex context [] = {word_cache.store[b.w2.id()], word_cache.store[k], Vocab_None};
-      double prob = LMWEIGHT * lm.wordProb(word_cache.store[b.w1.id()], context);
+      double prob = _lm_weight * lm.wordProb(word_cache.store[b.w1.id()], context);
       if (isinf(prob)) prob = 1000000.0;
       
       word_tri_vars[b.w1.id()][b.w2.id()][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
@@ -726,11 +727,11 @@ void LPBuilder::solve_hypergraph(const Cache<Hyperedge, double> & _weights) {
 
 
 void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weights, 
-                           Ngram &lm, 
+                           Ngram &lm, double lm_weight, 
                            const Cache <Graphnode, int> & word_cache) {  
   GraphDecompose gd(_lattice);
   LatticeVars lv("Bi"),lv2("Tri");
-
+  _lm_weight = lm_weight;
   gd.decompose();
 
   GRBEnv env = GRBEnv();

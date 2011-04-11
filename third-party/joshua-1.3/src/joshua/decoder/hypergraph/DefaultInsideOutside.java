@@ -176,7 +176,7 @@ public abstract class DefaultInsideOutside {
 		}
 		double supposed_sum = getNodePosteriorProb(it);
 		if (Math.abs(prob_sum-supposed_sum) > 1e-3) {
-			throw new RuntimeException("prob_sum=" + prob_sum + "; supposed_sum=" + supposed_sum + "; sanity check fail!!!!");
+                    throw new RuntimeException("prob_sum=" + prob_sum + "; supposed_sum=" + supposed_sum + "; sanity check fail!!!!");
 		}
 		//### item-specific operation
 	}

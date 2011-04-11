@@ -6,6 +6,7 @@
 #include "lattice.pb.h"
 
 #include <string>
+#include <fstream>
 #include <vector>
 #include "Graph.h"
 
@@ -83,6 +84,17 @@ class ForestLattice {
   bool is_word(int w) const {
     assert(w >= 0 && w < num_word_nodes);
     return _is_word[w];
+  }
+
+  static ForestLattice from_file(const string &  file) {
+    Lattice lat;  
+    {
+      fstream input(file.c_str(), ios::in | ios::binary);
+      if (!lat.ParseFromIstream(&input)) {
+        assert (false);
+      }
+    }
+    return ForestLattice(lat);
   }
   
   vector<int> final;

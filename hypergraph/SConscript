@@ -12,6 +12,7 @@ hyp_lib = env.Library('hypergraph', sources)
 
 env.Program('test', ["Test.cpp", hyp_lib])
 
-env.Program('convert', ["ConvertFromFile.cpp", hyp_lib])
+env.Program('convert', ["ConvertFromFile.cpp", hyp_lib ])
+env.Program('convert_joshua', ["JoshuaToHypergraph.cpp", ["$HYP_PROTO/lexical.pb.cc"] + hyp_lib])
 
 Return('hyp_lib')

@@ -25,10 +25,11 @@ class LPBuilder {
 
   void solve_hypergraph(const Cache<Hyperedge, double> & );
 
-  void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, const Cache <Graphnode, int> & word_cache);
+  void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, double lm_weight, const Cache <Graphnode, int> & word_cache);
 
  private:
   const HGraph & _forest;
+  double _lm_weight;
   void build_hypergraph_lp(vector <GRBVar> & node_vars, vector <GRBVar> & edge_vars, const Cache<Hyperedge, double> & _weights);
   //void build_all_pairs_lp(const ForestLattice & _lattice, GRBModel & model, Ngram &lm, const Cache <Graphnode, int> & word_cache);
   void build_all_pairs_lp(         Ngram &lm, 

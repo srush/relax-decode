@@ -7,49 +7,49 @@
 #include "Subgradient.h"
 
 #include <iostream>
-#include <Vocab.h>
-#include <File.h>
 #include <iomanip>
-#include <cstdlib>
+#include "CommandLine.h"
 using namespace std;
+
+
+DEFINE_string(forest_prefix, "", "prefix of the forest files"); // was 1
+DEFINE_string(lattice_prefix, "", "prefix of the lattice files"); // was 2
+DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')"); // was 5 6
+
+static const bool forest_dummy = RegisterFlagValidator(&FLAGS_forest_prefix, &ValidateReq);
+static const bool lattice_dummy = RegisterFlagValidator(&FLAGS_lattice_prefix, &ValidateReq);
+static const bool range_dummy = RegisterFlagValidator(&FLAGS_forest_range, &ValidateRange);
 
 int main(int argc, char ** argv) {
   srand(0);
   GOOGLE_PROTOBUF_VERIFY_VERSION;
+  google::ParseCommandLineFlags(&argc, &argv, true);
 
-  wvector * weight = load_weights_from_file(argv[3]);
-  NgramCache * lm = load_ngram_cache(argv[4]);
+  // weights
+  wvector * weight = cmd_weights();
+  // lm
+  NgramCache * lm = cmd_lm();
 
+  istringstream range(FLAGS_forest_range);
+  int start_range, end_range;
+  range >> start_range >> end_range;
+  for (int i = start_range; i <= end_range; i++) { 
 
-  for (int i =atoi(argv[5]); i <= atoi(argv[6]); i++) { 
-
-    GOOGLE_PROTOBUF_VERIFY_VERSION;
-
+    // Load forest
     stringstream fname;
-    fname << argv[1] << i;
+    fname << FLAGS_forest_prefix << i;
     Forest f = Forest::from_file(fname.str().c_str());
 
-    // transition to having <s> border words
-    if (FULLBUILT) {
-      //f.append_end_nodes();
-    }
-
-    Lattice lat;
+    // Load lattice
+    stringstream fname2;
+    fname2 << FLAGS_lattice_prefix << i;
+    ForestLattice graph = ForestLattice::from_file(fname2.str());
   
-    {
-      stringstream fname;
-      fname << argv[2] << i;
-      //cout << fname << endl; 
-      fstream input(fname.str().c_str(), ios::in | ios::binary);
-      if (!lat.ParseFromIstream(&input)) {
-        assert (false);
-      }
-    }
 
-    ForestLattice graph (lat);
-  
-    //cout << "START!!!!" << endl;
+    // decoder 
     Decode * d = new Decode(f, graph, *weight, *lm);
+
+    // Solve
     cout << i << " ";
     Subgradient * s = new Subgradient(*d);
     s->solve(i);
@@ -57,3 +57,18 @@ int main(int argc, char ** argv) {
   google::protobuf::ShutdownProtobufLibrary();
   return 0;
 }
+
+
+    // transition to having <s> border words
+    // if (FULLBUILT) {
+    //   //f.append_end_nodes();
+    //    }
+
+    // Lattice lat;  
+    // {
+    //   //cout << fname << endl; 
+    //   fstream input(fname.str().c_str(), ios::in | ios::binary);
+    //   if (!lat.ParseFromIstream(&input)) {
+    //     assert (false);
+    //   }
+    // }

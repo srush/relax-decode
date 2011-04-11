@@ -102,6 +102,7 @@ void HypergraphImpl::build_from_file(const char * file_name) {
   set_up(*hgraph);
 
   assert (hgraph->node_size() > 0);
+  _nodes.resize(hgraph->node_size());
   for (int i = 0; i < hgraph->node_size(); i++) {
     const Hypergraph_Node & node = hgraph->node(i);
     
@@ -112,15 +113,15 @@ void HypergraphImpl::build_from_file(const char * file_name) {
     Hypernode * forest_node = make_node(node, features);
 
     //assert (forest_node->
-    assert (_nodes.size() == (uint)node.id());
-    _nodes.push_back(forest_node);
-    assert(_nodes[forest_node->id()]->id() == forest_node->id());
+    //assert (_nodes.size() == (uint)node.id());
+    _nodes[node.id()] = forest_node;
+    //assert(_nodes[forest_node->id()]->id() == forest_node->id());
   }
 
   int edge_id = 0;
   for (int i = 0; i < hgraph->node_size(); i++) {
     const Hypergraph_Node& node = hgraph->node(i);
-    assert (node.id()  == i);
+    //assert (node.id()  == i);
 
     for (int j=0; j < node.edge_size(); j++) {
       const Hypergraph_Edge& edge = node.edge(j);
@@ -158,12 +159,12 @@ void HypergraphImpl::build_from_file(const char * file_name) {
       _edges.push_back(forest_edge);//[for_edge_id] = forest_edge;
     }
     //cout << node.id() << " "<<  _nodes[node.id()]->num_edges() << " " << node.edge_size() << " " << _nodes[node.id()]->is_word() << endl;
-    assert (_nodes[node.id()]->num_edges() == (uint)node.edge_size() );
+    //assert (_nodes[node.id()]->num_edges() == (uint)node.edge_size() );
   }
   assert (_nodes.size() == (uint)hgraph->node_size());
   int root_num = hgraph->root();
   _root = _nodes[hgraph->root()];//_nodes[_nodes.size()-1];
-  delete hgraph;
+  //delete hgraph;
 }
 }
 }

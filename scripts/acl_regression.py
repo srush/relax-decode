@@ -3,8 +3,17 @@ from itertools import *
 
 r = os.system
 
-r("./trans ../example/buildfull/output ../example/buildfull/rev_lat_out ../example/config.ini ../example/big.lm  1 9 | grep END | tee /tmp/regress")
-r("./cube ../example/buildfull/output ../example/config.ini ../example/big.lm  100 1 9 | grep END | tee /tmp/cube_regress")
+flags = """--forest_prefix=../example/buildfull/output
+--weight_file=../example/config.ini
+--lm_file=../example/big.lm
+--forest_range=1 9
+--lm_weight=-0.141221"""
+
+f = open("/tmp/regress_param", 'w')
+print >>f, flags
+f.close()
+r("./trans --flagfile=/tmp/regress_param --lattice_prefix=../example/buildfull/rev_lat_out | grep END | tee /tmp/regress")
+r("./cube --flagfile=/tmp/regress_param | grep END | tee /tmp/cube_regress")
 
 new = open("/tmp/regress") 
 old = open("regression/simple")
