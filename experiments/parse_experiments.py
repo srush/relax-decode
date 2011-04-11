@@ -213,7 +213,7 @@ def parse_dev_experiment(num):
 def parse_test_experiment(num):
   return ParseExperiment(
   original_test= "parse_test_data/sec23_%s"%num,
-  prefix= "parse_test_%s"%num,
+  prefix= "parse_test2_%s"%num,
   gold_file= "parse_test_data/sec23_%s"%num,
   mrf_spec= "parse_constraints_asym_punc",
   model = "small_SO.model",

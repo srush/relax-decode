@@ -108,7 +108,11 @@ class AdditionalSent:
     self.original_sent_num = original_sent_num
     self.original_word_ind = word_ind
     self.morpho = morpho
-    self.add_sent_index = [i for i,w1 in enumerate(sent.split()) if w1.lower() == w.lower()][0]
+    tmp = [i for i,w1 in enumerate(sent.split()) if w1.lower() == w.lower()]
+    ind =0 
+    if tmp:
+      ind = tmp[0]
+    self.add_sent_index = ind
     self.ctxt = original_context
     
   def __hash__(self):
@@ -120,9 +124,9 @@ class AdditionalSent:
   def good_sent(self):
     sent = self.sent
     w = self.original_word
-    index = [i for i,w1 in enumerate(sent.split()) if w1.lower() == w.lower()][0]
-
-
+    tmp = [i for i,w1 in enumerate(sent.split()) if w1.lower() == w.lower()]
+    if len(tmp) > 1 or len(tmp) == 0: return False
+    index = tmp[0]
     l1 = len(sent.split()) > 10
     l2 = len(sent.split()) < 25
     if not (l1 and l2):
@@ -141,7 +145,7 @@ class AdditionalSent:
     s = self.sent.split()
     blacklist = ['.', ':', ',', '``', "''", "(", ")"]
     index = [i for i,w1 in enumerate(s) if w1.lower() == w.lower()]
-    if len(index) > 1: return False
+    if len(index) > 1 or len(index) == 0: return False
     index = index[0]
     num_context_known = 0
     if index != 0 and wc.count(s[index-1]) > 0 and s[index-1] not in blacklist:

@@ -26,7 +26,7 @@ def build_experiment(source, target, env, for_signature=False):
      return command + "wc -l %s | awk '{print $1-1}' > %s" %(target[0],  target[1])
 
 def build_experiment_emit(source, target, env, for_signature=False):
-     source.append('$SCARAB_PY/build_experiment.py')
+     #source.append('$SCARAB_PY/build_experiment.py')
      #target.append(target[0] + "_desc")
      return target, source
 
@@ -590,10 +590,16 @@ def register_parse_experiment(env, exp):
 # register_experiment(env, small_experiment_add2_heavy)
 #register_experiment(env, dev_experiment_add)
 
-all = ()
-for i in range(200):
-     all += register_experiment(env, dev_experiment(i))
-env.Alias( "dev_experiment", all)
+# all = ()
+# for i in range(200):
+#      all += register_experiment(env, dev_experiment(i))
+# env.Alias( "dev_experiment", all)
+
+# all2 = ()
+# for i in range(482):
+#      all2 += register_experiment(env, test_experiment(i))
+# env.Alias( "test_experiment", all2)
+
 
 # for i in range(30, 50):
 #      all += register_experiment(env, dev_experiment(i))

@@ -275,17 +275,21 @@ if __name__=="__main__":
 
           print >> sys.stderr, agreed[1],total_seen, score, mask_context, max_nn, right_nn, near_cc, near_prep, nn_constraint, cc_constraint, in_constraint, best_mask, mask_context.punc_check()
           if score > best and fits_constraints:
-            best_mask = mask_context
-            best = score
-      
+            #ctxt_map[key].append((sn,i))
+            previous_in_con = ctxt_map.get(mask_context,[])
+            if not any([old_sn == sn for old_sn, _ in previous_in_con]):
+              best_mask = mask_context
+              best = score
+      #if ctxt_map.get(mask_context,[]):< 10: 
       if best[0] >= 1.0:
         print >>sys.stderr,  "Choose ", best_mask
         key = best_mask
         ctxt_map.setdefault(key, [])
+        #if len(ctxt_map[key]) < 10: 
         ctxt_map[key].append((sn,i))
         #states[(sn,i)] = [(i, get_tag_ind(s.words[i].pos), [s.words[i].head] ) ]
         states[(sn,i)] = [(i, get_tag_ind(tag), [ind for ind in inds if ind <> i] ) for tag, inds in head_map.iteritems()]
-        #only one mask per context
+          #only one mask per context
         
   #t = sys.argv[4]
   t = "nbayes"

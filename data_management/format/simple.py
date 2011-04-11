@@ -44,3 +44,16 @@ def parse_simple_file(handle, divider=None):
       words.append(word)
     yield SimpleSent(words)
     words = []
+
+def parse_simple_columns(handle, divider=None):
+  words = []
+  for l in handle:
+    if not l.strip():
+      yield SimpleSent(words)
+      words = []
+    else:
+      word, pos = l.strip().split()
+      word = SimpleWord(word, pos)
+      words.append(word)
+    
+

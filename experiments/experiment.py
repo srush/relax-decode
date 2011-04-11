@@ -223,9 +223,22 @@ dev_experiment_add = Experiment({
 
 def dev_experiment(num):
   return Experiment({
-  "original_test": "dev_data/sec22_pos_%s"%num,
-  "prefix": "eng_dev_%s"%num,
-  "gold_file": "dev_data/sec22_pos_gold_%s"%num,
+  "original_test": "dev_data/sec22_pos_%d"%num,
+  "prefix": "eng_dev_%03d"%num,
+  "gold_file": "dev_data/sec22_pos_gold_%d"%num,
+  "tagger": "left3words-wsj-50sent.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_50",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 5
+  })
+
+def test_experiment(num):
+  return Experiment({
+  "original_test": "pos_test_data/sec23_%d"%num,
+  "prefix": "eng_test_%03d"%num,
+  "gold_file": "pos_test_data/sec23_%d"%num,
   "tagger": "left3words-wsj-50sent.tagger", 
   "unk_thres" : 5,
   "train" : "wsj_gold_50",
