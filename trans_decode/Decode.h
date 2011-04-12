@@ -52,7 +52,7 @@ class Decode: public SubgradientProducer {
   void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
   void greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end);
   void add_subgrad( wvector & subgrad, int start_from, int mid_at, int end_at, bool first);
-  double compute_primal(HEdges used_edges, const vector <const ForestNode *> used_nodes);
+  double compute_primal(HEdges used_edges, const vector <const ForestNode *> used_nodes, const EdgeCache & edge_lag);
   int lookup_string(string word);
   Subproblem * _subproblem;
   const Forest & _forest;

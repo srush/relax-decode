@@ -276,6 +276,8 @@ vector <int> Subproblem::get_best_nodes_between(int w1, int w2, int pos) {
   //  ret.push_back(path[i]);
   //}
   //} 
+
+  // This is where we add the extra node
   path.push_back(w2);
   return path;
 }
@@ -394,7 +396,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
   // solve (but only in the projected space)
   // unless is_simple
-  cout << "Start solve" << endl;
+  //cout << "Start solve" << endl;
 
   int num_word_nodes = graph->num_word_nodes;
   vector <float> best_bigram(num_word_nodes);
@@ -504,7 +506,6 @@ void Subproblem::solve_proj(int d2, int d3,
         proj_best[i].ord_best[ord] = -1;
       }
       proj_best[i].is_new = true;
-      
     }
   }
 
@@ -526,9 +527,11 @@ void Subproblem::solve_proj(int d2, int d3,
   vector <int> word_override;
 
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    
     if (!graph->is_word(w1)) continue;
     overridden[w1] = false;  
 
+    //cout << "TRYING " << w1 << endl; 
     // Edge tightness optimization
   
     bool on_edge = false;
@@ -594,13 +597,15 @@ void Subproblem::solve_proj(int d2, int d3,
         } else {
           score = (_lm_weight) * word_prob_reverse(w1,w2,w3) + score1 + score2;
         }
-
-
         
         assert (proj_best[w1].score <= INF);
-        
+        if  (fabs(((_lm_weight) * word_prob_reverse(w1,w2,w3) + score1 + score2) - score) > 1e-4) {
+          cout << "Optimization fail"<<endl; 
+          exit(0);
+        }
         assert(!TRIPROJECT || project_word(w3) == d3 ); 
 
+        //cout << "\t QUICK SETTING " << w1 << " " << w2 << " " << w3 << " " << score<< endl; 
         try_set_max(proj_best, w1, w2, w3, score, true);       
       }      
 
@@ -625,6 +630,7 @@ void Subproblem::solve_proj(int d2, int d3,
         
         float score = score1 + score2 + lm_score; 
 
+        //cout << "\t SETTING " << w1 << " " << w2 << " " << w3 << " " << score<< endl; 
         try_set_max(proj_best, w1, w2, w3, score, true);
         
       }
@@ -653,7 +659,7 @@ void Subproblem::solve_proj(int d2, int d3,
                     bigram_weight_cache[0][w1][w2] + 
                     bigram_weight_cache[1][w2][w3];
  
-    cout << w0 << " " << w1 << " " << " " << w2<< " " << w3 << " " << first << " " << second << " " << proj_best[w1].score << endl;
+    //cout << w0 << " " << w1 << " " << " " << w2<< " " << w3 << " " << first << " " << second << " " << proj_best[w1].score << endl;
     assert(fabs(first + second - proj_best[w1].score) < 1e-4);
     
     proj_best[w0].score = 0.0;  

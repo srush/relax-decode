@@ -75,7 +75,7 @@ bool Subgradient::run_one_round() {
   }
   //assert (_best_primal >= _best_dual);
 
-  if (subgrad.normsquared() > 0.0) {
+  if (subgrad.normsquared() > 0.0 && fabs(_best_primal - _best_dual) > 1e-3 ) {
     update_weights(subgrad, bump);
     //cout << endl;
     return true;
