@@ -69,6 +69,7 @@ if build_config['has_sri']:
 
    env.Program('exact', ("Exact.cpp",) +local_libs, LIBS = libs)
 
+   env.Program('translp', ("TransLP.cpp",) +local_libs, LIBS = libs)
 
    regress = env.Command('regress', [trans, cube], 'python scripts/acl_regression.py')
 
@@ -77,6 +78,7 @@ if build_config['has_sri']:
    env.Command('cscope.out', [trans, cube], 'cscope-indexer -r')
    
 env.Program('viterbi', ("SimpleViterbi.cpp",) +local_libs, LIBS = libs)
+
 env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
 
 env.Program('run_parser', ("Parse.cpp", )+ local_libs, LIBS = libs)
@@ -102,6 +104,7 @@ env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
 
 if build_config['has_gurobi']:
    env.Program('run_full_parser', ("FullParser.cpp", )+ local_libs)
+
    env.Program('scarab', ("Main.cpp", ) + local_libs)
 
 

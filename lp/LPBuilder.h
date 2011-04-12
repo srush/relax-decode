@@ -19,13 +19,15 @@ class LPBuilder {
 
  public:
   
-  LPBuilder(const HGraph & forest, const ForestLattice & lat ): _forest(forest), _lattice(lat) {
-    
-  }
+ LPBuilder(const HGraph & forest, const ForestLattice & lat, int var_type ): 
+  _forest(forest), 
+  _lattice(lat),
+  _var_type(var_type){}
 
   void solve_hypergraph(const Cache<Hyperedge, double> & );
 
-  void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, double lm_weight, const Cache <Graphnode, int> & word_cache);
+  void solve_full(int run_num, const Cache<Hyperedge, double> & _weights,Ngram &lm, 
+                  double lm_weight, const Cache <Graphnode, int> & word_cache);
 
  private:
   const HGraph & _forest;
@@ -41,6 +43,7 @@ class LPBuilder {
                                    const GraphDecompose & gd);
 
     const ForestLattice & _lattice;
+    int _var_type;
     GRBModel * model;
     void initialize_word_pairs(Ngram &lm, 
                                       const Cache <Graphnode, int> & word_cache,
@@ -57,6 +60,8 @@ class LPBuilder {
                                 const GraphDecompose & gd);
 
 };
+
+ const Cache <Graphnode, int> * sync_lattice_lm(const ForestLattice  &_lattice, Ngram & lm);
   }}
 #endif
   
