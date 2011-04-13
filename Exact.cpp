@@ -52,13 +52,15 @@ public:
     for (int i=0;i<a.prev_hyp.size();i++) {
       ret.prev_hyp.push_back(a.prev_hyp[i]);
     }
-     ret.prev_hyp.push_back(b.id());
+    ret.prev_hyp.push_back(b.id());
     return 0.0;
   }
+
   void initialize_out_root(vector <Hypothesis *> & hyps, 
                            vector <double> & scores)  const {
     assert(false);
   }
+
   inline int dim() const {
     return _lattice.num_word_nodes;
   }
@@ -100,11 +102,14 @@ public:
       // This is an <s> 
       vector <int> hooks(2);
       vector <int> right_side(2);
-      
-      hooks[0] = -1;
+      bool has_bigram = _gd.forward_bigrams[w1].size() == 1;
+      int w2 = -1;
+      if (has_bigram) 
+        w2 = _gd.forward_bigrams[w1][0];
+      hooks[0] = w2;
       hooks[1] = -1;
       right_side[0] = w1;
-      right_side[1] = -1;
+      right_side[1] = w2;
       Hypothesis * h = new Hypothesis(State(hooks, dim()), State(right_side,  dim()));
       
       double score = 0;
