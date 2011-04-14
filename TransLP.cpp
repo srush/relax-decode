@@ -67,8 +67,6 @@ int main(int argc, char ** argv) {
       cout << "*END* " << i<< " "<<0 << " " << 200 << " "<<  0 << " " << 0 << endl;
     }
     
-
-    
     NodeBackCache bcache(f.num_nodes());     
     
     NodeCache ncache(f.num_nodes());
