@@ -64,7 +64,7 @@ int main(int argc, char ** argv) {
     catch (GRBException e) {
       cerr << "Error code = " << e.getErrorCode() << endl;
       cerr << e.getMessage() << endl;
-      cout << "*END* " << i<< " "<<0 << " " << 200 << " "<<  0 << " " << 0 << endl;
+      cout << "*END* " << i<< " "<<0 << " " << 100 << " "<<  0 << " " << 0 << endl;
     }
     
     NodeBackCache bcache(f.num_nodes());     

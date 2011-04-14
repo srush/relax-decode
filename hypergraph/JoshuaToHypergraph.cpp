@@ -63,6 +63,7 @@ int main(int argc, char ** argv) {
   Hypergraph_Edge * edge;
   int sent_num, length, num_nodes,num_edges;
   //CodedOutputStream::SetTotalBytesLimit(5000000000, 5000000000);
+  
   while (in) {
     string blank;
     string t1;
@@ -174,7 +175,8 @@ int main(int argc, char ** argv) {
           rule_s >> r;
           if (r=="") break;
           rhs.push_back(r);
-          if (r[0] == '[') {
+          
+          if (r[0] == '[' && r[r.size()-1] ==']') {
             // HACK! (assume that there are <10 rules and sym are one letter
             int o = (int)(r[3] -'0')-1;
             // has a node

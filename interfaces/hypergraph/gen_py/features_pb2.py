@@ -7,12 +7,10 @@ from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 
-import hypergraph_pb2
-
 DESCRIPTOR = descriptor.FileDescriptor(
   name='features.proto',
   package='',
-  serialized_pb='\n\x0e\x66\x65\x61tures.proto\x1a\x10hypergraph.proto:!\n\x07node_fv\x12\x10.Hypergraph.Node\x18\x64 \x01(\t:!\n\x07\x65\x64ge_fv\x12\x10.Hypergraph.Edge\x18\x64 \x01(\t')
+  serialized_pb='\n\x0e\x66\x65\x61tures.proto\x1a\x10hypergraph.proto:!\n\x07node_fv\x12\x10.Hypergraph.Node\x18\x64 \x01(\t:!\n\x07\x65\x64ge_fv\x12\x10.Hypergraph.Edge\x18\x64 \x01(\tB\x02H\x01')
 
 
 NODE_FV_FIELD_NUMBER = 100
@@ -31,6 +29,8 @@ edge_fv = descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
+
+import hypergraph_pb2
 
 
 hypergraph_pb2.Hypergraph.Node.RegisterExtension(node_fv)
