@@ -11,16 +11,16 @@ using namespace std;
 
 namespace Scarab { 
   namespace HG { 
-//#define VAR_TYPE GRB_CONTINUOUS
-#define VAR_TYPE GRB_BINARY
+// //#define _var_type GRB_CONTINUOUS
+// #define _var_type GRB_BINARY
 
 struct LatticeVars {
   vector < vector < vector < GRBVar > > > all_pairs_vars;
   vector < vector < GRBVar > > all_pairs_exist_vars;
   vector < vector < vector < bool > > > has_all_pairs_var;
   string name;
-  
-  LatticeVars(string n):name(n) {
+  int var_type;
+  LatticeVars(string n, int var_type):name(n),var_type(var_type) {
 
   }
 
@@ -68,14 +68,14 @@ void  LatticeVars::initialize_all_pairs(const GraphDecompose & gd,
           stringstream buf;
           buf << name <<" SHORTEST " << i << " " << j << " " << kid;
           double obj= 0.0; 
-          all_pairs_vars[i][j][kid] = model->addVar(0.0, 1.0, obj, VAR_TYPE ,  buf.str());
+          all_pairs_vars[i][j][kid] = model->addVar(0.0, 1.0, obj, var_type ,  buf.str());
           has_all_pairs_var[i][j][kid] = true;
           
         }
         stringstream buf;
         buf << name <<" EXIST " << i << " " << j;
         
-        all_pairs_exist_vars[i][j] = model->addVar(0.0, 1.0, 0.0 , VAR_TYPE ,  buf.str());
+        all_pairs_exist_vars[i][j] = model->addVar(0.0, 1.0, 0.0 , var_type ,  buf.str());
       }
     }
     
@@ -169,7 +169,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
     word_tri_vars[i].resize(_lattice.num_word_nodes);
     stringstream buf;
     buf << "UNI " << i ;
-    word_used_vars[i] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);      
+    word_used_vars[i] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, _var_type /*cont*/,  buf.str()/*names*/);      
   }
   
   //for (unsigned int i=0; i< gd.valid_bigrams.size() ;i++) {
@@ -187,7 +187,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
     //if (b.w1 == 1 && b.w2==0) prob = 0.0;
     //if (isinf(prob)) prob = -1000000.0;
     
-    word_pair_vars[b.w1.id()][b.w2.id()] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+    word_pair_vars[b.w1.id()][b.w2.id()] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, _var_type /*cont*/,  buf.str()/*names*/);
     word_tri_vars[b.w1.id()][b.w2.id()].resize(_lattice.num_word_nodes);
     for (int m =0; m < gd.forward_bigrams[b.w2.id()].size(); m++) {
       int k = gd.forward_bigrams[b.w2.id()][m];
@@ -197,7 +197,7 @@ void LPBuilder::initialize_word_pairs(Ngram &lm,
       double prob = _lm_weight * lm.wordProb(word_cache.store[b.w1.id()], context);
       if (isinf(prob)) prob = 1000000.0;
       
-      word_tri_vars[b.w1.id()][b.w2.id()][k] = model->addVar(0.0, 1.0, prob/*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+      word_tri_vars[b.w1.id()][b.w2.id()][k] = model->addVar(0.0, 1.0, prob/*Obj*/, _var_type /*cont*/,  buf.str()/*names*/);
     }
   }
   model->update();
@@ -627,7 +627,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
     for(int i =0; i < _forest.num_nodes(); i++) {
       stringstream buf;
       buf << "NODE" << i;
-      node_vars[i] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+      node_vars[i] = model->addVar(0.0, 1.0, 0.0 /*Obj*/, _var_type /*cont*/,  buf.str()/*names*/);
     }
 
     for (int i=0; i< _forest.num_edges() ; i++ ) { 
@@ -637,7 +637,7 @@ void LPBuilder::build_hypergraph_lp(vector <GRBVar> & node_vars,
       buf << "EDGE" << i;
       
       //assert (_weights.has_value(edge)); 
-      edge_vars[i] = model->addVar(0.0, 1.0, _weights.get_value(edge) /*Obj*/, VAR_TYPE /*cont*/,  buf.str()/*names*/);
+      edge_vars[i] = model->addVar(0.0, 1.0, _weights.get_value(edge) /*Obj*/, _var_type /*cont*/,  buf.str()/*names*/);
     }
     
     model->update();
@@ -730,7 +730,7 @@ void LPBuilder::solve_full(int run_num, const Cache<Hyperedge, double> & _weight
                            Ngram &lm, double lm_weight, 
                            const Cache <Graphnode, int> & word_cache) {  
   GraphDecompose gd(_lattice);
-  LatticeVars lv("Bi"),lv2("Tri");
+  LatticeVars lv("Bi", _var_type),lv2("Tri", _var_type);
   _lm_weight = lm_weight;
   gd.decompose();
 
