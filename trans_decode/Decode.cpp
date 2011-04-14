@@ -12,13 +12,13 @@
 
 #include "SplitDecoder.h"
 #include "../common.h"
-#define TIMING 0
+#define TIMING 1
 #define DEBUG 1
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
 //#define BACK 2
 
-
+#define COLOR_WORDS 1
 
 // TODO - Make this support n-grams 
 void Decode::update_weights(const wvector & update,  wvector * weights ) {
@@ -94,7 +94,7 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
       assert(fabs(-b1_lag - _subproblem->get_best_bigram_weight(start_from, mid_at, 0)) < 1e-3);
       local_lag_total +=  b1_lag;
       lag_total +=  b1_lag;
-      cout << endl;
+      //cout << endl;
     }
   }
   const vector <int> between2 = _subproblem->get_best_nodes_between(mid_at, end_at, 1);
@@ -115,21 +115,21 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
     assert((-b2_lag - _subproblem->get_best_bigram_weight(mid_at, end_at, 1)) < 1e-3);
     lag_total +=  b2_lag;
     local_lag_total +=  b2_lag;
-    cout << endl;
+    //cout << endl;
   }
 
   if (DEBUG) {
     double lm_score = (lm_weight()) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
     //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
 
-    cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
-         << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << " " << 
-      _lattice.lookup_word(start_from) << " " <<   -local_lag_total << " " << lm_score << " " << lm_score - local_lag_total<<endl;
+    // cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
+    //      << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << " " << 
+    //   _lattice.lookup_word(start_from) << " " <<   -local_lag_total << " " << lm_score << " " << lm_score - local_lag_total<<endl;
     
     double w =0; 
     w += _subproblem->get_best_bigram_weight(start_from, mid_at, 0);
     w += _subproblem->get_best_bigram_weight(mid_at, end_at, 1);
-    cout << "SCORE2 " << lm_score + w; 
+    //cout << "SCORE2 " << lm_score + w; 
 
     lm_total += lm_score;
     if (!_subproblem->overridden[start_from]) { 
@@ -179,7 +179,7 @@ void Decode::print_output(const wvector & subgrad) {
   //cout << endl << endl;
 }
 
-bool Decode::solve_ngrams(int round, bool is_stuck) {
+bool Decode::solve_ngrams(int round, bool is_stuck, bool & no_update) {
   bool bump_rate = false;
 
   if (round ==1) {
@@ -191,27 +191,43 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     }
   }
 
-    
-
   
-  if ((round ==145 || is_stuck) && !_maintain_constraints) {
-    //cout << "DUAL STUCK Round "<< round << endl;
+  //if ((round ==145 || is_stuck) && !_maintain_constraints) {
+  if ((round==145 || is_stuck) && !_maintain_constraints) {
+    //if ((round ==1 || is_stuck) && !_maintain_constraints) {
+    //cout << "DUAL STUCK Round " << round << endl;
     _maintain_constraints = true;
     _is_stuck_round = round;
     bump_rate = true;
   }
 
 
-  if (round >=_is_stuck_round +50) {
+  // if (round >=_is_stuck_round+ 30) {
+  //   int limit = 5;
+  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+  // }
+
+  if (round >=_is_stuck_round+ 50) {
+
+    //if (round >=_is_stuck_round +2) {
     int limit = 25;
     _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    //if (round %5 !=0) {
+    //no_update = true;
+    //}
   }  
+
+  // if (round >=_is_stuck_round+ 100) {
+    
+  //   //if (round >=_is_stuck_round +2) {
+  //   int limit = 25;
+  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    
+  // }  
   
   
   _subproblem->project(_proj_dim, _projection);    
   _subproblem->solve();
-  
-  
   
 
   return bump_rate;
@@ -255,6 +271,9 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights, const Hy
     
     // The back pointers from the heuristic run
     NodeBackCache  temp_back_pointers(_forest.num_nodes());
+    if (TIMING) { 
+      begin=clock();  
+    }
     double approx_dual = ecky.best_path(temp_back_pointers);
     
     if (SIMPLE_DEBUG) {
@@ -627,10 +646,10 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
   return subgrad;
 }
 
-void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate) {
+void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate, bool & no_update) {
   clock_t begin, end;
 
-
+  no_update = false;
   if (TIMING) {
     cout << "Solving" << endl;
     begin=clock();
@@ -641,7 +660,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    ******************************************/
 
 
-  bump_rate = solve_ngrams(round, is_stuck);
+  bump_rate = solve_ngrams(round, is_stuck, no_update);
   
 
   if (TIMING) {
@@ -837,20 +856,20 @@ double Decode::compute_primal(const HEdges used_edges, const vector <const Fores
   for (unsigned int i=0; i < used_edges.size(); i++ ) {
     total += _cached_weights->store[used_edges[i]->id()] ;
     lag += edge_lag.store[used_edges[i]->id()];
-    if (DEBUG) {
-      cout << "PRIMALEDGE "<<   used_edges[i]->head_node().label() << " "  << used_edges[i]->label() << " " << _cached_weights->store[used_edges[i]->id()] << " " << edge_lag.store[used_edges[i]->id()] << endl;
+    // if (DEBUG) {
+    //   cout << "PRIMALEDGE "<<   used_edges[i]->head_node().label() << " "  << used_edges[i]->label() << " " << _cached_weights->store[used_edges[i]->id()] << " " << edge_lag.store[used_edges[i]->id()] << endl;
       
-      vector <int> lat_edges = get_lat_edges(used_edges[i]->id()); 
-      for (unsigned int j =0; j < lat_edges.size(); j++) {
-        cout << lat_edges[j]<<" ";
+    //   vector <int> lat_edges = get_lat_edges(used_edges[i]->id()); 
+    //   for (unsigned int j =0; j < lat_edges.size(); j++) {
+    //     cout << lat_edges[j]<<" ";
     
-      }
-      cout << endl;
-    }
+    //   }
+    //   cout << endl;
+    // }
 
   }
-  cout << "PRIMAL Parse " << total << endl; 
-  cout << "PRIMAL2 Parse " << total + lag<< endl; 
+  //cout << "PRIMAL Parse " << total << endl; 
+  //cout << "PRIMAL2 Parse " << total + lag<< endl; 
   
   vector <string> used_strings;
   if (!FULLBUILT) {
@@ -881,7 +900,7 @@ double Decode::compute_primal(const HEdges used_edges, const vector <const Fores
       double w =0; 
       w += _subproblem->get_best_bigram_weight(start_from, mid, 0);
       w += _subproblem->get_best_bigram_weight(mid, end, 1);
-      cout << "PRIMAL2 " << w + lm_score << endl; 
+      //cout << "PRIMAL2 " << w + lm_score << endl; 
       primal2 += w + lm_score;
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
@@ -910,6 +929,8 @@ int Decode::lookup_string(string word) {
 void Decode::sync_lattice_lm() {
   
   _cached_words = new Cache <Graphnode, int> (_lattice.num_word_nodes);
+  //_cached_word_str = new Cache <Graphnode, string> (_lattice.num_word_nodes);
+
   int max = _lm.vocab.numWords();
   int unk = _lm.vocab.getIndex(Vocab_Unknown);
   //assert(false);
@@ -919,6 +940,8 @@ void Decode::sync_lattice_lm() {
     //const LatNode & node = _lattice.node(n); 
     //assert (node.id() == n);
     string str = _lattice.get_word(n);
+    cout << "INITIALIZING " << str << " " << n << endl;
+    _cached_word_str[str].push_back(n);
     int ind = _lm.vocab.getIndex(str.c_str());
     if (ind == -1 || ind > max) {
       //cout << "Unknown " << str << endl; 
@@ -970,6 +993,10 @@ void Decode::debug(int start_from, int dual_mid, int dual_end, int primal_mid, i
 
 
 void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end) {
+  //int dual_mid_node = _lattice.get_hypergraph_node_from_word(dual_mid);
+  //ForestNode * node = (ForestNode*) & _forest.get_node(dual_mid_node);
+  //cout << "PROJECT WORD " <<  node->word();
+
     if (_maintain_constraints) {
       if (primal_mid != dual_mid) {
         int w1 = dual_mid;
@@ -984,10 +1011,27 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
             //cout << "COLORING fail " << w1 << " " << w2<< endl;
           }
 
-          _constraints[w2].insert(w1);
-          //else 
-          _constraints[w1].insert(w2);
+          if (!COLOR_WORDS) {
+            _constraints[w2].insert(w1);
+            _constraints[w1].insert(w2);
+          } else {
+            string w1_str = _lattice.get_word(w1);
+            string w2_str = _lattice.get_word(w2);
+            if (w1_str!=w2_str) {
+            foreach (int n1, _cached_word_str[w1_str]) {
+              foreach (int n2, _cached_word_str[w2_str]) {
+                if (n1!=n2) {
+                  _constraints[n1].insert(n2);
+                  _constraints[n2].insert(n1);
+                }
+              }
+            }
+            } else {
+              _constraints[w2].insert(w1);
+              _constraints[w1].insert(w2);
 
+            }
+          }
       }
       
       if (primal_end != dual_end) {
@@ -1002,10 +1046,33 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
             //cout << "COLORING fail " << w1 << " " << w2<<endl;
           }
 
-        //if (w1 < w2) 
-        _constraints[w2].insert(w1);
-        //else 
-        _constraints[w1].insert(w2);
+          if (!COLOR_WORDS) {
+            _constraints[w2].insert(w1);
+            //else 
+            _constraints[w1].insert(w2);
+          } else {
+            string w1_str = _lattice.get_word(w1);
+            string w2_str = _lattice.get_word(w2);
+            if (w1_str!=w2_str) {
+            foreach (int n1, _cached_word_str[w1_str]) {
+              foreach (int n2, _cached_word_str[w2_str]) {
+                if (n1!=n2) {
+                  _constraints[n1].insert(n2);
+                  _constraints[n2].insert(n1);
+                }
+              }
+            }
+            } else {
+              _constraints[w2].insert(w1);
+              _constraints[w1].insert(w2);
+
+            }
+          }
+
+        // //if (w1 < w2) 
+        // _constraints[w2].insert(w1);
+        // //else 
+        // _constraints[w1].insert(w2);
       }
     }
 }

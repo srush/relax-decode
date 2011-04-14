@@ -4,6 +4,7 @@
 
 #include "svector.hpp"
 #include <vector>
+#include <../common.h>
 using namespace std;
 
 typedef svector<int, double> wvector;
@@ -13,7 +14,7 @@ class SubgradRate {
   virtual double get_alpha(vector <double> & duals,
                            vector <double> & primals,
                            int size, bool aggressive, bool is_stuck) = 0;
-
+  virtual void bump() {}
 };
 
 
@@ -41,6 +42,8 @@ class ParseRate: public SubgradRate {
     }
     return _base_weight;
   }
+  void bump() {
+  }
   
 };
 
@@ -48,17 +51,29 @@ class TranslationRate: public SubgradRate {
  public:
   int _nround;
   double _base_weight;
- TranslationRate():_nround(0) {}
+  bool post_bump;
+ TranslationRate():_nround(0), post_bump(false) {}
+  void bump() {
+    //_base_weight *=10.0;
+    post_bump = true;
+  }
   double get_alpha(vector <double> & duals,
                    vector <double> & primals,
                    int size, bool aggressive, bool is_stuck) {
     int dualsize = duals.size();
-    if  (dualsize > 2 && duals[dualsize -1] <= duals[dualsize -2]) { 
+    double best_dual = -1e8; 
+    foreach(double dual, duals) {
+      best_dual = max(dual, best_dual);
+    }
+    if  (dualsize > 2 &&  (duals[dualsize-2] - duals[dualsize -1] > -1e-4)) { 
       _nround += 1;
+      /* if (post_bump) { */
+      /*   _base_weight *= 0.7; */
+      /* } else */
       if (aggressive && _nround > 2) {
         _base_weight *= 0.7;
         _nround = 0;
-      } else if (!is_stuck && _nround >= 10) {
+      } else if (_nround >= 10) {
         //else if (_nround >= 3) {// 10) {
         _base_weight *= 0.7;
         _nround =0;
@@ -75,7 +90,7 @@ class TranslationRate: public SubgradRate {
 class SubgradientProducer {
  public:
   virtual void  solve(double & primal, double & dual, wvector &, 
-                      int, bool, bool &) =0;
+                      int, bool, bool &, bool &) =0;
   virtual void update_weights(const wvector & updates,  
                               wvector * weights )=0;
 };

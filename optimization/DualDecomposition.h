@@ -24,7 +24,7 @@ class DualDecompositionRunner : public SubgradientProducer{
  }
 
   void  solve(double & primal, double & dual, wvector & subgrad, 
-              int round, bool is_stuck, bool & bump_rate) {
+              int round, bool is_stuck, bool & bump_rate, bool & ) {
     
     double primal1, primal2, dual1, dual2;
     wvector subgrad1, subgrad2;

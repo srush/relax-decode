@@ -50,7 +50,7 @@ class Subproblem {
   int projection_dims;
   void project(int proj_dim, vector <int> projection);
 
-  inline int project_word(int w ) const {
+  inline int project_word(int w) const {
     return projection[w];
   }
 
@@ -61,6 +61,9 @@ class Subproblem {
 
   //vector <int> rand_projection(int k) ;
   void projection_with_constraints(int limit, int & k, map<int, set <int> > & constraints, vector <int> &) ;
+  void projection_with_constraints_str(int limit, int & k,  
+                                       map<string, set <string> > & constraints, vector < int> & );
+
   // End Project
 
   inline int best_one(int w1, int w2, int w3) const {

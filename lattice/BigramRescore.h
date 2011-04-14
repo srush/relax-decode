@@ -47,14 +47,14 @@ class BigramRescore {
     //cout << "PATH " << n1 << " " << n2 << endl;
     // SANITY CHECK (remove!)
     
-    double should_score = 0.0;
-    foreach (int id, (*bigram_path[n1][n2])) {
-      //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl;
-      should_score += current_weights[id];
-      cout << "BIGRAMPATH" << " " << id << " " << current_weights[id] << endl;
-    }
-    cout << should_score << " " << bigram_weights[n1][n2] << " " << n1 << " " << n2 << endl;
-    assert (fabs(should_score -bigram_weights[n1][n2]) < 1e-4);
+    //double should_score = 0.0;
+    /* foreach (int id, (*bigram_path[n1][n2])) { */
+    /*   //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl; */
+    /*   should_score += current_weights[id]; */
+    /*   cout << "BIGRAMPATH" << " " << id << " " << current_weights[id] << endl; */
+    /* } */
+    //cout << should_score << " " << bigram_weights[n1][n2] << " " << n1 << " " << n2 << endl;
+    //assert (fabs(should_score -bigram_weights[n1][n2]) < 1e-4);
 
     assert (bigram_path[n1][n2] != NULL); 
     //cout << bigram_path[n1][n2]->size() << endl;
