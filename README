@@ -1,0 +1,20 @@
+Scarab: a framework for decoding in NLP. 
+
+
+At its current state it consists of a series of libraries for various problems and methods. 
+
+graph/ - Algorithms and data structures for simple graph problems
+
+hypergraph/  - Algorithms and data structures for hypergraph decoding. Includes viterbi, inside-outside, A* search, cube pruning, fsa intersection.
+
+interfaces/ - External interfaces for the library implemented through Protocol buffers. Interfaces for hypergraph (translation, parse, tagging) and graph(MRF, fsa).  
+
+lp/ - (Integer) Linear programming interface. Includes bindings for general hypergraph, parsing, tagging, MRF.   
+
+optimization/ - Optimization algorithms. Mainly subgradient descent, dual decomposition, MRF (move).  
+
+parse/ - Wrapper for parsing problems (as hypergraph). 
+
+tagger/ - Wrapper for tagging problems (as lattice). 
+
+transforest/ - Wrapper for translation forests (as hypergraph). 
