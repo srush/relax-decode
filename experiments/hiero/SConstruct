@@ -1,0 +1,29 @@
+import os
+import random
+
+def build_args(program, arg_map):
+    return program + " " + " ".join(["--"+key+"="+val for key, val in arg_map.iteritems()])
+
+
+
+env = Environment(ENV=os.environ)
+env.Append(BUILDERS= builders)
+root = os.environ["SCARAB_ROOT"]
+
+env.Append(SCARAB_ROOT = root)
+env.Append(SCARAB_PY = root + "/data_management/")
+env.Append(SCARAB_RESULTS = root + "/experiments/results/")
+env.Append(SCARAB_DATA = root + "/parse/data/")
+env.Append(SCARAB_TMP = root + "/tmp/")
+
+def MakeHypergraph(source, target, env, for_signature=False):
+    return build_args("$SCARAB_ROOT/hypergraph/convert_joshua",
+                      {"hypergraph_prefix" : target[0], 
+                       "joshua_out_file" : source[0]} )
+
+def MakeLattice(source, target, env, for_signature=False):
+    return "python $SCARAB_ROOT/interfaces/lattice/util/hypergraph_to_lattice.py %s %s"%(sources[0], target[0])
+
+def ReverseLattice(source, target, env, for_signature=False):
+    return "python $SCARAB_ROOT/interfaces/lattice/util/reverse_lattice.py %s %s"%(sources[0], target[0])
+

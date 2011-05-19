@@ -7,8 +7,6 @@ from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 
-import hypergraph_pb2
-
 DESCRIPTOR = descriptor.FileDescriptor(
   name='lexical.proto',
   package='',
@@ -31,6 +29,8 @@ word = descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
+
+import hypergraph_pb2
 
 
 hypergraph_pb2.Hypergraph.Node.RegisterExtension(is_word)

@@ -7,12 +7,10 @@ from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 
-import hypergraph_pb2
-
 DESCRIPTOR = descriptor.FileDescriptor(
   name='tag.proto',
   package='',
-  serialized_pb='\n\ttag.proto\x1a\x10hypergraph.proto\"&\n\x07Tagging\x12\x0b\n\x03ind\x18\x01 \x02(\x05\x12\x0e\n\x06tag_id\x18\x02 \x02(\x05:+\n\x07tagging\x12\x10.Hypergraph.Edge\x18x \x01(\x0b\x32\x08.Tagging:%\n\x0bhas_tagging\x12\x10.Hypergraph.Edge\x18y \x01(\x08')
+  serialized_pb='\n\ttag.proto\x1a\x10hypergraph.proto\"&\n\x07Tagging\x12\x0b\n\x03ind\x18\x01 \x02(\x05\x12\x0e\n\x06tag_id\x18\x02 \x02(\x05:+\n\x07tagging\x12\x10.Hypergraph.Node\x18x \x01(\x0b\x32\x08.Tagging:%\n\x0bhas_tagging\x12\x10.Hypergraph.Node\x18y \x01(\x08')
 
 
 TAGGING_FIELD_NUMBER = 120
@@ -67,7 +65,8 @@ _TAGGING = descriptor.Descriptor(
   serialized_end=69,
 )
 
-DESCRIPTOR.message_types_by_name['Tagging'] = _TAGGING
+import hypergraph_pb2
+
 
 class Tagging(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
@@ -76,6 +75,6 @@ class Tagging(message.Message):
   # @@protoc_insertion_point(class_scope:Tagging)
 
 tagging.message_type = _TAGGING
-hypergraph_pb2.Hypergraph.Edge.RegisterExtension(tagging)
-hypergraph_pb2.Hypergraph.Edge.RegisterExtension(has_tagging)
+hypergraph_pb2.Hypergraph.Node.RegisterExtension(tagging)
+hypergraph_pb2.Hypergraph.Node.RegisterExtension(has_tagging)
 # @@protoc_insertion_point(module_scope)
