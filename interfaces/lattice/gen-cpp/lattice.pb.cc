@@ -2,6 +2,9 @@
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
 #include "lattice.pb.h"
+
+#include <algorithm>
+
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -282,7 +285,6 @@ struct StaticDescriptorInitializer_lattice_2eproto {
 
 // ===================================================================
 
-const ::std::string Lattice_Node::_default_label_;
 #ifndef _MSC_VER
 const int Lattice_Node::kIdFieldNumber;
 const int Lattice_Node::kLabelFieldNumber;
@@ -306,7 +308,7 @@ Lattice_Node::Lattice_Node(const Lattice_Node& from)
 void Lattice_Node::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0;
-  label_ = const_cast< ::std::string*>(&_default_label_);
+  label_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -315,7 +317,7 @@ Lattice_Node::~Lattice_Node() {
 }
 
 void Lattice_Node::SharedDtor() {
-  if (label_ != &_default_label_) {
+  if (label_ != &::google::protobuf::internal::kEmptyString) {
     delete label_;
   }
   if (this != default_instance_) {
@@ -346,8 +348,8 @@ void Lattice_Node::Clear() {
   _extensions_.Clear();
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = 0;
-    if (_has_bit(1)) {
-      if (label_ != &_default_label_) {
+    if (has_label()) {
+      if (label_ != &::google::protobuf::internal::kEmptyString) {
         label_->clear();
       }
     }
@@ -370,7 +372,7 @@ bool Lattice_Node::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &id_)));
-          _set_bit(0);
+          set_has_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -434,12 +436,12 @@ bool Lattice_Node::MergePartialFromCodedStream(
 void Lattice_Node::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required int32 id = 1;
-  if (_has_bit(0)) {
+  if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
   
   // optional string label = 2;
-  if (_has_bit(1)) {
+  if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->label().data(), this->label().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -466,12 +468,12 @@ void Lattice_Node::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Lattice_Node::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // required int32 id = 1;
-  if (_has_bit(0)) {
+  if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
   
   // optional string label = 2;
-  if (_has_bit(1)) {
+  if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->label().data(), this->label().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -554,10 +556,10 @@ void Lattice_Node::MergeFrom(const Lattice_Node& from) {
   GOOGLE_CHECK_NE(&from, this);
   edge_.MergeFrom(from.edge_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from._has_bit(0)) {
+    if (from.has_id()) {
       set_id(from.id());
     }
-    if (from._has_bit(1)) {
+    if (from.has_label()) {
       set_label(from.label());
     }
   }
@@ -610,7 +612,6 @@ void Lattice_Node::Swap(Lattice_Node* other) {
 
 // -------------------------------------------------------------------
 
-const ::std::string Lattice_Edge::_default_label_;
 #ifndef _MSC_VER
 const int Lattice_Edge::kIdFieldNumber;
 const int Lattice_Edge::kLabelFieldNumber;
@@ -634,7 +635,7 @@ Lattice_Edge::Lattice_Edge(const Lattice_Edge& from)
 void Lattice_Edge::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0;
-  label_ = const_cast< ::std::string*>(&_default_label_);
+  label_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   to_id_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -644,7 +645,7 @@ Lattice_Edge::~Lattice_Edge() {
 }
 
 void Lattice_Edge::SharedDtor() {
-  if (label_ != &_default_label_) {
+  if (label_ != &::google::protobuf::internal::kEmptyString) {
     delete label_;
   }
   if (this != default_instance_) {
@@ -675,8 +676,8 @@ void Lattice_Edge::Clear() {
   _extensions_.Clear();
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = 0;
-    if (_has_bit(1)) {
-      if (label_ != &_default_label_) {
+    if (has_label()) {
+      if (label_ != &::google::protobuf::internal::kEmptyString) {
         label_->clear();
       }
     }
@@ -699,7 +700,7 @@ bool Lattice_Edge::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &id_)));
-          _set_bit(0);
+          set_has_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -732,7 +733,7 @@ bool Lattice_Edge::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &to_id_)));
-          _set_bit(2);
+          set_has_to_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -764,12 +765,12 @@ bool Lattice_Edge::MergePartialFromCodedStream(
 void Lattice_Edge::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 id = 1;
-  if (_has_bit(0)) {
+  if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
   }
   
   // optional string label = 2;
-  if (_has_bit(1)) {
+  if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->label().data(), this->label().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -778,7 +779,7 @@ void Lattice_Edge::SerializeWithCachedSizes(
   }
   
   // required int32 to_id = 3;
-  if (_has_bit(2)) {
+  if (has_to_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->to_id(), output);
   }
   
@@ -795,12 +796,12 @@ void Lattice_Edge::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Lattice_Edge::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 id = 1;
-  if (_has_bit(0)) {
+  if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
   }
   
   // optional string label = 2;
-  if (_has_bit(1)) {
+  if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->label().data(), this->label().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -810,7 +811,7 @@ void Lattice_Edge::SerializeWithCachedSizes(
   }
   
   // required int32 to_id = 3;
-  if (_has_bit(2)) {
+  if (has_to_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->to_id(), target);
   }
   
@@ -879,13 +880,13 @@ void Lattice_Edge::MergeFrom(const ::google::protobuf::Message& from) {
 void Lattice_Edge::MergeFrom(const Lattice_Edge& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from._has_bit(0)) {
+    if (from.has_id()) {
       set_id(from.id());
     }
-    if (from._has_bit(1)) {
+    if (from.has_label()) {
       set_label(from.label());
     }
-    if (from._has_bit(2)) {
+    if (from.has_to_id()) {
       set_to_id(from.to_id());
     }
   }
@@ -1014,7 +1015,7 @@ bool Lattice::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &start_)));
-          _set_bit(0);
+          set_has_start();
         } else {
           goto handle_uninterpreted;
         }
@@ -1088,7 +1089,7 @@ void Lattice::SerializeWithCachedSizes(
       1, 5, output);
   
   // required int32 start = 5;
-  if (_has_bit(0)) {
+  if (has_start()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->start(), output);
   }
   
@@ -1121,7 +1122,7 @@ void Lattice::SerializeWithCachedSizes(
       1, 5, target);
   
   // required int32 start = 5;
-  if (_has_bit(0)) {
+  if (has_start()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->start(), target);
   }
   
@@ -1209,7 +1210,7 @@ void Lattice::MergeFrom(const Lattice& from) {
   final_.MergeFrom(from.final_);
   node_.MergeFrom(from.node_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from._has_bit(0)) {
+    if (from.has_start()) {
       set_start(from.start());
     }
   }
@@ -1262,7 +1263,6 @@ void Lattice::Swap(Lattice* other) {
 
 // ===================================================================
 
-const ::std::string Subword::_default_word_;
 #ifndef _MSC_VER
 const int Subword::kWordFieldNumber;
 const int Subword::kSubwordOriginalIdFieldNumber;
@@ -1285,7 +1285,7 @@ Subword::Subword(const Subword& from)
 
 void Subword::SharedCtor() {
   _cached_size_ = 0;
-  word_ = const_cast< ::std::string*>(&_default_word_);
+  word_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   subword_original_id_ = 0;
   subword_hypergraph_node_id_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1296,7 +1296,7 @@ Subword::~Subword() {
 }
 
 void Subword::SharedDtor() {
-  if (word_ != &_default_word_) {
+  if (word_ != &::google::protobuf::internal::kEmptyString) {
     delete word_;
   }
   if (this != default_instance_) {
@@ -1325,8 +1325,8 @@ Subword* Subword::New() const {
 
 void Subword::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (_has_bit(0)) {
-      if (word_ != &_default_word_) {
+    if (has_word()) {
+      if (word_ != &::google::protobuf::internal::kEmptyString) {
         word_->clear();
       }
     }
@@ -1367,7 +1367,7 @@ bool Subword::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &subword_original_id_)));
-          _set_bit(1);
+          set_has_subword_original_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -1383,7 +1383,7 @@ bool Subword::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &subword_hypergraph_node_id_)));
-          _set_bit(2);
+          set_has_subword_hypergraph_node_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -1410,7 +1410,7 @@ bool Subword::MergePartialFromCodedStream(
 void Subword::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string word = 1;
-  if (_has_bit(0)) {
+  if (has_word()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->word().data(), this->word().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -1419,12 +1419,12 @@ void Subword::SerializeWithCachedSizes(
   }
   
   // optional int32 subword_original_id = 2;
-  if (_has_bit(1)) {
+  if (has_subword_original_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->subword_original_id(), output);
   }
   
   // optional int32 subword_hypergraph_node_id = 3;
-  if (_has_bit(2)) {
+  if (has_subword_hypergraph_node_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->subword_hypergraph_node_id(), output);
   }
   
@@ -1437,7 +1437,7 @@ void Subword::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Subword::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional string word = 1;
-  if (_has_bit(0)) {
+  if (has_word()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->word().data(), this->word().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
@@ -1447,12 +1447,12 @@ void Subword::SerializeWithCachedSizes(
   }
   
   // optional int32 subword_original_id = 2;
-  if (_has_bit(1)) {
+  if (has_subword_original_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->subword_original_id(), target);
   }
   
   // optional int32 subword_hypergraph_node_id = 3;
-  if (_has_bit(2)) {
+  if (has_subword_hypergraph_node_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->subword_hypergraph_node_id(), target);
   }
   
@@ -1515,13 +1515,13 @@ void Subword::MergeFrom(const ::google::protobuf::Message& from) {
 void Subword::MergeFrom(const Subword& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from._has_bit(0)) {
+    if (from.has_word()) {
       set_word(from.word());
     }
-    if (from._has_bit(1)) {
+    if (from.has_subword_original_id()) {
       set_subword_original_id(from.subword_original_id());
     }
-    if (from._has_bit(2)) {
+    if (from.has_subword_hypergraph_node_id()) {
       set_subword_hypergraph_node_id(from.subword_hypergraph_node_id());
     }
   }
@@ -1659,7 +1659,7 @@ bool Phraselet::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &phraselet_hypergraph_edge_)));
-          _set_bit(1);
+          set_has_phraselet_hypergraph_edge();
         } else {
           goto handle_uninterpreted;
         }
@@ -1692,7 +1692,7 @@ void Phraselet::SerializeWithCachedSizes(
   }
   
   // optional int32 phraselet_hypergraph_edge = 2;
-  if (_has_bit(1)) {
+  if (has_phraselet_hypergraph_edge()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->phraselet_hypergraph_edge(), output);
   }
   
@@ -1712,7 +1712,7 @@ void Phraselet::SerializeWithCachedSizes(
   }
   
   // optional int32 phraselet_hypergraph_edge = 2;
-  if (_has_bit(1)) {
+  if (has_phraselet_hypergraph_edge()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->phraselet_hypergraph_edge(), target);
   }
   
@@ -1770,7 +1770,7 @@ void Phraselet::MergeFrom(const Phraselet& from) {
   GOOGLE_CHECK_NE(&from, this);
   word_.MergeFrom(from.word_);
   if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
-    if (from._has_bit(1)) {
+    if (from.has_phraselet_hypergraph_edge()) {
       set_phraselet_hypergraph_edge(from.phraselet_hypergraph_edge());
     }
   }
@@ -2119,7 +2119,7 @@ bool Origin::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &original_id_)));
-          _set_bit(1);
+          set_has_original_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -2135,7 +2135,7 @@ bool Origin::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &has_origin_)));
-          _set_bit(2);
+          set_has_has_origin();
         } else {
           goto handle_uninterpreted;
         }
@@ -2168,12 +2168,12 @@ void Origin::SerializeWithCachedSizes(
   }
   
   // optional int32 original_id = 2;
-  if (_has_bit(1)) {
+  if (has_original_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->original_id(), output);
   }
   
   // optional bool has_origin = 3;
-  if (_has_bit(2)) {
+  if (has_has_origin()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->has_origin(), output);
   }
   
@@ -2192,12 +2192,12 @@ void Origin::SerializeWithCachedSizes(
   }
   
   // optional int32 original_id = 2;
-  if (_has_bit(1)) {
+  if (has_original_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->original_id(), target);
   }
   
   // optional bool has_origin = 3;
-  if (_has_bit(2)) {
+  if (has_has_origin()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->has_origin(), target);
   }
   
@@ -2262,10 +2262,10 @@ void Origin::MergeFrom(const Origin& from) {
   GOOGLE_CHECK_NE(&from, this);
   hypergraph_edge_.MergeFrom(from.hypergraph_edge_);
   if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
-    if (from._has_bit(1)) {
+    if (from.has_original_id()) {
       set_original_id(from.original_id());
     }
-    if (from._has_bit(2)) {
+    if (from.has_has_origin()) {
       set_has_origin(from.has_origin());
     }
   }

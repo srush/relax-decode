@@ -37,10 +37,8 @@ class ConstrainerDual:public DualDecompositionSubproblem {
   };
 
   
-
-  void solve(double & primal, 
-              double & dual, wvector &, 
-              int);
+  void solve(const SubgradState & info,
+             SubgradResult & result);
 
   void update_weights(const wvector & updates,  
                       wvector * weights, 
@@ -155,13 +153,13 @@ EdgeCache ConstrainerDual<Other>::build_mrf_constraint_vector(int group_num,
 } 
 
 template <class Other>
-void ConstrainerDual<Other>::solve(double & primal, double & dual, 
-                                   wvector & subgrad, int round) {
+void ConstrainerDual<Other>::solve(const SubgradState & info,
+                                   SubgradResult & result) {
+
   wvector weights =  (*_cur_weights);
   cout << " constrainer " << endl;
-  //int sent_num=0;
-  dual =0;
-  primal = 0;
+  result.dual =0;
+  result.primal = 0;
   int group = 0;
 
   clock_t s = clock();
@@ -199,9 +197,9 @@ void ConstrainerDual<Other>::solve(double & primal, double & dual,
       _dirty_cache[group] = false;
     }
 
-    dual += _dual_cache[group];
-    primal += _primal_cache[group];
-    subgrad += _subgrad_cache[group];
+    result.dual += _dual_cache[group];
+    result.primal += _primal_cache[group];
+    result.subgrad += _subgrad_cache[group];
     group++;
   }
 
@@ -214,8 +212,8 @@ void ConstrainerDual<Other>::solve(double & primal, double & dual,
 /*   } */
 
   _is_first = false;
-  cout << "MRF dual: " << dual << endl;
-  cout << "MRF primal: " << primal << endl;
+  cout << "MRF dual: " << result.dual << endl;
+  cout << "MRF primal: " << result.primal << endl;
   cout << "Clock " << double(Clock::diffclock( clock(), s)) <<endl;
 }
 

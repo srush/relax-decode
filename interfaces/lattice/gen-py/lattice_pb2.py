@@ -7,6 +7,7 @@ from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 
+
 DESCRIPTOR = descriptor.FileDescriptor(
   name='lattice.proto',
   package='lattice',
@@ -325,13 +326,17 @@ _ORIGIN = descriptor.Descriptor(
   serialized_end=551,
 )
 
-
 _LATTICE_NODE.fields_by_name['edge'].message_type = _LATTICE_EDGE
 _LATTICE_NODE.containing_type = _LATTICE;
 _LATTICE_EDGE.containing_type = _LATTICE;
 _LATTICE.fields_by_name['node'].message_type = _LATTICE_NODE
 _PHRASELET.fields_by_name['word'].message_type = _SUBWORD
 _PHRASELETS.fields_by_name['phraselet'].message_type = _PHRASELET
+DESCRIPTOR.message_types_by_name['Lattice'] = _LATTICE
+DESCRIPTOR.message_types_by_name['Subword'] = _SUBWORD
+DESCRIPTOR.message_types_by_name['Phraselet'] = _PHRASELET
+DESCRIPTOR.message_types_by_name['Phraselets'] = _PHRASELETS
+DESCRIPTOR.message_types_by_name['Origin'] = _ORIGIN
 
 class Lattice(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType

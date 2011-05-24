@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include "CommandLine.h"
+#include "Rates.h"
 using namespace std;
 
 
@@ -51,7 +52,8 @@ int main(int argc, char ** argv) {
 
     // Solve
     cout << i << " ";
-    Subgradient * s = new Subgradient(*d);
+    TranslationRate tr;
+    Subgradient * s = new Subgradient(*d, tr);
     s->solve(i);
   }
   google::protobuf::ShutdownProtobufLibrary();

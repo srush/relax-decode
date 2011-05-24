@@ -42,46 +42,47 @@ void Subgradient::solve(int example) {
 
 
 bool Subgradient::run_one_round() {
-  double primal, dual; 
-  wvector subgrad;
-  //cout << endl;
   clock_t start=clock();
-  bool bump =false; 
-  bool no_update = false;
-  _s.solve(primal, dual, subgrad, _round, _is_stuck, bump,no_update);
+  // bool bump =false; 
+  // bool no_update = false;
+  SubgradResult result;
+  SubgradState info;
+  info.round = _round;
+  info.is_stuck = _is_stuck;
+  _s.solve(info, result); //  primal, dual, subgrad, _round, _is_stuck, bump,no_update);
 
   clock_t end;
   if (TIMING) {
-      end=clock();
-      cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
+    end=clock();
+    cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
   }
 
   
-  if (primal < _best_primal) {
+  if (result.primal < _best_primal) {
     _best_primal_iteration = _round; 
-    _best_primal = primal;
+    _best_primal = result.primal;
   }
 
-  if (dual > _best_dual) {
-    _best_dual = dual;
+  if (result.dual > _best_dual) {
+    _best_dual = result.dual;
   } 
 
-  _duals.push_back(dual);
-  _primals.push_back(primal);
-  if (TIMING) {
-  
+  _duals.push_back(result.dual);
+  _primals.push_back(result.primal);
+
+  if (TIMING) {  
     cout << "BEST PRIMAL" << _best_primal << endl;
     cout << "BEST DUAL" << _best_dual << endl;
     cout << "Round " << _round << endl; 
-    cout << "Update? " << !no_update << endl; 
+    //cout << "Update? " << !result.no_update << endl; 
     cout << "GAP " << fabs(_best_primal - _best_dual) << endl;
   }
   //assert (_best_primal >= _best_dual);
 
-  if (subgrad.normsquared() > 0.0 && _best_primal - _best_dual  > 0.001 ) {
-    if (!no_update) {
-      update_weights(subgrad, bump);
-    }
+  if (result.subgrad.normsquared() > 0.0 && _best_primal - _best_dual  > 0.001 ) {
+    //if (!result.no_update) {
+      update_weights(result.subgrad, result.bump_rate);
+      //}
     //cout << endl;
     return true;
   } else {
@@ -114,10 +115,10 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
   if (bump) {
     _aggressive = true;
     //rate->_base_weight *=10.0;
-    rate->bump();
+    _rate.bump();
   }
   
-  double alpha = rate->get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
+  double alpha = _rate.get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
 //   if  (dualsize > 2 && _duals[dualsize -1] <= _duals[dualsize -2]) { 
 //     _nround += 1;
 //     if (_aggressive && _nround > 2) {
