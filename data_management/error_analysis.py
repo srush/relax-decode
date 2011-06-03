@@ -4,6 +4,16 @@ from itertools import *
 import  pickle
 from marginals import *
 from map.unmap_pos import *
+import gflags as flags
+FLAGS = flags.FLAGS
+
+try:
+  argv = FLAGS(sys.argv)  
+except flags.FlagsError, e:
+  print '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
+  sys.exit(1)
+
+
 def doubles(handle):
   d = {}
   for l in handle:
@@ -13,13 +23,13 @@ def doubles(handle):
     d[ls] += 1
   return d
 
-double_map = doubles(open(sys.argv[1]))
+double_map = doubles(open(argv[1]))
 print double_map
-wc = pickle.load(open(sys.argv[2]))
-marginals = Marginals.from_handle(open(sys.argv[3]))
+wc = pickle.load(open(argv[2]))
+marginals = Marginals.from_handle(open(argv[3]))
 unmapper = Unmapper()
 
-files = map(open,sys.argv[4:])
+files = map(open,argv[4:])
 right = []
 good = []
 bad = []

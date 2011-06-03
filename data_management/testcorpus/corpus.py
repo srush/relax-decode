@@ -42,8 +42,9 @@ class Context:
 
   @staticmethod
   def from_words(clusters, left_word, right_word):
-    return (clusters.lookup(left_word),
-            clusters.lookup(right_word))
+    # return (clusters.lookup(left_word),
+    #             clusters.lookup(right_word))
+    return (0,0)
 
   def __repr__(self):
     return str((self.bit_left, self.bit_right))
@@ -99,7 +100,8 @@ class WordMap:
       fields = l.strip().split()
       word = fields[0]
       
-      context = Context.from_string("1 "+ " ".join(fields[1].split('8')))#context_map.lookup(int(fields[1]))
+      #context = Context.from_string("1 "+ " ".join(fields[1].split('8')))#context_map.lookup(int(fields[1]))
+      context = Context.from_string("1 0 0")
 
       _ = fields[2]
       indices = map(int, fields[3:])

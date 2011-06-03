@@ -159,18 +159,18 @@ class AdditionalSent:
     #print s, w, num_context_known
 
     # sort by the closeness of context
-    context_close = 0
-    def match(al, bl):
-      m = 0
-      for a, b in zip(al,bl):
-        if a ==b: m+=1
-        else: break
-      return m
+#     context_close = 0
+#     def match(al, bl):
+#       m = 0
+#       for a, b in zip(al,bl):
+#         if a ==b: m+=1
+#         else: break
+#       return m
     
-    if morpho <> "EXT":
-      context_close = \
-                    (match(self.ctxt[0], self.left_con) if self.ctxt[0] != None else 0) + \
-                    (match(self.ctxt[1], self.right_con) if self.ctxt[1] != None else 0)
+#     if morpho <> "EXT":
+#       context_close = \
+#                     (match(self.ctxt[0], self.left_con) if self.ctxt[0] != None else 0) + \
+#                     (match(self.ctxt[1], self.right_con) if self.ctxt[1] != None else 0)
       #print >>sys.stderr, self.original_word, self.sent,  self.ctxt, self.left_con, self.right_con , context_close, num_context_known
       #context_close,
     return ( sum([ 1 if wc.count(w)>=1 else 0 for w in s]) / float(len(s)), num_context_known)
@@ -234,10 +234,11 @@ if __name__ == "__main__":
             w = ext.apply(original_word)
             cursor = conn.cursor ()
             query = """select s.sentence, w.left_context, w.right_context from word_token as w,
-              sentence as s where  w.type = "%s"
-              and s.file_id = w.file_id and  s.id = w.sent_id limit 2000;"""
+              sentence as s, file as f where  w.type = "%s"
+              and s.file_id = w.file_id and  s.id = w.sent_id and f.id = s.file_id and f.language="english" limit 2000;"""
             print >>sys.stderr, query%w
             cursor.execute (query%w)
+            print >>sys.stderr, "DONE QUERY"
 
             for row in cursor:
               sents.append(AdditionalSent(row[0], row[1], row[2], w, w_i, sent_num, morpho, ctxt))

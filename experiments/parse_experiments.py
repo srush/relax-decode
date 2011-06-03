@@ -1,6 +1,6 @@
 
 class ParseExperiment:
-  def __init__(self, original_test, prefix, gold_file, mrf_spec, model, penalty, training="wsj_gold_50"):
+  def __init__(self, original_test, prefix, gold_file, mrf_spec, model, penalty, training="wsj_gold_50", language="english"):
     self.original_test = original_test
     self.prefix = prefix
     self.gold_file = gold_file
@@ -10,11 +10,15 @@ class ParseExperiment:
     self._penalty = penalty
     self._model_pre = model.split('.')[0]
     self._training = training
+    self.language = language
+
+  
+  
   def test_file(self):
-    return "$SCARAB_DATA/%s"%(self.original_test)
+    return "$SCARAB_DATA/%s"%self.original_test
 
   def training_file(self):
-    return "$SCARAB_DATA/%s"%(self._training)
+    return "$SCARAB_DATA/%s"%self._training
 
 
   def parse_out(self):
@@ -200,6 +204,65 @@ parse_experiment_gentle_mi_asymlow_full = ParseExperiment(
   penalty = 0.7)
 
 
+def parse_dev_experiment_size(num, model_size, prefix ="", penalty=0.7):
+  return ParseExperiment(
+  original_test= "parse_dev_data/sec22_%s"%num,
+  prefix= "parse_dev_%s_%s_%s"%(prefix, model_size, num),
+  gold_file= "parse_dev_data/sec22_%s"%num,
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_%s.model"%model_size,
+  training = "wsj_gold_%s"%model_size,
+  penalty = penalty)
+
+simple_parse = ParseExperiment(
+  original_test= "parse_dev_data/sec_test",
+  prefix= "parse_dev_small",
+  gold_file= "parse_dev_data/sec_test",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_SO.model",
+  training = "wsj_gold_50",
+  penalty = 0.7)
+
+def parse_language(setnum, language, size =50, penalty=0.5):
+  return ParseExperiment(
+  original_test= "parse_dev_%s/dev_%s"%(language,setnum),
+  prefix= "parse_dev_%s_%s_%s"%(language, size, setnum),
+  gold_file= "parse_dev_%s/dev_%s"%(language,setnum),
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "%s_%s.model"%(language,size),
+  training = "%s_%s"%(language,size),
+  penalty = penalty,
+  language = language)
+
+def parse_language_big(setnum, language, size =50, penalty=0.5):
+  return ParseExperiment(
+  original_test= "parse_big_dev_%s/dev_%s"%(language,setnum),
+  prefix= "parse_big_dev_%s_%s_%s"%(language, size, setnum),
+  gold_file= "parse_big_dev_%s/dev_%s"%(language,setnum),
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "%s_%s.model"%(language,size),
+  training = "%s_%s"%(language,size),
+  penalty = penalty,
+  language = language)
+
+def test_parse_language(setnum, language, size =50, penalty=0.5, extended=False):
+  test_dir = "parse_test_%s"%language
+  pre = "parse_test"
+  if extended:
+    test_dir = "parse_test_%s_ext"%language
+    pre = "parse_test_ext"
+  return ParseExperiment(
+  original_test= test_dir+"/test_%03d"%(setnum),
+  prefix= pre + "_%s_%s_%03d"%(language, size, setnum),
+  gold_file= test_dir + "/test_%03d"%(setnum),
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "%s_%s.model"%(language,size),
+  training = "%s_%s"%(language,size),
+  penalty = penalty,
+  language = language)
+
+
+
 def parse_dev_experiment(num):
   return ParseExperiment(
   original_test= "parse_dev_data/sec22_%s"%num,
@@ -210,15 +273,25 @@ def parse_dev_experiment(num):
   training = "wsj_gold_50",
   penalty = 0.7)
 
-def parse_test_experiment(num):
-  return ParseExperiment(
-  original_test= "parse_test_data/sec23_%s"%num,
-  prefix= "parse_test2_%s"%num,
-  gold_file= "parse_test_data/sec23_%s"%num,
+parse_dev_full_experiment = ParseExperiment(
+  original_test= "parse_dev_data/sec22",
+  prefix= "parse_dev_full",
+  gold_file= "parse_dev_data/sec22",
   mrf_spec= "parse_constraints_asym_punc",
   model = "small_SO.model",
   training = "wsj_gold_50",
   penalty = 0.7)
+
+
+def parse_test_experiment(num, penalty = 0.3, modelsize=50):
+  return ParseExperiment(
+  original_test= "parse_test_data/sec23_%s"%num,
+  prefix= "parse_test3_%s_%s"%(num, modelsize),
+  gold_file= "parse_test_data/sec23_%s"%num,
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_%s.model"%modelsize,
+  training = "wsj_gold_%s"%modelsize,
+  penalty = penalty)
 
 
 parse_dev = ParseExperiment(

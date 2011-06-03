@@ -513,4 +513,16 @@ public class GlobalHolder {
     return tags;
   }
 
+  public static void main(String[] args) {
+      try {
+          TaggerConfig gh = readModelAndInit(new TaggerConfig(args), args[1], false);
+          //dumpModel();
+          //System.out.println(getTags());
+          getTags().show();
+      } catch (Exception e){
+          System.err.println(e.getMessage());
+      }
+      //
+  }
+
 }

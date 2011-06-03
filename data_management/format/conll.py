@@ -1,14 +1,16 @@
 class ConllWord:
-  def __init__(self, num, word, pos, head, label):
+  def __init__(self, num, word, short_word, short_pos, pos, head, label):
     self.num = num
     self.word = word
+    self.short_word = short_word
     self.pos = pos
+    self.short_pos = short_pos
     self.head = head
     self.label = label
 
   @staticmethod
   def root():
-    return ConllWord(0, '*ROOT*', '*ROOT*', 0, "_")
+    return ConllWord(0, '*ROOT*', '*ROOT*', '*ROOT*', '*ROOT*', 0, "_")
     
   def __repr__(self):
     return " ".join(map(str, (self.word, self.pos)))
@@ -17,7 +19,8 @@ class ConllWord:
     self.label = "_"
 
   def format(self):
-    return "\t".join((str(self.num), self.word, self.word, self.pos, self.pos, "_", str(self.head), self.label))
+    pos = self.pos if self.pos <> "_" else self.short_pos
+    return "\t".join((str(self.num), self.word, self.short_word, self.short_pos, pos , "_", str(self.head), self.label))
 
 class ConllSent:
   def __init__(self, words):
@@ -60,8 +63,8 @@ def parse_conll_file(handle):
     words = []
     for l in c:
       
-      num, word, _, pos, _, _, head, label =  l.split("\t", 7)
-      word = ConllWord(int(num), word, pos, int(head), label)
+      num, word, short_word, short_pos, pos, _, head, label =  l.split("\t", 7)
+      word = ConllWord(int(num), word, short_word, short_pos, pos, int(head), label)
       words.append(word)
     yield ConllSent(words)
     words = []

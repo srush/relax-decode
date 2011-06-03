@@ -64,7 +64,7 @@ class ConstrainerDual:public DualDecompositionSubproblem {
         //cout << "Update " << index.group <<endl;
       }
     }
-    cout << "dirtied: " << dirtied << endl;
+    //cout << "dirtied: " << dirtied << endl;
 
 /*     for (int i = 0; i < constraints.size(); i++) { */
 /*       _dirty_cache[i] = true; */

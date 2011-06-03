@@ -32,15 +32,17 @@ def parse_simple_file(handle, divider=None):
   for c in handle:
     words = []
 
-    for l in c.strip().split():
+    for l in c.decode("utf8").strip().split():
       if divider <> None:        
         t = l.split(divider)
 
         word, pos =  divider.join(t[0:-1]), t[-1]
+        pos = pos.encode("utf8")
       else: 
         word = l
         pos = None
-      word = SimpleWord(word, pos)
+      
+      word = SimpleWord(word.encode("utf8"), pos)
       words.append(word)
     yield SimpleSent(words)
     words = []

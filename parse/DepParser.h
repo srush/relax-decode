@@ -113,7 +113,7 @@ class DepParser : public Scarab::HG::HypergraphImpl {
     return _dep_map->has_key(edge);
   }
 
-  void show_derivation(HEdges best_edges) {
+  void show_derivation( HEdges best_edges) const {
     vector <Dependency> res;
 
     foreach (HEdge edge, best_edges) {
