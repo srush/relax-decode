@@ -207,6 +207,12 @@ public class TTags {
     return index.get(i);
   }
 
+  protected void show() {
+      for (String item : index) {
+          System.out.println(index.indexOf(item)+" " +item);
+      }
+  }
+    
   protected void save(String filename) {
     try {
       DataOutputStream out = new OutDataStreamFile(filename);

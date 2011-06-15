@@ -15,6 +15,8 @@ class Experiment:
     self._tagger = desc["tagger"]
     self._num_sentences = desc.get("num_sentences", 10)
     self._add_sent = desc.get("add_sents", False)  
+    self.language = desc.get("language", "english")
+
   def constraint_type(self):
     return self.model_type
 
@@ -234,14 +236,57 @@ def dev_experiment(num):
   "num_sentences": 5
   })
 
-def test_experiment(num):
+
+def dev_experiment_100(num):
+  return Experiment({
+  "original_test": "dev_data/sec22_pos_%d"%num,
+  "prefix": "eng_dev_100_%03d"%num,
+  "gold_file": "dev_data/sec22_pos_gold_%d"%num,
+  "tagger": "english_100.model", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_100",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 5
+  })
+
+
+def dev_experiment_100_lower(num):
+  return Experiment({
+  "original_test": "dev_data/sec22_pos_%d"%num,
+  "prefix": "eng_dev_100_%03d"%num,
+  "gold_file": "dev_data/sec22_pos_gold_%d"%num,
+  "tagger": "english_100.model", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_100",
+  "penalty" : 1.0,
+  "add_sents": True,
+  "num_sentences": 5
+  })
+
+
+german_exp = Experiment({
+  "original_test": "german_dev",
+  "prefix": "german_first",
+  "gold_file": "german_dev_gold",
+  "tagger": "german_50.model", 
+  "unk_thres" : 5,
+  "train" : "german_gold_50",
+  "penalty" : 3.0,
+  "add_sents": True,
+  "num_sentences": 25,
+  "language" : "german"
+  })
+
+def test_experiment(num, size=50):
   return Experiment({
   "original_test": "pos_test_data/sec23_%d"%num,
-  "prefix": "eng_test_%03d"%num,
+  "prefix": "eng_test_%s_%03d"%(size,num),
   "gold_file": "pos_test_data/sec23_%d"%num,
-  "tagger": "left3words-wsj-50sent.tagger", 
+  #"tagger": "left3words-wsj-50sent.tagger",
+  "tagger": "english_%s.model"%size, 
   "unk_thres" : 5,
-  "train" : "wsj_gold_50",
+  "train" : "wsj_gold_%s"%size,
   "penalty" : 3.0,
   "add_sents": True,
   "num_sentences": 5

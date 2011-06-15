@@ -187,28 +187,49 @@ if __name__=="__main__":
   states = {}
   incontexts = {}
   ctxt_map = {}
+  replaced_count = {}
   for sn, s in enumerate(training, 1):
     head_map = sent_to_head_map(s)
     contexts = GeneralContext.contexts_from_sent(s)
     for i, ctxt in enumerate(contexts):
+      any_incontext = False
+      incontext_match = None
+      for m in GeneralContext.MASKS:
+        mask_context = ctxt.mask(m)
+
+        head_pos = s.words[i].head
+        head_tag = s.words[s.words[i].head].pos
+        
+        diff  = head_pos -(i)
+        mask_pos = diff_to_mask_pos(diff)
+        in_context = mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1 # coarsen(head_tag) in [coarsen(w.pos) for w in mask_context.boundaries] 
+        any_incontext = any_incontext or in_context
+        if in_context:
+          incontext_match = mask_context
       for m in GeneralContext.MASKS:
         mask_context = ctxt.mask(m)
         
-        #if mask_context in is_hot:
-        key = mask_context
-        ctxt_map.setdefault(key, [])
-        ctxt_map[key].append((-sn,i))
         #print -sn, i, s.words[i].head, s.words[s.words[i].head].pos
         head_pos = s.words[i].head
         head_tag = s.words[s.words[i].head].pos
         
         diff  = head_pos -(i)
         mask_pos = diff_to_mask_pos(diff)
-        in_context = coarsen(head_tag) in [coarsen(w.pos) for w in mask_context.boundaries] #mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1
+        in_context = mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1 #coarsen(head_tag) in [coarsen(w.pos) for w in mask_context.boundaries] #mask_pos >=0 and mask_pos < 8 and m[mask_pos] == 1
         print >>sys.stderr, sn, head_pos, (i), mask_pos, m, mask_context, in_context
         incontexts[((-sn,i),mask_context)] = in_context
-        states[(-sn,i)] = [(i, get_tag_ind(s.words[s.words[i].head].pos), [s.words[i].head] ) ]
         
+        # only add a context if non of the others were incontext
+        if not any_incontext or in_context:
+          states[(-sn,i)] = [(i, get_tag_ind(s.words[s.words[i].head].pos), [s.words[i].head] ) ]
+          key = mask_context
+          ctxt_map.setdefault(key, [])
+          ctxt_map[key].append((-sn,i))
+        else:
+          print >>sys.stderr, "FAILED ", incontext_match, " replaces ", mask_context 
+          replaced_count.setdefault(mask_context, 0)
+          replaced_count[mask_context] += 1
+          
           #only one mask per context
           #break
   test_data = list(parse_conll_file(open(sys.argv[1])))
@@ -247,19 +268,20 @@ if __name__=="__main__":
         #if mask_context in is_hot and mask_context in ctxt_map :
         if mask_context in ctxt_map:
           
-          total_seen = len([1 for key in ctxt_map[mask_context] if len(states[key]) ==1])
+          total_seen = len([1 for key in ctxt_map[mask_context] if len(states[key]) ==1]) #+ replaced_count.get(mask_context,0)
           possible_best = [coarsen(num_map[states[key][0][1]])
                            for key in ctxt_map[mask_context]
                            if len(states[key]) ==1]
           if not possible_best: continue
           agreed = Counter(possible_best).most_common(1)[0]
           
-          #if agreed[0][:2] == "VB" : continue
           con_pos = [coarsen(w.pos) for w in mask_context.boundaries]
           coarsened = "NN" in [coarsen(w.pos) for w in mask_context.boundaries]
-          score = ((agreed[1] / (float(total_seen) )), 1 if total_seen < 5 or coarsened else 0, num_on, min(agreed[1],4))
+          score = ((agreed[1] / (float(total_seen))), 1 if total_seen < 5 or coarsened else 0, num_on, min(agreed[1],4))
 
-          if all([incontexts[key,mask_context] for key in ctxt_map[mask_context] if len(states[key]) ==1]): score = (score[0]+1,score[1], score[2], score[3])
+          incon = all([incontexts[key,mask_context] for key in ctxt_map[mask_context] if len(states[key]) ==1])
+          if incon:
+            score = (score[0]+1,score[1], score[2], score[3])
           #if total_seen > 5: score -=1 
           
 
@@ -274,14 +296,14 @@ if __name__=="__main__":
           
 
           print >> sys.stderr, agreed[1],total_seen, score, mask_context, max_nn, right_nn, near_cc, near_prep, nn_constraint, cc_constraint, in_constraint, best_mask, mask_context.punc_check()
-          if score > best and fits_constraints:
+          if score > best and fits_constraints and (total_seen > 1):
             #ctxt_map[key].append((sn,i))
             previous_in_con = ctxt_map.get(mask_context,[])
             if not any([old_sn == sn for old_sn, _ in previous_in_con]):
               best_mask = mask_context
               best = score
       #if ctxt_map.get(mask_context,[]):< 10: 
-      if best[0] >= 1.0:
+      if best[0] >= 1.0 :
         print >>sys.stderr,  "Choose ", best_mask
         key = best_mask
         ctxt_map.setdefault(key, [])

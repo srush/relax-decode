@@ -8,10 +8,10 @@ conn = MySQLdb.connect (host = "mysql.csail.mit.edu",
                         passwd = "baseball",
                         db = "emnlp2011")
 
-direct = "/data/nlp4/srush/mikedata/roi/feb_27_2011_context/"
-direct2 = "/data/nlp4/srush/mikedata/roi/feb_27_2011_context/"
-files = ["nyt_%s_sentences_%s.gz"%(b,i) for b in (4,5) for i in range(2,11)]
-
+direct =  "/data/nlp4/srush/mikedata/roi/nips/spanish/"
+direct2 = "/data/nlp4/srush/mikedata/roi/nips/spanish/"
+files = ["spanish_abstracts_tokenized%s.gz"%i for i in range(2,10)]
+LANGUAGE = "spanish"
 
 
 # files = ["nyt_stripped_sentences_13th_1000000_tokenized_part"+str(i) for i in range(1,5)] + \
@@ -35,22 +35,21 @@ if __name__ == "__main__":
     print >>sys.stderr, "Done reading files"
     # add file to file table
     cursor = conn.cursor ()
-    cursor.execute ("INSERT INTO file(original_name) VALUES ('%s')"%f)
+    cursor.execute ("INSERT INTO file(original_name, language) VALUES ('%s', '%s')"%(f, LANGUAGE))
     cursor.execute ("SELECT id FROM file WHERE original_name='%s'"%f)
     row = cursor.fetchone ()
     file_id = row[0]
     cursor.close ()
 
 
-    
     print >>sys.stderr, "File added"
     # add sentences to sentence table    
     cursor = conn.cursor ()
     q= "INSERT INTO sentence(file_id, id , sentence) VALUES (%s, %s,%s)"
     inserts = ((file_id, sent_num, sentence) for sent_num, sentence in enumerate(corpus.sentences))
-      
+    #inserts = list(inserts)[:100]
     #print q
-    cursor.executemany(q, inserts)
+    cursor.executemany(q, inserts)      
       
       #print file_id, sent_num, sentence
     cursor.close()
@@ -63,6 +62,7 @@ if __name__ == "__main__":
     inserts = (( w.word, ind, file_id, w.context[0], w.context[1])
                for w in wordmap.words
                for ind in w.indices)
+    #inserts =  list(inserts)[:100]
     cursor.executemany(q, inserts)
     cursor.close()
     print >>sys.stderr, "Done adding words"

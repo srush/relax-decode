@@ -30,6 +30,18 @@ def build_experiment_emit(source, target, env, for_signature=False):
      #target.append(target[0] + "_desc")
      return target, source
 
+
+def build_experiment_multi(source, target, env, for_signature=False):
+     command = "python $SCARAB_PY/build_experiment_multi.py --wordcount %s --test %s  --numtake $NUM_SENT --desc %s --language $LANGUAGE > %s;"%\
+     (source[0],
+      source[1],
+      #source[2],
+      target[2],
+      target[0])
+          
+     return command + "wc -l %s | awk '{print $1-1}' > %s" %(target[0],  target[1])
+
+
 def unknown_list(source, target, env, for_signature=False):
      return "awk '{print $2}' %s | grep -v '^$' > %s " %(source[0], target[0])
 
@@ -56,7 +68,11 @@ def MakeGold(source, target, env, for_signature=False):
      return "head -n $NUM_SENT %s > %s"%(source[0], target[0])
      
 def ctag_convert(source, target, env, for_signature=False):
-     return 'grep SENT %s | python $SCARAB_PY/map/unmap_pos.py %s $SCARAB_PY/map/POS.map > %s' % (source[0], source[1],  target[0])
+     return 'grep SENT %s | python $SCARAB_PY/map/unmap_pos.py --language $LANGUAGE %s  > %s' % (source[0], source[1],  target[0])
+
+
+def stanford_train(source, target, env, for_signature=False):
+     return "cd $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/;java -Xmx1g -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger -prop %s  -trainFile %s -model %s"%(source[0], source[1], target[0])
 
 
 def crf_run(source, target, env, for_signature=False):
@@ -77,7 +93,7 @@ def stanford_tagger_run(source, target, env, for_signature=False):
 
 
 def hypergraph_run(source, target, env, for_signature=False):
-     tmp = "/tmp/lattice.%s"%hash(source[0])
+     tmp = "$SCARAB_ROOT/tmp/lattice.%s"%hash(str(source[0]))
      return ['grep LATTICE %s > %s'%(source[0], tmp), 
              "$SCARAB_ROOT/hypergraph/convert %s %s"%(target[0], tmp),
              "touch %s"%(target[0]),
@@ -134,9 +150,9 @@ def pos_cons_old_emit(source, target, env):
 
 
 def pos_cons_build(source, target, env, for_signature=False):
-     tmp = "/tmp/beam.%s"%(hash(source[2]))
+     tmp = "$SCARAB_ROOT/tmp/beam.%s"%(hash(str(source[2])))
      return ['grep BEAM %s > %s'%(source[2], tmp),
-             'python $SCARAB_PY/pos_constraints_mrf2.py %s %s %s $CONST_TYPE %s $PENALTY %s %s $NUM_SENT %s > %s'
+             'python $SCARAB_PY/pos_constraints_mrf2.py --language $LANGUAGE %s %s %s $CONST_TYPE %s $PENALTY %s %s $NUM_SENT %s > %s'
                % (source[0], source[1], target[0], source[3], target[2], tmp, source[4], target[1]) ,
              "rm %s"%tmp]
              
@@ -151,16 +167,16 @@ def full_diff(source, target, env, for_signature=False):
      return 'python triple_diff.py %s %s %s > %s' % (source[0], source[1], source[2], target[0]) 
 
 def error_analysis(source, target, env, for_signature=False):
-     return 'python $SCARAB_PY/error_analysis.py %s %s %s %s %s %s | tee %s' % tuple(source[:6] + [target[0]]) 
+     return 'python $SCARAB_PY/error_analysis.py --language $LANGUAGE %s %s %s %s %s %s  | tee %s' % tuple(source[:6] + [target[0]]) 
 
 def error_analysis_emit(source, target, env):
      source.append('$SCARAB_PY/error_analysis.py')
      return target, source
      
 def PrettyPosComp(source, target, env, for_signature=False):
-     tmp = "/tmp/constraints.%s"%hash(source[0])
+     tmp = "$SCARAB_ROOT/tmp/constraints.%s"%hash(str(source[0]))
      return ["grep CONSTRAINT %s > %s"%(source[0], tmp),
-             "python $SCARAB_PY/eval/pos_comp_eval.py %s %s %s %s > %s"%(source[1], source[2], source[3], tmp,target[0]),
+             "python $SCARAB_PY/eval/pos_comp_eval.py --num_gold $NUM_SENT --language $LANGUAGE %s %s %s %s  > %s"%(source[1], source[2], source[3], tmp,target[0]),
              "rm %s"%tmp]
 
 builders = {
@@ -168,6 +184,9 @@ builders = {
      Builder(generator = build_experiment,
              emit = build_experiment_emit
              ),
+
+     "BuildExperimentMulti":
+     Builder(generator = build_experiment_multi),
 
 
      "Viterbi": Builder(generator = viterbi,
@@ -188,12 +207,15 @@ builders = {
 
 
      "ToTag": Builder(generator = ctag_convert,
-                   suffix='.tagging'                      
+                      suffix='.tagging'
+                      
                       ),
 
      "CRFTagger": Builder(generator = crf_run,
                           suffix='.crf',
                           emit = crf_run_emit),
+
+     "TrainStanfordTagger": Builder(generator = stanford_train),
 
      "StanfordTagger": Builder(generator = stanford_tagger_run,
                           suffix='.crf'),
@@ -236,18 +258,29 @@ env.Append(SCARAB_PY = root + "/data_management/")
 env.Append(SCARAB_RESULTS = root + "/experiments/results/")
 env.Append(SCARAB_DATA = root + "/parse/data/")
 env.Append(SCARAB_TMP = root + "/tmp/")
+env.Append(CONLL_FILES ="/data/nlp4/srush/mikedata/roi/nips/")
 
 def register_experiment(env, exp):
 
      unk_map = env.TrainUnknown(exp.unknown_words(), exp.train_file(),
                                 UNK_THRES = exp.unk_thres)
 
+#      test_sents, corpus_desc, build_constraint_file = \
+#                  env.BuildExperimentMulti((exp.full_test_file(), exp.full_test_file_desc(), exp.build_constraint_file()),
+#                                      (unk_map,  exp.original_test_file(), exp.brown_clusters()),
+                      
+#                                      NUM_SENT = exp.num_sent(),
+#                                      LANGUAGE = exp.language,
+#                                      ADD_SENTENCES = exp.add_sent())
+
      test_sents, corpus_desc, build_constraint_file = \
                  env.BuildExperiment((exp.full_test_file(), exp.full_test_file_desc(), exp.build_constraint_file()),
                                      (unk_map,  exp.original_test_file(), exp.brown_clusters()),
                       
                                      NUM_SENT = exp.num_sent(),
+                                     LANGUAGE = exp.language,
                                      ADD_SENTENCES = exp.add_sent())
+
 
      constraints = env.BuildConstraintOld(exp.constraint_old_prefix(),
                                           (unk_map, test_sents))
@@ -271,7 +304,8 @@ def register_experiment(env, exp):
                               (unk_map, test_sents, temp_tags, exp.train_file()+".pos", build_constraint_file), 
                               CONST_TYPE=exp.constraint_type(),
                               PENALTY = exp.penalty(),
-                              NUM_SENT = exp.num_sent()
+                              NUM_SENT = exp.num_sent(),
+                              LANGUAGE = exp.language
                               )
 
      decoders = {}
@@ -294,7 +328,7 @@ def register_experiment(env, exp):
           
           tagging = env.ToTag( tagging_name, 
                      (result,
-                      test_sents))
+                      test_sents), LANGUAGE = exp.language)
 
           env.Eval( tagging_name, 
                     (tagging,
@@ -311,15 +345,18 @@ def register_experiment(env, exp):
                   )
 
      env.ErrorAnalysis(exp.result_prefix(), 
-                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
-                       )
+                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"]),
+                       LANGUAGE = exp.language)
 
      a= env.ErrorAnalysis(exp.result_prefix()+"_d", 
-                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['decomp'], flats["gold"])
+                       ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['decomp'], flats["gold"]),
+                          LANGUAGE = exp.language
                        )
 
      b = env.PrettyPosComp(exp.result_prefix()+ "_d.pretty", 
-                       (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.gold_file() +".gold"))
+                       (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.gold_file() +".gold"),
+                           NUM_SENT = exp.num_sent(),
+                           LANGUAGE = exp.language)
      return (a,b)
 def parser_run(source, target, env, for_signature=False):
      """
@@ -347,7 +384,7 @@ def parser_run_emit_so(source, target, env, for_signature=False):
 
 
 def parser_to_hypergraph(source, target, env, for_signature=False):
-     tmp = "/tmp/parse.%s"%hash(source[0])
+     tmp = "$SCARAB_ROOT/tmp/parse.%s"%hash(str(source[0]))
      return ";".join(["cat %s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], tmp),
                       "cat %s | $SCARAB_ROOT/parse/convert %s | tee %s"%(tmp, target[0], target[1]),
                       "touch %s"%(target[0]),
@@ -358,7 +395,7 @@ def parser_to_hypergraph_emit(source, target, env, for_signature=False):
      return target, source
 
 def parser_to_hypergraph_so(source, target, env, for_signature=False):
-     tmp = "/tmp/parse.%s"%hash(source[0])
+     tmp = "$SCARAB_ROOT/tmp/parse.%s"%hash(str(source[0]))
      return ";".join(["cat %s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], tmp),
                  "cat %s | $SCARAB_ROOT/parse/convert_SO %s | tee %s"%(tmp,target[0], target[1]),
                  "touch %s"%(target[0]),
@@ -406,7 +443,7 @@ def full_lp_parse_emit(source, target, env):
 def to_parse(source, target, env, for_signature=False):
      """
      """
-     return 'grep SENT %s | python $SCARAB_PY/map/unmap_sent.py %s $SCARAB_PY/map/STANFORD.map > %s' % (source[0], source[1],  target[0])
+     return 'grep SENT %s | python $SCARAB_PY/map/unmap_sent.py %s $SCARAB_PY/map/%s.map > %s'%(source[0], source[1],  env['LANGUAGE'], target[0])
 
 
 def to_parse_emit(source, target, env):
@@ -421,9 +458,19 @@ def build_parse_constraints_emit(source, target, env):
      source.append('$SCARAB_PY/parse_constraints_mrf.py')
      return target, source
 
+def build_parse_constraints_multi(source, target, env, for_signature=False):
+     """
+     """
+     
+     return 'python $SCARAB_PY/parse_constraints_mrf_multi.py  --test %s --penalty $PENALTY --train %s --linkdesc %s --constraints %s --language $LANGUAGE | tee %s'\
+            %(source[0], source[2],  target[0], target[2], target[1])
+
+def build_parse_constraints_multi_emit(source, target, env):
+     return target, source + [env['SCARAB_PY'] + '/parse_constraints_mrf_multi.py']
+
 
 def ParseComparison(source, target, env, for_signature=False):
-     tmp = "/tmp/parse_diff.%s"%(abs(hash((source[0], source[1]))))
+     tmp = "$SCARAB_ROOT/tmp/parse_diff.%s"%(abs(hash((str(source[0]), str(source[1])))))
      return ";".join(["sdiff -w 20 %s %s > %s"%(source[0],source[1], tmp),
              "paste %s %s > %s"%(tmp, source[2], target[0]),
              "rm %s"%(tmp)])
@@ -432,16 +479,27 @@ def ParseComparison_emit(source, target, env, for_signature=False):
      return target, source
 
 def PrettyComp(source, target, env, for_signature=False):
-     tmp = "/tmp/constraints.%s"%hash((source[0]))
+     tmp = "$SCARAB_ROOT/tmp/constraints.%s"%hash(str(source[0]))
      return ["grep CONSTRAINT %s > %s"%(source[0], tmp),
-             "python $SCARAB_PY/eval/dep_comp_eval.py %s %s %s %s > %s"%(source[1], source[2], source[3], tmp, target[0]),
+             "python $SCARAB_PY/eval/dep_comp_eval.py --language $LANGUAGE %s %s %s %s  > %s"%(source[1], source[2], source[3], tmp, target[0]),
              "rm %s"%(tmp)]
 
 def PrettyComp_emit(source, target, env, for_signature=False):
      return target, source
 
+def TrainParse(source, target, env, for_signature=False):
+     return 'cd $SCARAB_ROOT/third-party/mstparser/;java -Djava.io.tmpdir="/afs/csail.mit.edu/u/s/srush/h/Projects/relax-decode/tmp" -classpath \".:lib/trove.jar\" -Xmx4g mstparser.DependencyParser  train model-name:%s  train-file:%s '%(target[0], source[0])
+
+def SplitTraining(source, target, env, for_signature=False):
+     return 'python $SCARAB_PY/take_random.py $NUM $RAND %s %s %s'%(source[0], target[0], target[1])
 
 builders = {
+     "TrainParse":
+     Builder(generator = TrainParse),
+
+     "SplitTraining":
+     Builder(generator = SplitTraining),
+
      "Parse":
      Builder(generator = parser_run,
              emit = parser_run_emit),
@@ -471,6 +529,10 @@ builders = {
      "BuildParseConstraints":
      Builder(generator = build_parse_constraints,
              emit = build_parse_constraints_emit),
+
+     "BuildParseConstraintsMulti":
+     Builder(generator = build_parse_constraints_multi,
+             emit = build_parse_constraints_multi_emit),
      "ParseComparison":
      Builder(generator = ParseComparison,
              emit = ParseComparison_emit,
@@ -483,6 +545,25 @@ builders = {
 
 env.Append(BUILDERS= builders)
 
+def register_cross_val(env, exp):
+     models = []
+     for i in range(10):
+          (local_test, local_train) = env.SplitTraining(("$SCARAB_DATA/tmp_test_%s"%i, "$SCARAB_DATA/tmp_train_%s"%i ),
+                                                        exp.training_file(), RAND = i, NUM=10)
+          model = env.TrainParse("$SCARAB_ROOT/third-party/mstparser/tmp_model_%s"%i, local_train)
+
+          local_experiment = ParseExperiment(original_test= str(local_test).split('/')[-1],
+                                             prefix ="val_%s_%s"%(exp.prefix,i),
+                                             gold_file = str(local_test).split('/')[-1],
+                                             mrf_spec = "parse_constraints_big",
+                                             penalty = exp.penalty(),
+                                             model = str(model[0]).split('/')[-1],
+                                             training = str(local_train).split('/')[-1])
+          models.append(register_parse_experiment(env, local_experiment))
+
+     return models
+
+     
 def register_parse_experiment(env, exp):
      parse_out = env.ParseSO(exp.parse_out(), (exp.model(), exp.test_file()))
 
@@ -499,7 +580,9 @@ def register_parse_experiment(env, exp):
      
      src =  ( exp.test_file(), exp.mrf_spec(), exp.training_file() )
      
-     constraints_desc, mrf_link, constraints = env.BuildParseConstraints( targ,src, PENALTY=exp.penalty())
+     constraints_desc, mrf_link, constraints = env.BuildParseConstraintsMulti( targ,src,
+                                                                               PENALTY=exp.penalty(),
+                                                                               LANGUAGE=exp.language)
            
 
 
@@ -518,8 +601,8 @@ def register_parse_experiment(env, exp):
           parse_name = "%s_%s"%(exp.result_prefix(), dec_type)
           
           flats[dec_type] = env.ToParse( parse_name, 
-                     (result,
-                      exp.test_file()))
+                                         (result,exp.test_file()),
+                                         LANGUAGE = exp.language)
 
           #env.Eval( tagging_name, 
           #          (tagging,
@@ -540,65 +623,33 @@ def register_parse_experiment(env, exp):
                          )
 
      b = env.PrettyComparison(exp.result_prefix()+ "_d.pretty", 
-          (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.test_file()))
+          (decoders["decomp"], flats["viterbi"], flats['decomp'], exp.test_file()), LANGUAGE=exp.language)
 
      #env.ErrorAnalysis(exp.result_prefix(), 
      #                  ( flats["gold"], unk_map, marginals, flats["viterbi"], flats['lp'], flats["gold"])
      #                  )
 
      return (b,)
-# register_experiment(env, small_brown_3)
-# register_experiment(env, small_brown_10)
-# register_experiment(env, small_brown_10_hard)
-# register_experiment(env, small_brown_50)
-# register_experiment(env, small_brown_100_hard)
-# register_experiment(env, small_brown_100)
-# register_experiment(env, small_brown_500)
-# register_experiment(env, small_brown_500_potts)
-# register_experiment(env, small_brown_200)
-# register_experiment(env, small_brown_200_potts)
-# #register_experiment(env, small_brown_extra_5)
-# register_experiment(env, small_brown_extra20_5)
-# register_experiment(env, small_brown_extra20_200)
-
-# register_experiment(env, small_brown_extra10_5_05)
-# register_experiment(env, small_brown_extra10_5_2)
-# register_experiment(env, small_brown_extra10_5_5)
-
-# register_experiment(env, small_brown_5_05)
-# register_experiment(env, small_brown_5_2)
-# register_experiment(env, small_brown_5_5)
-# register_experiment(env, small_clust_5)
-# register_experiment(env, big_clust_5)
-# register_experiment(env, big_clust_4)
-# register_experiment(env, big_clust_1)
-# register_experiment(env, big_clust_05)
-#register_experiment(env, small_experiment)
-# register_experiment(env, small_experiment2)
-# register_experiment(env, physics_experiment)
-# register_experiment(env, religious_experiment)
-# register_experiment(env, bigger_experiment)
-# register_experiment(env, bigger_experiment2)
-# register_experiment(env, little_experiment)
-# register_experiment(env, little_experiment_add)
-# register_experiment(env, little_experiment_add2)
-# register_experiment(env, little_experiment_add2_small)
-# register_experiment(env, little_experiment_add2_mid)
-
-# register_experiment(env, bigger_experiment_add)
-# register_experiment(env, small_experiment_add2_mid)
-# register_experiment(env, small_experiment_add2_heavy)
-#register_experiment(env, dev_experiment_add)
 
 # all = ()
-# for i in range(200):
-#      all += register_experiment(env, dev_experiment(i))
+# for i in range(50, 482):
+#      all += register_experiment(env, dev_experiment_100(i))
 # env.Alias( "dev_experiment", all)
+
+# all = ()
+# for i in range(20):
+#      all += register_experiment(env, dev_experiment_100_lower(i))
+# env.Alias( "dev_experiment_lower", all)
 
 # all2 = ()
 # for i in range(482):
-#      all2 += register_experiment(env, test_experiment(i))
-# env.Alias( "test_experiment", all2)
+#      all2 += register_experiment(env, test_experiment(i, size=100))
+# env.Alias( "test_experiment_100", all2)
+
+all2 = ()
+for i in range(482):
+     all2 += register_experiment(env, test_experiment(i, size=500))
+env.Alias( "test_experiment_500", all2)
 
 
 # for i in range(30, 50):
@@ -626,50 +677,378 @@ def register_parse_experiment(env, exp):
 #      all += register_experiment(env, dev_experiment(i))
 # env.Alias( "dev_experiment4", all)
 
-
-#registe_parse_experiment(env, small_parse_experiment)
-# register_parse_experiment(env, parse_experiment)
-# register_parse_experiment(env, parse_experiment2)
-# register_parse_experiment(env, parse_experiment_big)
-# register_parse_experiment(env, parse_experiment_gentle)
-# register_parse_experiment(env, parse_experiment_gentle2)
-# register_parse_experiment(env, parse_experiment_wide)
-# register_parse_experiment(env, parse_experiment_gentle_full)
-# register_parse_experiment(env, parse_experiment_gentle_size)
+env.Alias("pos_german", register_experiment(env,german_exp))
 
 
-# register_parse_experiment(env, parse_experiment_gentle_mi_full)
-# register_parse_experiment(env, parse_experiment_gentle_mi_bigger)
-# register_parse_experiment(env, parse_experiment_gentle_mi_bigger2)
-# register_parse_experiment(env, parse_experiment_gentle_mi_small)
-# register_parse_experiment(env, parse_experiment_gentle_mihard_bigger)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asym_bigger)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asym_full)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asym2_full)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymroi_full)
-
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_full)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger2)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger4)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger5)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger6)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger7)
-# register_parse_experiment(env, parse_experiment_gentle_mi_asymlow_bigger8)
-# register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_500)
-# register_parse_experiment(env, parse_experiment_strong_mi_asymlow_bigger_100)
 
 register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny)
 # register_parse_experiment(env, parse_experiment_strong_mi_asymlow_tiny2)
 
+# all = ()
+# for i in range(12):
+#      all += register_parse_experiment(env, parse_dev_experiment(i))
+# env.Alias( "parse_dev_experiment", all)
+
 all = ()
-for i in range(12):
-     all += register_parse_experiment(env, parse_dev_experiment(i))
-env.Alias( "parse_dev_experiment", all)
+for i in range(1, 12):
+     all += register_parse_experiment(env, parse_dev_experiment_size(i,50, "full", 0.7))
+env.Alias( "parse_dev_experiment2", all)
 
 
-all = ()
-for i in range(23):
-     all += register_parse_experiment(env, parse_test_experiment(i))
-env.Alias( "parse_test_experiment", all)
+# all = ()
+# for i in range(12):
+#      all += register_parse_experiment(env, parse_dev_experiment_size(i,500, "full", 0.3))
+# env.Alias( "parse_dev_experiment3", all)
 
+
+# all = register_cross_val(env, parse_dev_experiment_size(1,100, "", 0.3))
+# env.Alias( "parse_cross_val", all)
+
+all = register_parse_experiment(env, parse_dev_experiment_size(1,50))
+env.Alias( "parse_dev_full_experiment", all)
+
+all = register_parse_experiment(env, parse_dev_experiment_size(1,100))
+env.Alias( "parse_dev_size", all)
+
+all = register_parse_experiment(env, parse_dev_experiment_size(1,50, "pre", 0.7))
+env.Alias( "parse_dev_size_5", all)
+
+all = register_parse_experiment(env, parse_dev_experiment_size(1,500, "pre", 0.3))
+env.Alias( "parse_dev_size_6", all)
+
+# all = register_parse_experiment(env, parse_dev_experiment_size(3,100, "pre", 0.3))
+# env.Alias( "parse_dev_size_7", all)
+
+# all = register_parse_experiment(env, parse_dev_experiment_size(3,500, "pre", 0.7))
+# env.Alias( "parse_dev_size_8", all)
+
+
+# all = register_parse_experiment(env, parse_dev_experiment_size(1,50))
+# env.Alias( "parse_dev_size2", all)
+
+# all = register_parse_experiment(env, parse_dev_experiment_size(1,500))
+# env.Alias( "parse_dev_size3", all)
+
+# all = register_parse_experiment(env, simple_parse)
+# env.Alias( "parse_simple", all)
+
+
+
+
+
+# all = ()
+# for i in range(23):
+#      all += register_parse_experiment(env, parse_test_experiment(i))
+# env.Alias( "parse_test_experiment", all)
+
+# all = ()
+# for i in range(23):
+#      all += register_parse_experiment(env, parse_test_experiment(i, modelsize=100, penalty =0.3))
+# env.Alias( "parse_test_experiment_100", all)
+
+# all = ()
+# for i in range(23):
+#      all += register_parse_experiment(env, parse_test_experiment(i, modelsize=200, penalty =0.3))
+# env.Alias( "parse_test_experiment_200", all)
+
+# all = ()
+# for i in range(23):
+#      all += register_parse_experiment(env, parse_test_experiment(i, modelsize=500, penalty =0.3))
+# env.Alias( "parse_test_experiment_500", all)
+
+
+
+# SETUP FOR PARSING EXPERIMENTS
+
+def setup_parsing_experiment(env, language, size = 50):
+     all = ()
+     src = ("$CONLL_FILES/%s_pos_punc"%language,
+            "$CONLL_FILES/%s_direction"%language)
+     targ = ("$SCARAB_ROOT/data_management/map/%s.conf"%language,)
+     all += env.Command(targ, src,"python $CONLL_FILES/extract.py %s %s > %s "%(src + targ))
+     
+
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language,size),)
+     all +=  env.Command(targ, src,
+                 "zcat %s  | python $SCARAB_PY/remove_labels.py | python $SCARAB_PY/take_chunks.py %s - > %s"%(src + (size,)+ targ))
+
+
+     src= ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language,size),)
+     targ= ("$SCARAB_DATA/%s_%s"%(language,size),)
+
+     all +=  env.Command(targ, src,
+                         "cp %s %s"%(src + targ))
+
+     src= ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language,size),)
+     all += env.TrainParse(("$SCARAB_ROOT/third-party/mstparser/%s_%s.model"%(language,size),), src)
+     
+     src = ("$CONLL_FILES/%s_pos_list"%language,)
+     targ= ("$SCARAB_ROOT/data_management/map/%s.map"%language,)
+     all += env.Command(targ, src, "python $CONLL_FILES/add_extra.py < %s > %s"%(src + targ))
+
+
+     all_dev = "$SCARAB_DATA/%s_parse_dev"%language
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= (all_dev,)
+     all += env.Command(targ, src, "zcat %s |  python $SCARAB_PY/remove_labels.py | python $SCARAB_PY/drop_chunks.py 500 - | python $SCARAB_PY/take_chunks.py 500 - > %s"%(src + targ))
+
+     dev_data = "$SCARAB_DATA/parse_dev_%s"%language
+     Mkdir(dev_data)
+
+     #src = ("$CONLL_FILES/%s.train.gz"%language,)
+     src = (all_dev,)
+     targ= tuple([dev_data + "/dev_%s"%i for i in range(5)])
+
+     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 dev \"\" "%src)
+
+
+     # TEST
+     all_test = "$SCARAB_DATA/%s_parse_test"%language
+     src = ("$CONLL_FILES/%s.test.gz"%language,)
+     targ= (all_test,)
+     all += env.Command(targ, src, "zcat %s |  python $SCARAB_PY/remove_labels.py > %s"%(src + targ))
+
+     test_data = "$SCARAB_DATA/parse_test_%s"%language
+     Mkdir(test_data)
+
+     src = (all_test,)
+     targ= tuple([test_data + "/test_%03d"%i for i in range(30)])
+
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 test \"\" "%src)
+
+     all_test = "$SCARAB_DATA/%s_parse_test_ext"%language
+     src = ("$CONLL_FILES/%s_extended_test.gz"%language,)
+     targ= (all_test,)
+     all += env.Command(targ, src, "zcat %s |  python $SCARAB_PY/remove_labels.py > %s"%(src + targ))
+
+     test_data = "$SCARAB_DATA/parse_test_%s_ext"%language
+     Mkdir(test_data)
+
+     src = (all_test,)
+     targ= tuple([test_data + "/test_%03d"%i for i in range(5)])
+
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 test \"\" "%src)
+
+     return all
+
+
+
+def setup_big_experiment(env, language, skip , size):
+     all = []
+     all_dev = "$SCARAB_DATA/%s_parse_big_dev"%language
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= (all_dev,)
+     all += env.Command(targ, src, "zcat %s |  python $SCARAB_PY/remove_labels.py | python $SCARAB_PY/drop_chunks.py %s - | python $SCARAB_PY/take_chunks.py %s - > %s"%(src + (skip, size) + targ))
+
+     dev_data = "$SCARAB_DATA/parse_big_dev_%s"%language
+     Mkdir(dev_data)
+
+     src = (all_dev,)
+     targ= tuple([dev_data + "/dev_%s"%i for i in range(5)])
+
+     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 dev \"\" "%src)
+     return all
+
+
+lang = ('danish', 'german', 'spanish',  'bulgarian', 'japanese')
+train_size = {
+     'bulgarian' : 12823,
+     'danish':   5190,
+     'german':   39216,
+     'japanese': 17044,
+     'spanish' : 3306
+     }
+
+env.Alias("spanish_setup_3000", setup_parsing_experiment(env, 'spanish', size=3000))
+env.Alias("spanish_setup_big_3000", setup_big_experiment(env, 'spanish', skip=3000, size=306))
+all = []
+for j in range(4):
+     all += register_parse_experiment(env, parse_language_big(j, 'spanish', penalty =0.3, size=3000))
+env.Alias("spanish_parse_3000", all)
+
+env.Alias("bulgarian_setup_12000", setup_parsing_experiment(env, 'bulgarian', size=12000))
+env.Alias("bulgarian_setup_big_12000", setup_big_experiment(env, 'bulgarian', skip=12000, size=800))
+all = []
+for j in range(8):
+     all += register_parse_experiment(env, parse_language_big(j, 'bulgarian', penalty =0.3, size=12000))
+env.Alias("bulgarian_parse_12000", all)
+
+
+size = {'danish': 322,
+        'german': 357,
+        'spanish': 206,
+        'bulgarian': 398,
+        'japanese': 709}
+
+extended_size = {
+     'danish': 1342,
+     'german': 1487,
+     'spanish': 1044,
+     'bulgarian': 1728,
+     'japanese': 2840
+     }
+full  = [] 
+
+# for l in lang:
+#      setup = env.Alias("%s_setup_25"%l, setup_parsing_experiment(env, l, size=25) )
+#      full += setup
+#      all = []
+#      for j in range(5):
+#           all += register_parse_experiment(env, parse_language(j, l, penalty =0.7, size=25))
+#      full += env.Alias("parse_%s_25"%l, all)
+#      test = []
+#      for j in range(int(size[l]/100) +1):
+#           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=25))
+
+
+for l in lang:
+     full +=  env.Alias("%s_setup"%l, setup_parsing_experiment(env, l) )
+     all = []
+     for j in range(5):
+          all += register_parse_experiment(env, parse_language(j, l, penalty =0.5))
+     full += env.Alias("parse_%s"%l, all)
+     test = []
+     for j in range(int(size[l]/100) +1):
+          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=50))
+     env.Alias("parse_test_%s"%l, test)
+
+     ext_test = []
+     for j in range(int(extended_size[l]/100) +1):
+          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=50, extended=True))
+     env.Alias("parse_ext_test_%s"%l, ext_test)
+
+all_test = []
+all_ext_test = []
+for l in lang:
+     full += env.Alias("%s_setup_100"%l, setup_parsing_experiment(env, l, size=100) )
+     all = []
+     for j in range(5):
+          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=100))
+     full += env.Alias("parse_%s_100"%l, all)
+     test = []
+     for j in range(int(size[l]/100) +1):
+          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100))
+     env.Alias("parse_test_%s_100"%l, test)
+     all_test += test
+
+     ext_test = []
+     for j in range(int(extended_size[l]/100) +1):
+          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100, extended=True))
+     env.Alias("parse_ext_test_%s_100"%l, ext_test)
+     all_ext_test += ext_test
+
+env.Alias("parse_test_100", all_test)
+env.Alias("parse_ext_test_100", all_ext_test)
+
+all_test =[]
+all_ext_test = []
+for l in lang:
+     full += env.Alias("%s_setup_200"%l, setup_parsing_experiment(env, l, size=200) )
+     all = []
+     for j in range(5):
+          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=200))
+     full += env.Alias("parse_%s_200"%l, all)
+     test = []
+
+     for j in range(int(size[l]/100) +1):
+          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200))
+     env.Alias("parse_test_%s_200"%l, test)
+     all_test += test
+
+     ext_test = []
+     for j in range(int(extended_size[l]/100) +1):
+          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200, extended=True))
+     env.Alias("parse_ext_test_%s_200"%l, ext_test)
+     all_ext_test += ext_test
+
+env.Alias("parse_test_200", all_test)
+env.Alias("parse_ext_test_200", all_ext_test)
+
+all_ext_test = []
+for l in lang:
+     full += env.Alias("%s_setup_500"%l, setup_parsing_experiment(env, l, size=500) )
+     all = []
+     for j in range(5):
+          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=500))
+     full += env.Alias("parse_%s_500"%l, all)
+     test = []
+     for j in range(int(size[l]/100) +1):
+          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500))
+     env.Alias("parse_test_%s_500"%l, test)
+
+     ext_test = []
+     for j in range(int(extended_size[l]/100) +1):
+          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500, extended=True))
+     env.Alias("parse_ext_test_%s_500"%l, ext_test)
+     all_ext_test += ext_test
+
+env.Alias("parse_ext_test_500", all_ext_test)
+
+#      for j in range(int(size[l]/100) +1):
+#           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500))
+#      env.Alias("parse_test_%s_500"%l, test)
+#      all_test += test
+# env.Alias("parse_test_500", all_test)
+
+
+# for l in lang:
+#      full += env.Alias("%s_setup_2000"%l, setup_parsing_experiment(env, l, size=2000) )
+#      all = []
+#      for j in range(5):
+#           all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=2000))
+#      full += env.Alias("parse_%s_2000"%l, all)
+
+
+# # for l in lang:
+# #      full += env.Alias("%s_setup_5000"%l, setup_parsing_experiment(env, l, size=5000) )
+# #      all = []
+# #      for j in range(5):
+# #           all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=5000))
+# #      full += env.Alias("parse_%s_5000"%l, all)
+
+# env.Alias("all_dev", full)
+
+# SETUP FOR PARSING EXPERIMENTS
+
+def setup_tagging_experiment(env, language):
+     train = "$SCARAB_DATA/%s_gold_50.pos"%language
+     model = "$SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/models/%s_50.model"%language
+     props = "$SCARAB_DATA/%s_50.props"%language
+     all = ()
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ = (train,)
+     all += env.Command(targ, src,
+                        "zcat  %s | python $SCARAB_PY/format/convert_to_simple_tag.py  _ | head -n 50 > %s "%(src + targ))
+
+     targ = (props,)
+     all += env.Command(targ, (),
+                        "python $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/models/make_train.py %s > %s "%((language,) + targ))
+     
+          
+     src = (props, train)
+     targ= (model,)
+     all +=  env.TrainStanfordTagger(targ, src)
+     
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= ("$SCARAB_DATA/%s_dev_gold.gold"%language,)
+     all += env.Command(targ, src, "zcat %s | python $SCARAB_PY/format/convert_to_simple_tag.py / | tail -n 100 > %s"%(src + targ))
+
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= ("$SCARAB_DATA/%s_dev"%language,)
+     all += env.Command(targ, src, "zcat %s | python $SCARAB_PY/format/convert_to_simple.py | tail -n 100 > %s"%(src + targ))
+
+
+     src = ("$CONLL_FILES/%s.train.gz"%language,)
+     targ= ("$SCARAB_DATA/%s_gold_50"%language,)
+     all +=  env.Command(targ, src,
+                 "zcat %s  |  python $SCARAB_PY/take_chunks.py 50 - > %s"%(src + targ))
+
+     
+     return all
+
+for l in ('german',):
+     env.Alias("%s_pos_setup"%l, setup_tagging_experiment(env, l) )
+
+#java -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.GlobalHolder -model
+#models/german_50.model                      

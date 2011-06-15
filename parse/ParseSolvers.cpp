@@ -75,6 +75,9 @@ void ParserDual::solve_one(int sent_num, double & primal, double & dual, wvector
   
   best_derivations[sent_num] = best_edges;
   
+  cout << endl << "REDO: " <<sent_num << " ";
+  parser.show_derivation(best_derivations[sent_num]);  
+  
 }
 
 

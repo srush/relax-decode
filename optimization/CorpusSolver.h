@@ -40,7 +40,7 @@ class CorpusSolver:public DualDecompositionSubproblem {
            dirtied ++;
          }
          _dirty_cache[sent] = true;
-
+         //constraints[group]->show_derivation(best_derivations[group]);
          
        }
      }

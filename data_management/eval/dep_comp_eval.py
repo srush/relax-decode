@@ -3,7 +3,15 @@ sys.path.append(os.getenv("SCARAB_ROOT")+"/data_management/")
 from itertools import *
 from map.unmap_pos import * 
 from format.conll import *
+try:
+  argv = FLAGS(sys.argv)  
+except flags.FlagsError, e:
+  print >>sys.stderr, '%s\\nUsage: %s ARGS\\n%s' % (e, sys.argv[0], FLAGS)
+  sys.exit(1)
+
 unmap = Unmapper()
+
+
 class ConstraintOut:
   def __init__(self, label, deps, pos, trains ):
     self.label = label
@@ -88,6 +96,7 @@ def display_sent(test_sent, extra_sent, gold_sent):
       #assert int(t[0]) == gold_word.num
 
 def eval_word(test_sent, extra_sent, gold_sent, ind):
+
   test_word = test_sent[ind]
   extra_word = extra_sent[ind]
   gold_word = gold_sent.words[ind+1]
@@ -123,10 +132,10 @@ def eval_word(test_sent, extra_sent, gold_sent, ind):
 
 
 if __name__ == "__main__":
-  viterbi_file = open(sys.argv[1])
-  extra_file = open(sys.argv[2])
-  gold_file = open(sys.argv[3])
-  constraint_results = open(sys.argv[4])
+  viterbi_file = open(argv[1])
+  extra_file = open(argv[2])
+  gold_file = open(argv[3])
+  constraint_results = open(argv[4])
 
   constraints = list(ConstraintOut.from_handle(constraint_results))
 

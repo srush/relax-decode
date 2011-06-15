@@ -3,8 +3,9 @@ from format.conll import *
 from format.simple import *
 from StringIO import StringIO
 import sys
-punc = set(["CD", "$", "#", ":", ""])
-bigpunc = set(["CD", ",", ".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "**", "*ROOT*", "ROOT"])
+# punc = set(["CD", "$", "#", ":", ""])
+# bigpunc = set(["CD", ",", ".", "$", "-RRB-", "-LRB-", "#", "``", "''", ":", "", "**", "*ROOT*", "ROOT"])
+from map.unmap_pos import *
 
 class Context:
   def __init__(self, left, word, right):
@@ -77,10 +78,9 @@ class Context:
 # constraints_00110000               constraints_00111000
 # constraints_00111100               constraints_01111000
 # constraints_11110000               data_tokenized_context/       
-def coarsen(pos):
-  if pos[:2] == "NN":
-    return pos[:2]
-  return pos
+
+# def coarsen_multi(pos):
+#   return pos[:1]
 
 class GeneralContext:
   SIZE = 4
@@ -116,13 +116,14 @@ class GeneralContext:
     ]
 
   
-  def __init__(self, word, boundaries, mask= None):
+  def __init__(self, word, boundaries, coarse , mask= None ):
     self.word = word
     assert len(boundaries) == GeneralContext.SIZE *2
     self.boundaries = boundaries
     self._mask = mask
+    self._coarse = coarse
 
-  def punc_check(self):
+  def punc_check(self, punc, bigpunc):
     if self.word.pos in bigpunc:
       return False
     if any([w.pos in punc for w in self.boundaries]):
@@ -135,7 +136,8 @@ class GeneralContext:
       #print >>sys.stderr, w.pos, w.word
       #if w.pos == "IN" or w.pos == "TO":
       #  return w.pos + "(" + w.word.lower() +")"
-      return coarsen(w.pos)
+      return self._coarse(w.pos)
+      #return w.pos
     
     return tuple( [get_pos(w) for w in self.boundaries] + [get_pos(self.word)]) #(self.left.pos, self.word.pos, self.right.pos)
 
@@ -155,17 +157,17 @@ class GeneralContext:
         new_boundaries.append(word)
       else:
         new_boundaries.append(SimpleWord(None, "*"))
-    return GeneralContext(self.word, new_boundaries, mask)
+    return GeneralContext(self.word, new_boundaries, self._coarse, mask)
 
   @staticmethod
   def from_string(s):
     tmp = s.strip().split()
     boundaries = [ SimpleWord(None, w) for w in tmp[:GeneralContext.SIZE*2]]
     word = SimpleWord(None, tmp[GeneralContext.SIZE*2])
-    return GeneralContext(word, boundaries)
+    return GeneralContext(word, boundaries, self._coarse)
   
   @staticmethod
-  def make_context(sent, i):
+  def make_context(sent, i, coarse):
     word = sent.words[i]
     boundaries = []
     #print >>sys.stderr, "Make Contexts"
@@ -180,13 +182,13 @@ class GeneralContext:
         #print >>sys.stderr, sent.words[pos].pos, sent.words[pos].word 
         boundaries.append(sent.words[pos])
         
-    return GeneralContext(word,boundaries)
+    return GeneralContext(word,boundaries, coarse)
 
   @staticmethod
-  def contexts_from_sent(sent):
+  def contexts_from_sent(sent, coarse):
     #print >>sys.stderr, "Contexts"
     for i, words in sent.enum_words():
-      local_context = GeneralContext.make_context(sent, i)
+      local_context = GeneralContext.make_context(sent, i, coarse)
       yield local_context
       
 def constraints_from_context(sent, context):
