@@ -18,7 +18,7 @@ else:
 env.Append(ROOT=build_config['scarab_root'])
 
 sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest', 
-            '#/parse', '#/tagger', '#/optimization', '#/phrasebased']
+            '#/parse', '#/tagger', '#/optimization', '#/mrf', '#/phrasebased']
 
 
 
