@@ -85,7 +85,7 @@ class DualDecomposition {
                     SubgradRate & rate
                     ): 
   _runner(s1, s2), 
-    _subgradsolver(_runner, rate){}
+    subgradsolver(_runner, rate){}
 
   /** 
    * Solve the subgradient problem
@@ -93,10 +93,10 @@ class DualDecomposition {
    * @param example For logging 
    */  
   void solve(int example) {
-    _subgradsolver.solve(example);
+    subgradsolver.solve(example);
   }
 
-  Subgradient _subgradsolver;
+  Subgradient subgradsolver;
 
  private:  
   DualDecompositionRunner _runner;

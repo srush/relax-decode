@@ -101,6 +101,8 @@ env.Program('run_decomp_tagger', ("DecompTagger.cpp", )+ local_libs, LIBS = libs
 
 #env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
 
+env.Program('example1', ("examples/Example1.cpp", )+ local_libs, LIBS = libs)
+
 
 if build_config['has_gurobi']:
    env.Program('run_full_parser', ("FullParser.cpp", )+ local_libs)

@@ -6,7 +6,6 @@
 #include <iomanip>
 
 #include "common.h"
-#include <boost/program_options.hpp>
 #include "lexical.pb.h"
 #include "tagger/TagConstraints.h"
 #include "tagger/TagSolvers.h"
