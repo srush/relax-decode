@@ -7,8 +7,6 @@ from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 
-import hypergraph_pb2
-
 DESCRIPTOR = descriptor.FileDescriptor(
   name='dep.proto',
   package='',
@@ -75,7 +73,8 @@ _DEP = descriptor.Descriptor(
   serialized_end=63,
 )
 
-DESCRIPTOR.message_types_by_name['Dep'] = _DEP
+import hypergraph_pb2
+
 
 class Dep(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType

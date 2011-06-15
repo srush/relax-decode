@@ -64,7 +64,7 @@ void SplitController::initialize_hypotheses(const Hypernode & node, vector <Hypo
   int graph_id = _lattice.get_word_from_hypergraph_node(node.id());
   
   if (_subproblem.is_overridden(graph_id)) {
-    cout << "Overridden " <<  node.label()  << endl;
+    //cout << "Overridden " <<  node.label()  << endl;
     for (int d2 = 0; d2 < dim(); d2++) {
       vector <int> hooks(2);
       vector <int> right_side(2);
@@ -74,7 +74,7 @@ void SplitController::initialize_hypotheses(const Hypernode & node, vector <Hypo
       hooks[0] = project_word(w1);
       hooks[1] = d2;
 
-      right_side[0] =project_word(graph_id);
+      right_side[0] = project_word(graph_id);
       right_side[1] = hooks[0];
 
       Hypothesis * h = new Hypothesis(State(hooks, dim()), State(right_side,dim()));
@@ -103,7 +103,7 @@ void SplitController::initialize_hypotheses(const Hypernode & node, vector <Hypo
                                                       _classes[d2]);
 
         bool has_no_trigram = _subproblem.has_no_trigram(graph_id);
-        cout << node.label() << " " << has_no_trigram << " " << score<<endl;
+        //cout << node.label() << " " << has_no_trigram << " " << score<<endl;
         // HACK! Words below ORDER have no previous word 
         if (score >=  1000 && !has_no_trigram ) continue;           
         if (has_no_trigram) {

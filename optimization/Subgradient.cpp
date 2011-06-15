@@ -47,7 +47,8 @@ bool Subgradient::run_one_round() {
   //cout << endl;
   clock_t start=clock();
   bool bump =false; 
-  _s.solve(primal, dual, subgrad, _round, _is_stuck, bump);
+  bool no_update = false;
+  _s.solve(primal, dual, subgrad, _round, _is_stuck, bump,no_update);
 
   clock_t end;
   if (TIMING) {
@@ -72,11 +73,15 @@ bool Subgradient::run_one_round() {
     cout << "BEST PRIMAL" << _best_primal << endl;
     cout << "BEST DUAL" << _best_dual << endl;
     cout << "Round " << _round << endl; 
+    cout << "Update? " << !no_update << endl; 
+    cout << "GAP " << fabs(_best_primal - _best_dual) << endl;
   }
   //assert (_best_primal >= _best_dual);
 
-  if (subgrad.normsquared() > 0.0) {
-    update_weights(subgrad, bump);
+  if (subgrad.normsquared() > 0.0 && _best_primal - _best_dual  > 0.001 ) {
+    if (!no_update) {
+      update_weights(subgrad, bump);
+    }
     //cout << endl;
     return true;
   } else {
@@ -108,7 +113,8 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
 
   if (bump) {
     _aggressive = true;
-    //_base_weight *=0.1;
+    //rate->_base_weight *=10.0;
+    rate->bump();
   }
   
   double alpha = rate->get_alpha(_duals, _primals, size, _aggressive, _is_stuck);

@@ -1,7 +1,7 @@
 #ifndef BIGRAMRESCORE_H_
 #define BIGRAMRESCORE_H_
 
-
+#include <cmath>
 #include "ForestLattice.h"
 #include "GraphDecompose.h"
 #include <iostream>
@@ -23,6 +23,9 @@ class BigramRescore {
     assert(w1 >= 0);
     assert(w2 >= 0);
 
+    // for testing 
+    //get_bigram_weight(w1, w2);
+
     Node no1 = graph->lookup_word(w1);
     Node no2 = graph->lookup_word(w2);
 
@@ -36,13 +39,22 @@ class BigramRescore {
 
     if (bigram_path[n1][n2]->empty()) {
       reconstruct_path(n1, n2, best_split, *bigram_path[n1][n2]);
-      //bigram_path[n1][n2]->push_back(w2);
-    }
+      
+      // We do NOT want this since many node-node paths 
+      // bigram_path[n1][n2]->push_back(w2);
+     }
 
     //cout << "PATH " << n1 << " " << n2 << endl;
-    //for (int i=0; i< bigram_path[n1][n2]->size(); i++) {
-      //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl; 
-    //} 
+    // SANITY CHECK (remove!)
+    
+    //double should_score = 0.0;
+    /* foreach (int id, (*bigram_path[n1][n2])) { */
+    /*   //cout << "\t on path" << (*bigram_path[n1][n2])[i]<< endl; */
+    /*   should_score += current_weights[id]; */
+    /*   cout << "BIGRAMPATH" << " " << id << " " << current_weights[id] << endl; */
+    /* } */
+    //cout << should_score << " " << bigram_weights[n1][n2] << " " << n1 << " " << n2 << endl;
+    //assert (fabs(should_score -bigram_weights[n1][n2]) < 1e-4);
 
     assert (bigram_path[n1][n2] != NULL); 
     //cout << bigram_path[n1][n2]->size() << endl;

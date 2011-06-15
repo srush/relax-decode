@@ -51,7 +51,7 @@ int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   google::ParseCommandLineFlags(&argc, &argv, true);
 
-  int sent = -1;
+  int sent = 0;
   int last_nonterm_node = -1;
   string name = FLAGS_hypergraph_prefix;
   Hypergraph * h;
@@ -63,6 +63,7 @@ int main(int argc, char ** argv) {
   Hypergraph_Edge * edge;
   int sent_num, length, num_nodes,num_edges;
   //CodedOutputStream::SetTotalBytesLimit(5000000000, 5000000000);
+  
   while (in) {
     string blank;
     string t1;
@@ -70,7 +71,7 @@ int main(int argc, char ** argv) {
     //t = l.strip().split();
     if (t1 == "#SENT:") {
       // flush last sent
-      if (sent!= -1) {
+      if (sent!= 0) {
 
         // need to add <s> and </s>
         int subroot = last_nonterm_node;
@@ -78,11 +79,13 @@ int main(int argc, char ** argv) {
 
         {
           node = h->add_node();
+          node->set_label("NEW ROOT");
           edge = node->add_edge();
           Hypergraph_Node * wnode;
           for (int start=0; start < 2; start++) {
             wnode = h->add_node();
             wnode->set_id(cur_word_node_id);
+            wnode->set_label("Front");
             wnode->SetExtension(is_word, true);
             wnode->SetExtension(word, "<s>");
             edge->add_tail_node_ids(cur_word_node_id);
@@ -92,12 +95,15 @@ int main(int argc, char ** argv) {
           for (int end=0; end < 2; end++) {
             wnode = h->add_node();
             wnode->set_id(cur_word_node_id);
+            wnode->set_label("Back");
             wnode->SetExtension(is_word, true);
             wnode->SetExtension(word, "</s>");
             edge->add_tail_node_ids(cur_word_node_id);
             cur_word_node_id++;
           }
           node->set_id(cur_word_node_id);
+          edge->set_id(cur_edge_id);
+          cur_edge_id++;
           h->set_root(cur_word_node_id);
           cur_word_node_id++;
         }
@@ -169,7 +175,8 @@ int main(int argc, char ** argv) {
           rule_s >> r;
           if (r=="") break;
           rhs.push_back(r);
-          if (r[0] == '[') {
+          
+          if (r[0] == '[' && r[r.size()-1] ==']') {
             // HACK! (assume that there are <10 rules and sym are one letter
             int o = (int)(r[3] -'0')-1;
             // has a node

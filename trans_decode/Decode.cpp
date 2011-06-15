@@ -12,13 +12,13 @@
 
 #include "SplitDecoder.h"
 #include "../common.h"
-#define TIMING 0
-#define DEBUG 0
+#define TIMING 1
+#define DEBUG 1
 #define SIMPLE_DEBUG 1
 #define GREEDY 0
 //#define BACK 2
 
-
+#define COLOR_WORDS 1
 
 // TODO - Make this support n-grams 
 void Decode::update_weights(const wvector & update,  wvector * weights ) {
@@ -67,8 +67,10 @@ vector <int > Decode::get_lat_edges(int edge_id) {
 
 void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_at, bool first) {
   //cout << _lattice.get_word(end_at) << " "<<_lattice.get_word(mid_at) << " " << _lattice.get_word(start_from) << " " <<endl;      
+  double local_lag_total =0.0;
   if (! first) {
     vector <int > between1 = _subproblem->get_best_nodes_between(start_from,mid_at, 0);
+    double b1_lag = 0.0;
     //cout << "Size!" << between1.size() << endl;
     //double lag_total =0.0;
     for (int k = between1.size() -1 ; k >=0 ; k--) {        
@@ -79,10 +81,9 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
       
 
       if (DEBUG) {
-        cout << _lattice._edge_label_by_nodes[node_id] << " (" << node_id << ") ";  
-        
-        lag_total += (*_lagrange_weights)[node_id ] ;
-      
+        //cout << _lattice._edge_label_by_nodes[node_id] << " (" << node_id << ") ";  
+        b1_lag +=(*_lagrange_weights)[node_id ] ;
+        //cout << "LAG " << node_id << " "  << (*_lagrange_weights)[node_id ]  << endl;
       }
 
       subgrad[node_id] -= 1;
@@ -90,11 +91,14 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
     }
     
     if (DEBUG) {
-      cout << endl;
+      assert(fabs(-b1_lag - _subproblem->get_best_bigram_weight(start_from, mid_at, 0)) < 1e-3);
+      local_lag_total +=  b1_lag;
+      lag_total +=  b1_lag;
+      //cout << endl;
     }
   }
   const vector <int> between2 = _subproblem->get_best_nodes_between(mid_at, end_at, 1);
-  
+  double b2_lag = 0.0;
   //cout << "Size!" << between2.size() << endl;
   for (int k = between2.size()-1; k >=0 ; k--) {
     int node_id = between2[k];
@@ -103,24 +107,29 @@ void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_
     subgrad[node_id + GRAMSPLIT] -= 1;
    
     if (DEBUG) {
-      lag_total += (*_lagrange_weights)[node_id + GRAMSPLIT] ;
-      
-      cout << _lattice._edge_label_by_nodes[node_id] << " [" << node_id << "] ";
+      b2_lag += (*_lagrange_weights)[node_id + GRAMSPLIT] ;
+      //cout << _lattice._edge_label_by_nodes[node_id] << " [" << node_id << "] ";
     }
-
-
   }
   if (DEBUG) {
-    cout << endl;
+    assert((-b2_lag - _subproblem->get_best_bigram_weight(mid_at, end_at, 1)) < 1e-3);
+    lag_total +=  b2_lag;
+    local_lag_total +=  b2_lag;
+    //cout << endl;
   }
 
   if (DEBUG) {
     double lm_score = (lm_weight()) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
     //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
 
-    cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
-         << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << " " << 
-      _lattice.lookup_word(start_from) << " " <<   -lag_total << " " << lm_score << " " << lm_score - lag_total<<endl;
+    // cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
+    //      << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << " " << 
+    //   _lattice.lookup_word(start_from) << " " <<   -local_lag_total << " " << lm_score << " " << lm_score - local_lag_total<<endl;
+    
+    double w =0; 
+    w += _subproblem->get_best_bigram_weight(start_from, mid_at, 0);
+    w += _subproblem->get_best_bigram_weight(mid_at, end_at, 1);
+    //cout << "SCORE2 " << lm_score + w; 
 
     lm_total += lm_score;
     if (!_subproblem->overridden[start_from]) { 
@@ -170,7 +179,7 @@ void Decode::print_output(const wvector & subgrad) {
   //cout << endl << endl;
 }
 
-bool Decode::solve_ngrams(int round, bool is_stuck) {
+bool Decode::solve_ngrams(int round, bool is_stuck, bool & no_update) {
   bool bump_rate = false;
 
   if (round ==1) {
@@ -182,27 +191,43 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     }
   }
 
-    
-
   
-  if ((round ==145 || is_stuck) && !_maintain_constraints) {
-    //cout << "DUAL STUCK Round "<< round << endl;
+  //if ((round ==145 || is_stuck) && !_maintain_constraints) {
+  if ((round==145 || is_stuck) && !_maintain_constraints) {
+    //if ((round ==1 || is_stuck) && !_maintain_constraints) {
+    //cout << "DUAL STUCK Round " << round << endl;
     _maintain_constraints = true;
     _is_stuck_round = round;
     bump_rate = true;
   }
 
 
-  if (round >=_is_stuck_round +50) {
+  // if (round >=_is_stuck_round+ 30) {
+  //   int limit = 5;
+  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+  // }
+
+  if (round >=_is_stuck_round+ 50) {
+
+    //if (round >=_is_stuck_round +2) {
     int limit = 25;
     _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    //if (round %5 !=0) {
+    //no_update = true;
+    //}
   }  
+
+  // if (round >=_is_stuck_round+ 100) {
+    
+  //   //if (round >=_is_stuck_round +2) {
+  //   int limit = 25;
+  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    
+  // }  
   
   
   _subproblem->project(_proj_dim, _projection);    
   _subproblem->solve();
-  
-  
   
 
   return bump_rate;
@@ -246,6 +271,9 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights, const Hy
     
     // The back pointers from the heuristic run
     NodeBackCache  temp_back_pointers(_forest.num_nodes());
+    if (TIMING) { 
+      begin=clock();  
+    }
     double approx_dual = ecky.best_path(temp_back_pointers);
     
     if (SIMPLE_DEBUG) {
@@ -299,7 +327,10 @@ void Decode::remove_lm(int feat, wvector & subgrad, double & dual, double &cost_
   cout << "Removing " << feat << endl;
 }
 
-wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> & used_words, const vector <int> & used_lats, const vector<string> &used_strings, double & dual, double & cost_total) {
+wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> & used_words, 
+                                     const vector <int> & used_lats, 
+                                     const vector<string> &used_strings, 
+                                     double & dual, double & cost_total) {
   wvector subgrad;
   if (FULLBUILT) {
 
@@ -615,10 +646,10 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
   return subgrad;
 }
 
-void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate) {
+void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate, bool & no_update) {
   clock_t begin, end;
 
-
+  no_update = false;
   if (TIMING) {
     cout << "Solving" << endl;
     begin=clock();
@@ -629,7 +660,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    ******************************************/
 
 
-  bump_rate = solve_ngrams(round, is_stuck);
+  bump_rate = solve_ngrams(round, is_stuck, no_update);
   
 
   if (TIMING) {
@@ -679,14 +710,14 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   if (SIMPLE_DEBUG) {
 
-    foreach ( HEdge edge, _forest.edges()) {  
-      cout << edge->head_node().label() << " " << edge->label() << " " << total->get_value(*edge) << endl;
-    }
+    // foreach ( HEdge edge, _forest.edges()) {  
+    //   cout << edge->head_node().label() << " " << edge->label() << " " << total->get_value(*edge) << endl;
+    // }
 
-    cout << "EDGES!";
-    foreach (HEdge edge, used_edges) {
-      cout << edge->head_node().label() <<  " " << edge->label() << " " << total->get_value(*edge) << endl;
-    }
+    // cout << "EDGES!";
+    // foreach (HEdge edge, used_edges) {
+    //   cout << edge->head_node().label() <<  " " << edge->label() << " " << total->get_value(*edge) << endl;
+    // }
   }
 
 
@@ -747,7 +778,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
 
   double cost_total = 0.0;
   
-
+  cout << "predual " << dual << endl; 
   subgrad += construct_lm_subgrad(used_words, used_lats, used_strings, dual, cost_total);
 
   // - lagrangians (FROM LM SIDE)
@@ -762,6 +793,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   if (DEBUG) {    
     cout << "DUAL LM: " << lm_total << endl;
     cout << "DUAL LM (check): " << o_total + lag_total << endl;
+    cout << "DUAL LM with lag (check): " << o_total  << endl;
     cout << endl;
   }
 
@@ -771,7 +803,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    *    
    ******************************************/
 
-  primal = compute_primal(used_edges, used_words);
+  primal = compute_primal(used_edges, used_words, penalty_cache);
 
 
   double edge_total= 0.0;
@@ -811,18 +843,34 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   print_output(subgrad);
 
   if (dual - primal > 1e-3) {
+    
     cout << "DUAL PRIMAL mismatch. You have a bug." << endl;
     exit(0);
   }
 }
 
 
-double Decode::compute_primal(const HEdges used_edges, const vector <const ForestNode *> used_nodes) {
+double Decode::compute_primal(const HEdges used_edges, const vector <const ForestNode *> used_nodes, const EdgeCache &  edge_lag) {
   double total= 0;
+  double lag = 0.0;
   for (unsigned int i=0; i < used_edges.size(); i++ ) {
     total += _cached_weights->store[used_edges[i]->id()] ;
-  }
+    lag += edge_lag.store[used_edges[i]->id()];
+    // if (DEBUG) {
+    //   cout << "PRIMALEDGE "<<   used_edges[i]->head_node().label() << " "  << used_edges[i]->label() << " " << _cached_weights->store[used_edges[i]->id()] << " " << edge_lag.store[used_edges[i]->id()] << endl;
+      
+    //   vector <int> lat_edges = get_lat_edges(used_edges[i]->id()); 
+    //   for (unsigned int j =0; j < lat_edges.size(); j++) {
+    //     cout << lat_edges[j]<<" ";
+    
+    //   }
+    //   cout << endl;
+    // }
 
+  }
+  //cout << "PRIMAL Parse " << total << endl; 
+  //cout << "PRIMAL2 Parse " << total + lag<< endl; 
+  
   vector <string> used_strings;
   if (!FULLBUILT) {
     used_strings.push_back("<s>");
@@ -836,17 +884,30 @@ double Decode::compute_primal(const HEdges used_edges, const vector <const Fores
     used_strings.push_back("</s>");
   }
   double lm_score =0.0;
-  
+  double primal2 = 0.0;
   for (uint i =0; i < used_strings.size()-2; i++) {
     VocabIndex context [] = {lookup_string(used_strings[i+1]), lookup_string(used_strings[i]), Vocab_None};
+    
     if (DEBUG) {
-      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << (lm_weight()) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+      double lm_score = (lm_weight()) *   _lm.wordProb(lookup_string(used_strings[i+2]), context);
+      cout << "PRIMAL " << used_strings[i] << " " <<  used_strings[i+1]<< " " <<  used_strings[i+2] << " " << lm_score << endl;
       
+      int start_from = _lattice.get_word_from_hypergraph_node(used_nodes[i+2]->id());
+      int mid = _lattice.get_word_from_hypergraph_node(used_nodes[i+1]->id());
+      int end = _lattice.get_word_from_hypergraph_node(used_nodes[i]->id());
+      //cout << "PRIMAL2 " << used_nodes[i] << " " <<  used_nodes[i+1];
+      //<< " " <<  used_strings[i+2] << " " << (lm_weight()) *   _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
+      double w =0; 
+      w += _subproblem->get_best_bigram_weight(start_from, mid, 0);
+      w += _subproblem->get_best_bigram_weight(mid, end, 1);
+      //cout << "PRIMAL2 " << w + lm_score << endl; 
+      primal2 += w + lm_score;
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
   }
   if (DEBUG) {
     cout << "PRIMAL LMWEIGHT: " << (lm_weight()) *lm_score << endl;
+    cout << "PRIMAL2 : " << primal2 << endl;
     cout << endl;
   }
   //cout << "total " << total << endl;
@@ -868,6 +929,8 @@ int Decode::lookup_string(string word) {
 void Decode::sync_lattice_lm() {
   
   _cached_words = new Cache <Graphnode, int> (_lattice.num_word_nodes);
+  //_cached_word_str = new Cache <Graphnode, string> (_lattice.num_word_nodes);
+
   int max = _lm.vocab.numWords();
   int unk = _lm.vocab.getIndex(Vocab_Unknown);
   //assert(false);
@@ -877,6 +940,8 @@ void Decode::sync_lattice_lm() {
     //const LatNode & node = _lattice.node(n); 
     //assert (node.id() == n);
     string str = _lattice.get_word(n);
+    cout << "INITIALIZING " << str << " " << n << endl;
+    _cached_word_str[str].push_back(n);
     int ind = _lm.vocab.getIndex(str.c_str());
     if (ind == -1 || ind > max) {
       //cout << "Unknown " << str << endl; 
@@ -928,6 +993,10 @@ void Decode::debug(int start_from, int dual_mid, int dual_end, int primal_mid, i
 
 
 void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end) {
+  //int dual_mid_node = _lattice.get_hypergraph_node_from_word(dual_mid);
+  //ForestNode * node = (ForestNode*) & _forest.get_node(dual_mid_node);
+  //cout << "PROJECT WORD " <<  node->word();
+
     if (_maintain_constraints) {
       if (primal_mid != dual_mid) {
         int w1 = dual_mid;
@@ -942,10 +1011,27 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
             //cout << "COLORING fail " << w1 << " " << w2<< endl;
           }
 
-          _constraints[w2].insert(w1);
-          //else 
-          _constraints[w1].insert(w2);
+          if (!COLOR_WORDS) {
+            _constraints[w2].insert(w1);
+            _constraints[w1].insert(w2);
+          } else {
+            string w1_str = _lattice.get_word(w1);
+            string w2_str = _lattice.get_word(w2);
+            if (w1_str!=w2_str) {
+            foreach (int n1, _cached_word_str[w1_str]) {
+              foreach (int n2, _cached_word_str[w2_str]) {
+                if (n1!=n2) {
+                  _constraints[n1].insert(n2);
+                  _constraints[n2].insert(n1);
+                }
+              }
+            }
+            } else {
+              _constraints[w2].insert(w1);
+              _constraints[w1].insert(w2);
 
+            }
+          }
       }
       
       if (primal_end != dual_end) {
@@ -960,10 +1046,33 @@ void Decode::greedy_projection(int dual_mid, int dual_end, int primal_mid, int p
             //cout << "COLORING fail " << w1 << " " << w2<<endl;
           }
 
-        //if (w1 < w2) 
-        _constraints[w2].insert(w1);
-        //else 
-        _constraints[w1].insert(w2);
+          if (!COLOR_WORDS) {
+            _constraints[w2].insert(w1);
+            //else 
+            _constraints[w1].insert(w2);
+          } else {
+            string w1_str = _lattice.get_word(w1);
+            string w2_str = _lattice.get_word(w2);
+            if (w1_str!=w2_str) {
+            foreach (int n1, _cached_word_str[w1_str]) {
+              foreach (int n2, _cached_word_str[w2_str]) {
+                if (n1!=n2) {
+                  _constraints[n1].insert(n2);
+                  _constraints[n2].insert(n1);
+                }
+              }
+            }
+            } else {
+              _constraints[w2].insert(w1);
+              _constraints[w1].insert(w2);
+
+            }
+          }
+
+        // //if (w1 < w2) 
+        // _constraints[w2].insert(w1);
+        // //else 
+        // _constraints[w1].insert(w2);
       }
     }
 }

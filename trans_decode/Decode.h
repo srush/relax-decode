@@ -44,7 +44,7 @@ class Decode: public SubgradientProducer {
       delete _cached_words;
     }
    
-    void solve(double & primal, double & dual, wvector &, int, bool, bool&);
+    void solve(double & primal, double & dual, wvector &, int, bool, bool&, bool&);
     
     void update_weights(const wvector & updates,  wvector * weights );
   
@@ -52,7 +52,7 @@ class Decode: public SubgradientProducer {
   void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
   void greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end);
   void add_subgrad( wvector & subgrad, int start_from, int mid_at, int end_at, bool first);
-  double compute_primal(HEdges used_edges, const vector <const ForestNode *> used_nodes);
+  double compute_primal(HEdges used_edges, const vector <const ForestNode *> used_nodes, const EdgeCache & edge_lag);
   int lookup_string(string word);
   Subproblem * _subproblem;
   const Forest & _forest;
@@ -63,21 +63,24 @@ class Decode: public SubgradientProducer {
   GraphDecompose _gd;
   Cache <Hyperedge, double> * _cached_weights;
   Cache <Graphnode, int> * _cached_words;
+  map <string, vector<int> >  _cached_word_str;
   vector <int > get_lat_edges(int edge_id);
   vector <int > get_lex_lat_edges(int edge_id);
   void sync_lattice_lm();
   void print_output(const wvector & );
 
   vector <int > _projection;
+  //map <string, int > _projection_words;
   int _proj_dim;
   double lm_total, o_total, lag_total;
 
   map <int, set <int> > _constraints; 
+  map <string, set <string> > _constraints_words; 
   bool _maintain_constraints; 
   int _is_stuck_round;
   //ExtendCKY ecky;
 
-  bool solve_ngrams(int round, bool is_stuck);
+  bool solve_ngrams(int round, bool is_stuck, bool & no_update);
   EdgeCache compute_edge_penalty_cache();
   double best_modified_derivation(const EdgeCache& penalty_cache, const HypergraphAlgorithms & ha, NodeBackCache & back_pointers);
   wvector construct_parse_subgrad(const HEdges used_edges);

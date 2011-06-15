@@ -195,67 +195,139 @@ void Subproblem::projection_with_constraints(int limit, int & k,
     }
 
   }
+}
 
 
- // Use RLF
-  /*
-  int adjacency [MAX][MAX];
-  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
-    for (int w2=0; w2 < graph->num_word_nodes; w2++) {
-      adjacency[w1][w2] = 0;
-    }
-  }
-
-  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
-    if (!graph->is_word(w1)) continue;
-    for (int i =0; i < constraints[w1].size(); i++) {
-      int c = constraints[w1][i];
-      adjacency[w1][c] =1;
-      adjacency[c][w1] =1;
-    }
-  }
-
-  GraphColor gc(adjacency, graph->num_word_nodes);
-  gc.Coloring();
-  assert(gc.get_color_num() < 10);
-  vector<int> proj(graph->num_word_nodes);
+void Subproblem::projection_with_constraints_str(int limit, int & k,  
+                                                 map<string, set <string> > & constraints, vector <int> & ret_proj) {
+  // Use DSATUR
+  map <string, int> proj;
+  int most_constrained = 0;
+  int most_constraints = -1;
+  k = 0;
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
-    proj[w1] = gc.get_coloring(w1);
+    // count constraints
+    string word  = graph->get_word(w1);
+
+    int num_cons = constraints[word].size();    
+    if (num_cons > most_constraints){
+      most_constraints =num_cons;
+      most_constrained = w1;
+    }
   }
-  k = gc.get_color_num();
-  return proj;
-  */
-
-  //greedy graph coloring
-  //
-
-  /*vector<int> proj(graph->num_word_nodes);
+  
+  int cur = most_constrained; 
+  string cur_str = graph->get_word(most_constrained);
+  //proj.resize(graph->num_word_nodes);  
+  int unprocessed = 0;
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
+    //proj[w1] = 0;
+    unprocessed++;
+  }
+  
+  set <string> done;
+  while (unprocessed >0) { 
+    if (done.find(cur_str) == done.end()) {
 
-    vector <int> counts(k);
-    for (int d =0; d < k; d++) {
-      counts[d] = 0;
+      //cout << "searching "<< cur << endl;
+      vector <int> counts(k);
+      for (int d =0; d < k; d++) {
+        counts[d] = 0;
+      }
+
+      for (set<string>::const_iterator iter =constraints[cur_str].begin(); 
+           iter != constraints[cur_str].end(); iter++) {
+        string c = (*iter);
+        if (done.find(c) != done.end()) {
+          //assert(c < cur);
+          counts[proj[c]]++;
+        }
+      }
+
+      int min = INF;
+      int mind;
+      for (int d =0; d < k; d++) {
+        if (counts[d] < min) {
+          min = counts[d];
+          mind = d;
+        }
+      }
+
+      assert (cur < graph->num_word_nodes);
+      if (min == 0) {
+        proj[cur_str] = mind;
+      } else if (k == limit) {
+        //assert(false);
+        proj[cur_str] = mind;
+      } else {
+        proj[cur_str] = k;
+        k++;
+      }
+
+
+      for (set<string>::const_iterator iter =constraints[cur_str].begin(); 
+           iter != constraints[cur_str].end(); iter++) {
+        string conflict = (*iter);
+        if (done.find(conflict) != done.end() && proj[conflict] == proj[cur_str]) {
+          assert(false);
+        }
+      }
+
+      assert(done.find(cur_str) == done.end());
+      done.insert(cur_str);
     }
 
-    for (int i =0; i < constraints[w1].size(); i++) {
-      int c = constraints[w1][i];
-      assert(c < w1);
-      counts[proj[c]]++;
-    }
-    int min = 1e20;
-    int mind;
-    for (int d =0; d < k; d++) {
-      if (counts[d] < min) {
-        min = counts[d];
-        mind = d;
+
+    unprocessed--;
+    // get next 
+
+    // pick next to optimize (most saturated)
+    int most_saturation = -1;
+    for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+      if (!graph->is_word(w1)) continue;
+      //string cur_str = graph->get_word(w1);
+      string w1_str = graph->get_word(w1);
+      // only consider unassigned words
+      if (done.find(w1_str) != done.end()) continue;
+
+      int sat =0;
+      vector <int> counts(k);
+      for (int d =0; d < k; d++) {
+        counts[d] = 0;
+      }
+      
+      for (set<string>::const_iterator iter =constraints[w1_str].begin(); 
+           iter != constraints[w1_str].end(); iter++) {
+
+        string c = (*iter);
+        if (done.find(c) != done.end()) {
+          counts[proj[c]]++;
+        }
+      }
+      for (int d =0; d < k; d++) {
+        if (counts[d] > 0) {
+          sat++;
+        }
+      }
+
+      if (sat > most_saturation) {
+        most_saturation =sat;
+        cur = w1;
+        cur_str = graph->get_word(w1);
       }
     }
-    proj[w1] = mind;
+
   }
-  return proj;*/
+  // map to old style;
+  ret_proj.resize(graph->num_word_nodes);  
+  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    if (!graph->is_word(w1)) continue;
+    ret_proj[w1] = proj[graph->get_word(w1)];
+  }
 }
+
 
 // true - > 0
 // false -> 1
@@ -276,6 +348,8 @@ vector <int> Subproblem::get_best_nodes_between(int w1, int w2, int pos) {
   //  ret.push_back(path[i]);
   //}
   //} 
+
+  // This is where we add the extra node
   path.push_back(w2);
   return path;
 }
@@ -394,7 +468,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
   // solve (but only in the projected space)
   // unless is_simple
-  cout << "Start solve" << endl;
+  //cout << "Start solve" << endl;
 
   int num_word_nodes = graph->num_word_nodes;
   vector <float> best_bigram(num_word_nodes);
@@ -504,7 +578,6 @@ void Subproblem::solve_proj(int d2, int d3,
         proj_best[i].ord_best[ord] = -1;
       }
       proj_best[i].is_new = true;
-      
     }
   }
 
@@ -526,9 +599,11 @@ void Subproblem::solve_proj(int d2, int d3,
   vector <int> word_override;
 
   for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+    
     if (!graph->is_word(w1)) continue;
     overridden[w1] = false;  
 
+    //cout << "TRYING " << w1 << endl; 
     // Edge tightness optimization
   
     bool on_edge = false;
@@ -594,13 +669,15 @@ void Subproblem::solve_proj(int d2, int d3,
         } else {
           score = (_lm_weight) * word_prob_reverse(w1,w2,w3) + score1 + score2;
         }
-
-
         
         assert (proj_best[w1].score <= INF);
-        
+        if  (fabs(((_lm_weight) * word_prob_reverse(w1,w2,w3) + score1 + score2) - score) > 1e-4) {
+          cout << "Optimization fail"<<endl; 
+          exit(0);
+        }
         assert(!TRIPROJECT || project_word(w3) == d3 ); 
 
+        //cout << "\t QUICK SETTING " << w1 << " " << w2 << " " << w3 << " " << score<< endl; 
         try_set_max(proj_best, w1, w2, w3, score, true);       
       }      
 
@@ -625,6 +702,7 @@ void Subproblem::solve_proj(int d2, int d3,
         
         float score = score1 + score2 + lm_score; 
 
+        //cout << "\t SETTING " << w1 << " " << w2 << " " << w3 << " " << score<< endl; 
         try_set_max(proj_best, w1, w2, w3, score, true);
         
       }
@@ -653,7 +731,7 @@ void Subproblem::solve_proj(int d2, int d3,
                     bigram_weight_cache[0][w1][w2] + 
                     bigram_weight_cache[1][w2][w3];
  
-    cout << w0 << " " << w1 << " " << " " << w2<< " " << w3 << " " << first << " " << second << " " << proj_best[w1].score << endl;
+    //cout << w0 << " " << w1 << " " << " " << w2<< " " << w3 << " " << first << " " << second << " " << proj_best[w1].score << endl;
     assert(fabs(first + second - proj_best[w1].score) < 1e-4);
     
     proj_best[w0].score = 0.0;  
