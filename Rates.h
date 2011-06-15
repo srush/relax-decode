@@ -1,6 +1,22 @@
 #ifndef RATES_H
 #define RATES_H
 
+#include "DualDecomposition.h"
+class FallingRate: public SubgradRate {
+ public:
+  int _round ;
+ FallingRate():_round(0)  {}
+  double get_alpha(vector <double> & duals,
+                   vector <double> & primals,
+                   int size, bool aggressive, bool is_stuck) {
+    _round++;
+
+    return 1.0/_round;
+  }
+  void bump() {}
+  
+};
+
 
 class ParseRate: public SubgradRate {
  public:
