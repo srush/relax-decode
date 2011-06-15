@@ -1,0 +1,10 @@
+Import('env')
+
+
+sources = ["MRF.cpp", "MRFHypergraph.cpp", "MRFSolvers.cpp", "$GRAPH_PROTO/mrf.pb.cc"]
+
+lib = env.Library('mrf', sources)
+
+#env.Program('test', ["Test.cpp", hyp_lib])
+
+Return('lib')
