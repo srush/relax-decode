@@ -5,11 +5,7 @@ import os
 
 build_config = {
   'has_gurobi': False,
-  'svector_path': '/home/srush/Projects/transforest/svector/',
-  'sri_path': '/home/srush/libs/sri/include/',
-  'sri_lib' :'/home/srush/libs/sri/lib/i686/',
-  'lattice_proto_path': '/home/srush/Projects/lattice/gen-cpp/',
-  'forest_proto_path': '/home/srush/Projects/hypergraph/gen_cpp/',
+  'has_sri':False,
   'include_extra': ( '/home/rcf-40/ar_009/h/lib/include/', os.environ['BOOST_ROOT'] +'/include/', ),
   'lib_extra': ( '/home/rcf-40/ar_009/h/lib/lib/', os.environ['BOOST_ROOT'] +'/lib/', )  
 }

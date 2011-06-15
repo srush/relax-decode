@@ -1,0 +1,34 @@
+How to set up dual decomposition code for running on isi cluster. 
+
+You need the following libraries installed,
+
+git 
+scons 
+Boost 
+google-gflags 
+protocol buffers (optional)
+gurobi (optional, for lp stuff)
+sri (optional, for trans stuff)
+
+1) Get the code 
+
+> git clone git://github.com/srush/relax-decode.git
+
+(It's a bit big, sorry about that).
+
+2) Setup dependencies
+
+> cp build_config.py.template build_config.py
+
+Fill in the build_config.py file.  You may need Gurobi later, but for now here's a simple one.
+> cat build_config.py
+import os 
+build_config = {                                        
+  'has_gurobi': False,
+  'has_sri': False,
+  'scarab_root': '/home/srush/Projects/test/relax-decode/', 
+  'include_extra': ( '/home/rcf-40/ar_009/h/lib/include/', os.environ['BOOST_ROOT'] +'/include/', ),
+  'lib_extra': ( '/home/rcf-40/ar_009/h/lib/lib/', os.environ['BOOST_ROOT'] +'/lib/', )
+}  
+
+3) 
