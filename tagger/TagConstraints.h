@@ -60,6 +60,9 @@ TagIndex(int sent_num_, int ind_, int tag_): sent_num(sent_num_), ind(ind_), tag
 class TagMrfAligner : public MrfAligner<TagIndex> {
  public:
   void build_from_constraints(string file_name);
+  void build_from_vectors(vector<MrfIndex> &mrf_indices, 
+                          vector<TagIndex> &tag_indices);
+
 };
 
 

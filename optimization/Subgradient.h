@@ -117,6 +117,7 @@ class Subgradient {
   SubgradRate & _rate;
   bool _debug;
   int _max_round;
+  double _last_alpha;
 };
 
 #endif

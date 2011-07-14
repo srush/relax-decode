@@ -49,11 +49,14 @@ int main(int argc, char ** argv) {
 
     // decoder 
     Decode * d = new Decode(f, graph, *weight, *lm);
-
+    
     // Solve
     cout << i << " ";
     TranslationRate tr;
+    //ConstantRate tr(0.01);
+    //FallingRate tr(0.05);
     Subgradient * s = new Subgradient(*d, tr);
+    s->set_debug();
     s->solve(i);
   }
   google::protobuf::ShutdownProtobufLibrary();

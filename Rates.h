@@ -2,16 +2,31 @@
 #define RATES_H
 
 #include "DualDecomposition.h"
+
+class ConstantRate: public SubgradRate {
+ public:
+  double _constant ;
+ ConstantRate(double constant):_constant(constant)  {}
+  double get_alpha(vector <double> & duals,
+                   vector <double> & primals,
+                   int size, bool aggressive, bool is_stuck) {
+    return _constant;
+  }
+  void bump() {}
+};
+
 class FallingRate: public SubgradRate {
  public:
   int _round ;
- FallingRate():_round(0)  {}
+  double _constant;
+ FallingRate():_round(0), _constant(1.0)  {}
+ FallingRate(double constant):_round(0), _constant(constant)  {}
   double get_alpha(vector <double> & duals,
                    vector <double> & primals,
                    int size, bool aggressive, bool is_stuck) {
     _round++;
 
-    return 1.0/_round;
+    return _constant/_round;
   }
   void bump() {}
   

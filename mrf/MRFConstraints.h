@@ -36,8 +36,6 @@ MrfIndex(int group_, int node_, int state_): group(group_), node(node_), state(s
 template <class Other>
 class MrfAligner {
  public:
-
-  
   bool align(const Other & other_ind, MrfIndex & mrf_ind) const {
     typename map < Other , MrfIndex>::const_iterator iter = alignment.find(other_ind);
     if (iter == alignment.end()) {
@@ -79,7 +77,6 @@ class MrfAligner {
   map <MrfIndex, int> cons_id_map;
   map <int, Other> id_other_map;
   map <int, MrfIndex> id_cons_map;
-
   
 };
 

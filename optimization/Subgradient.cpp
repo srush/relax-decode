@@ -54,11 +54,14 @@ bool Subgradient::run_one_round() {
   _primals.push_back(result.primal);
 
   if (_debug) {  
-    cerr << "Round " << _round << endl;     
-    cerr << "BEST PRIMAL " << _best_primal << endl;
-    cerr << "BEST DUAL " << _best_dual << endl;
-    cerr << "GAP " << fabs(_best_primal - _best_dual) << endl;
-    print_vec(result.subgrad);
+    cerr << "Round " << _round;
+    cerr << " BEST_PRIMAL " << _best_primal;
+    cerr << " BEST_DUAL " << _best_dual;
+    cerr << " CUR_DUAL " << result.dual;
+    cerr << " CUR_PRIMAL " << result.primal;
+    cerr << " ALPHA " << _last_alpha;
+    cerr << " GAP " << fabs(_best_primal - _best_dual) << endl;
+    //print_vec(result.subgrad);
   }
 
 
@@ -91,7 +94,7 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
   }
   
   double alpha = _rate.get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
-
+  _last_alpha = alpha;
   svector<int, double> updates = alpha * subgrad;
   if (_debug) {
     cerr << "DUAL " << _duals[dualsize -1]<<" " << _duals[dualsize -2] <<  endl;

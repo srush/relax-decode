@@ -139,6 +139,20 @@ void TagMrfAligner::build_from_constraints(string file_name) {
     }
   }
   input.close();
+}
 
+
+void TagMrfAligner::build_from_vectors(vector<MrfIndex> &mrf_indices, 
+                                       vector<TagIndex> &tag_indices) {
+  assert(mrf_indices.size() == tag_indices.size());
+  for (int i = 0; i < mrf_indices.size(); i++) {
+    MrfIndex &mrf_index = mrf_indices[i];
+    TagIndex &tag_index = tag_indices[i];
+    alignment[tag_index] = mrf_index;
+    other_id_map[tag_index] = i;
+    cons_id_map[mrf_index] = i;
+    id_other_map[i] = tag_index;
+    id_cons_map[i] = mrf_index;
+  }
 }
 
