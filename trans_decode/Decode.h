@@ -44,8 +44,8 @@ class Decode: public SubgradientProducer {
       delete _cached_words;
     }
    
-    void solve(double & primal, double & dual, wvector &, int, bool, bool&, bool&);
-    
+    //void solve(double & primal, double & dual, wvector &, int, bool, bool&, bool&);
+    void solve(const SubgradState & state, SubgradResult & result );
     void update_weights(const wvector & updates,  wvector * weights );
   
  private:
@@ -80,7 +80,7 @@ class Decode: public SubgradientProducer {
   int _is_stuck_round;
   //ExtendCKY ecky;
 
-  bool solve_ngrams(int round, bool is_stuck, bool & no_update);
+  bool solve_ngrams(int round, bool is_stuck);
   EdgeCache compute_edge_penalty_cache();
   double best_modified_derivation(const EdgeCache& penalty_cache, const HypergraphAlgorithms & ha, NodeBackCache & back_pointers);
   wvector construct_parse_subgrad(const HEdges used_edges);

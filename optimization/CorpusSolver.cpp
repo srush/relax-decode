@@ -1,10 +1,12 @@
 #include "CorpusSolver.h"
 
-void CorpusSolver::solve(double & primal, double & dual, wvector & subgrad, int round) {
-  cout << "Round " << round;
+void CorpusSolver::solve(const SubgradState & info,
+                         SubgradResult & result) {
+  
+  cout << "Round " << info.round;
 
-  dual =0;
-  primal = 0;
+  result.dual =0;
+  result.primal = 0;
   for (int sent_num =0; sent_num < _corpus_size;sent_num++) {
     if (_dirty_cache[sent_num]) {
       double local_dual, local_primal;
@@ -15,12 +17,12 @@ void CorpusSolver::solve(double & primal, double & dual, wvector & subgrad, int 
       _dual_cache[sent_num] = local_dual;
       _dirty_cache[sent_num] = false;
     }
-    subgrad += _subgrad_cache[sent_num];
-    dual += _dual_cache[sent_num];
-    primal += _primal_cache[sent_num];
+    result.subgrad += _subgrad_cache[sent_num];
+    result.dual += _dual_cache[sent_num];
+    result.primal += _primal_cache[sent_num];
   }
-  cout << "Corpus dual: " << dual << endl;
-  cout << "Corpus primal: " << primal << endl;
+  cout << "Corpus dual: " << result.dual << endl;
+  cout << "Corpus primal: " << result.primal << endl;
 
 }
 

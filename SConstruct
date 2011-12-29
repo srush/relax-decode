@@ -18,7 +18,7 @@ else:
 env.Append(ROOT=build_config['scarab_root'])
 
 sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest', 
-            '#/parse', '#/tagger', '#/optimization', '#/phrasebased']
+            '#/parse', '#/tagger', '#/optimization', '#/mrf', '#/phrasebased']
 
 
 
@@ -91,21 +91,25 @@ env.Program('run_tagger', ("Tag.cpp", )+ local_libs, LIBS = libs)
 
 #env.Program('run_dual_tagger', ("DualDecompTagger.cpp", )+ local_libs, LIBS = libs)
 
-env.Program('run_phrase_based_lp', ("PhraseLP.cpp", )+ local_libs, LIBS = libs)
+#env.Program('run_phrase_based_lp', ("PhraseLP.cpp", )+ local_libs, LIBS = libs)
 
-env.Program('run_phrase_based_viterbi', ("PhraseViterbi.cpp", )+ local_libs, LIBS = libs)
+#env.Program('run_phrase_based_viterbi', ("PhraseViterbi.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('run_potts_tagger', ("PottsTagger.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('run_decomp_tagger', ("DecompTagger.cpp", )+ local_libs, LIBS = libs)
 
-env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
+#env.Program('solve_mrf', ("MRFSolver.cpp", )+ local_libs, LIBS = libs)
+
+env.Program('example1', ("examples/Example1.cpp", )+ local_libs, LIBS = libs)
+
+env.Program('example2', ("examples/Example2.cpp", )+ local_libs, LIBS = libs)
 
 
 if build_config['has_gurobi']:
    env.Program('run_full_parser', ("FullParser.cpp", )+ local_libs)
 
-   env.Program('scarab', ("Main.cpp", ) + local_libs)
+   #env.Program('scarab', ("Main.cpp", ) + local_libs)
 
 
 docs = env.Doxygen('Doxyfile')

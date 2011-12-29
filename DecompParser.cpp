@@ -15,8 +15,10 @@
 #include "Subgradient.h"
 #include "MRF.h"
 #include "MRFSolvers.h"
+#include "Rates.h"
 using namespace std;
 using namespace Scarab::HG;
+
 
 int main(int argc, char ** argv) {
   
@@ -56,8 +58,9 @@ int main(int argc, char ** argv) {
   wvector * simple = svector_from_str<int, double>("value=-1");
   ConstrainerDual<ParseIndex> mrf_dual(mrfs, *simple, parse_align);
   
-  DualDecomposition d(p_dual, mrf_dual);
-  d._subgradsolver.rate = new ParseRate();
+  ParseRate rate;
+  DualDecomposition d(p_dual, mrf_dual, rate);
+  //d._subgradsolver.rate = new ParseRate();
   d.solve(0);
   
   for (int i =0; i < p_dual.best_derivations.size(); i++) {

@@ -18,8 +18,11 @@ class CorpusSolver:public DualDecompositionSubproblem {
     }
   }
 
-  virtual void solve_one(int sent_num, double & primal, double & dual, wvector & subgrad) = 0; 
-  void solve(double & primal, double & dual, wvector &, int);
+  virtual void solve_one(int sent_num, double & dual, double & primal, wvector & subgrad) = 0; 
+  
+  void solve(const SubgradState & info,
+             SubgradResult & result);
+  
   void update_weights(const wvector & updates,  
                       wvector * weights, 
                       double mult) {

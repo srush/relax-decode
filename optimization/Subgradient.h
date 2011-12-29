@@ -1,7 +1,6 @@
 #ifndef SUBGRADIENT_H_
 #define SUBGRADIENT_H_
 
-
 #include "svector.hpp"
 #include <vector>
 #include <../common.h>
@@ -17,94 +16,59 @@ class SubgradRate {
   virtual void bump() {}
 };
 
-
-class ParseRate: public SubgradRate {
- public:
-  int _nround;
-  double _base_weight;
-  int _round ;
- ParseRate():_nround(0),_round(0)  {}
-  double get_alpha(vector <double> & duals,
-                   vector <double> & primals,
-                   int size, bool aggressive, bool is_stuck) {
-    int dualsize = duals.size();
-    _round++;
-    if  (dualsize > 2 && duals[dualsize -1] <= duals[dualsize -2]) { 
-      _nround += 1;
-      if ( _nround >= 2) {
-        //else if (_nround >= 3) {// 10) {
-        _base_weight *= 0.7;
-        _nround =0;
-      } 
-    } else if ( dualsize == 1) {
-      _base_weight = 2.0;
-      _nround =0;
-    }
-    return _base_weight;
-  }
-  void bump() {
-  }
-  
+// Input to the subgradient client
+struct SubgradState {
+  // The current round of the subgradient algorithm 
+  int round;
+  // ignore for now
+  bool is_stuck;
+  bool no_update;
 };
 
-class TranslationRate: public SubgradRate {
- public:
-  int _nround;
-  double _base_weight;
-  bool post_bump;
- TranslationRate():_nround(0), post_bump(false) {}
-  void bump() {
-    //_base_weight *=10.0;
-    post_bump = true;
-  }
-  double get_alpha(vector <double> & duals,
-                   vector <double> & primals,
-                   int size, bool aggressive, bool is_stuck) {
-    int dualsize = duals.size();
-    double best_dual = -1e8; 
-    foreach(double dual, duals) {
-      best_dual = max(dual, best_dual);
-    }
-    if  (dualsize > 2 &&  (duals[dualsize-2] - duals[dualsize -1] > -1e-4)) { 
-      _nround += 1;
-      /* if (post_bump) { */
-      /*   _base_weight *= 0.7; */
-      /* } else */
-      if (aggressive && _nround > 2) {
-        _base_weight *= 0.7;
-        _nround = 0;
-      } else if (_nround >= 10) {
-        //else if (_nround >= 3) {// 10) {
-        _base_weight *= 0.7;
-        _nround =0;
-      }
-    } else if ( dualsize == 1) {
-      _base_weight = (primals[primals.size()-1] - duals[duals.size()-1]) / max((double)size,1.0);  
-    }
-    return _base_weight;
-  }
-  
-  
+// Output of the subgradient client
+struct SubgradResult {
+  // The primal value (score of the resulting structure)
+  double primal;
+  // The dual value (score of the resulting structure with dual penalties)
+  double dual;
+  // The subgradient at this iteration
+  wvector subgrad;
+  // ignore
+  bool bump_rate;
 };
 
+
+/**
+ * Interface for subgradient clients. 
+ */
 class SubgradientProducer {
  public:
-  virtual void  solve(double & primal, double & dual, wvector &, 
-                      int, bool, bool &, bool &) =0;
-  virtual void update_weights(const wvector & updates,  
-                              wvector * weights )=0;
+  // Solve the problem with the current dual weights.
+  virtual void solve(const SubgradState & cur_state, SubgradResult & result) = 0;
+
+  // Update the dual variables. Updates is the delta for this round, 
+  // weights is a pointer to the current weights.
+  virtual void update_weights(const wvector & updates, wvector * weights )=0;
 };
 
-class Subgradient {
 
+/** 
+ * Subgradient optimization manager. Takes an object to produce
+ * subgradients given current dual values as well as an object 
+ * to determine the current update rate.
+ */
+class Subgradient {
  public:
 
   /** 
    * 
-   * 
    * @param subgrad_producer Gives the subgradient at the current position 
+   * @param update_rate A class to decide the alpha to use at the current iteration
    */
- Subgradient(SubgradientProducer & subgrad_producer): _s(subgrad_producer){
+ Subgradient(SubgradientProducer & subgrad_producer, 
+             SubgradRate & update_rate ): 
+  _s(subgrad_producer), 
+  _rate(update_rate){
     _best_dual = -1e20;
     _best_primal = 1e20;
     _round = 1;
@@ -112,13 +76,14 @@ class Subgradient {
     _is_stuck = false;
     _first_stuck_iteration = -1;
     _aggressive = false;
-    rate = new TranslationRate();
+    _debug = false;
+    _max_round = 200;
   } ;
 
-
+  void set_debug(){ _debug = true;} 
+  void set_max_rounds(int max_round){_max_round = max_round;}
 
   void solve(int example);
-
 
   /** 
    * As the optimization probably reached a  fixed point
@@ -129,7 +94,7 @@ class Subgradient {
     return _is_stuck;
   }
 
-  SubgradRate * rate;
+
 
  private:
   bool run_one_round();  
@@ -149,6 +114,10 @@ class Subgradient {
   bool _is_stuck;
   int _first_stuck_iteration;
   int _best_primal_iteration;
+  SubgradRate & _rate;
+  bool _debug;
+  int _max_round;
+  double _last_alpha;
 };
 
 #endif

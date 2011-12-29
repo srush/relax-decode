@@ -6,12 +6,12 @@
 #include <iomanip>
 
 #include "common.h"
-#include <boost/program_options.hpp>
 #include "lexical.pb.h"
 #include "tagger/TagConstraints.h"
 #include "tagger/TagSolvers.h"
 #include "DualDecomposition.h"
 #include "Subgradient.h"
+#include "Rates.h"
 #include "MRF.h"
 #include "MRFSolvers.h"
 using namespace std;
@@ -54,9 +54,8 @@ int main(int argc, char ** argv) {
   
   wvector * simple = svector_from_str<int, double>("value=-1");
   ConstrainerDual<TagIndex> mrf_dual(mrfs, *simple, tag_align);
-  
-  DualDecomposition d(p_dual, mrf_dual);
-  d._subgradsolver.rate = new ParseRate();
+  ParseRate pr; 
+  DualDecomposition d(p_dual, mrf_dual,pr);
   d.solve(0);
   
   for (int i =0; i < p_dual.best_derivations.size(); i++) {

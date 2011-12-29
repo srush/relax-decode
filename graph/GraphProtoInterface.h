@@ -6,7 +6,7 @@ using namespace Scarab::Graph;
 class GraphProtoInterface {
  public:
   void build_from_file(const char * file_name) ;
-
+  void build_from_proto(graph::Graph *) ;
   
   virtual void process_node(graph::Graph_Node, Graphnode *) = 0;
   virtual void process_edge(graph::Graph_Edge, Graphedge *) = 0;

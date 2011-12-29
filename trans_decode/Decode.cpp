@@ -179,7 +179,7 @@ void Decode::print_output(const wvector & subgrad) {
   //cout << endl << endl;
 }
 
-bool Decode::solve_ngrams(int round, bool is_stuck, bool & no_update) {
+bool Decode::solve_ngrams(int round, bool is_stuck) {
   bool bump_rate = false;
 
   if (round ==1) {
@@ -646,10 +646,12 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
   return subgrad;
 }
 
-void Decode::solve(double & primal , double & dual, wvector & subgrad, int round, bool is_stuck, bool & bump_rate, bool & no_update) {
+void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
+  //int round, bool is_stuck, bool & bump_rate, bool & no_update,
+  //               double & primal , double & dual, wvector & subgrad) {
   clock_t begin, end;
 
-  no_update = false;
+  //no_update = false;
   if (TIMING) {
     cout << "Solving" << endl;
     begin=clock();
@@ -660,7 +662,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    ******************************************/
 
 
-  bump_rate = solve_ngrams(round, is_stuck, no_update);
+  result.bump_rate = solve_ngrams(cur_state.round, cur_state.is_stuck);
   
 
   if (TIMING) {
@@ -704,7 +706,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   EdgeCache * total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
   
   
-  dual = best_modified_derivation(*total, ha, back_pointers);
+  result.dual = best_modified_derivation(*total, ha, back_pointers);
   
   HEdges used_edges = ha.construct_best_edges(back_pointers); 
 
@@ -772,14 +774,14 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    ******************************************/
 
   
-  subgrad += construct_parse_subgrad(used_edges);
+  result.subgrad += construct_parse_subgrad(used_edges);
 
 
 
   double cost_total = 0.0;
   
-  cout << "predual " << dual << endl; 
-  subgrad += construct_lm_subgrad(used_words, used_lats, used_strings, dual, cost_total);
+  cout << "predual " << result.dual << endl; 
+  result.subgrad += construct_lm_subgrad(used_words, used_lats, used_strings, result.dual, cost_total);
 
   // - lagrangians (FROM LM SIDE)
   //vector <int> lex_lat_edges = get_lex_lat_edges(edge_id); 
@@ -803,7 +805,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
    *    
    ******************************************/
 
-  primal = compute_primal(used_edges, used_words, penalty_cache);
+  result.primal = compute_primal(used_edges, used_words, penalty_cache);
 
 
   double edge_total= 0.0;
@@ -816,7 +818,7 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   }
 
 
-  assert(fabs((cost_total + edge_total) - dual) < 1e-4);
+  assert(fabs((cost_total + edge_total) - result.dual) < 1e-4);
 
 
   if (TIMING) {
@@ -834,19 +836,19 @@ void Decode::solve(double & primal , double & dual, wvector & subgrad, int round
   cout << endl;
   */
   if (DEBUG || SIMPLE_DEBUG) {
-    cout << "DUAL Score" << dual << endl;
-    cout << "PRIMAL Score " << primal << endl;
+    cout << "DUAL Score" << result.dual << endl;
+    cout << "PRIMAL Score " << result.primal << endl;
     cout << endl;
   }
-  assert((dual - primal) < 1e-3);
+  assert((result.dual - result.primal) < 1e-3);
 
-  print_output(subgrad);
+  print_output(result.subgrad);
 
-  if (dual - primal > 1e-3) {
+  // if (result.dual - result.primal > 1e-3) {
     
-    cout << "DUAL PRIMAL mismatch. You have a bug." << endl;
-    exit(0);
-  }
+  //   cout << "DUAL PRIMAL mismatch. You have a bug." << endl;
+  //   exit(0);
+  // }
 }
 
 

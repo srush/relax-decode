@@ -6,6 +6,9 @@
 
 using namespace std;
 
+
+
+
 void GraphProtoInterface::build_from_file(const char * file_name) { 
   graph::Graph * graph = new graph::Graph();     
   {
@@ -16,7 +19,10 @@ void GraphProtoInterface::build_from_file(const char * file_name) {
     coded_fs.SetTotalBytesLimit(1000000000, -1);
     graph->ParseFromCodedStream(&coded_fs);
   }
+  build_from_proto(graph);
+}
 
+void GraphProtoInterface::build_from_proto(graph::Graph *graph) { 
   vector <Graphnode *> nodes;
   vector <Graphedge *> edges;
 
