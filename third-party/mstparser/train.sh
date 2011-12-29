@@ -1,1 +1,1 @@
-java -classpath ".:lib/trove.jar" -Xmx1800m mstparser.DependencyParser  order:2  train  model-name:small_spanish.model   train-file:data/spanish_50_ulab
+java -classpath ".:lib/trove.jar" -Xmx1800m mstparser.DependencyParser  order:2  train  model-name:small_SO.model   train-file:data/wsj_gold_50_ulab_2

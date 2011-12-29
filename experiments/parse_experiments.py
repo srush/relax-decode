@@ -214,6 +214,16 @@ def parse_dev_experiment_size(num, model_size, prefix ="", penalty=0.7):
   training = "wsj_gold_%s"%model_size,
   penalty = penalty)
 
+def parse_dev_experiment_size_re(num, model_size, prefix ="", penalty=0.7):
+  return ParseExperiment(
+  original_test= "parse_dev_data2/sec22_%03d"%num,
+  prefix= "parse_dev2_%s_%s_%s"%(prefix, model_size, num),
+  gold_file= "parse_dev_data2/sec22_%s"%num,
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_SO.model",
+  training = "wsj_gold_%s"%model_size,
+  penalty = penalty)
+
 simple_parse = ParseExperiment(
   original_test= "parse_dev_data/sec_test",
   prefix= "parse_dev_small",
