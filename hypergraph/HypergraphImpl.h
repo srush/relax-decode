@@ -28,6 +28,7 @@ public:
     
   }
   
+
   const Hypernode & tail_node(unsigned int i) const {
     return * (_tail_nodes[i]);
   }
@@ -42,6 +43,10 @@ public:
 
   const string &feature_string() const {
     return _feature_str;
+  }
+
+  void set_feature_string(const string &feat_str) {
+    _feature_str = feat_str;
   }
 
   const Scarab::HG::Hypernode & head_node() const { 
@@ -222,7 +227,7 @@ class HypergraphImpl : public HGraph {
   virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id ) {
     edge->set_id(id);
     edge->set_label(our_edge->label());
-    edge->SetExtension(edge_fv, svector_str<int, double>(our_edge->fvector()));
+    edge->SetExtension(edge_fv, ((HyperedgeImpl *)our_edge)->feature_string());
   }
   virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node, int id ) { 
     node->set_id(id);

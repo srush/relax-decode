@@ -59,6 +59,7 @@ class ConstrainerDual:public DualDecompositionSubproblem {
         }
         _dirty_cache[group] = true;
         //constraints[group]->show_derivation(best_derivations[group]);
+
         //cout << "Update " << index.group <<endl;
       }
     }
@@ -140,7 +141,7 @@ EdgeCache ConstrainerDual<Other>::build_mrf_constraint_vector(int group_num,
 
       
       HNode hnode = mrf.node_from_assignment(assign);
-
+      assert(hnode->edges().size() != 0);
       foreach (HEdge edge, hnode->edges()) {
         if (!ret.has_key(*edge)) {
           ret.set_value(*edge, 0.0);

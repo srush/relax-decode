@@ -87,16 +87,20 @@ class MRF : public GraphProtoInterface {
   }
 
   const bool has_edge_pot(const Graphedge & edge, const State & s1, const State & s2) const {
-    return _edge_potentials->get(edge).find(pair<int,int>(s1.id(),s2.id())) != _edge_potentials->get(edge).end();
+    return _edge_potentials->get(edge)[s1.id()].find(s2.id()) 
+      != _edge_potentials->get(edge)[s1.id()].end();
   }
 
   const double edge_pot(const Graphedge & edge, const State & s1, const State & s2) const {
     if (has_edge_pot(edge, s1, s2)) {
-      return  _edge_potentials->get(edge)[pair<int,int>(s1.id(),s2.id())];
+      return  _edge_potentials->get(edge)[s1.id()][s2.id()];
     }
     return 0.0;
   }
   
+  const map<int, double> &states_with_potential(const Graphedge & edge, const State & s1) const {
+    return _edge_potentials->get(edge)[s1.id()];
+  }
 
   /* const vector<State>  & states() const { */
   /*   return _states; */
@@ -151,7 +155,7 @@ class MRF : public GraphProtoInterface {
   Cache <Graphnode, Cache <State, double> * > * _node_potentials; 
 
   // This will be zero on any edge with no potential (makes things way faster)
-  Cache <Graphedge, map <pair<int,int>, double> > * _edge_potentials; 
+  Cache <Graphedge, map <int, map<int, double> > > * _edge_potentials; 
 
   int _num_assignments;
 

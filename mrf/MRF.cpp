@@ -29,7 +29,7 @@ void MRF::process_node(graph::Graph_Node proto_node, Graphnode * internal_node) 
 
 void MRF::process_edge(graph::Graph_Edge proto_edge, Graphedge * internal_edge) {
   const graph::MRFEdge & mrf_edge = proto_edge.GetExtension(graph::mrf_edge);
-  map <pair<int,int>,  double > & edge_weights = _edge_potentials->get_no_check(*internal_edge);
+  map <int, map <int,  double > > & edge_weights = _edge_potentials->get_no_check(*internal_edge);
 
   int n_from_states = states(*internal_edge->from_node()).size();
   int n_to_states = states(*internal_edge->to_node()).size();
@@ -40,7 +40,7 @@ void MRF::process_edge(graph::Graph_Edge proto_edge, Graphedge * internal_edge) 
     int from = edge_poten.from_state_id();
     int to = edge_poten.to_state_id();
     
-    edge_weights[pair<int,int>(from,to)] = edge_poten.edge_potential();
+    edge_weights[from][to] = edge_poten.edge_potential();
   }
 }
 
@@ -50,7 +50,7 @@ void MRF::set_up(graph::Graph graph, int nodes , int edges) {
   _node_states = new Cache <Graphnode, vector <State> >(nodes);
   _max_node = new Cache <Graphnode, int >(nodes);
   _node_potentials = new Cache <Graphnode, Cache <State, double> * >(nodes);
-  _edge_potentials = new Cache <Graphedge, map<pair<int,int>, double> >(edges);
+  _edge_potentials = new Cache <Graphedge, map<int, map<int, double> > >(edges);
   _label = graph.label();
 }
 

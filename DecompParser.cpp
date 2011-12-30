@@ -54,7 +54,10 @@ int main(int argc, char ** argv) {
 
   // 3 4
   cout << "parse file " << FLAGS_parse_file;
+  clock_t start=clock();
   parsers = SecondOrderConverter().convert_file(FLAGS_parse_file.c_str());
+  clock_t end=clock();
+  cerr << "MAKEHYPER "<< double(Clock::diffclock(end,start)) << endl;
 
   for (int i=FLAGS_mrf_start; i <= FLAGS_mrf_end; i++) {  
     stringstream fname;

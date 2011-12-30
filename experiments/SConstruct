@@ -810,7 +810,7 @@ def setup_parsing_experiment(env, language, size = 50):
      src = (all_dev,)
      targ= tuple([dev_data + "/dev_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 50 dev \"\" "%src)
+     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 500 dev \"\" "%src)
 
 
      # TEST

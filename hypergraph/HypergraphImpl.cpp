@@ -93,8 +93,8 @@ namespace HG {
     }
     //assert (_nodes.size() == (uint)hgraph->node_size());
     hgraph.set_root(renumbering.get(root()));
-    cerr << "num nodes " << num_nodes() << " " << hgraph.node_size() << endl;
-    cerr << "num edges " << num_edges() << " " << num_new_edges << endl;
+//     cerr << "num nodes " << num_nodes() << " " << hgraph.node_size() << endl;
+//     cerr << "num edges " << num_edges() << " " << num_new_edges << endl;
     //   {
     //     fstream output(file_name, ios::out | ios::binary);
     //     if (!hgraph.SerializeToOstream(&output)) {
@@ -151,8 +151,9 @@ void HypergraphImpl::build_from_proto(Hypergraph *hgraph) {
     for (int j=0; j < node.edge_size(); j++) {
       const Hypergraph_Edge& edge = node.edge(j);
       str_vector * features;
+      string feat_str = "";
       if (edge.HasExtension(edge_fv)) { 
-        const string & feat_str = edge.GetExtension(edge_fv);  
+        feat_str = edge.GetExtension(edge_fv);  
         features = svector_from_str<int, double>(feat_str);
       } else {
         features = new svector<int, double>();
@@ -171,7 +172,7 @@ void HypergraphImpl::build_from_proto(Hypergraph *hgraph) {
                                                                           edge_id, 
                                                                           tail_nodes, 
                                                                           _nodes[node.id()]);
-      
+      ((HyperedgeImpl *)forest_edge)->set_feature_string(feat_str);
       make_edge(edge, forest_edge);      
       for (int k =0; k < edge.tail_node_ids_size(); k++){
         int id = edge.tail_node_ids(k);

@@ -14,11 +14,11 @@ class MRFHypergraph : public HypergraphImpl {
  MRFHypergraph(const MRF & mrf) : _mrf(mrf) {}
 
   const NodeAssignment & assignment_from_node(HNode node) const {
-    return _canonical_assignment->get(*node);
+    return (*_canonical_assignment)[node->id()];
   }
 
   bool node_has_assignment(HNode node) const {
-    return _canonical_assignment->has_key(*node);
+    return _canonical_assignment->find(node->id()) != _canonical_assignment->end();
   }
 
 
@@ -48,7 +48,8 @@ class MRFHypergraph : public HypergraphImpl {
  private:
   const MRF & _mrf;
   Cache <NodeAssignment, Hypernode * > * _canonical_hnode;
-  Cache <Hypernode, NodeAssignment > * _canonical_assignment;
+/*   Cache <Hypernode, NodeAssignment > * _canonical_assignment; */
+  map <int, NodeAssignment > *_canonical_assignment;
 };
 
 

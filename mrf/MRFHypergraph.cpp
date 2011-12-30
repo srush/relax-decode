@@ -12,8 +12,7 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
   assert(nodes.size() != 0);
 
   mrf_hyp->_canonical_hnode = new Cache <NodeAssignment, Hypernode * > (mrf.assignments());
-  mrf_hyp->_canonical_assignment = new Cache<Hypernode, NodeAssignment >(mrf.assignments()*10);
-  cerr << "big array " << mrf.assignments()*10;
+  mrf_hyp->_canonical_assignment = new map<int, NodeAssignment>();
   Cache <Graphnode, Cache <Graphnode, Cache <State, Hypernode * > *> * > middle_nodes (nodes.size());
   int hnode_id = 0;
   int hedge_id = 0;
@@ -53,19 +52,24 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
       NodeAssignment assign = mrf.make_assignment(*n, my_s);
       int id = assign.id();
       mrf_hyp->_canonical_hnode->set_value(assign, base_hnode);
-      mrf_hyp->_canonical_assignment->set_value(*base_hnode, mrf.make_assignment(*n, my_s));
+      (*mrf_hyp->_canonical_assignment)[base_hnode->id()] = mrf.make_assignment(*n, my_s);
       hnode_id++;
       mrf_hyp->_nodes.push_back(base_hnode);
 
       // outgoing edges
       foreach (Edge e, n->edges()) {
         Node to_node = e->to_node();
-        foreach (const State & to_s, mrf.states(*to_node)) {
-          Hypernode * to_hnode = middle_nodes.get(*n)->get( *to_node)->get(to_s);
+        const map<int, double> &states = mrf.states_with_potential(*e, my_s);
+        for (map<int, double>::const_iterator it = states.begin(); 
+             it != states.end(); ++it ) {
+          int to_s = it->first;
+          double edge_potential = it->second;
+          //if (!mrf.has_edge_pot(*e, my_s, to_s)) continue;
+          Hypernode * to_hnode = middle_nodes.get(*n)->get(*to_node)->get_by_key(to_s);
           vector <Hypernode *> tail_node;
           tail_node.push_back( base_hnode);
           stringstream wstr;
-          wstr << "value="<< node_pot + -mrf.edge_pot(*e, my_s, to_s);
+          wstr << "value="<< node_pot + -edge_potential;
           HyperedgeImpl * edge = new HyperedgeImpl("", 
                                                    svector_from_str<int, double>(wstr.str()),
                                                    hedge_id, tail_node, to_hnode);
@@ -80,7 +84,7 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
       vector <Hypernode *> tail_nodes;
       foreach (Edge e, n->in_edges()) {
         Node from_node = e->from_node();
-        Hypernode * mid_node = middle_nodes.get(*from_node)->get( *n)->get(my_s);
+        Hypernode * mid_node = middle_nodes.get(*from_node)->get(*n)->get(my_s);
         tail_nodes.push_back(mid_node);
       }
       HyperedgeImpl * edge = new HyperedgeImpl("", new wvector(), hedge_id, tail_nodes, base_hnode);
