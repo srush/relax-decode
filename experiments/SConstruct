@@ -468,11 +468,11 @@ def build_parse_constraints_multi(source, target, env, for_signature=False):
      """
      """
      
-     return 'python $SCARAB_PY/parse_constraints_mrf_multi.py  --test %s --penalty $PENALTY --train %s --linkdesc %s --constraints %s --language $LANGUAGE | tee %s'\
+     return 'python $SCARAB_PY/parse_constraints_mrf_multi_fixed.py  --test %s --penalty $PENALTY --train %s --linkdesc %s --constraints %s --language $LANGUAGE | tee %s'\
             %(source[0], source[2],  target[0], target[2], target[1])
 
 def build_parse_constraints_multi_emit(source, target, env):
-     return target, source + [env['SCARAB_PY'] + '/parse_constraints_mrf_multi.py']
+     return target, source + [env['SCARAB_PY'] + '/parse_constraints_mrf_multi_fixed.py']
 
 
 def ParseComparison(source, target, env, for_signature=False):
@@ -810,7 +810,7 @@ def setup_parsing_experiment(env, language, size = 50):
      src = (all_dev,)
      targ= tuple([dev_data + "/dev_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 500 dev \"\" "%src)
+     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 50 dev \"\" "%src)
 
 
      # TEST

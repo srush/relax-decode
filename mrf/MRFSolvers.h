@@ -169,7 +169,7 @@ void ConstrainerDual<Other>::solve(const SubgradState & info,
     const MRF & mrf = *pmrf;
 
     if (_is_first) {
-      //cout << " Build hypergraph " << endl;
+      cout << " Build hypergraph " << endl;
       _hypergraphs[group] = MRFHypergraph::from_mrf(mrf);
     }
     if (_dirty_cache[group]) {

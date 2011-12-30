@@ -6,25 +6,27 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
   // Basically we will treat the directionality of the graph 
   // as an elimination ordering. This is a bit hacky, but general
   // In edges have already been marginalized out.
-  MRFHypergraph * mrf_hyp = new MRFHypergraph(mrf);
+  MRFHypergraph *mrf_hyp = new MRFHypergraph(mrf);
   
-  const Nodes nodes = mrf.graph().nodes();
-  assert (nodes.size() != 0);
+  const Nodes &nodes = mrf.graph().nodes();
+  assert(nodes.size() != 0);
 
   mrf_hyp->_canonical_hnode = new Cache <NodeAssignment, Hypernode * > (mrf.assignments());
   mrf_hyp->_canonical_assignment = new Cache<Hypernode, NodeAssignment >(mrf.assignments()*10);
+  cerr << "big array " << mrf.assignments()*10;
   Cache <Graphnode, Cache <Graphnode, Cache <State, Hypernode * > *> * > middle_nodes (nodes.size());
   int hnode_id = 0;
   int hedge_id = 0;
   
   foreach (Node n, nodes) {
-    Cache <Graphnode, Cache <State, Hypernode * > *> * c = new  Cache <Graphnode, Cache <State, Hypernode * > *> (nodes.size());
+    Cache <Graphnode, Cache <State, Hypernode * > *> * c = 
+      new Cache <Graphnode, Cache <State, Hypernode * > *> (nodes.size());
     middle_nodes.set_value(*n, c);
     
     // out edges
     foreach (Edge e, n->edges()) {
       Node to_node = e->to_node();
-      Cache <State, Hypernode * > * c2 = new  Cache <State, Hypernode * >(mrf.state_max(*to_node));
+      Cache <State, Hypernode * > * c2 = new Cache <State, Hypernode * >(mrf.state_max(*to_node));
       c->set_value(*to_node, c2);
 
       foreach (const State & s, mrf.states(*to_node)) {
@@ -40,15 +42,11 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
       }
     }
 
-    //Cache <State >  * can = new  Cache <State > (state(*n));
-    //mrf_hyp->_canonical_hnode->set_value(*n, can);
-
     // One hypergraph canonical node for each hypergraph state 
     foreach (const State & my_s, mrf.states(*n) ) {
       stringstream buf;
       buf << n->id() << "_" << my_s.id(); 
       stringstream wstr;
-      //wstr << "value="<< -mrf.node_pot(*n, my_s);
       double node_pot = -mrf.node_pot(*n, my_s);
       HypernodeImpl * base_hnode = new HypernodeImpl(buf.str(), hnode_id,  
                                                      svector_from_str<int, double>(wstr.str()));
@@ -58,7 +56,6 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
       mrf_hyp->_canonical_assignment->set_value(*base_hnode, mrf.make_assignment(*n, my_s));
       hnode_id++;
       mrf_hyp->_nodes.push_back(base_hnode);
-
 
       // outgoing edges
       foreach (Edge e, n->edges()) {
@@ -105,11 +102,9 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
   hnode_id++;
   mrf_hyp->_nodes.push_back(mrf_hyp->_root);
 
-
   foreach (const State & last_state, mrf.states(*root) ) {
     vector <Hypernode *> tail_nodes;
     Hypernode * last_node = mrf_hyp->_canonical_hnode->get(mrf.make_assignment(*root, last_state));
-    //lookup(root, last_state);
     tail_nodes.push_back(last_node);
     double node_pot = -mrf.node_pot(*root, last_state);
     stringstream wstr;
@@ -120,7 +115,7 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
     ((HypernodeImpl*)mrf_hyp->_root)->add_edge(edge);
     ((HypernodeImpl*)last_node)->add_in_edge(edge);
   }
-
+  cerr << "size: " << mrf_hyp->num_nodes() << " " << mrf_hyp->num_edges() << endl;
   return mrf_hyp;
 }
 
