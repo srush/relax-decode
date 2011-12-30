@@ -10,17 +10,13 @@ namespace Scarab {
 namespace HG {
 
 
-
 // Hypergraph interface for internal use. 
 // This interface is entirely immutable! Every function is const
 // See Cache.h for implementing state on top on hypergraphs.  
 
 class Hypernode;
-
-typedef const Hypernode * HNode; 
-
+typedef const Hypernode *HNode; 
 typedef vector <const Hypernode * > HNodes;  
-
 
 // Base class for weighted hyperedge 
 class Hyperedge {
@@ -162,25 +158,24 @@ class Hypernode {
    * WARNING: Treat this as a const iterator.
    * @return Const iterator to edges.
    */
-  virtual const vector <Hyperedge*> & edges() const =0; 
+  virtual const vector <Hyperedge*> &edges() const =0; 
 
   /** 
    * Get all hyperedges with this hypernode as a tail.
    * WARNING: Treat this as a const iterator.
    * @return Const iterator to edges.
    */
-  virtual const vector <Hyperedge*> & in_edges() const =0; 
+  virtual const vector <Hyperedge *> &in_edges() const =0; 
 
-  virtual const string  & label() const {return "";}; 
-  
+  virtual string label() const { return ""; }; 
 };
 
 class HGraph {
  public:
   virtual ~HGraph() {}
+
   /** 
-   * Display the hypergraph for debugging. 
-   * 
+   * Display the hypergraph for debugging.
    */
   virtual void print() const = 0;
   
@@ -189,24 +184,23 @@ class HGraph {
    * 
    * @return Hypernode at root
    */
-  virtual const Hypernode & root() const = 0;
+  virtual const Hypernode &root() const = 0;
 
   
   // TODO: remove these 
   virtual unsigned int num_edges() const =0;
   virtual unsigned int num_nodes() const = 0;
     
-  virtual const Hypernode & get_node(unsigned int i) const = 0; 
-  virtual const Hyperedge & get_edge(unsigned int i) const = 0;
+  virtual const Hypernode &get_node(unsigned int i) const = 0; 
+  virtual const Hyperedge &get_edge(unsigned int i) const = 0;
   
   // Switching to iterator interface
   /** 
    * Get all hypernodes in the hypergraph. (Assume unordered)
    * WARNING: Treat this as a const iterator.
-   * @return Const iterator to hypernodes in hypergraph .
+   * @return Const iterator to hypernodes in hypergraph.
    */
-  virtual const vector <Hypernode* > & nodes() const =0; 
-
+  virtual const vector <Hypernode* > &nodes() const = 0; 
 
   /** 
    * Get all hyperedges in the hypergraph. (Assume unordered)
@@ -214,14 +208,14 @@ class HGraph {
    * @return Const iterator to edges in hypergraph .
    */
   virtual const vector <Hyperedge*> & edges() const =0; 
- };
+};
 
 struct HypergraphPrune {
-   HypergraphPrune(const HGraph & hgraph_) : hgraph(hgraph_) {}
-   set <int> nodes;
-   set <int> edges;
-   const HGraph & hgraph;
- };
+  HypergraphPrune(const HGraph & hgraph_) : hgraph(hgraph_) {}
+  set <int> nodes;
+  set <int> edges;
+  const HGraph & hgraph;
+};
 
 
 }

@@ -40,6 +40,10 @@ public:
     return *_features;
   }
 
+  const string &feature_string() const {
+    return _feature_str;
+  }
+
   const Scarab::HG::Hypernode & head_node() const { 
     return (*_head_node);
   }
@@ -60,8 +64,6 @@ public:
     _id = new_id;
   }
 
-
-
   const string _label;  
   vector <Hypernode *> _tail_nodes;
   Hypernode * _head_node;
@@ -69,7 +71,7 @@ public:
 private:
   int _id;
   str_vector * _features;
-
+  string _feature_str;
 };
 
 
@@ -80,11 +82,11 @@ public:
   _id(id),
   _label(label), _features(features) {}
   
-  void add_edge(Hyperedge * edge) {
+  void add_edge(Hyperedge *edge) {
     _edges.push_back(edge);
   }
 
-  void add_in_edge(Hyperedge * edge) {
+  void add_in_edge(Hyperedge *edge) {
     _in_edges.push_back(edge);
   }
 
@@ -141,15 +143,15 @@ public:
     _id = new_id;
   }
 
-  const string & label() const {
+  string label() const {
     return _label; 
   }
 
 private:  
    int  _id;
  public:
-  vector < Hyperedge *> _edges; 
-  const string & _label;
+  vector <Hyperedge *> _edges; 
+  string _label;
 
 
 private:  
@@ -193,7 +195,8 @@ class HypergraphImpl : public HGraph {
   }
   
   
-  void build_from_file(const char * file_name );
+  void build_from_file(const char * file_name);
+  void build_from_proto(Hypergraph *hgraph);
 
   const vector <Hypernode*> & nodes() const {
     return _nodes;
@@ -203,7 +206,7 @@ class HypergraphImpl : public HGraph {
   }
 
   void prune(const HypergraphPrune & prune );
-  void write_to_file(const char * file_name);
+  Hypergraph write_to_proto(const HypergraphPrune &prune);
  protected:
   ::Hypergraph * hgraph;
   Hypernode * _root;
@@ -216,8 +219,15 @@ class HypergraphImpl : public HGraph {
   }
 
   virtual void make_edge(const Hypergraph_Edge & edge, const Hyperedge * our_edge) {}
-  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge ) {}
-  virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node ) {}
+  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id ) {
+    edge->set_id(id);
+    edge->set_label(our_edge->label());
+    edge->SetExtension(edge_fv, svector_str<int, double>(our_edge->fvector()));
+  }
+  virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node, int id ) { 
+    node->set_id(id);
+    node->set_label(our_node->label());
+  }
   virtual void set_up(const Hypergraph & hgraph) {}
   virtual void print() const {}
   

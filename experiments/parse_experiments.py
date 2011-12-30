@@ -225,9 +225,9 @@ simple_parse = ParseExperiment(
 
 def parse_language(setnum, language, size =50, penalty=0.5):
   return ParseExperiment(
-  original_test= "parse_dev_%s/dev_%s"%(language,setnum),
+  original_test= "parse_dev_%s/dev_%03d"%(language,setnum),
   prefix= "parse_dev_%s_%s_%s"%(language, size, setnum),
-  gold_file= "parse_dev_%s/dev_%s"%(language,setnum),
+  gold_file= "parse_dev_%s/dev_%03d"%(language,setnum),
   mrf_spec= "parse_constraints_asym_punc",
   model = "%s_%s.model"%(language,size),
   training = "%s_%s"%(language,size),
@@ -236,9 +236,9 @@ def parse_language(setnum, language, size =50, penalty=0.5):
 
 def parse_language_big(setnum, language, size =50, penalty=0.5):
   return ParseExperiment(
-  original_test= "parse_big_dev_%s/dev_%s"%(language,setnum),
+  original_test= "parse_big_dev_%s/dev_%03d"%(language,setnum),
   prefix= "parse_big_dev_%s_%s_%s"%(language, size, setnum),
-  gold_file= "parse_big_dev_%s/dev_%s"%(language,setnum),
+  gold_file= "parse_big_dev_%s/dev_%03d"%(language,setnum),
   mrf_spec= "parse_constraints_asym_punc",
   model = "%s_%s.model"%(language,size),
   training = "%s_%s"%(language,size),

@@ -1,10 +1,17 @@
 #include "DualDecomposition.h"
-
+#include <time.h>
 
 void DualDecompositionRunner::solve(const SubgradState & info, SubgradResult & result) { 
   SubgradResult result1, result2;
+  clock_t start=clock();
   _sub_producer1.solve(info, result1);
+  clock_t end=clock();
+  cout << "First subproblem"<< double(Clock::diffclock(end,start)) << endl;
+
+  start=clock();
   _sub_producer2.solve(info, result2);
+  end=clock();
+  cout << "Second subproblem"<< double(Clock::diffclock(end,start)) << endl;
   
   result.subgrad = result1.subgrad - result2.subgrad;
   result.dual = result1.dual + result2.dual;

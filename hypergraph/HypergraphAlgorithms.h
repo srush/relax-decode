@@ -80,6 +80,7 @@ double best_outside_path(const EdgeCache & edge_weights,
  *  @return The ids of the hypergraph in topological order
  */
  HNodes topological_sort() const;
+ void reachable(set<int> *reachable_nodes, set<int> *reachable_edges) const;
 
 HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
                                     const NodeCache & score_memo_table, 
@@ -87,10 +88,10 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
                                     double cutoff);
 
   // Marginals
- double inside_scores(const EdgeCache & edge_weights,  
+ double inside_scores(bool max, const EdgeCache & edge_weights,  
                       NodeCache & inside_memo_table) const;
 
- double outside_scores(const EdgeCache & edge_weights,  
+ double outside_scores(bool max, const EdgeCache & edge_weights,  
                        const NodeCache & inside_memo_table, 
                        NodeCache & outside_memo_table) const;
 
@@ -103,12 +104,12 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
  private:
  const HGraph & _forest;
 
- double outside_score_helper(const Hypernode & node, 
+ double outside_score_helper(bool use_max, const Hypernode & node, 
                              const EdgeCache & edge_weights, 
                              const NodeCache & inside_memo_table, 
                              NodeCache & outside_memo_table) const;
 
- double inside_score_helper(const Hypernode & node, 
+ double inside_score_helper(bool use_max, const Hypernode & node, 
                             const EdgeCache & edge_weights, 
                             NodeCache & inside_memo_table) const;
 

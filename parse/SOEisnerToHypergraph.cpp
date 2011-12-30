@@ -1,9 +1,11 @@
+#include "Weights.h"
+#include "Forest.h"
+#include "../common.h"
 #include "SOEisnerToHypergraph.h"
 #include <iostream>
 #include <fstream>
 #include <strstream>
-
-
+#include "../hypergraph/HypergraphAlgorithms.h"
 
 
 void EisnerToHypergraph::convert(Hypergraph & _forest) {
@@ -12,7 +14,6 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
       EisnerNode n(Span(i,i), LEFT, TRI);    
       finalize_node(n);
     }
-
 
     {
       EisnerNode n(Span(i,i), RIGHT, TRI);    
@@ -236,13 +237,73 @@ void EisnerToHypergraph::convert(Hypergraph & _forest) {
   finalize_root();
 }
 
+vector<DepParser *> SecondOrderConverter::convert_file(const char *file) {
+  stringstream buf;
+  vector<DepParser *> ret;
+  int sent_num = -1;
+  fstream input(file, ios::in);
+  while (input) {
+    sent_num++;
+    vector <int> sent;  
+    vector<vector <vector<double > > > weights(MAX_LEN);
+    
+    for (int i=0;i < MAX_LEN;i++) {
+      weights[i].resize(MAX_LEN);
+      for (int j=0;j < MAX_LEN; j++) {
+        weights[i][j].resize(MAX_LEN);
+      }
+    }
+    
+    int max_pos = 0;
+    while(input) {
+      double prob;
+      int pos1, pos2, head;
+      string ignore;
+      int snum;
+      // format is (PROB|END): {sentnum} {i} {j} {dir} {prob}  
+      input >> ignore;
+      if (ignore == "DONE:") break; 
+      input >> snum >> head >> pos1 >> pos2 >>  prob; 
+      weights[head][pos1][pos2] = prob; 
+      max_pos = max(max_pos, pos1); 
+    }
+    
+    for (int i=0; i<= max_pos; i++ ) {
+      sent.push_back(i);
+    }
+    
+    Hypergraph tmp;
+    EisnerToHypergraph runner(sent, weights);
+    runner.convert(tmp);
+    runner.hgraph.SetExtension(len, max_pos);
+   
+    // Turn the hypergraph into a parser.
+    DepParser *parser = new DepParser();
+    parser->build_from_proto(&runner.hgraph);  
+    HypergraphAlgorithms algorithms(*parser);
 
-
+    wvector * simple = svector_from_str<int, double>("value=-1");
+    EdgeCache *edge_weights = algorithms.cache_edge_weights(*simple);    
+    NodeCache inside_memo(parser->num_nodes()), outside_memo(parser->num_nodes());
+    double best = algorithms.inside_scores(true, *edge_weights, inside_memo);
+    algorithms.outside_scores(true, *edge_weights, inside_memo, outside_memo);
+    HypergraphPrune prune = 
+      algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, 0.7 * best);
+    Hypergraph to_write = 
+      parser->write_to_proto(prune);
+    to_write.SetExtension(len, max_pos);
+    DepParser *parser2 = new DepParser();
+    parser2->build_from_proto(&to_write);  
+    ret.push_back(parser2);
+  }
+  input.close();
+  return ret;
+}
+/*
 int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   stringstream buf;
-  //fstream in(argv[1], ios::in);
-  //for (int sent_num=1; sent_num <= 10 ;sent_num++ ) {
+
   int sent_num = -1;
   while(cin) {
     sent_num++;
@@ -288,15 +349,43 @@ int main(int argc, char ** argv) {
     runner.hgraph.SetExtension(len, max_pos);
     //cout << "extension get " << tmp.GetExtension(len) << endl;
    
-
+    // Turn the hypergraph into a parser.
+    DepParser *parser = new DepParser();
+    parser->build_from_proto(&runner.hgraph);  
+    HypergraphAlgorithms algorithms(*parser);
+    //wvector *simple = load_weights_from_file("config.ini");
+    wvector * simple = svector_from_str<int, double>("value=-1");
+  //wvector *simple = load_weights_from_file("config.ini");
+    EdgeCache *edge_weights = algorithms.cache_edge_weights(*simple);    
+    NodeCache inside_memo(parser->num_nodes()), outside_memo(parser->num_nodes());
+    double best = algorithms.inside_scores(true, *edge_weights, inside_memo);
+    algorithms.outside_scores(true, *edge_weights, inside_memo, outside_memo);
+    HypergraphPrune prune = 
+      algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, 0.7 * best);
+    //parser->prune(prune);
+    Hypergraph to_write = 
+      parser->write_to_proto(prune);
+    to_write.SetExtension(len, max_pos);
+    // Test
+    DepParser *parser2 = new DepParser();
+    parser2->build_from_proto(&to_write);  
+    HypergraphAlgorithms algorithms2(*parser2);
+    EdgeCache *edge_weights2 = algorithms2.cache_edge_weights(*simple);    
+    NodeCache inside_memo2(parser2->num_nodes()), outside_memo2(parser2->num_nodes());
+    double best2 = algorithms2.inside_scores(true, *edge_weights2, inside_memo2);
+    algorithms2.outside_scores(true, *edge_weights2, inside_memo2, outside_memo2);
+    algorithms2.pretty_good_pruning(*edge_weights2, inside_memo2, outside_memo2, 0.7 * best);
+    cerr << best << " " << best2 << endl;
     {
       stringstream buf;
       buf << argv[1] << sent_num;
-      fstream output(buf.str().c_str() , ios::out | ios::trunc | ios::binary);
-      if (!runner.hgraph.SerializeToOstream(&output)) {
+      cerr << max_pos << endl;
+      fstream output(buf.str().c_str(), ios::out | ios::trunc | ios::binary);
+      if (!to_write.SerializeToOstream(&output)) {
         cerr << "Failed to ." << endl;
         return -1;
       }
+      //const char * file_name,
     }
   }
   cout << (sent_num -1 ) << endl;
@@ -304,3 +393,4 @@ int main(int argc, char ** argv) {
 
   return 0;
 }
+*/

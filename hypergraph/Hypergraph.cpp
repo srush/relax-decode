@@ -1,20 +1,2 @@
 namespace HGraph {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

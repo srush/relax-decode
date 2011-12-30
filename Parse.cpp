@@ -6,27 +6,36 @@
 #include <iomanip>
 
 #include "common.h"
-#include <boost/program_options.hpp>
+#include "parse/SOEisnerToHypergraph.h"
 #include "lexical.pb.h"
-
+#include <gflags/gflags.h>
 using namespace std;
 using namespace Scarab::HG;
-namespace po = boost::program_options;
+
+
+DEFINE_string(parse_file, "", 
+              "The file with precomputed parse features.");
+DEFINE_string(feature_weights_file, "", 
+              "The file with weights for 'value' feature.");
 
 
 int main(int argc, char ** argv) {
   
 
   GOOGLE_PROTOBUF_VERIFY_VERSION;
+  google::ParseCommandLineFlags(&argc, &argv, true);
 
-  wvector * weight = load_weights_from_file( argv[1]); //vm["weights"].as< string >().c_str());
+  wvector * weight = load_weights_from_file(FLAGS_parse_file.c_str()); //vm["weights"].as< string >().c_str());
   double total_score = 0.0;
-  for (int i=atoi(argv[3]); i <= atoi(argv[4]); i++) {  
+  vector<DepParser * > parsers;
+  parsers = SecondOrderConverter().convert_file(FLAGS_parse_file.c_str());
+  
 
-    stringstream fname;
-    fname << argv[2] << i;
-    DepParser f;// = new DepParser();
-    f.build_from_file(fname.str().c_str());
+  for (uint i=0; i <= parsers.size(); i++) {  
+//     stringstream fname;
+//     fname << argv[2] << i;
+    DepParser &f = *parsers[i];
+    //f.build_from_file(fname.str().c_str());
     
     //bool lp = (int)atoi(argv[3]);
     

@@ -1,19 +1,11 @@
 from build_config import *
 from protoc import *
 import os
+         
 debug = ARGUMENTS.get('debug', 1)
 profile = ARGUMENTS.get('profile', 0)
 
 env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxygen'], toolpath = ['.'])
-
-if int(debug):
-   env.Prepend(CCFLAGS =('-g',))
-elif int(profile):
-   env.Append(CCFLAGS = ('-O2', '-pg'),
-              LINKFLAGS = ('-O2', '-pg'))
-else:
-   env.Append(CCFLAGS = ('-O3',  '-DNDEBUG'),
-              LINKFLAGS = ('-O3',  '-DNDEBUG'))
 
 env.Append(ROOT=build_config['scarab_root'])
 
@@ -29,7 +21,7 @@ lib_path = build_config['lib_extra']
 include_path = build_config['include_extra']
 
 if build_config['has_gurobi']:
-   libs += ("gurobi_g++4.1", "gurobi40", "m", "stdc++", "lp")
+   libs += ("gurobi45", "m", "stdc++", "lp")
    lib_path += (build_config['gurobi_lib'], '#/lp')
    include_path += (build_config['gurobi_path'],)
    sub_dirs += ['lp']
@@ -59,8 +51,24 @@ env.Append(GRAPH_PROTO="#interfaces/graph/gen-cpp/")
 interfaces = SConscript(dirs=["interfaces"], exports=['env'])
 print map(str,interfaces)
 
-local_libs = SConscript(dirs=sub_dirs,
+
+if int(debug):
+   env.Prepend(CCFLAGS =('-g',))
+elif int(profile):
+   env.Append(CCFLAGS = ('-O2', '-pg'),
+              LINKFLAGS = ('-O2', '-pg'))
+else:
+   env.Append(CCFLAGS = ('-O3',  '-DNDEBUG'),
+              LINKFLAGS = ('-O3',  '-DNDEBUG'))
+   
+
+
+
+local_libs = SConscript(dirs=sub_dirs, 
                         exports=['env', 'build_config'])  #+ (interfaces,)
+
+# debug_local_libs = SConscript(dirs=sub_dirs, build_dir='release',
+#                               exports={'env': debug_env, 'build_config' : build_config})  #+ (interfaces,)
 
 if build_config['has_sri']:
    trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
@@ -104,7 +112,6 @@ env.Program('run_decomp_tagger', ("DecompTagger.cpp", )+ local_libs, LIBS = libs
 env.Program('example1', ("examples/Example1.cpp", )+ local_libs, LIBS = libs)
 
 env.Program('example2', ("examples/Example2.cpp", )+ local_libs, LIBS = libs)
-
 
 if build_config['has_gurobi']:
    env.Program('run_full_parser', ("FullParser.cpp", )+ local_libs)

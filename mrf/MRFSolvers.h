@@ -58,7 +58,7 @@ class ConstrainerDual:public DualDecompositionSubproblem {
           dirtied ++;
         }
         _dirty_cache[group] = true;
-        constraints[group]->show_derivation(best_derivations[group]);
+        //constraints[group]->show_derivation(best_derivations[group]);
         //cout << "Update " << index.group <<endl;
       }
     }

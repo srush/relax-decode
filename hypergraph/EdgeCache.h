@@ -53,6 +53,10 @@ class Cache {
     assert (has_value[id]);
     return store[id];
   }
+
+  V get_by_key(int id) const {
+    return store[id];
+  }
   
   void set_value(const C & edge, V val) {
     int id = edge.id();

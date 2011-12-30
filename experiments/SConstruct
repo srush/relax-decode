@@ -1,3 +1,4 @@
+
 import os
 from formatting import *
 from experiment import *
@@ -376,7 +377,7 @@ def parser_run_so(source, target, env, for_signature=False):
      1 - the test file
      target - parses
      """
-     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s > %s"%(source[0], source[1], target[0])
+     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], source[1], target[0])
 
 def parser_run_emit_so(source, target, env, for_signature=False):
      #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
@@ -412,16 +413,21 @@ def viterbi_parse(source, target, env, for_signature=False):
      hypergraph test prefix
      sent description
      """
-     return '$SCARAB_ROOT/run_parser $SCARAB_ROOT/parse/config.ini %s 0 `cat %s`| tee %s' \
-                           % (source[0], source[1], target[0])
+     return '$SCARAB_ROOT/run_parser --feature_weights_file $SCARAB_ROOT/parse/config.ini --parse_file %s | tee %s' \
+                           % (source[0], target[0])
 
 def viterbi_parse_emit(source, target, env):
      source.append('$SCARAB_PY/run_parser')
      return target, source
 
 def DualDecompParse(source, target, env, for_signature=False):
-     return '$SCARAB_ROOT/run_decomp_parser $SCARAB_ROOT/parse/config.ini %s  0 `cat %s` %s 0 `cat %s` %s | tee %s' \
-            % (source[0],  source[1], source[2], source[4], source[3], target[0])
+     return (('$SCARAB_ROOT/run_decomp_parser '+
+             '--feature_weights_file $SCARAB_ROOT/parse/config.ini ' +
+             '--parse_file %s ' +
+             '--mrf_file_prefix %s --mrf_start 0 --mrf_end `cat %s` '+
+             '--alignment_file %s | tee %s')%
+             (source[0],  #source[1],
+              source[1], source[3], source[2], target[0]))
 
 
 def DualDecompParse_emit(source, target, env):
@@ -567,12 +573,13 @@ def register_cross_val(env, exp):
 def register_parse_experiment(env, exp):
      parse_out = env.ParseSO(exp.parse_out(), (exp.model(), exp.test_file()))
 
-     hypergraphs, hypergraphs_desc = env.ParseToHypergraphSO(
-          (exp.hypergraph_prefix(), exp.hypergraph_prefix()+"_desc"),
-          parse_out)
+#      hypergraphs, hypergraphs_desc = env.ParseToHypergraphSO(
+#           (exp.hypergraph_prefix(), exp.hypergraph_prefix()+"_desc"),
+#           parse_out)
      decoders = {}
      decoders['viterbi'] =env.ViterbiParse( exp.result_prefix()+"_viterbi", 
-                                            (hypergraphs, hypergraphs_desc))
+                                            (parse_out ))
+     #hypergraphs, hypergraphs_desc))
 
      targ = (exp.constraint_mrf_prefix()+"_desc",
              exp.constraint_mrf_prefix()+"_link",
@@ -586,16 +593,19 @@ def register_parse_experiment(env, exp):
            
 
 
-     decoders['lp']= env.FullLPParse( exp.result_prefix() + "_lp", 
-                                      (hypergraphs, hypergraphs_desc, constraints, mrf_link, constraints_desc),                                 
-                                      PENALTY = exp.penalty())
+#      decoders['lp']= env.FullLPParse( exp.result_prefix() + "_lp", 
+#                                       (parse_out,
+#                                        #hypergraphs, hypergraphs_desc,
+#                                        constraints, mrf_link, constraints_desc),                                 
+#                                       PENALTY = exp.penalty())
 
      decoders['decomp']= env.DualDecompParse( exp.result_prefix() + "_decomp", 
-                                      (hypergraphs, hypergraphs_desc, constraints, mrf_link, constraints_desc),                                 
+                                      (parse_out, #hypergraphs, hypergraphs_desc,
+                                       constraints, mrf_link, constraints_desc),                                 
                                       PENALTY = exp.penalty())
 
 
-     print decoders['decomp']
+     #print decoders['decomp']
      flats = {}
      for dec_type,result in decoders.iteritems():
           parse_name = "%s_%s"%(exp.result_prefix(), dec_type)
@@ -614,9 +624,9 @@ def register_parse_experiment(env, exp):
      #                             exp.gold_file())
        
           
-     env.ParseComparison(exp.result_prefix(), 
-          (flats["viterbi"], flats['lp'], exp.test_file())
-                         )
+#      env.ParseComparison(exp.result_prefix(), 
+#           (flats["viterbi"], flats['lp'], exp.test_file())
+#                          )
 
      a = env.ParseComparison(exp.result_prefix()+ "_d", 
                          (flats["viterbi"], flats['decomp'], exp.test_file())
@@ -798,9 +808,9 @@ def setup_parsing_experiment(env, language, size = 50):
 
      #src = ("$CONLL_FILES/%s.train.gz"%language,)
      src = (all_dev,)
-     targ= tuple([dev_data + "/dev_%s"%i for i in range(5)])
+     targ= tuple([dev_data + "/dev_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 dev \"\" "%src)
+     all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 500 dev \"\" "%src)
 
 
      # TEST
@@ -813,9 +823,9 @@ def setup_parsing_experiment(env, language, size = 50):
      Mkdir(test_data)
 
      src = (all_test,)
-     targ= tuple([test_data + "/test_%03d"%i for i in range(30)])
+     targ= tuple([test_data + "/test_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 test \"\" "%src)
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 10000 test \"\" "%src)
 
      all_test = "$SCARAB_DATA/%s_parse_test_ext"%language
      src = ("$CONLL_FILES/%s_extended_test.gz"%language,)
@@ -826,9 +836,9 @@ def setup_parsing_experiment(env, language, size = 50):
      Mkdir(test_data)
 
      src = (all_test,)
-     targ= tuple([test_data + "/test_%03d"%i for i in range(5)])
+     targ= tuple([test_data + "/test_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 test \"\" "%src)
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 10000 test \"\" "%src)
 
      return all
 
@@ -845,7 +855,7 @@ def setup_big_experiment(env, language, skip , size):
      Mkdir(dev_data)
 
      src = (all_dev,)
-     targ= tuple([dev_data + "/dev_%s"%i for i in range(5)])
+     targ= tuple([dev_data + "/dev_%03d"%i for i in range(5)])
 
      all += env.Command(targ, src, "cd "+dev_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 dev \"\" "%src)
      return all
@@ -905,7 +915,7 @@ full  = []
 for l in lang:
      full +=  env.Alias("%s_setup"%l, setup_parsing_experiment(env, l) )
      all = []
-     for j in range(5):
+     for j in range(1):
           all += register_parse_experiment(env, parse_language(j, l, penalty =0.5))
      full += env.Alias("parse_%s"%l, all)
      test = []
@@ -914,8 +924,8 @@ for l in lang:
      env.Alias("parse_test_%s"%l, test)
 
      ext_test = []
-     for j in range(int(extended_size[l]/100) +1):
-          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=50, extended=True))
+     #for j in range(int(extended_size[l]/100) +1):
+     ext_test += register_parse_experiment(env, test_parse_language(0, l, penalty =0.5, size=50, extended=True))
      env.Alias("parse_ext_test_%s"%l, ext_test)
 
 all_test = []

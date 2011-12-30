@@ -1,6 +1,6 @@
 #include "Weights.h"
 DEFINE_string(weight_file, "", "svector weight file with translation params"); // was 3
-static const bool weight_dummy = RegisterFlagValidator(&FLAGS_weight_file, &ValidateFile);
+//static const bool weight_dummy = RegisterFlagValidator(&FLAGS_weight_file, &ValidateFile);
 
 
 wvector * load_weights_from_file(const char * file)  {

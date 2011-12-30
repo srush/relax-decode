@@ -8,6 +8,7 @@
 #include "hypergraph.pb.h"
 #include "dep.pb.h"
 #include "features.pb.h"
+#include "../parse/DepParser.h"
 //#include "Hypergraph.h"
 //#include "HypergraphImpl.h"
 #include <iostream>
@@ -16,7 +17,6 @@ using namespace std;
 #define DEBUG 1
 //using namespace Scarab::HG;
 
-//typedef double[MAX_LEN][MAX_LEN][2] WeightVec;
 
 enum Direction {NODIR, LEFT, RIGHT};
 enum Shape {TRI, TRAP, BOX};
@@ -102,7 +102,6 @@ EisnerNode(Span ns, Direction d_in, Shape s_in) :
 
 };
 
-
 struct LocalHyperedge{
   vector <int> tail_node_ids;
   int head;
@@ -112,9 +111,6 @@ struct LocalHyperedge{
     weight =0.0;
   }  
 };
-
-
-
 
 class EisnerToHypergraph {
 
@@ -209,8 +205,11 @@ class EisnerToHypergraph {
   map < EisnerNode, int > _node_to_id;
   map < int, Hypergraph_Node * > _id_to_proto;
   vector < LocalHyperedge > hyperedges;
+};
 
-
+class SecondOrderConverter {
+ public:
+  vector<DepParser *> convert_file(const char *file);
 };
 
 #endif

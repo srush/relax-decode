@@ -33,8 +33,6 @@ private:
 ostream& operator<<(ostream& output, const Dependency& h);
 
 
-
-
 class DepParser : public Scarab::HG::HypergraphImpl {
  public:
   ~DepParser() {
@@ -137,6 +135,21 @@ class DepParser : public Scarab::HG::HypergraphImpl {
       Dependency our_dep = make_dep(ret_dep.head(), ret_dep.mod());
       _dep_map->set_value(*our_edge, our_dep);
       _edge_map->get_no_check(our_dep).push_back(our_edge);
+    }
+  }
+
+  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id) {
+    edge->set_id(id);
+    edge->set_label(our_edge->label());
+    //edge->SetExtension(edge_fv, svector_str<int, double>(our_edge->fvector()));
+    if (_dep_map->has_key(*our_edge)) {
+      edge->SetExtension(has_dep, true);                  
+      Dep *mut_dep = edge->MutableExtension(dep);
+      const Dependency &dep = _dep_map->get(*our_edge);
+      mut_dep->set_head(dep.head);
+      mut_dep->set_mod(dep.mod);
+    } else {
+      edge->SetExtension(has_dep, false);
     }
   }
 

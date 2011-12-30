@@ -134,8 +134,8 @@ public class KBestParseForest {
 	    if(chart[0][end][0][0][k].prob != Double.NEGATIVE_INFINITY) {
 		d[k][0] = getFeatureVector(chart[0][end][0][0][k]);
 		d[k][1] = getDepString(chart[0][end][0][0][k]);
-                System.out.println("\nFINAL: " + k + " " +  chart[0][end][0][0][k].prob);
-                System.out.println("\nRESULT: " + getDepString(chart[0][end][0][0][k]));
+//                 System.out.println("\nFINAL: " + k + " " +  chart[0][end][0][0][k].prob);
+//                 System.out.println("\nRESULT: " + getDepString(chart[0][end][0][0][k]));
 	    }
 	    else {
 		d[k][0] = null;

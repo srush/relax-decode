@@ -136,7 +136,7 @@ if __name__ == "__main__":
   extra_file = open(argv[2])
   gold_file = open(argv[3])
   constraint_results = open(argv[4])
-
+  print argv[4]
   constraints = list(ConstraintOut.from_handle(constraint_results))
 
   def chunk(handle):
@@ -152,6 +152,7 @@ if __name__ == "__main__":
   extra_sents = list(chunk(extra_file))
   gold_sents = list(parse_conll_file(gold_file))
   us =0 ;them = 0
+
   for i, c in enumerate(constraints):
     u,t = c.show_results(i, viterbi_sents, extra_sents, gold_sents, False)
     us += u

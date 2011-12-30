@@ -35,7 +35,7 @@ EdgeCache ParserDual::build_parser_constraint_vector(int sent_num, const DepPars
   EdgeCache ret(parser.num_edges());
   foreach (const Dependency & t, parser.dependencies()) {
     int lag;
-    if (!dep_to_lag(sent_num, t, lag)) continue;
+    if (!dep_to_lag(sent_num, t, lag) || !parser.dep_has_edge(t)) continue;
 
     HEdges edges = parser.dep_to_edge(t);
 
@@ -70,7 +70,8 @@ void ParserDual::solve_one(int sent_num, double & primal, double & dual, wvector
     
   HEdges best_edges = ha.construct_best_edges(back_memo_table);
 
-  primal = feature_vec.dot(_base_weights);
+  primal = feature_vec.dot(_base_weights
+);
   subgrad = build_parser_subgradient(sent_num, parser, best_edges);
   
   best_derivations[sent_num] = best_edges;
