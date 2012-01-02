@@ -18,7 +18,7 @@ class HypernodeImpl;
 
 class HyperedgeImpl: public Hyperedge {
 public:
-  virtual ~HyperedgeImpl(){}
+  virtual ~HyperedgeImpl(){ delete _features; }
   HyperedgeImpl(const string & label, str_vector * features, 
                 int id, vector <Hypernode *> tail_nodes, 
                 Hypernode * head_node):
@@ -82,10 +82,11 @@ private:
 
 class HypernodeImpl: public Hypernode {
 public:
-  ~HypernodeImpl(){}
+  ~HypernodeImpl(){ delete _features; }
   HypernodeImpl(const string & label, int id, wvector * features) :
   _id(id),
   _label(label), _features(features) {}
+ 
   
   void add_edge(Hyperedge *edge) {
     _edges.push_back(edge);
@@ -160,7 +161,7 @@ private:
 
 
 private:  
-  wvector * _features;
+  wvector *_features;
   
   vector <Hyperedge *> _in_edges; 
 };
@@ -171,7 +172,15 @@ class HypergraphImpl : public HGraph {
 
   HypergraphImpl(vector <Hypernode*> nodes, vector <Hyperedge*> edges, Hypernode* root):
   _nodes(nodes), _edges(edges), _root(root){}
-  ~HypergraphImpl(){}
+  
+  ~HypergraphImpl(){
+    for (int i = 0; i < _nodes.size(); ++i) {
+      delete _nodes[i];
+    }
+    for (int i = 0; i < _edges.size(); ++i) {
+      delete _edges[i];
+    }
+  }
   //HypergraphImpl(const char* filename);//const Hypergraph & pb);
       
   const Hypernode & root() const {
@@ -224,11 +233,11 @@ class HypergraphImpl : public HGraph {
   }
 
   virtual void make_edge(const Hypergraph_Edge & edge, const Hyperedge * our_edge) {}
-  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id ) {
-    edge->set_id(id);
-    edge->set_label(our_edge->label());
-    edge->SetExtension(edge_fv, ((HyperedgeImpl *)our_edge)->feature_string());
-  }
+  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id ) {} 
+/* ;{ */
+/*     edge->set_id(id); */
+/*     edge->set_label(our_edge->label()); */
+/*   } */
   virtual void convert_node(const Hypernode * our_node, Hypergraph_Node * node, int id ) { 
     node->set_id(id);
     node->set_label(our_node->label());

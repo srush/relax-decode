@@ -244,17 +244,21 @@ vector<DepParser *> SecondOrderConverter::convert_file(const char *file) {
   fstream input(file, ios::in);
   while (input) {
     sent_num++;
+    cerr << sent_num << endl;
     vector <int> sent;  
+    clock_t start=clock();
     vector<vector <vector<double > > > weights(MAX_LEN);
-    
     for (int i=0;i < MAX_LEN;i++) {
       weights[i].resize(MAX_LEN);
       for (int j=0;j < MAX_LEN; j++) {
         weights[i][j].resize(MAX_LEN);
       }
     }
+    cout << "resize time"<< double(Clock::diffclock(clock(),start)) << endl;
+    
     
     int max_pos = 0;
+    start=clock();
     while(input) {
       double prob;
       int pos1, pos2, head;
@@ -267,34 +271,76 @@ vector<DepParser *> SecondOrderConverter::convert_file(const char *file) {
       weights[head][pos1][pos2] = prob; 
       max_pos = max(max_pos, pos1); 
     }
-    
+    clock_t end=clock();
+    cout << "read time"<< double(Clock::diffclock(end,start)) << endl;
     for (int i=0; i<= max_pos; i++ ) {
       sent.push_back(i);
     }
     
     Hypergraph tmp;
     EisnerToHypergraph runner(sent, weights);
+    start=clock();
     runner.convert(tmp);
+    end = clock();
+    cout << "convert time"<< double(Clock::diffclock(end,start)) << endl;
     runner.hgraph.SetExtension(len, max_pos);
    
     // Turn the hypergraph into a parser.
+    start=clock();
+
+
     DepParser *parser = new DepParser();
     parser->build_from_proto(&runner.hgraph);  
     HypergraphAlgorithms algorithms(*parser);
+    end = clock();
+    cout << "build time"<< double(Clock::diffclock(end,start)) << endl;
 
+    start=clock();
     wvector * simple = svector_from_str<int, double>("value=-1");
     EdgeCache *edge_weights = algorithms.cache_edge_weights(*simple);    
     NodeCache inside_memo(parser->num_nodes()), outside_memo(parser->num_nodes());
+    clock_t start2=clock();
     double best = algorithms.inside_scores(true, *edge_weights, inside_memo);
+    //cout << "inside time"<< double(Clock::diffclock(clock(),start2)) << endl;
+    start2=clock();
     algorithms.outside_scores(true, *edge_weights, inside_memo, outside_memo);
+    //cout << "outside time"<< double(Clock::diffclock(clock(),start2)) << endl;
+    double pruning_threshold = algorithms.filter_pruning_threshold(*edge_weights, inside_memo, outside_memo, best, 0.2);
+    cerr << pruning_threshold << " " << best;
     HypergraphPrune prune = 
-      algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, 0.7 * best);
+      algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, pruning_threshold); //best < 0.0 ? 0.75 * best : 1.7 * best );
+    end = clock();
+    cout << "prune time"<< double(Clock::diffclock(end,start)) << endl;
+    start=clock();
     Hypergraph to_write = 
       parser->write_to_proto(prune);
     to_write.SetExtension(len, max_pos);
+    end = clock();
+    cout << "write time"<< double(Clock::diffclock(end,start)) << endl;
+
+    start=clock();
     DepParser *parser2 = new DepParser();
     parser2->build_from_proto(&to_write);  
+    end = clock();
+    cout << "rebuild time"<< double(Clock::diffclock(end,start)) << endl;
+
     ret.push_back(parser2);
+    cerr << parser->num_edges() << " " << parser2->num_edges() << endl;
+    cerr << best << endl;
+    delete parser;
+    if (false) {
+      // CHECKS
+      HypergraphAlgorithms algorithms2(*parser2);
+      EdgeCache *edge_weights2 = algorithms2.cache_edge_weights(*simple);    
+      NodeCache inside_memo2(parser2->num_nodes()), outside_memo2(parser2->num_nodes());
+      double best2 = algorithms2.inside_scores(true, *edge_weights2, inside_memo2);
+      NodeCache  score_memo_table2(parser2->num_nodes()); 
+      NodeBackCache  back_memo_table2(parser2->num_nodes());
+      double score2 = algorithms2.best_path( *edge_weights2, score_memo_table2, back_memo_table2);
+//       algorithms2.outside_scores(true, *edge_weights2, inside_memo2, outside_memo2);
+//       algorithms2.pretty_good_pruning(*edge_weights2, inside_memo2, outside_memo2, 0.7 * best);
+      cerr << best << " " << best2 << " " << score2 << endl;
+    }
   }
   input.close();
   return ret;

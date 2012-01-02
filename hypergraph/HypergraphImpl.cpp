@@ -48,7 +48,8 @@ namespace HG {
     int num_new_nodes = 0;
     int num_new_edges = 0;
     foreach (HNode my_node, nodes()) {
-      if (prune.nodes.find(my_node->id()) == prune.nodes.end()) {
+      if (my_node->id() == root().id() ||
+          prune.nodes.find(my_node->id()) == prune.nodes.end()) {
         renumbering.set_value(*my_node, num_new_nodes);
         num_new_nodes++;
       }
@@ -95,6 +96,7 @@ namespace HG {
     hgraph.set_root(renumbering.get(root()));
 //     cerr << "num nodes " << num_nodes() << " " << hgraph.node_size() << endl;
 //     cerr << "num edges " << num_edges() << " " << num_new_edges << endl;
+    //cerr << "size " << num_nodes() << " " << num_edges() << endl;
     //   {
     //     fstream output(file_name, ios::out | ios::binary);
     //     if (!hgraph.SerializeToOstream(&output)) {
@@ -122,7 +124,6 @@ void HypergraphImpl::build_from_file(const char * file_name) {
 }
 
 void HypergraphImpl::build_from_proto(Hypergraph *hgraph) { 
-
   set_up(*hgraph);
 
   assert (hgraph->node_size() > 0);

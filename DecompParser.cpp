@@ -57,8 +57,9 @@ int main(int argc, char ** argv) {
   clock_t start=clock();
   parsers = SecondOrderConverter().convert_file(FLAGS_parse_file.c_str());
   clock_t end=clock();
-  cerr << "MAKEHYPER "<< double(Clock::diffclock(end,start)) << endl;
+  cout << "make hyper time"<< double(Clock::diffclock(end,start)) << endl;
 
+  start = clock();
   for (int i=FLAGS_mrf_start; i <= FLAGS_mrf_end; i++) {  
     stringstream fname;
     fname << FLAGS_mrf_file_prefix << i;
@@ -68,17 +69,22 @@ int main(int argc, char ** argv) {
     mrf->build_from_file(fname.str().c_str());
     mrfs.push_back(mrf);   
   }
-  
+  end = clock();
+  cout << "make mrf time "<< double(Clock::diffclock(end,start)) << endl;
   
   ParserDual p_dual(parsers, *weight, parse_align);
   
   wvector * simple = svector_from_str<int, double>("value=-1");
   ConstrainerDual<ParseIndex> mrf_dual(mrfs, *simple, parse_align);
   
+  start = clock();
   ParseRate rate;
   DualDecomposition d(p_dual, mrf_dual, rate);
   //d._subgradsolver.rate = new ParseRate();
   d.solve(0);
+  d.subgradsolver.set_max_rounds(150);
+  end = clock();
+  cout << "inference time "<< double(Clock::diffclock(end,start)) << endl;
   
   for (int i =0; i < p_dual.best_derivations.size(); i++) {
     //foreach (HEdges derivations, p_dual.best_derivations) {

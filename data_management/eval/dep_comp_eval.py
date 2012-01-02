@@ -96,7 +96,8 @@ def display_sent(test_sent, extra_sent, gold_sent):
       #assert int(t[0]) == gold_word.num
 
 def eval_word(test_sent, extra_sent, gold_sent, ind):
-
+  print >>sys.stderr, ind
+  print >>sys.stderr, test_sent, extra_sent, gold_sent.words
   test_word = test_sent[ind]
   extra_word = extra_sent[ind]
   gold_word = gold_sent.words[ind+1]

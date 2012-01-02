@@ -77,7 +77,7 @@ class Subgradient {
     _first_stuck_iteration = -1;
     _aggressive = false;
     _debug = false;
-    _max_round = 400;
+    _max_round = 200;
   } ;
 
   void set_debug(){ _debug = true;} 

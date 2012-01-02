@@ -119,7 +119,7 @@ MRFHypergraph *  MRFHypergraph::from_mrf(const MRF & mrf) {
     ((HypernodeImpl*)mrf_hyp->_root)->add_edge(edge);
     ((HypernodeImpl*)last_node)->add_in_edge(edge);
   }
-  cerr << "size: " << mrf_hyp->num_nodes() << " " << mrf_hyp->num_edges() << endl;
+  //cerr << "size: " << mrf_hyp->num_nodes() << " " << mrf_hyp->num_edges() << endl;
   return mrf_hyp;
 }
 

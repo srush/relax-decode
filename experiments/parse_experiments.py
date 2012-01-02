@@ -11,16 +11,13 @@ class ParseExperiment:
     self._model_pre = model.split('.')[0]
     self._training = training
     self.language = language
-
-  
-  
+    
   def test_file(self):
     return "$SCARAB_DATA/%s"%self.original_test
 
   def training_file(self):
     return "$SCARAB_DATA/%s"%self._training
-
-
+  
   def parse_out(self):
     return "$SCARAB_TMP/%s_%s_parse"%(self.original_test, self._model_pre)
 
@@ -29,13 +26,18 @@ class ParseExperiment:
 
   def constraint_mrf_prefix(self):
     return "$SCARAB_TMP/%s_parse_mrf"%(self.full_exp_prefix)
+  
+  def self_train_out(self):
+    return "$SCARAB_TMP/%s_self_train_parse"%(self.full_exp_prefix)
+
+  def self_train_model(self):
+    return "$SCARAB_TMP/%s_self_train_model"%(self.full_exp_prefix)
 
   def mrf_spec(self):
     return "$SCARAB_DATA/%s"%(self._mrf_spec)
 
   def model(self):
     return "$SCARAB_ROOT/third-party/mstparser/%s"%(self._model)
-
 
   def result_prefix(self):
     return "$SCARAB_RESULTS/%s"%(self.full_exp_prefix)
@@ -233,6 +235,16 @@ def parse_language(setnum, language, size =50, penalty=0.5):
   training = "%s_%s"%(language,size),
   penalty = penalty,
   language = language)
+
+
+genia_parse = ParseExperiment(
+  original_test= "GENIA_5",
+  prefix= "parse_genia",
+  gold_file= "GENIA_5",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_SO.model",
+  training = "wsj_gold_50",
+  penalty = 0.5)
 
 def parse_language_big(setnum, language, size =50, penalty=0.5):
   return ParseExperiment(

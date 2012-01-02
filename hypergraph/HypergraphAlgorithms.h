@@ -100,6 +100,12 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
                         const NodeCache & outside_memo_table,
                         NodeCache & marginals) const;
 
+ double filter_pruning_threshold(const EdgeCache & edge_weights,
+                                 const NodeCache & score_memo_table, 
+                                 const NodeCache & outside_memo_table,
+                                 double best, 
+                                 double alpha);
+
 
  private:
  const HGraph & _forest;
@@ -112,6 +118,7 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
  double inside_score_helper(bool use_max, const Hypernode & node, 
                             const EdgeCache & edge_weights, 
                             NodeCache & inside_memo_table) const;
+
 
 };
 

@@ -128,9 +128,9 @@ class DepParser : public Scarab::HG::HypergraphImpl {
   }
   
  protected:
-  void make_edge(const Hypergraph_Edge & edge, const Scarab::HG::Hyperedge * our_edge) {
+  void make_edge(const Hypergraph_Edge & edge, const Scarab::HG::Hyperedge *our_edge) {
     //cout << "Make Edge" << edge.HasExtension(has_dep) << endl;
-    if ( edge.GetExtension(has_dep)) { 
+    if (edge.GetExtension(has_dep)) { 
       const Dep & ret_dep = edge.GetExtension(dep);
       Dependency our_dep = make_dep(ret_dep.head(), ret_dep.mod());
       _dep_map->set_value(*our_edge, our_dep);
@@ -138,9 +138,10 @@ class DepParser : public Scarab::HG::HypergraphImpl {
     }
   }
 
-  virtual void convert_edge(const Hyperedge * our_edge, Hypergraph_Edge * edge, int id) {
+  virtual void convert_edge(const Hyperedge *our_edge, Hypergraph_Edge * edge, int id) {
     edge->set_id(id);
     edge->set_label(our_edge->label());
+    edge->SetExtension(edge_fv, ((HyperedgeImpl *)our_edge)->feature_string());
     //edge->SetExtension(edge_fv, svector_str<int, double>(our_edge->fvector()));
     if (_dep_map->has_key(*our_edge)) {
       edge->SetExtension(has_dep, true);                  

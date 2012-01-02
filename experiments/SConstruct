@@ -377,7 +377,7 @@ def parser_run_so(source, target, env, for_signature=False):
      1 - the test file
      target - parses
      """
-     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], source[1], target[0])
+     return "cd $SCARAB_ROOT/third-party/mstparser/;time java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s output-file:%s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], source[1], target[1], target[0])
 
 def parser_run_emit_so(source, target, env, for_signature=False):
      #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
@@ -468,7 +468,7 @@ def build_parse_constraints_multi(source, target, env, for_signature=False):
      """
      """
      
-     return 'python $SCARAB_PY/parse_constraints_mrf_multi_fixed.py  --test %s --penalty $PENALTY --train %s --linkdesc %s --constraints %s --language $LANGUAGE | tee %s'\
+     return 'python $SCARAB_PY/parse_constraints_mrf_multi_fixed.py  --test %s --penalty $PENALTY --train %s --linkdesc %s --constraints %s --language $LANGUAGE > %s'\
             %(source[0], source[2],  target[0], target[2], target[1])
 
 def build_parse_constraints_multi_emit(source, target, env):
@@ -494,7 +494,7 @@ def PrettyComp_emit(source, target, env, for_signature=False):
      return target, source
 
 def TrainParse(source, target, env, for_signature=False):
-     return 'cd $SCARAB_ROOT/third-party/mstparser/;java -Djava.io.tmpdir="/afs/csail.mit.edu/u/s/srush/h/Projects/relax-decode/tmp" -classpath \".:lib/trove.jar\" -Xmx4g mstparser.DependencyParser  train model-name:%s  train-file:%s '%(target[0], source[0])
+     return 'cd $SCARAB_ROOT/third-party/mstparser/;java -Djava.io.tmpdir="/afs/csail.mit.edu/u/s/srush/h/Projects/relax-decode/tmp" -classpath \".:lib/trove.jar\" -Xmx4g mstparser.DependencyParser train order:2 model-name:%s  train-file:%s > /dev/null '%(target[0], source[0])
 
 def SplitTraining(source, target, env, for_signature=False):
      return 'python $SCARAB_PY/take_random.py $NUM $RAND %s %s %s'%(source[0], target[0], target[1])
@@ -569,9 +569,25 @@ def register_cross_val(env, exp):
 
      return models
 
-     
+
+def register_self_training_experiment(env, exp, language, size=50):
+     _, out_file = env.ParseSO((exp.parse_out()+"_self", exp.self_train_out()),
+                               (exp.model(), exp.test_file()))
+
+     targ = "$SCARAB_ROOT/third-party/mstparser/data/%s_%s_self_extra"%(language, size)
+     src = ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language, size), out_file)
+     combined = env.Command(targ, src,
+                            "cat %s %s > %s"%(src + (targ,)))
+
+     self_train = env.TrainParse(exp.self_train_model(), combined)
+
+     #rint "RESULTS PREFIX" + exp.result_prefix()
+     _, final_out_file = env.ParseSO((exp.parse_out() + "_self2", exp.parse_out()+ "_self3"),
+                                     (self_train, exp.test_file()))
+     return final_out_file
+
 def register_parse_experiment(env, exp):
-     parse_out = env.ParseSO(exp.parse_out(), (exp.model(), exp.test_file()))
+     parse_out, _ = env.ParseSO((exp.parse_out(), "/tmp/parse_" +str(random.random())), (exp.model(), exp.test_file()))
 
 #      hypergraphs, hypergraphs_desc = env.ParseToHypergraphSO(
 #           (exp.hypergraph_prefix(), exp.hypergraph_prefix()+"_desc"),
@@ -783,7 +799,6 @@ def setup_parsing_experiment(env, language, size = 50):
      all +=  env.Command(targ, src,
                  "zcat %s  | python $SCARAB_PY/remove_labels.py | python $SCARAB_PY/take_chunks.py %s - > %s"%(src + (size,)+ targ))
 
-
      src= ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language,size),)
      targ= ("$SCARAB_DATA/%s_%s"%(language,size),)
 
@@ -898,7 +913,19 @@ extended_size = {
      'bulgarian': 1728,
      'japanese': 2840
      }
-full  = [] 
+
+penalties = {
+     50 : 0.5,
+     100 : 0.3,
+     200 : 0.3, 
+     500 : 0.3
+}
+
+full  = []
+
+sizes = [50, 100, 200, 500] 
+
+
 
 # for l in lang:
 #      setup = env.Alias("%s_setup_25"%l, setup_parsing_experiment(env, l, size=25) )
@@ -911,89 +938,100 @@ full  = []
 #      for j in range(int(size[l]/100) +1):
 #           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=25))
 
+env.Alias("genia", register_parse_experiment(env, genia_parse))
 
-for l in lang:
-     full +=  env.Alias("%s_setup"%l, setup_parsing_experiment(env, l) )
-     all = []
-     for j in range(1):
-          all += register_parse_experiment(env, parse_language(j, l, penalty =0.5))
-     full += env.Alias("parse_%s"%l, all)
-     test = []
-     for j in range(int(size[l]/100) +1):
-          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=50))
-     env.Alias("parse_test_%s"%l, test)
+all_test = [] 
+for size in sizes:
+     penalty = penalties[size]
+     for l in lang:
+          full +=  env.Alias("%s_setup_%s"%(l, size),
+                             setup_parsing_experiment(env, l, size = size))
 
-     ext_test = []
-     #for j in range(int(extended_size[l]/100) +1):
-     ext_test += register_parse_experiment(env, test_parse_language(0, l, penalty =0.5, size=50, extended=True))
-     env.Alias("parse_ext_test_%s"%l, ext_test)
+          experiment = parse_language(0, l, penalty = penalty, size = size)
+          dev = register_parse_experiment(env, experiment)
+          env.Alias("parse_%s_%s"%(l,size), dev)
+          
+          experiment = parse_language(0, l, penalty = penalty, size = size)
+          dev = register_self_training_experiment(env, experiment, l, size = size)
+          env.Alias("parse_self_train_%s_%s"%(l, size), dev)
 
-all_test = []
-all_ext_test = []
-for l in lang:
-     full += env.Alias("%s_setup_100"%l, setup_parsing_experiment(env, l, size=100) )
-     all = []
-     for j in range(5):
-          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=100))
-     full += env.Alias("parse_%s_100"%l, all)
-     test = []
-     for j in range(int(size[l]/100) +1):
-          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100))
-     env.Alias("parse_test_%s_100"%l, test)
-     all_test += test
+          experiment = test_parse_language(0, l, penalty = penalty, size = size, extended=True)
+          ext_test = register_parse_experiment(env, experiment)
+          env.Alias("parse_ext_test_%s_%s"%(l, size), ext_test)
 
-     ext_test = []
-     for j in range(int(extended_size[l]/100) +1):
-          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100, extended=True))
-     env.Alias("parse_ext_test_%s_100"%l, ext_test)
-     all_ext_test += ext_test
+env.Alias("parse_ext_test", all_test)
 
-env.Alias("parse_test_100", all_test)
-env.Alias("parse_ext_test_100", all_ext_test)
+ #          test = []
+#           for j in range(int(size[l]/100) +1):
+#                test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=50))
+#           env.Alias("parse_test_%s_%s"%(l, size), test)
 
-all_test =[]
-all_ext_test = []
-for l in lang:
-     full += env.Alias("%s_setup_200"%l, setup_parsing_experiment(env, l, size=200) )
-     all = []
-     for j in range(5):
-          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=200))
-     full += env.Alias("parse_%s_200"%l, all)
-     test = []
+# all_test = []
+# all_ext_test = []
+# for l in lang:
+#      full += env.Alias("%s_setup_100"%l, setup_parsing_experiment(env, l, size=100) )
+#      all = []
+#      for j in range(5):
+#           all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=100))
+#      full += env.Alias("parse_%s_100"%l, all)
+#      test = []
+#      for j in range(int(size[l]/100) +1):
+#           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100))
+#      env.Alias("parse_test_%s_100"%l, test)
+#      all_test += test
 
-     for j in range(int(size[l]/100) +1):
-          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200))
-     env.Alias("parse_test_%s_200"%l, test)
-     all_test += test
+#      ext_test = []
+#      for j in range(int(extended_size[l]/100) +1):
+#           ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=100, extended=True))
+#      env.Alias("parse_ext_test_%s_100"%l, ext_test)
+#      all_ext_test += ext_test
 
-     ext_test = []
-     for j in range(int(extended_size[l]/100) +1):
-          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200, extended=True))
-     env.Alias("parse_ext_test_%s_200"%l, ext_test)
-     all_ext_test += ext_test
+# env.Alias("parse_test_100", all_test)
+# env.Alias("parse_ext_test_100", all_ext_test)
 
-env.Alias("parse_test_200", all_test)
-env.Alias("parse_ext_test_200", all_ext_test)
+# all_test =[]
+# all_ext_test = []
+# for l in lang:
+#      full += env.Alias("%s_setup_200"%l, setup_parsing_experiment(env, l, size=200) )
+#      all = []
+#      for j in range(5):
+#           all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=200))
+#      full += env.Alias("parse_%s_200"%l, all)
+#      test = []
 
-all_ext_test = []
-for l in lang:
-     full += env.Alias("%s_setup_500"%l, setup_parsing_experiment(env, l, size=500) )
-     all = []
-     for j in range(5):
-          all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=500))
-     full += env.Alias("parse_%s_500"%l, all)
-     test = []
-     for j in range(int(size[l]/100) +1):
-          test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500))
-     env.Alias("parse_test_%s_500"%l, test)
+#      for j in range(int(size[l]/100) +1):
+#           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200))
+#      env.Alias("parse_test_%s_200"%l, test)
+#      all_test += test
 
-     ext_test = []
-     for j in range(int(extended_size[l]/100) +1):
-          ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500, extended=True))
-     env.Alias("parse_ext_test_%s_500"%l, ext_test)
-     all_ext_test += ext_test
+#      ext_test = []
+#      for j in range(int(extended_size[l]/100) +1):
+#           ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=200, extended=True))
+#      env.Alias("parse_ext_test_%s_200"%l, ext_test)
+#      all_ext_test += ext_test
 
-env.Alias("parse_ext_test_500", all_ext_test)
+# env.Alias("parse_test_200", all_test)
+# env.Alias("parse_ext_test_200", all_ext_test)
+
+# all_ext_test = []
+# for l in lang:
+#      full += env.Alias("%s_setup_500"%l, setup_parsing_experiment(env, l, size=500) )
+#      all = []
+#      for j in range(5):
+#           all += register_parse_experiment(env, parse_language(j, l, penalty =0.3, size=500))
+#      full += env.Alias("parse_%s_500"%l, all)
+#      test = []
+#      for j in range(int(size[l]/100) +1):
+#           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500))
+#      env.Alias("parse_test_%s_500"%l, test)
+
+#      ext_test = []
+#      for j in range(int(extended_size[l]/100) +1):
+#           ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500, extended=True))
+#      env.Alias("parse_ext_test_%s_500"%l, ext_test)
+#      all_ext_test += ext_test
+
+# env.Alias("parse_ext_test_500", all_ext_test)
 
 #      for j in range(int(size[l]/100) +1):
 #           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.3, size=500))
