@@ -7,7 +7,7 @@ for l in sys.stdin:
   train = int( t[-1])
   broke = int( t[-3])
   fixed = int( t[-5])
-  out.append((train,broke, fixed, l))
+  out.append((train,broke,fixed, l))
   
 out = list(set(out))
 out.sort(key= lambda a: a[1] )

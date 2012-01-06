@@ -211,7 +211,7 @@ class HGraph {
 };
 
 struct HypergraphPrune {
-  HypergraphPrune(const HGraph & hgraph_) : hgraph(hgraph_) {}
+  HypergraphPrune(const HGraph &hgraph_) : hgraph(hgraph_) {}
   set <int> nodes;
   set <int> edges;
   const HGraph & hgraph;

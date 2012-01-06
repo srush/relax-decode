@@ -240,7 +240,7 @@ vector <const Hypernode * > HypergraphAlgorithms::construct_best_node_order(cons
         total += marginal;
         count++;
       }
-      return alpha * best + (1.0 - alpha) * (total / count);
+      return alpha * best + (1.0 - alpha) * (total / count) + 1e-4;
     }
 
 HypergraphPrune HypergraphAlgorithms::pretty_good_pruning(const EdgeCache & edge_weights,

@@ -305,22 +305,32 @@ vector<DepParser *> SecondOrderConverter::convert_file(const char *file) {
     start2=clock();
     algorithms.outside_scores(true, *edge_weights, inside_memo, outside_memo);
     //cout << "outside time"<< double(Clock::diffclock(clock(),start2)) << endl;
-    double pruning_threshold = algorithms.filter_pruning_threshold(*edge_weights, inside_memo, outside_memo, best, 0.2);
-    cerr << pruning_threshold << " " << best;
-    HypergraphPrune prune = 
-      algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, pruning_threshold); //best < 0.0 ? 0.75 * best : 1.7 * best );
-    end = clock();
-    cout << "prune time"<< double(Clock::diffclock(end,start)) << endl;
+
+    
+    DepParser *parser2 = new DepParser();
+    // Only prune long sentences.
+    if (true || max_pos > 100) {
+      double pruning_threshold = algorithms.filter_pruning_threshold(*edge_weights, inside_memo, outside_memo, best, 0.2);
+      HypergraphPrune prune = 
+        algorithms.pretty_good_pruning(*edge_weights, inside_memo, outside_memo, pruning_threshold); 
+      Hypergraph to_write = 
+        parser->write_to_proto(prune);
+      to_write.SetExtension(len, max_pos);
+      parser2->build_from_proto(&to_write);  
+    }  else {
+      HypergraphPrune prune(*parser); 
+      Hypergraph to_write = 
+        parser->write_to_proto(prune);
+      to_write.SetExtension(len, max_pos);
+      parser2->build_from_proto(&to_write);  
+    }
     start=clock();
-    Hypergraph to_write = 
-      parser->write_to_proto(prune);
-    to_write.SetExtension(len, max_pos);
     end = clock();
     cout << "write time"<< double(Clock::diffclock(end,start)) << endl;
 
     start=clock();
-    DepParser *parser2 = new DepParser();
-    parser2->build_from_proto(&to_write);  
+
+    
     end = clock();
     cout << "rebuild time"<< double(Clock::diffclock(end,start)) << endl;
 

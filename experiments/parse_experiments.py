@@ -242,9 +242,9 @@ genia_parse = ParseExperiment(
   prefix= "parse_genia",
   gold_file= "GENIA_5",
   mrf_spec= "parse_constraints_asym_punc",
-  model = "small_SO.model",
-  training = "wsj_gold_50",
-  penalty = 0.5)
+  model = "english_full.model",
+  training = "GENIA_look",
+  penalty = 0.2)
 
 def parse_language_big(setnum, language, size =50, penalty=0.5):
   return ParseExperiment(
@@ -257,21 +257,37 @@ def parse_language_big(setnum, language, size =50, penalty=0.5):
   penalty = penalty,
   language = language)
 
-def test_parse_language(setnum, language, size =50, penalty=0.5, extended=False):
+def test_parse_language(setnum, language, size =50, penalty=0.5, extended=False, split=False):
   test_dir = "parse_test_%s"%language
   pre = "parse_test"
   if extended:
     test_dir = "parse_test_%s_ext"%language
     pre = "parse_test_ext"
-  return ParseExperiment(
-  original_test= test_dir+"/test_%03d"%(setnum),
-  prefix= pre + "_%s_%s_%03d"%(language, size, setnum),
-  gold_file= test_dir + "/test_%03d"%(setnum),
-  mrf_spec= "parse_constraints_asym_punc",
-  model = "%s_%s.model"%(language,size),
-  training = "%s_%s"%(language,size),
-  penalty = penalty,
-  language = language)
+  test_file = "/test_"
+  if split:
+    pre += "_split"
+    test_file += "split_"
+  if language != "english":
+    return ParseExperiment(
+      original_test= test_dir+test_file+"%03d"%(setnum),
+      prefix= pre + "_%s_%s_%03d"%(language, size, setnum),
+      gold_file= test_dir + test_file+"_%03d"%(setnum),
+      mrf_spec= "parse_constraints_asym_punc",
+      model = "%s_%s.model"%(language,size),
+      training = "%s_%s"%(language,size),
+      penalty = penalty,
+      language = language)
+  else:
+    return ParseExperiment(
+      original_test= test_dir + test_file+"%03d"%(setnum),
+      prefix= pre + "_%s_%s_%03d"%(language, size, setnum),
+      gold_file= test_dir + test_file+"%03d"%(setnum),
+      mrf_spec= "parse_constraints_asym_punc",
+      model = "small_%s.model"%size,
+      training = "wsj_gold_%s"%size,
+      penalty = penalty,
+      language = language)
+
 
 
 
@@ -294,6 +310,15 @@ parse_dev_full_experiment = ParseExperiment(
   training = "wsj_gold_50",
   penalty = 0.7)
 
+def parse_test_experiment_full(num, penalty = 0.3, modelsize=50):
+  return ParseExperiment(
+  original_test= "sec23_gold_ulab.conll",
+  prefix= "parse_ext_test_%s_%s"%(modelsize),
+  gold_file= "sec23_gold_ulab.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "small_%s.model"%modelsize,
+  training = "wsj_gold_%s"%modelsize,
+  penalty = penalty)
 
 def parse_test_experiment(num, penalty = 0.3, modelsize=50):
   return ParseExperiment(

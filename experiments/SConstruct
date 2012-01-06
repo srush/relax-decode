@@ -574,10 +574,10 @@ def register_self_training_experiment(env, exp, language, size=50):
      _, out_file = env.ParseSO((exp.parse_out()+"_self", exp.self_train_out()),
                                (exp.model(), exp.test_file()))
 
-     targ = "$SCARAB_ROOT/third-party/mstparser/data/%s_%s_self_extra"%(language, size)
+     targ = "$SCARAB_ROOT/third-party/mstparser/data/%s_%s_self_%s_extra"%(language, size, exp.full_exp_prefix)
      src = ("$SCARAB_ROOT/third-party/mstparser/data/%s_%s"%(language, size), out_file)
      combined = env.Command(targ, src,
-                            "cat %s %s > %s"%(src + (targ,)))
+                            "cat %s %s | python $SCARAB_PY/remove_labels.py > %s"%(src + (targ,)))
 
      self_train = env.TrainParse(exp.self_train_model(), combined)
 
@@ -786,7 +786,7 @@ env.Alias( "parse_dev_size_6", all)
 
 # SETUP FOR PARSING EXPERIMENTS
 
-def setup_parsing_experiment(env, language, size = 50):
+def setup_parsing_experiment(env, language, extended_test_size, size = 50):
      all = ()
      src = ("$CONLL_FILES/%s_pos_punc"%language,
             "$CONLL_FILES/%s_direction"%language)
@@ -853,7 +853,11 @@ def setup_parsing_experiment(env, language, size = 50):
      src = (all_test,)
      targ= tuple([test_data + "/test_%03d"%i for i in range(1)])
 
-     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 10000 test \"\" "%src)
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py %s test \"\" "%(src[0], extended_test_size))
+
+     src = (all_test,)
+     targ= tuple([test_data + "/test_split_%03d"%i for i in range(int(extended_test_size / 100) + 1)])
+     all += env.Command(targ, src, "cd "+test_data+"; cat %s | python $SCARAB_PY/chunk_parse.py 100 test_split \"\" "%(src[0]))
 
      return all
 
@@ -876,8 +880,9 @@ def setup_big_experiment(env, language, skip , size):
      return all
 
 
-lang = ('danish', 'german', 'spanish',  'bulgarian', 'japanese')
+lang = ('english', 'japanese', 'danish', 'german',  'bulgarian', 'spanish')
 train_size = {
+     'english' : 40000,  
      'bulgarian' : 12823,
      'danish':   5190,
      'german':   39216,
@@ -885,15 +890,15 @@ train_size = {
      'spanish' : 3306
      }
 
-env.Alias("spanish_setup_3000", setup_parsing_experiment(env, 'spanish', size=3000))
+# env.Alias("spanish_setup_3000", setup_parsing_experiment(env, 'spanish', size=3000))
 env.Alias("spanish_setup_big_3000", setup_big_experiment(env, 'spanish', skip=3000, size=306))
 all = []
 for j in range(4):
      all += register_parse_experiment(env, parse_language_big(j, 'spanish', penalty =0.3, size=3000))
 env.Alias("spanish_parse_3000", all)
 
-env.Alias("bulgarian_setup_12000", setup_parsing_experiment(env, 'bulgarian', size=12000))
-env.Alias("bulgarian_setup_big_12000", setup_big_experiment(env, 'bulgarian', skip=12000, size=800))
+# env.Alias("bulgarian_setup_12000", setup_parsing_experiment(env, 'bulgarian', size=12000))
+# env.Alias("bulgarian_setup_big_12000", setup_big_experiment(env, 'bulgarian', skip=12000, size=800))
 all = []
 for j in range(8):
      all += register_parse_experiment(env, parse_language_big(j, 'bulgarian', penalty =0.3, size=12000))
@@ -904,21 +909,25 @@ size = {'danish': 322,
         'german': 357,
         'spanish': 206,
         'bulgarian': 398,
-        'japanese': 709}
+        'japanese': 709,
+        'english' : 500  }
 
 extended_size = {
      'danish': 1342,
      'german': 1487,
      'spanish': 1044,
      'bulgarian': 1728,
-     'japanese': 2840
+     'japanese': 2840,
+     'english' : 2000  
+     #'japanese': 100
      }
 
 penalties = {
      50 : 0.5,
      100 : 0.3,
      200 : 0.3, 
-     500 : 0.3
+     #500 : 0.3,
+     500 : 0.5
 }
 
 full  = []
@@ -943,22 +952,40 @@ env.Alias("genia", register_parse_experiment(env, genia_parse))
 all_test = [] 
 for size in sizes:
      penalty = penalties[size]
+     ext_all = []
+     all_self = [] 
      for l in lang:
-          full +=  env.Alias("%s_setup_%s"%(l, size),
-                             setup_parsing_experiment(env, l, size = size))
-
+          if l != "english":
+               setup =  env.Alias("%s_setup_%s"%(l, size),
+                                  setup_parsing_experiment(env, l, extended_size[l], size = size))
+               all_test.append(setup)
+          
           experiment = parse_language(0, l, penalty = penalty, size = size)
           dev = register_parse_experiment(env, experiment)
           env.Alias("parse_%s_%s"%(l,size), dev)
-          
-          experiment = parse_language(0, l, penalty = penalty, size = size)
+
           dev = register_self_training_experiment(env, experiment, l, size = size)
           env.Alias("parse_self_train_%s_%s"%(l, size), dev)
 
           experiment = test_parse_language(0, l, penalty = penalty, size = size, extended=True)
           ext_test = register_parse_experiment(env, experiment)
-          env.Alias("parse_ext_test_%s_%s"%(l, size), ext_test)
+          setup = env.Alias("parse_ext_test_%s_%s"%(l, size), ext_test)
+          all_test.append(setup)
+          ext_all.append(setup)
+          
+          ext_split_test = []
+          for j in range(int(extended_size[l]/100) +1):
+               ext_test += register_parse_experiment(env, test_parse_language(j, l, penalty =penalty, size=size, extended=True, split=True))
+          env.Alias("parse_ext_test_split_%s_%s"%(l,size), ext_split_test)
 
+          dev = register_self_training_experiment(env, experiment, l, size = size)
+          setup = env.Alias("parse_ext_test_self_train_%s_%s"%(l, size), dev)
+          all_self.append(setup)
+     
+          all_test.append(setup)
+     env.Alias("parse_ext_test_all_%s"%(size), ext_all)
+     env.Alias("parse_ext_test_self_train_all_%s"%(size), ext_all)
+          
 env.Alias("parse_ext_test", all_test)
 
  #          test = []
