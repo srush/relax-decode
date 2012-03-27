@@ -73,7 +73,7 @@ def ctag_convert(source, target, env, for_signature=False):
 
 
 def stanford_train(source, target, env, for_signature=False):
-     return "cd $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/;java -Xmx1g -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger -prop %s  -trainFile %s -model %s"%(source[0], source[1], target[0])
+     return "cd $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/;java -Xmx2g -cp stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger -prop %s  -trainFile %s -model %s"%(source[0], source[1], target[0])
 
 
 def crf_run(source, target, env, for_signature=False):
@@ -88,10 +88,6 @@ def stanford_tagger_run(source, target, env, for_signature=False):
      return 'cd $SCARAB_ROOT/third-party/stanford-postagger-2009-12-24/; ./stanford-postagger.sh %s %s > %s'%(source[0], source[1],  target[0])
 
 #return 'java -Xmx1g -cp $SCARAB_ROOT/third-party/CRFTagger/crftagger.jar crf.tagger.CRFTagger -modeldir ../../CRFTagger/model -inputfile %s  -unknownwords %s > %s' % (source[0], source[1], target[0])
-
-
-
-
 
 def hypergraph_run(source, target, env, for_signature=False):
      tmp = "$SCARAB_ROOT/tmp/lattice.%s"%hash(str(source[0]))
@@ -365,7 +361,7 @@ def parser_run(source, target, env, for_signature=False):
      1 - the test file
      target - parses
      """
-     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser test model-name:%s  test test-file:%s > %s"%(source[0], source[1], target[0])
+     return "cd $SCARAB_ROOT/third-party/mstparser/;java -classpath \".:lib/trove.jar\" -Xmx2g mstparser.DependencyParser test model-name:%s  test test-file:%s > %s"%(source[0], source[1], target[0])
 
 def parser_run_emit(source, target, env, for_signature=False):
      #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
@@ -377,7 +373,7 @@ def parser_run_so(source, target, env, for_signature=False):
      1 - the test file
      target - parses
      """
-     return "cd $SCARAB_ROOT/third-party/mstparser/;time java -classpath \".:lib/trove.jar\" -Xmx1800m mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s output-file:%s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], source[1], target[1], target[0])
+     return "cd $SCARAB_ROOT/third-party/mstparser/;time java -classpath \".:lib/trove.jar\" -Xmx8g mstparser.DependencyParser order:2 test model-name:%s  test test-file:%s output-file:%s | grep \"\\(PROB\\|DONE\\)\" > %s"%(source[0], source[1], target[1], target[0])
 
 def parser_run_emit_so(source, target, env, for_signature=False):
      #source.append('$SCARAB_ROOT/third-party/mstparser/mstparser.jar')
@@ -494,7 +490,7 @@ def PrettyComp_emit(source, target, env, for_signature=False):
      return target, source
 
 def TrainParse(source, target, env, for_signature=False):
-     return 'cd $SCARAB_ROOT/third-party/mstparser/;java -Djava.io.tmpdir="/afs/csail.mit.edu/u/s/srush/h/Projects/relax-decode/tmp" -classpath \".:lib/trove.jar\" -Xmx4g mstparser.DependencyParser train order:2 model-name:%s  train-file:%s > /dev/null '%(target[0], source[0])
+     return 'cd $SCARAB_ROOT/third-party/mstparser/;java -Djava.io.tmpdir="/afs/csail.mit.edu/u/s/srush/h/Projects/relax-decode/tmp" -classpath \".:lib/trove.jar\" -Xmx8g -XX:-UseGCOverheadLimit mstparser.DependencyParser train order:2 model-name:%s  train-file:%s > /dev/null '%(target[0], source[0])
 
 def SplitTraining(source, target, env, for_signature=False):
      return 'python $SCARAB_PY/take_random.py $NUM $RAND %s %s %s'%(source[0], target[0], target[1])
@@ -678,6 +674,7 @@ for i in range(482):
 env.Alias( "test_experiment_500", all2)
 
 
+env.Alias("qtb_tag", register_experiment(env, qtb_experiment))
 # for i in range(30, 50):
 #      all += register_experiment(env, dev_experiment(i))
 # env.Alias( "dev_experiment2", all)
@@ -947,7 +944,35 @@ sizes = [50, 100, 200, 500]
 #      for j in range(int(size[l]/100) +1):
 #           test += register_parse_experiment(env, test_parse_language(j, l, penalty =0.5, size=25))
 
+env.Alias("sb_test", register_parse_experiment(env, sb_parse))
+env.Alias("sb_test_self", register_self_training_experiment(env, sb_parse_self, "english", 40000))
+env.Alias("sb_test_3", register_parse_experiment(env, sb_parse_3))
+env.Alias("sb_test_7", register_parse_experiment(env, sb_parse_7))
+env.Alias("sb_tiny", register_parse_experiment(env, sb_parse_tiny))
+env.Alias("sb_sb", register_parse_experiment(env, sb_parse_sb))
+
+env.Alias("sb_parse_flip_test", register_parse_experiment(env, sb_parse_flip_test))
+env.Alias("sb_parse_flip_test_self", register_self_training_experiment(env, sb_parse_flip_test_self, "english", 10000))
+
+
+env.Alias("fb_dev", register_parse_experiment(env, fb_parse))
 env.Alias("genia", register_parse_experiment(env, genia_parse))
+env.Alias("qtb_1", register_parse_experiment(env, qtb_parse_01))
+env.Alias("qtb_3", register_parse_experiment(env, qtb_parse_03))
+env.Alias("qtb_4", register_parse_experiment(env, qtb_parse_04))
+env.Alias("qtb_5", register_parse_experiment(env, qtb_parse_05))
+env.Alias("qtb_test", register_parse_experiment(env, qtb_test_parse))
+env.Alias("qtb_test_self", register_self_training_experiment(env, qtb_parse_05, "english", 5000))
+
+env.Alias("qtb_self", register_self_training_experiment(env, qtb_parse_05, "english", 5000))
+env.Alias("qtb_7", register_parse_experiment(env, qtb_parse_07))
+env.Alias("qtb_flip", register_parse_experiment(env, qtb_flip_parse))
+env.Alias("qtb_flip_5", register_parse_experiment(env, qtb_flip_parse_5))
+env.Alias("qtb_flip_self", register_self_training_experiment(env, qtb_flip_self_parse_5, "english", 40000))
+env.Alias("qtb_flip_7", register_parse_experiment(env, qtb_flip_parse_7))
+env.Alias("german_tagging", register_parse_experiment(env, german_tagging))
+env.Alias("german_tagging_500", register_parse_experiment(env, german_tagging_500))
+env.Alias("german_base_500", register_parse_experiment(env, german_base_500))
 
 all_test = [] 
 for size in sizes:

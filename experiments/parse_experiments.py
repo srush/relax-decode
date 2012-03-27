@@ -236,7 +236,6 @@ def parse_language(setnum, language, size =50, penalty=0.5):
   penalty = penalty,
   language = language)
 
-
 genia_parse = ParseExperiment(
   original_test= "GENIA_5",
   prefix= "parse_genia",
@@ -245,6 +244,211 @@ genia_parse = ParseExperiment(
   model = "english_full.model",
   training = "GENIA_look",
   penalty = 0.2)
+
+qtb_parse_01 = ParseExperiment(
+  original_test= "sec22.conll",
+  prefix= "parse_qtb_01",
+  gold_file= "sec22.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.1)
+
+qtb_parse_03 = ParseExperiment(
+  original_test= "sec22.conll",
+  prefix= "parse_qtb_03",
+  gold_file= "sec22.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.3)
+
+qtb_parse_04 = ParseExperiment(
+  original_test= "sec22.conll",
+  prefix= "parse_qtb_04",
+  gold_file= "sec22.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.4)
+
+qtb_parse_05 = ParseExperiment(
+  original_test= "sec22.conll",
+  prefix= "parse_qtb_05",
+  gold_file= "sec22.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.5)
+
+qtb_test_parse = ParseExperiment(
+  original_test= "sec23.conll",
+  prefix= "parse_qtb_test",
+  gold_file= "sec23.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.5)
+
+qtb_parse_07 = ParseExperiment(
+  original_test= "sec22.conll",
+  prefix= "parse_qtb_07",
+  gold_file= "sec22.conll",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_qtb_fixed.model",
+  training = "question_bank_new_dependency_fixed",
+  penalty = 0.7)
+
+qtb_flip_parse = ParseExperiment(
+  original_test= "question_bank_new_dependency_fixed",
+  prefix= "parse_flip_qtb",
+  gold_file= "question_bank_new_dependency_fixed",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.3)
+
+qtb_flip_parse_5 = ParseExperiment(
+  original_test= "question_bank_new_dependency_fixed",
+  prefix= "parse_flip_qtb_05",
+  gold_file= "question_bank_new_dependency_fixed",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.5)
+
+qtb_flip_self_parse_5 = ParseExperiment(
+  original_test= "question_bank_new_dependency_fixed",
+  prefix= "parse_flip_qtb_self_05",
+  gold_file= "question_bank_new_dependency_fixed",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "english_40000",
+  penalty = 0.5)
+
+qtb_flip_parse_7 = ParseExperiment(
+  original_test= "question_bank_new_dependency_fixed",
+  prefix= "parse_flip_qtb_07",
+  gold_file= "question_bank_new_dependency_fixed",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.7)
+
+fb_parse = ParseExperiment(
+  original_test = "football_dev_fixed",
+  prefix = "parse_fb",
+  gold_file = "football_dev_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.5)
+
+
+sb_parse = ParseExperiment(
+  original_test = "switchboard_test_gold_dependency_fixed",
+  prefix = "parse_sb",
+  gold_file = "switchboard_test_gold_dependency_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.5)
+
+sb_parse_self = ParseExperiment(
+  original_test = "switchboard_test_gold_dependency_fixed",
+  prefix = "parse_sb",
+  gold_file = "switchboard_test_gold_dependency_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "english_40000",
+  penalty = 0.5)
+
+sb_parse_sb = ParseExperiment(
+  original_test = "switchboard_test_gold_dependency_fixed",
+  prefix = "parse_sb_sb",
+  gold_file = "switchboard_test_gold_dependency_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_sb_fixed.model",
+  training = "sb_five",
+  penalty = 0.5)
+
+sb_parse_flip_test = ParseExperiment(
+  original_test = "sec23.conll",
+  prefix = "parse_flip_sb_test",
+  gold_file = "sec23.conll",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_sb_fixed.model",
+  training = "sb_five",
+  penalty = 0.5)
+
+sb_parse_flip_test_self = ParseExperiment(
+  original_test = "sec23.conll",
+  prefix = "parse_flip_sb_test_self",
+  gold_file = "sec23.conll",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_sb_fixed.model",
+  training = "english_10000",
+  penalty = 0.5)
+
+
+sb_parse_7 = ParseExperiment(
+  original_test = "switchboard_test_gold_dependency_fixed",
+  prefix = "parse_sb_07",
+  gold_file = "switchboard_test_gold_dependency_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.7)
+
+sb_parse_3 = ParseExperiment(
+  original_test = "switchboard_test_gold_dependency_fixed",
+  prefix = "parse_sb_03",
+  gold_file = "switchboard_test_gold_dependency_fixed",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.3)
+
+
+sb_parse_tiny = ParseExperiment(
+  original_test = "switchboard_tiny",
+  prefix = "parse_sb_tiny",
+  gold_file = "switchboard_tiny",
+  mrf_spec = "parse_constraints_asym_punc",
+  model = "english_full.model",
+  training = "wsj_gold_five",
+  penalty = 0.5)
+
+german_tagging = ParseExperiment(
+  original_test= "german_parse_dev_50_retagged",
+  prefix= "parse_tagging_german",
+  gold_file= "german_parse_dev_50_retagged",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "german_50.model",
+  training = "german_50",
+  penalty = 0.5,
+  language = "german")
+
+german_tagging_500 = ParseExperiment(
+  original_test= "german_parse_dev_500_retagged",
+  prefix= "parse_tagging_german_500",
+  gold_file= "german_parse_dev_500_retagged",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "german_500.model",
+  training = "german_500",
+  penalty = 0.5,
+  language = "german")
+
+german_base_500 = ParseExperiment(
+  original_test= "german_parse_dev",
+  prefix= "parse_base_german_500",
+  gold_file= "german_parse_dev",
+  mrf_spec= "parse_constraints_asym_punc",
+  model = "german_500.model",
+  training = "german_500",
+  penalty = 0.5,
+  language = "german")
+
 
 def parse_language_big(setnum, language, size =50, penalty=0.5):
   return ParseExperiment(

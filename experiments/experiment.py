@@ -334,6 +334,17 @@ religious_experiment = Experiment({
   "penalty" : 5.0
   })
 
+qtb_experiment = Experiment({
+  "original_test": "question_bank_new_dependency_simple_100",
+  "num_sentences": 100,
+  "prefix": "qtb_exper",
+  "gold_file": "question_bank_new_dependency_simple_100",
+  "tagger": "left3words-wsj-0-18.tagger", 
+  "unk_thres" : 5,
+  "train" : "wsj_gold_dependency",
+  "penalty" : 5.0
+  })
+
 
 
 # test_expermient = Experiment({
