@@ -8,49 +8,45 @@
 #include "common.h"
 class LMNonLocal: public NonLocal {
  public:
-  //~LMNonLocal(){}
- LMNonLocal(const HGraph & forest,  Ngram & lm, double lm_weight, const Cache <Hypernode, int> & word_cache) 
+ LMNonLocal(const HGraph & forest,  
+            Ngram & lm, 
+            double lm_weight, 
+            const Cache <Hypernode, int> & word_cache) 
    : _forest(forest), _lm(lm), _lm_weight(lm_weight), _word_cache(word_cache) {}
   
-  void compute(const Hyperedge & edge,
-               const vector <vector <int> > & subder,
-               double & score,
-               vector <int>  & full_derivation,
-               vector <int> & sig
-               ) const {
+  void compute(const Hyperedge &edge,
+               const vector <vector <int> > &subder,
+               double &score,
+               vector <int> &full_derivation,
+               vector <int> &signature) const {
     full_derivation.clear();
-    sig.clear();
+    signature.clear();
     score =0.0;
-    //cout << "COMBINE " << subder.size() <<endl;
-    for (unsigned int i =0; i < subder.size(); i++) {
-      unsigned int size = full_derivation.size(); 
+
+    for (uint i = 0; i < subder.size(); i++) {
+      uint size = full_derivation.size(); 
       int orig = subder[i][0];
       int w = _word_cache.store[orig];
 
-      if (size >= 2) {
-      
-        VocabIndex context [] = {_word_cache.store[full_derivation[size-1]], 
-                                 _word_cache.store[full_derivation[size-2]], 
+      if (size >= 2) {      
+        VocabIndex context [] = {_word_cache.store[full_derivation[size - 1]], 
+                                 _word_cache.store[full_derivation[size - 2]], 
                                  Vocab_None};
         score += _lm.wordProb(w, context);
-        //cout << _lm.wordProb(w, context) << " " << _lm.vocab.getWord(w) << " " << _lm.vocab.getWord(context[1]) << " " << _lm.vocab.getWord(context[0]) << endl;
-        // subtract out uni
-        if (w!=1 && w!=2) {
+
+        // Subtract out unigram probability.
+        if (w != 1 && w != 2) {
           const VocabIndex context2 [] = {Vocab_None};
           score -= _lm.wordProb(w, context2);        
-          //cout << "bonus" << endl;
         }
-        //cout << "\t" << score <<endl;
-        //cout << "\t" <<  "TRIGRAM " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
+
       } else if (size ==1 && w != 1 ) {
         
-        if (w !=1 && w!= 2) {
+        if (w != 1 && w != 2) {
           VocabIndex context [] = {_word_cache.store[full_derivation[size-1]], Vocab_None};
           score += _lm.wordProb(w, context);        
-        
-
-        // subtract out uni
-
+     
+          // Subtract out unigram probability.
           const VocabIndex context2 [] = {Vocab_None};
           score -= _lm.wordProb(w, context2);        
           //cout << "bonus" << endl;
@@ -60,59 +56,67 @@ class LMNonLocal: public NonLocal {
       if (size >=1 && subder[i].size() > 1 ) {
         const VocabIndex context [] = {w, _word_cache.store[full_derivation[size-1]], Vocab_None};
         score += _lm.wordProb(_word_cache.store[subder[i][1]], context);
-        //cout << "\t" << score <<endl;
-        //cout << "\t" <<  "Wait TRIGRAM " << subder[i][1] << " " << w << " " << full_derivation[size-1] << " " << full_derivation[size-2] <<endl;
-        //cout << "\t" <<  "SCORE " << _lm.wordProb(subder[i][1], context) << endl;
         
         if ( _word_cache.store[subder[i][1]]!= 1 && _word_cache.store[subder[i][1]]!=2) {
           const VocabIndex context2 [] = {w, Vocab_None};
           score -= _lm.wordProb(_word_cache.store[subder[i][1]], context2);        
-          //cout << "bonus" << endl;
           }
       }
-      //cout << "\t" << size <<endl;
       foreach (int final, subder[i]) {
-        //cout  << _lm.vocab.getWord(subder[i][j]) << " " ;
         full_derivation.push_back(final);
       }
     }
-    //cout << endl;
+
     score *= _lm_weight;
-    //cout << score <<endl;
-    //cout << full_derivation.size() << endl;;
     int size = full_derivation.size();
 
-    sig.push_back(_word_cache.store[full_derivation[0]]);
-    sig.push_back(_word_cache.store[full_derivation[size-1]]);
+    signature.push_back(_word_cache.store[full_derivation[0]]);
+    signature.push_back(_word_cache.store[full_derivation[size-1]]);
     assert(size > 0);
     if (size!=1) {
-      sig.push_back(_word_cache.store[full_derivation[1]]);
-      sig.push_back(_word_cache.store[full_derivation[size-2]]);
+      signature.push_back(_word_cache.store[full_derivation[1]]);
+      signature.push_back(_word_cache.store[full_derivation[size-2]]);
     }
   }
   
-  Hyp initialize(const Hypernode & node) const {
-    assert (node.is_terminal());
-    int original = node.id();
-    int w = _word_cache.get_value(node);
+  // Initialize the hypothesis for leave nodes.
+  Hyp initialize(const Hypernode &node) const {
+    assert(node.is_terminal());
+    int word_index = _word_cache.get_value(node);
     double score = 0.0; 
     VocabIndex context [] = {Vocab_None};
-    if (w!=1 && w!=2) {
-      score += _lm.wordProb(w, context);
+
+    // Not a special word (todo: fix).
+    if (word_index != 1 && word_index != 2) {
+      // Unigram probability.
+      score += _lm.wordProb(word_index, context);
       score *= _lm_weight;
     }
-    //cout << "WORD " << _word_cache.get_value(node) << " "<< _lm.vocab.getWord(w)<<  endl;
-    vector <int> sig;
-    sig.push_back(w);
-    sig.push_back(w);
-    vector <int> der;
-    der.push_back(original);
-    return Hyp(score, sig, der); 
+
+    // Signature (left and right words).
+    vector <int> signature;
+    signature.push_back(word_index);
+    signature.push_back(word_index);
+
+    // Build up the dervation of hypernodes.
+    vector <int> derivation;
+    derivation.push_back(node.id());
+
+    vector <int> edges;
+    return Hyp(score, signature, derivation, edges); 
   }
+
  private:
+  // The underlying hypergraph.
   const HGraph  & _forest;  
+
+  // The language model.
   Ngram & _lm;
+
+  // Weight to give to the language model.
   const double _lm_weight;
+
+  // The language model index for each hypernode.
   const Cache <Hypernode, int> & _word_cache;  
 
 };

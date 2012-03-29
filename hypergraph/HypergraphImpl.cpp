@@ -139,7 +139,7 @@ void HypergraphImpl::build_from_proto(Hypergraph *hgraph) {
     Hypernode *forest_node = make_node(node, features);
 
     //assert (forest_node->
-    //assert (_nodes.size() == (uint)node.id());
+    assert (node.id() < hgraph->node_size());
     _nodes[node.id()] = forest_node;
     //assert(_nodes[forest_node->id()]->id() == forest_node->id());
   }

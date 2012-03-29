@@ -16,11 +16,12 @@ struct Hyp {
 public:
   Hyp(){}
   
-  Hyp(double score_in, Sig sig_in, vector<int> full_der):
-  score(score_in), sig(sig_in), full_derivation(full_der){}
+Hyp(double score_in, Sig sig_in, vector<int> full_der, const vector<int> &edges_):
+  score(score_in), sig(sig_in), full_derivation(full_der), edges(edges_){}
   double score;
   Sig sig;
   vector <int> full_derivation;
+  vector<int> edges;
   bool operator<(const Hyp & other) const {
     return score < other.score;
   }
@@ -56,19 +57,19 @@ class BlankNonLocal: public NonLocal {
   }
 
   virtual Hyp initialize(const Hypernode & node) const {
-    return Hyp(0.0, vector<int>(), vector<int>()); 
+    return Hyp(0.0, vector<int>(), vector<int>(), vector<int>()); 
   }
 };
 
 struct Candidate {
-  Candidate( Hyp h,  const Hyperedge & e,  const vector <int> & v) 
+  Candidate(Hyp h, const Hyperedge &e,  const vector<int> &v) 
     : hyp(h), edge(e), vec(v){}
   
   Hyp hyp;
-  const Hyperedge & edge;
+  const Hyperedge &edge;
   vector <int> vec;
+
   bool operator<(const Candidate & other ) const {
-    
     return hyp < other.hyp;
   }  
 };
@@ -84,17 +85,21 @@ typedef priority_queue <Candidate *, vector<Candidate*>, candidate_compare> Cand
 
 class CubePruning {
  public:
- CubePruning(const HGraph & forest, const Cache <Hyperedge, double> & weights, const NonLocal & non_local, int k, int ratio):
+ CubePruning(const HGraph & forest, const Cache <Hyperedge, double> & weights, const NonLocal & non_local, 
+             int k, int ratio):
   _forest(forest), _weights(weights), _non_local(non_local), _k(k), _ratio(ratio), 
     _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges())
     {}
    
-   void get_derivation(vector <int> & der);
+  void get_derivation(vector<int> &der);
+  void get_derivation(vector<int> &der, int n);
+  void get_edges(vector<int> &edges, int n);
+  double get_score(int n);
 
   double parse();
   void run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps);
-  void init_cube(const Hypernode & cur_node, Candidates & cands);
-  void kbest(Candidates & cands, vector <Hyp> &);
+  void init_cube(const Hypernode & cur_node, Candidates &cands);
+  void kbest(Candidates & cands, vector <Hyp> &, bool recombine);
   void next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands);
   bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item);
  private:
@@ -106,8 +111,8 @@ class CubePruning {
   const uint _k;
   const uint _ratio;
 
-  Cache<Hypernode, vector <Hyp> > _hypothesis_cache;
-  Cache<Hyperedge, set < vector <int> > > _oldvec;
+  Cache<Hypernode, vector<Hyp> > _hypothesis_cache;
+  Cache<Hyperedge, set<vector <int> > > _oldvec;
   //const Cache<Hypernode, Float> & _hypothesis_cache;
   //const PriorityQueue _candidates;
 
