@@ -41,7 +41,7 @@ int main(int argc, char ** argv) {
     double score =  alg.best_path(*edge_weights, 
                                   score_memo_table,
                                   back_memo_table);
-    cout << i << " " << score << endl; 
+    cout << " " << i << " " << score << endl; 
 
     HNodes nodes = alg.construct_best_fringe(back_memo_table);
     HEdges edges = alg.construct_best_edges(back_memo_table);
@@ -58,7 +58,7 @@ int main(int argc, char ** argv) {
     }
 
     foreach (HEdge edge, edges) {
-      cout << edge->head_node().label() <<  " " << edge->label() << " " << edge_weights->get_value(*edge) << endl;
+      cout << edge->id() << " " << edge->head_node().label() <<  " " << edge->label() << " " << edge_weights->get_value(*edge) << endl;
     }
 
   }
