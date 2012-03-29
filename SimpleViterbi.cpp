@@ -60,8 +60,9 @@ int main(int argc, char ** argv) {
     foreach (HEdge edge, edges) {
       cout << edge->id() << " " << edge->head_node().label() <<  " " << edge->label() << " " << edge_weights->get_value(*edge) << endl;
     }
-
+    cout << "Score is: " << score << endl; 
   }
+ 
   google::protobuf::ShutdownProtobufLibrary();
   return 0;
 }
