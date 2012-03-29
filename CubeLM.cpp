@@ -97,9 +97,14 @@ int main(int argc, char ** argv) {
       p.get_edges(edges, n);
       svector<int, double> vector;
       foreach (int e, edges) {
+        cerr << f.get_edge(e).id() << endl;
+        cerr << ((HyperedgeImpl *)&f.get_edge(e))->feature_string() << endl;
+      }
+      foreach (int e, edges) {
         vector += f.get_edge(e).fvector();
       }
-      for(int i = 0; i < vector.size(); ++i) {
+      for(int i = 0; i < 9; ++i) {
+        //for(int i = 0; i < vector.size(); ++i) {
         cout << vector[i] << " ";
       }
       cout << lm_score << " ";
