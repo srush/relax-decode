@@ -57,12 +57,25 @@ int main(int argc, char ** argv) {
       cout << node->label() << endl;
     }
 
+    double total = 0.0;
     foreach (HEdge edge, edges) {
+      total += edge_weights->get_value(*edge);
       cout << edge->id() << " " << edge->head_node().label() <<  " " << edge->label() << " " << edge_weights->get_value(*edge) << endl;
     }
+    cout << "Total is: " << total << endl; 
     cout << "Score is: " << score << endl; 
+
+    double other_total = 0.0;
+    int nums[] = {0, 74, 114823, 88158, 50680, 24783, 2796, 1, 1475, 17457, 422};
+    for (int i = 0; i < 11; ++i) {
+      const Hyperedge &edge = f.get_edge(nums[i]);
+      other_total += edge_weights->get_value(edge);
+      cout << nums[i] << " " << edge_weights->get_value(edge)<< " " << ((HyperedgeImpl *)&edge)->feature_string() << endl;
+    }    
+    cout << "Other is: " << other_total << endl; 
   }
- 
+
+
   google::protobuf::ShutdownProtobufLibrary();
   return 0;
 }
