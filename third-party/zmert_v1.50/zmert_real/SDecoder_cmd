@@ -1,7 +1,8 @@
+python convert.py < SDecoder_cfg.txt;
 /data/nlp4/srush/Projects/relax-decode/cube \
 --cube_size=10 \
 --forest_prefix=/data/nlp4/srush/mikedata/train \
 --lm_file=/data/nlp4/srush/Projects/examples/lm.3.sri \
 --forest_range="0 1" \
---weight_file=SDecoder_cfg.txt \
---lm_weight=-0.0000001 > nbest.out
+--weight_file=config.temp.ini \
+--lm_weight=`cat config.temp.lm`

@@ -103,11 +103,11 @@ int main(int argc, char ** argv) {
       foreach (int e, edges) {
         vector += f.get_edge(e).fvector();
       }
-      for(int i = 0; i < 9; ++i) {
-        //for(int i = 0; i < vector.size(); ++i) {
-        cout << vector[i] << " ";
+      
+      for(int i = 0; i < vector.size(); ++i) {
+        cout << -vector[i] << " ";
       }
-      cout << lm_score << " ";
+      cout << -lm_score << " ";
       double score = p.get_score(n);
 
       cout << " ||| " << -score;
