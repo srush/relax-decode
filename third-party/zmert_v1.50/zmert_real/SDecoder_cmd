@@ -5,4 +5,4 @@ python convert.py < SDecoder_cfg.txt;
 --lm_file=/data/nlp4/srush/Projects/examples/lm.3.sri \
 --forest_range="0 1" \
 --weight_file=config.temp.ini \
---lm_weight=`cat config.temp.lm`
+--lm_weight=`cat config.temp.lm` > nbest.out

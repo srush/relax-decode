@@ -96,10 +96,10 @@ int main(int argc, char ** argv) {
       vector<int> edges;
       p.get_edges(edges, n);
       svector<int, double> vector;
-      foreach (int e, edges) {
-        cerr << f.get_edge(e).id() << endl;
-        cerr << ((HyperedgeImpl *)&f.get_edge(e))->feature_string() << endl;
-      }
+      //foreach (int e, edges) {
+        //cerr << f.get_edge(e).id() << endl;
+        //cerr << ((HyperedgeImpl *)&f.get_edge(e))->feature_string() << endl;
+      //}
       foreach (int e, edges) {
         vector += f.get_edge(e).fvector();
       }
