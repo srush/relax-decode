@@ -92,6 +92,7 @@ class CubePruning {
     {}
    
   void get_derivation(vector<int> &der);
+  int  get_num_derivations();
   void get_derivation(vector<int> &der, int n);
   void get_edges(vector<int> &edges, int n);
   double get_score(int n);

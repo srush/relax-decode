@@ -74,7 +74,7 @@ int main(int argc, char ** argv) {
     double v =p.parse();
     clock_t end=clock();
     //cout << "*TRANS* " << i << " ";
-    for (int n = 0; n < n_best; ++n) {
+    for (int n = 0; n < min(p.get_num_derivations(), n_best); ++n) {
       vector<int> sent;
       p.get_derivation(sent, n);
       cout << i << " ||| ";

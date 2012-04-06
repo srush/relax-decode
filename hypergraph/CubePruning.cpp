@@ -18,6 +18,10 @@ void CubePruning::get_derivation(vector<int> &der, int n) {
   der = _hypothesis_cache.store[_forest.root().id()][n].full_derivation;
 }
 
+int CubePruning::get_num_derivations() {
+  return _hypothesis_cache.store[_forest.root().id()].size();
+}
+
 void CubePruning::get_edges(vector<int> &edges, int n) {
   edges = _hypothesis_cache.store[_forest.root().id()][n].edges;
 }
