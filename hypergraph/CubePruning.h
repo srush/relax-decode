@@ -24,8 +24,9 @@ Hyp(double score_in, double heuristic_in, Sig sig_in, vector<int> full_der, cons
   vector<int> edges;
   double total_heuristic;
   bool operator<(const Hyp & other) const {
-    //return total_heuristic < other.total_heuristic;
     return total_heuristic < other.total_heuristic;
+    //
+    //return score < other.score;
   }
 };
 class NonLocal  {
