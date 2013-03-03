@@ -23,6 +23,8 @@ struct SubgradState {
   // ignore for now
   bool is_stuck;
   bool no_update;
+
+  double best_primal;
 };
 
 // Output of the subgradient client
@@ -95,7 +97,9 @@ class Subgradient {
   }
 
 
-
+  double best_primal() const {
+    return _best_primal;
+  }
  private:
   bool run_one_round();  
 

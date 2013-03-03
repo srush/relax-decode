@@ -91,9 +91,9 @@ HypergraphPrune pretty_good_pruning(const EdgeCache & edge_weights,
  double inside_scores(bool max, const EdgeCache & edge_weights,  
                       NodeCache & inside_memo_table) const;
 
- double outside_scores(bool max, const EdgeCache & edge_weights,  
-                       const NodeCache & inside_memo_table, 
-                       NodeCache & outside_memo_table) const;
+ double outside_scores(bool max, const EdgeCache &edge_weights,  
+                       const NodeCache &inside_memo_table, 
+                       NodeCache &outside_memo_table) const;
 
  
  void collect_marginals(const NodeCache & inside_memo_table, 

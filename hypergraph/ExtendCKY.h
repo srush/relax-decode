@@ -22,8 +22,8 @@ namespace Scarab {
 
 class ExtendCKY {
  public:
- ExtendCKY(const HGraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont) :
-  _forest(forest),
+ ExtendCKY(const HGraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont) 
+  : _forest(forest),
     _edge_weights(edge_weights),
     _old_edge_weights(edge_weights),
     _controller(cont),
@@ -31,13 +31,10 @@ class ExtendCKY {
     _memo_edge_table(forest.num_edges()),
     _memo_edge_back_table(forest.num_edges()),
     _outside_memo_table(forest.num_nodes()),
-    _outside_edge_memo_table(forest.num_edges())
-
-      {
-        
-      }
+    _outside_edge_memo_table(forest.num_edges()) {}
     
     double best_path(NodeBackCache & back_pointers);
+
     void outside();
 
 
@@ -47,6 +44,7 @@ class ExtendCKY {
   const Cache <Hyperedge, double>  & _edge_weights;
   const Cache <Hyperedge, double>  & _old_edge_weights;
   const Controller & _controller;
+
   //Cache <Hypernode, BestHyp > * _old_memo_table;
   Cache <Hypernode, BestHyp >  _memo_table;
   Cache <Hyperedge, vector<BestHyp> >  _memo_edge_table;
@@ -55,8 +53,8 @@ class ExtendCKY {
  public:
     Cache <Hypernode, BestHyp >  _outside_memo_table;
     Cache <Hyperedge, vector<BestHyp> >  _outside_edge_memo_table;
- private:
 
+ private:
   // outside
   queue <int> _out_queue;
   set <int> _out_done;

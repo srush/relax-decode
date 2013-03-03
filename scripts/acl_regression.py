@@ -1,7 +1,9 @@
 import os, sys
 from itertools import *
 
-r = os.system
+def r(a):
+  print a
+  os.system(a)
 
 flags = """--forest_prefix=../example/buildfull/output
 --weight_file=../example/config.ini

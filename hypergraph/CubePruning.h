@@ -16,24 +16,26 @@ struct Hyp {
 public:
   Hyp(){}
   
-Hyp(double score_in, Sig sig_in, vector<int> full_der, const vector<int> &edges_):
-  score(score_in), sig(sig_in), full_derivation(full_der), edges(edges_){}
+Hyp(double score_in, double heuristic_in, Sig sig_in, vector<int> full_der, const vector<int> &edges_):
+  score(score_in), total_heuristic(heuristic_in), sig(sig_in), full_derivation(full_der), edges(edges_){}
   double score;
   Sig sig;
   vector <int> full_derivation;
   vector<int> edges;
+  double total_heuristic;
   bool operator<(const Hyp & other) const {
-    return score < other.score;
+    //return total_heuristic < other.total_heuristic;
+    return total_heuristic < other.total_heuristic;
   }
 };
 class NonLocal  {
  public:
   //virtual ~NonLocal() {};
   virtual void compute(const Hyperedge &,
-                       const vector <vector <int> > &,
-                       double & score,
-                       vector <int>  & full_derivation,
-                       Sig  & sig
+                       const vector<vector <int> > &,
+                       double &score,
+                       vector <int>  &full_derivation,
+                       Sig &sig
                        ) const = 0; 
 
   virtual Hyp initialize(const Hypernode &) const =0;
@@ -57,7 +59,7 @@ class BlankNonLocal: public NonLocal {
   }
 
   virtual Hyp initialize(const Hypernode & node) const {
-    return Hyp(0.0, vector<int>(), vector<int>(), vector<int>()); 
+    return Hyp(0.0, 0.0, vector<int>(), vector<int>(), vector<int>()); 
   }
 };
 
@@ -88,7 +90,8 @@ class CubePruning {
  CubePruning(const HGraph & forest, const Cache <Hyperedge, double> & weights, const NonLocal & non_local, 
              int k, int ratio):
   _forest(forest), _weights(weights), _non_local(non_local), _k(k), _ratio(ratio), 
-    _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges())
+    _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges()),
+    use_bound_(false), use_heuristic_(false), fail_(false)
     {}
    
   void get_derivation(vector<int> &der);
@@ -102,9 +105,25 @@ class CubePruning {
   void init_cube(const Hypernode & cur_node, Candidates &cands);
   void kbest(Candidates & cands, vector <Hyp> &, bool recombine);
   void next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands);
-  bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item);
+  bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool, bool *bounded);
+  bool has_derivation();
+  void set_bound(double bound) {
+    use_bound_ = true;
+    bound_ = bound;
+  }
+  void set_heuristic(const Cache<Hypernode, double>  *heuristic) {
+    use_heuristic_ = true;
+    heuristic_ = heuristic;
+  }
+  bool failed() { return fail_; }
  private:
   //void run(const Hypernode & cur_node);
+
+  double bound_;
+  bool use_bound_;
+
+  const Cache<Hypernode, double>  *heuristic_;
+  bool use_heuristic_;
 
   const HGraph & _forest;
   const Cache <Hyperedge, double>  & _weights;
@@ -117,6 +136,7 @@ class CubePruning {
   //const Cache<Hypernode, Float> & _hypothesis_cache;
   //const PriorityQueue _candidates;
 
+  bool fail_;
 };
 
 #endif

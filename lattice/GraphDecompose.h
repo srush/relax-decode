@@ -51,7 +51,7 @@ class GraphDecompose {
   vector< vector<bool> > all_pairs_path_exist;
 
   vector <vector <vector <vector <int> > > >  bigram_paths;
-  const ForestLattice & _lat;
+  const ForestLattice &_lat;
 
   vector <WordBigram> _valid_bigrams;
 

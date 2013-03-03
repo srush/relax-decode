@@ -196,7 +196,7 @@ class ForestLattice {
 
   vector <string>  _edge_label_by_nodes; 
  private:
-  Cache < Graphnode, vector<WordBigram> > bigrams_at_node;
+  Cache<Graphnode, vector<WordBigram> > bigrams_at_node;
   Graph * _proper_graph;
 
 

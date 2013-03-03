@@ -10,6 +10,10 @@ double CubePruning::parse() {
   return _hypothesis_cache.store[_forest.root().id()][0].score;
 }
 
+bool CubePruning::has_derivation() {
+  return _hypothesis_cache.has_value[_forest.root().id()];
+}
+
 void CubePruning::get_derivation(vector<int> &der) {
   der = _hypothesis_cache.store[_forest.root().id()][0].full_derivation;
 }
@@ -56,11 +60,12 @@ void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
 }
 
 void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
+  
   foreach (HEdge cedge, cur_node.edges()) { 
-
+    
     // start with (0,...0)
     vector <int> newvecj(cedge->num_nodes());
-    for (uint j=0; j < newvecj.size();j++) {
+    for (uint j=0; j < newvecj.size(); j++) {
       newvecj[j] = 0;
     }
     
@@ -71,10 +76,14 @@ void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
     
     // add the starting (0,..,0) hypothesis to the heap
     Hyp newhyp;
-    bool b = gethyp(*cedge, newvecj, newhyp);
+    bool bounded;
+    bool b = gethyp(*cedge, newvecj, newhyp, true, &bounded);
     //cout << "Get hyp " << newhyp.score << endl;
-    assert(b);
-    cands.push(new Candidate(newhyp, *cedge, newvecj));
+    assert(b || use_bound_);
+    
+    if (!bounded) {
+      cands.push(new Candidate(newhyp, *cedge, newvecj));
+    }
   }
 }
 
@@ -95,8 +104,8 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec, bool recom
   uint buf_limit = _ratio * _k;
   
   while (cur_kbest < _k &&                       
-         ! (cands.empty() ||                          
-            hypvec.size() >= buf_limit)) {
+         !(cands.empty() ||                          
+           hypvec.size() >= buf_limit)) {
     Candidate * cand = cands.top();
     cands.pop();
     const Hyp & chyp  = cand->hyp;
@@ -119,6 +128,12 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec, bool recom
     next(cedge, cvecj, cands);
     //cout << "CUR CANDIDATES " << cands.size() << endl;
   }  
+  //cerr << hypvec.size() << " " << cur_kbest << " " << endl;
+  if (!cands.empty()) {
+    cout << "====================Fail=====================" << endl;
+    fail_ = true;
+  }
+
   /*
   if (cands.empty()) {
     cout << "Out of candidates" << endl;
@@ -136,8 +151,8 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec, bool recom
   // RECOMBINATION (shrink buf to actual k-best list)
   
   // Sort and combine hypevec  
-  assert(cur_kbest);
-  assert(hypvec.size());
+  assert(cur_kbest || use_bound_);
+  assert(hypvec.size() || use_bound_);
   sort(hypvec.begin(), hypvec.end());
   
   map <Sig, int> keylist;
@@ -157,7 +172,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec, bool recom
       }
     }
   }    
-  assert(newhypvec.size());
+  assert(newhypvec.size() || use_bound_);
 }
 
 void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands){
@@ -174,25 +189,39 @@ void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Can
   for (uint i=0; i < cedge.num_nodes(); i++) {
     // vecj' = vecj + b^i (just change the i^th dimension
     vector <int> newvecj(cvecj);
-    newvecj[i] += 1;
-      
+
     set <vector <int> > & vecs = _oldvec.store[cedge.id()];
-    if (vecs.find(newvecj)==vecs.end()) {
-      Hyp newhyp;
-      if (gethyp(cedge, newvecj, newhyp)){
-        // Add j'th dimension to the cube
-        _oldvec.store[cedge.id()].insert(newvecj);
-        int orig = cands.size();
-        
-        cands.push(new Candidate(newhyp, cedge, newvecj));
-        assert(cands.size() != (uint)orig);
+
+    while (true) {
+      newvecj[i] += 1;
+      // cerr << "vec" << endl;
+      // for (int k = 0; k < newvecj.size(); ++k) {
+      //   cerr << newvecj[k] << " ";
+      // }
+      // cerr << endl;
+      if (vecs.find(newvecj) == vecs.end()) {
+        Hyp newhyp;
+        bool bounded;
+        bool succeed = gethyp(cedge, newvecj, newhyp, false, &bounded);
+        if (succeed) {
+          // Add j'th dimension to the cube
+          _oldvec.store[cedge.id()].insert(newvecj);
+          if (!bounded) {
+            cands.push(new Candidate(newhyp, cedge, newvecj));
+            break;
+          }
+        } else {
+          break;
+        }
+      } else {
+        break;
       } 
-    } 
+    }
   }
 }
 
 
-bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item) {
+bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool keep_if_bounded, bool *bounded) {
   /*
     Return the score and signature of the element obtained from combining the
     vecj-best parses along cedge. Also, apply non-local feature functions (LM)
@@ -209,7 +238,10 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
       return false;
     }
     Hyp item = _hypothesis_cache.get_value(sub)[vecj[i]];
-    assert (item.full_derivation.size() != 0);   
+    if (item.full_derivation.size() == 0) {
+      return false;
+    }
+    //assert (item.full_derivation.size() != 0);   
     subders.push_back(item.full_derivation);
     for (uint j = 0; j < item.edges.size(); ++j) {
       edges.push_back(item.edges[j]);
@@ -225,9 +257,20 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
   double non_local_score;
   _non_local.compute(cedge, subders, non_local_score, full_derivation, sig);
   score = score + non_local_score;
-  edges.push_back(cedge.id());
-  item = Hyp(score, sig, full_derivation, edges);
-  assert(item.full_derivation.size()!=0);
+  double heuristic = 0.0;
+  if (use_heuristic_) {
+    heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
+  }
+  double heuristic_score = score + heuristic;
+
+  if (!use_bound_ || heuristic_score <= bound_ || keep_if_bounded) {
+    edges.push_back(cedge.id());
+    item = Hyp(score, heuristic_score, sig, full_derivation, edges);
+    assert(item.full_derivation.size()!=0);
+    (*bounded) = false;
+  } else {
+    (*bounded) = true;
+  }
   return true;
 }
 

@@ -13,10 +13,13 @@ void GraphDecompose::compute_bigrams() {
   // Simple bigram collecting
   foreach (Node n, _lat.phrase_nodes() ) {
     // first add bigrams within n
-    foreach (const WordBigram & b, _lat.get_bigrams_at_node(*n)) {
+    const vector<WordBigram> &bigrams = _lat.get_bigrams_at_node(*n);
+    if (bigrams.size() > 0) {
+    foreach (const WordBigram &b, bigrams) {
       _valid_bigrams.push_back(WordBigram(b.w1, b.w2));
       forward_bigrams[b.w1.id()].push_back(b.w2.id());     
       backward_bigrams[b.w2.id()].push_back(b.w1.id());     
+    }
     }
   }
 

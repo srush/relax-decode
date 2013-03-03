@@ -46,7 +46,8 @@ int main(int argc, char ** argv) {
     fname2 << FLAGS_lattice_prefix << i;
     ForestLattice graph = ForestLattice::from_file(fname2.str());
   
-
+    cerr << i << endl;
+    clock_t begin=clock();    
     // decoder 
     Decode * d = new Decode(f, graph, *weight, *lm);
     
@@ -58,6 +59,9 @@ int main(int argc, char ** argv) {
     Subgradient * s = new Subgradient(*d, tr);
     s->set_debug();
     s->solve(i);
+    double v = s->best_primal();
+    clock_t end = clock();
+    cout << "*END*" << i << " "<< v << "  " <<  (double)Clock::diffclock(end,begin) << endl;
   }
   google::protobuf::ShutdownProtobufLibrary();
   return 0;

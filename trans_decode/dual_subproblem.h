@@ -82,7 +82,9 @@ class Subproblem {
     return cur_best_for_projection[d][d2][w1].score;
   }
 
-  inline double best_score_dim_min(int w1, vector<int> ds, vector<int> ds2) const {
+  inline double best_score_dim_min(int w1, 
+                                   vector<int> ds,
+                                   vector<int> ds2) const {
     double m = INF;
     foreach (int d, ds) {
       foreach (int d2, ds2) {

@@ -11,10 +11,11 @@
 #include "AStar.h"
 
 #include "SplitDecoder.h"
+#include "LMNonLocal.h"
 #include "../common.h"
-#define TIMING 1
-#define DEBUG 1
-#define SIMPLE_DEBUG 1
+#define TIMING 0
+#define DEBUG 0
+#define SIMPLE_DEBUG 0
 #define GREEDY 0
 //#define BACK 2
 
@@ -48,7 +49,6 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
 }
 
 vector <int > Decode::get_lex_lat_edges(int edge_id) {
-  //  assert(false);
   vector <int> all = get_lat_edges(edge_id);
   vector <int> ret;
   for (unsigned int i=0; i< all.size(); i++) {
@@ -65,84 +65,65 @@ vector <int > Decode::get_lat_edges(int edge_id) {
 
 
 
-void Decode::add_subgrad(wvector & subgrad, int start_from, int mid_at, int end_at, bool first) {
-  //cout << _lattice.get_word(end_at) << " "<<_lattice.get_word(mid_at) << " " << _lattice.get_word(start_from) << " " <<endl;      
+void Decode::add_subgrad(wvector &subgrad, int start_from, int mid_at, int end_at, bool first) {
   double local_lag_total =0.0;
   if (! first) {
-    vector <int > between1 = _subproblem->get_best_nodes_between(start_from,mid_at, 0);
+    vector <int > between1 = 
+      _subproblem->get_best_nodes_between(start_from,
+                                          mid_at, 0);
     double b1_lag = 0.0;
-    //cout << "Size!" << between1.size() << endl;
-    //double lag_total =0.0;
+
     for (int k = between1.size() -1 ; k >=0 ; k--) {        
       int node_id = between1[k];
       assert(!_lattice.is_word(node_id) || node_id == mid_at);
-      //cout << "DEC!" << node_id << endl;
       assert(node_id >= 0);
       
 
       if (DEBUG) {
-        //cout << _lattice._edge_label_by_nodes[node_id] << " (" << node_id << ") ";  
-        b1_lag +=(*_lagrange_weights)[node_id ] ;
-        //cout << "LAG " << node_id << " "  << (*_lagrange_weights)[node_id ]  << endl;
+        b1_lag += (*_lagrange_weights)[node_id ] ;
       }
-
-      subgrad[node_id] -= 1;
-    
+      // - Lagrangians
+      subgrad[node_id] -= 1; 
     }
     
     if (DEBUG) {
-      assert(fabs(-b1_lag - _subproblem->get_best_bigram_weight(start_from, mid_at, 0)) < 1e-3);
+      assert(fabs(-b1_lag - 
+                  _subproblem->get_best_bigram_weight(start_from, mid_at, 0)) < 1e-3);
       local_lag_total +=  b1_lag;
       lag_total +=  b1_lag;
-      //cout << endl;
     }
   }
-  const vector <int> between2 = _subproblem->get_best_nodes_between(mid_at, end_at, 1);
+  const vector <int> between2 = 
+    _subproblem->get_best_nodes_between(mid_at, end_at, 1);
   double b2_lag = 0.0;
-  //cout << "Size!" << between2.size() << endl;
   for (int k = between2.size()-1; k >=0 ; k--) {
     int node_id = between2[k];
-    //cout << "DEC!" << node_id << endl;
     assert(node_id >= 0);
+
+    // Trigram lagrangian.
     subgrad[node_id + GRAMSPLIT] -= 1;
    
     if (DEBUG) {
       b2_lag += (*_lagrange_weights)[node_id + GRAMSPLIT] ;
-      //cout << _lattice._edge_label_by_nodes[node_id] << " [" << node_id << "] ";
     }
   }
   if (DEBUG) {
     assert((-b2_lag - _subproblem->get_best_bigram_weight(mid_at, end_at, 1)) < 1e-3);
     lag_total +=  b2_lag;
     local_lag_total +=  b2_lag;
-    //cout << endl;
   }
 
   if (DEBUG) {
-    double lm_score = (lm_weight()) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);
-    //cout << lm_score << " " << -lag_total << " " << _subproblem->cur_best_score[start_from] << endl;
-
-    // cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at) 
-    //      << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << " " << 
-    //   _lattice.lookup_word(start_from) << " " <<   -local_lag_total << " " << lm_score << " " << lm_score - local_lag_total<<endl;
-    
+    double lm_score = (lm_weight()) * _subproblem->word_prob_reverse(start_from, mid_at, end_at);    
     double w =0; 
     w += _subproblem->get_best_bigram_weight(start_from, mid_at, 0);
     w += _subproblem->get_best_bigram_weight(mid_at, end_at, 1);
-    //cout << "SCORE2 " << lm_score + w; 
 
     lm_total += lm_score;
     if (!_subproblem->overridden[start_from]) { 
       o_total +=  _subproblem->best_score(start_from, mid_at, end_at);
     }
   }
-
-
-  //cout << "SCORE " << start_from << " " << _lattice.get_word(end_at) << " " << _lattice.get_word(mid_at)
-  //    << " "<< _lattice.get_word(start_from) << " " << start_from <<" " << mid_at << " " << end_at << 
-  // " "<< _lattice.get_hypergraph_node_from_word(end_at)<< " "<<_lattice.get_hypergraph_node_from_word(mid_at) << " " << _lattice.get_hypergraph_node_from_word(start_from)<< endl;
-
-  //cout << "SCORE " << _subproblem->cur_best_score[start_from] << " " << _lattice.get_word(start_from) << " " << start_from << " " <<  _lattice.lookup_word(start_from) << " " << mid_at << " " << _lattice.get_word(mid_at)<< " "<< _lattice.lookup_word(mid_at) << " " << end_at << " " << _lattice.get_word(end_at) << " " << _lattice.lookup_word(end_at)<< " "<<endl;
 }
 
 void Decode::print_output(const wvector & subgrad) {
@@ -191,44 +172,21 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     }
   }
 
-  
-  //if ((round ==145 || is_stuck) && !_maintain_constraints) {
   if ((round==145 || is_stuck) && !_maintain_constraints) {
-    //if ((round ==1 || is_stuck) && !_maintain_constraints) {
-    //cout << "DUAL STUCK Round " << round << endl;
     _maintain_constraints = true;
     _is_stuck_round = round;
     bump_rate = true;
   }
 
-
-  // if (round >=_is_stuck_round+ 30) {
-  //   int limit = 5;
-  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-  // }
-
-  if (round >=_is_stuck_round+ 50) {
-
-    //if (round >=_is_stuck_round +2) {
+  if (round >=_is_stuck_round + 50) {
+    cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
     _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-    //if (round %5 !=0) {
-    //no_update = true;
-    //}
   }  
-
-  // if (round >=_is_stuck_round+ 100) {
-    
-  //   //if (round >=_is_stuck_round +2) {
-  //   int limit = 25;
-  //   _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
-    
-  // }  
   
   
   _subproblem->project(_proj_dim, _projection);    
   _subproblem->solve();
-  
 
   return bump_rate;
 }
@@ -241,8 +199,8 @@ EdgeCache Decode::compute_edge_penalty_cache() {
     double total_score = 0.0;
   
     // self penalties
-    vector <int> lat_edges = get_lat_edges(edge->id()); 
-    for (unsigned int j =0; j < lat_edges.size(); j++) {
+    vector<int> lat_edges = get_lat_edges(edge->id()); 
+    for (unsigned int j = 0; j < lat_edges.size(); j++) {
       int lat_id = lat_edges[j];
       total_score += (*_lagrange_weights)[lat_id];
       total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
@@ -253,10 +211,13 @@ EdgeCache Decode::compute_edge_penalty_cache() {
   return ret;
 }
 
-double Decode::best_modified_derivation(const EdgeCache & edge_weights, const HypergraphAlgorithms & ha, NodeBackCache & back_pointers) {
+double Decode::best_modified_derivation(const EdgeCache & edge_weights, 
+                                        const HypergraphAlgorithms & ha, 
+                                        NodeBackCache & back_pointers) {
   
   // OPTIMIZATION: Only run A-Star when we have a hard problem (several dimensions)  
   bool run_astar = _subproblem->projection_dims > BACK;
+  cerr << "projection dims " << _subproblem->projection_dims << endl;
   clock_t begin, end;
   SplitController c(*_subproblem, _lattice, run_astar);
   
@@ -267,7 +228,6 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights, const Hy
   if (run_astar) {     
     
     // 1) Run inside-outside viterbi to collect approximate max-marginals.
-    
     
     // The back pointers from the heuristic run
     NodeBackCache  temp_back_pointers(_forest.num_nodes());
@@ -302,16 +262,7 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights, const Hy
     // 3) Run astar on the full problem using outside as an admissable heuristic
     SplitController c_astar(*_subproblem, _lattice, false);
     AStar astar(_forest, c_astar, edge_weights, heu);
-    return astar.best_path(back_pointers);
-    
-    // TESTING
-    // SplitController c2(*_subproblem, _lattice, false);
-    //     ExtendCKY ecky2(_forest);
-    //     ecky2.set_params(total, &c2);
-    //     double dual_test = ecky2.best_path(back_pointers3);
-    
-    //     assert(fabs(dual - dual_test) < 1e-4); 
-    
+    return astar.best_path(back_pointers);    
   } else {
     
     // Otherwise just do it as simply as possible
@@ -327,48 +278,53 @@ void Decode::remove_lm(int feat, wvector & subgrad, double & dual, double &cost_
   cout << "Removing " << feat << endl;
 }
 
-wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> & used_words, 
-                                     const vector <int> & used_lats, 
+wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> &used_words, 
+                                     const vector <int> &used_lats, 
                                      const vector<string> &used_strings, 
                                      double & dual, double & cost_total) {
   wvector subgrad;
-  if (FULLBUILT) {
 
-  // walk along the fringe
+  // Walk along the fringe.
   for (uint j =0; j < used_words.size(); j++) {
     HNode word_node = used_words[j];
     int hnode_id = word_node->id();
-    int graph_id = _lattice.get_word_from_hypergraph_node(word_node->id());
+    int graph_id = 
+      _lattice.get_word_from_hypergraph_node(word_node->id());
 
-    // will be explained by another node
     if (_subproblem->is_overridden(graph_id)) continue;
         
     // Get lattice Lex node directly before me
-    uint node_for_graph_id =(uint) _lattice.get_hypergraph_node_from_word(graph_id);
+    uint node_for_graph_id =
+      (uint)_lattice.get_hypergraph_node_from_word(graph_id);
     
+    if (j < ORDER - 1) continue; 
     
-    //foreach (HNode word_node, used_words) { 
-    /*for (uint p = 0; p < used_words.size() ; p++) {
-      if (node_for_graph_id == used_words[p]->id()) {*/
-        // assume projected consistency with previous node
-    if (j < ORDER -1) continue; // <s> or <s>
-    
-    int pre_previous_graph_id =  _lattice.get_word_from_hypergraph_node(used_words[j-2]->id());;     
-    int previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[j-1]->id());
+    int pre_previous_graph_id =  
+      _lattice.get_word_from_hypergraph_node(used_words[j-2]->id());;     
+    int previous_graph_id = 
+      _lattice.get_word_from_hypergraph_node(used_words[j-1]->id());
 
     int next_graph_id = -1;
 
-    // is it in the last position? </s>
-    if (j+1 != used_words.size())
-        next_graph_id =_lattice.get_word_from_hypergraph_node(used_words[j+1]->id());
+    // Is it in the last position? </s>
+    if (j+1 != used_words.size()) {
+        next_graph_id =
+          _lattice.get_word_from_hypergraph_node(used_words[j+1]->id());
+    }
   
     int start_from = graph_id;
-    int mid_at = _subproblem->best_one(graph_id, previous_graph_id, pre_previous_graph_id);
-    int end_at = _subproblem->best_two(graph_id, previous_graph_id, pre_previous_graph_id);      
+    int mid_at = _subproblem->best_one(graph_id, 
+                                       previous_graph_id, 
+                                       pre_previous_graph_id);
+    int end_at = _subproblem->best_two(graph_id, 
+                                       previous_graph_id, 
+                                       pre_previous_graph_id);      
     
-    //cout << _lattice.get_word(end_at) << " "<<_lattice.get_word(mid_at) << " " << _lattice.get_word(start_from) << " " <<endl;
     
-    cost_total += _subproblem->best_score(start_from, mid_at, pre_previous_graph_id);    
+    cost_total += 
+      _subproblem->best_score(start_from, 
+                              mid_at, 
+                              pre_previous_graph_id);    
     
     /*if (false && previous_graph_id == 1) {
       // unconstrained for now
@@ -440,194 +396,7 @@ wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> & used_wo
   // remove_lm(*max + GRAMSPLIT, subgrad, dual, cost_total);
     //}
 
-
-
-
-
-  // old style
-  } else{
-
-  
-
-  for (uint j =0; j < used_words.size(); j++) {
-    HNode word_node = used_words[j];
-
-
-    int graph_id = _lattice.get_word_from_hypergraph_node(word_node->id());
-
-    // will be explained by another node
-    if (_subproblem->overridden[graph_id]) continue;
-        
-    // Get lattice Lex node directly before me
-    
-    uint node_for_graph_id =(uint) _lattice.get_hypergraph_node_from_word(graph_id);
-    int previous_graph_id; 
-    int pre_previous_graph_id; 
-    int next_graph_id;
-    
-    
-    //foreach (HNode word_node, used_words) { 
-    for (uint p = 0; p < used_words.size() ; p++) {
-      if (node_for_graph_id == used_words[p]->id()) {
-        // assume projected consistency with previous node
-        if (p == 0) {
-          // <s>
-          pre_previous_graph_id = 0;
-          previous_graph_id = 1;
-          next_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p+1]->id());;
-        } else if (p==1) {
-          pre_previous_graph_id = 1;
-          previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p-1]->id());
-          next_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p+1]->id());
-        } else if (p == used_words.size()-1) {
-          pre_previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p-2]->id());
-          previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p-1]->id());;
-          next_graph_id = _lattice.num_word_nodes-2;
-        } else {
-          pre_previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p-2]->id());
-          previous_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p-1]->id());
-          next_graph_id = _lattice.get_word_from_hypergraph_node(used_words[p+1]->id());
-        }
-        break;
-      } 
-    }
-    
-    int start_from = graph_id;
-    int mid_at = _subproblem->best_one(graph_id, previous_graph_id, pre_previous_graph_id);
-    int end_at = _subproblem->best_two(graph_id, previous_graph_id, pre_previous_graph_id);      
-    
-    //cout << _lattice.get_word(end_at) << " "<<_lattice.get_word(mid_at) << " " << _lattice.get_word(start_from) << " " <<endl;
-    
-
-    cost_total += _subproblem->best_score(start_from, mid_at, pre_previous_graph_id);    
-    
-    /*if (false && previous_graph_id == 1) {
-      // unconstrained for now
-      mid_at = _subproblem->cur_best_one[graph_id][0];
-      end_at = _subproblem->cur_best_two[graph_id][0];
-      assert(_lattice.is_word(mid_at));
-      cost_total += _subproblem->cur_best_score[graph_id];
-      //cout << " " << _subproblem->cur_best_score[graph_id] << " ";
-    } else {
-
-      //cout << " " << _subproblem->best_score(graph_id, mid_at) << " ";
-      }*/
-    
-    
-    add_subgrad(subgrad, start_from, mid_at, end_at, false);
-    debug(start_from, mid_at, end_at, used_lats[j+2-1], used_lats[j+2-2]);
-    greedy_projection(mid_at, end_at, used_lats[j+2-1], used_lats[j+2-2]);
-    
-    // the next node is determined by my choice
-    if (_subproblem->overridden[next_graph_id]) {
-      int end_at = mid_at;      
-      int mid_at = start_from;
-      int start_from = next_graph_id;
-      add_subgrad(subgrad, start_from, mid_at, end_at, false);
-      debug( start_from, mid_at, end_at, used_lats[j+2], used_lats[j+2-1]);
-      greedy_projection( mid_at, end_at, used_lats[j+2], used_lats[j+2-1]);
-    }
-    assert(fabs(lm_total - (o_total + lag_total)) < 1e-3);
-  }
-
-
-
-  // **************************
-  // * BOUNDARY CONDITIONS
-  // **************************
-  // TODO - eliminate this nonsense 
-
-  //bounds = [(0,1), (self.graph.size()-1,self.graph.size()-2) ]
-  //bounds.reverse()
-    
-  // END BOUNDARY
-  // add in the last node, and second to last (trigram)
-  // over counted at k
-  //feat = "2UNI:"+str(bounds[1][0])
-
-
-    {
-      int feat = 0 + GRAMSPLIT ;
-      subgrad[feat] += 1; 
-      dual += (*_lagrange_weights)[feat];  
-      cost_total += (*_lagrange_weights)[feat];  
-    
-    }
-
-    {
-      int feat = 1;
-      subgrad[feat] += 1 ;
-      dual += (*_lagrange_weights)[feat];
-      cost_total += (*_lagrange_weights)[feat];  
-    
-      feat = 1 + GRAMSPLIT; //"2UNI:"+str(bounds[1][1]);
-      subgrad[feat] += 1 ;
-
-      dual += (*_lagrange_weights)[feat]  ;
-      cost_total += (*_lagrange_weights)[feat];
-    }
-
-
-    // START BOUNDARY
-  if (!_subproblem->overridden[_lattice.num_word_nodes-2]) {
-    int id = _lattice.num_word_nodes-2;
-
-    //assert(!_subproblem->overridden[id]);
-    // second word <s>
-    int start_from =id;
-    int mid_at = _subproblem->best_one(id, 
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id()),
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-2]->id()));
-    int end_at = _subproblem->best_two(id, 
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id()),
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-2]->id()));
-    
-    //cout << start_from << " " << mid_at << " " << end_at << endl; 
-    //cheat on last one (unconstrained)
-    //int mid_at = _subproblem->best_one(id, used_words[used_word.length]);//_subproblem->best_one(id, previous_graph_id);
-    //double score = _subproblem->cur_best_score[id];
-    cost_total += _subproblem->best_score(start_from, mid_at, end_at);//_lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id()));
-    //cout << "Best " << _subproblem->project_word(_lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id())) << endl;
-    //cout << "START2" <<score << endl;
-    //dual += score;
-
-    add_subgrad(subgrad, start_from, mid_at, end_at, false);
-    debug(start_from, mid_at, end_at, used_lats[used_strings.size()-3], used_lats[used_strings.size()-4]);
-    greedy_projection(mid_at, end_at, used_lats[used_strings.size()-3], used_lats[used_strings.size()-4]);
-  }
-
-  //first word <s>
-  {
-    int id = _lattice.num_word_nodes-1;
-    int start_from = id;
-    //vector <int> lex_lat_edges = get_lex_lat_edges(id); 
-    int mid_at = _lattice.num_word_nodes-2;
-    int end_at;
-    if (!_subproblem->overridden[id]) {
-      end_at = _subproblem->best_two(id, mid_at,_lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id()));
-    } else {
-      end_at = _subproblem->best_one(mid_at, 
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-1]->id()),
-                                       _lattice.get_word_from_hypergraph_node(used_words[used_words.size()-2]->id())
-                                       );
-    }
-
-
-    //cout << start_from << " " << mid_at << " " << end_at << endl; 
-    if (!_subproblem->overridden[id]) {
-      // Overridden (no score)
-      //double score = _subproblem->cur_best_score[id];
-      //dual += score;
-      cost_total += _subproblem->best_score(id, mid_at, end_at);
-      o_total += cost_total;
-    }
-    add_subgrad(subgrad, start_from, mid_at, end_at, true);
-    debug(start_from, mid_at, end_at, used_lats[used_strings.size()-2], used_lats[used_strings.size()-3]);
-    greedy_projection(mid_at, end_at, used_lats[used_strings.size()-2], used_lats[used_strings.size()-3]);
-  }
-  }
   return subgrad;
-
 }
 
 wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
@@ -646,9 +415,8 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
   return subgrad;
 }
 
-void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
-  //int round, bool is_stuck, bool & bump_rate, bool & no_update,
-  //               double & primal , double & dual, wvector & subgrad) {
+void Decode::solve(const SubgradState & cur_state, 
+                   SubgradResult & result ) {
   clock_t begin, end;
 
   //no_update = false;
@@ -658,11 +426,12 @@ void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
   }  
 
   /****************************************** 
-   * 1) Solve for  the individual ngrams
+   * 1) Solve for the individual ngrams
    ******************************************/
 
 
-  result.bump_rate = solve_ngrams(cur_state.round, cur_state.is_stuck);
+  result.bump_rate = 
+    solve_ngrams(cur_state.round, cur_state.is_stuck);
   
 
   if (TIMING) {
@@ -703,9 +472,55 @@ void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
   
   HypergraphAlgorithms ha(_forest);
   NodeBackCache back_pointers(_forest.num_nodes());
-  EdgeCache * total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
-  
-  
+  NodeBackCache back_pointers2(_forest.num_nodes());
+  EdgeCache *total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
+
+
+  // CHANGES!!!
+  if (cur_state.round > 50) {
+    cerr << "CUBING!!" <<  cur_state.round << endl;
+    SplitController c(*_subproblem, _lattice, false);
+    ExtendCKY ecky(_forest, *total, c);
+    ecky.best_path(back_pointers2);
+    ecky.outside();
+    NodeCache node_outside(_forest.num_nodes());
+    foreach (HNode node, _forest.nodes()) {
+      if (ecky._outside_memo_table.get(*node).size() >= 1) {
+        node_outside.set_value(*node, 
+                               ecky._outside_memo_table.get(*node).get_score(0));
+      }
+    }
+    Cache<Hypernode, int> * words = cache_word_nodes(_lm, _forest);
+    
+    // Compute best trigram.
+    NodeCache node_best_trigram(_forest.num_nodes());
+    foreach (HNode node, _forest.nodes()) {
+      if (((ForestNode *)node)->is_word()) {
+        int graph_id = _lattice.get_word_from_hypergraph_node(node->id());
+        double score = _subproblem->best_score_dim(graph_id, 0, 0);
+        node_best_trigram.set_value(*node, score);
+      }
+    }
+    int cube = cur_state.round > 1 ? 100 : 10;
+    CubePruning p(_forest, *_cached_weights, DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram), cube, 3);
+    p.set_bound(cur_state.best_primal + 0.01);
+
+    p.set_heuristic(&node_outside);
+    double v = p.parse();
+    if (abs(v) > 1e-4) {
+      cerr << "CubePruning " << v << endl;
+      result.primal = v;
+      if (!p.failed()) {
+        result.dual = v;
+        return;
+      }
+    } else {
+      result.primal = 10000000;
+    }
+  } else {
+    result.primal = 10000000;
+  }
+
   result.dual = best_modified_derivation(*total, ha, back_pointers);
   
   HEdges used_edges = ha.construct_best_edges(back_pointers); 
@@ -734,32 +549,16 @@ void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
   vector <string> used_strings;
 
   // UGH! UGH! TODO get this <s> business out of here
-  if (!FULLBUILT) {
-    used_strings.push_back("<s>");
-    used_strings.push_back("<s>");
-  }
   foreach (HNode used, used_words) {  // int i =0; i < used_words.size(); i++) {
     //cout <<used_words[i]->word() << " ";
     used_strings.push_back(((const ForestNode*)used)->word());
   }
   //cout <<endl;
-  if (!FULLBUILT){
-    used_strings.push_back("</s>");
-    used_strings.push_back("</s>");
-  }
   //assert(used_words.size() > 3);
 
   vector <int> used_lats;
-  if (!FULLBUILT){
-    used_lats.push_back(0);
-    used_lats.push_back(1);
-  }
   foreach (HNode word_node, used_words) {
     used_lats.push_back(_lattice.get_word_from_hypergraph_node( word_node->id()));
-  }
-  if (!FULLBUILT){
-    used_lats.push_back(_lattice.num_word_nodes-2);
-    used_lats.push_back(_lattice.num_word_nodes-1);
   }
 
   if (TIMING) {
@@ -788,9 +587,6 @@ void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
   //cout << "lex lat " << lex_lat_edges.size() << endl;
   //cout << endl;
   
-
-  
-    
   
   if (DEBUG) {    
     cout << "DUAL LM: " << lm_total << endl;
@@ -805,15 +601,17 @@ void Decode::solve(const SubgradState & cur_state, SubgradResult & result ) {
    *    
    ******************************************/
 
-  result.primal = compute_primal(used_edges, used_words, penalty_cache);
+  result.primal = min(result.primal, 
+                      compute_primal(used_edges, 
+                                     used_words, 
+                                     penalty_cache));
 
 
   double edge_total= 0.0;
-  {
-    foreach (HNode node, _forest.nodes()) { 
-      if (!((ForestNode* )node)->is_word() && back_pointers.has_key(*node)) {
-        edge_total += total->get_value(*(back_pointers.get_value(*node)));
-      }
+  
+  foreach (HNode node, _forest.nodes()) { 
+    if (!((ForestNode* )node)->is_word() && back_pointers.has_key(*node)) {
+      edge_total += total->get_value(*(back_pointers.get_value(*node)));
     }
   }
 
@@ -874,16 +672,8 @@ double Decode::compute_primal(const HEdges used_edges, const vector <const Fores
   //cout << "PRIMAL2 Parse " << total + lag<< endl; 
   
   vector <string> used_strings;
-  if (!FULLBUILT) {
-    used_strings.push_back("<s>");
-    used_strings.push_back("<s>");
-  }
   for (uint i =0; i < used_nodes.size(); i++) {
     used_strings.push_back(used_nodes[i]->word());
-  }
-  if (!FULLBUILT) {
-    used_strings.push_back("</s>");
-    used_strings.push_back("</s>");
   }
   double lm_score =0.0;
   double primal2 = 0.0;

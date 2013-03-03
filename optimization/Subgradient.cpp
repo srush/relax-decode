@@ -32,6 +32,7 @@ bool Subgradient::run_one_round() {
   SubgradState info;
   info.round = _round;
   info.is_stuck = _is_stuck;
+  info.best_primal = _best_primal;
   _s.solve(info, result); //  primal, dual, subgrad, _round, _is_stuck, bump,no_update);
 
   clock_t end;
