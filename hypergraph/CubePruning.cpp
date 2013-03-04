@@ -76,8 +76,8 @@ void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
     
     // add the starting (0,..,0) hypothesis to the heap
     Hyp newhyp;
-    bool bounded;
-    bool b = gethyp(*cedge, newvecj, newhyp, true, &bounded);
+    bool bounded, early_bounded;
+    bool b = gethyp(*cedge, newvecj, newhyp, true, &bounded, &early_bounded);
     //cout << "Get hyp " << newhyp.score << endl;
     assert(b || use_bound_);
     
@@ -201,11 +201,14 @@ void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Can
       // cerr << endl;
       if (vecs.find(newvecj) == vecs.end()) {
         Hyp newhyp;
-        bool bounded;
-        bool succeed = gethyp(cedge, newvecj, newhyp, false, &bounded);
+        bool bounded, early_bounded;
+        bool succeed = gethyp(cedge, newvecj, newhyp, false, &bounded, &early_bounded);
         if (succeed) {
           // Add j'th dimension to the cube
           _oldvec.store[cedge.id()].insert(newvecj);
+          if (early_bounded) {
+            break;
+          }
           if (!bounded) {
             cands.push(new Candidate(newhyp, cedge, newvecj));
             break;
@@ -221,7 +224,7 @@ void CubePruning::next(const Hyperedge & cedge, const vector <int > & cvecj, Can
 }
 
 
-bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool keep_if_bounded, bool *bounded) {
+bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool keep_if_bounded, bool *bounded, bool *early_bounded) {
   /*
     Return the score and signature of the element obtained from combining the
     vecj-best parses along cedge. Also, apply non-local feature functions (LM)
@@ -229,9 +232,7 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
 
   double score = _weights.get_value(cedge);  
   vector<vector <int> > subders;
-  vector<int> edges;
-
-  // grab the jth best hypothesis at each node of the hyperedge
+  vector<int> edges;  // grab the jth best hypothesis at each node of the hyperedge
   for (uint i=0; i < cedge.num_nodes(); i++) {
     const Hypernode & sub = cedge.tail_node(i); 
     if (vecj[i] >= (int)_hypothesis_cache.get_value(sub).size()) {
@@ -251,13 +252,22 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
     score = score + item.score;
   }
 
+  double heuristic = 0.0;
+  (*early_bounded) = false; 
+  if (use_bound_ && use_heuristic_ && !keep_if_bounded) {
+    heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
+    double early_heuristic_score = heuristic + score;
+    (*early_bounded) = true; 
+    return true;
+  }
+
   // Get the non-local feature and signature information
   vector <int> full_derivation;
   Sig sig; 
   double non_local_score;
   _non_local.compute(cedge, subders, non_local_score, full_derivation, sig);
   score = score + non_local_score;
-  double heuristic = 0.0;
+
   if (use_heuristic_) {
     heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
   }

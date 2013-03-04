@@ -106,7 +106,7 @@ class CubePruning {
   void init_cube(const Hypernode & cur_node, Candidates &cands);
   void kbest(Candidates & cands, vector <Hyp> &, bool recombine);
   void next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands);
-  bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool, bool *bounded);
+  bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool, bool *bounded, bool *early_bounded);
   bool has_derivation();
   void set_bound(double bound) {
     use_bound_ = true;

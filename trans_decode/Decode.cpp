@@ -63,8 +63,6 @@ vector <int > Decode::get_lat_edges(int edge_id) {
   return _lattice.original_edges[edge_id];
 }
 
-
-
 void Decode::add_subgrad(wvector &subgrad, int start_from, int mid_at, int end_at, bool first) {
   double local_lag_total =0.0;
   if (! first) {
@@ -127,8 +125,8 @@ void Decode::add_subgrad(wvector &subgrad, int start_from, int mid_at, int end_a
 }
 
 void Decode::print_output(const wvector & subgrad) {
-  int bis =0;
-  int tris =0;
+  int bis = 0;
+  int tris = 0;
   
   for (wvector::const_iterator it = subgrad.begin(); it != subgrad.end(); it++) {
     if (it->second != 0.0) {
@@ -224,9 +222,7 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights,
   // Boiler plate for cky
   ExtendCKY ecky(_forest, edge_weights, c);
   
-
   if (run_astar) {     
-    
     // 1) Run inside-outside viterbi to collect approximate max-marginals.
     
     // The back pointers from the heuristic run
@@ -263,15 +259,13 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights,
     SplitController c_astar(*_subproblem, _lattice, false);
     AStar astar(_forest, c_astar, edge_weights, heu);
     return astar.best_path(back_pointers);    
-  } else {
-    
+  } else {    
     // Otherwise just do it as simply as possible
     return  ecky.best_path(back_pointers);
-    
   }
 }
 
-void Decode::remove_lm(int feat, wvector & subgrad, double & dual, double &cost_total  ) {
+void Decode::remove_lm(int feat, wvector & subgrad, double & dual, double &cost_total) {
   subgrad[feat] -= 1; 
   dual -= (*_lagrange_weights)[feat];  
   cost_total -= (*_lagrange_weights)[feat];  
@@ -472,12 +466,13 @@ void Decode::solve(const SubgradState & cur_state,
   
   HypergraphAlgorithms ha(_forest);
   NodeBackCache back_pointers(_forest.num_nodes());
-  NodeBackCache back_pointers2(_forest.num_nodes());
+
   EdgeCache *total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
 
   // CHANGES!!!
   if (cur_state.round > 50) {
+    NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
     SplitController c(*_subproblem, _lattice, false);
     ExtendCKY ecky(_forest, *total, c);
