@@ -31,6 +31,7 @@ message Subword {
 message Phraselet { 
     repeated Subword word = 1;
     optional int32 phraselet_hypergraph_edge = 2;
+    optional int32 hypergraph_edge_position = 4 [ default = -1 ];
 }
 
 message Phraselets {
@@ -45,6 +46,7 @@ extend Lattice.Node {
 
 message Origin { 
   repeated int32 hypergraph_edge = 1;
+  repeated int32 hypergraph_edge_position = 4;
   optional int32 original_id = 2; 
   optional bool has_origin = 3;
 }

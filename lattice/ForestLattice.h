@@ -102,6 +102,7 @@ class ForestLattice {
   ForestLattice(const Lattice & lattice);
 
   vector<vector <int> > original_edges;
+  //vector<vector <int> > original_edges_position;
   vector<vector <int> > edges_original;
 
   inline Node lookup_word(int w) const {
@@ -118,7 +119,7 @@ class ForestLattice {
   }
 
   inline int get_edge_label(const Graphnode &n1, 
-                             const Graphnode &n2) const {
+                            const Graphnode &n2) const {
     return _edge_by_nodes[n1.id()][n2.id()];
   }
 

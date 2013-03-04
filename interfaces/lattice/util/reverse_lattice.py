@@ -28,6 +28,7 @@ def reverse_lat(lat):
     for old_plet in by_id[n_id].Extensions[phraselets].phraselet:
       plet = node.Extensions[phraselets].phraselet.add()
       plet.phraselet_hypergraph_edge = old_plet.phraselet_hypergraph_edge
+      plet.hypergraph_edge_position = old_plet.hypergraph_edge_position
       old = list(old_plet.word)
       old.reverse()
       for sword in old: 
@@ -54,6 +55,9 @@ def reverse_lat(lat):
         edge.Extensions[origin].original_id = e.Extensions[origin].original_id
         for i in e.Extensions[origin].hypergraph_edge:
           edge.Extensions[origin].hypergraph_edge.append(i)
+        for i in e.Extensions[origin].hypergraph_edge_position:
+          edge.Extensions[origin].hypergraph_edge_position.append(i)
+
         edge.Extensions[origin].has_origin = e.Extensions[origin].has_origin
   ret.Extensions[num_hypergraph_edges] = lat.Extensions[num_hypergraph_edges]
   print lat.Extensions[num_hypergraph_edges]

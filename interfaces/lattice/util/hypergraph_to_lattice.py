@@ -262,23 +262,31 @@ class NodeExtractor(object):
       last = -2
 
       edge_dot = {}
+      dot_position = 0
       for i,node_id in enumerate(rhs):
         to_node = self.ordered_nodes[node_id]
         if to_node.Extensions[is_word]:
           # it's a word, phraselet it and stick it in the list 
+
+          if not phraselet:
+            dot_position += 2
+          else:
+            dot_position += 1
           phraselet.append(to_node)
         else:
           # we've hit a new node, remember to make a link
           key = (last, to_node.id, bool(phraselet))
           link.setdefault(key, [])
-          link[key].append((edge, phraselet))
+          link[key].append(((edge, dot_position), phraselet))
           phraselet = []
           last = to_node.id
+          dot_position += 1
       key = (last, -1, bool(phraselet))
       link.setdefault(key, [])
-      link[key].append((edge, phraselet))
+      link[key].append(((edge, dot_position), phraselet))
       phraselet = []
       #print link
+
     for ((from_node, to_node, my_has_phrases), my_phraselets) in link.iteritems():      
       #(_, phraselet) = my_phraselets[0]
 
@@ -286,9 +294,10 @@ class NodeExtractor(object):
       new_state = LexNode(self.graph, "", self.edge_id)
       print "Phraselet len", len(my_phraselets)
       new_state.proto.Extensions[has_phrases] = my_has_phrases 
-      for edge_dot, plet in my_phraselets:
+      for (edge_dot, pos), plet in my_phraselets:
         proto_plet = new_state.proto.Extensions[phraselets].phraselet.add()
         proto_plet.phraselet_hypergraph_edge = edge_dot.id
+        proto_plet.hypergraph_edge_position = pos
         
         for w in plet:  
           subword = proto_plet.word.add()
@@ -314,17 +323,18 @@ class NodeExtractor(object):
           original.original_id = self.get_label((node.id, DOWN), (to_node, DOWN), True or my_has_phrases)
 
 
-          for edge_dot, _ in my_phraselets:
+          for (edge_dot, pos), phraselet in my_phraselets:
             original.hypergraph_edge.append(edge_dot.id)
-
+            if phraselet:
+              original.hypergraph_edge_position.append(pos - (len(phraselet) + 1))
+            else:
+              original.hypergraph_edge_position.append(pos)
       else:
         _, previous_node = self.extract_fsa(self.ordered_nodes[from_node])
         protoedge = previous_node.add_edge(new_state, ( " UP").decode('UTF-8'))
-        #for edge_dot, phraselet in phraselets:
 
         original = protoedge.Extensions[origin]
         original.has_origin = True
-
         
         end_node= (to_node, DOWN)
         
@@ -341,8 +351,12 @@ class NodeExtractor(object):
         
         original.original_id = self.get_label((from_node, UP), end_node , unique)
         
-        for edge_dot, _ in my_phraselets:
+        for (edge_dot, pos), phraselet in my_phraselets:
           original.hypergraph_edge.append(edge_dot.id)
+          if phraselet:
+            original.hypergraph_edge_position.append(pos - (len(phraselet) + 1))
+          else:
+            original.hypergraph_edge_position.append(pos)
       
 
       if to_node == -1:
@@ -356,24 +370,23 @@ class NodeExtractor(object):
             original.has_origin = True
             original.original_id = self.get_label((from_node, UP), (node.id, UP), my_has_phrases)
         
-            for edge_dot, _ in my_phraselets:
+            for (edge_dot, pos), _ in my_phraselets:
               original.hypergraph_edge.append(edge_dot.id)
+              original.hypergraph_edge_position.append(pos)
 
       else:
         next_node, _ = self.extract_fsa(self.ordered_nodes[to_node])
         protoedge = new_state.add_edge(next_node, ( " DOWN").decode('UTF-8') )
         
-        #for edge_dot, phraselet in phraselets:
-        #CHANGED
-        # WRONG!!!
         if my_has_phrases:
           protoedge.label = "w M %s"%((to_node, DOWN),)
           original = protoedge.Extensions[origin]
           original.has_origin = True
           original.original_id = self.get_label((from_node, UP), (to_node, DOWN), my_has_phrases)
         
-          for edge_dot, _ in my_phraselets:
+          for (edge_dot, pos), _ in my_phraselets:
             original.hypergraph_edge.append(edge_dot.id)
+            original.hypergraph_edge_position.append(pos)
 
 
       self.edge_id +=1 

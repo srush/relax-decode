@@ -12,6 +12,7 @@
 
 #include "SplitDecoder.h"
 #include "LMNonLocal.h"
+#include "dual_nonlocal.h"
 #include "../common.h"
 #define TIMING 0
 #define DEBUG 0
@@ -206,9 +207,9 @@ EdgeCache Decode::compute_edge_penalty_cache() {
     for (unsigned int j = 0; j < lat_edges.size(); j++) {
       int lat_id = lat_edges[j];
       if (!_lattice.is_word(lat_id)) {
-        cerr << _lattice._edge_label_by_nodes[lat_id] << " " << lat_id << endl;
+        cerr << _lattice._edge_label_by_nodes[lat_id] << endl;
       } else {
-        cerr << _lattice.get_word(lat_id) << " ";
+        cerr << _lattice.get_word(lat_id)  << endl;
       }
       total_score += (*_lagrange_weights)[lat_id];
       total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];

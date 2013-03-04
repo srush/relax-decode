@@ -62,6 +62,7 @@ ForestLattice::ForestLattice(const Lattice & lat):
   int num_hyper_edges = lat.GetExtension(num_hypergraph_edges);
   _is_word.resize(num_word_nodes);
   original_edges.resize(num_hyper_edges);
+  //original_edges_position.resize(num_hyper_edges);
   edges_original.resize(num_word_nodes);
   
   word_node.resize(num_nodes);
@@ -115,7 +116,7 @@ ForestLattice::ForestLattice(const Lattice & lat):
         const Phraselet & plet= plets.phraselet(i);
         for (int j=0; j < plet.word_size(); j++) {
           const Subword & word = plet.word(j);
-          int hyper_edge =plet.phraselet_hypergraph_edge();
+          int hyper_edge = plet.phraselet_hypergraph_edge();
           Word our_word = Word(word.subword_original_id());
 
           if (word.subword_hypergraph_node_id()!= -1) {
@@ -126,8 +127,16 @@ ForestLattice::ForestLattice(const Lattice & lat):
           _words.set_value(our_word, word.word());
 
           _is_word[word.subword_original_id()] = 1;
-          if (hyper_edge != -1)
-            original_edges[hyper_edge].push_back(word.subword_original_id());
+          if (hyper_edge != -1) {
+            int hypergraph_edge_position = plet.hypergraph_edge_position() - (j + 1);
+            if (original_edges[hyper_edge].size() <= hypergraph_edge_position) {
+              original_edges[hyper_edge].resize(hypergraph_edge_position + 1);
+            }
+
+            original_edges[hyper_edge][hypergraph_edge_position] = word.subword_original_id();
+            // Assuming the lattice is reversed.
+            //original_edges_position[hyper_edge].push_back(plet.hypergraph_edge_position() - (j + 1));
+          }
           if (j < plet.word_size() -1) {
             bigrams_at_node.get_no_check(gnode).push_back(WordBigram(our_word,
                                                                      Word(plet.word(j+1).subword_original_id())));
@@ -173,10 +182,16 @@ ForestLattice::ForestLattice(const Lattice & lat):
       if (orig.has_origin()) {
         int original_id = orig.original_id();
         for (int k =0; k < orig.hypergraph_edge_size(); k++) {
+          assert(orig.hypergraph_edge_size() == orig.hypergraph_edge_position_size());
           int hypergraph_edge = orig.hypergraph_edge(k);
-          original_edges[hypergraph_edge].push_back(original_id);
+          int hypergraph_edge_position = orig.hypergraph_edge_position(k);
+          if (original_edges[hypergraph_edge].size() <= hypergraph_edge_position) {
+            original_edges[hypergraph_edge].resize(hypergraph_edge_position + 1);
+          }
+          original_edges[hypergraph_edge][hypergraph_edge_position] = original_id;
+          //original_edges_position[hypergraph_edge][hypergraph_edge_position];
           edges_original[original_id].push_back(hypergraph_edge);
-          
+         
         }
         //edges[]
         _edge_by_nodes[node.id()][edge.to_id()] = original_id;
