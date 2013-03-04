@@ -106,7 +106,7 @@ int main(int argc, char ** argv) {
 
       cout << " ||| " << -score;
       cout << endl;
-      cerr << lm_score * lm_weight() + total << endl;
+      //cerr << lm_score * lm_weight() + total << endl;
     }
     cout << "*END*" << i << " "<< v << " " << cube<<" " <<  (double)Clock::diffclock(end,begin) << endl;
   }

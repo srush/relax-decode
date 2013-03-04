@@ -39,8 +39,10 @@ struct Location {
 
 class Heuristic {
  public:
-  virtual bool has_value(const Location & loc, const Hypothesis & hyp) const = 0;
-  virtual double get_value(const Location & loc, const Hypothesis & hyp) const = 0;
+  virtual bool has_value(const Location & loc, 
+                         const Hypothesis & hyp) const = 0;
+  virtual double get_value(const Location & loc, 
+                           const Hypothesis & hyp) const = 0;
 };
 
 

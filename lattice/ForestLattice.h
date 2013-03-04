@@ -29,7 +29,7 @@ private:
 struct Bigram{ 
   int w1;
   int w2;
-  Bigram(int word1,int word2): w1(word1), w2(word2) {}
+  Bigram(int word1, int word2): w1(word1), w2(word2) {}
   Bigram(){}
 };
 
@@ -61,7 +61,7 @@ class ForestLattice {
     return *_proper_graph;
   }
 
-  const Graphnode & node(int i) const {
+  const Graphnode &node(int i) const {
     //assert (i < num_nodes);
     return _proper_graph->node(i);//*_nodes[i];
   };
@@ -75,7 +75,7 @@ class ForestLattice {
     return word_node[node.id()] != -1;
   }
 
-  const Nodes & phrase_nodes() const {
+  const Nodes &phrase_nodes() const {
     return _phrase_nodes;
   }
 
@@ -101,27 +101,28 @@ class ForestLattice {
   int start;
   ForestLattice(const Lattice & lattice);
 
-  vector <vector <int> > original_edges;
-  vector <vector <int> > edges_original;
+  vector<vector <int> > original_edges;
+  vector<vector <int> > edges_original;
 
   inline Node lookup_word(int w) const {
     return _words_lookup.store[w];
   }
 
-  inline Node lookup_word(const Word &  w) const {
+  inline Node lookup_word(const Word &w) const {
     return _words_lookup.get(w);
   }
 
   
-  inline  int get_edge_label(int n1, int n2) const {
+  inline int get_edge_label(int n1, int n2) const {
     return _edge_by_nodes[n1][n2];
   }
 
-  inline  int get_edge_label(const Graphnode & n1, const Graphnode n2) const {
+  inline int get_edge_label(const Graphnode &n1, 
+                             const Graphnode &n2) const {
     return _edge_by_nodes[n1.id()][n2.id()];
   }
 
-  inline  Bigram get_nodes_by_labels(int orig_id) const {    
+  inline Bigram get_nodes_by_labels(int orig_id) const {    
     return _original_id_to_edge[orig_id];
   }
 
@@ -190,7 +191,8 @@ class ForestLattice {
 
   void make_proper_graph(const Lattice & lat);
   
-  const vector <WordBigram> & get_bigrams_at_node(const Graphnode & node) const {
+  const vector <WordBigram> & 
+    get_bigrams_at_node(const Graphnode & node) const {
     return bigrams_at_node.get_default(node, vector<WordBigram>());
   }
 

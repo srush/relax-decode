@@ -17,7 +17,9 @@
 using namespace std;
 
 
-Subproblem::Subproblem(const ForestLattice * g, NgramCache *lm_in, const GraphDecompose * gd_in, 
+Subproblem::Subproblem(const ForestLattice * g, 
+                       NgramCache *lm_in, 
+                       const GraphDecompose * gd_in, 
                        const Cache<Graphnode, int> & word_node_cache_in) :
   graph(g), lm(lm_in), gd(gd_in), 
   _word_node_cache(word_node_cache_in), 
@@ -343,12 +345,6 @@ vector <int> Subproblem::get_best_nodes_between(int w1, int w2, int pos) {
   vector <int> path;
   path = bi_rescore[pos]->get_bigram_path(w1, w2);
   
-  //for (int i =0; i< path.size(); i++) {
-  //if (!graph->ignore_nodes[path[i]]) {
-  //  ret.push_back(path[i]);
-  //}
-  //} 
-
   // This is where we add the extra node
   path.push_back(w2);
   return path;

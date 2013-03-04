@@ -176,10 +176,13 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     bump_rate = true;
   }
 
-  if (round >=_is_stuck_round + 50) {
+  if (false && round >=_is_stuck_round + 50) {
     cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
-    _subproblem->projection_with_constraints(limit, _proj_dim, _constraints, _projection);
+    _subproblem->projection_with_constraints(limit, 
+                                             _proj_dim, 
+                                             _constraints, 
+                                             _projection);
   }  
   
   
@@ -198,11 +201,19 @@ EdgeCache Decode::compute_edge_penalty_cache() {
   
     // self penalties
     vector<int> lat_edges = get_lat_edges(edge->id()); 
+    cerr << edge->label() << endl;
+    cerr << edge->head_node().id() << endl;
     for (unsigned int j = 0; j < lat_edges.size(); j++) {
       int lat_id = lat_edges[j];
+      if (!_lattice.is_word(lat_id)) {
+        cerr << _lattice._edge_label_by_nodes[lat_id] << " " << lat_id << endl;
+      } else {
+        cerr << _lattice.get_word(lat_id) << " ";
+      }
       total_score += (*_lagrange_weights)[lat_id];
       total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
     }
+    cerr << endl;
     ret.set_value(*edge, total_score); 
 
   }
@@ -499,7 +510,7 @@ void Decode::solve(const SubgradState & cur_state,
     int cube = cur_state.round > 1 ? 100 : 10;
     CubePruning p(_forest, *_cached_weights, DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram), cube, 3);
     p.set_bound(cur_state.best_primal + 0.01);
-
+    p.set_duals(total);
     p.set_heuristic(&node_outside);
     double v = p.parse();
     if (abs(v) > 1e-4) {
@@ -577,10 +588,6 @@ void Decode::solve(const SubgradState & cur_state,
   cout << "predual " << result.dual << endl; 
   result.subgrad += construct_lm_subgrad(used_words, used_lats, used_strings, result.dual, cost_total);
 
-  // - lagrangians (FROM LM SIDE)
-  //vector <int> lex_lat_edges = get_lex_lat_edges(edge_id); 
-  //cout << "lex lat " << lex_lat_edges.size() << endl;
-  //cout << endl;
   
   
   if (DEBUG) {    

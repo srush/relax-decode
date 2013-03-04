@@ -18,14 +18,16 @@ using namespace Scarab::HG;
 
 class SplitHeuristic : public Heuristic {
 public :
-  SplitHeuristic(const Cache <Hypernode, BestHyp> & outside_scores, 
-                 Cache <Hyperedge, vector<BestHyp> >  & outside_edge_scores): 
-    _outside_scores(outside_scores),
-    _outside_edge_scores(outside_edge_scores){}
+  SplitHeuristic(const Cache<Hypernode, BestHyp> &outside_scores, 
+                 Cache<Hyperedge, vector<BestHyp> > &outside_edge_scores)
+  : _outside_scores(outside_scores),
+    _outside_edge_scores(outside_edge_scores) {}
 
-  bool has_value(const Location & l, const Hypothesis & hyp) const ;
+  bool has_value(const Location & l, 
+                 const Hypothesis & hyp) const;
   
-  double get_value(const Location & l, const Hypothesis & hyp) const;
+  double get_value(const Location & l, 
+                   const Hypothesis & hyp) const;
 
 
 protected: 
@@ -58,8 +60,9 @@ public:
   void initialize_out_root(vector <Hypothesis *> & hyps, 
                            vector <double> & scores)  const;
 
-  double find_best( vector <Hypothesis *> & root_hyps, vector<double > & scores, 
-                    Hypothesis & best_hyp) const;
+  double find_best(vector <Hypothesis *> & root_hyps, 
+                   vector<double > & scores, 
+                   Hypothesis & best_hyp) const;
 
 private:
   const Subproblem & _subproblem;

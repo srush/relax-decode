@@ -24,9 +24,9 @@ Hyp(double score_in, double heuristic_in, Sig sig_in, vector<int> full_der, cons
   vector<int> edges;
   double total_heuristic;
   bool operator<(const Hyp & other) const {
-    return total_heuristic < other.total_heuristic;
-    //
-    //return score < other.score;
+    //return total_heuristic < other.total_heuristic;
+    
+    return score < other.score;
   }
 };
 class NonLocal  {
@@ -108,6 +108,9 @@ class CubePruning {
   void next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands);
   bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool, bool *bounded, bool *early_bounded);
   bool has_derivation();
+  void set_duals(const Cache<Hyperedge, double>  *dual_scores) {
+    dual_scores_ = dual_scores;
+  }
   void set_bound(double bound) {
     use_bound_ = true;
     bound_ = bound;
@@ -125,6 +128,8 @@ class CubePruning {
 
   const Cache<Hypernode, double>  *heuristic_;
   bool use_heuristic_;
+
+  const Cache <Hyperedge, double>  *dual_scores_;
 
   const HGraph & _forest;
   const Cache <Hyperedge, double>  & _weights;
