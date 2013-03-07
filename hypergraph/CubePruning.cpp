@@ -124,7 +124,7 @@ void CubePruning::kbest(Candidates & cands, vector <Hyp> & newhypvec, bool recom
         (!recombine || sigs.find(chyp.sig) == sigs.end())) {
       sigs.insert(chyp.sig);
       cur_kbest += 1;
-      cerr << "KBest: " << cur_kbest << endl;
+      //cerr << "KBest: " << cur_kbest << endl;
     } else {
       
     }
