@@ -52,7 +52,10 @@ void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
     if (cur_node.id() == _forest.root().id()) {
       kbest(cands, kbest_hyps, false);
     } else {
-      kbest(cands, kbest_hyps, true);
+      //
+      //kbest(cands, kbest_hyps, true);
+      // Turn off recombination
+      kbest(cands, kbest_hyps, false);
     }
   } else {
     kbest_hyps.push_back(_non_local.initialize(cur_node));
@@ -60,7 +63,7 @@ void CubePruning::run(const Hypernode & cur_node, vector <Hyp> & kbest_hyps) {
 }
 
 void CubePruning::init_cube(const Hypernode & cur_node, Candidates & cands) {
-  cerr << cur_node.label() << endl;
+  cerr << "NODE " << cur_node.label() << endl;
   foreach (HEdge cedge, cur_node.edges()) { 
     
     // start with (0,...0)
@@ -269,6 +272,7 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
     heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
     double early_heuristic_score = heuristic + dual_score;
     cerr << "EarlyHeuristic: " <<  cedge.id() << " " << heuristic << " " << early_heuristic_score << " " << worst_heuristic << " " << bound_ << endl;
+    assert(early_heuristic_score >= worst_heuristic - 0.01);
     if (early_heuristic_score > bound_) {
       (*bounded) = true;
       (*early_bounded) = true; 
@@ -287,7 +291,7 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
     heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
   }
   double heuristic_score = score + heuristic;
-  cerr << "Heuristic: " <<  heuristic_score << " " << bound_ << endl;
+  cerr << "Heuristic: " <<  score << " " << heuristic_score << " " << bound_ << endl;
   if (!use_bound_ || heuristic_score <= bound_ || keep_if_bounded) {
     edges.push_back(cedge.id());
     item = Hyp(score, heuristic_score, sig, full_derivation, edges);

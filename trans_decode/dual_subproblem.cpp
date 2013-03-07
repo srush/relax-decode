@@ -594,7 +594,7 @@ void Subproblem::solve_proj(int d2, int d3,
   // words that are bounded by a later word
   vector <int> word_override;
 
-  for (int w1=0; w1 < graph->num_word_nodes; w1++) {
+  for (int w1 = 0; w1 < graph->num_word_nodes; w1++) {
     
     if (!graph->is_word(w1)) continue;
     overridden[w1] = false;  

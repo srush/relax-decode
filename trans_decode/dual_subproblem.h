@@ -144,11 +144,12 @@ class Subproblem {
     } 
   }
 
+  int fixed_last_bigram(int w1);  
  private:
   
   bool first_time;
 
-  int fixed_last_bigram(int w1);  
+
   // PROBLEMS
   
 

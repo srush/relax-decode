@@ -130,10 +130,11 @@ ForestLattice::ForestLattice(const Lattice & lat):
           if (hyper_edge != -1) {
             int hypergraph_edge_position = plet.hypergraph_edge_position() - (j + 1);
             if (original_edges[hyper_edge].size() <= hypergraph_edge_position) {
-              original_edges[hyper_edge].resize(hypergraph_edge_position + 1);
+              original_edges[hyper_edge].resize(hypergraph_edge_position + 1, - 1);
             }
-
+            assert(original_edges[hyper_edge][hypergraph_edge_position] == -1);
             original_edges[hyper_edge][hypergraph_edge_position] = word.subword_original_id();
+            //original_edges[hyper_edge].push_back(word.subword_original_id());
             // Assuming the lattice is reversed.
             //original_edges_position[hyper_edge].push_back(plet.hypergraph_edge_position() - (j + 1));
           }
@@ -141,7 +142,6 @@ ForestLattice::ForestLattice(const Lattice & lat):
             bigrams_at_node.get_no_check(gnode).push_back(WordBigram(our_word,
                                                                      Word(plet.word(j+1).subword_original_id())));
           }
-          
         }
         assert(plet.word_size() > 0); 
         int last = plet.word_size()-1;
@@ -186,10 +186,11 @@ ForestLattice::ForestLattice(const Lattice & lat):
           int hypergraph_edge = orig.hypergraph_edge(k);
           int hypergraph_edge_position = orig.hypergraph_edge_position(k);
           if (original_edges[hypergraph_edge].size() <= hypergraph_edge_position) {
-            original_edges[hypergraph_edge].resize(hypergraph_edge_position + 1);
+            original_edges[hypergraph_edge].resize(hypergraph_edge_position + 1, -1);
           }
+          assert(original_edges[hypergraph_edge][hypergraph_edge_position] == -1);
           original_edges[hypergraph_edge][hypergraph_edge_position] = original_id;
-          //original_edges_position[hypergraph_edge][hypergraph_edge_position];
+          //original_edges[hypergraph_edge].push_back(original_id);
           edges_original[original_id].push_back(hypergraph_edge);
          
         }

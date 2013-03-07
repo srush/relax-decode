@@ -202,19 +202,23 @@ EdgeCache Decode::compute_edge_penalty_cache() {
   
     // self penalties
     vector<int> lat_edges = get_lat_edges(edge->id()); 
-    cerr << edge->label() << endl;
-    cerr << edge->head_node().id() << endl;
+    //cerr << edge->label() << endl;
+    //cerr << edge->head_node().id() << endl;
     for (unsigned int j = 0; j < lat_edges.size(); j++) {
       int lat_id = lat_edges[j];
-      if (!_lattice.is_word(lat_id)) {
-        cerr << _lattice._edge_label_by_nodes[lat_id] << endl;
-      } else {
-        cerr << _lattice.get_word(lat_id)  << endl;
-      }
+      // cerr << lat_id << " ";
+      // if (!_lattice.is_word(lat_id)) {
+      //   cerr << _lattice._edge_label_by_nodes[lat_id] << endl;
+      // } else {
+      //   cerr << _lattice.get_word(lat_id)  << endl;
+      // }
+      // if (lat_id == 0) {
+      //   cerr << "0000000000000" << endl;
+      // } 
       total_score += (*_lagrange_weights)[lat_id];
-      total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id ];
+      total_score += (*_lagrange_weights)[GRAMSPLIT + lat_id];
     }
-    cerr << endl;
+    //cerr << endl;
     ret.set_value(*edge, total_score); 
 
   }
@@ -484,6 +488,7 @@ void Decode::solve(const SubgradState & cur_state,
 
   // CHANGES!!!
   if (cur_state.round > 50) {
+  //if (false) { 
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
     SplitController c(*_subproblem, _lattice, false);
@@ -505,11 +510,13 @@ void Decode::solve(const SubgradState & cur_state,
       if (((ForestNode *)node)->is_word()) {
         int graph_id = _lattice.get_word_from_hypergraph_node(node->id());
         double score = _subproblem->best_score_dim(graph_id, 0, 0);
+        //assert(score != 0.0);
         node_best_trigram.set_value(*node, score);
       }
     }
     int cube = cur_state.round > 1 ? 100 : 10;
-    CubePruning p(_forest, *_cached_weights, DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram), cube, 3);
+    CubePruning p(_forest, *total, 
+                  DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem), cube, 3);
     p.set_bound(cur_state.best_primal + 0.01);
     p.set_duals(total);
     p.set_heuristic(&node_outside);

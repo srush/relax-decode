@@ -268,7 +268,7 @@ class NodeExtractor(object):
         if to_node.Extensions[is_word]:
           # it's a word, phraselet it and stick it in the list 
 
-          if not phraselet:
+          if not phraselet and not (is_root and i == 0):
             dot_position += 2
           else:
             dot_position += 1

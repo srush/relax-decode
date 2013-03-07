@@ -13,7 +13,8 @@ using namespace std;
 void Forest::append_end_nodes() {
   ForestNode * node = (ForestNode *)_root;
 
-  Scarab::HG::HyperedgeImpl * edge =  (Scarab::HG::HyperedgeImpl * ) node->_edges[0];
+  Scarab::HG::HyperedgeImpl * edge =  
+    (Scarab::HG::HyperedgeImpl * ) node->_edges[0];
   str_vector * features = svector_from_str<int, double>("");
   ForestNode * s1 = new ForestNode("", num_nodes(), features, "<s>", true);   
   s1->add_in_edge(edge);
