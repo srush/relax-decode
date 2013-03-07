@@ -271,7 +271,7 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
   if (use_bound_ && use_heuristic_ && !keep_if_bounded) {
     heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
     double early_heuristic_score = heuristic + dual_score;
-    cerr << "EarlyHeuristic: " <<  cedge.id() << " " << heuristic << " " << early_heuristic_score << " " << worst_heuristic << " " << bound_ << endl;
+    //cerr << "EarlyHeuristic: " <<  cedge.id() << " " << heuristic << " " << early_heuristic_score << " " << worst_heuristic << " " << bound_ << endl;
     assert(early_heuristic_score >= worst_heuristic - 0.01);
     if (early_heuristic_score > bound_) {
       (*bounded) = true;
@@ -291,7 +291,7 @@ bool CubePruning::gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp
     heuristic = heuristic_->get_default(cedge.head_node(), 0.0);
   }
   double heuristic_score = score + heuristic;
-  cerr << "Heuristic: " <<  score << " " << heuristic_score << " " << bound_ << endl;
+  //cerr << "Heuristic: " <<  score << " " << heuristic_score << " " << bound_ << endl;
   if (!use_bound_ || heuristic_score <= bound_ || keep_if_bounded) {
     edges.push_back(cedge.id());
     item = Hyp(score, heuristic_score, sig, full_derivation, edges);
