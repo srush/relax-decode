@@ -11,7 +11,7 @@ using namespace Scarab::HG;
 using namespace std;
 // Some non local feature scorer
 
-#define DEBUG_CUBE 0
+#define DEBUG_CUBE 1
 typedef vector<int> Sig;
 
 struct Hyp {

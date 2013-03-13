@@ -241,6 +241,7 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights,
   ExtendCKY ecky(_forest, edge_weights, c);
   
   if (run_astar) {     
+    cerr << "running astar" << endl;
     // 1) Run inside-outside viterbi to collect approximate max-marginals.
     
     // The back pointers from the heuristic run
