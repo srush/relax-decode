@@ -163,7 +163,7 @@ class BestHyp {
 
 void extract_back_pointers(const Hypernode & node, 
                            const Hypothesis & best_hyp, 
-                           const Cache <Hypernode, BestHyp> &memo_table, 
+                           const Cache <Hypernode, BestHyp *> &memo_table, 
                            NodeBackCache & back_pointers);
 
   }}

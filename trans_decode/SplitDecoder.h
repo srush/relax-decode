@@ -18,8 +18,8 @@ using namespace Scarab::HG;
 
 class SplitHeuristic : public Heuristic {
 public :
-  SplitHeuristic(const Cache<Hypernode, BestHyp> &outside_scores, 
-                 Cache<Hyperedge, vector<BestHyp> > &outside_edge_scores)
+  SplitHeuristic(const Cache<Hypernode, BestHyp *> &outside_scores, 
+                 Cache<Hyperedge, vector<BestHyp> *> &outside_edge_scores)
   : _outside_scores(outside_scores),
     _outside_edge_scores(outside_edge_scores) {}
 
@@ -36,8 +36,8 @@ protected:
                       hyp.right_side.project(BACK, 2)).id();
   }
 
-  const Cache <Hypernode , BestHyp> & _outside_scores;
-  const Cache <Hyperedge, vector<BestHyp> >  & _outside_edge_scores;
+  const Cache <Hypernode , BestHyp *> & _outside_scores;
+  const Cache <Hyperedge, vector<BestHyp> *>  & _outside_edge_scores;
 };
 
 

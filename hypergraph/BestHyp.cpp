@@ -6,7 +6,7 @@ namespace Scarab{
 
 void extract_back_pointers(const Hypernode & node, 
                            const Hypothesis & best_hyp, 
-                           const Cache <Hypernode, BestHyp> & memo_table, 
+                           const Cache <Hypernode, BestHyp *> & memo_table, 
                            NodeBackCache & back_pointers) {
   if (back_pointers.has_key(node)) {
     assert(false);
@@ -30,7 +30,7 @@ void extract_back_pointers(const Hypernode & node,
       const Hypernode & sub_node = edge.tail_node(j);
       
       extract_back_pointers(sub_node, 
-                            memo_table.get_value(sub_node).get_hyp_by_id(best_hyp.prev_hyp[j]), 
+                            memo_table.get_value(sub_node)->get_hyp_by_id(best_hyp.prev_hyp[j]), 
                             memo_table,
                             back_pointers);
     }

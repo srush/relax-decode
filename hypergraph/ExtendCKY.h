@@ -46,13 +46,13 @@ class ExtendCKY {
   const Controller & _controller;
 
   //Cache <Hypernode, BestHyp > * _old_memo_table;
-  Cache <Hypernode, BestHyp >  _memo_table;
-  Cache <Hyperedge, vector<BestHyp> >  _memo_edge_table;
-  Cache <Hyperedge, vector<BestHyp> >  _memo_edge_back_table;
+  Cache <Hypernode, BestHyp *>  _memo_table;
+  Cache <Hyperedge, vector<BestHyp> *>  _memo_edge_table;
+  Cache <Hyperedge, vector<BestHyp> *>  _memo_edge_back_table;
 
  public:
-    Cache <Hypernode, BestHyp >  _outside_memo_table;
-    Cache <Hyperedge, vector<BestHyp> >  _outside_edge_memo_table;
+    Cache <Hypernode, BestHyp *>  _outside_memo_table;
+    Cache <Hyperedge, vector<BestHyp> *>  _outside_edge_memo_table;
 
  private:
   // outside

@@ -8,7 +8,7 @@
 //#include "GraphColor.h"
 //#define INF 100000000
 #define DEBUG 0
-#define TIMING 0
+#define TIMING 1
 #define OPTIMIZE 1
 
 
@@ -333,7 +333,9 @@ void Subproblem::projection_with_constraints_str(int limit, int & k,
 
 // true - > 0
 // false -> 1
-void Subproblem::update_weights(vector <int> u_pos, vector <float> u_values, int pos) {
+void Subproblem::update_weights(vector <int> u_pos, 
+                                vector <float> u_values, 
+                                int pos) {
   assert (u_pos.size() == u_values.size()); 
   bi_rescore[pos]->update_weights(u_pos, u_values, u_pos.size());
 }
@@ -471,6 +473,7 @@ void Subproblem::solve_proj(int d2, int d3,
   vector<float> best_backoff(num_word_nodes);
   vector<int> best_bigram_with_backoff_forward(num_word_nodes);
   
+
   clock_t begin; 
   if (TIMING) begin=clock();
 
@@ -594,9 +597,7 @@ void Subproblem::solve_proj(int d2, int d3,
     if (!graph->is_word(w1)) continue;
     overridden[w1] = false;  
 
-    //cout << "TRYING " << w1 << endl; 
-    // Edge tightness optimization
-  
+    // Edge tightness optimization  
     bool on_edge = false;
 
     // w0 is the only thing preceding w1
@@ -611,7 +612,7 @@ void Subproblem::solve_proj(int d2, int d3,
  
     //bool is_redo = first_time || full_redo[w1];
     
-    vector <int> f1 = gd->forward_bigrams[w1];
+    const vector<int> &f1 = gd->forward_bigrams[w1];
    
     foreach(uint w2, f1) { 
    
@@ -629,7 +630,7 @@ void Subproblem::solve_proj(int d2, int d3,
       // check NaN
       assert (score1 == score1);
 
-      const vector <int> * f2;
+      const vector<int> * f2;
 
       if (gd->forward_bigrams[w2].size() == 0 || 
           best_bigram_with_backoff_forward[w2] == -1) continue;
@@ -667,8 +668,6 @@ void Subproblem::solve_proj(int d2, int d3,
           exit(0);
         }
         assert(!TRIPROJECT || project_word(w3) == d3 ); 
-
-        //cout << "\t QUICK SETTING " << w1 << " " << w2 << " " << w3 << " " << score<< endl; 
         try_set_max(proj_best, w1, w2, w3, score, true);       
       }      
 
@@ -678,17 +677,12 @@ void Subproblem::solve_proj(int d2, int d3,
         if (project_word(w3) != d3 ) continue;
         
         float score2 =0.0;
-        //assert (is_redo || (bi_rescore_first->move_direction[w1][w2] == -1) || (bi_rescore_two->move_direction[w2][w3] == -1));
         double lm_score;
-
-        //int l = word_bow_reverse(w1, w2, w3);
-        //cout << lm_score << " " << bi_lm_score<<endl;
-        //assert (lm_score <= bi_lm_score_test);
         
         if (OPTIMIZE) {
           lookups++;
           lm_score = (*forward_trigrams_score[w1][w2])[j];
-          score2= bigram_weight_cache[1][w2][w3];
+          score2 = bigram_weight_cache[1][w2][w3];
         }
         
         float score = score1 + score2 + lm_score; 
@@ -734,7 +728,8 @@ void Subproblem::solve_proj(int d2, int d3,
   
   if (TIMING) {
     clock_t end=clock();
-    cout << "TRIGRAM TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+    cout << "TRIGRAM TIME: " 
+         << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     cout << "Lookups: " << lookups << endl;
     cout << "Zeroes: " << zeros << endl;
   }

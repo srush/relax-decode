@@ -116,7 +116,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
     if (l->location == NODE) {
       const Hypernode & node = _forest.get_node(l->node_id);    
       // get the memo table for the node
-      BestHyp & best = _memo_table.store[node.id()];
+      BestHyp & best = *_memo_table.store[node.id()];
       _memo_table.has_value[node.id()] = true;
       bool is_set = best.try_set_hyp(h, score);
       //_memo_table.set_value(node, best);
@@ -153,7 +153,7 @@ void AStar::main_loop(Hypothesis * & best, double & best_score ) {
 
       const Hyperedge & edge = _forest.get_edge(l->edge_id);    
       // get the memo table for the node
-      vector<BestHyp> & best = _memo_edge_table.store[edge.id()];
+      vector<BestHyp> & best = *_memo_edge_table.store[edge.id()];
       _memo_edge_table.has_value[edge.id()] = true;
       bool is_set = best[l->edge_pos].try_set_hyp(h, score);
       assert((int)h->prev_hyp.size() == l->edge_pos+1);
@@ -180,8 +180,8 @@ void AStar::recompute_edge(const Hyperedge & edge,
     assert(false);
   } else {
     // not last, just in middle, sum over possible next
-    const Hypernode & sub_node = edge.tail_node(pos+1);
-    const BestHyp & next_best = _memo_table.store[sub_node.id()];    
+    const Hypernode &sub_node = edge.tail_node(pos+1);
+    const BestHyp &next_best = *_memo_table.store[sub_node.id()];    
     vector <int> next_pos = next_best.join_back(h);    
     
     for (uint iter2 = 0; iter2< next_pos.size(); iter2++) {
@@ -238,7 +238,8 @@ void AStar::recompute_node(const Hypernode & node,
     //const Hypernode & top_node = edge.head_node();
     //const BestHyp & best_node_hypotheses = _memo_table.store[node.id()];
     
-    vector<BestHyp> & best_edge_hypotheses = _memo_edge_table.store[edge->id()];
+    vector<BestHyp> & best_edge_hypotheses = 
+      *_memo_edge_table.store[edge->id()];
     
     if (!_memo_edge_table.has_value[edge->id()]) {
       best_edge_hypotheses.resize(edge->num_nodes());

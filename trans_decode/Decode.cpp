@@ -23,14 +23,17 @@
 #define COLOR_WORDS 1
 
 // TODO - Make this support n-grams 
-void Decode::update_weights(const wvector & update,  wvector * weights ) {
+void Decode::update_weights(const wvector &update,  
+                            wvector *weights ) {
   
   // There are two sets of updates. 1 -> bigram, 2 -> trigram
   vector <int> u_pos1, u_pos2;
   vector <float> u_val1, u_val2;
 
 
-  for (wvector::const_iterator it = update.begin(); it != update.end(); it++) {
+  for (wvector::const_iterator it = update.begin(); 
+       it != update.end(); 
+       it++) {
     // Skip blank updates
     if (it->second == 0.0) continue;
    
@@ -43,7 +46,6 @@ void Decode::update_weights(const wvector & update,  wvector * weights ) {
       u_val1.push_back(-it->second);
     }
   }
-
   _subproblem->update_weights(u_pos1, u_val1, 0);
   _subproblem->update_weights(u_pos2, u_val2, 1);
   _lagrange_weights = weights;  
@@ -502,6 +504,7 @@ void Decode::solve(const SubgradState & cur_state,
     SplitController c(*_subproblem, _lattice, false);
     ExtendCKY ecky(_forest, *total, c);
     ecky.best_path(back_pointers2);
+    cerr << "outside "<< endl;
     ecky.outside();
     cerr << "Back " << clock() - begin << endl;
     begin = clock();
@@ -510,9 +513,9 @@ void Decode::solve(const SubgradState & cur_state,
     begin = clock();
     NodeCache node_outside(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
-      if (ecky._outside_memo_table.get(*node).size() >= 1) {
+      if (ecky._outside_memo_table.get(*node)->size() >= 1) {
         node_outside.set_value(*node, 
-                               ecky._outside_memo_table.get(*node).get_score(0));
+                               ecky._outside_memo_table.get(*node)->get_score(0));
       }
     }
 

@@ -129,7 +129,7 @@ void BigramRescore::find_shortest(const Graphnode & no1, const Graphnode & no2) 
 
   const vector <Node> * path = gd->get_path(no1,no2);
   int s = path->size();
-  for (int split=0; split < s; split++) {
+  for (int split = 0; split < s; split++) {
     Node k = (*path)[split];
     
     if (k->id() == n2) {

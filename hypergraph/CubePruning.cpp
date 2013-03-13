@@ -429,8 +429,8 @@ bool CubePruning::gethyp_enum(const Hyperedge & cedge,
 
   double score = 0.0; //_weights.get_value(cedge);  
   double dual_score = 0.0; //dual_scores_->get_value(cedge);  
-  double heuristic = 
-    edge_heuristic_->get_value(cedge)[pos].get_score_by_id(0); 
+  double heuristic =
+    (*edge_heuristic_->get_value(cedge))[pos].get_score_by_id(0); 
   if (pos == cedge.tail_nodes().size() - 1) {
     score = _weights.get_value(cedge);  
     dual_score = dual_scores_->get_value(cedge);

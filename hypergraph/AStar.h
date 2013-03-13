@@ -120,8 +120,8 @@ private:
   const Controller & _controller;
   //void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses);
   void forward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses,  int pos_changed, int id);
-  Cache <Hypernode, BestHyp >  _memo_table;
-  Cache <Hyperedge, vector<BestHyp> >  _memo_edge_table;
+  Cache <Hypernode, BestHyp *>  _memo_table;
+  Cache <Hyperedge, vector<BestHyp> *>  _memo_edge_table;
   
   const Cache <Hyperedge, double>  & _edge_weights;
   const Heuristic  & _heuristic;

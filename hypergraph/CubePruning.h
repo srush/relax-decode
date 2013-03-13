@@ -128,7 +128,7 @@ class CubePruning {
     heuristic_ = heuristic;
   }
  
-  void set_edge_heuristic(const Cache <Hyperedge, vector<BestHyp> > *heuristic) {
+  void set_edge_heuristic(const Cache <Hyperedge, vector<BestHyp> *> *heuristic) {
     edge_heuristic_ = heuristic;
   }
   bool failed() { return fail_; }
@@ -150,7 +150,7 @@ class CubePruning {
   bool use_bound_;
 
   const Cache<Hypernode, double>  *heuristic_;
-  const Cache <Hyperedge, vector<BestHyp> > *edge_heuristic_;
+  const Cache <Hyperedge, vector<BestHyp> * > *edge_heuristic_;
   bool use_heuristic_;
 
   const Cache <Hyperedge, double>  *dual_scores_;

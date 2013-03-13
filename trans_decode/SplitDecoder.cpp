@@ -5,14 +5,14 @@ bool SplitHeuristic::has_value(const Location & l, const Hypothesis & hyp) const
     int node_id = l.node_id;
     int low_id = lower_id(hyp);
     const BestHyp & bhyp = 
-      _outside_scores.store[node_id];
+      *_outside_scores.store[node_id];
     return bhyp.has_id(low_id);
   } else if (l.location == EDGE)  {
     int edge_id = l.edge_id;
     int low_id = lower_id(hyp);
     //cout << "Looking for " <<  edge_id << " " << low_id << " " << l.edge_pos << endl;
     const BestHyp & bhyp = 
-      _outside_edge_scores.store[edge_id][l.edge_pos];
+      (*_outside_edge_scores.store[edge_id])[l.edge_pos];
     return bhyp.has_id(low_id);
   }
   assert(false);
@@ -24,10 +24,10 @@ bool SplitHeuristic::has_value(const Location & l, const Hypothesis & hyp) const
 double SplitHeuristic::get_value(const Location & l, const Hypothesis & hyp) const {
   if (l.location == NODE) {
     int node_id = l.node_id;
-    return _outside_scores.store[node_id].get_score_by_id(lower_id(hyp));
+    return _outside_scores.store[node_id]->get_score_by_id(lower_id(hyp));
   } else if (l.location == EDGE ) {
     int edge_id = l.edge_id;
-    return _outside_edge_scores.store[edge_id][l.edge_pos].get_score_by_id(lower_id(hyp));
+    return (*_outside_edge_scores.store[edge_id])[l.edge_pos].get_score_by_id(lower_id(hyp));
   }
   assert(false);
   return 0.0;
