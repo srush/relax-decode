@@ -49,6 +49,7 @@ int main(int argc, char ** argv) {
     cerr << i << endl;
     clock_t begin=clock();    
     // decoder 
+    clock_t setup_begin=clock();    
     Decode * d = new Decode(f, graph, *weight, *lm);
     
     // Solve
@@ -57,6 +58,7 @@ int main(int argc, char ** argv) {
     //ConstantRate tr(0.01);
     //FallingRate tr(0.05);
     Subgradient * s = new Subgradient(*d, tr);
+    cout << "SETUP TIME " <<  (double)Clock::diffclock(clock(),setup_begin) << endl;
     s->set_debug();
     s->solve(i);
     double v = s->best_primal();

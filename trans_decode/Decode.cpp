@@ -14,7 +14,7 @@
 #include "LMNonLocal.h"
 #include "dual_nonlocal.h"
 #include "../common.h"
-#define TIMING 0
+#define TIMING 1
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 #define GREEDY 0
@@ -177,7 +177,7 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     bump_rate = true;
   }
 
-  if (false && round >=_is_stuck_round + 50) {
+  if (round >=_is_stuck_round + 50) {
     cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
     _subproblem->projection_with_constraints(limit, 
@@ -285,7 +285,7 @@ void Decode::remove_lm(int feat, wvector & subgrad, double & dual, double &cost_
   subgrad[feat] -= 1; 
   dual -= (*_lagrange_weights)[feat];  
   cost_total -= (*_lagrange_weights)[feat];  
-  cout << "Removing " << feat << endl;
+  //cout << "Removing " << feat << endl;
 }
 
 wvector Decode::construct_lm_subgrad(const vector <const ForestNode *> &used_words, 
@@ -427,12 +427,13 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
 
 void Decode::solve(const SubgradState & cur_state, 
                    SubgradResult & result ) {
-  clock_t begin, end;
+  clock_t begin, end, total_begin;
 
   //no_update = false;
   if (TIMING) {
     cout << "Solving" << endl;
     begin=clock();
+    total_begin = clock();
   }  
 
   /****************************************** 
@@ -462,7 +463,7 @@ void Decode::solve(const SubgradState & cur_state,
 
   if (TIMING) {
     end=clock();      
-    cout << "PENALTY CACHE: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;    
+    cout << "PENALTY CACHE TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;    
     begin=clock();  
   }
 
@@ -485,16 +486,28 @@ void Decode::solve(const SubgradState & cur_state,
 
   EdgeCache *total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
-
+  result.dual = best_modified_derivation(*total, ha, back_pointers);
+  
+  HEdges used_edges = ha.construct_best_edges(back_pointers); 
+  if (SIMPLE_DEBUG) {
+    for (int i = 0; i < used_edges.size(); ++i) {
+      cerr << "Used edges: " << used_edges[i]->id() << endl;
+    }
+  }
   // CHANGES!!!
-  if (cur_state.round > 50) {
-  //if (false) { 
+  if (cur_state.round >= 50) {
+    time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
     SplitController c(*_subproblem, _lattice, false);
     ExtendCKY ecky(_forest, *total, c);
     ecky.best_path(back_pointers2);
     ecky.outside();
+    cerr << "Back " << clock() - begin << endl;
+    begin = clock();
+    Cache<Hypernode, int> * words = cache_word_nodes(_lm, _forest);
+    cerr << "Drop " << clock() - begin << endl;
+    begin = clock();
     NodeCache node_outside(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
       if (ecky._outside_memo_table.get(*node).size() >= 1) {
@@ -502,7 +515,7 @@ void Decode::solve(const SubgradState & cur_state,
                                ecky._outside_memo_table.get(*node).get_score(0));
       }
     }
-    Cache<Hypernode, int> * words = cache_word_nodes(_lm, _forest);
+
     
     // Compute best trigram.
     NodeCache node_best_trigram(_forest.num_nodes());
@@ -514,15 +527,19 @@ void Decode::solve(const SubgradState & cur_state,
         node_best_trigram.set_value(*node, score);
       }
     }
-    int cube = cur_state.round > 1 ? 100 : 10;
+    cerr << "prep " << begin - clock() << endl;
+    int cube = 100;
+    begin = clock();
     CubePruning p(_forest, *total, 
-                  DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem), cube, 3);
+                  DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem, used_edges), cube, 3);
     p.set_bound(cur_state.best_primal + 0.01);
+    p.set_bound(12.0);
     p.set_duals(total);
     p.set_heuristic(&node_outside);
+    p.set_edge_heuristic(&ecky._outside_edge_memo_table);
     double v = p.parse();
+    cerr << "CubePruning " << v << " " << clock() - begin << endl;
     if (abs(v) > 1e-4) {
-      cerr << "CubePruning " << v << endl;
       result.primal = v;
       if (!p.failed()) {
         result.dual = v;
@@ -534,10 +551,6 @@ void Decode::solve(const SubgradState & cur_state,
   } else {
     result.primal = 10000000;
   }
-
-  result.dual = best_modified_derivation(*total, ha, back_pointers);
-  
-  HEdges used_edges = ha.construct_best_edges(back_pointers); 
 
   if (SIMPLE_DEBUG) {
 
@@ -577,7 +590,7 @@ void Decode::solve(const SubgradState & cur_state,
 
   if (TIMING) {
     end=clock();  
-    cout << "Parse time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+    cout << "PARSE TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     begin=clock();
   }  
 
@@ -611,10 +624,11 @@ void Decode::solve(const SubgradState & cur_state,
    *    
    ******************************************/
 
-  result.primal = min(result.primal, 
-                      compute_primal(used_edges, 
-                                     used_words, 
-                                     penalty_cache));
+  double round_primal = compute_primal(used_edges, 
+                                       used_words, 
+                                       penalty_cache);
+  cerr << "Round Primal " << round_primal << endl;
+  result.primal = min(result.primal, round_primal);
 
 
   double edge_total= 0.0;
@@ -630,12 +644,14 @@ void Decode::solve(const SubgradState & cur_state,
 
 
   if (TIMING) {
-   end=clock();
-   cout << "Construct lagrangian: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+    end=clock();
+    cout << "CONSTRUCT LAGRANGIAN TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     begin=clock();
 
     end=clock();
-    cout << "COMPUTE PRIMA: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+    cout << "COMPUTE PRIMAL TIME: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+
+    cout << "TOTAL TIME: " << double(Clock::diffclock(end, total_begin)) << " ms"<< endl;
   }
 
   /*for (int i=0; i < used_words.size(); i++ ) {
@@ -650,7 +666,7 @@ void Decode::solve(const SubgradState & cur_state,
   }
   assert((result.dual - result.primal) < 1e-3);
 
-  print_output(result.subgrad);
+  //print_output(result.subgrad);
 
   // if (result.dual - result.primal > 1e-3) {
     
@@ -742,7 +758,7 @@ void Decode::sync_lattice_lm() {
     //const LatNode & node = _lattice.node(n); 
     //assert (node.id() == n);
     string str = _lattice.get_word(n);
-    cout << "INITIALIZING " << str << " " << n << endl;
+    //cout << "INITIALIZING " << str << " " << n << endl;
     _cached_word_str[str].push_back(n);
     int ind = _lm.vocab.getIndex(str.c_str());
     if (ind == -1 || ind > max) {

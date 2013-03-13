@@ -458,8 +458,7 @@ void Subproblem::solve() {
 void Subproblem::solve_proj(int d2, int d3, 
                             bool first_proj_time, 
                             vector <ProjMax > & proj_best,  
-                            bool is_simple
-                            ) {
+                            bool is_simple) {
 
 
   // solve (but only in the projected space)
@@ -473,15 +472,11 @@ void Subproblem::solve_proj(int d2, int d3,
   vector<int> best_bigram_with_backoff_forward(num_word_nodes);
   
   clock_t begin; 
-  if (TIMING) 
-    begin=clock();
+  if (TIMING) begin=clock();
 
 
-  //if (!first_time) {
+
   {  
-    //int total =0;
-    //int redo = 0;
-
     for (int i=0; i < graph->num_word_nodes; i++) {
       if (!graph->is_word(i)) continue;
       best_bigram[i] = INF;
@@ -579,9 +574,9 @@ void Subproblem::solve_proj(int d2, int d3,
 
   clock_t end;
   if (TIMING) {
-
     end=clock();
-    cout << "Precompute time: " << double(Clock::diffclock(end,begin)) << " ms"<< endl;
+    cout << "Precompute time: " 
+         << double(Clock::diffclock(end,begin)) << " ms"<< endl;
     // actual algorithm
     begin=clock();
   }

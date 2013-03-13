@@ -6,10 +6,12 @@
 #include "EdgeCache.h"
 #include <queue>
 #include "svector.hpp"
+#include "AStar.h"
 using namespace Scarab::HG;
 using namespace std;
 // Some non local feature scorer
 
+#define DEBUG_CUBE 0
 typedef vector<int> Sig;
 
 struct Hyp {
@@ -33,6 +35,7 @@ class NonLocal  {
  public:
   //virtual ~NonLocal() {};
   virtual void compute(const Hyperedge &,
+                       int edge_pos,
                        const vector<vector <int> > &,
                        double &score,
                        vector <int>  &full_derivation,
@@ -50,6 +53,7 @@ class BlankNonLocal: public NonLocal {
   }
 
   void compute(const Hyperedge & edge,
+               int edge_pos,
                const vector <vector <int> > & subder,
                double & score,
                vector <int>  & full_derivation,
@@ -106,8 +110,12 @@ class CubePruning {
   void init_cube(const Hypernode & cur_node, Candidates &cands);
   void kbest(Candidates & cands, vector <Hyp> &, bool recombine);
   void next(const Hyperedge & cedge, const vector <int > & cvecj, Candidates & cands);
+
   bool gethyp(const Hyperedge & cedge, const vector <int> & vecj, Hyp & item, bool, bool *bounded, bool *early_bounded);
   bool has_derivation();
+  void kbest_enum(const Hypernode &node,
+                  vector <Hyp> &newhypvec);
+
   void set_duals(const Cache<Hyperedge, double>  *dual_scores) {
     dual_scores_ = dual_scores;
   }
@@ -119,14 +127,30 @@ class CubePruning {
     use_heuristic_ = true;
     heuristic_ = heuristic;
   }
+ 
+  void set_edge_heuristic(const Cache <Hyperedge, vector<BestHyp> > *heuristic) {
+    edge_heuristic_ = heuristic;
+  }
   bool failed() { return fail_; }
+
+
  private:
+
+  bool gethyp_enum(const Hyperedge & cedge, 
+                   int pos,
+                   bool unary,
+                   const Hyp &first,
+                   const Hyp &second,
+                   Hyp &item, 
+                   bool *bounded, 
+                   bool *early_bounded);
   //void run(const Hypernode & cur_node);
 
   double bound_;
   bool use_bound_;
 
   const Cache<Hypernode, double>  *heuristic_;
+  const Cache <Hyperedge, vector<BestHyp> > *edge_heuristic_;
   bool use_heuristic_;
 
   const Cache <Hyperedge, double>  *dual_scores_;
