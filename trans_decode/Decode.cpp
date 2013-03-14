@@ -498,7 +498,7 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
   // CHANGES!!!
-  if (cur_state.round >= 50) {
+  if (cur_state.round >= 70) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -514,10 +514,10 @@ void Decode::solve(const SubgradState & cur_state,
     begin = clock();
     NodeCache node_outside(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
-      if (ecky._outside_memo_table.get(*node)->size() >= 1) {
+      //if (ecky._outside_memo_table.get(*node)->size() >= 1) {
         node_outside.set_value(*node, 
                                ecky._outside_memo_table.get(*node)->get_score(0));
-      }
+        //}
     }
 
     
@@ -536,7 +536,7 @@ void Decode::solve(const SubgradState & cur_state,
     begin = clock();
     CubePruning p(_forest, *total, 
                   DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem, used_edges), cube, 3);
-    p.set_bound(cur_state.best_primal + 0.01);
+    //p.set_bound(cur_state.best_primal + 0.01);
     p.set_bound(12.0);
     p.set_duals(total);
     p.set_heuristic(&node_outside);

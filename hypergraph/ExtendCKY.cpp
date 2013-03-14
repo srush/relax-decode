@@ -81,7 +81,7 @@ void ExtendCKY::backward_edge(const Hyperedge & edge,  vector <BestHyp> & best_e
     // memoize the best path 
     node_best_path(sub_node);
 
-    const BestHyp & local_best = *_memo_table.store[sub_node.id()];
+    const BestHyp &local_best = *_memo_table.store[sub_node.id()];
     
     if (j == last) {
       // at rightmost, all are valid
@@ -163,7 +163,7 @@ void ExtendCKY::node_best_path(const Hypernode & node) {
       
     // otherwise 
     foreach (HEdge edge, node.edges()) {
-      double edge_value= _edge_weights.get_value(*edge);        
+      double edge_value= _edge_weights.get_value(*edge); 
       vector<BestHyp> *best_edge_hypotheses =
         new vector<BestHyp>(edge->num_nodes()); 
       vector<BestHyp> *best_edge_back_hypotheses  =
@@ -178,10 +178,12 @@ void ExtendCKY::node_best_path(const Hypernode & node) {
       _memo_edge_table.set_value(*edge, best_edge_hypotheses);
       _memo_edge_back_table.set_value(*edge, best_edge_back_hypotheses);
         
-      int last = edge->num_nodes() -1; 
+      int last = edge->num_nodes() - 1; 
 
-      //assert(best_edge_hypotheses[last].size() != 0);
-      for (int iter = 0; iter< (*best_edge_hypotheses)[last].size(); iter++) {
+      assert((*best_edge_hypotheses)[last].size() != 0);
+      for (int iter = 0; 
+           iter< (*best_edge_hypotheses)[last].size(); 
+           iter++) {
         
         Hypothesis * hyp1 = (*best_edge_hypotheses)[last].hyps[iter];
         
@@ -260,7 +262,9 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
   foreach (HEdge edge, node.edges()) {
     double edge_value= _edge_weights.get_value(*edge);        
 
+
     vector <BestHyp> *outside_edge = new vector<BestHyp>(edge->num_nodes());
+    assert(!_outside_edge_memo_table.has_key(*edge));
     _outside_edge_memo_table.set_value(*edge, outside_edge);
     
     vector <BestHyp> & edge_forward_hyps = 
@@ -278,9 +282,13 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
 
       // square sub_node
       _out_queue.push(sub_node.id());
-      BestHyp *best_at_node = new BestHyp();
-      _outside_memo_table.set_value(sub_node, best_at_node);
-
+      BestHyp *best_at_node;
+      if (_outside_memo_table.has_key(sub_node)) {
+        best_at_node = _outside_memo_table.get_value(sub_node);
+      } else {
+        best_at_node = new BestHyp();
+        _outside_memo_table.set_value(sub_node, best_at_node);
+      }
       BestHyp & below = *_memo_table.store[sub_node.id()];
 
       for (int iter = 0; iter < above.size(); iter++) {
@@ -410,6 +418,7 @@ void ExtendCKY::node_best_out_fast(const Hypernode & node) {
     //const Hyperedge & edge = node.in_edge(i);
     const Hypernode & top_node = edge->head_node();
     vector <BestHyp> *outside_edge = new vector<BestHyp>(edge->num_nodes());
+    assert(!_outside_edge_memo_table.has_key(*edge));
     _outside_edge_memo_table.set_value(*edge, outside_edge);
 
     // cache outside above 
@@ -558,7 +567,7 @@ void ExtendCKY::outside() {
       }
     }
 
-    //outside_scores = _outside_memo_table;    
+    //outside_scoresres = _outside_memo_table;    
     //outside_edge_scores = _outside_edge_memo_table;
   // assume that we have a _memo_table to play with
   

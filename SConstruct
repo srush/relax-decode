@@ -58,8 +58,8 @@ elif int(profile):
    env.Append(CCFLAGS = ('-O2', '-p', '-DNDEBUG'),
               LINKFLAGS = ('-O2', '-p', '-DNDEBUG'))
 else:
-   env.Append(CCFLAGS = ('-O2'),
-              LINKFLAGS = ('-O2'))
+   env.Append(CCFLAGS = ('-O2', '-DNDEBUG'),
+              LINKFLAGS = ('-O2', '-DNDEBUG'))
    
 
 

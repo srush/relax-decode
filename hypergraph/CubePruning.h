@@ -11,14 +11,18 @@ using namespace Scarab::HG;
 using namespace std;
 // Some non local feature scorer
 
-#define DEBUG_CUBE 1
+#define DEBUG_CUBE 0
 typedef vector<int> Sig;
 
 struct Hyp {
 public:
   Hyp(){}
   
-Hyp(double score_in, double heuristic_in, Sig sig_in, vector<int> full_der, const vector<int> &edges_):
+Hyp(double score_in, 
+    double heuristic_in, 
+    Sig sig_in, 
+    vector<int> full_der, 
+    const vector<int> &edges_):
   score(score_in), total_heuristic(heuristic_in), sig(sig_in), full_derivation(full_der), edges(edges_){}
   double score;
   Sig sig;
