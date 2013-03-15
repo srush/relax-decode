@@ -3,7 +3,6 @@
 #include <algorithm>
 #include "../common.h"
 
-#define CUBE_ENUM 1
 using namespace std;
 
 
@@ -22,7 +21,7 @@ void CubePruning::run(const Hypernode &cur_node,
   // Create cube.
   if (!cur_node.is_terminal()) {
     Candidates cands;
-    if (CUBE_ENUM) {
+    if (cube_enum_) {
       kbest_enum(cur_node, kbest_hyps);
     } else {
       init_cube(cur_node, cands);
@@ -291,31 +290,30 @@ bool CubePruning::gethyp(const Hyperedge &cedge,
                          bool *early_bounded) {
 
   double score = _weights.get_value(cedge);  
-  vector<vector <int> > subders;
+  vector<const vector<int> *> subders;
   vector<int> edges;  
   double worst_heuristic = 0.0;
 
   // Grab the jth best hypothesis at each node of the hyperedge.
   for (uint i=0; i < cedge.num_nodes(); i++) {
-    const Hypernode & sub = cedge.tail_node(i); 
+    const Hypernode &sub = cedge.tail_node(i); 
     if (vecj[i] >= (int)_hypothesis_cache.get_value(sub).size()) {
       return false;
     }
-    Hyp item = _hypothesis_cache.get_value(sub)[vecj[i]];
-    if (item.full_derivation.size() == 0) {
+    Hyp *item = &_hypothesis_cache.get(sub)[vecj[i]];
+    if (item->full_derivation.size() == 0) {
       return false;
     }
     //assert (item.full_derivation.size() != 0);   
-    subders.push_back(item.full_derivation);
-    for (uint j = 0; j < item.edges.size(); ++j) {
-      edges.push_back(item.edges[j]);
+    subders.push_back(&item->full_derivation);
+    for (uint j = 0; j < item->edges.size(); ++j) {
+      edges.push_back(item->edges[j]);
     }
-    
     // "Times"
-    score = score + item.score;
-    if (DEBUG_CUBE) cerr << item.score << " " << vecj[i]  << endl;
+    score = score + item->score;
+    if (DEBUG_CUBE) cerr << item->score << " " << vecj[i]  << endl;
     //dual_score += item.score;
-    worst_heuristic = max(item.total_heuristic, worst_heuristic);
+    worst_heuristic = max(item->total_heuristic, worst_heuristic);
   }
 
   double heuristic = 0.0;
@@ -325,7 +323,8 @@ bool CubePruning::gethyp(const Hyperedge &cedge,
   vector <int> full_derivation;
   Sig sig; 
   double non_local_score;
-  _non_local.compute(cedge, 0, subders, non_local_score, full_derivation, sig);
+  _non_local.compute(cedge, 0, 1e8, subders, non_local_score, 
+                     full_derivation, sig);
   score = score + non_local_score;
 
   if (use_heuristic_) {
@@ -367,20 +366,20 @@ bool CubePruning::gethyp_enum(const Hyperedge & cedge,
   }
 
 
-  vector<vector<int> > subders;
+  vector<const vector<int> *> subders;
   vector<int> edges;  // grab the jth best hypothesis at each node of the hyperedge
   double worst_heuristic = 0.0;
 
   if (!unary) {
-    subders.push_back(first.full_derivation);
-    subders.push_back(second.full_derivation);
+    subders.push_back(&first.full_derivation);
+    subders.push_back(&second.full_derivation);
     
     // Generic times (eventually)
     score += first.score + second.score;
     dual_score += first.score + second.score;
     worst_heuristic = max(first.total_heuristic, second.total_heuristic);
   } else {
-    subders.push_back(first.full_derivation);
+    subders.push_back(&first.full_derivation);
     
     // Generic times (eventually)
     score += first.score;
@@ -409,14 +408,15 @@ bool CubePruning::gethyp_enum(const Hyperedge & cedge,
   Sig sig; 
   double non_local_score;
   if (DEBUG_CUBE) cerr << "Non Local " << pos << " " << endl;
-  _non_local.compute(cedge, pos, subders, non_local_score, full_derivation, sig);
+  double score_bound = bound_ - heuristic - score;
+  bool not_bounded = _non_local.compute(cedge, pos, score_bound, subders, non_local_score, full_derivation, sig);
   score = score + non_local_score;
 
   double heuristic_score = score + heuristic;
   if (DEBUG_CUBE) {
     cerr << "Heuristic: " << score << " " << heuristic_score << " " << bound_ << endl;
   }
-  if (!use_bound_ || heuristic_score <= bound_) {
+  if (!use_bound_ || (heuristic_score <= bound_ && not_bounded)) {
     edges.push_back(cedge.id());
     item = Hyp(score, heuristic_score, sig, full_derivation, edges);
     assert(item.full_derivation.size()!=0);

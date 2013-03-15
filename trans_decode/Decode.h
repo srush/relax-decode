@@ -48,6 +48,10 @@ class Decode: public SubgradientProducer {
     void solve(const SubgradState & state, SubgradResult & result );
     void update_weights(const wvector & updates,  wvector * weights );
   
+    void set_cached_words(Cache<Hypernode, int> *cached_words) {
+      cached_cube_words_ = cached_words;
+    }
+
  private:
   void debug(int start_from, int dual_mid, int dual_end, int primal_mid, int primal_end);
   void greedy_projection(int dual_mid, int dual_end, int primal_mid, int primal_end);
@@ -86,6 +90,8 @@ class Decode: public SubgradientProducer {
   wvector construct_parse_subgrad(const HEdges used_edges);
   wvector construct_lm_subgrad(const vector <const ForestNode*> &used_words, const vector <int> & used_lats,const vector <string> & used_strings, double & dual, double & cost_total);
   void remove_lm(int feat, wvector & subgrad, double & dual, double &cost_total  );
+
+  Cache<Hypernode, int> * cached_cube_words_;
 };
 
 #endif

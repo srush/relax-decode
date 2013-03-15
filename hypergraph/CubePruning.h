@@ -28,6 +28,7 @@ Hyp(double score_in,
     sig(sig_in), 
     full_derivation(full_der), 
     edges(edges_){
+
   }
 
   // The inside score of the hypothesis.
@@ -58,9 +59,10 @@ class NonLocal  {
 
   //virtual ~NonLocal() {};
   // Compute the non-local score by combining the sub_ders.
-  virtual void compute(const Hyperedge &edge,
+  virtual bool compute(const Hyperedge &edge,
                        int edge_pos,
-                       const vector<vector <int> > &sub_ders,
+                       double bound,
+                       const vector<const vector <int> *> &sub_ders,
                        double &score,
                        vector <int> &full_derivation,
                        Sig &sig) const = 0; 
@@ -75,9 +77,10 @@ class BlankNonLocal: public NonLocal {
  public:
   BlankNonLocal() {}
 
-  void compute(const Hyperedge &edge,
+  bool compute(const Hyperedge &edge,
                int edge_pos,
-               const vector<vector <int> > &subder,
+               double,
+               const vector<const vector <int> *> &subder,
                double &score,
                vector<int>  &full_derivation,
                Sig &sig
@@ -140,6 +143,7 @@ class CubePruning {
     fail_(false) {
     check_ = 0;   
     check_bounded_ = 0;    
+    cube_enum_ = false;
   }
    
 
@@ -187,6 +191,10 @@ class CubePruning {
  
   void set_edge_heuristic(const Cache <Hyperedge, vector<BestHyp> *> *heuristic) {
     edge_heuristic_ = heuristic;
+  }
+
+  void set_cube_enum() {
+    cube_enum_ = true;
   }
 
   bool is_exact() { return !fail_; }
@@ -257,6 +265,7 @@ class CubePruning {
   Cache<Hyperedge, set<vector <int> > > _oldvec;
 
   bool fail_;
+  bool cube_enum_;
 };
 
 #endif

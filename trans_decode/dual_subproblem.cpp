@@ -8,7 +8,7 @@
 //#include "GraphColor.h"
 //#define INF 100000000
 #define DEBUG 0
-#define TIMING 1
+#define TIMING 0
 #define OPTIMIZE 1
 
 

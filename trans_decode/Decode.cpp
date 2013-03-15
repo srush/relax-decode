@@ -14,7 +14,7 @@
 #include "LMNonLocal.h"
 #include "dual_nonlocal.h"
 #include "../common.h"
-#define TIMING 1
+#define TIMING 0
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 #define GREEDY 0
@@ -179,7 +179,7 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     bump_rate = true;
   }
 
-  if (round >=_is_stuck_round + 50) {
+  if (false && round >=_is_stuck_round + 50) {
     cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
     _subproblem->projection_with_constraints(limit, 
@@ -233,7 +233,7 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights,
   
   // OPTIMIZATION: Only run A-Star when we have a hard problem (several dimensions)  
   bool run_astar = _subproblem->projection_dims > BACK;
-  cerr << "projection dims " << _subproblem->projection_dims << endl;
+  //cerr << "projection dims " << _subproblem->projection_dims << endl;
   clock_t begin, end;
   SplitController c(*_subproblem, _lattice, run_astar);
   
@@ -498,7 +498,7 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
   // CHANGES!!!
-  if (cur_state.round >= 35) {
+  if (cur_state.round >= _is_stuck_round + 20) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -509,7 +509,7 @@ void Decode::solve(const SubgradState & cur_state,
     ecky.outside();
     cerr << "Back " << clock() - begin << endl;
     begin = clock();
-    Cache<Hypernode, int> * words = cache_word_nodes(_lm, _forest);
+    //Cache<Hypernode, int> * words = cache_word_nodes(_lm, _forest);
     cerr << "Drop " << clock() - begin << endl;
     begin = clock();
     NodeCache node_outside(_forest.num_nodes());
@@ -532,13 +532,21 @@ void Decode::solve(const SubgradState & cur_state,
       }
     }
     cerr << "prep " << begin - clock() << endl;
-    int cube = 10000;
+    int cube = 1000;
     begin = clock();
-    CubePruning p(_forest, *total, 
-                  DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem, used_edges), cube, 3);
-    //p.set_bound(cur_state.best_primal + 0.01);
-    p.set_bound(12.0);
+    double cube_primal;
+    if (true) {
+      CubePruning p_temp(_forest, *_cached_weights, LMNonLocal(_forest, _lm, lm_weight(), *cached_cube_words_, true), 10, 3);
+      cube_primal = p_temp.parse();
+    }
+    DualNonLocal non_local(_forest, _lm, lm_weight(), *cached_cube_words_, node_best_trigram, _lattice, _lagrange_weights, _subproblem, used_edges);
+    CubePruning p(_forest, *total, non_local, cube, 3);
+    double bound = min(cube_primal, cur_state.best_primal) + 0.01;
+    cerr << "bound is: " << bound << endl; 
+    p.set_bound(bound);
+    //p.set_bound(12.0);
     p.set_duals(total);
+    p.set_cube_enum();
     p.set_heuristic(&node_outside);
     p.set_edge_heuristic(&ecky._outside_edge_memo_table);
     double v = p.parse();
@@ -610,7 +618,7 @@ void Decode::solve(const SubgradState & cur_state,
 
   double cost_total = 0.0;
   
-  cout << "predual " << result.dual << endl; 
+  if (SIMPLE_DEBUG) cout << "predual " << result.dual << endl; 
   result.subgrad += construct_lm_subgrad(used_words, used_lats, used_strings, result.dual, cost_total);
 
   
@@ -631,7 +639,7 @@ void Decode::solve(const SubgradState & cur_state,
   double round_primal = compute_primal(used_edges, 
                                        used_words, 
                                        penalty_cache);
-  cerr << "Round Primal " << round_primal << endl;
+  //cerr << "Round Primal " << round_primal << endl;
   result.primal = min(result.primal, round_primal);
 
 

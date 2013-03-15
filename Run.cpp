@@ -21,6 +21,28 @@ static const bool forest_dummy = RegisterFlagValidator(&FLAGS_forest_prefix, &Va
 static const bool lattice_dummy = RegisterFlagValidator(&FLAGS_lattice_prefix, &ValidateReq);
 static const bool range_dummy = RegisterFlagValidator(&FLAGS_forest_range, &ValidateRange);
 
+// Build a cache mapping each node to its LM index.
+Cache<Hypernode, int > *cache_word_nodes(Ngram lm, const Forest & forest) {
+  int max = lm.vocab.numWords();
+  int unk = lm.vocab.getIndex(Vocab_Unknown);
+  
+  Cache<Hypernode, int > * words = new Cache <Hypernode, int >(forest.num_nodes());
+  foreach (HNode hnode, forest.nodes()) {
+    const ForestNode & node = * ((ForestNode*)hnode);
+    if (node.is_word()) {
+      string str = node.word();
+      int ind = lm.vocab.getIndex(str.c_str());
+      // Unknown cases. 
+      if (ind == -1 || ind > max) { 
+        words->set_value(node, unk);
+      } else {
+        words->set_value(node, ind);
+      }   
+    }
+  }
+  return words;
+}
+
 int main(int argc, char ** argv) {
   srand(0);
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -45,13 +67,14 @@ int main(int argc, char ** argv) {
     stringstream fname2;
     fname2 << FLAGS_lattice_prefix << i;
     ForestLattice graph = ForestLattice::from_file(fname2.str());
-  
+    Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);
+
     cerr << i << endl;
     clock_t begin=clock();    
     // decoder 
     clock_t setup_begin=clock();    
     Decode * d = new Decode(f, graph, *weight, *lm);
-    
+    d->set_cached_words(words);
     // Solve
     cout << i << " ";
     TranslationRate tr;
@@ -59,7 +82,7 @@ int main(int argc, char ** argv) {
     //FallingRate tr(0.05);
     Subgradient * s = new Subgradient(*d, tr);
     cout << "SETUP TIME " <<  (double)Clock::diffclock(clock(),setup_begin) << endl;
-    s->set_debug();
+    //s->set_debug();
     s->solve(i);
     double v = s->best_primal();
     clock_t end = clock();
