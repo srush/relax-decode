@@ -498,7 +498,7 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
   // CHANGES!!!
-  if (cur_state.round >= 70) {
+  if (cur_state.round >= 35) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -532,7 +532,7 @@ void Decode::solve(const SubgradState & cur_state,
       }
     }
     cerr << "prep " << begin - clock() << endl;
-    int cube = 100;
+    int cube = 10000;
     begin = clock();
     CubePruning p(_forest, *total, 
                   DualNonLocal(_forest, _lm, lm_weight(), *words, node_best_trigram, _lattice, _lagrange_weights, _subproblem, used_edges), cube, 3);
@@ -545,7 +545,7 @@ void Decode::solve(const SubgradState & cur_state,
     cerr << "CubePruning " << v << " " << clock() - begin << endl;
     if (abs(v) > 1e-4) {
       result.primal = v;
-      if (!p.failed()) {
+      if (p.is_exact()) {
         result.dual = v;
         return;
       }
