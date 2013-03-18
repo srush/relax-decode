@@ -27,7 +27,7 @@ class Cache {
     return store[id];
   }
 
-   V & get_no_check(const C & edge ) { 
+   V & get_no_check(const C &edge ) { 
     int id = edge.id();
     has_value[id] = true;
     return store[id];
@@ -39,7 +39,7 @@ class Cache {
     return store[id];
   }
 
-  const V & get_default(const C & edge, V def ) const { 
+  const V &get_default(const C &edge, const V &def) const { 
     int id = edge.id();
     if ( has_value[id]) {
       return store[id];
@@ -48,7 +48,7 @@ class Cache {
     }
   }
 
-  V get_value(const C & edge) const {
+  V get_value(const C &edge) const {
     int id = edge.id();
     assert (has_value[id]);
     return store[id];

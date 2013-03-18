@@ -151,12 +151,12 @@ class ForestLattice {
 
   inline const vector <Word> & first_words(const Graphnode & n) const {
     assert (is_phrase_node(n));
-    return _first_words.get_default(n, vector<Word>());
+    return _first_words.get_default(n, empty_);
   }
 
   inline const vector <Word> & last_words(const Graphnode & n) const {
     assert (is_phrase_node(n));
-    return _last_words.get_default(n, vector<Word>());
+    return _last_words.get_default(n, empty_);
   }
 
   // Deprecated
@@ -202,7 +202,8 @@ class ForestLattice {
   Cache<Graphnode, vector<WordBigram> > bigrams_at_node;
   Graph * _proper_graph;
 
-
+  vector<Word> empty_;
+  
   vector<int> word_node;
   vector<int> node_edges;
 

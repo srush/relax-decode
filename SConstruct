@@ -58,7 +58,7 @@ elif int(profile):
    env.Append(CCFLAGS = ('-O2', '-p', '-DNDEBUG'),
               LINKFLAGS = ('-O2', '-p', '-DNDEBUG'))
 else:
-   env.Append(CCFLAGS = ('-O2', '-DNDEBUG'),
+   env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
               LINKFLAGS = ('-O2', '-DNDEBUG'))
    
 
@@ -121,14 +121,6 @@ if build_config['has_gurobi']:
 
 docs = env.Doxygen('Doxyfile')
 env.Alias('document', docs)
-
-
-
-
-
-
-
-
 
 #third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
 

@@ -7,7 +7,7 @@
 #include "GraphDecompose.h"
 using namespace std;
 
-#define INF 1000000
+
     
 void GraphDecompose::compute_bigrams() {
   // Simple bigram collecting
