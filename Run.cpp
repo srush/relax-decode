@@ -35,7 +35,7 @@ Cache<Hypernode, int > *cache_word_nodes(Ngram lm, const Forest & forest) {
   Cache<Hypernode, int > *words =
       new Cache <Hypernode, int >(forest.num_nodes());
   foreach (HNode hnode, forest.nodes()) {
-    const ForestNode & node = *(static_cast<ForestNode*>(hnode));
+    const ForestNode & node = *(static_cast<const ForestNode*>(hnode));
     if (node.is_word()) {
       string str = node.word();
       int ind = lm.vocab.getIndex(str.c_str());
