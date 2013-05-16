@@ -55,8 +55,8 @@ print map(str,interfaces)
 if int(debug):
    env.Prepend(CCFLAGS =('-g',))
 elif int(profile):
-   env.Append(CCFLAGS = ('-O2', '-p'),
-              LINKFLAGS = ('-O2', '-p'))
+   env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage"),
+              LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage"))
 else:
    env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
               LINKFLAGS = ('-O2', '-DNDEBUG'))
