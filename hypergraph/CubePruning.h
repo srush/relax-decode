@@ -17,16 +17,16 @@ typedef vector<int> Sig;
 struct Hyp {
 public:
   Hyp(){}
-  
-Hyp(double score_in, 
-    double heuristic_in, 
-    Sig sig_in, 
-    vector<int> full_der, 
+
+Hyp(double score_in,
+    double heuristic_in,
+    Sig sig_in,
+    vector<int> full_der,
     const vector<int> &edges_)
-  : score(score_in), 
-    total_heuristic(heuristic_in), 
-    sig(sig_in), 
-    full_derivation(full_der), 
+  : score(score_in),
+    total_heuristic(heuristic_in),
+    sig(sig_in),
+    full_derivation(full_der),
     edges(edges_){
 
   }
@@ -40,20 +40,20 @@ Hyp(double score_in,
   // A signature indicating the current fsa states of the hypothesis.
   Sig sig;
 
-  // The representative full derivation of the hypothesis. 
+  // The representative full derivation of the hypothesis.
   vector <int> full_derivation;
-  
+
   vector<int> edges;
 
-  // Comparison operator, chooses lower inside score. 
+  // Comparison operator, chooses lower inside score.
   bool operator<(const Hyp & other) const {
-    //return total_heuristic < other.total_heuristic;  
+    //return total_heuristic < other.total_heuristic;
     return score < other.score;
   }
 };
 
-// Interface for non-local scoring functions. Can be thought of 
-// as moving dual values to primal values. 
+// Interface for non-local scoring functions. Can be thought of
+// as moving dual values to primal values.
 class NonLocal  {
  public:
 
@@ -65,7 +65,7 @@ class NonLocal  {
                        const vector<const vector <int> *> &sub_ders,
                        double &score,
                        vector <int> &full_derivation,
-                       Sig &sig) const = 0; 
+                       Sig &sig) const = 0;
 
   // Initialize a hypothesis for a hypernode.
   virtual Hyp initialize(const Hypernode &) const =0;
@@ -90,21 +90,21 @@ class BlankNonLocal: public NonLocal {
   }
 
   virtual Hyp initialize(const Hypernode &node) const {
-    return Hyp(0.0, 0.0, vector<int>(), vector<int>(), vector<int>()); 
+    return Hyp(0.0, 0.0, vector<int>(), vector<int>(), vector<int>());
   }
 };
 
 // A candidate.
 struct Candidate {
-  Candidate(Hyp h, const Hyperedge &e,  const vector<int> &v) 
-  : hyp(h), 
-    edge(e), 
+  Candidate(Hyp h, const Hyperedge &e,  const vector<int> &v)
+  : hyp(h),
+    edge(e),
     vec(v) {}
-  
+
   // The current hypothesis.
   Hyp hyp;
 
-  // The associated edge. 
+  // The associated edge.
   const Hyperedge &edge;
 
   // The back pointers to previous candidates.
@@ -112,13 +112,13 @@ struct Candidate {
 
   bool operator<(const Candidate & other) const {
     return hyp < other.hyp;
-  }  
+  }
 };
 
-struct candidate_compare : 
+struct candidate_compare :
   public std::binary_function<Candidate*, Candidate*, bool> {
   bool operator()(const Candidate * a, const Candidate * b) const {
-    return (*b) <  (* a) ; 
+    return (*b) <  (* a) ;
   }
 };
 
@@ -127,25 +127,25 @@ typedef priority_queue <Candidate *, vector<Candidate*>, candidate_compare> Cand
 
 class CubePruning {
  public:
- CubePruning(const HGraph & forest, 
-             const Cache <Hyperedge, double> & weights, 
-             const NonLocal & non_local, 
-             int k, 
+ CubePruning(const HGraph & forest,
+             const Cache <Hyperedge, double> & weights,
+             const NonLocal & non_local,
+             int k,
              int ratio)
-  : _forest(forest), 
-    _weights(weights), 
-    _non_local(non_local), 
-    _k(k), 
-    _ratio(ratio), 
+  : _forest(forest),
+    _weights(weights),
+    _non_local(non_local),
+    _k(k),
+    _ratio(ratio),
     _hypothesis_cache(forest.num_nodes()), _oldvec(forest.num_edges()),
-    use_bound_(false), 
-    use_heuristic_(false), 
+    use_bound_(false),
+    use_heuristic_(false),
     fail_(false) {
-    check_ = 0;   
-    check_bounded_ = 0;    
+    check_ = 0;
+    check_bounded_ = 0;
     cube_enum_ = false;
   }
-   
+
 
   int  get_num_derivations() {
     return _hypothesis_cache.store[_forest.root().id()].size();
@@ -155,9 +155,9 @@ class CubePruning {
     der = _hypothesis_cache.store[_forest.root().id()][n].full_derivation;
   }
 
-  void get_derivation(vector<int> &der) { get_derivation(der, 0); } 
+  void get_derivation(vector<int> &der) { get_derivation(der, 0); }
 
-  
+
   bool has_derivation() {
     return _hypothesis_cache.has_value[_forest.root().id()];
   }
@@ -188,7 +188,7 @@ class CubePruning {
     use_heuristic_ = true;
     heuristic_ = heuristic;
   }
- 
+
   void set_edge_heuristic(const Cache <Hyperedge, vector<BestHyp> *> *heuristic) {
     edge_heuristic_ = heuristic;
   }
@@ -201,48 +201,48 @@ class CubePruning {
 
  private:
 
-  void run(const Hypernode & cur_node, 
+  void run(const Hypernode & cur_node,
            vector <Hyp> & kbest_hyps);
 
-  void init_cube(const Hypernode & cur_node, 
+  void init_cube(const Hypernode & cur_node,
                  Candidates &cands);
 
   // Implementation of Chiang and Huang, k-best algorithm 2.
-  void kbest(Candidates & cands, 
-             vector <Hyp> &, 
+  void kbest(Candidates & cands,
+             vector <Hyp> &,
              bool recombine);
-  
+
   // @param cedge - the edge that we just took a candidate from
   // @param cvecj - the current position on the cedge cube
-  // @param cands - current candidate list 
+  // @param cands - current candidate list
   // for each dimension of the cube
-  void next(const Hyperedge & cedge, 
-            const vector <int > & cvecj, 
+  void next(const Hyperedge & cedge,
+            const vector <int > & cvecj,
             Candidates & cands);
 
-  
+
   // Return the score and signature of the element obtained from combining the
   // vecj-best parses along cedge. Also, apply non-local feature functions (LM)
-  
-  bool gethyp(const Hyperedge & cedge, 
-              const vector <int> & vecj, 
-              Hyp & item, bool, 
-              bool *bounded, 
+
+  bool gethyp(const Hyperedge & cedge,
+              const vector <int> & vecj,
+              Hyp & item, bool,
+              bool *bounded,
               bool *early_bounded);
 
   void kbest_enum(const Hypernode &node,
                   vector <Hyp> &newhypvec);
 
-  bool gethyp_enum(const Hyperedge & cedge, 
+  bool gethyp_enum(const Hyperedge & cedge,
                    int pos,
                    bool unary,
                    const Hyp &first,
                    const Hyp &second,
-                   Hyp &item, 
-                   bool *bounded, 
+                   Hyp &item,
+                   bool *bounded,
                    bool *early_bounded);
 
-  
+
   double bound_;
   bool use_bound_;
 

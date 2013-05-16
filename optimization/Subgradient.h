@@ -18,13 +18,14 @@ class SubgradRate {
 
 // Input to the subgradient client
 struct SubgradState {
-  // The current round of the subgradient algorithm 
+  // The current round of the subgradient algorithm
   int round;
   // ignore for now
   bool is_stuck;
   bool no_update;
 
   double best_primal;
+  double best_dual;
 };
 
 // Output of the subgradient client
@@ -41,35 +42,35 @@ struct SubgradResult {
 
 
 /**
- * Interface for subgradient clients. 
+ * Interface for subgradient clients.
  */
 class SubgradientProducer {
  public:
   // Solve the problem with the current dual weights.
   virtual void solve(const SubgradState & cur_state, SubgradResult & result) = 0;
 
-  // Update the dual variables. Updates is the delta for this round, 
+  // Update the dual variables. Updates is the delta for this round,
   // weights is a pointer to the current weights.
   virtual void update_weights(const wvector & updates, wvector * weights )=0;
 };
 
 
-/** 
+/**
  * Subgradient optimization manager. Takes an object to produce
- * subgradients given current dual values as well as an object 
+ * subgradients given current dual values as well as an object
  * to determine the current update rate.
  */
 class Subgradient {
  public:
 
-  /** 
-   * 
-   * @param subgrad_producer Gives the subgradient at the current position 
+  /**
+   *
+   * @param subgrad_producer Gives the subgradient at the current position
    * @param update_rate A class to decide the alpha to use at the current iteration
    */
- Subgradient(SubgradientProducer & subgrad_producer, 
-             SubgradRate & update_rate ): 
-  _s(subgrad_producer), 
+ Subgradient(SubgradientProducer & subgrad_producer,
+             SubgradRate & update_rate ):
+  _s(subgrad_producer),
   _rate(update_rate){
     _best_dual = -1e20;
     _best_primal = 1e20;
@@ -82,15 +83,15 @@ class Subgradient {
     _max_round = 200;
   } ;
 
-  void set_debug(){ _debug = true;} 
+  void set_debug(){ _debug = true;}
   void set_max_rounds(int max_round){_max_round = max_round;}
 
   void solve(int example);
 
-  /** 
+  /**
    * As the optimization probably reached a  fixed point
-   * 
-   * @return true when stuck 
+   *
+   * @return true when stuck
    */
   bool is_stuck() const {
     return _is_stuck;
@@ -101,13 +102,13 @@ class Subgradient {
     return _best_primal;
   }
  private:
-  bool run_one_round();  
+  bool run_one_round();
 
-  
+
   SubgradientProducer & _s;
 
   double _best_dual, _best_primal;
-  
+
   bool _aggressive;
   void update_weights(wvector & subgrad, bool);
   int _round, _nround;

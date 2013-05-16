@@ -1,7 +1,7 @@
 from build_config import *
 from protoc import *
 import os
-         
+
 debug = ARGUMENTS.get('debug', 1)
 profile = ARGUMENTS.get('profile', 0)
 
@@ -9,7 +9,7 @@ env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxyg
 
 env.Append(ROOT=build_config['scarab_root'])
 
-sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest', 
+sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest',
             '#/parse', '#/tagger', '#/optimization', '#/mrf', '#/phrasebased']
 
 
@@ -28,10 +28,10 @@ if build_config['has_gurobi']:
 
 if build_config['has_sri']:
    libs+= ("oolm", "misc", "dstruct")
-   lib_path += (build_config['sri_lib'],) 
+   lib_path += (build_config['sri_lib'],)
    include_path += (build_config['sri_path'],)
    sub_dirs += ['#/trans_decode']
-   
+
 env.Append(LIBPATH =('.',) + tuple(sub_dirs) + lib_path)
 
 cpppath  = ('.', '#/third-party/svector/',
@@ -55,16 +55,16 @@ print map(str,interfaces)
 if int(debug):
    env.Prepend(CCFLAGS =('-g',))
 elif int(profile):
-   env.Append(CCFLAGS = ('-O2', '-p', '-DNDEBUG'),
-              LINKFLAGS = ('-O2', '-p', '-DNDEBUG'))
+   env.Append(CCFLAGS = ('-O2', '-p'),
+              LINKFLAGS = ('-O2', '-p'))
 else:
    env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
               LINKFLAGS = ('-O2', '-DNDEBUG'))
-   
 
 
 
-local_libs = SConscript(dirs=sub_dirs, 
+
+local_libs = SConscript(dirs=sub_dirs,
                         exports=['env', 'build_config'])  #+ (interfaces,)
 
 # debug_local_libs = SConscript(dirs=sub_dirs, build_dir='release',
@@ -84,7 +84,7 @@ if build_config['has_sri']:
    env.Alias('regression', regress)
 
    env.Command('cscope.out', [trans, cube], 'cscope-indexer -r')
-   
+
 env.Program('viterbi', ("SimpleViterbi.cpp",) +local_libs, LIBS = libs)
 
 env.Program('marginals', ("Marginals.cpp",) +local_libs, LIBS = libs)
@@ -122,7 +122,7 @@ if build_config['has_gurobi']:
 docs = env.Doxygen('Doxyfile')
 env.Alias('document', docs)
 
-#third_parties = SConscript(dirs=['#/third-party/'], exports=['env']) 
+#third_parties = SConscript(dirs=['#/third-party/'], exports=['env'])
 
 
 

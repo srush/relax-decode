@@ -16,10 +16,13 @@
 #include "dual_nonlocal.h"
 #include "../common.h"
 
-#define TIMING 0
+#define TIMING 1
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 #define GREEDY 0
+
+#define CUBING 1
+#define PROJECTING 0
 
 #define COLOR_WORDS 1
 
@@ -190,7 +193,7 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     bump_rate = true;
   }
 
-  if (false && round >=_is_stuck_round + 50) {
+  if (PROJECTING && round >=_is_stuck_round + 50) {
     cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
     _subproblem->projection_with_constraints(limit,
@@ -199,10 +202,17 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
                                              _projection);
   }
 
+  clock_t begin;
+  if (TIMING) begin = clock();
 
   _subproblem->project(_proj_dim, _projection);
+
+  if (TIMING) cout << Clock::diffclock(clock(), begin) << " ms"<< endl;
+
+  if (TIMING) begin = clock();
   _subproblem->solve();
 
+  if (TIMING) cout << Clock::diffclock(clock(), begin) << " ms"<< endl;
   return bump_rate;
 }
 
@@ -478,9 +488,11 @@ void Decode::solve(const SubgradState & cur_state,
   HypergraphAlgorithms ha(_forest);
   NodeBackCache back_pointers(_forest.num_nodes());
 
-  EdgeCache *total = ha.combine_edge_weights(penalty_cache, *_cached_weights);
+  EdgeCache *total =
+      ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
-  result.dual = best_modified_derivation(*total, ha, back_pointers);
+  result.dual =
+      best_modified_derivation(*total, ha, back_pointers);
 
   HEdges used_edges = ha.construct_best_edges(back_pointers);
   if (SIMPLE_DEBUG) {
@@ -489,7 +501,7 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
   // CHANGES!!!
-  if (cur_state.round >= _is_stuck_round + 20) {
+  if (CUBING && cur_state.round >= _is_stuck_round + 20) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -520,7 +532,7 @@ void Decode::solve(const SubgradState & cur_state,
       }
     }
     cerr << "prep " << begin - clock() << endl;
-    int cube = 1000;
+    int cube = 10000;
     begin = clock();
     double cube_primal;
     if (true) {
@@ -530,6 +542,7 @@ void Decode::solve(const SubgradState & cur_state,
                          non_local, 10, 3);
       cube_primal = p_temp.parse();
     }
+
     DualNonLocal non_local(_forest,
                            _lm,
                            lm_weight(),
@@ -541,7 +554,8 @@ void Decode::solve(const SubgradState & cur_state,
                            used_edges);
     CubePruning p(_forest, *total, non_local, cube, 3);
     double bound = min(cube_primal, cur_state.best_primal) + 0.01;
-    cerr << "bound is: " << bound << endl;
+    cerr << "lower bound is: " << cur_state.best_dual << endl;
+    cerr << "bound is: " << bound << " " << cube_primal << " " << cur_state.best_primal << endl;
     p.set_bound(bound);
     p.set_duals(total);
     p.set_cube_enum();
@@ -552,6 +566,7 @@ void Decode::solve(const SubgradState & cur_state,
     if (abs(v) > 1e-4) {
       result.primal = v;
       if (p.is_exact()) {
+        cerr << " exact " << p.is_exact() << endl;
         result.dual = v;
         return;
       }
@@ -658,8 +673,8 @@ void Decode::solve(const SubgradState & cur_state,
   }
 
   if (DEBUG || SIMPLE_DEBUG) {
-    cout << "DUAL Score" << result.dual << endl;
-    cout << "PRIMAL Score " << result.primal << endl;
+    cout << "DUAL Score " << result.dual << " " << cur_state.best_dual << endl;
+    cout << "PRIMAL Score " << result.primal << " " << cur_state.best_primal << endl;
     cout << endl;
   }
   assert((result.dual - result.primal) < 1e-3);

@@ -396,7 +396,7 @@ class NodeExtractor(object):
 
 
 if __name__ == "__main__":
-  for i in range(1,101):
+  for i in range(1,616):
     hgraph = Hypergraph()  
     f = open(sys.argv[1] +str(i), "rb")
     hgraph.ParseFromString(f.read())

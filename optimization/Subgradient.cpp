@@ -26,13 +26,14 @@ void Subgradient::solve(int example) {
 
 bool Subgradient::run_one_round() {
   clock_t start=clock();
-  // bool bump =false; 
+  // bool bump =false;
   // bool no_update = false;
   SubgradResult result;
   SubgradState info;
   info.round = _round;
   info.is_stuck = _is_stuck;
   info.best_primal = _best_primal;
+  info.best_dual = _best_dual;
   _s.solve(info, result); //  primal, dual, subgrad, _round, _is_stuck, bump,no_update);
 
   clock_t end;
@@ -41,20 +42,20 @@ bool Subgradient::run_one_round() {
     cout << "JUST UPDATE "<< double(Clock::diffclock(end,start)) << endl;
   }
 
-  
+
   if (result.primal < _best_primal) {
-    _best_primal_iteration = _round; 
+    _best_primal_iteration = _round;
     _best_primal = result.primal;
   }
 
   if (result.dual > _best_dual) {
     _best_dual = result.dual;
-  } 
+  }
 
   _duals.push_back(result.dual);
   _primals.push_back(result.primal);
 
-  if (_debug) {  
+  if (_debug) {
     cerr << "Round " << _round;
     cerr << " BEST_PRIMAL " << _best_primal;
     cerr << " BEST_DUAL " << _best_dual;
@@ -73,7 +74,7 @@ bool Subgradient::run_one_round() {
     return false;
   }
 
-  
+
 }
 
 
@@ -93,7 +94,7 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     //rate->_base_weight *=10.0;
     _rate.bump();
   }
-  
+
   double alpha = _rate.get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
   _last_alpha = alpha;
   svector<int, double> updates = alpha * subgrad;

@@ -47,7 +47,7 @@ def load(handle):
        refnum = int(handle.readline().strip())
        for i in xrange(refnum):
            ref = handle.readline().strip()
-           forest.Extensions[reference_sentences].append(ref)
+           forest.Extensions[reference_sentences].append(ref.decode('UTF-8'))
            
        forest.Extensions[foreign_sentence] = sent.decode('UTF-8')
        

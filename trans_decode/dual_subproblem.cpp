@@ -12,7 +12,7 @@
 #include "../common.h"
 
 #define DEBUG 0
-#define TIMING 0
+#define TIMING 1
 #define OPTIMIZE 1
 
 using namespace std;
@@ -524,6 +524,12 @@ void Subproblem::solve_proj(int d2, int d3,
         try_set_max(proj_best, w1, w2, w3, score, true);
       }
     }
+  }
+
+  if (TIMING) {
+    clock_t end = clock();
+    cout << "INIT TRIGRAM TIME: "
+         << Clock::diffclock(end, begin) << " ms"<< endl;
   }
 
   foreach (int w0, word_override) {
