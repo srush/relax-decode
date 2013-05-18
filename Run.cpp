@@ -19,6 +19,8 @@ using namespace std;
 DEFINE_string(forest_prefix, "", "prefix of the forest files");
 DEFINE_string(lattice_prefix, "", "prefix of the lattice files");
 DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')");
+DEFINE_bool(approx_mode, false, "Use approximate LM updates.");
+DEFINE_string(ilp_mode, "proj", "Method to use for tightening.");
 
 static const bool forest_dummy =
     RegisterFlagValidator(&FLAGS_forest_prefix, &ValidateReq);
@@ -74,23 +76,36 @@ int main(int argc, char ** argv) {
     Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);
 
     cerr << i << endl;
-    clock_t begin = clock();
     // decoder
     clock_t setup_begin = clock();
     Decode * d = new Decode(f, graph, *weight, *lm);
+    d->set_approx_mode(FLAGS_approx_mode);
     d->set_cached_words(words);
     // Solve
     cout << i << " ";
     TranslationRate tr;
     Subgradient * s = new Subgradient(*d, tr);
+
+    s->set_max_rounds(500);
+    int mode;
+    if (FLAGS_ilp_mode == "proj") {
+      mode = Decode::kProjecting;
+    } else if (FLAGS_ilp_mode == "cube") {
+      mode = Decode::kCubing;
+    } else {
+      cerr << "Bad ilp mode arg " << FLAGS_ilp_mode;
+    }
+    d->set_ilp_mode(mode);
     cout << "SETUP TIME "
          << Clock::diffclock(clock(), setup_begin) << endl;
     // s->set_debug();
+    clock_t begin = clock();
     s->solve(i);
     double v = s->best_primal();
     clock_t end = clock();
     cout << "*END*" << i << " "<< v << "  "
          << Clock::diffclock(end, begin) << endl;
+    delete d;
   }
   google::protobuf::ShutdownProtobufLibrary();
   return 0;

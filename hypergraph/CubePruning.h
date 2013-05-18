@@ -170,9 +170,15 @@ class CubePruning {
     return _hypothesis_cache.store[_forest.root().id()][n].score;
   }
 
-  double parse() {
+  double parse(bool *success) {
     run(_forest.root(), _hypothesis_cache.store[_forest.root().id()]);
-    return _hypothesis_cache.store[_forest.root().id()][0].score;
+    if (_hypothesis_cache.store[_forest.root().id()].size() > 0) {
+      *success = true;
+      return _hypothesis_cache.store[_forest.root().id()][0].score;
+    }
+    *success = false;
+    return 0.0;
+
   }
 
   void set_duals(const Cache<Hyperedge, double> *dual_scores) {

@@ -24,8 +24,12 @@ using namespace std;
 typedef svector<int, double> wvector;
 using namespace Scarab::HG;
 
+
 class Decode: public SubgradientProducer {
  public:
+  static const int kCubing = 1;
+  static const int kProjecting = 2;
+
   Decode(const Forest & forest,
          const ForestLattice & lattice,
          const wvector & weight,
@@ -34,7 +38,8 @@ class Decode: public SubgradientProducer {
       _lattice(lattice),
       _weight(weight),
       _lm(lm),
-      _gd(lattice) {
+      _gd(lattice),
+      approx_mode_(false) {
     _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
 
     _gd.decompose();
@@ -48,7 +53,7 @@ class Decode: public SubgradientProducer {
 
   ~Decode() {
     delete _subproblem;
-    delete _lagrange_weights;
+    /* delete _lagrange_weights; */
     delete _cached_words;
   }
 
@@ -57,6 +62,14 @@ class Decode: public SubgradientProducer {
 
   void set_cached_words(Cache<Hypernode, int> *cached_words) {
     cached_cube_words_ = cached_words;
+  }
+
+  void set_approx_mode(bool approx_mode) {
+    approx_mode_ = approx_mode;
+  }
+
+  void set_ilp_mode(int ilp_mode) {
+    ilp_mode_ = ilp_mode;
   }
 
  private:
@@ -117,6 +130,13 @@ class Decode: public SubgradientProducer {
                  double & dual, double &cost_total);
 
   Cache<Hypernode, int> * cached_cube_words_;
+
+
+  // Use approximation when calculating subgradients.
+  bool approx_mode_;
+
+  // Method for tightening the ilp.
+  int ilp_mode_;
 };
 
 #endif

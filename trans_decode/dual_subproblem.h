@@ -42,11 +42,24 @@ class Subproblem {
              const GraphDecompose * gd_in,
              const Cache<Graphnode, int> & word_node_cache_in);
 
+  ~Subproblem() {
+    for (int w1 = 0; w1 < graph->num_word_nodes; w1++) {
+      if (!graph->is_word(w1)) continue;
+      const vector <int> & f1 = gd->forward_bigrams[w1];
+      for (unsigned int i = 0; i< f1.size(); i++) {
+        int w2 = f1[i];
+        delete forward_trigrams[w1][i];
+        delete forward_trigrams_score[w1][i];
+        delete word_bow_reverse_cache[w1][w2];
+      }
+    }
+  }
+
   // TODO(srush)
   void update_weights(vector<int> u_pos, vector<float> u_values, int pos);
 
   // TODO(srush)
-  void solve();
+  void solve(bool exact);
 
   // TODO(srush)
   void project(int proj_dim, vector<int> projection);
@@ -136,6 +149,8 @@ class Subproblem {
   int projection_dims;
 
  private:
+
+
   // TODO(srush) move to helper
   float word_backoff_two(int i, int j) {
     VocabIndex context[] = {_word_node_cache.store[i],
@@ -189,19 +204,36 @@ class Subproblem {
   }
 
   bool first_time;
+  bool _non_exact;
 
   // PROBLEMS
   const float _lm_weight;
 
-  vector < vector<float > >  best_lm_score;
-  vector < vector<float > >  bigram_score_cache;
-  vector < vector<float > >  backoff_score_cache;
-  vector < vector < vector<float > > >  bigram_weight_cache;
+  vector <vector<float > > best_lm_score;
+  vector <vector<float > > bigram_score_cache;
+  vector <vector<float > > backoff_score_cache;
+  vector <vector <vector<float > > > bigram_weight_cache;
+  vector <vector <float> > bigram_weight_best;
 
-  vector < vector<bool > >   bigram_in_lm;
-  vector <vector <vector <int> *> > forward_trigrams;
-  vector < vector< vector <float> * > > forward_trigrams_score;
+  vector <vector<bool > > bigram_in_lm;
 
+  struct Trigram {
+    Trigram(int _word, float _score) {
+      word = _word;
+      score = _score;
+    }
+    int word;
+    float score;
+  };
+
+  vector <vector<vector<Trigram> *> > forward_trigrams;
+  // vector <vector<vector<float> * > > forward_trigrams_score;
+
+
+
+  vector <vector<float> > forward_trigrams_score_best;
+
+  vector <vector<vector<float> *> > word_bow_reverse_cache;
   const ForestLattice * graph;
   NgramCache * lm;
 
@@ -221,7 +253,8 @@ class Subproblem {
   vector<vector<vector<ProjMax> > > cur_best_for_projection;
 
   void solve_proj(int d2, int d3, bool first_time_proj,
-                  vector <ProjMax> & proj_best);
+                  vector <ProjMax> & proj_best,
+                  bool exact);
 };
 
 #endif

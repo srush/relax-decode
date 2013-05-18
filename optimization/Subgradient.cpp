@@ -71,6 +71,12 @@ bool Subgradient::run_one_round() {
     update_weights(result.subgrad, result.bump_rate);
     return true;
   } else {
+    if (fabs(result.dual - result.primal) > 1e-4) {
+      cerr << "FAILURE" << endl;
+      exit(1);
+    } else {
+      cerr << "Found best" << endl;
+    }
     return false;
   }
 

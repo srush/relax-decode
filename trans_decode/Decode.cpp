@@ -19,10 +19,11 @@
 #define TIMING 1
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
-#define GREEDY 0
 
-#define CUBING 1
-#define PROJECTING 0
+
+#define GREEDY 0
+// #define CUBING 1
+// #define PROJECTING 0
 
 #define COLOR_WORDS 1
 
@@ -193,7 +194,7 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
     bump_rate = true;
   }
 
-  if (PROJECTING && round >=_is_stuck_round + 50) {
+  if (ilp_mode_ == kProjecting && round >=_is_stuck_round + 50) {
     cerr << "PROJECTION!!" << " "  << round << endl;
     int limit = 25;
     _subproblem->projection_with_constraints(limit,
@@ -210,7 +211,11 @@ bool Decode::solve_ngrams(int round, bool is_stuck) {
   if (TIMING) cout << Clock::diffclock(clock(), begin) << " ms"<< endl;
 
   if (TIMING) begin = clock();
-  _subproblem->solve();
+  bool exact = true;
+  if (ilp_mode_ == kCubing && approx_mode_ && round < _is_stuck_round) {
+    exact = false;
+  }
+  _subproblem->solve(exact);
 
   if (TIMING) cout << Clock::diffclock(clock(), begin) << " ms"<< endl;
   return bump_rate;
@@ -252,13 +257,15 @@ double Decode::best_modified_derivation(const EdgeCache & edge_weights,
                                         NodeBackCache & back_pointers) {
   // OPTIMIZATION: Only run A-Star when we have a hard problem
   // (several dimensions)
+  clock_t begin, end;
   bool run_astar = _subproblem->projection_dims > BACK;
   // cerr << "projection dims " << _subproblem->projection_dims << endl;
-  clock_t begin, end;
+
   SplitController c(*_subproblem, _lattice, run_astar);
 
   // Boiler plate for cky
   ExtendCKY ecky(_forest, edge_weights, c);
+  end = clock();
 
   if (run_astar) {
     cerr << "running astar" << endl;
@@ -472,8 +479,15 @@ void Decode::solve(const SubgradState & cur_state,
   }
 
 
+  HypergraphAlgorithms ha(_forest);
+  NodeCache tmp_pointers(_forest.num_nodes());
+  NodeBackCache back_pointers(_forest.num_nodes());
+  NodeBackCache back_pointers2(_forest.num_nodes());
 
   if (TIMING) {
+    end = clock();
+    cout << "MEMORY TIME: "
+         << Clock::diffclock(end, begin) << " ms"<< endl;
     begin = clock();
   }
 
@@ -485,14 +499,27 @@ void Decode::solve(const SubgradState & cur_state,
    *       of the derivation
    ******************************************/
 
-  HypergraphAlgorithms ha(_forest);
-  NodeBackCache back_pointers(_forest.num_nodes());
 
   EdgeCache *total =
       ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
   result.dual =
+      //ha.best_path(*total, tmp_pointers, back_pointers);
       best_modified_derivation(*total, ha, back_pointers);
+
+  // double d_best = ha.best_path(*total, tmp_pointers, back_pointers2);
+
+  // if (fabs(d_best - result.dual) > 1e-4) {
+  //   cerr << "failed " <<  d_best << " " << result.dual << endl;
+  //   exit(1);
+  // }
+
+  if (TIMING) {
+    end = clock();
+    cout << "BEGIN PARSE TIME: "
+         << Clock::diffclock(end, begin) << " ms"<< endl;
+    begin = clock();
+  }
 
   HEdges used_edges = ha.construct_best_edges(back_pointers);
   if (SIMPLE_DEBUG) {
@@ -500,8 +527,10 @@ void Decode::solve(const SubgradState & cur_state,
       cerr << "Used edges: " << used_edges[i]->id() << endl;
     }
   }
+
   // CHANGES!!!
-  if (CUBING && cur_state.round >= _is_stuck_round + 20) {
+  if (ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 50 &&
+      cur_state.round % 10 == 0) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -521,7 +550,6 @@ void Decode::solve(const SubgradState & cur_state,
                              ecky._outside_memo_table.get(*node)->get_score(0));
     }
 
-
     // Compute best trigram.
     NodeCache node_best_trigram(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
@@ -540,7 +568,8 @@ void Decode::solve(const SubgradState & cur_state,
                            *cached_cube_words_, true);
       CubePruning p_temp(_forest, *_cached_weights,
                          non_local, 10, 3);
-      cube_primal = p_temp.parse();
+      bool success;
+      cube_primal = p_temp.parse(&success);
     }
 
     DualNonLocal non_local(_forest,
@@ -554,16 +583,17 @@ void Decode::solve(const SubgradState & cur_state,
                            used_edges);
     CubePruning p(_forest, *total, non_local, cube, 3);
     double bound = min(cube_primal, cur_state.best_primal) + 0.01;
-    cerr << "lower bound is: " << cur_state.best_dual << endl;
+    cerr << "upper bound is: " << cur_state.best_dual << endl;
     cerr << "bound is: " << bound << " " << cube_primal << " " << cur_state.best_primal << endl;
     p.set_bound(bound);
     p.set_duals(total);
     p.set_cube_enum();
     p.set_heuristic(&node_outside);
     p.set_edge_heuristic(&ecky._outside_edge_memo_table);
-    double v = p.parse();
+    bool success;
+    double v = p.parse(&success);
     cerr << "CubePruning " << v << " " << clock() - begin << endl;
-    if (abs(v) > 1e-4) {
+    if (success && abs(v) > 1e-4) {
       result.primal = v;
       if (p.is_exact()) {
         cerr << " exact " << p.is_exact() << endl;

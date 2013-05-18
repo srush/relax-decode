@@ -84,7 +84,7 @@ class Subgradient {
   } ;
 
   void set_debug(){ _debug = true;}
-  void set_max_rounds(int max_round){_max_round = max_round;}
+  void set_max_rounds(int max_round){ _max_round = max_round; }
 
   void solve(int example);
 
