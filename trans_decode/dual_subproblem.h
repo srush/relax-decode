@@ -49,7 +49,7 @@ class Subproblem {
       for (unsigned int i = 0; i< f1.size(); i++) {
         int w2 = f1[i];
         delete forward_trigrams[w1][i];
-        delete forward_trigrams_score[w1][i];
+        /* delete forward_trigrams_score[w1][i]; */
         delete word_bow_reverse_cache[w1][w2];
       }
     }

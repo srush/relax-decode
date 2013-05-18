@@ -249,8 +249,8 @@ void Subproblem::initialize_caches() {
       int w2 = f1[i];
 
       bigram_in_lm[w1][w2] = word_bow_bigram_reverse(w1, w2);
-      forward_trigrams[w1][i] = new vector<int>();
-      forward_trigrams_score[w1][i] = new vector<float>();
+      forward_trigrams[w1][i] = new vector<Trigram>();
+      // forward_trigrams_score[w1][i] = new vector<float>();
       word_bow_reverse_cache[w1][w2] = new vector<float>(gd->forward_bigrams[w2].size());
       bigram_score_cache[w1][w2] =
           (_lm_weight) * word_prob_bigram_reverse(w1, w2);
@@ -504,7 +504,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
       // check NaN.
       assert(score1 == score1);
-      const vector<float> &trigrams = *forward_trigrams_score[w1][i];
+      // const vector<Trigram> &trigrams = *forward_trigrams[w1][i];
       const vector<float> &bigram_cache = bigram_weight_cache[1][w2];
 
       // Only consider words with full lm context.
@@ -551,20 +551,20 @@ void Subproblem::solve_proj(int d2, int d3,
       // try_set_max(proj_best, w1, w2, w3, score, true);
 
       if (exact) {
-        const vector<int> &f2 = *forward_trigrams[w1][i];
+        const vector<Trigram> &f2 = *forward_trigrams[w1][i];
         for (unsigned int j = 0; j < f2.size(); j++) {
           if (j % 10 == 0 && score1 + bigram_weight_best[1][w2] + forward_trigrams_score_best[w1][i] >= best_score - 1e-4) {
             break;
           }
 
-          int w3 = f2[j];
+          int w3 = f2[j].word;
           //cerr << "BEST SCORE " << best_score << " " << score1 << " " << bigram_cache[w3] << " " << trigrams[j] << " " << bigram_weight_best[1][w2] << " " << forward_trigrams_score_best[w1][i] << endl;
           lookups++;
           //float score = score1 + bigram_cache[w3] + trigrams[j];
-          if (score1 + bigram_cache[w3] + trigrams[j] < best_score) {
+          if (score1 + bigram_cache[w3] + f2[j].score < best_score) {
             if (project_word(w3) != d3) continue;
             updates++;
-            best_score = score1 + bigram_cache[w3] + trigrams[j];
+            best_score = score1 + bigram_cache[w3] + f2[j].score;
             proj_best[w1].ord_best[0] = w2;
             proj_best[w1].ord_best[1] = w3;
             proj_best[w1].is_new = true;
