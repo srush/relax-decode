@@ -16,7 +16,7 @@
 #include "dual_nonlocal.h"
 #include "../common.h"
 
-#define TIMING 1
+#define TIMING 0
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 
