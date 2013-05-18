@@ -495,7 +495,7 @@ void Subproblem::solve_proj(int d2, int d3,
     for (int i = 0; i < f1.size(); ++i) {
       int w2 = f1[i];
       const vector<float> &prob_cache = *word_bow_reverse_cache[w1][w2];
-      if (project_word(w2) != d2) continue;
+      if (projection[w2] != d2) continue;
       if (gd->forward_bigrams[w2].size() == 0 ||
           best_bigram_with_backoff_forward[w2] == -1) {
         continue;
@@ -505,51 +505,17 @@ void Subproblem::solve_proj(int d2, int d3,
         score1 += bigram_weight_cache[0][w0][w1] +
             bigram_weight_cache[1][w1][w2] +
             (*on_edge_scores)[i]; // _lm_weight *
-      } else {
-        // if (bigram_weight_best[0][w1] + bigram_weight_best[1][w2] + forward_trigrams_score_best[w1][i] >= best_score) {
-        //   continue;
-        // }
       }
-
       lookups2++;
-      // check NaN.
       assert(score1 == score1);
-      // const vector<Trigram> &trigrams = *forward_trigrams[w1][i];
       const vector<float> &bigram_cache = bigram_weight_cache[1][w2];
 
       // Only consider words with full lm context.
-      //float estimate  = best_lm[w2] + best_bigram[w2] + score1;
-      // float bi_lm_score = score_cache[w2];
       int w3_index = best_bigram_with_backoff_forward[w2];
-
       int w3 = gd->forward_bigrams[w2][w3_index];
-      // float score2 = bigram_cache[w3];
-      //float score  = bi_lm_score + best_backoff[w2] + score1 + score2;
-
-      //if (prob_cache[w3] != 0.0) {
       float score =  prob_cache[w3_index] + score1 + bigram_cache[w3]; // (_lm_weight) *
-        //}
 
-
-
-      // reverse
-      // VocabIndex context[] = {_word_node_cache.store[w2],
-      //                         _word_node_cache.store[w3], Vocab_None};
-      // unsigned int length;
-      // lm->contextID(_word_node_cache.store[w1], context, length);
-      //return length;
-
-
-      // assert(proj_best[w1].score <= INF);
-      // if  (fabs(((_lm_weight) *
-      //            word_prob_reverse(w1, w2, w3)
-      //            + score1 + score2) - score) > 1e-4) {
-      //   cout << "Optimization fail"<< endl;
-      //   exit(0);
-      // }
-      // assert(!TRIPROJECT || project_word(w3) == d3);
-      // cerr << score << " " << best_score << " " << prob_cache[w3_index] << " " << bigram_weight_best[1][w2] << endl;
-      if (score < best_score || best_score >= INF) {
+      if (score < best_score) {
         quick_updates++;
         best_score = score;
         proj_best[w1].ord_best[0] = w2;
@@ -558,7 +524,6 @@ void Subproblem::solve_proj(int d2, int d3,
         assert(proj_best[w1].ord_best[0] != proj_best[w1].ord_best[1]);
       }
 
-      // try_set_max(proj_best, w1, w2, w3, score, true);
 
       if (exact) {
         const vector<Trigram> &f2 = *forward_trigrams[w1][i];
