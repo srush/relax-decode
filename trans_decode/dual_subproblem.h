@@ -109,13 +109,15 @@ class Subproblem {
   inline int best_one(int w1, int w2, int w3) const {
     int d = projection[w2];
     int d2 = projection[w3];
-    return cur_best_for_projection[d][d2][w1].ord_best[0];
+    return gd->forward_bigrams[w1][cur_best_for_projection[d][d2][w1].ord_best[0]];
   }
 
   inline int best_two(int w1, int w2, int w3) const {
     int d = projection[w2];
     int d2 = projection[w3];
-    return cur_best_for_projection[d][d2][w1].ord_best[1];
+    int q = gd->forward_bigrams[w1][cur_best_for_projection[d][d2][w1].ord_best[0]];
+    return
+        gd->forward_bigrams[q][cur_best_for_projection[d][d2][w1].ord_best[1]];
   }
 
   inline float best_score_dim(int w1, int d, int d2) const {
@@ -187,21 +189,21 @@ class Subproblem {
   void initialize_caches();
 
   // TODO(srush) Document
-  void try_set_max(vector<ProjMax> &proj_best,
-                   int w1,
-                   int w2,
-                   int w3,
-                   float score,
-                   bool is_new) const {
-    /* assert(score < 1000); */
-    if (score < proj_best[w1].score || proj_best[w1].score == INF) {
-      proj_best[w1].score = score;
-      proj_best[w1].ord_best[0] = w2;
-      proj_best[w1].ord_best[1] = w3;
-      proj_best[w1].is_new = true;
-      assert(proj_best[w1].ord_best[0] != proj_best[w1].ord_best[1]);
-    }
-  }
+  /* void try_set_max(vector<ProjMax> &proj_best, */
+  /*                  int w1, */
+  /*                  int w2, */
+  /*                  int w3, */
+  /*                  float score, */
+  /*                  bool is_new) const { */
+  /*   /\* assert(score < 1000); *\/ */
+  /*   if (score < proj_best[w1].score || proj_best[w1].score == INF) { */
+  /*     proj_best[w1].score = score; */
+  /*     proj_best[w1].ord_best[0] = w2; */
+  /*     proj_best[w1].ord_best[1] = w3; */
+  /*     proj_best[w1].is_new = true; */
+  /*     assert(proj_best[w1].ord_best[0] != proj_best[w1].ord_best[1]); */
+  /*   } */
+  /* } */
 
   bool first_time;
   bool _non_exact;
@@ -209,20 +211,23 @@ class Subproblem {
   // PROBLEMS
   const float _lm_weight;
 
-  vector <vector<float > > best_lm_score;
-  vector <vector<float > > bigram_score_cache;
-  vector <vector<float > > backoff_score_cache;
-  vector <vector <vector<float > > > bigram_weight_cache;
-  vector <vector <float> > bigram_weight_best;
+  vector<vector<float > > best_lm_score;
+  vector<vector<float > > bigram_score_cache;
+  vector<vector<float > > backoff_score_cache;
+  vector<vector <vector<float > > > bigram_weight_cache;
+  vector<vector <float> > bigram_weight_best;
+  vector<float> bigram_ord_best;
 
   vector <vector<bool > > bigram_in_lm;
 
   struct Trigram {
-    Trigram(int _word, float _score) {
+    Trigram(int _word, float _score, int _bigram_index) {
       word = _word;
       score = _score;
+      bigram_index = _bigram_index;
     }
     int word;
+    int bigram_index;
     float score;
     bool operator<(const Trigram &t) const {
       return score < t.score;
@@ -238,7 +243,7 @@ class Subproblem {
 
   vector <vector<vector<float> *> > word_bow_reverse_cache;
   vector<int> word_override;
-  vector<int> word_overriden;
+  /* vector<int> word_overriden; */
   vector<int> w0_word;
 
   const ForestLattice * graph;
