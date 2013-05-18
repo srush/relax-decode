@@ -224,6 +224,9 @@ class Subproblem {
     }
     int word;
     float score;
+    bool operator<(const Trigram &t) const {
+      return score < t.score;
+    }
   };
 
   vector <vector<vector<Trigram> *> > forward_trigrams;
@@ -234,6 +237,10 @@ class Subproblem {
   vector <vector<float> > forward_trigrams_score_best;
 
   vector <vector<vector<float> *> > word_bow_reverse_cache;
+  vector<int> word_override;
+  vector<int> word_overriden;
+  vector<int> w0_word;
+
   const ForestLattice * graph;
   NgramCache * lm;
 
