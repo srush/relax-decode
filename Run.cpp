@@ -112,7 +112,7 @@ int main(int argc, char ** argv) {
     d->set_ilp_mode(mode);
     cout << "SETUP TIME "
          << Clock::diffclock(clock(), setup_begin) << endl;
-    s->set_debug();
+    //s->set_debug();
     clock_t begin = clock();
     s->solve(i);
     double v = s->best_primal();
