@@ -16,7 +16,7 @@
 #include "dual_nonlocal.h"
 #include "../common.h"
 
-#define TIMING 0
+#define TIMING 1
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 
@@ -482,7 +482,7 @@ void Decode::solve(const SubgradState & cur_state,
   HypergraphAlgorithms ha(_forest);
   NodeCache tmp_pointers(_forest.num_nodes());
   NodeBackCache back_pointers(_forest.num_nodes());
-  NodeBackCache back_pointers2(_forest.num_nodes());
+  // NodeBackCache back_pointers2(_forest.num_nodes());
 
   if (TIMING) {
     end = clock();
@@ -503,11 +503,29 @@ void Decode::solve(const SubgradState & cur_state,
   EdgeCache *total =
       ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
-  result.dual =
-      //ha.best_path(*total, tmp_pointers, back_pointers);
-      best_modified_derivation(*total, ha, back_pointers);
+  // result.dual =
+  //     //ha.best_path(*total, tmp_pointers, back_pointers);
+  //     best_modified_derivation(*total, ha, back_pointers);
 
-  // double d_best = ha.best_path(*total, tmp_pointers, back_pointers2);
+  SplitController c(*_subproblem, _lattice, false);
+  foreach (HNode node, _forest.nodes()) {
+    if (!node->is_terminal()) continue;
+    vector<Hypothesis *> hyp;
+    vector<double> scores;
+    c.initialize_hypotheses(*node, hyp, scores);
+    tmp_pointers.set_value(*node, scores[0]);
+  }
+  result.dual = ha.best_path(*total, tmp_pointers, back_pointers);
+
+
+  // vector<const Hypernode *> tmp_words =
+  //     ha.construct_best_fringe(back_pointers);
+  // foreach (const Hypernode *word, tmp_words) {
+  //   vector<Hypothesis *> hyp;
+  //   vector<double> scores;
+  //   c.initialize_hypotheses(*word, hyp, scores);
+  //   d_best += scores[0];
+  // }
 
   // if (fabs(d_best - result.dual) > 1e-4) {
   //   cerr << "failed " <<  d_best << " " << result.dual << endl;
@@ -645,7 +663,7 @@ void Decode::solve(const SubgradState & cur_state,
   result.subgrad += construct_parse_subgrad(used_edges);
 
 
-
+  delete total;
   double cost_total = 0.0;
 
   if (SIMPLE_DEBUG) cout << "predual " << result.dual << endl;

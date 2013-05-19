@@ -261,7 +261,8 @@ void Subproblem::initialize_caches() {
       bigram_in_lm[w1][i] = word_bow_bigram_reverse(w1, w2);
       forward_trigrams[w1][i] = new vector<Trigram>();
       // forward_trigrams_score[w1][i] = new vector<float>();
-      word_bow_reverse_cache[w1][w2] = new vector<float>(gd->forward_bigrams[w2].size());
+      word_bow_reverse_cache[w1][w2] =
+          new vector<float>(gd->forward_bigrams[w2].size());
       bigram_score_cache[w1][i] =
           (_lm_weight) * word_prob_bigram_reverse(w1, w2);
       backoff_score_cache[w1][i] =
@@ -303,7 +304,11 @@ void Subproblem::initialize_caches() {
           lm_score = backoff_score_cache[w2][j] + bigram_score_cache[w1][i];
           (*word_bow_reverse_cache[w1][w2])[j] = lm_score;
         }
+        // if (fabs((*word_bow_reverse_cache[w1][w2])[j] - (_lm_weight) * word_prob_reverse(w1, w2, w3)) > 1e-4) {
 
+        //   cerr << "failure " << (*word_bow_reverse_cache[w1][w2])[j] << " " << (_lm_weight) * word_prob_reverse(w1, w2, w3) << endl;
+        //   exit(0);
+        // }
         if (lm_score < best_lm_score[w1][i]) {
           best_lm_score[w1][i] = lm_score;
         }

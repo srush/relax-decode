@@ -22,7 +22,7 @@ namespace Scarab {
 
 class ExtendCKY {
  public:
- ExtendCKY(const HGraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont) 
+ ExtendCKY(const HGraph & forest, const Cache <Hyperedge, double> & edge_weights,  const Controller & cont)
   : _forest(forest),
     _edge_weights(edge_weights),
     _old_edge_weights(edge_weights),
@@ -32,11 +32,15 @@ class ExtendCKY {
     _memo_edge_back_table(forest.num_edges()),
     _outside_memo_table(forest.num_nodes()),
     _outside_edge_memo_table(forest.num_edges()) {}
-    
+
     double best_path(NodeBackCache & back_pointers);
 
     void outside();
 
+    ~ExtendCKY() {
+
+
+    }
 
  private:
   const HGraph & _forest;
@@ -63,15 +67,15 @@ class ExtendCKY {
   void forward_edge(const Hyperedge & edge,  vector <BestHyp>  & best_edge_hypotheses);
   void backward_edge(const Hyperedge & edge,  vector <BestHyp> & best_edge_hypotheses);
 
-  void node_best_path(const Hypernode & node); 
+  void node_best_path(const Hypernode & node);
   void node_best_out_path(const Hypernode & node);
   void node_best_out_fast(const Hypernode & node);
-  
-  //void extract_back_pointers(const Hypernode & node, const Hypothesis & best_hyp, 
+
+  //void extract_back_pointers(const Hypernode & node, const Hypothesis & best_hyp,
   //                                      NodeBackCache & back_pointers);
 
   vector <BestHyp *> _to_delete;
-  
+
 };
 
 
