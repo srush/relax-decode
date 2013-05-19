@@ -16,7 +16,7 @@
 #include "dual_nonlocal.h"
 #include "../common.h"
 
-#define TIMING 1
+#define TIMING 0
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 
@@ -503,9 +503,20 @@ void Decode::solve(const SubgradState & cur_state,
   EdgeCache *total =
       ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
-  result.dual =
-      //ha.best_path(*total, tmp_pointers, back_pointers);
-      best_modified_derivation(*total, ha, back_pointers);
+  // result.dual =
+  //     //ha.best_path(*total, tmp_pointers, back_pointers);
+  //     best_modified_derivation(*total, ha, back_pointers);
+
+  SplitController c(*_subproblem, _lattice, false);
+  foreach (HNode node, _forest.nodes()) {
+    if (!node->is_terminal()) continue;
+    vector<Hypothesis *> hyp;
+    vector<double> scores;
+    c.initialize_hypotheses(*node, hyp, scores);
+    tmp_pointers.set_value(*node, scores[0]);
+  }
+  result.dual = ha.best_path(*total, tmp_pointers, back_pointers);
+
 
   // double d_best = ha.best_path(*total, tmp_pointers, back_pointers2);
 

@@ -12,7 +12,7 @@
 #include "../common.h"
 
 #define DEBUG 0
-#define TIMING 1
+#define TIMING 0
 
 
 using namespace std;
