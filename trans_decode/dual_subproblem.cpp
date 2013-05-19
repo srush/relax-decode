@@ -12,7 +12,7 @@
 #include "../common.h"
 
 #define DEBUG 0
-#define TIMING 0
+#define TIMING 1
 
 
 using namespace std;
@@ -423,14 +423,16 @@ void Subproblem::solve_proj(int d2, int d3,
           proj_best[w1].score =
             bigram_weight_cache[0][w1][one] +
             bigram_weight_cache[1][w2][two] +
-              word_prob_reverse(w1, w2, w3) * (_lm_weight);
+              (*word_bow_reverse_cache[w1][w2])[two];
+              // word_prob_reverse(w1, w2, w3) * (_lm_weight);
                // (*word_bow_reverse_cache[w1][one])[two]; //
 
           if (w0 != -1) {
             proj_best[w1].score +=
               bigram_weight_cache[0][w0][0] +
               bigram_weight_cache[1][w1][one] +
-                word_prob_reverse(w0, w1, one) * (_lm_weight);
+                (*word_bow_reverse_cache[w0][w1])[one];
+                // word_prob_reverse(w0, w1, one) * (_lm_weight);
                  // (*word_bow_reverse_cache[w0][w1])[one]; //
           }
 
@@ -471,6 +473,7 @@ void Subproblem::solve_proj(int d2, int d3,
 
   for (int w1 = 0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
+
     overridden[w1] = false;
     //TODO CHECK!!
     //if (overridden[w1]) continue;
@@ -486,8 +489,9 @@ void Subproblem::solve_proj(int d2, int d3,
       on_edge = true;
       on_edge_scores = word_bow_reverse_cache[w0][w1];
       word_override.push_back(w0);
-      edge_weight = bigram_weight_cache[0][w0][0];
+      //edge_weight = bigram_weight_cache[0][w0][0];
     }
+
     assert(w0 == -1 || on_edge ==true);
     const vector<int> &f1 = gd->forward_bigrams[w1];
 
@@ -508,7 +512,7 @@ void Subproblem::solve_proj(int d2, int d3,
       float score1 = bigram_weight_cache[0][w1][i];
       const vector<float> &prob_cache = *word_bow_reverse_cache[w1][w2];
       if (on_edge) {
-        score1 += edge_weight +
+        score1 += bigram_weight_cache[0][w0][0] + //edge_weight +
             bigram_weight_cache[1][w1][i] +
             (*on_edge_scores)[i]; // _lm_weight *
       }
@@ -520,6 +524,7 @@ void Subproblem::solve_proj(int d2, int d3,
       float score =  prob_cache[w3_index] + score1 + bigram_cache[w3_index]; // (_lm_weight) *
 
       if (score < best_score) {
+
         quick_updates++;
         best_score = score;
         proj_best[w1].ord_best[0] = i;
@@ -546,9 +551,7 @@ void Subproblem::solve_proj(int d2, int d3,
               proj_best[w1].ord_best[0] = i;
               proj_best[w1].ord_best[1] = w3_index;
               proj_best[w1].is_new = true;
-              // assert(proj_best[w1].ord_best[0] != proj_best[w1].ord_best[1]);
             }
-            // try_set_max(proj_best, w1, w2, w3, score, true);
             if (j % 10 == 1 &&
                 score1 + bigram_weight_best[1][w2] + f2[j].score >= best_score - 1e-4) {
               break;
