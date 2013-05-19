@@ -9,7 +9,7 @@
 #include "trans_decode/Decode.h"
 #include "trans_decode/NGramCache.h"
 #include "optimization/Subgradient.h"
-
+#include "dual_nonlocal.h"
 #include "./CommandLine.h"
 #include "./Rates.h"
 
@@ -64,6 +64,8 @@ int main(int argc, char ** argv) {
   int start_range, end_range;
   range >> start_range >> end_range;
   for (int i = start_range; i <= end_range; i++) {
+
+
     // Load forest
     stringstream fname;
     fname << FLAGS_forest_prefix << i;
@@ -75,6 +77,17 @@ int main(int argc, char ** argv) {
     ForestLattice graph = ForestLattice::from_file(fname2.str());
     Cache<Hypernode, int> * words = cache_word_nodes(*lm, f);
 
+
+    // CUBE
+    HypergraphAlgorithms ha(f);
+    Cache<Hyperedge, double> * w = ha.cache_edge_weights(*weight);
+    CubePruning p(f, *w, LMNonLocal(f, *lm, lm_weight(), *words, true), 10, 3);
+    bool success;
+    double cube_v = p.parse(&success);
+    cerr << "CUBE START " << cube_v << endl;
+    // cerr << "cube is" << endl;
+    // double cube_v;
+
     cerr << i << endl;
     // decoder
     clock_t setup_begin = clock();
@@ -83,7 +96,8 @@ int main(int argc, char ** argv) {
     d->set_cached_words(words);
     // Solve
     cout << i << " ";
-    TranslationRate tr;
+    PolyakTranslationRate tr(cube_v);
+    // TranslationRate tr;
     Subgradient * s = new Subgradient(*d, tr);
 
     s->set_max_rounds(500);
@@ -98,7 +112,7 @@ int main(int argc, char ** argv) {
     d->set_ilp_mode(mode);
     cout << "SETUP TIME "
          << Clock::diffclock(clock(), setup_begin) << endl;
-    // s->set_debug();
+    s->set_debug();
     clock_t begin = clock();
     s->solve(i);
     double v = s->best_primal();

@@ -12,6 +12,7 @@ class SubgradRate {
  public:
   virtual double get_alpha(vector <double> & duals,
                            vector <double> & primals,
+                           const wvector &subgrad,
                            int size, bool aggressive, bool is_stuck) = 0;
   virtual void bump() {}
 };

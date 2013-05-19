@@ -16,7 +16,7 @@
 #include "dual_nonlocal.h"
 #include "../common.h"
 
-#define TIMING 1
+#define TIMING 0
 #define DEBUG 0
 #define SIMPLE_DEBUG 0
 
@@ -547,8 +547,9 @@ void Decode::solve(const SubgradState & cur_state,
   }
 
   // CHANGES!!!
-  if (ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 50 &&
-      cur_state.round % 10 == 0) {
+  if (ilp_mode_ == kCubing && cur_state.round % 10 == 0 &&
+      ((fabs(cur_state.best_dual - cur_state.best_primal) < 0.5) ||
+       (cur_state.round >= _is_stuck_round + 50 ))) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
@@ -578,7 +579,7 @@ void Decode::solve(const SubgradState & cur_state,
       }
     }
     cerr << "prep " << begin - clock() << endl;
-    int cube = 10000;
+    int cube = 100000;
     begin = clock();
     double cube_primal;
     if (true) {

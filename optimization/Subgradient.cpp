@@ -6,7 +6,7 @@
 #include <time.h>
 #include "../common.h"
 #define INF 1e8
-#define TIMING 0
+#define TIMING 1
 using namespace std;
 
 void print_vec(const wvector & subgrad) {
@@ -86,7 +86,7 @@ bool Subgradient::run_one_round() {
 
 
 
-void Subgradient::update_weights(wvector & subgrad, bool bump) {
+void Subgradient::update_weights(wvector &subgrad, bool bump) {
   int dualsize = _duals.size();
   int size = 0;
   for (wvector::const_iterator it = subgrad.begin(); it != subgrad.end(); it++) {
@@ -102,7 +102,8 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
     _rate.bump();
   }
 
-  double alpha = _rate.get_alpha(_duals, _primals, size, _aggressive, _is_stuck);
+  double alpha = _rate.get_alpha(_duals, _primals, subgrad,
+                                 size, _aggressive, _is_stuck);
   _last_alpha = alpha;
   svector<int, double> updates = alpha * subgrad;
   if (_debug) {
@@ -112,12 +113,12 @@ void Subgradient::update_weights(wvector & subgrad, bool bump) {
 
   // has a dual value become stuck
   _is_stuck = false;
-  if (_round > 5) {
+  if (_round > 40) {
     double upper=-INF;
     double lower=INF;
     for (int i=1; i <= 5 ; i++)  {
-      upper = max(upper, _duals[dualsize -i]);
-      lower = min(lower, _duals[dualsize -i]);
+      upper = max(upper, _duals[dualsize - i]);
+      lower = min(lower, _duals[dualsize - i]);
     }
 
     _is_stuck = fabs(upper-lower) < 0.20;

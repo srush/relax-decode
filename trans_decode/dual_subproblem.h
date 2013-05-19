@@ -240,6 +240,7 @@ class Subproblem {
 
 
   vector <vector<float> > forward_trigrams_score_best;
+  vector<float> forward_trigrams_best;
 
   vector <vector<vector<float> *> > word_bow_reverse_cache;
   vector<int> word_override;

@@ -12,7 +12,7 @@
 #include "../common.h"
 
 #define DEBUG 0
-#define TIMING 1
+#define TIMING 0
 
 
 using namespace std;
@@ -63,6 +63,7 @@ Subproblem::Subproblem(const ForestLattice *g,
   forward_trigrams.resize(num_word_nodes);
   // forward_trigrams_score.resize(num_word_nodes);
   forward_trigrams_score_best.resize(num_word_nodes);
+  forward_trigrams_best.resize(num_word_nodes, INF);
   word_bow_reverse_cache.resize(num_word_nodes);
 
 
@@ -299,11 +300,13 @@ void Subproblem::initialize_caches() {
           forward_trigrams[w1][i]->push_back(Trigram(w3, lm_score, j));
           // forward_trigrams_score[w1][i]->push_back(lm_score);
           forward_trigrams_score_best[w1][i] = min(forward_trigrams_score_best[w1][i], lm_score);
+
           (*word_bow_reverse_cache[w1][w2])[j] = lm_score;
         } else {
           lm_score = backoff_score_cache[w2][j] + bigram_score_cache[w1][i];
           (*word_bow_reverse_cache[w1][w2])[j] = lm_score;
         }
+        forward_trigrams_best[w1] = min(forward_trigrams_best[w1], lm_score);
         // if (fabs((*word_bow_reverse_cache[w1][w2])[j] - (_lm_weight) * word_prob_reverse(w1, w2, w3)) > 1e-4) {
 
         //   cerr << "failure " << (*word_bow_reverse_cache[w1][w2])[j] << " " << (_lm_weight) * word_prob_reverse(w1, w2, w3) << endl;
@@ -359,6 +362,7 @@ void Subproblem::solve_proj(int d2, int d3,
   if (TIMING) begin=clock();
 
 
+  vector<float> bigram_best(ORDER, INF);
   int prelookups = 0;
   {
     for (int i = 0; i < graph->num_word_nodes; i++) {
@@ -382,6 +386,7 @@ void Subproblem::solve_proj(int d2, int d3,
           bigram_weight_cache[ord][w1][i] = score;
           bigram_weight_best[ord][w1] =
               min(bigram_weight_best[ord][w1], score);
+          bigram_best[ord] = min(bigram_best[ord], score);
         }
 
         if (TRIPROJECT && project_word(w2) != d3) {
@@ -506,7 +511,9 @@ void Subproblem::solve_proj(int d2, int d3,
     const vector<float> &score_cache = bigram_score_cache[w1];
 
 
+
     for (int i = 0; i < f1.size(); ++i) {
+
       int w2 = f1[i];
       lookups2++;
       if (projection[w2] != d2) continue;
@@ -514,6 +521,18 @@ void Subproblem::solve_proj(int d2, int d3,
           best_bigram_with_backoff_forward[w2] == -1) {
         continue;
       }
+      // if (!on_edge) {
+      //   // Check best case;
+      //   float best_case =
+      //       forward_trigrams_best[w1] +
+      //       bigram_weight_best[0][w1] + bigram_best[1];
+      //   if (best_case > best_score - 0.3) {
+      //     cerr << best_case << " " << best_score << " " << forward_trigrams_best[w1] << endl;
+      //     break;
+      //   }
+      // }
+
+
       float score1 = bigram_weight_cache[0][w1][i];
       const vector<float> &prob_cache = *word_bow_reverse_cache[w1][w2];
       if (on_edge) {
