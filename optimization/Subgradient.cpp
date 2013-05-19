@@ -72,6 +72,7 @@ bool Subgradient::run_one_round() {
     return true;
   } else {
     if (fabs(result.dual - result.primal) > 1e-4) {
+      cerr << result.dual << " " << result.primal << endl;
       cerr << "FAILURE" << endl;
       exit(1);
     } else {

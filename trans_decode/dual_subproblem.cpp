@@ -467,23 +467,25 @@ void Subproblem::solve_proj(int d2, int d3,
   assert(gd->valid_bigrams().size() > 0);
   int words = 0, lookups = 0, lookups2 = 0, updates = 0, quick_updates = 0;
   // words that are bounded by a later word
-  // vector<int> word_override;
+  vector<int> word_override;
 
   for (int w1 = 0; w1 < graph->num_word_nodes; w1++) {
     if (!graph->is_word(w1)) continue;
-    //overridden[w1] = false;
+    overridden[w1] = false;
     //TODO CHECK!!
-    if (overridden[w1]) continue;
+    //if (overridden[w1]) continue;
     words++;
     // Edge tightness optimization
     bool on_edge = false;
     const vector<float> *on_edge_scores;
     // w0 is the only thing preceding w1
-    int w0 = w0_word[w1];
+    int w0 = fixed_last_bigram(w1);
+    // int w0 = w0_word[w1];
     double edge_weight = 0.0;
     if (w0 != -1) {
       on_edge = true;
       on_edge_scores = word_bow_reverse_cache[w0][w1];
+      word_override.push_back(w0);
       edge_weight = bigram_weight_cache[0][w0][0];
     }
     assert(w0 == -1 || on_edge ==true);
@@ -570,7 +572,7 @@ void Subproblem::solve_proj(int d2, int d3,
     assert(gd->forward_bigrams[w0].size() ==1);
     int w1 = gd->forward_bigrams[w0][0];
 
-    // overridden[w0] = true;
+    overridden[w0] = true;
 
     if (proj_best[w1].ord_best[0] == -1) continue;
 
@@ -582,10 +584,12 @@ void Subproblem::solve_proj(int d2, int d3,
     assert(graph->is_word(w1) && graph->is_word(w2));
 
     // the lm score at w1 needs to include the previous trigram score
-    float first  = (_lm_weight) * word_prob_reverse(w0, w1, w2) +
+    assert(gd->forward_bigrams[w0].size() == 1);
+    float first  =  (*word_bow_reverse_cache[w0][w1])[one] +  // ( _lm_weight) * word_prob_reverse(w0, w1, w2) +
                     bigram_weight_cache[0][w0][0] +
                     bigram_weight_cache[1][w1][one];
-    float second = (_lm_weight) * word_prob_reverse(w1, w2, w3) +
+    float second = //(_lm_weight) * word_prob_reverse(w1, w2, w3) +
+        (*word_bow_reverse_cache[w1][w2])[two] +
                     bigram_weight_cache[0][w1][one] +
                     bigram_weight_cache[1][w2][two];
 
@@ -610,7 +614,7 @@ void Subproblem::solve_proj(int d2, int d3,
     cout << "Quick Updates: " << quick_updates << endl;
     cout << "Override: " << word_override.size() << endl;
   }
-}
+  }
 
 void Subproblem::project(int proj_dim, vector <int> proj ) {
   assert(PROJECT || TRIPROJECT);
