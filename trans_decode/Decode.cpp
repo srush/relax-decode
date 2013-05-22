@@ -503,20 +503,21 @@ void Decode::solve(const SubgradState & cur_state,
   EdgeCache *total =
       ha.combine_edge_weights(penalty_cache, *_cached_weights);
 
-  // result.dual =
-  //     //ha.best_path(*total, tmp_pointers, back_pointers);
-  //     best_modified_derivation(*total, ha, back_pointers);
-
-  SplitController c(*_subproblem, _lattice, false);
-  foreach (HNode node, _forest.nodes()) {
-    if (!node->is_terminal()) continue;
-    vector<Hypothesis *> hyp;
-    vector<double> scores;
-    c.initialize_hypotheses(*node, hyp, scores);
-    tmp_pointers.set_value(*node, scores[0]);
+  if (_subproblem->projection_dims > BACK) {
+    result.dual =
+        //ha.best_path(*total, tmp_pointers, back_pointers);
+        best_modified_derivation(*total, ha, back_pointers);
+  } else {
+    SplitController c(*_subproblem, _lattice, false);
+    foreach (HNode node, _forest.nodes()) {
+      if (!node->is_terminal()) continue;
+      vector<Hypothesis *> hyp;
+      vector<double> scores;
+      c.initialize_hypotheses(*node, hyp, scores);
+      tmp_pointers.set_value(*node, scores[0]);
+    }
+    result.dual = ha.best_path(*total, tmp_pointers, back_pointers);
   }
-  result.dual = ha.best_path(*total, tmp_pointers, back_pointers);
-
 
   // double d_best = ha.best_path(*total, tmp_pointers, back_pointers2);
 
@@ -571,14 +572,17 @@ void Decode::solve(const SubgradState & cur_state,
       }
     }
     cerr << "prep " << begin - clock() << endl;
-    int cube = 10000;
+
+    int diff = cur_state.round - (_is_stuck_round + 50);
+    int amount = diff / 10;
+    int cube = min((int)pow(10, amount), 100000);
     begin = clock();
     double cube_primal;
     if (true) {
       LMNonLocal non_local(_forest, _lm, lm_weight(),
                            *cached_cube_words_, true);
       CubePruning p_temp(_forest, *_cached_weights,
-                         non_local, 10, 3);
+                         non_local, 100, 3);
       bool success;
       cube_primal = p_temp.parse(&success);
     }

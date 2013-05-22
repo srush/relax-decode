@@ -16,7 +16,7 @@ def make_graph(hgraph):
     G.add_node("n" + str(n.id))
     node = G.get_node("n" + str(n.id))
     node.attr["color"] = "Red"
-    node.attr["label"] = str(n.id) + n.label.encode("UTF-8") 
+    node.attr["label"] = str(n.id) + str(n.label).encode("UTF-8")
 
     if n.Extensions[is_word]:
       node.attr["color"] = "Green"
@@ -26,18 +26,18 @@ def make_graph(hgraph):
       G.add_edge("n" + str(n.id), "e" + str(e.id))
       edge = G.get_node("e" + str(e.id))
       edge.attr["color"] = "Blue"
-      edge.attr["label"] = str(e.id) + str(unicode(e.label.encode("UTF-8"), errors="replace"))
+      edge.attr["label"] = str(e.id) + str(e.label.encode("ascii", errors="ignore"))
 
       for t in e.tail_node_ids:
         G.add_edge("e" + str(e.id), "n" + str(t))
-      total +=1 
+      total +=1
   print total
-  G.draw("/tmp/graph.ps", prog="dot")
+  G.draw("/tmp/graph.png", prog="dot")
 
 
 
 if __name__ == "__main__":
-  hgraph = Hypergraph()  
+  hgraph = Hypergraph()
   f = open(sys.argv[1], "rb")
   hgraph.ParseFromString(f.read())
   f.close()
