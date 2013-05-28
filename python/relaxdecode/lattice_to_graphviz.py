@@ -1,8 +1,6 @@
 import sys,os
 from pygraphviz import *
-sys.path.append("../gen-py/")
-
-from lattice_pb2 import *
+from relaxdecode.interfaces.lattice_pb2 import *
 
 
 def make_graph(lattice):
@@ -21,15 +19,15 @@ def make_graph(lattice):
       for p in n.Extensions[phraselets].phraselet:
         for w in p.word:
           print w.word,
-        print 
+        print
 
     node.attr["label"] = n.label.encode("UTF-8")
-    
+
     for e in n.edge:
       G.add_edge("n" + str(n.id), "n" + str(e.to_id))
       edge = G.get_edge("n" + str(n.id), "n" + str(e.to_id))
       edge.attr["label"] = str(unicode(e.label.encode('UTF-8'), errors="ignore"))
-      edge_count +=1 
+      edge_count +=1
   print "Num Nodes", len(lattice.node)
   print "Num Edges", edge_count
 
@@ -39,7 +37,7 @@ def make_graph(lattice):
 
 
 if __name__ == "__main__":
-  lat = Lattice()  
+  lat = Lattice()
   f = open(sys.argv[1], "rb")
   lat.ParseFromString(f.read())
   f.close()

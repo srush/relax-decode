@@ -2,7 +2,7 @@ Import('env')
 
 proto = ["graph.proto", 'mrf.proto']
 
-py_dir = Dir('.').abspath+'/gen-py/'
+py_dir = Dir('.').abspath+'/../../python/relaxdecode/interfaces/'
 cpp_dir = Dir('.').abspath+'/gen-cpp/'
 
 Mkdir(py_dir)
