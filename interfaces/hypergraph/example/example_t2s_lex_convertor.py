@@ -2,12 +2,12 @@
 #!/usr/bin/env python
 
 # 199 2345
-# 1   DT [0-1]    0 
+# 1   DT [0-1]    0
 # ...
-# 6   NP [0-2]    1 
+# 6   NP [0-2]    1
 #       1 4 ||| 0=-5.342
 # ...
-    
+
 import sys, os
 sys.path.append("../gen_py/")
 import json
@@ -21,18 +21,18 @@ from lexical_pb2 import *
 
 new_style = True
 order = 3
-def load(handle):            
+def load(handle):
    line = None
-   num_sents = 0        
+   num_sents = 0
 
    while True:
        forest = Hypergraph()
-       line = handle.readline() 
+       line = handle.readline()
        if len(line) == 0:
            break
-       try:                        
+       try:
            tag, sent = line.split("\t")   # foreign sentence
-           
+
        except:
            ## no more forests
            yield None
@@ -42,17 +42,17 @@ def load(handle):
        node_id = 0
        edge_id = 0
        iden_map = {}
-       
+
        ## read in references
        refnum = int(handle.readline().strip())
        for i in xrange(refnum):
            ref = handle.readline().strip()
            forest.Extensions[reference_sentences].append(ref.decode('UTF-8'))
-           
+
        forest.Extensions[foreign_sentence] = sent.decode('UTF-8')
-       
+
        ## sizes: number of nodes, number of edges (optional)
-       num, nedges = map(int, handle.readline().split("\t"))   
+       num, nedges = map(int, handle.readline().split("\t"))
 
 
        for i in xrange(1, num+1):
@@ -66,32 +66,32 @@ def load(handle):
                keys = line
                fields = ""
 
-           orig_iden, labelspan, size = keys.split("\t") 
+           orig_iden, labelspan, size = keys.split("\t")
            size = int(size)
 
-           
+
 
            node.id = node_id
-           node_id+=1
+           node_id += 1
            node.label = labelspan
-           
+
            iden_map[orig_iden] = node
 
            fpair = node.Extensions[node_fv] =fields.strip().decode("UTF-8")
-       
+
            for j in xrange(size):
                edge = node.edge.add()
-               
+
                ## '\t1 ||| 0=8.86276 1=2 3\n'
                ## N.B.: can't just strip! "\t... ||| ... ||| \n" => 2 fields instead of 3
                tails, rule, fields = handle.readline().strip("\t\n").split(" ||| ")
 
 
-               tails = tails.split() 
+               tails = tails.split()
                tailnodes = []
-               
+
                for x in tails:
-                   if x[0]=='"': 
+                   if x[0]=='"':
                        # convert words to nodes
                        local_lex_node = forest.node.add()
                        local_lex_node.id = node_id
@@ -100,16 +100,16 @@ def load(handle):
                        local_lex_node.Extensions[is_word] = True
                        local_lex_node.Extensions[word] = x[1:-1].decode('UTF-8')
                        tailnodes.append(local_lex_node.id)
-                   else: 
+                   else:
                        tailnodes.append(iden_map[x].id)
-                       
+
                for t in tailnodes:
                    edge.tail_node_ids.append(t)
                edge.label = rule.decode('UTF-8')
                edge.id = edge_id
                edge_id+=1
                edge.Extensions[edge_fv] = fields.strip()
-       
+
        if new_style:
            old_root = node.id
            new_root = forest.node.add()
@@ -117,12 +117,12 @@ def load(handle):
            node_id+=1
            new_root.label = "NEW ROOT".decode('UTF-8')
 
-           new_edge = new_root.edge.add() 
-           
+           new_edge = new_root.edge.add()
+
            new_edge.id = edge_id
            edge_id+=1
            new_edge.Extensions[edge_fv] = ""
-           
+
            for i in range(order-1):
               node = forest.node.add()
               node.id = node_id
@@ -131,7 +131,7 @@ def load(handle):
               node.Extensions[is_word] = True
               node.Extensions[word] = "<s>".decode('UTF-8')
               new_edge.tail_node_ids.append(node.id)
-              
+
            new_edge.tail_node_ids.append(old_root)
 
            for i in range(order-1):
@@ -142,12 +142,12 @@ def load(handle):
               node.Extensions[is_word] = True
               node.Extensions[word] = "</s>".decode('UTF-8')
               new_edge.tail_node_ids.append(node.id)
-           
+
 
            forest.root = new_root.id
        else:
            forest.root = node.id
-       
+
        line = handle.readline()
        yield forest
 
@@ -160,4 +160,4 @@ if __name__ == "__main__":
         f.write(forest.SerializeToString())
         f.close()
 
-        
+
