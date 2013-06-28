@@ -92,11 +92,15 @@ void BigramRescore::cache_forward() {
   }
 }
 
-void BigramRescore::reconstruct_path(int n1, int n2, const vector<vector <int> > &best_split, vector <int > &array ) {
+void BigramRescore::reconstruct_path(int n1,
+                                     int n2,
+                                     const vector<vector <int> > &best_split,
+                                     vector <int > &array) {
   if (n1 == n2) {
     return;
   }
-  // reconstruct edges
+
+  // Reconstruct the edges.
   int k = best_split[n1][n2];
   if (k != n2) {
     reconstruct_path(n1, k, best_split, array);
@@ -107,7 +111,6 @@ void BigramRescore::reconstruct_path(int n1, int n2, const vector<vector <int> >
       assert(!graph->is_word(edge_label));
       array.push_back(edge_label);
     }
-    //array.push_back(k);
   }
 }
 

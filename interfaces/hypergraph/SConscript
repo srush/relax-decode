@@ -1,10 +1,10 @@
 Import('env')
 
-proto = ["hypergraph.proto", 'lexical.proto', 'tag.proto', 'dep.proto', 
+proto = ["hypergraph.proto", 'lexical.proto', 'tag.proto', 'dep.proto',
          'features.proto', 'translation.proto']
 
 py_dir = Dir('.').abspath+'/../../python/relaxdecode/interfaces/'
-cpp_dir = Dir('.').abspath+'/gen-cpp/'
+cpp_dir = env["HYP_PROTO"][2:]
 
 
 py_dir_c = env.Command(py_dir, [],

@@ -3,7 +3,7 @@ Import('env')
 proto = ["lattice.proto"]
 
 py_dir = Dir('.').abspath+'/../../python/relaxdecode/interfaces/'
-cpp_dir = Dir('.').abspath+'/gen-cpp/'
+cpp_dir = env["LAT_PROTO"][2:]
 
 print py_dir
 py_dir_c = env.Command(py_dir, [],

@@ -3,7 +3,6 @@ dirs = ["graph", 'lattice', 'hypergraph']
 
 files = SConscript(dirs=dirs, exports=['env'])
 
-#for f in files:
 Return('files')
 
 

@@ -9,8 +9,32 @@ env = Environment(CC = 'g++', ENV=os.environ, tools=['default', 'protoc', 'doxyg
 
 env.Append(ROOT=build_config['scarab_root'])
 
-sub_dirs = ['#/graph', '#/hypergraph', '#/lattice', '#/transforest',
-            '#/parse', '#/tagger', '#/optimization', '#/mrf', '#/phrasebased']
+build_mode = ""
+if int(debug):
+   env.Prepend(CCFLAGS =('-g',))
+   build_mode = "debug/"
+elif int(profile):
+   env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage"),
+              LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage"))
+   build_mode = "profile/"
+else:
+   env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
+              LINKFLAGS = ('-O2', '-DNDEBUG'))
+   build_mode = "opt/"
+
+variant = 'build/' + build_mode
+env.VariantDir(variant, '.')
+
+
+sub_dirs = ['#/' + variant + 'graph',
+            '#/' + variant + 'hypergraph',
+            '#/' + variant + 'lattice',
+            '#/' + variant + 'transforest',
+            '#/' + variant + 'parse',
+            '#/' + variant + 'tagger',
+            '#/' + variant + 'optimization',
+            '#/' + variant + 'mrf',
+            '#/' + variant + 'phrasebased']
 
 
 
@@ -30,50 +54,40 @@ if build_config['has_sri']:
    libs+= ("oolm", "misc", "dstruct")
    lib_path += (build_config['sri_lib'],)
    include_path += (build_config['sri_path'],)
-   sub_dirs += ['#/trans_decode']
+   sub_dirs += ['#/' + variant + 'trans_decode']
 
 env.Append(LIBPATH =('.',) + tuple(sub_dirs) + lib_path)
 
 cpppath  = ('.', '#/third-party/svector/',
-                       '#/interfaces/hypergraph/gen-cpp',
-                       '#/interfaces/lattice/gen-cpp',
-                       '#/interfaces/graph/gen-cpp') + \
+            '#/' + variant + 'interfaces/hypergraph/gen-cpp',
+            '#/' + variant + 'interfaces/lattice/gen-cpp',
+            '#/' + variant + 'interfaces/graph/gen-cpp') + \
             include_path + tuple(sub_dirs)
 print cpppath
-env.Append( CPPPATH=  [cpppath] )
+env.Append(CPPPATH=  [cpppath] )
 
 env.Append(LIBS=  libs)
 
-env.Append(HYP_PROTO="#interfaces/hypergraph/gen-cpp/")
-env.Append(LAT_PROTO="#interfaces/lattice/gen-cpp/")
-env.Append(GRAPH_PROTO="#interfaces/graph/gen-cpp/")
-
-interfaces = SConscript(dirs=["interfaces"], exports=['env'])
-print map(str,interfaces)
-
-
-if int(debug):
-   env.Prepend(CCFLAGS =('-g',))
-elif int(profile):
-   env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage"),
-              LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage"))
-else:
-   env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
-              LINKFLAGS = ('-O2', '-DNDEBUG'))
+env.Append(HYP_PROTO="#/" + variant + "interfaces/hypergraph/gen-cpp/")
+env.Append(LAT_PROTO="#/" + variant + "interfaces/lattice/gen-cpp/")
+env.Append(GRAPH_PROTO="#/" + variant + "interfaces/graph/gen-cpp/")
+env.Append(PROTOCPROTOPATH = [variant + "interfaces/graph/",
+                              variant + "interfaces/hypergraph/",
+                              variant + "interfaces/lattice/"])
+print env
+interfaces = SConscript(dirs=[variant + "interfaces"], exports=['env'])
 
 
 
 
 local_libs = SConscript(dirs=sub_dirs,
-                        exports=['env', 'build_config'])  #+ (interfaces,)
+                        exports=['env', 'build_config'])
 
-# debug_local_libs = SConscript(dirs=sub_dirs, build_dir='release',
-#                               exports={'env': debug_env, 'build_config' : build_config})  #+ (interfaces,)
 
 if build_config['has_sri']:
-   trans =env.Program('trans', ("Run.cpp",) + local_libs , LIBS = libs)
+   trans = env.Program(variant + 'trans', ( variant + "Run.cpp",) + local_libs , LIBS = libs)
 
-   cube = env.Program('cube', ("CubeLM.cpp",) +local_libs, LIBS = libs)
+   cube = env.Program(variant + 'cube', (variant + "CubeLM.cpp",) +local_libs, LIBS = libs)
 
    env.Program('exact', ("Exact.cpp",) +local_libs, LIBS = libs)
 

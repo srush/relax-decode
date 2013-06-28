@@ -3,7 +3,7 @@ Import('env')
 proto = ["graph.proto", 'mrf.proto']
 
 py_dir = Dir('.').abspath+'/../../python/relaxdecode/interfaces/'
-cpp_dir = Dir('.').abspath+'/gen-cpp/'
+cpp_dir = env["GRAPH_PROTO"][2:]
 
 Mkdir(py_dir)
 Mkdir(cpp_dir)
@@ -11,13 +11,8 @@ Mkdir(cpp_dir)
 proto_files = env.Protoc(
     [],
     proto,
-    #PROTOCPYTHONOUTDIR=None,
     PROTOCPYTHONOUTDIR=py_dir, # set to None to not generate python
-    #PROTOCCPPOUTFLAGS = cpp_dir, #Dir('.').abspath+'/gen-cpp/',
     PROTOCOUTDIR = cpp_dir # defaults to same directory as .proto
 )
 
-#for f in proto_files:
-#  Return(f)
 Return('proto_files')
-#Return(proto_files)

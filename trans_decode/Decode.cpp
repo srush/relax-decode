@@ -22,9 +22,6 @@
 
 
 #define GREEDY 0
-// #define CUBING 1
-// #define PROJECTING 0
-
 #define COLOR_WORDS 1
 
 
@@ -323,7 +320,8 @@ wvector Decode::construct_lm_subgrad(
     const vector <const ForestNode *> &used_words,
     const vector <int> &used_lats,
     const vector<string> &used_strings,
-    double & dual, double & cost_total) {
+    double & dual,
+    double & cost_total) {
   wvector subgrad;
 
   // Walk along the fringe.
@@ -367,19 +365,6 @@ wvector Decode::construct_lm_subgrad(
       _subproblem->best_score(start_from,
                               mid_at,
                               pre_previous_graph_id);
-
-    /*if (false && previous_graph_id == 1) {
-      // unconstrained for now
-      mid_at = _subproblem->cur_best_one[graph_id][0];
-      end_at = _subproblem->cur_best_two[graph_id][0];
-      assert(_lattice.is_word(mid_at));
-      cost_total += _subproblem->cur_best_score[graph_id];
-      //cout << " " << _subproblem->cur_best_score[graph_id] << " ";
-    } else {
-
-      //cout << " " << _subproblem->best_score(graph_id, mid_at) << " ";
-      }*/
-
 
     add_subgrad(&subgrad, start_from, mid_at, end_at, false);
     debug(start_from, mid_at, end_at, used_lats[j-1], used_lats[j-2]);
@@ -616,7 +601,7 @@ void Decode::solve(const SubgradState & cur_state,
         return;
       }
     } else {
-      result.primal = 10000000;
+      result.primal = min(cube_primal, cur_state.best_primal);
     }
   } else {
     result.primal = 10000000;
@@ -633,8 +618,7 @@ void Decode::solve(const SubgradState & cur_state,
 
   vector <string> used_strings;
 
-  // UGH! UGH! TODO get this <s> business out of here
-  foreach (HNode used, used_words) {  // int i =0; i < used_words.size(); i++) {
+  foreach (HNode used, used_words) {
     used_strings.push_back(((const ForestNode*)used)->word());
   }
 
@@ -731,10 +715,19 @@ double Decode::compute_primal(const HEdges used_edges,
                               const EdgeCache &  edge_lag) {
   double total= 0;
   double lag = 0.0;
+  wvector test;
   for (unsigned int i = 0; i < used_edges.size(); i++) {
     total += _cached_weights->store[used_edges[i]->id()];
     lag += edge_lag.store[used_edges[i]->id()];
+    test += used_edges[i]->fvector();
   }
+
+  for (wvector::const_iterator it = test.begin(); it != test.end(); it++) {
+    if (it->second != 0.0) {
+      // cerr << it->first << " " << it->second << endl;
+    }
+  }
+
 
   vector <string> used_strings;
   for (uint i =0; i < used_nodes.size(); i++) {
@@ -742,7 +735,7 @@ double Decode::compute_primal(const HEdges used_edges,
   }
   double lm_score =0.0;
   double primal2 = 0.0;
-  for (uint i =0; i < used_strings.size()-2; i++) {
+  for (uint i =0; i < used_strings.size() - 2; i++) {
     VocabIndex context[] = {lookup_string(used_strings[i+1]),
                              lookup_string(used_strings[i]),
                              Vocab_None};
@@ -762,10 +755,14 @@ double Decode::compute_primal(const HEdges used_edges,
       double w =0;
       w += _subproblem->get_best_bigram_weight(start_from, mid, 0);
       w += _subproblem->get_best_bigram_weight(mid, end, 1);
+
       primal2 += w + lm_score;
+
     }
     lm_score += _lm.wordProb(lookup_string(used_strings[i+2]), context);
+    // cerr << _lm.wordProb(lookup_string(used_strings[i+2]), context) << endl;
   }
+  // cerr << lm_score << endl;
   if (DEBUG) {
     cout << "PRIMAL LMWEIGHT: " << (lm_weight()) *lm_score << endl;
     cout << "PRIMAL2 : " << primal2 << endl;

@@ -51,7 +51,7 @@ class SplitController : public Controller {
 
   int size()  const {
     int d = dim();
-    return d * d* d *d;
+    return d * d * d * d;
   }
     int dim() const {
     return _classes.size();

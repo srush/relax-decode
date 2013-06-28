@@ -110,7 +110,7 @@ class Subgradient {
   double _best_dual, _best_primal;
 
   bool _aggressive;
-  void update_weights(wvector & subgrad, bool);
+  void update_weights(wvector &subgrad, bool);
   int _round, _nround;
   wvector _weights;
   vector <double> _primals;

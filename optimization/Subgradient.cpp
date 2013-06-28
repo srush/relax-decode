@@ -68,6 +68,10 @@ bool Subgradient::run_one_round() {
 
 
   if (result.subgrad.normsquared() > 0.0) {
+    if (fabs(result.dual - result.primal) < 1e-4) {
+      cerr << "Found best" << endl;
+      return false;
+    }
     update_weights(result.subgrad, result.bump_rate);
     return true;
   } else {

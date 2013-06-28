@@ -43,7 +43,7 @@ __author__='Paul Dovbush <dpp@dpp.su>'
 
 import json	# py2.6+ TODO: add support for other JSON serialization modules
 from google.protobuf.descriptor import FieldDescriptor as FD
-
+import sys
 
 class ParseError(Exception): pass
 
@@ -57,7 +57,7 @@ def json2pb(pb, js):
 			pass
 		elif field.type in _js2ftype:
 			ftype = _js2ftype[field.type]
-		else: 
+		else:
 			raise ParseError("Field %s.%s of type '%d' is not supported" % (pb.__class__.__name__, field.name, field.type, ))
 		value = js[field.name]
 		if field.label == FD.LABEL_REPEATED:
@@ -138,3 +138,5 @@ _js2ftype = {
 	FD.TYPE_SINT64: long,
 }
 
+if __name__ == "__main__":
+  print pb2json
