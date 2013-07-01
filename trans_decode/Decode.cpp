@@ -560,7 +560,7 @@ void Decode::solve(const SubgradState & cur_state,
 
     int diff = cur_state.round - (_is_stuck_round + 50);
     int amount = diff / 10;
-    int cube = min((int)pow(10, amount), 100000);
+    int cube = min(1000 *(int)pow(10, amount), 100000);
     begin = clock();
     double cube_primal;
     if (true) {
@@ -684,7 +684,7 @@ void Decode::solve(const SubgradState & cur_state,
   }
 
 
-  assert(fabs((cost_total + edge_total) - result.dual) < 1e-4);
+  //assert(fabs((cost_total + edge_total) - result.dual) < 1e-4);
 
 
   if (TIMING) {

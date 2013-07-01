@@ -6,15 +6,15 @@
 using namespace std;
 
 
-void CubePruning::run(const Hypernode &cur_node, 
+void CubePruning::run(const Hypernode &cur_node,
                       vector<Hyp> &kbest_hyps) {
   // Compute the k-best list for cur_node.
-  foreach (HEdge hedge, cur_node.edges()) { 
+  foreach (HEdge hedge, cur_node.edges()) {
     foreach (HNode sub, hedge->tail_nodes()) {
       if (!_hypothesis_cache.has_key(*sub)) {
         run(*sub, _hypothesis_cache.store[sub->id()]);
         _hypothesis_cache.has_value[sub->id()] = 1;
-      } 
+      }
     }
   }
 
@@ -37,15 +37,15 @@ void CubePruning::run(const Hypernode &cur_node,
   }
 }
 
-void CubePruning::init_cube(const Hypernode &cur_node, 
+void CubePruning::init_cube(const Hypernode &cur_node,
                             Candidates &cands) {
   if (DEBUG_CUBE) {
-    cerr << "NODE " 
+    cerr << "NODE "
          << cur_node.id() << " " << cur_node.label() << endl;
   }
-  foreach (HEdge cedge, cur_node.edges()) { 
+  foreach (HEdge cedge, cur_node.edges()) {
     if (DEBUG_CUBE) {
-      cerr << "initing edge " << cedge->id() << " " 
+      cerr << "initing edge " << cedge->id() << " "
            << cedge->label() << endl;
       foreach (HNode node, cedge->tail_nodes()) {
         cerr << node->id() << " ";
@@ -53,18 +53,18 @@ void CubePruning::init_cube(const Hypernode &cur_node,
       cerr << endl;
     }
 
-    // Start with derivation vector (0,...0). 
+    // Start with derivation vector (0,...0).
     vector<int> newvecj(cedge->num_nodes(), 0);
     set<vector <int> > vecset;
     vecset.insert(newvecj);
     _oldvec.set_value(*cedge, vecset);
-    
+
     // Add the starting (0,..,0) hypothesis to the heap.
     Hyp newhyp;
     bool bounded, early_bounded;
     bool b = gethyp(*cedge, newvecj, newhyp, true, &bounded, &early_bounded);
     assert(b || use_bound_);
-    
+
     if (!early_bounded && b) {
       cands.push(new Candidate(newhyp, *cedge, newvecj));
     }
@@ -85,13 +85,13 @@ void CubePruning::kbest_enum(const Hypernode &node,
       nexthypvec = new vector<Hyp>();
       if (DEBUG_CUBE) cerr << sub->label() << endl;
       position++;
-      if (position == 0) { 
+      if (position == 0) {
         if (cedge->tail_nodes().size() > 1) {
           lasthypvec = &_hypothesis_cache.store[sub->id()];
         } else {
           lasthypvec = &_hypothesis_cache.store[sub->id()];
           if (DEBUG_CUBE) {
-            cerr << position << " " << lasthypvec->size() << " " 
+            cerr << position << " " << lasthypvec->size() << " "
                  << sub->label() << endl;
           }
           for (int i = 0; i < lasthypvec->size(); ++i) {
@@ -100,7 +100,7 @@ void CubePruning::kbest_enum(const Hypernode &node,
             Hyp newhyp;
             succeed = gethyp_enum(*cedge, position,
                                   true,
-                                  (*lasthypvec)[i], 
+                                  (*lasthypvec)[i],
                                   (*lasthypvec)[i],
                                   newhyp,
                                   &bounded,
@@ -122,7 +122,7 @@ void CubePruning::kbest_enum(const Hypernode &node,
           int j = 0;
           for (j = 0; j < curhypvec->size(); ++j) {
             if (DEBUG_CUBE) {
-              cerr << "Getting hyp: " 
+              cerr << "Getting hyp: "
                    << i << " " << j << endl;
             }
             bool bounded, early_bounded;
@@ -131,19 +131,19 @@ void CubePruning::kbest_enum(const Hypernode &node,
             check_++;
             if (check_ % 10000 == 1) {
               cerr << "SEEN " << check_ << " " << check_bounded_ << endl;
-            } 
+            }
             succeed = gethyp_enum(*cedge, position,
                                   false,
-                                  (*lasthypvec)[i], (*curhypvec)[j], 
+                                  (*lasthypvec)[i], (*curhypvec)[j],
                                   newhyp,
-                                  &bounded, 
+                                  &bounded,
                                   &early_bounded);
             if (bounded) check_bounded_++;
             if (early_bounded) {
               break;
             } else if (!bounded) {
               nexthypvec->push_back(newhyp);
-            } 
+            }
           }
           if (j == 0) break;
         }
@@ -164,7 +164,7 @@ void CubePruning::kbest_enum(const Hypernode &node,
       //   cerr << "Heuristic: " << newhypvec[i].total_heuristic << endl;
       //   for (int j = 0; j < newhypvec[i].full_derivation.size(); ++j) {
       //     cerr << newhypvec[i].full_derivation[j] << " ";
-               
+
       //   }
       //   cerr << endl;
       // }
@@ -176,56 +176,56 @@ void CubePruning::kbest_enum(const Hypernode &node,
   if (DEBUG_CUBE) cerr << "TOTAL: " << newhypvec.size() << endl;
 }
 
-void CubePruning::kbest(Candidates &cands, 
-                        vector<Hyp> &newhypvec, 
+void CubePruning::kbest(Candidates &cands,
+                        vector<Hyp> &newhypvec,
                         bool recombine) {
-       
+
   // The buffer of solutions.
   vector <Hyp> hypvec;
   uint cur_kbest = 0;
-    
+
   // Keep tracks of signatures seen.
   set <Sig> sigs;
 
   // Overfill the buffer for recombination.
   uint buf_limit = _ratio * _k;
-  
-  while (cur_kbest < _k &&                       
+
+  while (cur_kbest < _k &&
          !(cands.empty() || hypvec.size() >= buf_limit)) {
     Candidate * cand = cands.top();
     cands.pop();
     const Hyp & chyp  = cand->hyp;
     const Hyperedge & cedge = cand->edge;
-    const vector <int> & cvecj = cand->vec; 
-    
+    const vector <int> & cvecj = cand->vec;
+
     //TODO: duplicate management
     if (!recombine || sigs.find(chyp.sig) == sigs.end()) {
       if (recombine) sigs.insert(chyp.sig);
       cur_kbest += 1;
-    } 
+    }
     hypvec.push_back(chyp);
-      
+
     // Expand the next hypotheses.
     next(cedge, cvecj, cands);
-  }  
+  }
 
   // RECOMBINATION (shrink buf to actual k-best list)
-  
-  // Sort and combine hypvec.  
+
+  // Sort and combine hypvec.
   assert(cur_kbest);
   assert(hypvec.size());
-  
+
   sort(hypvec.begin(), hypvec.end());
-  
+
   map <Sig, int> keylist;
   for (uint i=0; i < hypvec.size(); i++) {
-    Hyp &item = hypvec[i]; 
-    assert(i == 0 || item.score >= hypvec[i-1].score); 
+    Hyp &item = hypvec[i];
+    assert(i == 0 || item.score >= hypvec[i-1].score);
 
     map<Sig, int>::iterator f = keylist.find(item.sig);
     if (!recombine || f == keylist.end()) {
       if (DEBUG_CUBE) {
-        cerr << "Solution: " << " " << i 
+        cerr << "Solution: " << " " << i
              << " " << item.score << " " << item.total_heuristic << endl;
       }
 
@@ -235,13 +235,13 @@ void CubePruning::kbest(Candidates &cands,
         break;
       }
     }
-  }    
+  }
   assert(newhypvec.size());
 }
 
-void CubePruning::next(const Hyperedge &cedge, 
-                       const vector<int> &cvecj, 
-                       Candidates &cands) {  
+void CubePruning::next(const Hyperedge &cedge,
+                       const vector<int> &cvecj,
+                       Candidates &cands) {
   assert(cvecj.size() == cedge.num_nodes());
 
   for (uint i=0; i < cedge.num_nodes(); i++) {
@@ -276,27 +276,27 @@ void CubePruning::next(const Hyperedge &cedge,
         }
       } else {
         break;
-      } 
+      }
     }
   }
 }
 
 
-bool CubePruning::gethyp(const Hyperedge &cedge, 
-                         const vector<int> &vecj, 
-                         Hyp &item, 
-                         bool keep_if_bounded, 
-                         bool *bounded, 
+bool CubePruning::gethyp(const Hyperedge &cedge,
+                         const vector<int> &vecj,
+                         Hyp &item,
+                         bool keep_if_bounded,
+                         bool *bounded,
                          bool *early_bounded) {
 
-  double score = _weights.get_value(cedge);  
+  double score = _weights.get_value(cedge);
   vector<const vector<int> *> subders;
-  vector<int> edges;  
+  vector<int> edges;
   double worst_heuristic = 0.0;
 
   // Grab the jth best hypothesis at each node of the hyperedge.
   for (uint i=0; i < cedge.num_nodes(); i++) {
-    const Hypernode &sub = cedge.tail_node(i); 
+    const Hypernode &sub = cedge.tail_node(i);
     if (vecj[i] >= (int)_hypothesis_cache.get_value(sub).size()) {
       return false;
     }
@@ -304,7 +304,7 @@ bool CubePruning::gethyp(const Hyperedge &cedge,
     if (item->full_derivation.size() == 0) {
       return false;
     }
-    //assert (item.full_derivation.size() != 0);   
+    //assert (item.full_derivation.size() != 0);
     subders.push_back(&item->full_derivation);
     for (uint j = 0; j < item->edges.size(); ++j) {
       edges.push_back(item->edges[j]);
@@ -317,13 +317,13 @@ bool CubePruning::gethyp(const Hyperedge &cedge,
   }
 
   double heuristic = 0.0;
-  (*early_bounded) = false; 
+  (*early_bounded) = false;
 
   // Get the non-local feature and signature information
   vector <int> full_derivation;
-  Sig sig; 
+  Sig sig;
   double non_local_score;
-  _non_local.compute(cedge, 0, 1e8, subders, non_local_score, 
+  _non_local.compute(cedge, 0, 1e8, subders, non_local_score,
                      full_derivation, sig);
   score = score + non_local_score;
 
@@ -342,70 +342,63 @@ bool CubePruning::gethyp(const Hyperedge &cedge,
   return true;
 }
 
-bool CubePruning::gethyp_enum(const Hyperedge & cedge, 
+bool CubePruning::gethyp_enum(const Hyperedge & cedge,
                               int pos,
                               bool unary,
                               const Hyp &first,
                               const Hyp &second,
-                              Hyp &item, 
-                              bool *bounded, 
+                              Hyp &item,
+                              bool *bounded,
                               bool *early_bounded) {
-  /*
-    Return the score and signature of the element obtained from combining the
-    vecj-best parses along cedge. Also, apply non-local feature functions (LM)
-  */
-
-  double score = 0.0; //_weights.get_value(cedge);  
-  double dual_score = 0.0; //dual_scores_->get_value(cedge);  
+  double score = 0.0;
+  double dual_score = 0.0;
   double heuristic =
-    (*edge_heuristic_->get_value(cedge))[pos].get_score_by_id(0); 
+    (*edge_heuristic_->get_value(cedge))[pos].get_score_by_id(0);
   if (pos == cedge.tail_nodes().size() - 1) {
-    score = _weights.get_value(cedge);  
+    score = _weights.get_value(cedge);
     dual_score = dual_scores_->get_value(cedge);
     heuristic = heuristic_->get_value(cedge.head_node());
   }
 
 
   vector<const vector<int> *> subders;
-  vector<int> edges;  // grab the jth best hypothesis at each node of the hyperedge
+  vector<int> edges;
   double worst_heuristic = 0.0;
 
   if (!unary) {
     subders.push_back(&first.full_derivation);
     subders.push_back(&second.full_derivation);
-    
-    // Generic times (eventually)
+
     score += first.score + second.score;
     dual_score += first.score + second.score;
     worst_heuristic = max(first.total_heuristic, second.total_heuristic);
   } else {
     subders.push_back(&first.full_derivation);
-    
-    // Generic times (eventually)
+
     score += first.score;
     dual_score += first.score;
     worst_heuristic = first.total_heuristic;
   }
 
-  (*early_bounded) = false; 
+  (*early_bounded) = false;
   if (use_bound_ && use_heuristic_) {
     double early_heuristic_score = heuristic + dual_score;
     if (DEBUG_CUBE) {
-      cerr << "EarlyHeuristic: " <<  dual_score << " " << cedge.id() << " " << 
-        heuristic << " " << early_heuristic_score << " " << 
+      cerr << "EarlyHeuristic: " <<  dual_score << " " << cedge.id() << " " <<
+        heuristic << " " << early_heuristic_score << " " <<
         worst_heuristic << " " << bound_ << endl;
     }
     assert(early_heuristic_score >= worst_heuristic - 0.01);
     if (early_heuristic_score > bound_) {
       (*bounded) = true;
-      (*early_bounded) = true; 
+      (*early_bounded) = true;
       return true;
     }
   }
 
   // Get the non-local feature and signature information
   vector<int> full_derivation;
-  Sig sig; 
+  Sig sig;
   double non_local_score;
   if (DEBUG_CUBE) cerr << "Non Local " << pos << " " << endl;
   double score_bound = bound_ - heuristic - score;

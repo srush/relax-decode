@@ -90,7 +90,8 @@ def load(handle):
                tails = tails.split()
                tailnodes = []
 
-               for x in tails:
+               for xp in tails:
+                   x  = xp.strip("*")
                    if x[0]=='"':
                        # convert words to nodes
                        local_lex_node = forest.node.add()
@@ -156,6 +157,7 @@ if __name__ == "__main__":
 
     for i, forest in enumerate(load(sys.stdin),1):
         f = open(sys.argv[1] + str(i), "wb")
+        print i
         #if i <> 2: continue
         f.write(forest.SerializeToString())
         f.close()
