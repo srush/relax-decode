@@ -180,6 +180,7 @@ public:
       *success = true;
       return _hypothesis_cache.store[_forest.root().id()][0].score;
     }
+    cerr << "FAIL no result" << endl;
     *success = false;
     return 0.0;
 
@@ -279,12 +280,18 @@ public:
         }
       }
     } else {
-      kbest_hyps.push_back(_non_local.initialize(cur_node));
+
+      Hyp<TDerivation> hyp = _non_local.initialize(cur_node);
+      if (use_heuristic_) {
+        double heu = heuristic_->get_default(cur_node, 0.0);
+        hyp.total_heuristic = hyp.score + heu;
+      }
+      kbest_hyps.push_back(hyp);
     }
   }
 
   void init_cube(const Hypernode &cur_node,
-                              Candidates &cands) {
+                 Candidates &cands) {
     if (DEBUG_CUBE) {
       cerr << "NODE "
            << cur_node.id() << " " << cur_node.label() << endl;
@@ -336,10 +343,10 @@ public:
             lasthypvec = &_hypothesis_cache.store[sub->id()];
           } else {
             lasthypvec = &_hypothesis_cache.store[sub->id()];
-            if (DEBUG_CUBE) {
+             if (DEBUG_CUBE) {
               cerr << position << " " << lasthypvec->size() << " "
                    << sub->label() << endl;
-            }
+             }
             for (int i = 0; i < lasthypvec->size(); ++i) {
               bool bounded, early_bounded;
               bool succeed;
@@ -405,6 +412,7 @@ public:
       }
       if (newhypvec.size() == _k) {
         fail_ = true;
+        cerr << "FAILED" << newhypvec.size() << " " << _k << endl;
         // cerr << "Node fail " <<  _k << " " << node.label() << endl;
         // for (int i = 0; i < newhypvec.size(); ++i) {
         //   cerr << "Heuristic: " << newhypvec[i].total_heuristic << endl;
@@ -419,7 +427,8 @@ public:
     }
 
     sort(newhypvec.begin(), newhypvec.end());
-    if (DEBUG_CUBE) cerr << "TOTAL: " << newhypvec.size() << endl;
+    if (DEBUG_CUBE)
+      cerr << "TOTAL: " << newhypvec.size() << endl;
   }
 
   void kbest(Candidates &cands,
@@ -615,6 +624,7 @@ public:
 
       score += first.score + second.score;
       dual_score += first.score + second.score;
+      //cerr << first.total_heuristic << " " << second.total_heuristic << endl;
       worst_heuristic = max(first.total_heuristic, second.total_heuristic);
     } else {
       subders.resize(1);

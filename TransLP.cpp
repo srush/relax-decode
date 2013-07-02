@@ -11,10 +11,10 @@ using namespace std;
 
 using namespace Scarab::HG;
 
-DEFINE_string(forest_prefix, "", "prefix of the forest files"); // was 1
-DEFINE_string(lattice_prefix, "", "prefix of the lattice files"); // was 2
-DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')"); // was 5 6
-DEFINE_bool(continuous, true, "use continuous variables in the LP"); 
+DEFINE_string(forest_prefix, "", "prefix of the forest files");
+DEFINE_string(lattice_prefix, "", "prefix of the lattice files");
+DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')");
+DEFINE_bool(continuous, true, "use continuous variables in the LP");
 
 static const bool forest_dummy = RegisterFlagValidator(&FLAGS_forest_prefix, &ValidateReq);
 static const bool lattice_dummy = RegisterFlagValidator(&FLAGS_lattice_prefix, &ValidateReq);
@@ -22,9 +22,9 @@ static const bool range_dummy = RegisterFlagValidator(&FLAGS_forest_range, &Vali
 
 int main(int argc, char ** argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
-  
+
   google::ParseCommandLineFlags(&argc, &argv, true);
-  
+
 
   wvector * weight = cmd_weights();
   Ngram * lm = cmd_lm();
@@ -32,7 +32,7 @@ int main(int argc, char ** argv) {
   istringstream range(FLAGS_forest_range);
   int start_range, end_range;
   range >> start_range >> end_range;
-  for (int i = start_range; i <= end_range; i++) {     
+  for (int i = start_range; i <= end_range; i++) {
 
     stringstream fname;
     fname << FLAGS_forest_prefix << i;
@@ -43,7 +43,7 @@ int main(int argc, char ** argv) {
     stringstream fname2;
     fname2 << FLAGS_lattice_prefix << i;
     ForestLattice graph = ForestLattice::from_file(fname2.str());
-      
+
     int var_type;
     if (FLAGS_continuous == 1) {
       var_type = GRB_CONTINUOUS;
@@ -51,27 +51,27 @@ int main(int argc, char ** argv) {
       var_type = GRB_BINARY;
     }
     LPBuilder lp(f, graph, var_type);
-      
 
-    const Cache <Graphnode, int> * word_cache = sync_lattice_lm(graph, *lm); 
-    
-    HypergraphAlgorithms alg(f); 
+
+    const Cache <Graphnode, int> * word_cache = sync_lattice_lm(graph, *lm);
+
+    HypergraphAlgorithms alg(f);
     EdgeCache * w = alg.cache_edge_weights( *weight);
-    
+
     try {
       lp.solve_full(i, *w,  *lm, lm_weight(), *word_cache);
-    } 
+    }
     catch (GRBException e) {
       cerr << "Error code = " << e.getErrorCode() << endl;
       cerr << e.getMessage() << endl;
       cout << "*END* " << i<< " "<<0 << " " << 100 << " "<<  0 << " " << 0 << endl;
     }
-    
-    NodeBackCache bcache(f.num_nodes());     
-    
+
+    NodeBackCache bcache(f.num_nodes());
+
     NodeCache ncache(f.num_nodes());
     //double best = best_path(f, *w, ncache, bcache);
     //cout << best << endl;
-  }  
+  }
   return 1;
 }

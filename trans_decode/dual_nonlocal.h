@@ -173,7 +173,7 @@ class DualNonLocal: public TDualNonLocal<vector<int> > {
             if (!subproblem_->is_overridden(sub[s])) {
               score += lm_score;
             }
-            if (index(node) != 0 &&
+            if (//index(node) != 0 &&
                 !subproblem_->is_overridden(sub[s])) {
               double drop = running_bigram_score +
                 running_trigram_score + _best_trigram.store[node];
@@ -475,7 +475,8 @@ class DerDualNonLocal: public TDualNonLocal<Derivation> {
       score += lm_score;
     }
 
-    if (index(n1) != 0 && !subproblem_->is_overridden(s1)) {
+    if (//index(n1) != 0 &&
+        !subproblem_->is_overridden(s1)) {
       double drop = penalty + _best_trigram.store[n1] + bigram_score_[s2] + trigram_score_[s3];
 
       int w0 = subproblem_->fixed_last_bigram(s1);
@@ -628,9 +629,12 @@ class DerDualNonLocal: public TDualNonLocal<Derivation> {
     double score = 0.0;
 
     // If this is not a special node, add in the unigram score.
-    if (index(node_index) != 0 && !subproblem_->is_overridden(lat_id)) {
+    if (!subproblem_->is_overridden(lat_id)) {
       score += _best_trigram.get_default(node, 0.0);
+      assert(abs(score) > 0.0);
       if (score > 100000) score = 0.0;
+    } else {
+      cerr << node_index << " " << index(node_index) << " " << lat_id << " " << subproblem_->is_overridden(lat_id) << _best_trigram.get_default(node, 0.0) << " " << endl;
     }
 
     // The signature (left and right words).
@@ -645,7 +649,6 @@ class DerDualNonLocal: public TDualNonLocal<Derivation> {
 
     // There are no edges.
     vector<int> edges;
-
     return Hyp<Derivation >(score, score, signature, der, edges);
   }
 };

@@ -29,6 +29,7 @@ class Decode: public SubgradientProducer {
  public:
   static const int kCubing = 1;
   static const int kProjecting = 2;
+  static const int kSimpleCubing = 3;
 
   Decode(const Forest & forest,
          const ForestLattice & lattice,

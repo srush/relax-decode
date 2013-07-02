@@ -86,12 +86,15 @@ int main(int argc, char ** argv) {
     TranslationRate tr;
     Subgradient * s = new Subgradient(*d, tr);
 
-    s->set_max_rounds(500);
+    s->set_max_rounds(250);
     int mode;
     if (FLAGS_ilp_mode == "proj") {
       mode = Decode::kProjecting;
     } else if (FLAGS_ilp_mode == "cube") {
       mode = Decode::kCubing;
+    } else if (FLAGS_ilp_mode == "simplecube") {
+      mode = Decode::kSimpleCubing;
+      s->set_max_rounds(1);
     } else {
       cerr << "Bad ilp mode arg " << FLAGS_ilp_mode;
     }
@@ -104,7 +107,7 @@ int main(int argc, char ** argv) {
     double v = s->best_primal();
     clock_t end = clock();
     cout << "*END*" << i << " "<< v << "  "
-         << Clock::diffclock(end, begin) << endl;
+         << Clock::diffclock(end, begin) << " " << mode << endl;
     delete d;
   }
   google::protobuf::ShutdownProtobufLibrary();

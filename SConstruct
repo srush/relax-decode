@@ -15,11 +15,11 @@ if int(debug):
    build_mode = "debug/"
 elif int(profile):
    env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage", "-fno-strict-aliasing"),
-              LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage"))
+              LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage", "-fno-strict-aliasing"))
    build_mode = "profile/"
 else:
-   env.Append(CCFLAGS = ('-O3', '-DNDEBUG', '-Werror', '-Wno-deprecated', "-fno-strict-aliasing"),
-              LINKFLAGS = ('-O3', '-DNDEBUG'))
+   env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated', "-fno-strict-aliasing"),
+              LINKFLAGS = ('-O2', '-DNDEBUG', "-fno-strict-aliasing"))
    build_mode = "opt/"
 
 variant = 'build/' + build_mode
@@ -89,7 +89,7 @@ if build_config['has_sri']:
 
    cube = env.Program(variant + 'cube', (variant + "CubeLM.cpp",) +local_libs, LIBS = libs)
 
-   env.Program('exact', ("Exact.cpp",) +local_libs, LIBS = libs)
+   env.Program(variant + 'exact', (variant + "Exact.cpp",) +local_libs, LIBS = libs)
 
    env.Program('translp', ("TransLP.cpp",) +local_libs, LIBS = libs)
 

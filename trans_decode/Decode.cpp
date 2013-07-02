@@ -525,15 +525,14 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
 
-  // CHANGES!!!
-  if (ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 50 &&
-      cur_state.round % 10 == 0) {
+  if ((ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 50 &&
+       cur_state.round % 10 == 0) || ilp_mode_ == kSimpleCubing) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
     cerr << "CUBING!!" <<  cur_state.round << endl;
     SplitController c(*_subproblem, _lattice, false);
     ExtendCKY ecky(_forest, *total, c);
-    ecky.best_path(back_pointers2);
+    double best_score = ecky.best_path(back_pointers2);
     cerr << "outside "<< endl;
     ecky.outside();
     cerr << "Back " << clock() - begin << endl;
@@ -543,24 +542,31 @@ void Decode::solve(const SubgradState & cur_state,
     begin = clock();
     NodeCache node_outside(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
-      node_outside.set_value(*node,
-                             ecky._outside_memo_table.get(*node)->get_score(0));
+      double value = ecky._outside_memo_table.get(*node)->get_score(0);
+      if (value == 0.0) {
+        cerr << "NO NODE " << node->id() << " " << node->label() << endl;
+      }
+      node_outside.set_value(*node, value);
     }
 
     // Compute best trigram.
     NodeCache node_best_trigram(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
-      if ((static_cast<const ForestNode *>(node))->is_word()) {
+      if (node->is_terminal()) { //((static_cast<const ForestNode *>(node))->is_word()) {
         int graph_id = _lattice.get_word_from_hypergraph_node(node->id());
         double score = _subproblem->best_score_dim(graph_id, 0, 0);
         node_best_trigram.set_value(*node, score);
+        if (true) {
+          double test = (score + node_outside.get_value(*node));
+          assert((best_score - test) < 1e-4);
+        }
       }
     }
     cerr << "prep " << begin - clock() << endl;
 
     int diff = cur_state.round - (_is_stuck_round + 50);
     int amount = diff / 10;
-    int cube = min(1000 *(int)pow(10, amount), 100000);
+    int cube = 10 *(int)pow(10, min(amount, 5));
     begin = clock();
     double cube_primal;
     if (true) {
@@ -581,6 +587,10 @@ void Decode::solve(const SubgradState & cur_state,
                               _lagrange_weights,
                               _subproblem,
                               used_edges);
+    if (ilp_mode_ == kSimpleCubing) {
+      cube = 100;
+    }
+    cerr << "CUBE size" << cube << endl;
     TCubePruning<Derivation > p(_forest, *total, non_local, cube, 3);
     double bound = min(cube_primal, cur_state.best_primal) + 0.01;
     cerr << "upper bound is: " << cur_state.best_dual << endl;
@@ -592,7 +602,7 @@ void Decode::solve(const SubgradState & cur_state,
     p.set_edge_heuristic(&ecky._outside_edge_memo_table);
     bool success;
     double v = p.parse(&success);
-    cerr << "CubePruning " << v << " " << clock() - begin << endl;
+    cerr << "CubePruning " << v << " " << clock() - begin << " " << success << endl;
     if (success && abs(v) > 1e-4) {
       result.primal = v;
       if (p.is_exact()) {
