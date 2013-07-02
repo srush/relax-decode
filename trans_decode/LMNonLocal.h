@@ -36,17 +36,16 @@ using namespace std;
 /* } */
 
 
-
-class LMNonLocal: public NonLocal {
- public:
-  LMNonLocal(const HGraph & forest,
-            Ngram & lm,
-            double lm_weight,
-            const Cache <Hypernode, int> & word_cache,
-            bool prescore)
+template <class TDerivation>
+class BaseNonLocal : public NonLocal<TDerivation> {
+public:
+  BaseNonLocal(const HGraph & forest,
+               Ngram & lm,
+               double lm_weight,
+               const Cache <Hypernode, int> & word_cache,
+               bool prescore)
     : _forest(forest), _lm(lm), _lm_weight(lm_weight),
       _word_cache(word_cache), _prescore(prescore) {}
-
   double unigram(int word_index) const {
     assert(word_index != -1);
     const VocabIndex context[] = {Vocab_None};
@@ -72,6 +71,33 @@ class LMNonLocal: public NonLocal {
   bool special(int word_index) const {
     return word_index == 1 || word_index == 2;
   }
+
+ protected:
+  // The underlying hypergraph.
+  const HGraph  & _forest;
+
+  // The language model.
+  Ngram & _lm;
+
+  // Weight to give to the language model.
+  const double _lm_weight;
+
+  // The language model index for each hypernode.
+  const Cache <Hypernode, int> & _word_cache;
+
+  bool _prescore;
+
+};
+
+class LMNonLocal: public BaseNonLocal<vector<int> > {
+ public:
+  LMNonLocal(const HGraph &forest,
+            Ngram & lm,
+            double lm_weight,
+            const Cache <Hypernode, int> & word_cache,
+            bool prescore)
+      : BaseNonLocal<vector<int> >(forest, lm, lm_weight, word_cache, prescore) {}
+
 
   // Compute takes the hyperedge and sub-derivations to combine.
   // Returns the new score, derivation and signature.
@@ -138,7 +164,7 @@ class LMNonLocal: public NonLocal {
   }
 
   // Initialize the hypothesis for leaf nodes.
-  virtual Hyp initialize(const Hypernode &node) const {
+  virtual Hyp<vector<int> > initialize(const Hypernode &node) const {
     assert(node.is_terminal());
 
     // Get the index of the word at this node
@@ -162,23 +188,8 @@ class LMNonLocal: public NonLocal {
     // There are no edges.
     vector<int> edges;
 
-    return Hyp(score, score, signature, derivation, edges);
+    return Hyp<vector<int> >(score, score, signature, derivation, edges);
   }
-
- protected:
-  // The underlying hypergraph.
-  const HGraph  & _forest;
-
-  // The language model.
-  Ngram & _lm;
-
-  // Weight to give to the language model.
-  const double _lm_weight;
-
-  // The language model index for each hypernode.
-  const Cache <Hypernode, int> & _word_cache;
-
-  bool _prescore;
 };
 
 

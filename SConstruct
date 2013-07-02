@@ -14,12 +14,12 @@ if int(debug):
    env.Prepend(CCFLAGS =('-g',))
    build_mode = "debug/"
 elif int(profile):
-   env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage"),
+   env.Append(CCFLAGS = ('-O2', '-p', "-ggdb", "-fprofile-arcs", "-ftest-coverage", "-fno-strict-aliasing"),
               LINKFLAGS = ('-O2', '-p', "-ggdb" ,  "-fprofile-arcs", "-ftest-coverage"))
    build_mode = "profile/"
 else:
-   env.Append(CCFLAGS = ('-O2', '-DNDEBUG', '-Werror', '-Wno-deprecated'),
-              LINKFLAGS = ('-O2', '-DNDEBUG'))
+   env.Append(CCFLAGS = ('-O3', '-DNDEBUG', '-Werror', '-Wno-deprecated', "-fno-strict-aliasing"),
+              LINKFLAGS = ('-O3', '-DNDEBUG'))
    build_mode = "opt/"
 
 variant = 'build/' + build_mode

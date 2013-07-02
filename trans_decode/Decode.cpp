@@ -566,22 +566,22 @@ void Decode::solve(const SubgradState & cur_state,
     if (true) {
       LMNonLocal non_local(_forest, _lm, lm_weight(),
                            *cached_cube_words_, true);
-      CubePruning p_temp(_forest, *_cached_weights,
-                         non_local, 100, 3);
+      TCubePruning<vector<int> > p_temp(_forest, *_cached_weights,
+                                        non_local, 100, 3);
       bool success;
       cube_primal = p_temp.parse(&success);
     }
 
-    DualNonLocal non_local(_forest,
-                           _lm,
-                           lm_weight(),
-                           *cached_cube_words_,
-                           node_best_trigram,
-                           _lattice,
-                           _lagrange_weights,
-                           _subproblem,
-                           used_edges);
-    CubePruning p(_forest, *total, non_local, cube, 3);
+    DerDualNonLocal non_local(_forest,
+                              _lm,
+                              lm_weight(),
+                              *cached_cube_words_,
+                              node_best_trigram,
+                              _lattice,
+                              _lagrange_weights,
+                              _subproblem,
+                              used_edges);
+    TCubePruning<Derivation > p(_forest, *total, non_local, cube, 3);
     double bound = min(cube_primal, cur_state.best_primal) + 0.01;
     cerr << "upper bound is: " << cur_state.best_dual << endl;
     cerr << "bound is: " << bound << " " << cube_primal << " " << cur_state.best_primal << endl;
