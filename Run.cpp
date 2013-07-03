@@ -21,6 +21,7 @@ DEFINE_string(lattice_prefix, "", "prefix of the lattice files");
 DEFINE_string(forest_range, "", "range of forests to use (i.e. '0 10')");
 DEFINE_bool(approx_mode, false, "Use approximate LM updates.");
 DEFINE_string(ilp_mode, "proj", "Method to use for tightening.");
+DEFINE_int64(simple_cube_size, 100, "Size of the beam for simple cube.");
 
 static const bool forest_dummy =
     RegisterFlagValidator(&FLAGS_forest_prefix, &ValidateReq);
@@ -95,6 +96,7 @@ int main(int argc, char ** argv) {
     } else if (FLAGS_ilp_mode == "simplecube") {
       mode = Decode::kSimpleCubing;
       s->set_max_rounds(1);
+      d->set_simple_cube_size(FLAGS_simple_cube_size);
     } else {
       cerr << "Bad ilp mode arg " << FLAGS_ilp_mode;
     }
@@ -103,11 +105,11 @@ int main(int argc, char ** argv) {
          << Clock::diffclock(clock(), setup_begin) << endl;
     // s->set_debug();
     clock_t begin = clock();
-    s->solve(i);
+    bool optimal = s->solve(i);
     double v = s->best_primal();
     clock_t end = clock();
     cout << "*END*" << i << " "<< v << "  "
-         << Clock::diffclock(end, begin) << " " << mode << endl;
+         << Clock::diffclock(end, begin) << " " << mode << " " << optimal << endl;
     delete d;
   }
   google::protobuf::ShutdownProtobufLibrary();

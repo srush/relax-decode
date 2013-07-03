@@ -18,13 +18,16 @@ void print_vec(const wvector & subgrad) {
   cerr << endl << endl;
 }
 
-void Subgradient::solve(int example) {
-  while(run_one_round() && _round < _max_round) {
+bool Subgradient::solve(int example) {
+  bool optimal;
+  while(run_one_round(&optimal) && _round < _max_round) {
     _round++;
   }
+  return optimal;
 }
 
-bool Subgradient::run_one_round() {
+bool Subgradient::run_one_round(bool *optimal) {
+  (*optimal) = false;
   clock_t start=clock();
   // bool bump =false;
   // bool no_update = false;
@@ -69,6 +72,7 @@ bool Subgradient::run_one_round() {
 
   if (result.subgrad.normsquared() > 0.0) {
     if (fabs(result.dual - result.primal) < 1e-4) {
+      *optimal = true;
       cerr << "Found best" << endl;
       return false;
     }
@@ -80,6 +84,7 @@ bool Subgradient::run_one_round() {
       exit(1);
     } else {
       cerr << "Found best" << endl;
+      *optimal = true;
     }
     return false;
   }

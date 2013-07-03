@@ -424,6 +424,8 @@ wvector Decode::construct_parse_subgrad(const HEdges used_edges) {
 void Decode::solve(const SubgradState & cur_state,
                    SubgradResult & result ) {
   clock_t begin, end, total_begin;
+  clock_t solve_time = clock();
+  clock_t drop_time = 0;
   if (TIMING) {
     cout << "Solving" << endl;
     begin = clock();
@@ -588,7 +590,7 @@ void Decode::solve(const SubgradState & cur_state,
                               _subproblem,
                               used_edges);
     if (ilp_mode_ == kSimpleCubing) {
-      cube = 100;
+      cube = simple_cube_size_;
     }
     cerr << "CUBE size" << cube << endl;
     TCubePruning<Derivation > p(_forest, *total, non_local, cube, 3);
@@ -602,7 +604,9 @@ void Decode::solve(const SubgradState & cur_state,
     p.set_edge_heuristic(&ecky._outside_edge_memo_table);
     bool success;
     double v = p.parse(&success);
-    cerr << "CubePruning " << v << " " << clock() - begin << " " << success << endl;
+    drop_time += clock() - begin;
+    cerr << "CubePruning " << v << " " << drop_time << " " << success << endl;
+    cout << "CUBE_TIME " << drop_time << endl;
     if (success && abs(v) > 1e-4) {
       result.primal = v;
       if (p.is_exact()) {
@@ -717,6 +721,7 @@ void Decode::solve(const SubgradState & cur_state,
     cout << endl;
   }
   assert((result.dual - result.primal) < 1e-3);
+  cout << "ITERATION_TIME " << (clock() - solve_time) - drop_time << endl;
 }
 
 
@@ -778,7 +783,6 @@ double Decode::compute_primal(const HEdges used_edges,
     cout << "PRIMAL2 : " << primal2 << endl;
     cout << endl;
   }
-
   return total + (lm_weight()) *  lm_score;
 }
 

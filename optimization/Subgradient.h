@@ -86,7 +86,7 @@ class Subgradient {
   void set_debug(){ _debug = true;}
   void set_max_rounds(int max_round){ _max_round = max_round; }
 
-  void solve(int example);
+  bool solve(int example);
 
   /**
    * As the optimization probably reached a  fixed point
@@ -102,7 +102,7 @@ class Subgradient {
     return _best_primal;
   }
  private:
-  bool run_one_round();
+  bool run_one_round(bool *optimal);
 
 
   SubgradientProducer & _s;

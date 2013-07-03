@@ -73,6 +73,8 @@ class Decode: public SubgradientProducer {
     ilp_mode_ = ilp_mode;
   }
 
+  void set_simple_cube_size(int size) { simple_cube_size_ = size; }
+
  private:
   void debug(int start_from,
              int dual_mid,
@@ -138,6 +140,8 @@ class Decode: public SubgradientProducer {
 
   // Method for tightening the ilp.
   int ilp_mode_;
+
+  int simple_cube_size_;
 };
 
 #endif
