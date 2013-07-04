@@ -383,8 +383,10 @@ public:
               Hyp<TDerivation> newhyp;
               check_++;
               if (check_ % 10000 == 1) {
-                if (check_ > 10000000) {
+                if (check_ > 5000000) {
                   fail_ = true;
+                  return;
+                } else if (check_ > 1000000 && fail_ == true) {
                   return;
                 }
                 cerr << "SEEN " << check_ << " " << check_bounded_ << endl;

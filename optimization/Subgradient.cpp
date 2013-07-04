@@ -19,10 +19,12 @@ void print_vec(const wvector & subgrad) {
 }
 
 bool Subgradient::solve(int example) {
-  bool optimal;
-  while(run_one_round(&optimal) && _round < _max_round) {
+  bool optimal = false;
+  clock_t start = clock();
+  while(run_one_round(&optimal) && _round < _max_round && clock() - start < 100000000) {
     _round++;
   }
+  clock_t end = clock();
   return optimal;
 }
 
