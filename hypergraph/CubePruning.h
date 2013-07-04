@@ -383,6 +383,10 @@ public:
               Hyp<TDerivation> newhyp;
               check_++;
               if (check_ % 10000 == 1) {
+                if (check_ > 10000000) {
+                  fail_ = true;
+                  return;
+                }
                 cerr << "SEEN " << check_ << " " << check_bounded_ << endl;
               }
               succeed = gethyp_enum(*cedge, position,
