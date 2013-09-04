@@ -40,7 +40,8 @@ class Decode: public SubgradientProducer {
       _weight(weight),
       _lm(lm),
       _gd(lattice),
-      approx_mode_(false) {
+      approx_mode_(false),
+      node_outside_(_forest.num_nodes()) {
     _cached_weights = HypergraphAlgorithms(forest).cache_edge_weights(weight);
 
     _gd.decompose();
@@ -142,6 +143,8 @@ class Decode: public SubgradientProducer {
   int ilp_mode_;
 
   int simple_cube_size_;
+
+  NodeCache node_outside_; //(_forest.num_nodes());
 };
 
 #endif

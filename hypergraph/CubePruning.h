@@ -418,16 +418,15 @@ public:
       }
       if (newhypvec.size() == _k) {
         fail_ = true;
-        cerr << "FAILED" << newhypvec.size() << " " << _k << endl;
+        cerr << "FAILED " << newhypvec.size() << " " << _k << endl;
         // cerr << "Node fail " <<  _k << " " << node.label() << endl;
-        // for (int i = 0; i < newhypvec.size(); ++i) {
-        //   cerr << "Heuristic: " << newhypvec[i].total_heuristic << endl;
-        //   for (int j = 0; j < newhypvec[i].full_derivation.size(); ++j) {
-        //     cerr << newhypvec[i].full_derivation[j] << " ";
-
-        //   }
-        //   cerr << endl;
-        // }
+        for (int i = 0; i < newhypvec.size(); ++i) {
+          cerr << "Heuristic: " << newhypvec[i].total_heuristic << endl;
+          //for (int j = 0; j < newhypvec[i].full_derivation.size(); ++j) {
+          //cerr << newhypvec[i].full_derivation[j] << " ";
+          //}
+          //cerr << endl;
+        }
         break;
       }
     }

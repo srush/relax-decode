@@ -527,7 +527,7 @@ void Decode::solve(const SubgradState & cur_state,
     }
   }
 
-  if ((ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 50 &&
+  if ((ilp_mode_ == kCubing && cur_state.round >= _is_stuck_round + 100 &&
        cur_state.round % 10 == 0) || ilp_mode_ == kSimpleCubing) {
     time_t begin = clock();
     NodeBackCache back_pointers2(_forest.num_nodes());
@@ -542,13 +542,17 @@ void Decode::solve(const SubgradState & cur_state,
 
     cerr << "Drop " << clock() - begin << endl;
     begin = clock();
-    NodeCache node_outside(_forest.num_nodes());
+    // NodeCache node_outside(_forest.num_nodes());
     foreach (HNode node, _forest.nodes()) {
       double value = ecky._outside_memo_table.get(*node)->get_score(0);
-      if (value == 0.0) {
-        cerr << "NO NODE " << node->id() << " " << node->label() << endl;
-      }
-      node_outside.set_value(*node, value);
+      // if (value == 0.0) {
+      //   cerr << "NO NODE " << node->id() << " " << node->label() << endl;
+      // }
+      // if (!node_outside_.has_key(*node)) {
+      node_outside_.set_value(*node, value);
+      // } else if (value < node_outside_.get_value(*node)) {
+      //   node_outside_.set_value(*node, value);
+      // }
     }
 
     // Compute best trigram.
@@ -559,16 +563,17 @@ void Decode::solve(const SubgradState & cur_state,
         double score = _subproblem->best_score_dim(graph_id, 0, 0);
         node_best_trigram.set_value(*node, score);
         if (true) {
-          double test = (score + node_outside.get_value(*node));
+          double test = (score + node_outside_.get_value(*node));
           assert((best_score - test) < 1e-4);
         }
       }
     }
     cerr << "prep " << begin - clock() << endl;
 
-    int diff = cur_state.round - (_is_stuck_round + 50);
-    int amount = diff / 10;
+    int diff = cur_state.round - (_is_stuck_round + 100);
+    int amount = (diff / 10) + 1;
     int cube = 10 *(int)pow(10, min(amount, 5));
+    // int cube = 100;
     begin = clock();
     double cube_primal;
     if (true) {
@@ -593,22 +598,48 @@ void Decode::solve(const SubgradState & cur_state,
       cube = simple_cube_size_;
     }
     cerr << "CUBE size" << cube << endl;
-    TCubePruning<Derivation > p(_forest, *total, non_local, cube, 3);
-    double bound = min(cube_primal, cur_state.best_primal) + 0.01;
+
+    double bound = min(cube_primal, cur_state.best_primal);
     cerr << "upper bound is: " << cur_state.best_dual << endl;
     cerr << "bound is: " << bound << " " << cube_primal << " " << cur_state.best_primal << endl;
-    p.set_bound(bound);
+    TCubePruning<Derivation > p(_forest, *total, non_local, cube, 3);
+    p.set_bound(bound + 1e-4);
     p.set_duals(total);
     p.set_cube_enum();
-    p.set_heuristic(&node_outside);
+    p.set_heuristic(&node_outside_);
     p.set_edge_heuristic(&ecky._outside_edge_memo_table);
     bool success;
     double v = p.parse(&success);
     drop_time += clock() - begin;
     cerr << "CubePruning " << v << " " << drop_time << " " << success << endl;
     cout << "CUBE_TIME " << drop_time << endl;
+
     if (success && abs(v) > 1e-4) {
       result.primal = v;
+      if (v < bound) {
+        if (v < bound - 1e-4) {
+          cerr << "IMPROVED PRIMAL " << v << " " << bound << endl;
+        }
+        if (p.is_exact()) {
+          cerr << " exact " << p.is_exact() << endl;
+          result.dual = v;
+          return;
+        }
+
+        // TCubePruning<Derivation > p2(_forest, *total, non_local, cube, 3);
+        // p2.set_bound(v + 1e-4);
+        // p2.set_duals(total);
+        // p2.set_cube_enum();
+        // p2.set_heuristic(&node_outside_);
+        // p2.set_edge_heuristic(&ecky._outside_edge_memo_table);
+        // double v2 = p2.parse(&success);
+        // cerr << "IMPROVED PRIMAL " << v2 << " " << result.primal << endl;
+        // if (p2.is_exact()) {
+        //   cerr << " exact " << p2.is_exact() << endl;
+        //   result.dual = v;
+        //   return;
+        // }
+      }
       if (p.is_exact()) {
         cerr << " exact " << p.is_exact() << endl;
         result.dual = v;
